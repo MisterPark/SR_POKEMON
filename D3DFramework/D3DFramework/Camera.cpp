@@ -190,3 +190,11 @@ void PKH::Camera::OrthogonalProjection()
 		(float)dfCLIENT_HEIGHT * 0.01f - dfCLIENT_HEIGHT * 0.0005f, 0.0f, 10.f);
 	D2DRenderManager::GetDevice()->SetTransform(D3DTS_PROJECTION, &pCamera->projectionMatrix);
 }
+
+void PKH::Camera::Initialize()
+{
+}
+
+void PKH::Camera::Release()
+{
+}

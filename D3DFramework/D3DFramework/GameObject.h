@@ -22,7 +22,8 @@ namespace PKH
 		GameObject();
 		virtual ~GameObject();
 
-
+		virtual void Initialize() = 0;
+		virtual void Release() = 0;
 		virtual void Update() = 0;
 		virtual void Render();
 		virtual void Die();

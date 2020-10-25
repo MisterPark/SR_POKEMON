@@ -12,3 +12,11 @@ Character::~Character()
 void Character::Update()
 {
 }
+
+void Character::Initialize()
+{
+}
+
+void Character::Release()
+{
+}

@@ -16,9 +16,7 @@ namespace PKH
 		static void Hide();
 
 		virtual void Update() override;
-
-	public:
+		virtual void Initialize() override;
+		virtual void Release() override;
 	};
 }
-
-

@@ -12,3 +12,11 @@ UI::~UI()
 void UI::Update()
 {
 }
+
+void UI::Initialize()
+{
+}
+
+void UI::Release()
+{
+}

@@ -174,9 +174,6 @@
     <ClInclude Include="Terrain.h">
       <Filter>Component\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="CubeMan.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Functions.h">
       <Filter>Lib</Filter>
     </ClInclude>
@@ -197,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="SkyBox.h">
       <Filter>GameObject\SkyBox</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeMan.h">
+      <Filter>GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -290,9 +290,6 @@
     <ClCompile Include="Terrain.cpp">
       <Filter>Component\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="CubeMan.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="D3DFramework.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -313,6 +310,9 @@
     </ClCompile>
     <ClCompile Include="SkyBox.cpp">
       <Filter>GameObject\SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeMan.cpp">
+      <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
