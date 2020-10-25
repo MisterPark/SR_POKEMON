@@ -43,11 +43,23 @@
     <Filter Include="Lib\Manager">
       <UniqueIdentifier>{ed27685c-7f77-443b-85ef-797bca8acdf2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Monster">
-      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Animation">
       <UniqueIdentifier>{8f5f6826-86f7-4bed-9621-98d62a4610b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character">
+      <UniqueIdentifier>{546cea1a-63df-4d3e-8e04-dab3bba8ded0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\UI">
+      <UniqueIdentifier>{ada1f413-2b4a-4d3c-aad1-eb43b9b3577e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Monster">
+      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Player">
+      <UniqueIdentifier>{6153c3d4-0c12-477a-8c69-b42253cec822}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\SkyBox">
+      <UniqueIdentifier>{c45ec730-8842-4b52-b2c8-607d5b9417df}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -153,9 +165,6 @@
     <ClInclude Include="Cursor.h">
       <Filter>GameObject\Cursor</Filter>
     </ClInclude>
-    <ClInclude Include="SkyBox.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="Random.h">
       <Filter>Lib</Filter>
     </ClInclude>
@@ -165,9 +174,6 @@
     <ClInclude Include="Terrain.h">
       <Filter>Component\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="CubeMan.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -175,10 +181,22 @@
       <Filter>Lib</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>GameObject\Monster</Filter>
+      <Filter>GameObject\Character\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Animation2D.h">
       <Filter>Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameObject\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyBox.h">
+      <Filter>GameObject\SkyBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -260,9 +278,6 @@
     <ClCompile Include="Quaternion.cpp">
       <Filter>Lib</Filter>
     </ClCompile>
-    <ClCompile Include="SkyBox.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="Random.cpp">
       <Filter>Lib</Filter>
     </ClCompile>
@@ -275,9 +290,6 @@
     <ClCompile Include="Terrain.cpp">
       <Filter>Component\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="CubeMan.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -285,10 +297,22 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>GameObject\Monster</Filter>
+      <Filter>GameObject\Character\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Animation2D.cpp">
       <Filter>Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>GameObject\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameObject\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyBox.cpp">
+      <Filter>GameObject\SkyBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
