@@ -34,9 +34,10 @@ void PKH::Animation2D::Update()
 		i++;
 		
 		currentTexture = (TextureKey)i;
-		Mesh* mesh = (Mesh*)gameObject->GetComponent(L"Mesh");
-		mesh->SetTexture(currentTexture);
+		
 	}
+	Mesh* mesh = (Mesh*)gameObject->GetComponent(L"Mesh");
+	mesh->SetTexture(currentTexture);
 
 }
 

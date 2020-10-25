@@ -204,7 +204,7 @@ HRESULT PKH::D2DRenderManager::LoadSprite(TextureKey spriteKey, const wstring& f
 		D3DPOOL_MANAGED,
 		D3DX_DEFAULT,
 		D3DX_DEFAULT,
-		D3DCOLOR_ARGB(255,0,0,0),
+		0,
 		nullptr,
 		nullptr,
 		&tex->pTexture)))
