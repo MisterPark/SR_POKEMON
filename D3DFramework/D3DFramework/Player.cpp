@@ -21,3 +21,11 @@ void Player::Update()
 {
 	GameObject::Update();
 }
+
+void Player::Initialize()
+{
+}
+
+void Player::Release()
+{
+}

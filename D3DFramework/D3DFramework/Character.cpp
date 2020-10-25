@@ -21,3 +21,11 @@ void Character::Render()
 {
 	GameObject::Render();
 }
+
+void Character::Initialize()
+{
+}
+
+void Character::Release()
+{
+}

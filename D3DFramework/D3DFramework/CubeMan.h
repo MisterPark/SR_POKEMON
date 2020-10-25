@@ -12,6 +12,8 @@ namespace PKH
 		virtual ~CubeMan();
 
 		virtual void Update() override;
+		virtual void Initialize() override;
+		virtual void Release() override;
 	};
 
 }

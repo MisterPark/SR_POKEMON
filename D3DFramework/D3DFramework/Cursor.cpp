@@ -66,3 +66,11 @@ void PKH::Cursor::Render()
     if (isVisible == false)return;
     D2DRenderManager::DrawSprite(TextureKey::CURSOR_TARGET, *transform, 0);
 }
+
+void PKH::Cursor::Initialize()
+{
+}
+
+void PKH::Cursor::Release()
+{
+}

@@ -17,14 +17,15 @@ namespace PKH
 		static void Hide();
 
 
-
-
-		// GameObject을(를) 통해 상속됨
 		virtual void Update() override;
 		virtual void Render() override;
+		virtual void Initialize() override;
+		virtual void Release() override;
 
 	private:
 		bool isShow = true;
+
+		
 	};
 }
 

@@ -47,3 +47,11 @@ void PKH::CubeMan::Update()
 
 	GameObject::Update();
 }
+
+void PKH::CubeMan::Initialize()
+{
+}
+
+void PKH::CubeMan::Release()
+{
+}

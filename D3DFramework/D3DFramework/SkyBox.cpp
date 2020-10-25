@@ -88,3 +88,11 @@ void PKH::SkyBox::Update()
 {
 	transform->position = Camera::GetPosition();
 }
+
+void PKH::SkyBox::Initialize()
+{
+}
+
+void PKH::SkyBox::Release()
+{
+}
