@@ -61,6 +61,12 @@
     <Filter Include="GameObject\SkyBox">
       <UniqueIdentifier>{c45ec730-8842-4b52-b2c8-607d5b9417df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\Bullet">
+      <UniqueIdentifier>{12c4a537-8f1a-43a6-9b8f-0c68ba484bca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Monster\Grass">
+      <UniqueIdentifier>{966f9648-0ed3-4375-92bb-67bae28bbfb2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -198,6 +204,12 @@
     <ClInclude Include="SkyBox.h">
       <Filter>GameObject\SkyBox</Filter>
     </ClInclude>
+    <ClInclude Include="Monster_Butterfree.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Water.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -313,6 +325,12 @@
     </ClCompile>
     <ClCompile Include="SkyBox.cpp">
       <Filter>GameObject\SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Butterfree.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Water.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,15 +2,20 @@
 #include "Monster.h"
 #include "Plane.h"
 #include "Rectangle.h"
+#include "Terrain.h"
+#include "Player.h"
 
 Monster::Monster()
 {
-	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	Animation2D* ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
-	ani->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
-	ani->SetLoop(true);
-	ani->SetDelay(0.5f);
+	for (int i = 0; i < 3; i++)
+	{
+		Frame[i] = 0;
+	}
+	for (int i = 0; i < 5; i++)
+	{
+		Time[i] = 0.f;
+	}
+	floating = 1.f;
 }
 
 Monster::~Monster()
@@ -20,16 +25,29 @@ Monster::~Monster()
 void Monster::Update()
 {
 	//FaceTarget(Camera::GetInstance());
-	GameObject::Update();
+	Character::Update();
 	
 	Billboard();
-
-
+	OnTerrain();
 
 }
 
 void Monster::Render()
 {
 	
-	GameObject::Render();
-} 
+	Character::Render();
+}
+
+void Monster::OnTerrain() {
+	GameObject* obj = ObjectManager::GetInstance()->FindObject<Player>();
+	Terrain* mesh = (Terrain*)obj->GetComponent(L"Mesh");
+
+	float y;
+	bool onTerrain = mesh->GetYFromPoint(&y, transform->position.x, transform->position.z);
+	if (onTerrain)
+		transform->position.y = y + floating;
+	else
+	{
+		transform->position.y = floating;
+	}
+}

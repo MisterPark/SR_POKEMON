@@ -563,6 +563,24 @@ namespace PKH
 				SLUG_ATTACK_LU_02,
 				SLUG_ATTACK_U_01,
 				SLUG_ATTACK_U_02,
+
+				/////////////////// √—æÀΩ√¿€  ///////////////////
+				BULLET_TEARS_01,
+				BULLET_TEARS_02,
+				BULLET_TEARS_03,
+				BULLET_TEARS_04,
+				BULLET_TEARS_05,
+				BULLET_TEARS_06,
+				BULLET_TEARS_07,
+				BULLET_TEARS_08,
+				BULLET_TEARS_09,
+				BULLET_TEARS_10,
+				BULLET_TEARS_11,
+				BULLET_TEARS_12,
+				BULLET_TEARS_13,
+				BULLET_TEARS_14,
+				BULLET_TEARS_15
+				
 	};
 
 	enum class TextureType
