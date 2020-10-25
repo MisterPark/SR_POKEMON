@@ -53,6 +53,7 @@
 #include "Cursor.h"
 #include "Camera.h"
 #include "Texture.h"
+#include "Animation2D.h"
 
 using namespace std;
 using namespace PKH;

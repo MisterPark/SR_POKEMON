@@ -43,6 +43,12 @@
     <Filter Include="Lib\Manager">
       <UniqueIdentifier>{ed27685c-7f77-443b-85ef-797bca8acdf2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Monster">
+      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation">
+      <UniqueIdentifier>{8f5f6826-86f7-4bed-9621-98d62a4610b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -165,17 +171,17 @@
     <ClInclude Include="CubeMan.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Functions.h">
       <Filter>Lib</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>GameObject\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation2D.h">
+      <Filter>Component\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D3DFramework.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -275,8 +281,14 @@
     <ClCompile Include="CubeMan.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
+    <ClCompile Include="D3DFramework.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>GameObject\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation2D.cpp">
+      <Filter>Component\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

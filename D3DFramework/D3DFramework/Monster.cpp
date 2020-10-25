@@ -5,10 +5,13 @@
 
 Monster::Monster()
 {
-	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh2");
-	
-	mesh->SetTexture(TextureKey::CURSOR_TARGET);
-	
+	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
+	Animation2D* ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
+
+	mesh->SetTexture(TextureKey::BUTTER_ATTACK_LD_01);
+	ani->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
+	ani->SetLoop(true);
+	ani->SetDelay(0.5f);
 }
 
 Monster::~Monster()
@@ -19,13 +22,15 @@ void Monster::Update()
 {
 	//FaceTarget(Camera::GetInstance());
 	GameObject::Update();
-
-	Billboard();
 	
+	Billboard();
+
+
+
 }
 
 void Monster::Render()
 {
 	
 	GameObject::Render();
-}
+} 
