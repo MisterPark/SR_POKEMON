@@ -39,8 +39,13 @@ void PKH::Mesh::Render()
 
 		device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 		device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
-		device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-		device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+
+		//device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+		//device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+		device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+		device->SetRenderState(D3DRS_ALPHAREF, 0x00000088);
+		device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
+
 
 		device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 		device->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
