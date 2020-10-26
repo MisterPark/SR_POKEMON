@@ -15,7 +15,7 @@ Monster_Caterpie::Monster_Caterpie()
 	ani->SetLoop(true);
 	ani->SetDelay(0.2f);
 	//transform->RotateY(90);
-	floating = 1.f;
+	offsetY = 1.f;
 	CurrentStatus = Status::END;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
