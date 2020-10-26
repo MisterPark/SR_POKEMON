@@ -11,7 +11,7 @@ Monster_Butterfree::Monster_Butterfree()
 	ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
 	//ani->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
-	ani->SetSprite(TextureKey::BUTTER_WALK_D_01, TextureKey::BUTTER_WALK_D_03);
+	ani->SetSprite(TextureKey::BUTTER_WALK_L_01, TextureKey::BUTTER_WALK_L_03);
 	ani->SetLoop(true);
 	ani->SetDelay(0.2f);
 	//transform->RotateY(90);
@@ -43,24 +43,24 @@ void Monster_Butterfree::ButterfreeParttern()
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
 	Transform* PlayerT = g->transform;
 
-	
+
 
 	float distX = PlayerT->position.x - transform->position.x;
 	float distZ = PlayerT->position.z - transform->position.z;
 
-	float Dist = sqrt(distX*distX + distZ + distZ);
+	float Dist = sqrt(distX * distX + distZ * distZ);
 
-	
+
 
 
 	if (CurrentStatus != Status::PLAYER_SEARCH && Dist < 5.f) {
 		CurrentStatus = Status::PLAYER_SEARCH;
 		//이곳에서 플레이어 향하는 방향벡터 정해주고
-		AttackDir = PlayerT->position - transform->position;
-		D3DXVec3Normalize(&AttackDir, &AttackDir);
-		
+		MoveDir = PlayerT->position - transform->position;
+		D3DXVec3Normalize(&MoveDir, &MoveDir);
+		MoveDir *= 1.5f;
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		b->SetDir(AttackDir.x, AttackDir.z, AttackDir.y);
+		b->SetDir(MoveDir.x, MoveDir.z, MoveDir.y);
 		*(b->transform) = *transform;
 
 		ani->SetSprite(TextureKey::BUTTER_ATTACK_L_01, TextureKey::BUTTER_ATTACK_L_02);
@@ -76,10 +76,10 @@ void Monster_Butterfree::ButterfreeParttern()
 			MoveDir.z = -4.f + Random::Value(9) * 1.f;
 		}
 		else if (CurrentStatus == Status::ATTACK) {            // 이곳에서 패턴 레디
-			AttackDir.x = -4.f + Random::Value(9) * 1.f;
-			AttackDir.z = -4.f + Random::Value(9) * 1.f;
+			MoveDir.x = -4.f + Random::Value(9) * 1.f;
+			MoveDir.z = -4.f + Random::Value(9) * 1.f;
 			Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-			b->SetDir(AttackDir.x, AttackDir.z);
+			b->SetDir(MoveDir.x, MoveDir.z);
 			*(b->transform) = *transform;
 			/*b->transform->position.y += 0.5f;*/
 			ani->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
@@ -101,7 +101,7 @@ void Monster_Butterfree::ButterfreeParttern()
 void Monster_Butterfree::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
-	
+
 	transform->position.x += MoveDir.x * TimeManager::DeltaTime();
 	transform->position.z += MoveDir.z * TimeManager::DeltaTime();
 
@@ -118,13 +118,22 @@ void Monster_Butterfree::RandomMovePattern()
 void Monster_Butterfree::SetTextureAngle()
 {
 	Vector3 vLook = Camera::GetInstance()->transform->look;
+
 	Vector3::Normalize(&vLook);
-	Vector3::Normalize(&MoveDir);
-	
+
+
 	float Angle = Vector3::Angle(MoveDir, vLook);
-	
-	if (Angle < 0)
-		int i = 0;
+
+	//if (Angle < 100) {
+	//	int i = 0;
+	//}
+	//Angle += 180.f;
+	//Angle = int(Angle) / 45;
+
+	//EnumKey = (int)TextureKey::BUTTER_WALK_D_01;
+	//EnumKey += Angle * 3;
+	//ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey+2));
+
 
 }
 
@@ -137,4 +146,5 @@ void Monster_Butterfree::Attack()
 		Time[0] = 0.f;
 		CurrentStatus = Status::END;
 	}
+
 }
