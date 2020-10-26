@@ -180,6 +180,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         InputManager::GetInstance()->mouse[(int)Keys::RBUTTON_DOUBLE] = true;
         break;
 
+	case WM_KEYDOWN:
+		if (VK_ESCAPE == wParam) DestroyWindow(hWnd);
+		break;
+
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
