@@ -44,14 +44,14 @@ void Monster_Butterfree::ButterfreeParttern()
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
 	Transform* PlayerT = g->transform;
 
-	
+
 
 	float distX = PlayerT->position.x - transform->position.x;
 	float distZ = PlayerT->position.z - transform->position.z;
 
-	float Dist = sqrt(distX*distX + distZ*distZ);
+	float Dist = sqrt(distX * distX + distZ * distZ);
 
-	
+
 
 
 	if (CurrentStatus != Status::PLAYER_SEARCH && Dist < 5.f) {
@@ -102,7 +102,7 @@ void Monster_Butterfree::ButterfreeParttern()
 void Monster_Butterfree::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
-	
+
 	transform->position.x += MoveDir.x * TimeManager::DeltaTime();
 	transform->position.z += MoveDir.z * TimeManager::DeltaTime();
 
@@ -122,7 +122,7 @@ void Monster_Butterfree::SetTextureAngle()
 	
 	Vector3::Normalize(&vLook);
 
-	
+
 	float Angle = Vector3::Angle(MoveDir, vLook);
 	
 	//if (Angle < 100) {

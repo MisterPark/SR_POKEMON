@@ -8,6 +8,7 @@
 #include "CubeMan.h"
 #include "Monster.h"
 #include "Monster_Butterfree.h"
+#include "Monster_Caterpie.h"
 #include "Environment.h"
 
 void TestScene::OnLoaded()
@@ -17,12 +18,14 @@ void TestScene::OnLoaded()
 	ObjectManager::GetInstance()->CreateObject<Player>();
 	//ObjectManager::GetInstance()->CreateObject<CubeMan>();
 	
-	for (int i = 0; i < 20; i++) {
+	/*for (int i = 0; i < 20; i++) {
 		GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();
 		Obj->transform->position.x += i * 1;
 		Obj->transform->position.z += i * 1;
-	}
-	
+	}*/
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
+	Obj->transform->position.x += 1;
+	Obj->transform->position.z += 1;
 }
 
 void TestScene::OnUnloaded()
