@@ -9,12 +9,10 @@ Monster_Butterfree::Monster_Butterfree()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
-	//ani->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
-	EnumKey = (int)TextureKey::BUTTER_WALK_D_01;
-	ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey + 2));
 	ani->SetLoop(true);
-	ani->SetDelay(0.2f);
+
+	SetSpriteWork();
+	//ani->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
 	//transform->RotateY(90);
 	offsetY = 2.5f;
 	CurrentStatus = Status::END;
@@ -64,8 +62,7 @@ void Monster_Butterfree::ButterfreeParttern()
 		b->SetDir(MoveDir.x, MoveDir.z, MoveDir.y);
 		*(b->transform) = *transform;
 
-		ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey + 1));
-		ani->SetDelay(0.3f);
+		SetSpriteAttack();
 		Time[0] = 0;
 		Frame[0] = 0;
 	}
@@ -83,8 +80,7 @@ void Monster_Butterfree::ButterfreeParttern()
 			b->SetDir(MoveDir.x, MoveDir.z);
 			*(b->transform) = *transform;
 			/*b->transform->position.y += 0.5f;*/
-			ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey + 1));
-			ani->SetDelay(0.3f);
+			SetSpriteAttack();
 		}
 	}
 	else if (CurrentStatus == Status::MOVE) {		//// 이곳부터 업데이트
@@ -109,7 +105,7 @@ void Monster_Butterfree::RandomMovePattern()
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;
 		Time[0] = 0;
-		if (Frame[0] == 5) {			// 5번의 파닥거림 후
+		if (Frame[0] == 4) {			// 4번의 파닥거림 후
 			Frame[0] = 0;
 			CurrentStatus = Status::END;
 		}
@@ -123,7 +119,7 @@ void Monster_Butterfree::SetTextureAngle()
 	Vector3::Normalize(&vLook);
 
 
-	float Angle = Vector3::Angle(MoveDir, vLook);
+	Angle = Vector3::Angle(MoveDir, vLook);
 	
 	//if (Angle < 100) {
 	//	int i = 0;
@@ -139,19 +135,31 @@ void Monster_Butterfree::SetTextureAngle()
 		EnumKey = (int)TextureKey::BUTTER_ATTACK_D_01;
 		EnumKey += Angle * 2;
 	}
-	//ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey+2));
-
 	
+
 }
 
 void Monster_Butterfree::Attack()
 {
 	Time[0] += TimeManager::DeltaTime();
 	if (Time[0] >= 0.6f) {
-		ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey+2));
 		ani->SetDelay(0.2f);
 		Time[0] = 0.f;
 		CurrentStatus = Status::END;
+		SetSpriteWork();
 	}
+}
 
+void Monster_Butterfree::SetSpriteWork() {
+	EnumKey = (int)TextureKey::BUTTER_WALK_D_01;
+	EnumKey += Angle * 3;
+	ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey + 2));
+	ani->SetDelay(0.2f);
+}
+
+void Monster_Butterfree::SetSpriteAttack() {
+	EnumKey = (int)TextureKey::BUTTER_ATTACK_D_01;
+	EnumKey += Angle * 2;
+	ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey + 1));
+	ani->SetDelay(0.3f);
 }
