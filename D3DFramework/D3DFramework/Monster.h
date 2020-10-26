@@ -17,7 +17,7 @@ public:
     virtual void Render() override;
 
 protected:
-    void OnTerrain();
+    
 
 protected:
     int Frame[3]; // 패턴판단
@@ -25,6 +25,6 @@ protected:
     Status CurrentStatus = Status::END;
     Vector3 AttackDir;
     Vector3 MoveDir;
-    float floating;
+    
 };
 

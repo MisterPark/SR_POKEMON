@@ -15,7 +15,7 @@ Monster::Monster()
 	{
 		Time[i] = 0.f;
 	}
-	floating = 1.f;
+	offsetY = 1.f;
 }
 
 Monster::~Monster()
@@ -36,18 +36,4 @@ void Monster::Render()
 {
 	
 	Character::Render();
-}
-
-void Monster::OnTerrain() {
-	GameObject* obj = ObjectManager::GetInstance()->FindObject<Environment>();
-	Terrain* mesh = (Terrain*)obj->GetComponent(L"Mesh");
-
-	float y;
-	bool onTerrain = mesh->GetYFromPoint(&y, transform->position.x, transform->position.z);
-	if (onTerrain)
-		transform->position.y = y + floating;
-	else
-	{
-		transform->position.y = floating;
-	}
 }
