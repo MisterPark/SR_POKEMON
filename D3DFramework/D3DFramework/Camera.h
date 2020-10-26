@@ -29,11 +29,11 @@ namespace PKH
 		static Vector3 ScreenToWorldPoint(const Vector3& position);
 		static Vector3 WorldToScreenPoint(const Vector3& position);
 
+		void SetTarget(GameObject* tar) { target = tar; }
+
 	private:
 		void PerspectiveProjection();
 		void OrthogonalProjection();
-		
-
 
 	private:
 		float nearClipPlane = 1.f;
@@ -41,7 +41,7 @@ namespace PKH
 		bool isProjection3D;
 		Matrix viewMatrix;
 		Matrix projectionMatrix;
-
+		GameObject* target = nullptr;
 		
 	};
 }

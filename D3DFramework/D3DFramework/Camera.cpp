@@ -51,43 +51,12 @@ void PKH::Camera::Destroy()
 
 void PKH::Camera::Update()
 {
-	if (InputManager::GetKey('Q'))
+	if (nullptr != target)
 	{
-		transform->position.z += 10.f * TimeManager::DeltaTime();
+		transform->position = target->GetTransform()->position - (target->GetTransform()->look * 1.2f);
+		transform->position.y += 1.f;
+		transform->look = target->GetTransform()->position + (target->GetTransform()->look * 10.f);
 	}
-	if (InputManager::GetKey('E'))
-	{
-		transform->position.z -= 10.f *TimeManager::DeltaTime();
-	}
-	if (InputManager::GetKey('W'))
-	{
-		transform->position.y += 10.f * TimeManager::DeltaTime();
-		transform->look.y += 10.f * TimeManager::DeltaTime();
-	}
-	if (InputManager::GetKey('S'))
-	{
-		transform->position.y -= 10.f * TimeManager::DeltaTime();
-		transform->look.y -= 10.f * TimeManager::DeltaTime();
-	}
-	if (InputManager::GetKey('A'))
-	{
-		transform->position.x -= 10.f * TimeManager::DeltaTime();
-		//transform->look.x -= 10.f * TimeManager::DeltaTime();
-	}
-	if (InputManager::GetKey('D'))
-	{
-		transform->position.x += 10.f * TimeManager::DeltaTime();
-		//transform->look.x += 10.f * TimeManager::DeltaTime();
-	}
-	if (InputManager::GetKey('R'))
-	{
-		transform->look.y -= 10.f * TimeManager::DeltaTime();
-	}
-	if (InputManager::GetKey('F'))
-	{
-		transform->look.y -= 10.f * TimeManager::DeltaTime();
-	}
-
 
 	viewMatrix = Matrix::LookAtLH(transform->position, transform->look, transform->up);
 	//D3DXMatrixLookAtLH(&viewMatrix, &transform->position, &transform->look, &transform->up);
@@ -98,7 +67,6 @@ void PKH::Camera::Update()
 		PerspectiveProjection();
 	else
 		OrthogonalProjection();
-
 }
 
 void PKH::Camera::Render()

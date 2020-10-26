@@ -210,6 +210,9 @@
     <ClInclude Include="CubeMan.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -331,6 +334,9 @@
     </ClCompile>
     <ClCompile Include="CubeMan.cpp">
       <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
