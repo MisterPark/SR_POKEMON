@@ -1,10 +1,10 @@
 #pragma once
-#include "GameObject.h"
+#include "Character.h"
 
 namespace PKH
 {
 	class CubeMan :
-		public GameObject
+		public Character
 	{
 	public:
 

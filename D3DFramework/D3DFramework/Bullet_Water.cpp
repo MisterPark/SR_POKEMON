@@ -32,11 +32,12 @@ void Bullet_Water::Update()
 
 	Character::Update();
 	
-	transform->position.x += MoveDir.x * 3.f;
-	transform->position.z += MoveDir.z * 3.f;
+	transform->position.x += MoveDir.x * 3.f * TimeManager::DeltaTime();;
+	transform->position.y += MoveDir.y * 3.f * TimeManager::DeltaTime();;
+	transform->position.z += MoveDir.z * 3.f * TimeManager::DeltaTime();;
 	
 	Time[0] += TimeManager::DeltaTime();
-	if (Time[0] >= 10.f) {
+	if (Time[0] >= 5.f) {
 		isDead = true;
 	}
 	Billboard();

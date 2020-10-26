@@ -7,7 +7,7 @@ class Monster :
 public:
     enum class Status
     {
-        MOVE, ATTACK, SKILL, END
+        MOVE, ATTACK, PLAYER_SEARCH, SKILL, END
     };
 public:
     Monster();
