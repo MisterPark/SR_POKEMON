@@ -27,7 +27,7 @@ void Player::Initialize()
 
 	curState = ATTACK;
 	curDir = U;
-	offsetY = 1.f;
+	offsetY = 0.2f;
 
 	SetAnim();
 
