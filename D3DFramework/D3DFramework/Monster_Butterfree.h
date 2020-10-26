@@ -17,5 +17,6 @@ public:
 
 private:
     Animation2D* ani;
+    int EnumKey;
 };
 
