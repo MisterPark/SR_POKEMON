@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "Rectangle.h"
+#include "Environment.h"
+#include "Terrain.h"
 
 Player::Player() :
 	Character()
@@ -25,6 +27,7 @@ void Player::Initialize()
 
 	curState = ATTACK;
 	curDir = U;
+	offsetY = 1.f;
 
 	SetAnim();
 
@@ -83,15 +86,20 @@ void Player::CalcMouse()
 
 	radianX += D3DXToRadian(ySize);
 
-	if (radianX > D3DXToRadian(90.f))
-		radianX = D3DXToRadian(90.f);
-	else if (radianX < D3DXToRadian(-90.f))
-		radianX = D3DXToRadian(-90.f);
+	if (radianX > D3DXToRadian(30.f))
+		radianX = D3DXToRadian(30.f);
+	else if (radianX < D3DXToRadian(-30.f))
+		radianX = D3DXToRadian(-30.f);
 
 	radianY += D3DXToRadian(xSize);
 
-	transform->RotateX(radianX);
-	transform->RotateY(radianY);
+	transform->eulerAngles.x = radianX;
+	transform->eulerAngles.y = radianY;
+	//transform->RotateX(radianX);
+	//transform->RotateY(radianY);
+
+	OnTerrain();
+	
 }
 
 void Player::KeyInput()

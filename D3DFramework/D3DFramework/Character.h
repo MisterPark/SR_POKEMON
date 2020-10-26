@@ -13,5 +13,12 @@ public:
     // GameObject을(를) 통해 상속됨
     virtual void Initialize() override;
     virtual void Release() override;
+
+    void OnTerrain();
+
+
+public:
+    // 지형과 간격
+    float offsetY;
 };
 
