@@ -95,8 +95,6 @@ void Player::CalcMouse()
 
 	transform->eulerAngles.x = radianX;
 	transform->eulerAngles.y = radianY;
-	//transform->RotateX(radianX);
-	//transform->RotateY(radianY);
 
 	OnTerrain();
 	
