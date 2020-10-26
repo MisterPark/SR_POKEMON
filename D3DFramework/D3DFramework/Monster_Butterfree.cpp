@@ -3,7 +3,7 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "CubeMan.h"
+#include "Player.h"
 
 Monster_Butterfree::Monster_Butterfree()
 {
@@ -40,7 +40,7 @@ void Monster_Butterfree::Render()
 void Monster_Butterfree::ButterfreeParttern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<CubeMan>();
+	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
 	Transform* PlayerT = g->transform;
 
 	

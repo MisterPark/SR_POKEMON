@@ -3,7 +3,7 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Terrain.h"
-#include "Player.h"
+#include "Environment.h"
 
 Monster::Monster()
 {
@@ -39,7 +39,7 @@ void Monster::Render()
 }
 
 void Monster::OnTerrain() {
-	GameObject* obj = ObjectManager::GetInstance()->FindObject<Player>();
+	GameObject* obj = ObjectManager::GetInstance()->FindObject<Environment>();
 	Terrain* mesh = (Terrain*)obj->GetComponent(L"Mesh");
 
 	float y;
