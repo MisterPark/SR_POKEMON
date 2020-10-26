@@ -26,7 +26,13 @@ Monster_Caterpie::~Monster_Caterpie()
 
 void Monster_Caterpie::Update()
 {
+	//·èº¤ÅÍ(z)
+	MoveDir = transform->look;
+
+	Vector3::Normalize(&MoveDir);
+
 	
+
 	transform->position.x += 0.1;
 
 	/*MoveDir = D3DXToRadian(60);*/
