@@ -8,11 +8,10 @@ Bullet::Bullet() :
 }
 
 Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const int & type, const bool & isPlayer) :
-	type(type), isPlayer(isPlayer)
+	dir(dir), type(type), isPlayer(isPlayer)
 {
 	transform->position = pos;
 	transform->scale = scale;
-	transform->look = dir;
 
 	Initialize();
 }
@@ -20,7 +19,6 @@ Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, 
 Bullet::~Bullet()
 {
 	Release();
-	Character::~Character();
 }
 
 void Bullet::Initialize()
@@ -35,7 +33,7 @@ void Bullet::Initialize()
 
 void Bullet::Update()
 {
-	Move(transform->look);
+	Move(dir);
 
 	Character::Update();
 }
