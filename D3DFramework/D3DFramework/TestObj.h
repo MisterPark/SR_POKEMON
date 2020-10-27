@@ -2,15 +2,15 @@
 #include "Character.h"
 #include "Animation2D.h"
 
-class Player : public Character
+class TestObj : public Character
 {
 public:
 	enum STATE { IDLE, WALK, ATTACK, SKILL, HURT };
 	enum DIR { D, LD, L, LU, U, RU, R, RD };
 
 public:
-    Player();
-    virtual ~Player();
+    TestObj();
+    virtual ~TestObj();
 
 public:
 	virtual void Initialize() override;
@@ -19,23 +19,18 @@ public:
 	virtual void Release() override;
 
 public:
+	void SetPos(const Vector3& pos);
+	void SetDir(const Vector3& dir);
 	void ChangeAnim(STATE state, DIR dir);
+	void CalcDir();
 
 private:
-	void ResetMousePoint();
-	void CalcSpawnTime();
-	void SpawnBullet();
-	void CalcMouse();
-	void KeyInput();
 	void SetAnim();
 
 private:
 	Animation2D* anim;
 	STATE curState;
 	DIR curDir;
-	float radianX = 0.f;
-	float radianY = 0.f;
-	float spawnTime = 0.f;
-	bool canSpawn = true;
+	Vector3 myDir;
 };
 

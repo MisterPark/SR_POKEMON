@@ -10,6 +10,7 @@
 #include "Monster_Butterfree.h"
 #include "Monster_Caterpie.h"
 #include "Environment.h"
+#include "TestObj.h"
 
 void TestScene::OnLoaded()
 {
@@ -18,19 +19,19 @@ void TestScene::OnLoaded()
 	ObjectManager::GetInstance()->CreateObject<Player>();
 	//ObjectManager::GetInstance()->CreateObject<CubeMan>();
 	
-	//for (int i = 0; i < 20; i++) {
-	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();
-	//	Obj->transform->position.x += i * 1;
-	//	Obj->transform->position.z += i * 1;
-	//}
-	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
-	Obj->transform->position.x += 1;
-	Obj->transform->position.z += 1;*/
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 20; i++) {
+		GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();
+		Obj->transform->position.x += i * 1;
+		Obj->transform->position.z += i * 1;
+	}
 	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
-	Obj->transform->position.x += i * 1;
-	Obj->transform->position.z += i * 1;
-}
+	Obj->transform->position.x += 1;
+	Obj->transform->position.z += 1;
+
+	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
+	//test->SetPos({ -1.f, 0.f, 1.f });
+	//test->SetDir({ 1.f, 0.f, 0.f });
+	//test->ChangeAnim(TestObj::IDLE, TestObj::R);
 }
 
 void TestScene::OnUnloaded()
