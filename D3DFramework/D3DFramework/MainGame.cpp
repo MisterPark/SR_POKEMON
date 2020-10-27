@@ -53,7 +53,7 @@ void PKH::MainGame::Initialize()
 	Cursor::GetInstance();
 
 	SoundManager::GetInstance()->Initialize();
-
+	LoadMonsterSprite();
 	LoadPlayerSprite();
 
     // 리소스 로드
@@ -63,6 +63,34 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SKY_R, L"Texture\\SKYBOX_R.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\SKYBOX_B.png");
+
+	
+	//눈물총알
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_02, L"Texture\\Bullet\\Bullet_Tears02.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_03, L"Texture\\Bullet\\Bullet_Tears03.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_04, L"Texture\\Bullet\\Bullet_Tears04.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_05, L"Texture\\Bullet\\Bullet_Tears05.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_06, L"Texture\\Bullet\\Bullet_Tears06.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_07, L"Texture\\Bullet\\Bullet_Tears07.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_08, L"Texture\\Bullet\\Bullet_Tears08.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_09, L"Texture\\Bullet\\Bullet_Tears09.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_10, L"Texture\\Bullet\\Bullet_Tears10.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_11, L"Texture\\Bullet\\Bullet_Tears11.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_12, L"Texture\\Bullet\\Bullet_Tears12.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_13, L"Texture\\Bullet\\Bullet_Tears13.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_14, L"Texture\\Bullet\\Bullet_Tears14.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_15, L"Texture\\Bullet\\Bullet_Tears15.png");
+
+	ObjectManager::GetInstance();
+
+	// 씬로드
+	SceneManager::LoadScene<TestScene>();
+
+}
+
+void PKH::MainGame::LoadMonsterSprite()
+{
 
 	//버터플
 	//이동
@@ -136,6 +164,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::CATER_WALK_RD_01, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RD (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CATER_WALK_RD_02, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RD (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::CATER_WALK_RD_03, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RD (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_RU_01, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_RU_02, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_RU_03, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_R_01, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_R_02, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_R_03, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_RD_01, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_RD_02, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_WALK_RD_03, L"Texture\\Monster\\Grass\\Caterpie\\WALK\\RD (3).png");
 	//공격								   		
 	D2DRenderManager::LoadSprite(TextureKey::CATER_ATTACK_D_01, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CATER_ATTACK_D_02, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\D (2).png");
@@ -147,7 +184,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::CATER_ATTACK_LU_02, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::CATER_ATTACK_U_01, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CATER_ATTACK_U_02, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_ATTACK_RU_01, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_ATTACK_RU_02, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_ATTACK_R_01, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_ATTACK_R_02, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_ATTACK_RD_01, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BUTTER_ATTACK_RD_02, L"Texture\\Monster\\Grass\\Caterpie\\ATTACK\\RD (2).png");
 
 	//세레비
 	//이동
@@ -166,13 +208,24 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_U_01, L"Texture\\Monster\\Grass\\Celebe\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_U_02, L"Texture\\Monster\\Grass\\Celebe\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_U_03, L"Texture\\Monster\\Grass\\Celebe\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_RU_01, L"Texture\\Monster\\Grass\\Celebe\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_RU_02, L"Texture\\Monster\\Grass\\Celebe\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_RU_03, L"Texture\\Monster\\Grass\\Celebe\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_R_01, L"Texture\\Monster\\Grass\\Celebe\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_R_02, L"Texture\\Monster\\Grass\\Celebe\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_R_03, L"Texture\\Monster\\Grass\\Celebe\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_RD_01, L"Texture\\Monster\\Grass\\Celebe\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_RD_02, L"Texture\\Monster\\Grass\\Celebe\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_WALK_RD_03, L"Texture\\Monster\\Grass\\Celebe\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_D_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_LD_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\LD (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_L_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\L (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_LU_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\LU (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_U_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\U (1).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_RU_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_R_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::CELE_HURT_RD_01, L"Texture\\Monster\\Grass\\Celebe\\HURT\\RD (1).png");
 	//단데기
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::META_WALK_D_01, L"Texture\\Monster\\Grass\\Metapod\\WALK\\D (1).png");
@@ -190,13 +243,25 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::META_WALK_U_01, L"Texture\\Monster\\Grass\\Metapod\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_WALK_U_02, L"Texture\\Monster\\Grass\\Metapod\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_WALK_U_03, L"Texture\\Monster\\Grass\\Metapod\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_RU_01, L"Texture\\Monster\\Grass\\Metapod\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_RU_02, L"Texture\\Monster\\Grass\\Metapod\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_RU_03, L"Texture\\Monster\\Grass\\Metapod\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_R_01, L"Texture\\Monster\\Grass\\Metapod\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_R_02, L"Texture\\Monster\\Grass\\Metapod\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_R_03, L"Texture\\Monster\\Grass\\Metapod\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_RD_01, L"Texture\\Monster\\Grass\\Metapod\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_RD_02, L"Texture\\Monster\\Grass\\Metapod\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_WALK_RD_03, L"Texture\\Monster\\Grass\\Metapod\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_D_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_LD_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\LD (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_L_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\L (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_LU_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\LU (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_U_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\U (1).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_RU_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_R_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_RD_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\RD (1).png");
+	
 
 	//뚜벅쵸
 	//이동
@@ -215,6 +280,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_U_01, L"Texture\\Monster\\Grass\\Oddish\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_U_02, L"Texture\\Monster\\Grass\\Oddish\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_U_03, L"Texture\\Monster\\Grass\\Oddish\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_RU_01, L"Texture\\Monster\\Grass\\Oddish\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_RU_02, L"Texture\\Monster\\Grass\\Oddish\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_RU_03, L"Texture\\Monster\\Grass\\Oddish\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_R_01, L"Texture\\Monster\\Grass\\Oddish\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_R_02, L"Texture\\Monster\\Grass\\Oddish\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_R_03, L"Texture\\Monster\\Grass\\Oddish\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_RD_01, L"Texture\\Monster\\Grass\\Oddish\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_RD_02, L"Texture\\Monster\\Grass\\Oddish\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_WALK_RD_03, L"Texture\\Monster\\Grass\\Oddish\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_D_01, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_D_02, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\D (2).png");
@@ -226,7 +300,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_LU_02, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_U_01, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_U_02, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_RU_01, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_RU_02, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_R_01, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_R_02, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_RD_01, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ODDI_ATTACK_RD_02, L"Texture\\Monster\\Grass\\Oddish\\ATTACK\\RD (2).png");
 	//스라크
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_D_01, L"Texture\\Monster\\Grass\\Scyther\\WALK\\D (1).png");
@@ -244,6 +323,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_U_01, L"Texture\\Monster\\Grass\\Scyther\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_U_02, L"Texture\\Monster\\Grass\\Scyther\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_U_03, L"Texture\\Monster\\Grass\\Scyther\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_RU_01, L"Texture\\Monster\\Grass\\Scyther\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_RU_02, L"Texture\\Monster\\Grass\\Scyther\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_RU_03, L"Texture\\Monster\\Grass\\Scyther\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_R_01, L"Texture\\Monster\\Grass\\Scyther\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_R_02, L"Texture\\Monster\\Grass\\Scyther\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_R_03, L"Texture\\Monster\\Grass\\Scyther\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_RD_01, L"Texture\\Monster\\Grass\\Scyther\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_RD_02, L"Texture\\Monster\\Grass\\Scyther\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_WALK_RD_03, L"Texture\\Monster\\Grass\\Scyther\\WALK\\RD (3).png");
 	//공격
 	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_D_01, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_D_02, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\D (2).png");
@@ -255,7 +343,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_LU_02, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_U_01, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_U_02, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_RU_01, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_RU_02, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_R_01, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_R_02, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_RD_01, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SCY_ATTACK_RD_02, L"Texture\\Monster\\Grass\\Scyther\\ATTACK\\RD (2).png");
 	//라플레시아
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_D_01, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\D (1).png");
@@ -273,6 +366,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_U_01, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_U_02, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_U_03, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_RU_01, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_RU_02, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_RU_03, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_R_01, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_R_02, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_R_03, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_RD_01, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_RD_02, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_WALK_RD_03, L"Texture\\Monster\\Grass\\Vileplume\\WALK\\RD (3).png");
 	//공격								   
 	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_D_01, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_D_02, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\D (2).png");
@@ -284,7 +386,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_LU_02, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_U_01, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_U_02, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_RU_01, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_RU_02, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_R_01, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_R_02, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_RD_01, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::VILE_ATTACK_RD_02, L"Texture\\Monster\\Grass\\Vileplume\\ATTACK\\RD (2).png");
 	//수속성
 	//골덕
 	//이동
@@ -303,6 +410,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_U_01, L"Texture\\Monster\\Water\\Golduck\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_U_02, L"Texture\\Monster\\Water\\Golduck\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_U_03, L"Texture\\Monster\\Water\\Golduck\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_RU_01, L"Texture\\Monster\\Water\\Golduck\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_RU_02, L"Texture\\Monster\\Water\\Golduck\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_RU_03, L"Texture\\Monster\\Water\\Golduck\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_R_01, L"Texture\\Monster\\Water\\Golduck\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_R_02, L"Texture\\Monster\\Water\\Golduck\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_R_03, L"Texture\\Monster\\Water\\Golduck\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_RD_01, L"Texture\\Monster\\Water\\Golduck\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_RD_02, L"Texture\\Monster\\Water\\Golduck\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_WALK_RD_03, L"Texture\\Monster\\Water\\Golduck\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_D_01, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_D_02, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\D (2).png");
@@ -314,7 +430,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_LU_02, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_U_01, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_U_02, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_RU_01, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_RU_02, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_R_01, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_R_02, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_RD_01, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GOLD_ATTACK_RD_02, L"Texture\\Monster\\Water\\Golduck\\ATTACK\\RD (2).png");
 	//루주라
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_D_01, L"Texture\\Monster\\Water\\Jynx\\WALK\\D (1).png");
@@ -332,6 +453,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_U_01, L"Texture\\Monster\\Water\\Jynx\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_U_02, L"Texture\\Monster\\Water\\Jynx\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_U_03, L"Texture\\Monster\\Water\\Jynx\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_RU_01, L"Texture\\Monster\\Water\\Jynx\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_RU_02, L"Texture\\Monster\\Water\\Jynx\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_RU_03, L"Texture\\Monster\\Water\\Jynx\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_R_01, L"Texture\\Monster\\Water\\Jynx\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_R_02, L"Texture\\Monster\\Water\\Jynx\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_R_03, L"Texture\\Monster\\Water\\Jynx\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_RD_01, L"Texture\\Monster\\Water\\Jynx\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_RD_02, L"Texture\\Monster\\Water\\Jynx\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_WALK_RD_03, L"Texture\\Monster\\Water\\Jynx\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_D_01, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_D_02, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\D (2).png");
@@ -343,7 +473,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_LU_02, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_U_01, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_U_02, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_RU_01, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_RU_02, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_R_01, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_R_02, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_RD_01, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::JYNX_ATTACK_RD_02, L"Texture\\Monster\\Water\\Jynx\\ATTACK\\RD (2).png");
 
 	//발챙이
 	//이동
@@ -362,12 +497,24 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_U_01, L"Texture\\Monster\\Water\\Poliwag\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_U_02, L"Texture\\Monster\\Water\\Poliwag\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_U_03, L"Texture\\Monster\\Water\\Poliwag\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_RU_01, L"Texture\\Monster\\Water\\Poliwag\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_RU_02, L"Texture\\Monster\\Water\\Poliwag\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_RU_03, L"Texture\\Monster\\Water\\Poliwag\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_R_01, L"Texture\\Monster\\Water\\Poliwag\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_R_02, L"Texture\\Monster\\Water\\Poliwag\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_R_03, L"Texture\\Monster\\Water\\Poliwag\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_RD_01, L"Texture\\Monster\\Water\\Poliwag\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_RD_02, L"Texture\\Monster\\Water\\Poliwag\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_WALK_RD_03, L"Texture\\Monster\\Water\\Poliwag\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_D_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_LD_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\LD (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_L_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\L (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_LU_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\LU (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_U_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\U (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_RU_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_R_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_RD_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\RD (1).png");
 	
 
 
@@ -388,6 +535,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_U_01, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_U_02, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_U_03, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_RU_01, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_RU_02, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_RU_03, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_R_01, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_R_02, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_R_03, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_RD_01, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_RD_02, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_WALK_RD_03, L"Texture\\Monster\\Water\\PoliWrath\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_D_01, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_D_02, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\D (2).png");
@@ -399,36 +555,65 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_LU_02, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_U_01, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_U_02, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_RU_01, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_RU_02, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_R_01, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_R_02, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_RD_01, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WRATH_ATTACK_RD_02, L"Texture\\Monster\\Water\\PoliWrath\\ATTACK\\RD (2).png");
 
 	//고라파덕
 	//이동
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_D_01,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\D (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_D_02,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\D (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_D_03,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\D (3).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LD_01,	L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LD (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LD_02,	L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LD (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LD_03,	L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LD (3).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_L_01,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\L (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_L_02,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\L (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_L_03,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\L (3).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LU_01,	L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LU (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LU_02,	L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LU (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LU_03,	L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LU (3).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_U_01,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\U (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_U_02,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\U (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_U_03,		L"Texture\\Monster\\Water\\PsyDuck\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_D_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\D (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_D_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\D (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_D_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\D (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LD_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LD_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LD_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LD (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_L_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\L (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_L_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\L (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_L_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\L (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LU_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LU_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_LU_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\LU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_U_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\U (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_U_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\U (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_U_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RU_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RU_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RU_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_R_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_R_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_R_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RD_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RD_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RD_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RD (3).png");
 	//공격								   	 
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_D_01,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\D (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_D_02,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\D (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LD_01,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LD (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LD_02,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LD (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_L_01,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\L (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_L_02,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\L (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LU_01,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LU (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LU_02,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LU (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_U_01,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\U (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_U_02,	L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\U (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_D_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\D (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_D_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\D (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LD_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LD_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_L_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\L (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_L_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\L (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LU_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_LU_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\LU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_U_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\U (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_U_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\U (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RU_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RU_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RU_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_R_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_R_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_R_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RD_01, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RD_02, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_WALK_RD_03, L"Texture\\Monster\\Water\\PsyDuck\\WALK\\RD (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RU_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RU_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_R_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_R_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RD_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RD_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RD (2).png");
 	//공격2
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_D_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK2\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_D_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK2\\D (2).png");
@@ -440,7 +625,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_LU_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK2\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_U_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK2\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_U_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK2\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RU_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RU_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_R_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_R_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RD_01, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RD_02, L"Texture\\Monster\\Water\\PsyDuck\\ATTACK\\RD (2).png");
 	//스이쿤
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_D_01, L"Texture\\Monster\\Water\\Suicune\\WALK\\D (1).png");
@@ -458,6 +648,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_U_01, L"Texture\\Monster\\Water\\Suicune\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_U_02, L"Texture\\Monster\\Water\\Suicune\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_U_03, L"Texture\\Monster\\Water\\Suicune\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_RU_01, L"Texture\\Monster\\Water\\Suicune\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_RU_02, L"Texture\\Monster\\Water\\Suicune\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_RU_03, L"Texture\\Monster\\Water\\Suicune\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_R_01, L"Texture\\Monster\\Water\\Suicune\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_R_02, L"Texture\\Monster\\Water\\Suicune\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_R_03, L"Texture\\Monster\\Water\\Suicune\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_RD_01, L"Texture\\Monster\\Water\\Suicune\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_RD_02, L"Texture\\Monster\\Water\\Suicune\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_RD_03, L"Texture\\Monster\\Water\\Suicune\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_D_01, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_D_02, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\D (2).png");
@@ -469,7 +668,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_LU_02, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_U_01, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_U_02, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_RU_01, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_RU_02, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_R_01, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_R_02, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_RD_01, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SUI_ATTACK_RD_02, L"Texture\\Monster\\Water\\Suicune\\ATTACK\\RD (2).png");
 	//화속성
 	//윈디
 	//이동
@@ -488,6 +692,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_U_01, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_U_02, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_U_03, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_RU_01, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_RU_02, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_RU_03, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_R_01, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_R_02, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_R_03, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_RD_01, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_RD_02, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_WALK_RD_03, L"Texture\\Monster\\Fire\\Arcanine\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_D_01, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_D_02, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\D (2).png");
@@ -499,7 +712,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_LU_02, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_U_01, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_U_02, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_RU_01, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_RU_02, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_R_01, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_R_02, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_RD_01, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::ARCA_ATTACK_RD_02, L"Texture\\Monster\\Fire\\Arcanine\\ATTACK\\RD (2).png");
 	//그란돈
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_D_01, L"Texture\\Monster\\Fire\\Groudon\\WALK\\D (1).png");
@@ -517,6 +735,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_U_01, L"Texture\\Monster\\Fire\\Groudon\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_U_02, L"Texture\\Monster\\Fire\\Groudon\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_U_03, L"Texture\\Monster\\Fire\\Groudon\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_RU_01, L"Texture\\Monster\\Fire\\Groudon\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_RU_02, L"Texture\\Monster\\Fire\\Groudon\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_RU_03, L"Texture\\Monster\\Fire\\Groudon\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_R_01, L"Texture\\Monster\\Fire\\Groudon\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_R_02, L"Texture\\Monster\\Fire\\Groudon\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_R_03, L"Texture\\Monster\\Fire\\Groudon\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_RD_01, L"Texture\\Monster\\Fire\\Groudon\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_RD_02, L"Texture\\Monster\\Fire\\Groudon\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_WALK_RD_03, L"Texture\\Monster\\Fire\\Groudon\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_D_01, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_D_02, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\D (2).png");
@@ -528,7 +755,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_LU_02, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_U_01, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_U_02, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_RU_01, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_RU_02, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_R_01, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_R_02, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_RD_01, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROU_ATTACK_RD_02, L"Texture\\Monster\\Fire\\Groudon\\ATTACK\\RD (2).png");
 	//가디
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_D_01, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\D (1).png");
@@ -546,6 +778,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_U_01, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_U_02, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_U_03, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_RU_01, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_RU_02, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_RU_03, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_R_01, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_R_02, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_R_03, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_RD_01, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_RD_02, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_WALK_RD_03, L"Texture\\Monster\\Fire\\Growlithe\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_D_01, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_D_02, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\D (2).png");
@@ -557,7 +798,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_LU_02, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_U_01, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_U_02, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_RU_01, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_RU_02, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_R_01, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_R_02, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_RD_01, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::GROW_ATTACK_RD_02, L"Texture\\Monster\\Fire\\Growlithe\\ATTACK\\RD (2).png");
 	//마그카르고
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_D_01, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\D (1).png");
@@ -575,6 +821,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_U_01, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_U_02, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_U_03, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_RU_01, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_RU_02, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_RU_03, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_R_01, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_R_02, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_R_03, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_RD_01, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_RD_02, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_WALK_RD_03, L"Texture\\Monster\\Fire\\Magcargo\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_D_01, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_D_02, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\D (2).png");
@@ -586,7 +841,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_LU_02, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_U_01, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_U_02, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_RU_01, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_RU_02, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_R_01, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_R_02, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_RD_01, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::MAGCA_ATTACK_RD_02, L"Texture\\Monster\\Fire\\Magcargo\\ATTACK\\RD (2).png");
 	//포니타
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_D_01, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\D (1).png");
@@ -604,6 +864,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_U_01, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_U_02, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_U_03, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_RU_01, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_RU_02, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_RU_03, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_R_01, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_R_02, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_R_03, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_RD_01, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_RD_02, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_WALK_RD_03, L"Texture\\Monster\\Fire\\Ponyta\\WALK\\RD (3).png");
 	//공격								   	 PONY
 	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_D_01, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_D_02, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\D (2).png");
@@ -615,7 +884,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_LU_02, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_U_01, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_U_02, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_RU_01, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_RU_02, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_R_01, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_R_02, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_RD_01, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PONY_ATTACK_RD_02, L"Texture\\Monster\\Fire\\Ponyta\\ATTACK\\RD (2).png");
 	//날쌩마
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_D_01, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\D (1).png");
@@ -633,6 +907,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_U_01, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_U_02, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_U_03, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_RU_01, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_RU_02, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_RU_03, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_R_01, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_R_02, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_R_03, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_RD_01, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_RD_02, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_WALK_RD_03, L"Texture\\Monster\\Fire\\Rapidash\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_D_01, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_D_02, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\D (2).png");
@@ -644,7 +927,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_LU_02, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_U_01, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_U_02, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\U (2).png");
-
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_RU_01, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_RU_02, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_R_01, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_R_02, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_RD_01, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::RAPID_ATTACK_RD_02, L"Texture\\Monster\\Fire\\Rapidash\\ATTACK\\RD (2).png");
 	//마그마그
 	//이동
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_D_01, L"Texture\\Monster\\Fire\\Slugma\\WALK\\D (1).png");
@@ -662,6 +950,15 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_U_01, L"Texture\\Monster\\Fire\\Slugma\\WALK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_U_02, L"Texture\\Monster\\Fire\\Slugma\\WALK\\U (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_U_03, L"Texture\\Monster\\Fire\\Slugma\\WALK\\U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_RU_01, L"Texture\\Monster\\Fire\\Slugma\\WALK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_RU_02, L"Texture\\Monster\\Fire\\Slugma\\WALK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_RU_03, L"Texture\\Monster\\Fire\\Slugma\\WALK\\RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_R_01, L"Texture\\Monster\\Fire\\Slugma\\WALK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_R_02, L"Texture\\Monster\\Fire\\Slugma\\WALK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_R_03, L"Texture\\Monster\\Fire\\Slugma\\WALK\\R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_RD_01, L"Texture\\Monster\\Fire\\Slugma\\WALK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_RD_02, L"Texture\\Monster\\Fire\\Slugma\\WALK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_WALK_RD_03, L"Texture\\Monster\\Fire\\Slugma\\WALK\\RD (3).png");
 	//공격								   	 
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_D_01, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\D (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_D_02, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\D (2).png");
@@ -673,29 +970,12 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_LU_02, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_U_01, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_U_02, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\U (2).png");
-	
-	//눈물총알
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_02, L"Texture\\Bullet\\Bullet_Tears02.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_03, L"Texture\\Bullet\\Bullet_Tears03.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_04, L"Texture\\Bullet\\Bullet_Tears04.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_05, L"Texture\\Bullet\\Bullet_Tears05.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_06, L"Texture\\Bullet\\Bullet_Tears06.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_07, L"Texture\\Bullet\\Bullet_Tears07.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_08, L"Texture\\Bullet\\Bullet_Tears08.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_09, L"Texture\\Bullet\\Bullet_Tears09.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_10, L"Texture\\Bullet\\Bullet_Tears10.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_11, L"Texture\\Bullet\\Bullet_Tears11.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_12, L"Texture\\Bullet\\Bullet_Tears12.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_13, L"Texture\\Bullet\\Bullet_Tears13.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_14, L"Texture\\Bullet\\Bullet_Tears14.png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_15, L"Texture\\Bullet\\Bullet_Tears15.png");
-
-	ObjectManager::GetInstance();
-
-	// 씬로드
-	SceneManager::LoadScene<TestScene>();
-
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_RU_01, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_RU_02, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_R_01, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_R_02, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_RD_01, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::SLUG_ATTACK_RD_02, L"Texture\\Monster\\Fire\\Slugma\\ATTACK\\RD (2).png");
 }
 
 void PKH::MainGame::LoadPlayerSprite()
