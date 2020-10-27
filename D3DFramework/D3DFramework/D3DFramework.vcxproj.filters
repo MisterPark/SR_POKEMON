@@ -67,6 +67,9 @@
     <Filter Include="GameObject\Character\Monster\Grass">
       <UniqueIdentifier>{966f9648-0ed3-4375-92bb-67bae28bbfb2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\TestObj">
+      <UniqueIdentifier>{c4085c3f-0d8d-4f0b-8d86-ee645c8aaf7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -219,6 +222,9 @@
     <ClInclude Include="Bullet.h">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="TestObj.h">
+      <Filter>GameObject\Character\TestObj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -349,6 +355,9 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="TestObj.cpp">
+      <Filter>GameObject\Character\TestObj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
