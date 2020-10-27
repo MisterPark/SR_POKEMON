@@ -13,15 +13,9 @@ public:
 private:
 	void ButterfreeParttern();
     void RandomMovePattern();
-	void SetTextureAngle();
     void Attack();
     
-    void SetSpriteWork();
-    void SetSpriteAttack();
 
-private:
-    Animation2D* ani;
-    int EnumKey;
-    float Angle;
+
 };
 

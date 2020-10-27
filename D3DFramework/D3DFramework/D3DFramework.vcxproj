@@ -182,6 +182,9 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Monster_Butterfree.h" />
     <ClInclude Include="Monster_Caterpie.h" />
+    <ClInclude Include="Monster_Metapod.h" />
+    <ClInclude Include="Monster_Oddish.h" />
+    <ClInclude Include="Monster_Vileplume.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Player.h" />
@@ -231,6 +234,9 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Monster_Butterfree.cpp" />
     <ClCompile Include="Monster_Caterpie.cpp" />
+    <ClCompile Include="Monster_Metapod.cpp" />
+    <ClCompile Include="Monster_Oddish.cpp" />
+    <ClCompile Include="Monster_Vileplume.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Player.cpp" />

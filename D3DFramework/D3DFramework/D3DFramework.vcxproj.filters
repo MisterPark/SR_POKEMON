@@ -225,6 +225,16 @@
     <ClInclude Include="TestObj.h">
       <Filter>GameObject\Character\TestObj</Filter>
     </ClInclude>
+    <ClInclude Include="Monster_Metapod.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+
+    <ClInclude Include="Monster_Oddish.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster_Vileplume.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -358,6 +368,15 @@
     </ClCompile>
     <ClCompile Include="TestObj.cpp">
       <Filter>GameObject\Character\TestObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Metapod.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Oddish.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Vileplume.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

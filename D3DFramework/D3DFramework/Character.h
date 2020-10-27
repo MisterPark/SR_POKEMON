@@ -18,6 +18,9 @@ public:
 
 
 public:
+	int Hp;
+	int Att;
+	float Speed;
     // 지형과 간격
     float offsetY;
 };

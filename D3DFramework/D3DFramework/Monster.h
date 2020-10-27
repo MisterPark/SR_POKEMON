@@ -16,6 +16,9 @@ public:
     virtual void Update() override;
     virtual void Render() override;
 
+	void SetTextureAngle();
+	void SetSpriteWalk();
+	void SetSpriteAttack();
 protected:
     
 
@@ -25,6 +28,12 @@ protected:
     Status CurrentStatus = Status::END;
     Vector3 AttackDir;
     Vector3 MoveDir;
+
+	Animation2D* ani;
+	float Angle;
+	int EnumKey;
+	TextureKey TextureAttack;
+	TextureKey TextureWALK;
     
 };
 
