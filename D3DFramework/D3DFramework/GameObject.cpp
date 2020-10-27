@@ -12,6 +12,7 @@ PKH::GameObject::GameObject()
 
 PKH::GameObject::~GameObject()
 {
+	ReleaseComponents();
 }
 
 void PKH::GameObject::Update()
@@ -127,6 +128,17 @@ void PKH::GameObject::Billboard()
 void PKH::GameObject::SetPosition(Vector3 _vPos)
 {
 	transform->position = _vPos;
+}
+
+void PKH::GameObject::ReleaseComponents()
+{
+	auto iter = components.begin();
+	auto end = components.end();
+	for (; iter != end;++iter)
+	{
+		delete iter->second;
+	}
+	components.clear();
 }
 
 IComponent* PKH::GameObject::GetComponent(const wstring& _key)
