@@ -23,6 +23,7 @@ public:
 		const bool& isPlayer = true);
 
 private:
+	Vector3 dir;
 	int type;
 	bool isPlayer;
 };

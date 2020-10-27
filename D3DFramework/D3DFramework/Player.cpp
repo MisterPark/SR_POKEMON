@@ -93,10 +93,14 @@ void Player::SpawnBullet()
 	{
 		if (InputManager::GetMouseLButton())
 		{
-			Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
+			Vector3 pos = Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
 
-			//GameObject* newBullet = Bullet::Create(transform->position, Vector3(0.2f, 0.2f, 0.2f), dir, 0);
-			//ObjectManager::AddObject(newBullet);
+			Vector3 dir = pos - transform->position;
+
+			Vector3::Normalize(&dir);
+
+			GameObject* newBullet = Bullet::Create(transform->position, Vector3(0.2f, 0.2f, 0.2f), dir, 0);
+			ObjectManager::AddObject(newBullet);
 
 			spawnTime = 1.f;
 			canSpawn = false;
