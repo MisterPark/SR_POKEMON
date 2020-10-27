@@ -12,6 +12,8 @@ namespace PKH
 		~ObjectManager();
 	public:
 		static ObjectManager* GetInstance();
+		static void Destroy();
+		static void Release();
 
 		template<class T>
 		GameObject* CreateObject(ObjectType _type = ObjectType::NONE);
@@ -27,7 +29,7 @@ namespace PKH
 
 		static void AddObject(GameObject* _obj);
 
-		static void Destroy();
+		
 		static void Update();
 		static void PostUpdate();
 		static void PreRender();

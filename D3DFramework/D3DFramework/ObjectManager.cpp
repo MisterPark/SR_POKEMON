@@ -18,6 +18,8 @@ PKH::ObjectManager::~ObjectManager()
 {
 	SkyBox::Destroy();
 	Cursor::Destroy();
+
+	Release();
 }
 
 ObjectManager * PKH::ObjectManager::GetInstance()
@@ -29,6 +31,24 @@ ObjectManager * PKH::ObjectManager::GetInstance()
 	return pObjectManager;
 }
 
+void PKH::ObjectManager::Destroy()
+{
+	delete pObjectManager;
+	pObjectManager = nullptr;
+}
+
+void PKH::ObjectManager::Release()
+{
+	auto& objList = pObjectManager->objectList;
+
+	auto iter = objList.begin();
+	auto end = objList.end();
+	for (;iter!=end;++iter)
+	{
+		delete (*iter);
+	}
+	objList.clear();
+}
 
 
 bool PKH::ObjectManager::DeleteObject(GameObject * _target)
@@ -59,11 +79,7 @@ void PKH::ObjectManager::AddObject(GameObject* _obj)
 	pObjectManager->objectList.push_back(_obj);
 }
 
-void PKH::ObjectManager::Destroy()
-{
-	delete pObjectManager;
-	pObjectManager = nullptr;
-}
+
 
 void PKH::ObjectManager::Update()
 {
@@ -92,12 +108,6 @@ void PKH::ObjectManager::PostUpdate()
 		if (target->isDead)
 		{
 			iter = objList.erase(iter);
-
-			/*		if (dynamic_cast<Character*>(target) != nullptr)
-					{
-						CollisionManager::DisregisterObject(target);
-					}*/
-
 			delete target;
 		}
 		else

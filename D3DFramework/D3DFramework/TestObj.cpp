@@ -1,20 +1,22 @@
 #include "stdafx.h"
-#include "Player.h"
+#include "TestObj.h"
 #include "Rectangle.h"
-#include "Environment.h"
-#include "Bullet.h"
+#include <iostream>
 
-Player::Player()
+using namespace std;
+
+TestObj::TestObj()
 {
 	Initialize();
 }
 
-Player::~Player()
+TestObj::~TestObj()
 {
 	Release();
+	//Character::~Character();
 }
 
-void Player::Initialize()
+void TestObj::Initialize()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
@@ -28,35 +30,35 @@ void Player::Initialize()
 	offsetY = 0.2f;
 
 	SetAnim();
-
-	ResetMousePoint();
-
-	Camera::GetInstance()->SetTarget(this);
 }
 
-void Player::Update()
+void TestObj::Update()
 {
-	CalcSpawnTime();
-	SpawnBullet();
-	KeyInput();
-	CalcMouse();
-	ResetMousePoint();
-
-	//SetAnim();
+	CalcDir();
 	Character::Update();
 }
 
-void Player::Render()
+void TestObj::Render()
 {
 	Character::Render();
 }
 
-void Player::Release()
+void TestObj::Release()
 {
 	//Character::Release();
 }
 
-void Player::ChangeAnim(STATE state, DIR dir)
+void TestObj::SetPos(const Vector3 & pos)
+{
+	transform->position = pos;
+}
+
+void TestObj::SetDir(const Vector3 & dir)
+{
+	myDir = dir;
+}
+
+void TestObj::ChangeAnim(STATE state, DIR dir)
 {
 	if (state != curState || dir != curDir)
 	{
@@ -66,147 +68,64 @@ void Player::ChangeAnim(STATE state, DIR dir)
 	}
 }
 
-void Player::ResetMousePoint()
+void TestObj::CalcDir()
 {
-	POINT pt = { dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2 };
-	ClientToScreen(g_hwnd, &pt);
-	SetCursorPos(pt.x, pt.y);
-}
+	Vector3 cameraPos = Camera::GetPosition();
+	Vector3 dir = cameraPos - transform->position;
 
-void Player::CalcSpawnTime()
-{
-	if (!canSpawn)
+	Vector3::Normalize(&dir);
+	Vector3::Normalize(&myDir);
+
+	Vector3 cross;
+	D3DXVec3Cross(&cross, &dir, &myDir);
+
+	float upDot = Vector3::Dot(Vector3(0.f, 1.f, 0.f), cross);
+
+	float dot = Vector3::Dot(dir, myDir);
+
+	float degree = D3DXToDegree(acos(dot));
+
+	degree = (upDot < 0.f) ? 360.f - degree : degree;
+
+	cout << degree << endl;
+
+	float gap = 22.5f;
+
+	if (315.f + gap <= degree || degree < 45.f - gap)
 	{
-		spawnTime -= TimeManager::DeltaTime();
-		if (0.f >= spawnTime)
-		{
-			canSpawn = true;
-		}
+		ChangeAnim(IDLE, D);
 	}
-}
-
-void Player::SpawnBullet()
-{
-	if (canSpawn)
+	else if (45.f - gap <= degree && degree < 45.f + gap)
 	{
-		if (InputManager::GetMouseLButton())
-		{
-			Vector3 pos = Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
-
-			Vector3 dir = pos - transform->position;
-
-			Vector3::Normalize(&dir);
-
-			GameObject* newBullet = Bullet::Create(transform->position, Vector3(0.2f, 0.2f, 0.2f), dir, 0);
-			ObjectManager::AddObject(newBullet);
-
-			spawnTime = 1.f;
-			canSpawn = false;
-		}
+		ChangeAnim(IDLE, LD);
 	}
-}
-
-void Player::CalcMouse()
-{
-	POINT pt = {};
-	GetCursorPos(&pt);
-	ScreenToClient(g_hwnd, &pt);
-
-	float xSize = (pt.x - (dfCLIENT_WIDTH / 2)) * 30.f / (dfCLIENT_WIDTH / 2);
-	float ySize = (pt.y - (dfCLIENT_HEIGHT / 2)) * 30.f / (dfCLIENT_HEIGHT / 2);
-
-	radianX += D3DXToRadian(ySize);
-
-	if (radianX > D3DXToRadian(30.f))
-		radianX = D3DXToRadian(30.f);
-	else if (radianX < D3DXToRadian(-15.f))
-		radianX = D3DXToRadian(-15.f);
-
-	radianY += D3DXToRadian(xSize);
-
-	transform->eulerAngles.x = radianX;
-	transform->eulerAngles.y = radianY;
-
-	OnTerrain();
-	
-}
-
-void Player::KeyInput()
-{
-	bool isKeyDown = false;
-
-	if (InputManager::GetKey('W'))
+	else if (90.f - gap <= degree && degree < 90.f + gap)
 	{
-		isKeyDown = true;
-		moveSpeed = 5.f;
-		Vector3 dir = transform->look;
-
-		if (InputManager::GetKey('A'))
-		{
-			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, LU);
-			dir += -transform->right;
-		}
-		else if (InputManager::GetKey('D'))
-		{
-			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, RU);
-			dir += transform->right;
-		}
-		else
-		{
-			ChangeAnim(WALK, U);
-		}
-
-		Move(dir);
+		ChangeAnim(IDLE, L);
 	}
-	else if (InputManager::GetKey('S'))
+	else if (135.f - gap <= degree && degree < 135.f + gap)
 	{
-		isKeyDown = true;
-		moveSpeed = 5.f;
-		Vector3 dir = -transform->look;
-
-		if (InputManager::GetKey('A'))
-		{
-			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, LD);
-			dir += -transform->right;
-		}
-		else if (InputManager::GetKey('D'))
-		{
-			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, RD);
-			dir += transform->right;
-		}
-		else
-		{
-			ChangeAnim(WALK, D);
-		}
-
-		Move(dir);
+		ChangeAnim(IDLE, RU);
 	}
-	else if (InputManager::GetKey('A'))
+	else if (180.f - gap <= degree && degree < 180.f + gap)
 	{
-		isKeyDown = true;
-		moveSpeed = 5.f;
-		ChangeAnim(WALK, L);
-		Move(-transform->right);
+		ChangeAnim(IDLE, U);
 	}
-	else if (InputManager::GetKey('D'))
+	else if (225.f - gap <= degree && degree < 225.f + gap)
 	{
-		isKeyDown = true;
-		moveSpeed = 5.f;
-		ChangeAnim(WALK, R);
-		Move(transform->right);
+		ChangeAnim(IDLE, LU);
 	}
-
-	if (!isKeyDown)
+	else if (270.f - gap <= degree && degree < 270.f + gap)
 	{
-		ChangeAnim(IDLE, curDir);
+		ChangeAnim(IDLE, R);
+	}
+	else if (315.f - gap <= degree && degree < 315.f + gap)
+	{
+		ChangeAnim(IDLE, RD);
 	}
 }
 
-void Player::SetAnim()
+void TestObj::SetAnim()
 {
 	switch (curState)
 	{
