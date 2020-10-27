@@ -26,16 +26,34 @@ Monster_Caterpie::~Monster_Caterpie()
 
 void Monster_Caterpie::Update()
 {
-	//룩벡터(z)
-	MoveDir = transform->look;
+	//몬스터가 바라보는 방향.
+	Vector3 dir = { 0.f,0.f,1.f };
+	dir.Normalized();
+	MoveDir = dir;
+	/*Move(dir);*/
+	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
+	//플레이어의 위치
+	Transform* PlayerT = g->transform;
 
-	Vector3::Normalize(&MoveDir);
+	//플레이어에서 몬스터까지의 거리
+	Vector3 Dist =  PlayerT->position - transform->position;
+	Dist.Normalized();
+
+	//카메라의 룩벡터
+	Vector3 vCameraLook = Camera::GetInstance()->transform->look;
+
+	float Angle = Vector3::Angle(Dist, vCameraLook);
 
 	
-
-	transform->position.x += 0.1;
-
-	/*MoveDir = D3DXToRadian(60);*/
+	
+	if (Angle <22.5 && Angle>-22.5)
+	{
+		ani->SetSprite(TextureKey::CATER_WALK_D_01, TextureKey::CATER_WALK_D_03);
+	}
+	else
+	{
+		ani->SetSprite(TextureKey::CATER_WALK_U_01, TextureKey::CATER_WALK_U_03);
+	}
 	Monster::Update();
 
 }
