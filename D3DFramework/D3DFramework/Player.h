@@ -9,7 +9,7 @@ class Player : public Character
 
 public:
     Player();
-    ~Player();
+    virtual ~Player();
 
 public:
 	virtual void Initialize() override;
@@ -22,6 +22,8 @@ public:
 
 private:
 	void ResetMousePoint();
+	void CalcSpawnTime();
+	void SpawnBullet();
 	void CalcMouse();
 	void KeyInput();
 	void SetAnim();
@@ -32,5 +34,7 @@ private:
 	DIR curDir;
 	float radianX = 0.f;
 	float radianY = 0.f;
+	float spawnTime = 0.f;
+	bool canSpawn = true;
 };
 

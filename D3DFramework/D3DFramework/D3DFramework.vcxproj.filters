@@ -216,6 +216,9 @@
     <ClInclude Include="Monster_Caterpie.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -343,6 +346,9 @@
     </ClCompile>
     <ClCompile Include="Monster_Caterpie.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

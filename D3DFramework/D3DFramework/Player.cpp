@@ -2,18 +2,18 @@
 #include "Player.h"
 #include "Rectangle.h"
 #include "Environment.h"
-#include "Terrain.h"
+#include "Bullet.h"
 
 Player::Player() :
-	Character()
+	Character::Character()
 {
 	Initialize();
 }
 
 Player::~Player()
 {
-	Character::~Character();
 	Release();
+	//Character::~Character();
 }
 
 void Player::Initialize()
@@ -34,12 +34,12 @@ void Player::Initialize()
 	ResetMousePoint();
 
 	Camera::GetInstance()->SetTarget(this);
-
-	Character::Initialize();
 }
 
 void Player::Update()
 {
+	CalcSpawnTime();
+	SpawnBullet();
 	KeyInput();
 	CalcMouse();
 	ResetMousePoint();
@@ -55,7 +55,7 @@ void Player::Render()
 
 void Player::Release()
 {
-	Character::Release();
+	//Character::Release();
 }
 
 void Player::ChangeAnim(STATE state, DIR dir)
@@ -75,6 +75,35 @@ void Player::ResetMousePoint()
 	SetCursorPos(pt.x, pt.y);
 }
 
+void Player::CalcSpawnTime()
+{
+	if (!canSpawn)
+	{
+		spawnTime -= TimeManager::DeltaTime();
+		if (0.f >= spawnTime)
+		{
+			canSpawn = true;
+		}
+	}
+}
+
+void Player::SpawnBullet()
+{
+	if (canSpawn)
+	{
+		if (InputManager::GetMouseLButton())
+		{
+			Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
+
+			//GameObject* newBullet = Bullet::Create(transform->position, Vector3(0.2f, 0.2f, 0.2f), dir, 0);
+			//ObjectManager::AddObject(newBullet);
+
+			spawnTime = 1.f;
+			canSpawn = false;
+		}
+	}
+}
+
 void Player::CalcMouse()
 {
 	POINT pt = {};
@@ -88,8 +117,8 @@ void Player::CalcMouse()
 
 	if (radianX > D3DXToRadian(30.f))
 		radianX = D3DXToRadian(30.f);
-	else if (radianX < D3DXToRadian(-30.f))
-		radianX = D3DXToRadian(-30.f);
+	else if (radianX < D3DXToRadian(-15.f))
+		radianX = D3DXToRadian(-15.f);
 
 	radianY += D3DXToRadian(xSize);
 
