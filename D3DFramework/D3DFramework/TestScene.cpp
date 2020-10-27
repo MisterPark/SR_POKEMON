@@ -10,6 +10,8 @@
 #include "Monster_Butterfree.h"
 #include "Monster_Caterpie.h"
 #include "Monster_Metapod.h"
+#include "Monster_Oddish.h"
+#include "Monster_Vileplume.h"
 #include "Environment.h"
 
 void TestScene::OnLoaded()
@@ -27,9 +29,12 @@ void TestScene::OnLoaded()
 	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
 	Obj->transform->position.x += 1;
 	Obj->transform->position.z += 1;
-	Obj = ObjectManager::GetInstance()->CreateObject<Monster_Metapod>();
+	Obj = ObjectManager::GetInstance()->CreateObject<Monster_Vileplume>();
 	Obj->transform->position.x += 1;
 	Obj->transform->position.z += 1;
+	//Obj = ObjectManager::GetInstance()->CreateObject<Monster_Oddish>();
+	//Obj->transform->position.x += 2;
+	//Obj->transform->position.z += 2;
 }
 
 void TestScene::OnUnloaded()

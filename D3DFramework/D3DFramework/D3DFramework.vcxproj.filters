@@ -222,6 +222,12 @@
     <ClInclude Include="Bullet.h">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Monster_Oddish.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster_Vileplume.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -355,6 +361,12 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Oddish.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Vileplume.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
