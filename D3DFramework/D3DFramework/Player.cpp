@@ -12,7 +12,6 @@ Player::Player() :
 
 Player::~Player()
 {
-	Character::~Character();
 	Release();
 }
 

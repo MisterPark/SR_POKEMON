@@ -52,6 +52,7 @@ namespace PKH
 
 		template<class T>
 		IComponent* AddComponent(const wstring& _key);
+		void ReleaseComponents();
 
 		IComponent* GetComponent(const wstring& _key);
 		Transform* GetTransform() { return transform; } //¼öÁ¤
