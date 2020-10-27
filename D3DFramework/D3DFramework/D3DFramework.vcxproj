@@ -23,13 +23,13 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{b5fd05d1-07cd-499b-8ec1-7885fd22ca77}</ProjectGuid>
     <RootNamespace>D3DFramework</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation2D.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullet_Water.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Monster_Butterfree.h" />
     <ClInclude Include="Monster_Caterpie.h" />
+    <ClInclude Include="Monster_Metapod.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Player.h" />
@@ -206,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation2D.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -228,6 +231,7 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Monster_Butterfree.cpp" />
     <ClCompile Include="Monster_Caterpie.cpp" />
+    <ClCompile Include="Monster_Metapod.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Player.cpp" />

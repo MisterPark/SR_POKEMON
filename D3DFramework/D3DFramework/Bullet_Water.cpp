@@ -30,7 +30,7 @@ Bullet_Water::~Bullet_Water()
 void Bullet_Water::Update()
 {
 
-	Character::Update();
+	Bullet::Update();
 	
 	transform->position += MoveDir * 3.f * TimeManager::DeltaTime();;
 	
@@ -44,7 +44,7 @@ void Bullet_Water::Update()
 
 void Bullet_Water::Render()
 {
-	Character::Render();
+	Bullet::Render();
 }
 
 void Bullet_Water::OnCollision(GameObject* target)
