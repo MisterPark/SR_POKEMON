@@ -78,6 +78,13 @@ PKH::Terrain::Terrain()
 
 PKH::Terrain::~Terrain()
 {
+	if (vertexInfo)
+	{
+		delete[] vertexInfo;
+		vertexInfo = nullptr;
+	}
+	
+		
 }
 
 void PKH::Terrain::Update()
@@ -130,6 +137,8 @@ void PKH::Terrain::LoadHeightMap(const string& filePath)
 
 
 	vb->Unlock();
+
+	delete[] buffer;
 }
 
 bool PKH::Terrain::GetYFromPoint(float* _outY, float _x, float _z)

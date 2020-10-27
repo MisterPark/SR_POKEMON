@@ -34,7 +34,17 @@ void Character::Release()
 void Character::OnTerrain()
 {
 	GameObject* obj = ObjectManager::GetInstance()->FindObject<Environment>();
+	if (obj == nullptr)
+	{
+		transform->position.y = offsetY;
+		return;
+	}
 	Terrain* mesh = (Terrain*)obj->GetComponent(L"Mesh");
+	if(mesh == nullptr)
+	{
+		transform->position.y = offsetY;
+		return;
+	}
 
 	float y;
 	bool onTerrain = mesh->GetYFromPoint(&y, transform->position.x, transform->position.z);
