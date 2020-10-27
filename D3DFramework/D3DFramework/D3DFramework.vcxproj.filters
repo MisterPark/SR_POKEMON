@@ -213,9 +213,6 @@
     <ClInclude Include="CubeMan.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Environment.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Monster_Caterpie.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
@@ -228,12 +225,20 @@
     <ClInclude Include="Monster_Metapod.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
-
     <ClInclude Include="Monster_Oddish.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
     <ClInclude Include="Monster_Vileplume.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Title.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -357,9 +362,6 @@
     <ClCompile Include="CubeMan.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="Environment.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Monster_Caterpie.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
@@ -377,6 +379,15 @@
     </ClCompile>
     <ClCompile Include="Monster_Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Title.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

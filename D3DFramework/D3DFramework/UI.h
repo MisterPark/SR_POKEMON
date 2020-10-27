@@ -8,8 +8,6 @@ public:
     virtual ~UI();
 
     virtual void Update() override;
-    virtual void Initialize() override;
-    virtual void Release() override;
 
 };
 

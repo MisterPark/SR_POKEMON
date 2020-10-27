@@ -14,6 +14,7 @@
 #include "Monster_Vileplume.h"
 #include "Environment.h"
 #include "TestObj.h"
+#include "TitleScene.h"
 
 void TestScene::OnLoaded()
 {
@@ -48,10 +49,14 @@ void TestScene::OnLoaded()
 
 void TestScene::OnUnloaded()
 {
+	Camera::GetInstance()->SetTarget(nullptr);
 	ObjectManager::DestroyAll();
 }
 
 void TestScene::Update()
 {
-
+	if (InputManager::GetKey(VK_F2))
+	{
+		SceneManager::LoadScene<TitleScene>();
+	}
 }
