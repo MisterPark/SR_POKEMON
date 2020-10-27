@@ -48,7 +48,7 @@ void Monster_Vileplume::Parttern()
 
 
 
-	if (CurrentStatus == Status::END && Dist < 7.f) {
+	if (CurrentStatus == Status::END && Dist < 8.f) {
 		CurrentStatus = Status::PLAYER_SEARCH;
 		
 
