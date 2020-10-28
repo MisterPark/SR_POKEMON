@@ -98,3 +98,21 @@ void Character::UpdateAnimation()
 	//anim->SetSprite(key, (TextureKey)((count - 1) + (int)key));
 
 }
+
+void Character::SetDir(const Vector3 & dir)
+{
+	D3DXVec3Normalize(&direction, &dir);
+}
+
+void Character::MoveForward()
+{
+	Move(direction);
+}
+
+void Character::ChangeState(State nextState)
+{
+	if (nextState != state)
+	{
+		state = nextState;
+	}
+}

@@ -14,7 +14,7 @@ Monster_Vileplume::Monster_Vileplume()
 
 	SetSpriteWalk();
 	offsetY = 1.f;
-	Speed = 0.5f;
+	//Speed = 0.5f;
 	state = State::END;
 	AttackDelay = false;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
@@ -76,8 +76,8 @@ void Monster_Vileplume::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
+	//transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
+	//transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;

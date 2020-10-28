@@ -48,7 +48,7 @@ Monster_Butterfree::Monster_Butterfree()
 
 	SetSpriteWalk();
 	offsetY = 2.5f;
-	Speed = 1.f;
+	//Speed = 1.f;
 	state = State::WALK;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -136,8 +136,8 @@ void Monster_Butterfree::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
+	//transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
+	//transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;

@@ -7,21 +7,27 @@
 #include "Player.h"
 #include "CubeMan.h"
 #include "Monster.h"
-#include "Monster_Butterfree.h"
-#include "Monster_Caterpie.h"
-#include "Monster_Metapod.h"
-#include "Monster_Oddish.h"
-#include "Monster_Vileplume.h"
+//#include "Monster_Butterfree.h"
+//#include "Monster_Caterpie.h"
+//#include "Monster_Metapod.h"
+//#include "Monster_Oddish.h"
+//#include "Monster_Vileplume.h"
 #include "Environment.h"
 #include "TestObj.h"
 #include "TitleScene.h"
 #include "Butterfree.h"
+#include "Bulbasaur.h"
 
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
-	ObjectManager::GetInstance()->CreateObject<Player>();
+
+	Bulbasaur* playerCharacter = Bulbasaur::Create({ 0.f, 0.f, 0.f }, { 0.2f, 0.2f, 0.2f }, { 0.f, 0.f, 1.f });
+	ObjectManager::AddObject(playerCharacter);
+	ObjectManager::AddObject(Player::Create(playerCharacter));
+
+	//ObjectManager::GetInstance()->CreateObject<Player>();
 	//ObjectManager::GetInstance()->CreateObject<CubeMan>();
 
 	ObjectManager::GetInstance()->CreateObject<Butterfree>();

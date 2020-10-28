@@ -1,14 +1,11 @@
 #pragma once
-#include "Character.h"
-#include "Animation2D.h"
+#include "PlayerCharacter.h"
 
-class Player : public Character
+class Player : public GameObject
 {
 public:
-	
-
-public:
     Player();
+	Player(PlayerCharacter* _character);
     virtual ~Player();
 
 public:
@@ -18,17 +15,17 @@ public:
 	virtual void Release() override;
 
 public:
-	void ChangeAnim(State state, DIR dir);
+	static Player* Create(PlayerCharacter* _character);
 
 private:
 	void ResetMousePoint();
 	void CalcSpawnTime();
-	void SpawnBullet();
+	void Attack();
 	void CalcMouse();
 	void KeyInput();
-	void SetAnim();
 
 private:
+	PlayerCharacter* character = nullptr;
 	float radianX = 0.f;
 	float radianY = 0.f;
 	float spawnTime = 0.f;

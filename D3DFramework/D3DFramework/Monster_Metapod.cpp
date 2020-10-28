@@ -11,7 +11,7 @@ Monster_Metapod::Monster_Metapod()
 
 	SetSpriteWalk();
 	offsetY = 1.f;
-	Speed = 0.15f;
+	//Speed = 0.15f;
 	state = State::END;
 	Monster::Update();
 }
@@ -53,8 +53,8 @@ void Monster_Metapod::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
+	//transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
+	//transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;

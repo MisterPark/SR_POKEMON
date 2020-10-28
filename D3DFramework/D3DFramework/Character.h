@@ -32,17 +32,22 @@ public:
 	// 애니메이션 업데이트
 	void UpdateAnimation();
 
+public:
+	void SetDir(const Vector3& dir);
+	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
+	void MoveForward();
+	void ChangeState(State nextState);
 
 public:
 	int Hp;
 	int Att;
-	float Speed;
     // 지형과 간격
     float offsetY;
 	Vector3 direction;
 	Animation2D* anim;
 	State state = State::IDLE;
 	DIR dir;
+
 	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	
