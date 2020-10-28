@@ -1,17 +1,16 @@
 #include "stdafx.h"
-#include "Psyduck.h"
+#include "Golduck.h"
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
 #include "PlayerCharacter.h"
 
-Psyduck::Psyduck()
+Golduck::Golduck()
 {
-	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
-	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3);
-	
-	
+	SetTexture(State::WALK, TextureKey::GOLD_WALK_D_01, 3);
+	SetTexture(State::ATTACK, TextureKey::GOLD_ATTACK_D_01, 2);
+	SetTexture(State::IDLE, TextureKey::GOLD_WALK_D_01, 3);
+
 	for (int i = 0; i < 8; i++)
 	{
 		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
@@ -23,22 +22,22 @@ Psyduck::Psyduck()
 	moveSpeed = 0.5f;
 }
 
-Psyduck::~Psyduck()
+Golduck::~Golduck()
 {
 }
 
-void Psyduck::Update()
+void Golduck::Update()
 {
 	Pattern();
 	Monster::Update();
 }
 
-void Psyduck::Render()
+void Golduck::Render()
 {
 	Monster::Render();
 }
 
-void Psyduck::Pattern()
+void Golduck::Pattern()
 {
 
 	GameObject* g = ObjectManager::GetInstance()->FindObject<PlayerCharacter>();
@@ -70,16 +69,16 @@ void Psyduck::Pattern()
 			RandomMovePattern();
 		}
 	}
-	
+
 	if (isSearch)
 	{
 
-		if (state == State::END&&Dist < 3.f)
+		if (state == State::END && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if(state == State::END &&Dist >=3.f)
+		if (state == State::END && Dist >= 3.f)
 		{
 			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
@@ -108,7 +107,7 @@ void Psyduck::Pattern()
 
 }
 
-void Psyduck::RandomMovePattern()
+void Golduck::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
@@ -125,7 +124,7 @@ void Psyduck::RandomMovePattern()
 	}
 }
 
-void Psyduck::Attack(Transform* PlayerT)
+void Golduck::Attack(Transform* PlayerT)
 {
 	Time[0] += TimeManager::DeltaTime();
 	if (!AttackDelay && Time[0] >= 0.3f) {
@@ -145,7 +144,7 @@ void Psyduck::Attack(Transform* PlayerT)
 	}
 }
 
-void Psyduck::CreateBullet(Transform* PlayerT)
+void Golduck::CreateBullet(Transform* PlayerT)
 {
 	direction = PlayerT->position - transform->position;
 	//MoveDir *= 1.5f;

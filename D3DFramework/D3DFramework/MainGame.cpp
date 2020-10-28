@@ -631,12 +631,12 @@ void PKH::MainGame::LoadMonsterSprite()
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_LU_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\LU (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_U_01, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\U (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_U_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\U (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RU_01, L"Texture\\Monster\\Water\\Psyduck\\ATTACK\\RU (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RU_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK\\RU (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_R_01, L"Texture\\Monster\\Water\\Psyduck\\ATTACK\\R (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_R_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK\\R (2).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RD_01, L"Texture\\Monster\\Water\\Psyduck\\ATTACK\\RD (1).png");
-	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK_RD_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK\\RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_RU_01, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_RU_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_R_01, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_R_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_RD_01, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PSY_ATTACK2_RD_02, L"Texture\\Monster\\Water\\Psyduck\\ATTACK2\\RD (2).png");
 	//½ºÀÌÄï
 	//ÀÌµ¿
 	D2DRenderManager::LoadSprite(TextureKey::SUI_WALK_D_01, L"Texture\\Monster\\Water\\Suicune\\WALK\\D (1).png");
@@ -1054,8 +1054,9 @@ void PKH::MainGame::Release()
 void PKH::MainGame::Update()
 {
 	InputManager::Update();
-	ObjectManager::Update();
 	Camera::GetInstance()->Update();
+	ObjectManager::Update();
+
 	CollisionManager::Update();
 
 	ObjectManager::PostUpdate();

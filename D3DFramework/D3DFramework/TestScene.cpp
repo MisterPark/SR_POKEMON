@@ -22,15 +22,15 @@ void TestScene::OnLoaded()
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
 
-	Bulbasaur* playerCharacter = new Bulbasaur(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Bulbasaur* playerCharacter = Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 	Player* player = new Player(playerCharacter);
 	ObjectManager::AddObject(player);
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
-	/*ObjectManager::GetInstance()->CreateObject<Psyduck>();*/
+	ObjectManager::GetInstance()->CreateObject<Psyduck>();
 
-	ObjectManager::GetInstance()->CreateObject<Butterfree>();
+	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
 	//for (int i = 0; i < 1; i++) {
 	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();
@@ -40,9 +40,9 @@ void TestScene::OnLoaded()
 	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
 	//Obj->transform->position.x += 1;
 	//Obj->transform->position.z += 1;
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
-	Obj->transform->position.x += 3;
-	Obj->transform->position.z += 3;
+	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
+	//Obj->transform->position.x += 3;
+	//Obj->transform->position.z += 3;
 	//Obj = ObjectManager::GetInstance()->CreateObject<Monster_Oddish>();
 	//Obj->transform->position.x += 5;
 	//Obj->transform->position.z += 5;

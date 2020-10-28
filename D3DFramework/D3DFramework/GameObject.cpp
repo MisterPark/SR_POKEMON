@@ -107,7 +107,7 @@ void PKH::GameObject::FaceTarget(const Vector3& _targetPos)
 
 void PKH::GameObject::Billboard()
 {
-	D3DXMATRIX matView;
+	D3DXMATRIX matScale, matView;
 	D3DXMatrixIdentity(&matView);
 	matView = Camera::GetViewMatrix();
 
@@ -115,14 +115,16 @@ void PKH::GameObject::Billboard()
 	D3DXMatrixInverse(&matView, 0, &matView);
 
 	D3DXVECTOR3 BillPos = transform->position;
+	D3DXMatrixScaling(&matScale, transform->scale.x, transform->scale.y, transform->scale.z);
 
+	
 
 	//이동 부분
 	memcpy(&matView._41, &BillPos, sizeof(D3DXVECTOR3));
 	//이동부분을 반영해줍니다. 다시 좌표의 위치로 이동시켜주는 처리입니다.
 
 	//D2DRenderManager::GetDevice()->SetTransform(D3DTS_WORLD, &matView);
-	transform->world = matView;
+	transform->world = matScale*matView;
 }
 
 void PKH::GameObject::SetPosition(Vector3 _vPos)

@@ -252,6 +252,21 @@
     <ClInclude Include="Metapod.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
+    <ClInclude Include="Poliwrath.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Golduck.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Jynx.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwag.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Suicune.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
     <ClInclude Include="Bulbasaur.h">
       <Filter>GameObject\Character\Player\Bulbasaur</Filter>
     </ClInclude>
@@ -412,9 +427,6 @@
     </ClCompile>
     <ClCompile Include="Metapod.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Bulbasaur.cpp">
-      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
