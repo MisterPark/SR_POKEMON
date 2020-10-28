@@ -1,11 +1,11 @@
 #pragma once
-#include "PlayerCharacter.h"
+#include "Character.h"
 
 class Player : public GameObject
 {
 public:
     Player();
-	Player(PlayerCharacter* _character);
+	Player(Character* _character);
     virtual ~Player();
 
 public:
@@ -15,7 +15,7 @@ public:
 	virtual void Release() override;
 
 public:
-	static Player* Create(PlayerCharacter* _character);
+	static Player* Create(Character* _character);
 
 private:
 	void ResetMousePoint();
@@ -25,7 +25,7 @@ private:
 	void KeyInput();
 
 private:
-	PlayerCharacter* character = nullptr;
+	Character* character = nullptr;
 	float radianX = 0.f;
 	float radianY = 0.f;
 	float spawnTime = 0.f;

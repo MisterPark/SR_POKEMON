@@ -6,7 +6,7 @@ Player::Player()
 	Initialize();
 }
 
-Player::Player(PlayerCharacter * _character) :
+Player::Player(Character * _character) :
 	character(_character)
 {
 	Initialize();
@@ -46,7 +46,7 @@ void Player::Release()
 	//character->Die();
 }
 
-Player * Player::Create(PlayerCharacter * _character)
+Player * Player::Create(Character * _character)
 {
 	Player* newPlayer = new Player(_character);
 	return newPlayer;
@@ -139,7 +139,7 @@ void Player::KeyInput()
 		}
 
 		character->SetMoveSpeed(moveSpeed);
-		character->MoveForward();
+		character->Move(character->direction);
 		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('S'))

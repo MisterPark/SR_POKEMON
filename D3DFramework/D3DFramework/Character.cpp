@@ -19,10 +19,10 @@ Character::~Character()
 
 void Character::Update()
 {
-	GameObject::Update();
 	OnTerrain();
 	Billboard();
 	UpdateAnimation();
+	GameObject::Update();
 }
 
 void Character::Render()
@@ -119,6 +119,14 @@ void Character::ChangeState(State nextState)
 	{
 		state = nextState;
 	}
+}
+
+void Character::Attack(const Vector3 & dir)
+{
+}
+
+void Character::Skill(const Vector3 & dir)
+{
 }
 
 void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame) {
