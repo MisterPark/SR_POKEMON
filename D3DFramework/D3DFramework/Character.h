@@ -5,7 +5,6 @@ enum class State
 {
 	IDLE, WALK, ATTACK, PLAYER_SEARCH, SKILL, HURT, END
 };
-enum DIR { D, LD, L, LU, U, RU, R, RD };
 enum class Direction
 {
 	D, LD, L, LU, U, RU, R, RD, END
@@ -39,10 +38,9 @@ public:
 	float Speed;
     // 지형과 간격
     float offsetY;
-	Vector3 direction;
-	Animation2D* anim;
+	Vector3 direction = { 0,0,1 };
+	Animation2D* anim = nullptr;
 	State state = State::IDLE;
-	DIR dir;
 	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	
