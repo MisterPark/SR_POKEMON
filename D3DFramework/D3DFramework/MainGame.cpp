@@ -1054,8 +1054,9 @@ void PKH::MainGame::Release()
 void PKH::MainGame::Update()
 {
 	InputManager::Update();
-	ObjectManager::Update();
 	Camera::GetInstance()->Update();
+	ObjectManager::Update();
+
 	CollisionManager::Update();
 
 	ObjectManager::PostUpdate();
