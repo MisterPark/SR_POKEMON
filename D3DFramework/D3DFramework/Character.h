@@ -5,7 +5,6 @@ enum class State
 {
 	IDLE, WALK, ATTACK, PLAYER_SEARCH, SKILL, HURT, END
 };
-enum DIR { D, LD, L, LU, U, RU, R, RD };
 enum class Direction
 {
 	D, LD, L, LU, U, RU, R, RD, END
@@ -32,19 +31,22 @@ public:
 	// 애니메이션 업데이트
 	void UpdateAnimation();
 	// 애니메이션 텍스쳐 설정
-	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame);
-
+	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame = -1);
 
 public:
-	int Hp;
-	int Att;
-	float Speed;
+	void SetDir(const Vector3& dir);
+	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
+	void MoveForward();
+	void ChangeState(State nextState);
+
+public:
+	int hp;
+	int att;
     // 지형과 간격
     float offsetY;
-	Vector3 direction;
-	Animation2D* anim;
+	Vector3 direction = { 0,0,1 };
+	Animation2D* anim = nullptr;
 	State state = State::IDLE;
-	DIR dir;
 	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	

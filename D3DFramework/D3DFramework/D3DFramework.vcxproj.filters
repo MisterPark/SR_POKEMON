@@ -73,6 +73,12 @@
     <Filter Include="GameObject\Character\Monster\Water">
       <UniqueIdentifier>{caeb1c73-6f4c-4b66-b658-6f9fb01b2fa2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\PlayerCharacter">
+      <UniqueIdentifier>{1a59bbbf-e486-4dc9-9937-29419e77d590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\PlayerCharacter\Bulbasaur">
+      <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -249,6 +255,12 @@
     <ClInclude Include="Psyduck.h">
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerCharacter.h">
+      <Filter>GameObject\Character\PlayerCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Bulbasaur.h">
+      <Filter>GameObject\Character\PlayerCharacter\Bulbasaur</Filter>
+    </ClInclude>
     <ClInclude Include="Vileplume.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
@@ -409,6 +421,12 @@
     </ClCompile>
     <ClCompile Include="Psyduck.cpp">
       <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacter.cpp">
+      <Filter>GameObject\Character\PlayerCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Bulbasaur.cpp">
+      <Filter>GameObject\Character\PlayerCharacter\Bulbasaur</Filter>
     </ClCompile>
     <ClCompile Include="Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>

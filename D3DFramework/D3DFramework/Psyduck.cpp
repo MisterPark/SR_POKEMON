@@ -76,8 +76,8 @@ void Psyduck::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
+	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;
