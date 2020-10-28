@@ -11,6 +11,7 @@ Psyduck::Psyduck()
 	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3);
 	
+	
 	for (int i = 0; i < 8; i++)
 	{
 		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);

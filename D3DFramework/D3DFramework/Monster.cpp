@@ -29,8 +29,8 @@ void Monster::Update()
 	
 	
 
-	Billboard();
-	OnTerrain();
+	/*Billboard();*/
+	/*OnTerrain();*/
 }
 
 void Monster::Render()
