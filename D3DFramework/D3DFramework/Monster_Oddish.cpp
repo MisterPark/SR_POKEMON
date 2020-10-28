@@ -15,7 +15,7 @@ Monster_Oddish::Monster_Oddish()
 	//anim->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
 	//transform->RotateY(90);
 	offsetY = 1.f;
-	//Speed = 0.3f;
+	//moveSpeed = 0.3f;
 	state = State::END;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -77,8 +77,8 @@ void Monster_Oddish::Parttern()
 		}
 		direction = PlayerT->position - transform->position;
 		D3DXVec3Normalize(&direction, &direction);
-		//transform->position.x += direction.x * 6.f * Speed * TimeManager::DeltaTime();
-		//transform->position.z += direction.z * 6.f * Speed * TimeManager::DeltaTime();
+		//transform->position.x += direction.x * 6.f * moveSpeed * TimeManager::DeltaTime();
+		//transform->position.z += direction.z * 6.f * moveSpeed * TimeManager::DeltaTime();
 	}
 
 }
@@ -87,8 +87,8 @@ void Monster_Oddish::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	//transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
-	//transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
+	//transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
+	//transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;

@@ -2,8 +2,7 @@
 #include "Bullet.h"
 #include "Rectangle.h"
 
-Bullet::Bullet() :
-	Character::Character()
+Bullet::Bullet()
 {
 }
 
@@ -23,12 +22,8 @@ Bullet::~Bullet()
 
 void Bullet::Initialize()
 {
-	AddComponent<PKH::Rectangle>(L"Mesh");
-	Animation2D* anim = (Animation2D*)AddComponent<Animation2D>(L"Animation");
-
-	anim->SetSprite(TextureKey::BULLET_TEARS_01, TextureKey::BULLET_TEARS_15);
-	anim->SetLoop(true);
-	anim->SetDelay(0.2f);
+	SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 15);
+	state = State::IDLE;
 }
 
 void Bullet::Update()

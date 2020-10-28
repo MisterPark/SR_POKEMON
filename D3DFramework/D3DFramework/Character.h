@@ -31,7 +31,7 @@ public:
 	// 애니메이션 업데이트
 	void UpdateAnimation();
 	// 애니메이션 텍스쳐 설정
-	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame);
+	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame = -1);
 
 public:
 	void SetDir(const Vector3& dir);
@@ -40,8 +40,8 @@ public:
 	void ChangeState(State nextState);
 
 public:
-	int Hp;
-	int Att;
+	int hp;
+	int att;
     // 지형과 간격
     float offsetY;
 	Vector3 direction = { 0,0,1 };
