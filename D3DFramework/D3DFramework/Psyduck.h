@@ -13,9 +13,10 @@
     private:
         void Pattern();
         void RandomMovePattern();
-        void Attack();
+        void Attack(Transform* PlayerT);
+        void CreateBullet(Transform* PlayerT);
 
         bool isSearch = false;
-
+        bool AttackDelay;
     };
 
