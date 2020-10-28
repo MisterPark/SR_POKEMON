@@ -249,6 +249,12 @@
     <ClInclude Include="Psyduck.h">
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
+    <ClInclude Include="Vileplume.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Metapod.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -403,6 +409,12 @@
     </ClCompile>
     <ClCompile Include="Psyduck.cpp">
       <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Vileplume.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Metapod.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

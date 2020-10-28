@@ -1,12 +1,12 @@
 #pragma once
 #include "Monster.h"
-class Psyduck :
+class Vileplume :
     public Monster
 {
 public:
-    Psyduck();
-    virtual ~Psyduck();
-
+    Vileplume();
+    virtual ~Vileplume();
+    // Character을(를) 통해 상속됨
     virtual void Update() override;
     virtual void Render() override;
 
@@ -17,7 +17,6 @@ private:
     void CreateBullet(Transform* PlayerT);
 
     bool AttackDelay;
-
-
 };
+
 
