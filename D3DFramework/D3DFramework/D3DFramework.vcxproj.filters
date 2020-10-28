@@ -231,15 +231,6 @@
     <ClInclude Include="TestObj.h">
       <Filter>GameObject\Character\TestObj</Filter>
     </ClInclude>
-    <ClInclude Include="Monster_Metapod.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster_Oddish.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster_Vileplume.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -265,6 +256,9 @@
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
     <ClInclude Include="Metapod.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Oddish.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
   </ItemGroup>
@@ -398,15 +392,6 @@
     <ClCompile Include="TestObj.cpp">
       <Filter>GameObject\Character\TestObj</Filter>
     </ClCompile>
-    <ClCompile Include="Monster_Metapod.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster_Oddish.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster_Vileplume.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -432,6 +417,9 @@
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
     <ClCompile Include="Metapod.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
   </ItemGroup>

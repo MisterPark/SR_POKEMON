@@ -15,7 +15,6 @@ Vileplume::Vileplume()
 	}
 	anim->SetLoop(true);
 
-	offsetY = 1.f;
 	moveSpeed = 0.5f;
 	state = State::IDLE;
 	AttackDelay = false;
