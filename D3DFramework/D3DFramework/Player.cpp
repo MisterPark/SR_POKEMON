@@ -115,6 +115,7 @@ void Player::CalcMouse()
 
 void Player::KeyInput()
 {
+	
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
@@ -139,7 +140,7 @@ void Player::KeyInput()
 		}
 
 		character->SetMoveSpeed(moveSpeed);
-		character->Move(character->direction);
+		character->MoveForward();
 		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('S'))

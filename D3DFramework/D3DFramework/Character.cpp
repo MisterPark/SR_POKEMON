@@ -19,6 +19,7 @@ Character::~Character()
 
 void Character::Update()
 {
+	GameObject::Update();
 	OnTerrain();
 	Billboard();
 	UpdateAnimation();

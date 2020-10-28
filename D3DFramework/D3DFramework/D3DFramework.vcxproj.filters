@@ -246,6 +246,9 @@
     <ClInclude Include="Psyduck.h">
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
+    <ClInclude Include="Bulbasaur.h">
+      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
+    </ClInclude>
     <ClInclude Include="Vileplume.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
@@ -266,9 +269,6 @@
     </ClInclude>
     <ClInclude Include="Suicune.h">
       <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Bulbasaur.h">
-      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -422,11 +422,29 @@
     <ClCompile Include="Psyduck.cpp">
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
+    <ClCompile Include="Bulbasaur.cpp">
+      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
+    </ClCompile>
     <ClCompile Include="Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
     <ClCompile Include="Metapod.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwrath.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Suicune.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwag.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Jynx.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Golduck.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
