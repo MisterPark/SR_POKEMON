@@ -104,10 +104,31 @@ void Character::UpdateAnimation()
 
 }
 
-void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame) {
+void Character::SetDir(const Vector3 & dir)
+{
+	D3DXVec3Normalize(&direction, &dir);
+}
+
+void Character::MoveForward()
+{
+	Move(direction);
+}
+
+void Character::ChangeState(State nextState)
+{
+	if (nextState != state)
+	{
+		state = nextState;
+	}
+}
+
+void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame) {
 	for (int i = 0; i < 8; i++)
 	{
 		startArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame));
-		endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_aniFrame - 1));
+		if (-1 == _endFrame)
+			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_aniFrame - 1));
+		else
+			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_endFrame - 1));
 	}
 }

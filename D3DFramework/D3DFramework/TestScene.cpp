@@ -12,16 +12,21 @@
 #include "TitleScene.h"
 #include "Butterfree.h"
 #include "Psyduck.h"
+#include "Bulbasaur.h"
+
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
-	ObjectManager::GetInstance()->CreateObject<Player>();
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Psyduck>();
-	Obj->transform->position.x += 15.f;
 
+	Bulbasaur* playerCharacter = Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	ObjectManager::AddObject(playerCharacter);
+	ObjectManager::AddObject(Player::Create(playerCharacter));
 
-	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
+	//ObjectManager::GetInstance()->CreateObject<Player>();
+	/*ObjectManager::GetInstance()->CreateObject<Psyduck>();*/
+
+	ObjectManager::GetInstance()->CreateObject<Butterfree>();
 	
 	//for (int i = 0; i < 1; i++) {
 	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();

@@ -91,37 +91,60 @@ void TestObj::CalcDir()
 
 	float gap = 22.5f;
 
+	int tmpDir = curDir;
+
 	if (315.f + gap <= degree || degree < 45.f - gap)
 	{
-		ChangeAnim(IDLE, D);
+		//ChangeAnim(IDLE, D);
 	}
 	else if (45.f - gap <= degree && degree < 45.f + gap)
 	{
-		ChangeAnim(IDLE, LD);
+		++tmpDir;
+		//ChangeAnim(IDLE, LD);
 	}
 	else if (90.f - gap <= degree && degree < 90.f + gap)
 	{
-		ChangeAnim(IDLE, L);
+		tmpDir += 2;
+		//ChangeAnim(IDLE, L);
 	}
 	else if (135.f - gap <= degree && degree < 135.f + gap)
 	{
-		ChangeAnim(IDLE, RU);
+		tmpDir += 3;
+		//ChangeAnim(IDLE, RU);
 	}
 	else if (180.f - gap <= degree && degree < 180.f + gap)
 	{
-		ChangeAnim(IDLE, U);
+		tmpDir += 4;
+		//ChangeAnim(IDLE, U);
 	}
 	else if (225.f - gap <= degree && degree < 225.f + gap)
 	{
-		ChangeAnim(IDLE, LU);
+		tmpDir += 5;
+		//ChangeAnim(IDLE, LU);
 	}
 	else if (270.f - gap <= degree && degree < 270.f + gap)
 	{
-		ChangeAnim(IDLE, R);
+		tmpDir += 6;
+		//ChangeAnim(IDLE, R);
 	}
 	else if (315.f - gap <= degree && degree < 315.f + gap)
 	{
-		ChangeAnim(IDLE, RD);
+		tmpDir += 7;
+		//ChangeAnim(IDLE, RD);
+	}
+
+	tmpDir %= 8;
+
+	switch (tmpDir)
+	{
+	case 0: ChangeAnim(IDLE, D); break;
+	case 1: ChangeAnim(IDLE, LD); break;
+	case 2: ChangeAnim(IDLE, L); break;
+	case 3: ChangeAnim(IDLE, LU); break;
+	case 4: ChangeAnim(IDLE, U); break;
+	case 5: ChangeAnim(IDLE, RU); break;
+	case 6: ChangeAnim(IDLE, R); break;
+	case 7: ChangeAnim(IDLE, RD); break;
 	}
 }
 
