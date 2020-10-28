@@ -8,6 +8,5 @@ public:
     virtual ~Butterfree();
 
 
-
 };
 
