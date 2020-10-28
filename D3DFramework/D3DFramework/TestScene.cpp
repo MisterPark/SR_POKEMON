@@ -17,9 +17,11 @@ void TestScene::OnLoaded()
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
 	ObjectManager::GetInstance()->CreateObject<Player>();
-	/*ObjectManager::GetInstance()->CreateObject<Psyduck>();*/
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Psyduck>();
+	Obj->transform->position.x += 15.f;
 
-	ObjectManager::GetInstance()->CreateObject<Butterfree>();
+
+	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
 	//for (int i = 0; i < 1; i++) {
 	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();

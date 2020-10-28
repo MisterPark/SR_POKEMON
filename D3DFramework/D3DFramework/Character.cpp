@@ -81,6 +81,11 @@ void Character::UpdateAnimation()
 
 	angle += 202.5f;
 	
+	if (angle > 360.f)
+	{
+		angle -= 360;
+	}
+
 	if ((int)angle % 45 > 22.5f) {
 		angle /= 45.f;
 		angle -= 1;

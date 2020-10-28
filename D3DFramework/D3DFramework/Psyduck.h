@@ -12,8 +12,10 @@ public:
 
 private:
     void Pattern();
-    void MovePattern();
+    void RandomMovePattern();
     void Attack();
+
+    bool isSearch = false;
 
 };
 
