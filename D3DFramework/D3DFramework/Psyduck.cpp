@@ -18,6 +18,7 @@ Psyduck::Psyduck()
 	anim->SetLoop(true);
 	offsetY = 1.f;
 	state = State::END;
+	moveSpeed = 0.5f;
 }
 
 Psyduck::~Psyduck()
@@ -67,7 +68,36 @@ void Psyduck::Pattern()
 	
 	if (isSearch)
 	{
-		state = State::ATTACK;
+
+		if (Dist < 3.f)
+		{
+			state = State::ATTACK;
+
+		}
+		if(Dist >=3.f &&Time[1]!=0&&Frame[1]!=0)
+		{
+			state = State::WALK;
+			Vector3 Dist = PlayerT->position - transform->position;
+			Dist.Normalized();
+			direction = Dist;
+			transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
+			transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+		}
+
+		if (state == State::ATTACK)
+		{
+			state = State::ATTACK;
+			Time[1] += TimeManager::DeltaTime();
+			if (Time[1] >= 0.6f) {
+				Time[1] = 0.f;
+				Frame[1] ++;
+				if (Frame[1] == 4) {
+					Frame[1] = 0;
+					Time[1] = 0.f;
+					state = State::WALK;
+				}
+			}
+		}
 	}
 	//if (state != State::END && Dist < 5.f) {
 	//	state = State::END;
