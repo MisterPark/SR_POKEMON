@@ -57,6 +57,8 @@ void PKH::MainGame::Initialize()
 	LoadPlayerSprite();
 
     // 리소스 로드
+	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle.png");
+
 	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\SKYBOX_U.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\SKYBOX_D.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_L, L"Texture\\SKYBOX_L.png");
@@ -87,6 +89,10 @@ void PKH::MainGame::Initialize()
 	// 씬로드
 	SceneManager::LoadScene<TestScene>();
 
+}
+
+void PKH::MainGame::LoadUISprite()
+{
 }
 
 void PKH::MainGame::LoadMonsterSprite()
