@@ -39,6 +39,9 @@ public:
 	void MoveForward();
 	void ChangeState(State nextState);
 
+	virtual void Attack(const Vector3& dir);
+	virtual void Skill(const Vector3& dir);
+
 public:
 	int hp;
 	int att;

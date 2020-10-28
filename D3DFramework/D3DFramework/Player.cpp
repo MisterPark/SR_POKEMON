@@ -6,7 +6,7 @@ Player::Player()
 	Initialize();
 }
 
-Player::Player(PlayerCharacter * _character) :
+Player::Player(Character * _character) :
 	character(_character)
 {
 	Initialize();
@@ -46,7 +46,7 @@ void Player::Release()
 	//character->Die();
 }
 
-Player * Player::Create(PlayerCharacter * _character)
+Player * Player::Create(Character * _character)
 {
 	Player* newPlayer = new Player(_character);
 	return newPlayer;
@@ -115,6 +115,7 @@ void Player::CalcMouse()
 
 void Player::KeyInput()
 {
+	
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
@@ -140,6 +141,7 @@ void Player::KeyInput()
 
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('S'))
 	{
@@ -162,6 +164,7 @@ void Player::KeyInput()
 
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('A'))
 	{
@@ -169,6 +172,7 @@ void Player::KeyInput()
 		character->SetDir(-character->transform->right);
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('D'))
 	{
@@ -176,6 +180,7 @@ void Player::KeyInput()
 		character->SetDir(character->transform->right);
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 
 	if (!isKeyDown)

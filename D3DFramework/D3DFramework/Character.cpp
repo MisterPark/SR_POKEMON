@@ -23,6 +23,7 @@ void Character::Update()
 	OnTerrain();
 	Billboard();
 	UpdateAnimation();
+
 }
 
 void Character::Render()
@@ -81,6 +82,11 @@ void Character::UpdateAnimation()
 
 	angle += 202.5f;
 	
+	if (angle > 360.f)
+	{
+		angle -= 360;
+	}
+
 	if ((int)angle % 45 > 22.5f) {
 		angle /= 45.f;
 		angle -= 1;
@@ -119,6 +125,14 @@ void Character::ChangeState(State nextState)
 	{
 		state = nextState;
 	}
+}
+
+void Character::Attack(const Vector3 & dir)
+{
+}
+
+void Character::Skill(const Vector3 & dir)
+{
 }
 
 void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame) {

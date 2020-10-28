@@ -28,9 +28,9 @@ void TestScene::OnLoaded()
 	ObjectManager::AddObject(Player::Create(playerCharacter));
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
-	/*ObjectManager::GetInstance()->CreateObject<Psyduck>();*/
+	ObjectManager::GetInstance()->CreateObject<Psyduck>();
 
-	ObjectManager::GetInstance()->CreateObject<Butterfree>();
+	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
 	//for (int i = 0; i < 1; i++) {
 	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();
@@ -40,15 +40,12 @@ void TestScene::OnLoaded()
 	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
 	//Obj->transform->position.x += 1;
 	//Obj->transform->position.z += 1;
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
-	Obj->transform->position.x += 3;
-	Obj->transform->position.z += 3;
-	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
-	Obj->transform->position.x += 5;
-	Obj->transform->position.z += 5;
-	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
-	Obj->transform->position.x += 10;
-	Obj->transform->position.z += 10;
+	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
+	//Obj->transform->position.x += 3;
+	//Obj->transform->position.z += 3;
+	//Obj = ObjectManager::GetInstance()->CreateObject<Monster_Oddish>();
+	//Obj->transform->position.x += 5;
+	//Obj->transform->position.z += 5;
 
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });

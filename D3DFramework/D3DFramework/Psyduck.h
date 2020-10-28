@@ -1,23 +1,22 @@
-#pragma once
-#include "Monster.h"
-class Psyduck :
-    public Monster
-{
-public:
-    Psyduck();
-    virtual ~Psyduck();
+    #pragma once
+    #include "Monster.h"
+    class Psyduck :
+        public Monster
+    {
+    public:
+        Psyduck();
+        virtual ~Psyduck();
 
-    virtual void Update() override;
-    virtual void Render() override;
+        virtual void Update() override;
+        virtual void Render() override;
 
-private:
-    void Parttern();
-    void RandomMovePattern();
-    void Attack(Transform* PlayerT);
-    void CreateBullet(Transform* PlayerT);
+    private:
+        void Pattern();
+        void RandomMovePattern();
+        void Attack(Transform* PlayerT);
+        void CreateBullet(Transform* PlayerT);
 
-    bool AttackDelay;
-
-
-};
+        bool isSearch = false;
+        bool AttackDelay;
+    };
 

@@ -67,16 +67,10 @@
     <Filter Include="GameObject\Character\Monster\Grass">
       <UniqueIdentifier>{966f9648-0ed3-4375-92bb-67bae28bbfb2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\TestObj">
-      <UniqueIdentifier>{c4085c3f-0d8d-4f0b-8d86-ee645c8aaf7d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Character\Monster\Water">
       <UniqueIdentifier>{caeb1c73-6f4c-4b66-b658-6f9fb01b2fa2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\PlayerCharacter">
-      <UniqueIdentifier>{1a59bbbf-e486-4dc9-9937-29419e77d590}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\PlayerCharacter\Bulbasaur">
+    <Filter Include="GameObject\Character\Player\Bulbasaur">
       <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -228,9 +222,6 @@
     <ClInclude Include="Bullet.h">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="TestObj.h">
-      <Filter>GameObject\Character\TestObj</Filter>
-    </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -246,17 +237,29 @@
     <ClInclude Include="Psyduck.h">
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerCharacter.h">
-      <Filter>GameObject\Character\PlayerCharacter</Filter>
-    </ClInclude>
     <ClInclude Include="Bulbasaur.h">
-      <Filter>GameObject\Character\PlayerCharacter\Bulbasaur</Filter>
+      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
     </ClInclude>
     <ClInclude Include="Vileplume.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
     <ClInclude Include="Metapod.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwrath.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Golduck.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Jynx.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwag.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Suicune.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
     <ClInclude Include="Oddish.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
@@ -389,9 +392,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="TestObj.cpp">
-      <Filter>GameObject\Character\TestObj</Filter>
-    </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -407,17 +407,29 @@
     <ClCompile Include="Psyduck.cpp">
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerCharacter.cpp">
-      <Filter>GameObject\Character\PlayerCharacter</Filter>
-    </ClCompile>
     <ClCompile Include="Bulbasaur.cpp">
-      <Filter>GameObject\Character\PlayerCharacter\Bulbasaur</Filter>
+      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
     </ClCompile>
     <ClCompile Include="Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
     <ClCompile Include="Metapod.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwrath.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Suicune.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwag.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Jynx.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Golduck.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
     <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>

@@ -27,19 +27,19 @@ void Bulbasaur::Initialize()
 	SetTexture(State::ATTACK, TextureKey::PG01_ATTACK_D_01, 2);
 
 	anim->SetLoop(true);
-	offsetY = 2.f;
+	offsetY = 0.2f;
 
 	state = State::IDLE;
 }
 
 void Bulbasaur::Update()
 {
-	PlayerCharacter::Update();
+	Character::Update();
 }
 
 void Bulbasaur::Render()
 {
-	PlayerCharacter::Render();
+	Character::Render();
 }
 
 void Bulbasaur::Release()
