@@ -261,6 +261,21 @@
     <ClInclude Include="Metapod.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
+    <ClInclude Include="Poliwrath.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Golduck.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Jynx.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwag.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Suicune.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -424,6 +439,21 @@
     </ClCompile>
     <ClCompile Include="Metapod.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwrath.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Suicune.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwag.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Jynx.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Golduck.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
