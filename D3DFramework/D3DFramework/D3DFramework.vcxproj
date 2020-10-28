@@ -157,6 +157,7 @@
     <ClInclude Include="Animation2D.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullet_Water.h" />
+    <ClInclude Include="Butterfree.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="Animation2D.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
+    <ClCompile Include="Butterfree.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
