@@ -14,7 +14,7 @@ Metapod::Metapod()
 	anim->SetLoop(true);
 
 	offsetY = 1.f;
-	Speed = 0.15f;
+	moveSpeed = 0.15f;
 	state = State::IDLE;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -55,8 +55,8 @@ void Metapod::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	transform->position.x += direction.x * Speed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * Speed * TimeManager::DeltaTime();
+	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;
