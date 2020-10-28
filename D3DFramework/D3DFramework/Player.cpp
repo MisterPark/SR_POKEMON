@@ -115,7 +115,6 @@ void Player::CalcMouse()
 
 void Player::KeyInput()
 {
-	
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
