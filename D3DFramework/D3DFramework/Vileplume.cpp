@@ -1,15 +1,18 @@
 #include "stdafx.h"
-#include "Monster_Vileplume.h"
+#include "Vileplume.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
 #include "Player.h"
 
-Monster_Vileplume::Monster_Vileplume()
+Vileplume::Vileplume()
 {
-	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-	SetTexture(State::WALK, TextureKey::BUTTER_WALK_D_01, 3);
-	SetTexture(State::ATTACK, TextureKey::BUTTER_ATTACK_D_01, 2);
+	SetTexture(State::WALK, TextureKey::VILE_WALK_D_01, 3);
+	SetTexture(State::PLAYER_SEARCH, TextureKey::VILE_ATTACK_D_01, 2);
+	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3);
+	for (int i = 0; i < 8; i++)
+	{
+		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 1);
+	}
 	anim->SetLoop(true);
 
 	offsetY = 1.f;
@@ -19,22 +22,22 @@ Monster_Vileplume::Monster_Vileplume()
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
-Monster_Vileplume::~Monster_Vileplume()
+Vileplume::~Vileplume()
 {
 }
 
-void Monster_Vileplume::Update()
+void Vileplume::Update()
 {
 	Parttern();
 	Monster::Update();
 }
 
-void Monster_Vileplume::Render()
+void Vileplume::Render()
 {
 	Monster::Render();
 }
 
-void Monster_Vileplume::Parttern()
+void Vileplume::Parttern()
 {
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
 	Transform* PlayerT = g->transform;
@@ -46,14 +49,14 @@ void Monster_Vileplume::Parttern()
 
 
 
-	if (state == State::END && Dist < 8.f) {
+	if (state == State::IDLE && Dist < 8.f) {
 		state = State::PLAYER_SEARCH;
-		
+
 		Time[0] = 0;
 		Frame[0] = 0;
 	}
-	else if (state == State::END) { // 이건 랜덤패턴 갖기전 대기상태
-		state = (State)Random::Range(0, 0); // 패턴 나누어주는곳 (랜덤)
+	else if (state == State::IDLE) { // 이건 랜덤패턴 갖기전 대기상태
+		state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
 
 		if (state == State::WALK) {            // 이곳에서 패턴 레디
 			direction.x = -4.f + Random::Value(9) * 1.f;
@@ -66,26 +69,27 @@ void Monster_Vileplume::Parttern()
 	else if (state == State::PLAYER_SEARCH) {
 		Attack(PlayerT);
 	}
+
 }
 
-void Monster_Vileplume::RandomMovePattern()
+void Vileplume::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	//transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-	//transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;
 		Time[0] = 0;
 		if (Frame[0] == 2) {			// 4번의 파닥거림 후
 			Frame[0] = 0;
-			state = State::END;
+			state = State::IDLE;
 		}
 	}
 }
 
-void Monster_Vileplume::Attack(Transform* PlayerT)
+void Vileplume::Attack(Transform* PlayerT)
 {
 	Time[0] += TimeManager::DeltaTime();
 	if (!AttackDelay && Time[0] >= 0.3f) {
@@ -100,12 +104,12 @@ void Monster_Vileplume::Attack(Transform* PlayerT)
 			Frame[0] = 0;
 			anim->SetDelay(0.2f);
 			state = State::WALK;
-			
+
 		}
 	}
 }
 
-void Monster_Vileplume::CreateBullet(Transform* PlayerT) {
+void Vileplume::CreateBullet(Transform* PlayerT) {
 	direction = PlayerT->position - transform->position;
 	//MoveDir *= 1.5f;
 	float R = 0.5f;

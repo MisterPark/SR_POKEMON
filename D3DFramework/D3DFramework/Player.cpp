@@ -140,6 +140,7 @@ void Player::KeyInput()
 
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('S'))
 	{
@@ -162,6 +163,7 @@ void Player::KeyInput()
 
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('A'))
 	{
@@ -169,6 +171,7 @@ void Player::KeyInput()
 		character->SetDir(-character->transform->right);
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('D'))
 	{
@@ -176,6 +179,7 @@ void Player::KeyInput()
 		character->SetDir(character->transform->right);
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
+		character->ChangeState(State::WALK);
 	}
 
 	if (!isKeyDown)

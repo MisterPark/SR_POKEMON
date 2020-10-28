@@ -181,6 +181,7 @@
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Metapod.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Monster_Butterfree.h" />
     <ClInclude Include="Monster_Caterpie.h" />
@@ -203,7 +204,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />
-    <ClInclude Include="TestObj.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeManager.h" />
@@ -214,6 +214,7 @@
     <ClInclude Include="UI_Title.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vertex.h" />
+    <ClInclude Include="Vileplume.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation2D.cpp" />
@@ -239,6 +240,7 @@
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Metapod.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Monster_Butterfree.cpp" />
     <ClCompile Include="Monster_Caterpie.cpp" />
@@ -260,7 +262,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Terrain.cpp" />
-    <ClCompile Include="TestObj.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />
@@ -271,6 +272,7 @@
     <ClCompile Include="UI_Title.cpp" />
     <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="Vileplume.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D3DFramework.rc" />

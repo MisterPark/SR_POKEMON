@@ -4,12 +4,12 @@
 #include "Player.h"
 
 Bullet_Water::Bullet_Water()
-{
-
-
+{   //TODO : 불렛이 지형타는중
     SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 1);
-    
     state = State::IDLE;
+    anim->SetLoop(true);
+    anim->SetDelay(0.2f);
+
     for (int i = 0; i < 3; i++)
     {
         Time[i] = 0;
@@ -41,6 +41,7 @@ void Bullet_Water::Update()
 
 void Bullet_Water::Render()
 {
+    
     Character::Render();
 }
 
