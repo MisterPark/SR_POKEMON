@@ -3,13 +3,14 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "Player.h"
+#include "PlayerCharacter.h"
 
 Psyduck::Psyduck()
 {
 	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3);
+	
 	for (int i = 0; i < 8; i++)
 	{
 		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
@@ -39,7 +40,7 @@ void Psyduck::Render()
 void Psyduck::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
+	GameObject* g = ObjectManager::GetInstance()->FindObject<PlayerCharacter>();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -51,20 +52,22 @@ void Psyduck::Pattern()
 	float radian1 = PlayerT->scale.x / 2;
 	float radian2 = transform->scale.x / 2;
 
-	if (Dist < 5.f) {
-		isSearch = true;
-	}
-
-	if (state==State::END&&!isSearch)
+	if (!isSearch)
 	{
-		state = State::WALK;
-		direction.x = -4.f + Random::Value(9) * 1.f;
-		direction.z = -4.f + Random::Value(9) * 1.f;
-	}
-	if (state == State::WALK) {		//// 이곳부터 업데이트
-		RandomMovePattern();
-	}
+		if (Dist < 5.f) {
+			isSearch = true;
+		}
 
+		if (state == State::END && !isSearch)
+		{
+			state = State::WALK;
+			direction.x = -4.f + Random::Value(9) * 1.f;
+			direction.z = -4.f + Random::Value(9) * 1.f;
+		}
+		if (state == State::WALK) {		//// 이곳부터 업데이트
+			RandomMovePattern();
+		}
+	}
 	
 	if (isSearch)
 	{

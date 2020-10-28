@@ -24,9 +24,9 @@ void TestScene::OnLoaded()
 	ObjectManager::AddObject(Player::Create(playerCharacter));
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
-	/*ObjectManager::GetInstance()->CreateObject<Psyduck>();*/
+	ObjectManager::GetInstance()->CreateObject<Psyduck>();
 
-	ObjectManager::GetInstance()->CreateObject<Butterfree>();
+	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
 	//for (int i = 0; i < 1; i++) {
 	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();

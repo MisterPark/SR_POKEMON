@@ -3,6 +3,7 @@
 
 PlayerCharacter::PlayerCharacter()
 {
+	
 }
 
 PlayerCharacter::~PlayerCharacter()
