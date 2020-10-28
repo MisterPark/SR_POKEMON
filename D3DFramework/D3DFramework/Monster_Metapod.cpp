@@ -5,11 +5,8 @@
 Monster_Metapod::Monster_Metapod()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	TextureAttack = TextureKey::META_ATTACK_D_01;
-	TextureWALK = TextureKey::META_WALK_D_01;
 	anim->SetLoop(true);
 
-	SetSpriteWalk();
 	offsetY = 1.f;
 	Speed = 0.15f;
 	state = State::END;
@@ -24,7 +21,6 @@ Monster_Metapod::~Monster_Metapod()
 void Monster_Metapod::Update()
 {
 	Pattern();
-	SetTextureAngle();
 	Monster::Update();
 }
 

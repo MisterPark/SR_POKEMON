@@ -1,20 +1,19 @@
 #pragma once
 #include "Monster.h"
-class Monster_Caterpie :
+class Psyduck :
     public Monster
 {
 public:
-    Monster_Caterpie();
-    virtual ~Monster_Caterpie();
-    // Character을(를) 통해 상속됨
+    Psyduck();
+    virtual ~Psyduck();
+
     virtual void Update() override;
     virtual void Render() override;
 
-
 private:
-    Animation2D* ani;
     void Pattern();
     void MovePattern();
     void Attack();
+
 };
 
