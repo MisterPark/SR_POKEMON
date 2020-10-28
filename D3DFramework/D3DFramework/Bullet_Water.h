@@ -12,8 +12,7 @@ public:
     virtual void OnCollision(GameObject* target) override;
 
     void SetDir(float fX, float fZ, float fY = 0.f) { MoveDir.x = fX; MoveDir.y = fY; MoveDir.z = fZ; }
-private:
+    private:
     float Time[3];  // 프레임(시간) 재는용도
     Vector3 MoveDir;
 };
-

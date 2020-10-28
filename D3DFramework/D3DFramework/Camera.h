@@ -22,7 +22,6 @@ namespace PKH
 		static float GetY();
 		static Matrix GetViewMatrix();
 		static Matrix GetProjectionMatrix();
-		static void GetViewMatrix(Matrix* outView);
 		static bool GetProjection3D();
 		static void SetProjection3D(bool ProjectionSet);
 

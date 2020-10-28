@@ -14,6 +14,7 @@ namespace PKH
 		static void Destroy();
 
 		static void Initialize();
+		static void LoadUISprite();
 		static void LoadMonsterSprite();
 		static void LoadPlayerSprite();
 
