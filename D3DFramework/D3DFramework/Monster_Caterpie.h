@@ -13,5 +13,8 @@ public:
 
 private:
     Animation2D* ani;
+    void Pattern();
+    void MovePattern();
+    void Attack();
 };
 

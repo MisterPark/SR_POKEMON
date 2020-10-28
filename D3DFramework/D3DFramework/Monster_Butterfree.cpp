@@ -8,8 +8,6 @@
 Monster_Butterfree::Monster_Butterfree()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	TextureAttack = TextureKey::BUTTER_ATTACK_D_01;
-	TextureWALK = TextureKey::BUTTER_WALK_D_01;
 	anim->SetLoop(true);
 
 	startArray[(int)State::WALK][(int)Direction::D] = TextureKey::BUTTER_WALK_D_01;
@@ -46,7 +44,7 @@ Monster_Butterfree::Monster_Butterfree()
 	startArray[(int)State::ATTACK][(int)Direction::RD] = TextureKey::BUTTER_ATTACK_RD_01;
 	endArray[(int)State::ATTACK][(int)Direction::RD] = TextureKey::BUTTER_ATTACK_RD_02;
 
-	SetSpriteWalk();
+	
 	offsetY = 2.5f;
 	Speed = 1.f;
 	state = State::IDLE;
@@ -60,7 +58,6 @@ Monster_Butterfree::~Monster_Butterfree()
 void Monster_Butterfree::Update()
 {
 	ButterfreeParttern();
-	SetTextureAngle();
 	Monster::Update();
 
 }
@@ -101,7 +98,7 @@ void Monster_Butterfree::ButterfreeParttern()
 		b->SetDir(direction.x, direction.z, direction.y);
 		*(b->transform) = *transform;
 
-		SetSpriteAttack();
+		
 		Time[0] = 0;
 		Frame[0] = 0;
 	}
@@ -119,7 +116,7 @@ void Monster_Butterfree::ButterfreeParttern()
 			b->SetDir(direction.x, direction.z);
 			*(b->transform) = *transform;
 			/*b->transform->position.y += 0.5f;*/
-			SetSpriteAttack();
+			
 		}
 	}
 	else if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -158,7 +155,7 @@ void Monster_Butterfree::Attack()
 		anim->SetDelay(0.2f);
 		Time[0] = 0.f;
 		state = State::IDLE;
-		SetSpriteWalk();
+		
 	}
 }
 

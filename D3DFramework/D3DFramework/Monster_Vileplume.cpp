@@ -8,11 +8,9 @@ Monster_Vileplume::Monster_Vileplume()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-	TextureAttack = TextureKey::VILE_ATTACK_D_01;
-	TextureWALK = TextureKey::VILE_WALK_D_01;
+	
 	anim->SetLoop(true);
 
-	SetSpriteWalk();
 	offsetY = 1.f;
 	Speed = 0.5f;
 	state = State::END;
@@ -27,7 +25,6 @@ Monster_Vileplume::~Monster_Vileplume()
 void Monster_Vileplume::Update()
 {
 	Parttern();
-	SetTextureAngle();
 	Monster::Update();
 }
 
@@ -52,7 +49,7 @@ void Monster_Vileplume::Parttern()
 		state = State::PLAYER_SEARCH;
 		
 
-		SetSpriteAttack();
+		
 		Time[0] = 0;
 		Frame[0] = 0;
 	}
@@ -104,7 +101,7 @@ void Monster_Vileplume::Attack(Transform* PlayerT)
 			Frame[0] = 0;
 			anim->SetDelay(0.2f);
 			state = State::WALK;
-			SetSpriteWalk();
+			
 		}
 	}
 }

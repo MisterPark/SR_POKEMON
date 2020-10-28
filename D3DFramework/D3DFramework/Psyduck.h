@@ -1,13 +1,19 @@
 #pragma once
-#include "Character.h"
+#include "Monster.h"
 class Psyduck :
-    public Character
+    public Monster
 {
 public:
     Psyduck();
     virtual ~Psyduck();
 
-    
+    virtual void Update() override;
+    virtual void Render() override;
+
+private:
+    void Pattern();
+    void MovePattern();
+    void Attack();
 
 };
 
