@@ -116,3 +116,11 @@ void Character::ChangeState(State nextState)
 		state = nextState;
 	}
 }
+
+void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame) {
+	for (int i = 0; i < 8; i++)
+	{
+		startArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame));
+		endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_aniFrame - 1));
+	}
+}

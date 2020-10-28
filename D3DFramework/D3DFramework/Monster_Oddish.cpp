@@ -9,11 +9,9 @@ Monster_Oddish::Monster_Oddish()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-	TextureAttack = TextureKey::ODDI_ATTACK_D_01;
-	TextureWALK = TextureKey::ODDI_WALK_D_01;
 	anim->SetLoop(true);
 
-	SetSpriteWalk();
+	
 	//anim->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
 	//transform->RotateY(90);
 	offsetY = 1.f;
@@ -29,7 +27,6 @@ Monster_Oddish::~Monster_Oddish()
 void Monster_Oddish::Update()
 {
 	Parttern();
-	SetTextureAngle();
 	Monster::Update();
 
 }
@@ -110,7 +107,7 @@ void Monster_Oddish::Attack()
 		anim->SetDelay(0.2f);
 		Time[0] = 0.f;
 		state = State::END;
-		SetSpriteWalk();
+		
 	}
 }
 
