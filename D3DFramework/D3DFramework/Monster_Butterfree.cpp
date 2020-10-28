@@ -49,7 +49,7 @@ Monster_Butterfree::Monster_Butterfree()
 	SetSpriteWalk();
 	offsetY = 2.5f;
 	Speed = 1.f;
-	state = State::WALK;
+	state = State::IDLE;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
@@ -83,10 +83,12 @@ void Monster_Butterfree::ButterfreeParttern()
 
 	float Dist = sqrt(distX * distX + distZ * distZ);
 
+	
+	float radian1 = PlayerT->scale.x / 2;
+	float radian2 = transform->scale.x / 2;
+	
 
-
-
-	if (state != State::PLAYER_SEARCH && Dist < 5.f) {
+	if (state != State::PLAYER_SEARCH && Dist < radian1 + radian2+5.f) {
 		state = State::PLAYER_SEARCH;
 		//이곳에서 플레이어 향하는 방향벡터 정해주고
 		//MoveDir = PlayerT->position - transform->position;
@@ -94,7 +96,7 @@ void Monster_Butterfree::ButterfreeParttern()
 		direction.y = 0;
 		direction.z = 1;
 		D3DXVec3Normalize(&direction, &direction);
-		direction *= 1.5f;
+
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		b->SetDir(direction.x, direction.z, direction.y);
 		*(b->transform) = *transform;
