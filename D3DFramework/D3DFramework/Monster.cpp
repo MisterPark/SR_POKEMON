@@ -27,9 +27,11 @@ void Monster::Update()
 	//FaceTarget(Camera::GetInstance());
 	Character::Update();
 	
+	
+
 	Billboard();
 	OnTerrain();
-
+	SetTextureAngle();
 }
 
 void Monster::Render()
@@ -40,12 +42,9 @@ void Monster::Render()
 
 void Monster::SetTextureAngle()
 {
-	Vector3 vLook = Camera::GetInstance()->transform->look;
-
-	Vector3::Normalize(&vLook);
 
 
-	Angle = Vector3::Angle(MoveDir.Normalized(), vLook);
+	float Angle = GetAngleFromCamera();
 
 	//if (Angle < 100) {
 	//	int i = 0;
@@ -53,7 +52,7 @@ void Monster::SetTextureAngle()
 	Angle += 180.f;
 	Angle = int(Angle) / 45;
 
-	if (CurrentStatus == Status::MOVE) {
+	if (state == State::WALK) {
 		EnumKey = (int)TextureKey::BUTTER_WALK_D_01;
 		EnumKey += Angle * 3;
 	}
@@ -65,17 +64,10 @@ void Monster::SetTextureAngle()
 
 }
 
-
-void Monster::SetSpriteWalk() {
-	EnumKey = (int)TextureWALK;
-	EnumKey += Angle * 3;
-	ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey + 2));
-	ani->SetDelay(0.2f);
+void Monster::SetSpriteWalk()
+{
 }
 
-void Monster::SetSpriteAttack() {
-	EnumKey = (int)TextureAttack;
-	EnumKey += Angle * 2;
-	ani->SetSprite((TextureKey)EnumKey, (TextureKey)(EnumKey + 1));
-	ani->SetDelay(0.3f);
+void Monster::SetSpriteAttack()
+{
 }

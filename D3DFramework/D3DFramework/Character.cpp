@@ -2,10 +2,14 @@
 #include "Character.h"
 #include "Terrain.h"
 #include "Environment.h"
+#include "Rectangle.h"
 
 Character::Character()
 {
+	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	CollisionManager::RegisterObject(this);
+	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
+
 }
 
 Character::~Character()
@@ -16,6 +20,9 @@ Character::~Character()
 void Character::Update()
 {
 	GameObject::Update();
+	OnTerrain();
+	Billboard();
+	UpdateAnimation();
 }
 
 void Character::Render()
@@ -54,4 +61,40 @@ void Character::OnTerrain()
 	{
 		transform->position.y = offsetY;
 	}
+}
+
+float Character::GetAngleFromCamera()
+{
+	// 카메라가 몬스터를 향하는 각
+	Vector3 camPos = Camera::GetPosition();
+	float degree1 = Vector3::AngleY(camPos, transform->position);
+
+	// 몬스터 월드 각
+	float degree2 = D3DXToDegree(atan2f(direction.x, direction.z));
+
+	return (degree2 - degree1);
+}
+
+void Character::UpdateAnimation()
+{
+	float angle = GetAngleFromCamera();
+
+	angle += 202.5f;
+	
+	if ((int)angle % 45 > 22.5f) {
+		angle /= 45.f;
+		angle -= 1;
+	}
+	else {
+		angle /= 45.f;
+	}
+	int index = angle;
+
+	// 상태
+	anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+	//int count = endArray[(int)state] - startArray[(int)state] + 1;
+
+	//TextureKey key = (TextureKey)(startArray[(int)state] + index * count);
+	//anim->SetSprite(key, (TextureKey)((count - 1) + (int)key));
+
 }

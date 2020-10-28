@@ -17,14 +17,13 @@ Player::~Player()
 void Player::Initialize()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 	
 	moveSpeed = 5.f;
 
 	transform->scale = Vector3(0.2f, 0.2f, 0.2f);
 
-	curState = ATTACK;
-	curDir = U;
+	state = State::ATTACK;
+	dir = U;
 	offsetY = 0.2f;
 
 	SetAnim();
@@ -56,12 +55,12 @@ void Player::Release()
 	//Character::Release();
 }
 
-void Player::ChangeAnim(STATE state, DIR dir)
+void Player::ChangeAnim(State state, DIR dir)
 {
-	if (state != curState || dir != curDir)
+	if (this->state != state || this->dir != dir)
 	{
-		curState = state;
-		curDir = dir;
+		this->state = state;
+		this->dir = dir;
 		SetAnim();
 	}
 }
@@ -144,18 +143,18 @@ void Player::KeyInput()
 		if (InputManager::GetKey('A'))
 		{
 			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, LU);
+			ChangeAnim(State::WALK, LU);
 			dir += -transform->right;
 		}
 		else if (InputManager::GetKey('D'))
 		{
 			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, RU);
+			ChangeAnim(State::WALK, RU);
 			dir += transform->right;
 		}
 		else
 		{
-			ChangeAnim(WALK, U);
+			ChangeAnim(State::WALK, U);
 		}
 
 		Move(dir);
@@ -169,18 +168,18 @@ void Player::KeyInput()
 		if (InputManager::GetKey('A'))
 		{
 			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, LD);
+			ChangeAnim(State::WALK, LD);
 			dir += -transform->right;
 		}
 		else if (InputManager::GetKey('D'))
 		{
 			moveSpeed = 5.f / sqrt(2.f);
-			ChangeAnim(WALK, RD);
+			ChangeAnim(State::WALK, RD);
 			dir += transform->right;
 		}
 		else
 		{
-			ChangeAnim(WALK, D);
+			ChangeAnim(State::WALK, D);
 		}
 
 		Move(dir);
@@ -189,29 +188,29 @@ void Player::KeyInput()
 	{
 		isKeyDown = true;
 		moveSpeed = 5.f;
-		ChangeAnim(WALK, L);
+		ChangeAnim(State::WALK, L);
 		Move(-transform->right);
 	}
 	else if (InputManager::GetKey('D'))
 	{
 		isKeyDown = true;
 		moveSpeed = 5.f;
-		ChangeAnim(WALK, R);
+		ChangeAnim(State::WALK, R);
 		Move(transform->right);
 	}
 
 	if (!isKeyDown)
 	{
-		ChangeAnim(IDLE, curDir);
+		ChangeAnim(State::IDLE, dir);
 	}
 }
 
 void Player::SetAnim()
 {
-	switch (curState)
+	switch (state)
 	{
-	case IDLE:
-		switch (curDir)
+	case State::IDLE:
+		switch (dir)
 		{
 		case D:		anim->SetSprite(TextureKey::PG01_WALK_D_01,		TextureKey::PG01_WALK_D_01); break;
 		case LD:	anim->SetSprite(TextureKey::PG01_WALK_LD_01,	TextureKey::PG01_WALK_LD_01); break;
@@ -226,8 +225,8 @@ void Player::SetAnim()
 		anim->SetLoop(true);
 		break;
 
-	case WALK:
-		switch (curDir)
+	case State::WALK:
+		switch (dir)
 		{
 		case D:		anim->SetSprite(TextureKey::PG01_WALK_D_01,		TextureKey::PG01_WALK_D_03); break;
 		case LD:	anim->SetSprite(TextureKey::PG01_WALK_LD_01,	TextureKey::PG01_WALK_LD_03); break;
@@ -242,8 +241,8 @@ void Player::SetAnim()
 		anim->SetLoop(true);
 		break;
 
-	case ATTACK:
-		switch (curDir)
+	case State::ATTACK:
+		switch (dir)
 		{
 		case D:		anim->SetSprite(TextureKey::PG01_ATTACK_D_01,	TextureKey::PG01_ATTACK_D_02); break;
 		case LD:	anim->SetSprite(TextureKey::PG01_ATTACK_LD_01,	TextureKey::PG01_ATTACK_LD_02); break;
