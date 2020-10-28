@@ -4,12 +4,9 @@
 #include "Player.h"
 
 Bullet_Water::Bullet_Water()
-{
-    Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-    Animation2D* ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
-    //anim->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
-    anim->SetSprite(TextureKey::BULLET_TEARS_01, TextureKey::BULLET_TEARS_01);
+{   //TODO : 불렛이 지형타는중
+    SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 1);
+    state = State::IDLE;
     anim->SetLoop(true);
     anim->SetDelay(0.2f);
 
@@ -44,6 +41,7 @@ void Bullet_Water::Update()
 
 void Bullet_Water::Render()
 {
+    
     Character::Render();
 }
 

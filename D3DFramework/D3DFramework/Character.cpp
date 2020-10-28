@@ -90,6 +90,10 @@ void Character::UpdateAnimation()
 	}
 	int index = angle;
 
+	if (index > 7)
+		index -= 8;
+	else if (index < 0)
+		index += 8;
 	// »óÅÂ
 	anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
 	//int count = endArray[(int)state] - startArray[(int)state] + 1;

@@ -255,6 +255,12 @@
     <ClInclude Include="Bulbasaur.h">
       <Filter>GameObject\Character\PlayerCharacter\Bulbasaur</Filter>
     </ClInclude>
+    <ClInclude Include="Vileplume.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Metapod.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -412,6 +418,12 @@
     </ClCompile>
     <ClCompile Include="Bulbasaur.cpp">
       <Filter>GameObject\Character\PlayerCharacter\Bulbasaur</Filter>
+    </ClCompile>
+    <ClCompile Include="Vileplume.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Metapod.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
