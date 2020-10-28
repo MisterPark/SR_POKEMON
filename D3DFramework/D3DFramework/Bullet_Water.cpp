@@ -8,10 +8,10 @@ Bullet_Water::Bullet_Water()
     Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
     Animation2D* ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
-    //ani->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
-    ani->SetSprite(TextureKey::BULLET_TEARS_01, TextureKey::BULLET_TEARS_01);
-    ani->SetLoop(true);
-    ani->SetDelay(0.2f);
+    //anim->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
+    anim->SetSprite(TextureKey::BULLET_TEARS_01, TextureKey::BULLET_TEARS_01);
+    anim->SetLoop(true);
+    anim->SetDelay(0.2f);
 
     for (int i = 0; i < 3; i++)
     {

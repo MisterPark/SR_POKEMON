@@ -1,5 +1,16 @@
 #pragma once
 #include "GameObject.h"
+
+enum class State
+{
+	IDLE, WALK, ATTACK, PLAYER_SEARCH, SKILL, HURT, END
+};
+enum DIR { D, LD, L, LU, U, RU, R, RD };
+enum class Direction
+{
+	D, LD, L, LU, U, RU, R, RD, END
+};
+
 class Character :
     public GameObject
 {
@@ -15,6 +26,10 @@ public:
     virtual void Release() override;
 
     void OnTerrain();
+	float GetAngleFromCamera();
+	void SetTextureAngle();
+
+	void UpdateAnimation();
 
 
 public:
@@ -23,5 +38,12 @@ public:
 	float Speed;
     // 지형과 간격
     float offsetY;
+	Vector3 direction;
+	Animation2D* anim;
+	State state = State::IDLE;
+	DIR dir;
+	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
+	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
+	
 };
 

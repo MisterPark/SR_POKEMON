@@ -44,8 +44,12 @@ void PKH::Animation2D::Update()
 void PKH::Animation2D::SetSprite(TextureKey _startTexture, TextureKey _endTexture)
 {
 	startTexture = _startTexture;
-	currentTexture = startTexture;
 	endTexture = _endTexture;
+	if ((int)currentTexture < (int)startTexture
+		|| (int)currentTexture >(int)endTexture)
+	{
+		currentTexture = startTexture;
+	}
 	
 }
 

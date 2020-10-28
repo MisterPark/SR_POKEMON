@@ -5,8 +5,7 @@
 class Player : public Character
 {
 public:
-	enum STATE { IDLE, WALK, ATTACK, SKILL, HURT };
-	enum DIR { D, LD, L, LU, U, RU, R, RD };
+	
 
 public:
     Player();
@@ -19,7 +18,7 @@ public:
 	virtual void Release() override;
 
 public:
-	void ChangeAnim(STATE state, DIR dir);
+	void ChangeAnim(State state, DIR dir);
 
 private:
 	void ResetMousePoint();
@@ -30,9 +29,6 @@ private:
 	void SetAnim();
 
 private:
-	Animation2D* anim;
-	STATE curState;
-	DIR curDir;
 	float radianX = 0.f;
 	float radianY = 0.f;
 	float spawnTime = 0.f;
