@@ -22,7 +22,7 @@ void TestScene::OnLoaded()
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
 
-	Bulbasaur* playerCharacter = Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
+	Bulbasaur* playerCharacter = Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 	ObjectManager::AddObject(Player::Create(playerCharacter));
 

@@ -19,10 +19,11 @@ Character::~Character()
 
 void Character::Update()
 {
-	GameObject::Update();
+	
 	OnTerrain();
 	Billboard();
 	UpdateAnimation();
+	GameObject::Update();
 }
 
 void Character::Render()
