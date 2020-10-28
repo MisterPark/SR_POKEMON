@@ -3,7 +3,7 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "PlayerCharacter.h"
+#include "Character.h"
 
 Golduck::Golduck()
 {
@@ -40,7 +40,7 @@ void Golduck::Render()
 void Golduck::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<PlayerCharacter>();
+	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;

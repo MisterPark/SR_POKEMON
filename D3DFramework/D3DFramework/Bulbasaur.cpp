@@ -34,12 +34,12 @@ void Bulbasaur::Initialize()
 
 void Bulbasaur::Update()
 {
-	PlayerCharacter::Update();
+	Character::Update();
 }
 
 void Bulbasaur::Render()
 {
-	PlayerCharacter::Render();
+	Character::Render();
 }
 
 void Bulbasaur::Release()

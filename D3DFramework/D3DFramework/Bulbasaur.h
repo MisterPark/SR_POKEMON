@@ -1,7 +1,7 @@
 #pragma once
-#include "PlayerCharacter.h"
+#include "Character.h"
 
-class Bulbasaur : public PlayerCharacter
+class Bulbasaur : public Character
 {
 public:
 	Bulbasaur();
