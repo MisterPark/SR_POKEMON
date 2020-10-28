@@ -70,6 +70,9 @@
     <Filter Include="GameObject\Character\TestObj">
       <UniqueIdentifier>{c4085c3f-0d8d-4f0b-8d86-ee645c8aaf7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\Monster\Water">
+      <UniqueIdentifier>{caeb1c73-6f4c-4b66-b658-6f9fb01b2fa2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -241,7 +244,10 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Butterfree.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Psyduck.h">
+      <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -393,7 +399,10 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Butterfree.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Psyduck.cpp">
+      <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

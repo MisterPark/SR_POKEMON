@@ -1,12 +1,11 @@
 #pragma once
-#include "Character.h"
+#include "Monster.h"
 class Butterfree :
-    public Character
+    public Monster
 {
 public:
     Butterfree();
     virtual ~Butterfree();
-
 
 
 };

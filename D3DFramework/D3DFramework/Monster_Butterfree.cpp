@@ -8,8 +8,6 @@
 Monster_Butterfree::Monster_Butterfree()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	TextureAttack = TextureKey::BUTTER_ATTACK_D_01;
-	TextureWALK = TextureKey::BUTTER_WALK_D_01;
 	anim->SetLoop(true);
 
 	startArray[(int)State::WALK][(int)Direction::D] = TextureKey::BUTTER_WALK_D_01;
@@ -46,10 +44,10 @@ Monster_Butterfree::Monster_Butterfree()
 	startArray[(int)State::ATTACK][(int)Direction::RD] = TextureKey::BUTTER_ATTACK_RD_01;
 	endArray[(int)State::ATTACK][(int)Direction::RD] = TextureKey::BUTTER_ATTACK_RD_02;
 
-	SetSpriteWalk();
+	
 	offsetY = 2.5f;
 	Speed = 1.f;
-	state = State::WALK;
+	state = State::IDLE;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
@@ -60,7 +58,6 @@ Monster_Butterfree::~Monster_Butterfree()
 void Monster_Butterfree::Update()
 {
 	ButterfreeParttern();
-	SetTextureAngle();
 	Monster::Update();
 
 }
@@ -83,10 +80,12 @@ void Monster_Butterfree::ButterfreeParttern()
 
 	float Dist = sqrt(distX * distX + distZ * distZ);
 
+	
+	float radian1 = PlayerT->scale.x / 2;
+	float radian2 = transform->scale.x / 2;
+	
 
-
-
-	if (state != State::PLAYER_SEARCH && Dist < 5.f) {
+	if (state != State::PLAYER_SEARCH && Dist < radian1 + radian2+5.f) {
 		state = State::PLAYER_SEARCH;
 		//이곳에서 플레이어 향하는 방향벡터 정해주고
 		//MoveDir = PlayerT->position - transform->position;
@@ -94,12 +93,12 @@ void Monster_Butterfree::ButterfreeParttern()
 		direction.y = 0;
 		direction.z = 1;
 		D3DXVec3Normalize(&direction, &direction);
-		direction *= 1.5f;
+
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		b->SetDir(direction.x, direction.z, direction.y);
 		*(b->transform) = *transform;
 
-		SetSpriteAttack();
+		
 		Time[0] = 0;
 		Frame[0] = 0;
 	}
@@ -117,7 +116,7 @@ void Monster_Butterfree::ButterfreeParttern()
 			b->SetDir(direction.x, direction.z);
 			*(b->transform) = *transform;
 			/*b->transform->position.y += 0.5f;*/
-			SetSpriteAttack();
+			
 		}
 	}
 	else if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -156,7 +155,7 @@ void Monster_Butterfree::Attack()
 		anim->SetDelay(0.2f);
 		Time[0] = 0.f;
 		state = State::IDLE;
-		SetSpriteWalk();
+		
 	}
 }
 

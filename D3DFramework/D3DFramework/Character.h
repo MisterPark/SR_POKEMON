@@ -30,6 +30,8 @@ public:
 	float GetAngleFromCamera();
 	// 애니메이션 업데이트
 	void UpdateAnimation();
+	// 애니메이션 텍스쳐 설정
+	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame);
 
 
 public:
