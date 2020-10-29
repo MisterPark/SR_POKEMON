@@ -18,6 +18,7 @@
 #include "Poliwrath.h"
 #include "Metapod.h"
 #include "Oddish.h"
+#include "Scyther.h"
 
 void TestScene::OnLoaded()
 {
@@ -51,7 +52,7 @@ void TestScene::OnLoaded()
 	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
 	//Obj->transform->position.x += 7;
 	//Obj->transform->position.z += 7;
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Scyther>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
 

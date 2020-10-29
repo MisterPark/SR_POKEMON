@@ -84,6 +84,7 @@ void Poliwrath::Pattern()
 			Vector3 Dist = PlayerT->position - transform->position;
 			Dist.Normalized();
 			direction = Dist;
+			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -91,7 +92,7 @@ void Poliwrath::Pattern()
 			transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
 			transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 			if (Time[0] >= 1.5f) {
-				Frame[0] ++;
+				Frame[0]++;
 				Time[0] = 0;
 				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
