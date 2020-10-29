@@ -58,7 +58,6 @@ void Jynx::Pattern()
 			isSearch = true;
 			state = State::END;
 		}
-
 		if (state == State::END && !isSearch)
 		{
 			state = State::WALK;
@@ -72,7 +71,6 @@ void Jynx::Pattern()
 
 	if (isSearch)
 	{
-
 		if (state == State::END && Dist < 3.f)
 		{
 			state = State::ATTACK;

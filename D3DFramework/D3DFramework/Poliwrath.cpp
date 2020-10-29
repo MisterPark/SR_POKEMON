@@ -3,6 +3,7 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
+#include "Range.h"
 #include "Character.h"
 
 Poliwrath::Poliwrath()
@@ -39,7 +40,7 @@ void Poliwrath::Render()
 void Poliwrath::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -80,10 +81,10 @@ void Poliwrath::Pattern()
 		}
 		if (state == State::READY && Dist >= 3.f)
 		{
-			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
 			Dist.Normalized();
 			direction = Dist;
+			state = State::WALK;
 			Frame[0] = 0;
 		}
 
@@ -159,7 +160,8 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *PlayerT;
 		b->transform->position.y += 5.f;
-		
-	
+		b->isAlliance = false;
+		Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
+		*(r->transform) = *PlayerT;
 }
 

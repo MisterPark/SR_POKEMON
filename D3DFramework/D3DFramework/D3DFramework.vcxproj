@@ -23,13 +23,13 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{b5fd05d1-07cd-499b-8ec1-7885fd22ca77}</ProjectGuid>
     <RootNamespace>D3DFramework</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -163,6 +163,8 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="CPacket.h" />
+    <ClInclude Include="CRingBuffer.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeMan.h" />
     <ClInclude Include="Cursor.h" />
@@ -178,6 +180,7 @@
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="Ivysaur.h" />
     <ClInclude Include="Jynx.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Matrix.h" />
@@ -187,16 +190,20 @@
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Monster_Butterfree.h" />
     <ClInclude Include="Monster_Caterpie.h" />
+    <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Oddish.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Poliwag.h" />
     <ClInclude Include="Poliwrath.h" />
+    <ClInclude Include="Protocol.h" />
     <ClInclude Include="Psyduck.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Random.h" />
+    <ClInclude Include="Range.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SceneManager.h" />
@@ -216,6 +223,7 @@
     <ClInclude Include="UI.h" />
     <ClInclude Include="UI_Title.h" />
     <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Venusaur.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Vileplume.h" />
   </ItemGroup>
@@ -229,6 +237,8 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="CPacket.cpp" />
+    <ClCompile Include="CRingBuffer.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="CubeMan.cpp" />
     <ClCompile Include="Cursor.cpp" />
@@ -241,6 +251,7 @@
     <ClCompile Include="IComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="IScene.cpp" />
+    <ClCompile Include="Ivysaur.cpp" />
     <ClCompile Include="Jynx.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Matrix.cpp" />
@@ -249,15 +260,18 @@
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Monster_Butterfree.cpp" />
     <ClCompile Include="Monster_Caterpie.cpp" />
+    <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Oddish.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="Poliwag.cpp" />
     <ClCompile Include="Poliwrath.cpp" />
     <ClCompile Include="Psyduck.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Range.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Scyther.cpp" />
@@ -277,6 +291,7 @@
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UI_Title.cpp" />
     <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Venusaur.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="Vileplume.cpp" />
   </ItemGroup>

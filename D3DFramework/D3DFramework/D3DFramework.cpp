@@ -201,6 +201,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+    case UM_NETWORK:
+        if (!Network::NetProc(wParam, lParam))
+        {
+            MessageBoxW(NULL, L"서버로 부터 연결 종료", L"Network Message", MB_OK);
+            DestroyWindow(g_hwnd);
+        }
+        break;
+
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }

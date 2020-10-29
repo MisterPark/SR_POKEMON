@@ -87,13 +87,17 @@ void Player::Attack()
 		{
 			Vector3 pos = Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
 
-			Vector3 dir = pos - character->transform->position;
+			Vector3 characterPos = character->transform->position;
+			characterPos.y += character->offsetY;
+
+			Vector3 dir = pos - characterPos;
 
 			Vector3::Normalize(&dir);
 
+			character->SetDir(dir);
 			character->Attack(dir);
 
-			spawnTime = 1.f;
+			spawnTime = 0.4f;
 			canSpawn = false;
 		}
 	}
@@ -123,7 +127,6 @@ void Player::CalcMouse()
 
 void Player::KeyInput()
 {
-	
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
@@ -191,7 +194,7 @@ void Player::KeyInput()
 		character->ChangeState(State::WALK);
 	}
 
-	if (!isKeyDown)
+	if (!isKeyDown && canSpawn)
 	{
 		character->ChangeState(State::IDLE);
 	}

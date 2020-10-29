@@ -43,7 +43,8 @@ void Golduck::Render()
 void Golduck::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+
+	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -59,14 +60,15 @@ void Golduck::Pattern()
 	{
 		if (Dist < 5.f) {
 			isSearch = true;
-			state = State::END;
+			state = State::READY;
 		}
 
-		if (state == State::END && !isSearch)
+		if (state == State::READY && !isSearch)
 		{
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalized();
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
@@ -76,17 +78,17 @@ void Golduck::Pattern()
 	if (isSearch)
 	{
 
-		if (state == State::END && Dist < 3.f)
+		if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if (state == State::END && Dist >= 3.f)
+		if (state == State::READY && Dist >= 3.f)
 		{
-			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
-			Dist.Normalized();
-			direction = Dist;
+			direction = Dist.Normalized();
+			state = State::WALK;
+			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -98,7 +100,7 @@ void Golduck::Pattern()
 				Time[0] = 0;
 				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
-					state = State::END;
+					state = State::ATTACK;
 				}
 			}
 		}
@@ -155,30 +157,18 @@ void Golduck::CreateBullet(Transform* PlayerT)
 	if (direction.x > direction.z) {
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Vector3 Dir2 = direction;
-		Dir2.z -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
-		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Dir2 = direction;
-		Dir2.z += R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
-		*(b->transform) = *transform;
+		b->isAlliance = false;
 	}
 	else {
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Vector3 Dir2 = direction;
-		Dir2.x -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
-		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Dir2 = direction;
-		Dir2.x += R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
-		*(b->transform) = *transform;
+		b->isAlliance = false;
 	}
 }
 

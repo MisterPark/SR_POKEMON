@@ -38,7 +38,7 @@ void Psyduck::Render()
 void Psyduck::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -72,17 +72,17 @@ void Psyduck::Pattern()
 	if (isSearch)
 	{
 
-		if (state == State::READY&&Dist < 3.f)
+		if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if(state == State::READY &&Dist >=3.f)
+		if (state == State::READY && Dist >= 3.f)
 		{
-			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
-			Dist.Normalized();
-			direction = Dist;
+			direction = Dist.Normalized();
+			state = State::WALK;
+			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -155,12 +155,14 @@ void Psyduck::CreateBullet(Transform* PlayerT)
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.z += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 	}
 	else {
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -169,12 +171,14 @@ void Psyduck::CreateBullet(Transform* PlayerT)
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.x += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 	}
 }
 

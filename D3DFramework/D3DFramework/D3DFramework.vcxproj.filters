@@ -70,8 +70,17 @@
     <Filter Include="GameObject\Character\Monster\Water">
       <UniqueIdentifier>{caeb1c73-6f4c-4b66-b658-6f9fb01b2fa2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\Player\Bulbasaur">
+    <Filter Include="GameObject\Character\Player\02. Ivysaur">
+      <UniqueIdentifier>{00e3f5ea-520e-4bc7-a162-6c469bf73599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Player\01. Bulbasaur">
       <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Player\03. Venusaur">
+      <UniqueIdentifier>{3df0be3c-6df4-4b7e-8f92-0a092e019945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -228,9 +237,6 @@
     <ClInclude Include="Environment.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="UI_Title.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Butterfree.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
@@ -238,7 +244,7 @@
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
     <ClInclude Include="Bulbasaur.h">
-      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
+      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
     </ClInclude>
     <ClInclude Include="Vileplume.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
@@ -264,8 +270,32 @@
     <ClInclude Include="Oddish.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
-    <ClInclude Include="Scyther.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
+    <ClInclude Include="UI_Title.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Network.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="CPacket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="CRingBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Ivysaur.h">
+      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+    </ClInclude>
+    <ClInclude Include="Venusaur.h">
+      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
+    </ClInclude>
+    <ClInclude Include="Range.h">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -401,9 +431,6 @@
     <ClCompile Include="Environment.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="UI_Title.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Butterfree.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
@@ -411,7 +438,7 @@
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
     <ClCompile Include="Bulbasaur.cpp">
-      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
+      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
     </ClCompile>
     <ClCompile Include="Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
@@ -437,8 +464,29 @@
     <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
-    <ClCompile Include="Scyther.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
+    <ClCompile Include="UI_Title.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Network.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="CPacket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="CRingBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Ivysaur.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Venusaur.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Range.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

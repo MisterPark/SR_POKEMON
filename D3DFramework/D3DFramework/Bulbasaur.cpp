@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Bulbasaur.h"
-#include "Bullet.h"
+#include "PlayerBullet.h"
 
 Bulbasaur::Bulbasaur()
 {
@@ -48,8 +48,12 @@ void Bulbasaur::Release()
 
 void Bulbasaur::Attack(const Vector3 & dir)
 {
-	Bullet* newBullet = Bullet::Create(transform->position, { 1.f, 1.f, 1.f }, dir, 0);
+	Vector3 pos = transform->position;
+	pos.y += offsetY;
+	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.2f, 0.2f, 0.2f }, dir, 0);
 	ObjectManager::AddObject(newBullet);
+
+	ChangeState(State::ATTACK);
 }
 
 void Bulbasaur::Skill(const Vector3 & dir)
@@ -58,6 +62,6 @@ void Bulbasaur::Skill(const Vector3 & dir)
 
 Bulbasaur * Bulbasaur::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
 {
-	Bulbasaur* newBulbasaur = new Bulbasaur(pos, scale, dir);
-	return newBulbasaur;
+	Bulbasaur* newPokemon = new Bulbasaur(pos, scale, dir);
+	return newPokemon;
 }
