@@ -2,11 +2,12 @@
 #include "Oddish.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
+#include "Player.h"
 
 Oddish::Oddish()
 {
 	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_01, 3);
-	SetTexture(State::PLAYER_SEARCH, TextureKey::ODDI_ATTACK_D_01, 2);
+	SetTexture(State::PLAYER_SEARCH, TextureKey::ODDI_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::ODDI_WALK_D_01, 3);
 	for (int i = 0; i < 8; i++)
 	{
@@ -14,7 +15,7 @@ Oddish::Oddish()
 	}
 	anim->SetLoop(true);
 
-	moveSpeed = 0.3f;
+	moveSpeed = 3.f;
 	state = State::IDLE;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -38,7 +39,7 @@ void Oddish::Render()
 void Oddish::Parttern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
+	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
 	Transform* PlayerT = g->transform;
 
 
@@ -49,9 +50,7 @@ void Oddish::Parttern()
 	float Dist = sqrt(distX * distX + distZ * distZ);
 
 
-
-
-	if (state != State::PLAYER_SEARCH && Dist < 7.f) {
+	if (state != State::PLAYER_SEARCH && Dist < 6.f) {
 		state = State::PLAYER_SEARCH;
 		//이곳에서 플레이어 향하는 방향벡터 정해주고
 		Time[0] = 0;
@@ -62,7 +61,9 @@ void Oddish::Parttern()
 
 		if (state == State::WALK) {            // 이곳에서 패턴 레디
 			direction.x = -4.f + Random::Value(9) * 1.f;
+			direction.y = 0.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalize(&direction);
 		}
 	}
 	else if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -77,8 +78,8 @@ void Oddish::Parttern()
 		}
 		direction = PlayerT->position - transform->position;
 		D3DXVec3Normalize(&direction, &direction);
-		//transform->position.x += direction.x * 6.f * moveSpeed * TimeManager::DeltaTime();
-		//transform->position.z += direction.z * 6.f * moveSpeed * TimeManager::DeltaTime();
+		transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
+		transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 	}
 
 }

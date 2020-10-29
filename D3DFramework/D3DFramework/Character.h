@@ -1,14 +1,6 @@
 #pragma once
 #include "GameObject.h"
 
-enum class State
-{
-	IDLE, WALK, ATTACK, PLAYER_SEARCH, SKILL, HURT, END
-};
-enum class Direction
-{
-	D, LD, L, LU, U, RU, R, RD, END
-};
 
 class Character :
     public GameObject

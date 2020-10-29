@@ -2,6 +2,7 @@
 #include "Vileplume.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
+#include "Player.h"
 
 Vileplume::Vileplume()
 {
@@ -116,13 +117,13 @@ void Vileplume::CreateBullet(Transform* PlayerT) {
 		Vector3 Dir2 = direction;
 		Dir2.z -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.z += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 	}
 	else {
@@ -130,13 +131,13 @@ void Vileplume::CreateBullet(Transform* PlayerT) {
 		Vector3 Dir2 = direction;
 		Dir2.x -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.x += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 	}
 }
