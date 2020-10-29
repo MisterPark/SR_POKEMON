@@ -70,8 +70,14 @@
     <Filter Include="GameObject\Character\Monster\Water">
       <UniqueIdentifier>{caeb1c73-6f4c-4b66-b658-6f9fb01b2fa2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\Player\Bulbasaur">
+    <Filter Include="GameObject\Character\Player\02. Ivysaur">
+      <UniqueIdentifier>{00e3f5ea-520e-4bc7-a162-6c469bf73599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Player\01. Bulbasaur">
       <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Player\03. Venusaur">
+      <UniqueIdentifier>{3df0be3c-6df4-4b7e-8f92-0a092e019945}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -238,7 +244,7 @@
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClInclude>
     <ClInclude Include="Bulbasaur.h">
-      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
+      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
     </ClInclude>
     <ClInclude Include="Vileplume.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
@@ -263,6 +269,15 @@
     </ClInclude>
     <ClInclude Include="Oddish.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Ivysaur.h">
+      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+    </ClInclude>
+    <ClInclude Include="Venusaur.h">
+      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
     </ClInclude>
     <ClInclude Include="Range.h">
       <Filter>GameObject\Character\Bullet</Filter>
@@ -411,7 +426,7 @@
       <Filter>GameObject\Character\Monster\Water</Filter>
     </ClCompile>
     <ClCompile Include="Bulbasaur.cpp">
-      <Filter>GameObject\Character\Player\Bulbasaur</Filter>
+      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
     </ClCompile>
     <ClCompile Include="Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
@@ -436,9 +451,6 @@
     </ClCompile>
     <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
