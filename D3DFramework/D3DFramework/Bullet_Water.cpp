@@ -7,6 +7,7 @@
 Bullet_Water::Bullet_Water()
 {   //TODO : 불렛이 지형타는중
     SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 1);
+	UpdateAnimation();
     state = State::IDLE;
     anim->SetLoop(true);
     anim->SetDelay(0.2f);
@@ -19,6 +20,8 @@ Bullet_Water::Bullet_Water()
     transform->scale.x *= 0.5f;
     transform->scale.y *= 0.5f;
     transform->scale.z *= 0.5f;
+
+	moveSpeed = 3.f;
 }
 
 Bullet_Water::~Bullet_Water()
@@ -30,7 +33,7 @@ void Bullet_Water::Update()
 
 	Bullet::Update();
 
-    transform->position += direction * 3.f * TimeManager::DeltaTime();;
+    transform->position += direction * moveSpeed * TimeManager::DeltaTime();;
 
 
     Time[0] += TimeManager::DeltaTime();

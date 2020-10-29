@@ -21,6 +21,7 @@ Psyduck::Psyduck()
 	offsetY = 1.f;
 	state = State::END;
 	moveSpeed = 0.5f;
+	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
 Psyduck::~Psyduck()
@@ -65,6 +66,7 @@ void Psyduck::Pattern()
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalized();
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
@@ -94,7 +96,7 @@ void Psyduck::Pattern()
 			if (Time[0] >= 1.5f) {
 				Frame[0] ++;
 				Time[0] = 0;
-				if (Frame[0] == 2) {			// 4번의 파닥거림 후
+				if (Frame[0] == 1) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
 					state = State::END;
 				}
