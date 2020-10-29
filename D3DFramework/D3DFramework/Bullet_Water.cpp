@@ -2,6 +2,7 @@
 #include "Bullet_Water.h"
 #include "Rectangle.h"
 #include "Player.h"
+#include "Bullet.h"
 
 Bullet_Water::Bullet_Water()
 {   //TODO : 불렛이 지형타는중
@@ -27,9 +28,9 @@ Bullet_Water::~Bullet_Water()
 void Bullet_Water::Update()
 {
 
-    Character::Update();
+	Bullet::Update();
 
-    transform->position += MoveDir * 3.f * TimeManager::DeltaTime();;
+    transform->position += direction * 3.f * TimeManager::DeltaTime();;
 
 
     Time[0] += TimeManager::DeltaTime();
@@ -41,8 +42,7 @@ void Bullet_Water::Update()
 
 void Bullet_Water::Render()
 {
-    
-    Character::Render();
+	Bullet::Render();
 }
 
 void Bullet_Water::OnCollision(GameObject* target)

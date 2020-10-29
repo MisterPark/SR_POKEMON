@@ -40,12 +40,15 @@ void TestScene::OnLoaded()
 	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
 	//Obj->transform->position.x += 1;
 	//Obj->transform->position.z += 1;
-	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
-	//Obj->transform->position.x += 3;
-	//Obj->transform->position.z += 3;
-	//Obj = ObjectManager::GetInstance()->CreateObject<Monster_Oddish>();
-	//Obj->transform->position.x += 5;
-	//Obj->transform->position.z += 5;
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
+	Obj->transform->position.x += 3;
+	Obj->transform->position.z += 3;
+	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
+	Obj->transform->position.x += 5;
+	Obj->transform->position.z += 5;
+	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
+	Obj->transform->position.x += 7;
+	Obj->transform->position.z += 7;
 
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });
