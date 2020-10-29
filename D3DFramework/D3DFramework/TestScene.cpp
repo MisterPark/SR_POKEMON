@@ -30,7 +30,7 @@ void TestScene::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
-	//ObjectManager::GetInstance()->CreateObject<Psyduck>();
+	ObjectManager::GetInstance()->CreateObject<Psyduck>();
 
 	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
@@ -54,6 +54,7 @@ void TestScene::OnLoaded()
 	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
+
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });
 	//test->SetDir({ 1.f, 0.f, 0.f });

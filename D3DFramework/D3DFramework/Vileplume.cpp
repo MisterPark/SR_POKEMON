@@ -37,7 +37,7 @@ void Vileplume::Render()
 
 void Vileplume::Parttern()
 {
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;

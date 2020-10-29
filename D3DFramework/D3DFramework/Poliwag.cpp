@@ -9,17 +9,14 @@ Poliwag::Poliwag()
 {
 	SetTexture(State::WALK, TextureKey::WAG_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::WAG_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::WAG_WALK_D_01, 3);
-
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
-	}
+	SetTexture(State::READY, TextureKey::WAG_WALK_D_01, 3,1);
+	
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
 	offsetY = 1.f;
-	state = State::END;
+	state = State::READY;
 	moveSpeed = 0.5f;
+	Monster::Update();
 }
 
 Poliwag::~Poliwag()
@@ -39,7 +36,7 @@ void Poliwag::Render()
 
 void Poliwag::Pattern()
 {
-
+	
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
 	Transform* PlayerT = g->transform;
 
@@ -56,14 +53,15 @@ void Poliwag::Pattern()
 	{
 		if (Dist < 5.f) {
 			isSearch = true;
-			state = State::END;
+			state = State::READY;
 		}
 
-		if (state == State::END && !isSearch)
+		if (state == State::READY && !isSearch)
 		{
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalized();
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
@@ -73,12 +71,12 @@ void Poliwag::Pattern()
 	if (isSearch)
 	{
 
-		if (state == State::END && Dist < 3.f)
+		if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if (state == State::END && Dist >= 3.f)
+		if (state == State::READY && Dist >= 3.f)
 		{
 			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
@@ -95,7 +93,7 @@ void Poliwag::Pattern()
 				Time[0] = 0;
 				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
-					state = State::END;
+					state = State::ATTACK;
 				}
 			}
 		}
@@ -119,7 +117,7 @@ void Poliwag::RandomMovePattern()
 		Time[0] = 0;
 		if (Frame[0] == 4) {			// 4번의 파닥거림 후
 			Frame[0] = 0;
-			state = State::END;
+			state = State::READY;
 		}
 	}
 }
@@ -177,5 +175,6 @@ void Poliwag::CreateBullet(Transform* PlayerT)
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 	}
+
 }
 
