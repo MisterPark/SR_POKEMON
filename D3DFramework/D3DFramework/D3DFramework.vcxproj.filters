@@ -452,6 +452,18 @@
     <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
+    <ClCompile Include="Ivysaur.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Venusaur.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Range.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D3DFramework.rc">

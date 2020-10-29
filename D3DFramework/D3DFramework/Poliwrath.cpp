@@ -40,7 +40,7 @@ void Poliwrath::Render()
 void Poliwrath::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -160,7 +160,7 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *PlayerT;
 		b->transform->position.y += 5.f;
-		
+		b->isAlliance = false;
 		Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
 		*(r->transform) = *PlayerT;
 }

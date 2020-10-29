@@ -14,6 +14,10 @@
 #include "Ivysaur.h"
 #include "Venusaur.h"
 
+#include "Metapod.h"
+#include "Oddish.h"
+#include "Vileplume.h"
+
 #include "Psyduck.h"
 #include "Poliwag.h"
 #include "Psyduck.h"
@@ -51,12 +55,14 @@ void TestScene::OnLoaded()
 	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
 	Obj->transform->position.x += 5;
 	Obj->transform->position.z += 5;*/
-	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
-	//Obj->transform->position.x += 7;
-	//Obj->transform->position.z += 7;
+	
 	/*for (int i = 0; i < 10; ++i)
 	{*/
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Golduck>();
+	Obj->transform->position.x += 7;
+	Obj->transform->position.z += 7;
+
+	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
 	/*}*/
