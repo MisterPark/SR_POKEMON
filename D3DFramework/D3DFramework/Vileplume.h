@@ -14,8 +14,8 @@ private:
     void Parttern();
     void RandomMovePattern();
     void Attack(Transform* PlayerT);
-    void CreateBullet(Transform* PlayerT);
-
+    void CrossBullet();
+	void XBullet();
     bool AttackDelay;
 };
 

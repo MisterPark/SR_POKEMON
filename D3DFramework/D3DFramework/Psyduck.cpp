@@ -96,7 +96,7 @@ void Psyduck::Pattern()
 			if (Time[0] >= 1.5f) {
 				Frame[0] ++;
 				Time[0] = 0;
-				if (Frame[0] == 2) {			// 4번의 파닥거림 후
+				if (Frame[0] == 1) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
 					state = State::END;
 				}

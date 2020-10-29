@@ -19,7 +19,7 @@ Poliwrath::Poliwrath()
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
 	offsetY = 1.f;
-	state = State::END;
+	state = State::READY;
 	moveSpeed = 0.5f;
 	Monster::Update();
 }
@@ -58,10 +58,10 @@ void Poliwrath::Pattern()
 	{
 		if (Dist < 5.f) {
 			isSearch = true;
-			state = State::END;
+			state = State::READY;
 		}
 
-		if (state == State::END && !isSearch)
+		if (state == State::READY && !isSearch)
 		{
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
@@ -75,12 +75,12 @@ void Poliwrath::Pattern()
 	if (isSearch)
 	{
 
-		if (state == State::END && Dist < 3.f)
+		if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if (state == State::END && Dist >= 3.f)
+		if (state == State::READY && Dist >= 3.f)
 		{
 			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
@@ -97,7 +97,7 @@ void Poliwrath::Pattern()
 				Time[0] = 0;
 				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
-					state = State::END;
+					state = State::READY;
 				}
 			}
 		}
@@ -121,7 +121,7 @@ void Poliwrath::RandomMovePattern()
 		Time[0] = 0;
 		if (Frame[0] == 4) {			// 4번의 파닥거림 후
 			Frame[0] = 0;
-			state = State::END;
+			state = State::READY;
 		}
 	}
 }
@@ -150,34 +150,16 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 {
 	direction = PlayerT->position - transform->position;
 	//MoveDir *= 1.5f;
-	float R = 0.5f;
-	if (direction.x > direction.z) {
+	float R = 1.f;
+	
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Vector3 Dir2 = direction;
-		Dir2.z -= R;
+		Vector3 Dir2 = {0.f,0.f,0.f};
+		Dir2.y -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
-		*(b->transform) = *transform;
-		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Dir2 = direction;
-		Dir2.z += R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
-		*(b->transform) = *transform;
-	}
-	else {
-		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Vector3 Dir2 = direction;
-		Dir2.x -= R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
-		*(b->transform) = *transform;
-		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Dir2 = direction;
-		Dir2.x += R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
-		*(b->transform) = *transform;
-	}
+		*(b->transform) = *PlayerT;
+		b->transform->position.y += 5.f;
+		
+	
 }
 
