@@ -1014,7 +1014,9 @@ namespace PKH
 				BULLET_TEARS_12,
 				BULLET_TEARS_13,
 				BULLET_TEARS_14,
-				BULLET_TEARS_15
+				BULLET_TEARS_15,
+				
+				RANGE,
 				
 	};
 

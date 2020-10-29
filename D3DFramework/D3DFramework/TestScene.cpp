@@ -10,21 +10,28 @@
 #include "TestObj.h"
 #include "TitleScene.h"
 #include "Butterfree.h"
-#include "Psyduck.h"
 #include "Bulbasaur.h"
+#include "Ivysaur.h"
+#include "Venusaur.h"
 
-#include "Psyduck.h"
-#include "Vileplume.h"
-#include "Poliwrath.h"
 #include "Metapod.h"
 #include "Oddish.h"
+#include "Vileplume.h"
+
+#include "Psyduck.h"
+#include "Poliwag.h"
+#include "Psyduck.h"
+#include "Poliwrath.h"
+#include "Jynx.h"
+#include "Suicune.h"
+#include "Golduck.h"
 
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
 
-	Bulbasaur* playerCharacter = Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Venusaur* playerCharacter = Venusaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 	
 	Player::GetInstance()->SetCharacter(playerCharacter);
@@ -48,13 +55,17 @@ void TestScene::OnLoaded()
 	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
 	Obj->transform->position.x += 5;
 	Obj->transform->position.z += 5;*/
-	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
-	//Obj->transform->position.x += 7;
-	//Obj->transform->position.z += 7;
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	
+	/*for (int i = 0; i < 10; ++i)
+	{*/
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Golduck>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
 
+	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
+	Obj->transform->position.x += 7;
+	Obj->transform->position.z += 7;
+	/*}*/
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });
 	//test->SetDir({ 1.f, 0.f, 0.f });

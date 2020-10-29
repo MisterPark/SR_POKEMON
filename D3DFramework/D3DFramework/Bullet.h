@@ -1,14 +1,12 @@
 #pragma once
 #include "GameObject.h"
 
-
-
 class Bullet :
 	public GameObject
 {
 public:
 	Bullet();
-	Bullet(const Vector3& pos, const Vector3& scale, const Vector3& dir, const int& type, const bool& isPlayer);
+	Bullet(const Vector3& pos, const Vector3& scale, const Vector3& dir, const bool& alliance = true);
 	virtual ~Bullet();
 
 	// GameObject을(를) 통해 상속됨
@@ -34,7 +32,6 @@ public:
 		const Vector3& pos,
 		const Vector3& scale,
 		const Vector3& dir,
-		const int& type,
 		const bool& isPlayer = true);
 
 public:
