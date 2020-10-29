@@ -15,6 +15,7 @@ public:
 	void Update();
 
 	void SetCharacter(Character* object);
+	Character* GetCharacter() { return character; }
 
 private:
 	void Initialize();
