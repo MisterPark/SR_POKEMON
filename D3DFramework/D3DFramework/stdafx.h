@@ -1,10 +1,15 @@
 #pragma once
 
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 //=======================================
 //  STANDARD
 //=======================================
 #include <iostream>
 
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+#pragma comment(lib,"ws2_32.lib")
 #include <Windows.h>
 #include <map>
 #include <vector>
@@ -32,6 +37,17 @@ using namespace std;
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 #endif
 #endif
+
+//=======================================
+//  Network
+//=======================================
+
+
+
+#include "Protocol.h"
+#include "CRingBuffer.h"
+#include "CPacket.h"
+#include "Network.h"
 
 //=======================================
 //  My Lib

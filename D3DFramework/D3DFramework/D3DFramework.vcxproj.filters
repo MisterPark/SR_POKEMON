@@ -73,6 +73,9 @@
     <Filter Include="GameObject\Character\Player\Bulbasaur">
       <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -228,9 +231,6 @@
     <ClInclude Include="Environment.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="UI_Title.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Butterfree.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
@@ -263,6 +263,21 @@
     </ClInclude>
     <ClInclude Include="Oddish.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Title.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Network.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="CPacket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="CRingBuffer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -398,9 +413,6 @@
     <ClCompile Include="Environment.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="UI_Title.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Butterfree.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
@@ -433,6 +445,18 @@
     </ClCompile>
     <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Title.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Network.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="CPacket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="CRingBuffer.cpp">
+      <Filter>Network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
