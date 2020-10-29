@@ -24,11 +24,17 @@ void PKH::Animation2D::Update()
 
 		if (currentTexture == endTexture)
 		{
+			isEndFrame = true;
+
 			if (isLoop == true)
 			{
 				currentTexture = startTexture;
 			}
 			return;
+		}
+		else
+		{
+			isEndFrame = false;
 		}
 		int i = int(currentTexture);
 		i++;
@@ -61,6 +67,16 @@ void PKH::Animation2D::SetLoop(bool _isLoop)
 void PKH::Animation2D::SetDelay(float _delay)
 {
 	delay = _delay;
+}
+
+TextureKey PKH::Animation2D::GetCurrentSprite()
+{
+	return currentTexture;
+}
+
+bool PKH::Animation2D::IsEndFrame()
+{
+	return isEndFrame;
 }
 
 IComponent* PKH::Animation2D::Clone()
