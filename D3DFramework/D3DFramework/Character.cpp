@@ -3,7 +3,6 @@
 #include "Terrain.h"
 #include "Environment.h"
 #include "Rectangle.h"
-#include "Bullet_Water.h"
 
 Character::Character()
 {
@@ -24,7 +23,6 @@ void Character::Update()
 	OnTerrain();
 	Billboard();
 	UpdateAnimation();
-
 }
 
 void Character::Render()
@@ -73,6 +71,11 @@ float Character::GetAngleFromCamera()
 	toCam.y = 0.f;
 	Vector3 myDir = direction;
 
+	Matrix rotX;
+	float radianX = transform->eulerAngles.x;
+	D3DXMatrixRotationX(&rotX, -radianX);
+	D3DXVec3TransformNormal(&myDir, &myDir, &rotX);
+
 	D3DXVec3Normalize(&toCam, &toCam);
 	D3DXVec3Normalize(&myDir, &myDir);
 
@@ -82,11 +85,12 @@ float Character::GetAngleFromCamera()
 	Vector3 cross;
 	D3DXVec3Cross(&cross, &toCam, &myDir);
 
-	Vector3 up = { 0.f, 1.f, 0.f };
+	Vector3 up = transform->up;
 
 	float upDot = D3DXVec3Dot(&cross, &up);
 
-	if (0.f > upDot) degree = 360 - degree;
+	if (0.f > upDot) 
+		degree = 360 - degree;
 
 	return degree;
 }
@@ -103,6 +107,11 @@ void Character::UpdateAnimation()
 
 	// ป๓ลย
 	anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+
+	/*Bulbasaur* tester = dynamic_cast<Bulbasaur*>(this);
+	if (nullptr == tester) return;
+
+	cout << "Angle : " << angle - 25.f << endl;*/
 }
 
 void Character::SetDir(const Vector3 & dir)

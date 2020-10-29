@@ -78,8 +78,9 @@ void PKH::MainGame::Update()
 	// 4. Obj 업데이트
 	ObjectManager::Update();
 
-	CollisionManager::Update();
 	Camera::GetInstance()->Update();
+	CollisionManager::Update();
+	
 
 	ObjectManager::PostUpdate();
 
@@ -111,6 +112,7 @@ void PKH::MainGame::Release()
 
 	SoundManager::Destroy();
 	Cursor::Destroy();
+	Player::DestroyInstance();
 }
 
 void PKH::MainGame::Pause()
