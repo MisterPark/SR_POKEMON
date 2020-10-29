@@ -17,9 +17,12 @@ Golduck::Golduck()
 	}
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
+	UpdateAnimation();
+
 	offsetY = 1.f;
 	state = State::END;
 	moveSpeed = 0.5f;
+	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
 Golduck::~Golduck()
@@ -154,13 +157,13 @@ void Golduck::CreateBullet(Transform* PlayerT)
 		Vector3 Dir2 = direction;
 		Dir2.z -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.z += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 	}
 	else {
@@ -168,13 +171,13 @@ void Golduck::CreateBullet(Transform* PlayerT)
 		Vector3 Dir2 = direction;
 		Dir2.x -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.x += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
+		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
 	}
 }

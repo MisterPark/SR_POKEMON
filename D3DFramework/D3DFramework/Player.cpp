@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #include "Player.h"
 
-Player::Player()
-{
-	Initialize();
-}
+Player* Player::instance = nullptr;
 
-Player::Player(Character * _character) :
-	character(_character)
+Player::Player() :
+	character(nullptr), radianX(0.f), radianY(0.f),
+	spawnTime(0.f), canSpawn(true), isFix(true)
 {
 	Initialize();
 }
@@ -17,39 +15,49 @@ Player::~Player()
 	Release();
 }
 
-void Player::Initialize()
+Player * Player::GetInstance()
 {
-	ResetMousePoint();
+	if (nullptr == instance) instance = new Player;
+	return instance;
+}
 
-	Camera::GetInstance()->SetTarget(character);
+void Player::DestroyInstance()
+{
+	if (nullptr != instance)
+	{
+		delete instance;
+		instance = nullptr;
+	}
 }
 
 void Player::Update()
 {
 	if (nullptr == character) return;
 
-	CalcSpawnTime();
-	Attack();
 	KeyInput();
-	CalcMouse();
-	ResetMousePoint();
 
-	GameObject::Update();
+	if (isFix)
+	{
+		CalcSpawnTime();
+		Attack();
+		CalcMouse();
+		ResetMousePoint();
+	}
 }
 
-void Player::Render()
+void Player::SetCharacter(Character * object)
+{
+	character = object;
+
+	Camera::GetInstance()->SetTarget(character);
+}
+
+void Player::Initialize()
 {
 }
 
 void Player::Release()
 {
-	//character->Die();
-}
-
-Player * Player::Create(Character * _character)
-{
-	Player* newPlayer = new Player(_character);
-	return newPlayer;
 }
 
 void Player::ResetMousePoint()
@@ -79,7 +87,7 @@ void Player::Attack()
 		{
 			Vector3 pos = Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
 
-			Vector3 dir = pos - transform->position;
+			Vector3 dir = pos - character->transform->position;
 
 			Vector3::Normalize(&dir);
 
@@ -186,5 +194,10 @@ void Player::KeyInput()
 	if (!isKeyDown)
 	{
 		character->ChangeState(State::IDLE);
+	}
+
+	if (InputManager::GetKeyDown('Q'))
+	{
+		isFix ^= true;
 	}
 }

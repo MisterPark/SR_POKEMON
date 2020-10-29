@@ -6,16 +6,14 @@ Metapod::Metapod()
 {
 	SetTexture(State::WALK, TextureKey::META_WALK_D_01, 3);
 	SetTexture(State::PLAYER_SEARCH, TextureKey::META_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::META_WALK_D_01, 3);
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 1);
-	}
+	SetTexture(State::IDLE, TextureKey::META_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::META_WALK_D_01, 3, 1);
+
+	UpdateAnimation();
 	anim->SetLoop(true);
 
-	offsetY = 1.f;
-	moveSpeed = 0.15f;
-	state = State::IDLE;
+	moveSpeed = 0.3f;
+	state = State::READY;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
@@ -36,12 +34,13 @@ void Metapod::Render()
 }
 
 void Metapod::Pattern() {
-	if (state == State::IDLE) { // 이건 랜덤패턴 갖기전 대기상태
+	if (state == State::READY) { // 이건 랜덤패턴 갖기전 대기상태
 		state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
 
 		if (state == State::WALK) {            // 이곳에서 패턴 레디
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalized();
 		}
 
 	}
@@ -63,7 +62,7 @@ void Metapod::RandomMovePattern()
 		Time[0] = 0;
 		if (Frame[0] == 3) {			// 3번의 파닥거림 후
 			Frame[0] = 0;
-			state = State::IDLE;
+			state = State::READY;
 		}
 	}
 }

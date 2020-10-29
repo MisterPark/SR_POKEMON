@@ -3,7 +3,6 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "Player.h"
 
 Monster_Butterfree::Monster_Butterfree()
 {
@@ -95,7 +94,7 @@ void Monster_Butterfree::ButterfreeParttern()
 		D3DXVec3Normalize(&direction, &direction);
 
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		b->SetDir(direction.x, direction.z, direction.y);
+		b->SetDir(Vector3{ direction.x, direction.y, direction.z });
 		*(b->transform) = *transform;
 
 		
@@ -113,7 +112,7 @@ void Monster_Butterfree::ButterfreeParttern()
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
 			Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-			b->SetDir(direction.x, direction.z);
+			b->SetDir(Vector3{ direction.x, direction.y, direction.z });
 			*(b->transform) = *transform;
 			/*b->transform->position.y += 0.5f;*/
 			

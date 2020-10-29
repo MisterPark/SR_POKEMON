@@ -3,6 +3,14 @@
 
 using namespace PKH;
 
+enum class State
+{
+	IDLE, WALK, ATTACK, PLAYER_SEARCH, SKILL, HURT, READY, END
+};
+enum class Direction
+{
+	D, LD, L, LU, U, RU, R, RD, END
+};
 
 namespace PKH
 {

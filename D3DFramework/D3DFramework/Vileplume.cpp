@@ -8,16 +8,14 @@ Vileplume::Vileplume()
 {
 	SetTexture(State::WALK, TextureKey::VILE_WALK_D_01, 3);
 	SetTexture(State::PLAYER_SEARCH, TextureKey::VILE_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3);
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 1);
-	}
-	anim->SetLoop(true);
+	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::VILE_WALK_D_01, 3, 1);
 
-	offsetY = 1.f;
+	anim->SetLoop(true);
+	UpdateAnimation();
+
 	moveSpeed = 0.5f;
-	state = State::IDLE;
+	state = State::READY;
 	AttackDelay = false;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -39,7 +37,7 @@ void Vileplume::Render()
 
 void Vileplume::Parttern()
 {
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Player>();
+	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -49,13 +47,13 @@ void Vileplume::Parttern()
 
 
 
-	if (state == State::IDLE && Dist < 8.f) {
+	if (state == State::READY && Dist < 8.f) {
 		state = State::PLAYER_SEARCH;
 
 		Time[0] = 0;
 		Frame[0] = 0;
 	}
-	else if (state == State::IDLE) { // 이건 랜덤패턴 갖기전 대기상태
+	else if (state == State::READY) { // 이건 랜덤패턴 갖기전 대기상태
 		state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
 
 		if (state == State::WALK) {            // 이곳에서 패턴 레디
@@ -84,7 +82,7 @@ void Vileplume::RandomMovePattern()
 		Time[0] = 0;
 		if (Frame[0] == 2) {			// 4번의 파닥거림 후
 			Frame[0] = 0;
-			state = State::IDLE;
+			state = State::READY;
 		}
 	}
 }
@@ -93,8 +91,12 @@ void Vileplume::Attack(Transform* PlayerT)
 {
 	Time[0] += TimeManager::DeltaTime();
 	if (!AttackDelay && Time[0] >= 0.3f) {
+		
 		AttackDelay = true;
-		CreateBullet(PlayerT);
+		if (Frame[0] % 2 == 1)
+		CrossBullet();
+		else
+		XBullet();
 	}
 	if (Time[0] >= 0.6f) {
 		Time[0] = 0.f;
@@ -109,36 +111,87 @@ void Vileplume::Attack(Transform* PlayerT)
 	}
 }
 
-void Vileplume::CreateBullet(Transform* PlayerT) {
-	direction = PlayerT->position - transform->position;
-	//MoveDir *= 1.5f;
-	float R = 0.5f;
-	if (direction.x > direction.z) {
-		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Vector3 Dir2 = direction;
-		Dir2.z -= R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
-		*(b->transform) = *transform;
-		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Dir2 = direction;
-		Dir2.z += R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
-		*(b->transform) = *transform;
-	}
-	else {
-		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Vector3 Dir2 = direction;
-		Dir2.x -= R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
-		*(b->transform) = *transform;
-		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		Dir2 = direction;
-		Dir2.x += R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Dir2.x, Dir2.z, Dir2.y);
-		*(b->transform) = *transform;
-	}
+void Vileplume::CrossBullet()
+{
+	float R = 1.f;
+
+	Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Vector3 Dir2 = { 0.f,0.f,0.f };
+	Dir2.z -= R;
+	Dir2.Normalized();
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
+
+	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Dir2 = { 0.f,0.f,0.f };
+	Dir2.z += R;
+	Dir2.Normalized();
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
+
+	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Dir2 = { 0.f,0.f,0.f };
+	Dir2.x += R;
+	Dir2.Normalized();
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
+
+	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Dir2 = { 0.f,0.f,0.f };
+	Dir2.x -= R;
+	Dir2.Normalized();
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
 }
+
+void Vileplume::XBullet()
+{
+	float R = 1.f;
+
+	Bullet_Water*	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Vector3 Dir2 = { 0.f,0.f,0.f };
+	Dir2.x -= R;
+	Dir2.z -= R;
+	Dir2.Normalized();
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
+
+	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Dir2 = { 0.f,0.f,0.f };
+	Dir2.x -= R;
+	Dir2.z += R;
+	Dir2.Normalized();
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
+
+	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Dir2 = { 0.f,0.f,0.f };
+	Dir2.x += R;
+	Dir2.z -= R;
+	Dir2.Normalized();
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
+
+	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Dir2 = { 0.f,0.f,0.f };
+	Dir2.x += R;
+	Dir2.z += R;
+	Dir2.Normalized();
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	b->moveSpeed = 0.5f;
+}
+

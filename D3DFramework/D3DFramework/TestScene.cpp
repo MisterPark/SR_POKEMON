@@ -4,7 +4,6 @@
 #include "Rectangle.h"
 #include "Cube.h"
 #include "SkyBox.h"
-#include "Player.h"
 #include "CubeMan.h"
 #include "Monster.h"
 #include "Environment.h"
@@ -16,7 +15,10 @@
 
 #include "Psyduck.h"
 #include "Vileplume.h"
+#include "Poliwrath.h"
 #include "Metapod.h"
+#include "Oddish.h"
+
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
@@ -24,10 +26,11 @@ void TestScene::OnLoaded()
 
 	Bulbasaur* playerCharacter = Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
-	ObjectManager::AddObject(Player::Create(playerCharacter));
+	
+	Player::GetInstance()->SetCharacter(playerCharacter);
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
-	ObjectManager::GetInstance()->CreateObject<Psyduck>();
+	//ObjectManager::GetInstance()->CreateObject<Psyduck>();
 
 	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
@@ -39,13 +42,18 @@ void TestScene::OnLoaded()
 	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
 	//Obj->transform->position.x += 1;
 	//Obj->transform->position.z += 1;
-	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
-	//Obj->transform->position.x += 3;
-	//Obj->transform->position.z += 3;
-	//Obj = ObjectManager::GetInstance()->CreateObject<Monster_Oddish>();
-	//Obj->transform->position.x += 5;
-	//Obj->transform->position.z += 5;
-
+	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
+	Obj->transform->position.x += 3;
+	Obj->transform->position.z += 3;
+	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
+	Obj->transform->position.x += 5;
+	Obj->transform->position.z += 5;*/
+	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
+	//Obj->transform->position.x += 7;
+	//Obj->transform->position.z += 7;
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	Obj->transform->position.x += 7;
+	Obj->transform->position.z += 7;
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });
 	//test->SetDir({ 1.f, 0.f, 0.f });

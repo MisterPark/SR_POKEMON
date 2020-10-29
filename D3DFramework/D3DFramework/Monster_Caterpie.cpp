@@ -9,7 +9,7 @@ Monster_Caterpie::Monster_Caterpie()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
+	
 	//anim->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
 	anim->SetSprite(TextureKey::CATER_WALK_D_01, TextureKey::CATER_WALK_D_03);
 	anim->SetLoop(true);
@@ -75,7 +75,7 @@ void Monster_Caterpie::Pattern()
 		D3DXVec3Normalize(&direction, &direction);
 
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-		b->SetDir(direction.x, direction.z, direction.y);
+		b->SetDir(Vector3{ direction.x, direction.y, direction.z });
 		*(b->transform) = *transform;
 
 		
@@ -93,7 +93,7 @@ void Monster_Caterpie::Pattern()
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
 			Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-			b->SetDir(direction.x, direction.z);
+			D3DXVec3Normalize(&direction, &direction);
 			*(b->transform) = *transform;
 			/*b->transform->position.y += 0.5f;*/
 			

@@ -22,6 +22,10 @@
 //=======================================
 
 #ifdef _DEBUG
+
+#include <iostream>
+using namespace std;
+
 #ifdef UNICODE
 #pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
 #else
@@ -66,6 +70,8 @@
 #include "Camera.h"
 #include "Texture.h"
 #include "Animation2D.h"
+
+#include "Player.h"
 
 using namespace std;
 using namespace PKH;

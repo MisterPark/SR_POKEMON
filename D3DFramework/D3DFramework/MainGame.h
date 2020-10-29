@@ -14,17 +14,18 @@ namespace PKH
 		static void Destroy();
 
 		static void Initialize();
-		static void LoadUISprite();
-		static void LoadMonsterSprite();
-		static void LoadPlayerSprite();
-
-		static void Release();
 
 		static void Update();
+		static void Release();
 
 		static void Pause();
 		static void Resume();
 		static void Shutdown();
+
+		static void LoadETCSprite();
+		static void LoadUISprite();
+		static void LoadMonsterSprite();
+		static void LoadPlayerSprite();
 
 		Triangle* tri = nullptr;
 	};

@@ -37,13 +37,14 @@ void PKH::MainGame::Initialize()
 {
 	Random::InitState();
 
-    // 다른 모든 매니저 초기화
+	// 다른 모든 매니저 초기화
 	TimeManager::GetInstance();
 	TimeManager::SetFPS(60.f);
 	D2DRenderManager::GetInstance();
 	CollisionManager::GetInstance();
 	InputManager::GetInstance();
-	
+	Player::GetInstance();
+
 	//RenderManager::GetInstance();
 
 	SceneManager::GetInstance();
@@ -55,8 +56,81 @@ void PKH::MainGame::Initialize()
 	SoundManager::GetInstance()->Initialize();
 	LoadMonsterSprite();
 	LoadPlayerSprite();
+	LoadETCSprite();
 
-    // 리소스 로드
+	ObjectManager::GetInstance();
+
+	// 씬로드
+	SceneManager::LoadScene<TestScene>();
+}
+
+void PKH::MainGame::Update()
+{
+	// 1. 인풋 먼저
+	InputManager::Update();
+
+	// 2. 씬 매니저 업데이트
+	SceneManager::Update();
+
+	// 3. Player 업데이트
+	Player::GetInstance()->Update();
+
+	// 4. Obj 업데이트
+	ObjectManager::Update();
+
+	Camera::GetInstance()->Update();
+	CollisionManager::Update();
+	
+
+	ObjectManager::PostUpdate();
+
+	if (!TimeManager::SkipFrame())
+	{
+		D2DRenderManager::Clear();
+
+		ObjectManager::PreRender();
+		ObjectManager::Render();
+		ObjectManager::PostRender();
+
+
+		D2DRenderManager::Present();
+	}
+}
+
+void PKH::MainGame::Release()
+{
+	// 다른 모든 매니저 해제
+	SceneManager::Destroy();
+	TimeManager::Destroy();
+	ObjectManager::Destroy();
+	//RenderManager::Release();
+	D2DRenderManager::Destroy();
+	InputManager::Destroy();
+	CollisionManager::Destroy();
+	Camera::Destroy();
+	FileManager::Destroy();
+
+	SoundManager::Destroy();
+	Cursor::Destroy();
+	Player::DestroyInstance();
+}
+
+void PKH::MainGame::Pause()
+{
+}
+
+void PKH::MainGame::Resume()
+{
+}
+
+void PKH::MainGame::Shutdown()
+{
+	PostQuitMessage(0);
+}
+
+void PKH::MainGame::LoadETCSprite()
+{
+	// 리소스 로드
 	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle.png");
 
 	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\SKYBOX_U.png");
@@ -66,7 +140,7 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\SKYBOX_B.png");
 
-	
+
 	//눈물총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_02, L"Texture\\Bullet\\Bullet_Tears02.png");
@@ -83,12 +157,6 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_13, L"Texture\\Bullet\\Bullet_Tears13.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_14, L"Texture\\Bullet\\Bullet_Tears14.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_15, L"Texture\\Bullet\\Bullet_Tears15.png");
-
-	ObjectManager::GetInstance();
-
-	// 씬로드
-	SceneManager::LoadScene<TestScene>();
-
 }
 
 void PKH::MainGame::LoadUISprite()
@@ -267,7 +335,7 @@ void PKH::MainGame::LoadMonsterSprite()
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_RU_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\RU (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_R_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\R (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::META_ATTACK_RD_01, L"Texture\\Monster\\Grass\\Metapod\\ATTACK\\RD (1).png");
-	
+
 
 	//뚜벅쵸
 	//이동
@@ -521,7 +589,7 @@ void PKH::MainGame::LoadMonsterSprite()
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_RU_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\RU (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_R_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\R (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::WAG_ATTACK_RD_01, L"Texture\\Monster\\Water\\Poliwag\\ATTACK\\RD (1).png");
-	
+
 
 
 	//강챙이
@@ -1032,59 +1100,4 @@ void PKH::MainGame::LoadPlayerSprite()
 	D2DRenderManager::LoadSprite(TextureKey::PG01_ATTACK_RD_02, L"Texture\\Player\\Grass\\01\\ATTACK\\RD\\1.png");
 	// == PG01 END ==
 
-}
-
-void PKH::MainGame::Release()
-{
-    // 다른 모든 매니저 해제
-	SceneManager::Destroy();
-	TimeManager::Destroy();
-	ObjectManager::Destroy();
-	//RenderManager::Release();
-	D2DRenderManager::Destroy();
-	InputManager::Destroy();
-	CollisionManager::Destroy();
-	Camera::Destroy();
-	FileManager::Destroy();
-
-	SoundManager::Destroy();
-	Cursor::Destroy();
-}
-
-void PKH::MainGame::Update()
-{
-	InputManager::Update();
-	Camera::GetInstance()->Update();
-	ObjectManager::Update();
-
-	CollisionManager::Update();
-
-	ObjectManager::PostUpdate();
-
-	if (!TimeManager::SkipFrame())
-	{
-		D2DRenderManager::Clear();
-
-		ObjectManager::PreRender();
-		ObjectManager::Render();
-		ObjectManager::PostRender();
-
-
-		D2DRenderManager::Present();
-	}
-
-	SceneManager::Update();
-}
-
-void PKH::MainGame::Pause()
-{
-}
-
-void PKH::MainGame::Resume()
-{
-}
-
-void PKH::MainGame::Shutdown()
-{
-	PostQuitMessage(0);
 }
