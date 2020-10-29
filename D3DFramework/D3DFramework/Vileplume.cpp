@@ -8,15 +8,14 @@ Vileplume::Vileplume()
 {
 	SetTexture(State::WALK, TextureKey::VILE_WALK_D_01, 3);
 	SetTexture(State::PLAYER_SEARCH, TextureKey::VILE_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3);
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 1);
-	}
+	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::VILE_WALK_D_01, 3, 1);
+
 	anim->SetLoop(true);
+	UpdateAnimation();
 
 	moveSpeed = 0.5f;
-	state = State::IDLE;
+	state = State::READY;
 	AttackDelay = false;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -48,13 +47,13 @@ void Vileplume::Parttern()
 
 
 
-	if (state == State::IDLE && Dist < 8.f) {
+	if (state == State::READY && Dist < 8.f) {
 		state = State::PLAYER_SEARCH;
 
 		Time[0] = 0;
 		Frame[0] = 0;
 	}
-	else if (state == State::IDLE) { // 이건 랜덤패턴 갖기전 대기상태
+	else if (state == State::READY) { // 이건 랜덤패턴 갖기전 대기상태
 		state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
 
 		if (state == State::WALK) {            // 이곳에서 패턴 레디
@@ -83,7 +82,7 @@ void Vileplume::RandomMovePattern()
 		Time[0] = 0;
 		if (Frame[0] == 2) {			// 4번의 파닥거림 후
 			Frame[0] = 0;
-			state = State::IDLE;
+			state = State::READY;
 		}
 	}
 }

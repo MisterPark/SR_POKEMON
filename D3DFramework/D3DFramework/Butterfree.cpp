@@ -11,7 +11,7 @@ Butterfree::Butterfree()
 	{
 		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
 	}
-	
+	UpdateAnimation();
 	anim->SetLoop(true);
 	offsetY = 2.5f;
 	state = State::WALK;

@@ -9,7 +9,7 @@ Monster_Caterpie::Monster_Caterpie()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	ani = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
+	
 	//anim->SetSprite(TextureKey::BUTTER_ATTACK_D_01, TextureKey::BUTTER_ATTACK_D_02);
 	anim->SetSprite(TextureKey::CATER_WALK_D_01, TextureKey::CATER_WALK_D_03);
 	anim->SetLoop(true);

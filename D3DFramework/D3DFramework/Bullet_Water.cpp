@@ -7,6 +7,7 @@
 Bullet_Water::Bullet_Water()
 {   //TODO : 불렛이 지형타는중
     SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 1);
+	UpdateAnimation();
     state = State::IDLE;
     anim->SetLoop(true);
     anim->SetDelay(0.2f);

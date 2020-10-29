@@ -15,11 +15,13 @@ Poliwrath::Poliwrath()
 	{
 		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
 	}
+	UpdateAnimation();
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
 	offsetY = 1.f;
 	state = State::END;
 	moveSpeed = 0.5f;
+	Monster::Update();
 }
 
 Poliwrath::~Poliwrath()
