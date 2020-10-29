@@ -279,6 +279,9 @@
     <ClInclude Include="Venusaur.h">
       <Filter>GameObject\Character\Player\03. Venusaur</Filter>
     </ClInclude>
+    <ClInclude Include="Range.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -448,15 +451,6 @@
     </ClCompile>
     <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Ivysaur.cpp">
-      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
-    </ClCompile>
-    <ClCompile Include="Venusaur.cpp">
-      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

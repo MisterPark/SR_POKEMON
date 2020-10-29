@@ -3,18 +3,16 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
+#include "Range.h"
 #include "Character.h"
 
 Poliwrath::Poliwrath()
 {
 	SetTexture(State::WALK, TextureKey::WRATH_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::WRATH_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::WRATH_WALK_D_01, 3);
+	SetTexture(State::IDLE, TextureKey::WRATH_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::WRATH_WALK_D_01, 3, 1);
 
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
-	}
 	UpdateAnimation();
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
@@ -66,6 +64,7 @@ void Poliwrath::Pattern()
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalized();
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
@@ -82,10 +81,11 @@ void Poliwrath::Pattern()
 		}
 		if (state == State::READY && Dist >= 3.f)
 		{
-			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
 			Dist.Normalized();
 			direction = Dist;
+			state = State::WALK;
+			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -97,7 +97,7 @@ void Poliwrath::Pattern()
 				Time[0] = 0;
 				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
-					state = State::READY;
+					state = State::ATTACK;
 				}
 			}
 		}
@@ -106,6 +106,7 @@ void Poliwrath::Pattern()
 			Attack(PlayerT);
 		}
 	}
+
 
 }
 
@@ -160,6 +161,7 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 		*(b->transform) = *PlayerT;
 		b->transform->position.y += 5.f;
 		
-	
+		Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
+		*(r->transform) = *PlayerT;
 }
 
