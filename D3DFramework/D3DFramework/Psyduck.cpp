@@ -72,17 +72,17 @@ void Psyduck::Pattern()
 	if (isSearch)
 	{
 
-		if (state == State::READY&&Dist < 3.f)
+		if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if(state == State::READY &&Dist >=3.f)
+		if (state == State::READY && Dist >= 3.f)
 		{
 			Vector3 Dist = PlayerT->position - transform->position;
 			direction = Dist.Normalized();
 			state = State::WALK;
-
+			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트

@@ -10,14 +10,18 @@
 #include "TestObj.h"
 #include "TitleScene.h"
 #include "Butterfree.h"
-#include "Psyduck.h"
 #include "Bulbasaur.h"
-
-#include "Psyduck.h"
 #include "Vileplume.h"
-#include "Poliwrath.h"
 #include "Metapod.h"
 #include "Oddish.h"
+
+#include "Psyduck.h"
+#include "Poliwag.h"
+#include "Psyduck.h"
+#include "Poliwrath.h"
+#include "Jynx.h"
+#include "Suicune.h"
+#include "Golduck.h"
 
 void TestScene::OnLoaded()
 {
@@ -53,9 +57,9 @@ void TestScene::OnLoaded()
 	//Obj->transform->position.z += 7;
 	/*for (int i = 0; i < 10; ++i)
 	{*/
-		GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
-		Obj->transform->position.x += 7;
-		Obj->transform->position.z += 7;
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	Obj->transform->position.x += 7;
+	Obj->transform->position.z += 7;
 	/*}*/
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });
