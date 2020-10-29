@@ -79,10 +79,10 @@ void Psyduck::Pattern()
 		}
 		if(state == State::READY &&Dist >=3.f)
 		{
-			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
-			Dist.Normalized();
-			direction = Dist;
+			direction = Dist.Normalized();
+			state = State::WALK;
+
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트

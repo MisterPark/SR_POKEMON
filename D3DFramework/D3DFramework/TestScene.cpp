@@ -51,10 +51,12 @@ void TestScene::OnLoaded()
 	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
 	//Obj->transform->position.x += 7;
 	//Obj->transform->position.z += 7;
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
-	Obj->transform->position.x += 7;
-	Obj->transform->position.z += 7;
-
+	/*for (int i = 0; i < 10; ++i)
+	{*/
+		GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+		Obj->transform->position.x += 7;
+		Obj->transform->position.z += 7;
+	/*}*/
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });
 	//test->SetDir({ 1.f, 0.f, 0.f });
