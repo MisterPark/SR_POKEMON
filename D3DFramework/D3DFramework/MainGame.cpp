@@ -1100,4 +1100,95 @@ void PKH::MainGame::LoadPlayerSprite()
 	D2DRenderManager::LoadSprite(TextureKey::PG01_ATTACK_RD_02, L"Texture\\Player\\Grass\\01\\ATTACK\\RD\\1.png");
 	// == PG01 END ==
 
+	// == PG02 START ==
+	// WALK
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_D_01, L"Texture\\Player\\Grass\\02\\WALK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_D_02, L"Texture\\Player\\Grass\\02\\WALK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_D_03, L"Texture\\Player\\Grass\\02\\WALK\\D\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_LD_01, L"Texture\\Player\\Grass\\02\\WALK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_LD_02, L"Texture\\Player\\Grass\\02\\WALK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_LD_03, L"Texture\\Player\\Grass\\02\\WALK\\LD\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_L_01, L"Texture\\Player\\Grass\\02\\WALK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_L_02, L"Texture\\Player\\Grass\\02\\WALK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_L_03, L"Texture\\Player\\Grass\\02\\WALK\\L\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_LU_01, L"Texture\\Player\\Grass\\02\\WALK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_LU_02, L"Texture\\Player\\Grass\\02\\WALK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_LU_03, L"Texture\\Player\\Grass\\02\\WALK\\LU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_U_01, L"Texture\\Player\\Grass\\02\\WALK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_U_02, L"Texture\\Player\\Grass\\02\\WALK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_U_03, L"Texture\\Player\\Grass\\02\\WALK\\U\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_RU_01, L"Texture\\Player\\Grass\\02\\WALK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_RU_02, L"Texture\\Player\\Grass\\02\\WALK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_RU_03, L"Texture\\Player\\Grass\\02\\WALK\\RU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_R_01, L"Texture\\Player\\Grass\\02\\WALK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_R_02, L"Texture\\Player\\Grass\\02\\WALK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_R_03, L"Texture\\Player\\Grass\\02\\WALK\\R\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_RD_01, L"Texture\\Player\\Grass\\02\\WALK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_RD_02, L"Texture\\Player\\Grass\\02\\WALK\\RD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_WALK_RD_03, L"Texture\\Player\\Grass\\02\\WALK\\RD\\2.png");
+
+	// ATTACK
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_D_01, L"Texture\\Player\\Grass\\02\\ATTACK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_D_02, L"Texture\\Player\\Grass\\02\\ATTACK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_LD_01, L"Texture\\Player\\Grass\\02\\ATTACK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_LD_02, L"Texture\\Player\\Grass\\02\\ATTACK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_L_01, L"Texture\\Player\\Grass\\02\\ATTACK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_L_02, L"Texture\\Player\\Grass\\02\\ATTACK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_LU_01, L"Texture\\Player\\Grass\\02\\ATTACK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_LU_02, L"Texture\\Player\\Grass\\02\\ATTACK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_U_01, L"Texture\\Player\\Grass\\02\\ATTACK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_U_02, L"Texture\\Player\\Grass\\02\\ATTACK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_RU_01, L"Texture\\Player\\Grass\\02\\ATTACK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_RU_02, L"Texture\\Player\\Grass\\02\\ATTACK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_R_01, L"Texture\\Player\\Grass\\02\\ATTACK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_R_02, L"Texture\\Player\\Grass\\02\\ATTACK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_RD_01, L"Texture\\Player\\Grass\\02\\ATTACK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG02_ATTACK_RD_02, L"Texture\\Player\\Grass\\02\\ATTACK\\RD\\1.png");
+	// == PG02 END ==
+
+	// == PG03 START ==
+	// WALK
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_D_01, L"Texture\\Player\\Grass\\03\\WALK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_D_02, L"Texture\\Player\\Grass\\03\\WALK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_D_03, L"Texture\\Player\\Grass\\03\\WALK\\D\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_LD_01, L"Texture\\Player\\Grass\\03\\WALK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_LD_02, L"Texture\\Player\\Grass\\03\\WALK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_LD_03, L"Texture\\Player\\Grass\\03\\WALK\\LD\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_L_01, L"Texture\\Player\\Grass\\03\\WALK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_L_02, L"Texture\\Player\\Grass\\03\\WALK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_L_03, L"Texture\\Player\\Grass\\03\\WALK\\L\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_LU_01, L"Texture\\Player\\Grass\\03\\WALK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_LU_02, L"Texture\\Player\\Grass\\03\\WALK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_LU_03, L"Texture\\Player\\Grass\\03\\WALK\\LU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_U_01, L"Texture\\Player\\Grass\\03\\WALK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_U_02, L"Texture\\Player\\Grass\\03\\WALK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_U_03, L"Texture\\Player\\Grass\\03\\WALK\\U\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_RU_01, L"Texture\\Player\\Grass\\03\\WALK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_RU_02, L"Texture\\Player\\Grass\\03\\WALK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_RU_03, L"Texture\\Player\\Grass\\03\\WALK\\RU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_R_01, L"Texture\\Player\\Grass\\03\\WALK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_R_02, L"Texture\\Player\\Grass\\03\\WALK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_R_03, L"Texture\\Player\\Grass\\03\\WALK\\R\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_RD_01, L"Texture\\Player\\Grass\\03\\WALK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_RD_02, L"Texture\\Player\\Grass\\03\\WALK\\RD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_WALK_RD_03, L"Texture\\Player\\Grass\\03\\WALK\\RD\\2.png");
+
+	// ATTACK
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_D_01, L"Texture\\Player\\Grass\\03\\ATTACK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_D_02, L"Texture\\Player\\Grass\\03\\ATTACK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_LD_01, L"Texture\\Player\\Grass\\03\\ATTACK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_LD_02, L"Texture\\Player\\Grass\\03\\ATTACK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_L_01, L"Texture\\Player\\Grass\\03\\ATTACK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_L_02, L"Texture\\Player\\Grass\\03\\ATTACK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_LU_01, L"Texture\\Player\\Grass\\03\\ATTACK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_LU_02, L"Texture\\Player\\Grass\\03\\ATTACK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_U_01, L"Texture\\Player\\Grass\\03\\ATTACK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_U_02, L"Texture\\Player\\Grass\\03\\ATTACK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_RU_01, L"Texture\\Player\\Grass\\03\\ATTACK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_RU_02, L"Texture\\Player\\Grass\\03\\ATTACK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_R_01, L"Texture\\Player\\Grass\\03\\ATTACK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_R_02, L"Texture\\Player\\Grass\\03\\ATTACK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_RD_01, L"Texture\\Player\\Grass\\03\\ATTACK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PG03_ATTACK_RD_02, L"Texture\\Player\\Grass\\03\\ATTACK\\RD\\1.png");
+	// == PG03 END ==
 }

@@ -178,6 +178,7 @@
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="Ivysaur.h" />
     <ClInclude Include="Jynx.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Matrix.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="Oddish.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Poliwag.h" />
     <ClInclude Include="Poliwrath.h" />
@@ -215,6 +217,7 @@
     <ClInclude Include="UI.h" />
     <ClInclude Include="UI_Title.h" />
     <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Venusaur.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Vileplume.h" />
   </ItemGroup>
@@ -240,6 +243,7 @@
     <ClCompile Include="IComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="IScene.cpp" />
+    <ClCompile Include="Ivysaur.cpp" />
     <ClCompile Include="Jynx.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Matrix.cpp" />
@@ -252,6 +256,7 @@
     <ClCompile Include="Oddish.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="Poliwag.cpp" />
     <ClCompile Include="Poliwrath.cpp" />
     <ClCompile Include="Psyduck.cpp" />
@@ -275,6 +280,7 @@
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UI_Title.cpp" />
     <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Venusaur.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="Vileplume.cpp" />
   </ItemGroup>
