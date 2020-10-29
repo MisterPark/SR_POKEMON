@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "CubeMan.h"
 #include "Cube.h"
-#include "Player.h"
 #include "Terrain.h"
 
 PKH::CubeMan::CubeMan()

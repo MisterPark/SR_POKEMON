@@ -2,7 +2,6 @@
 #include "Vileplume.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "Player.h"
 
 Vileplume::Vileplume()
 {

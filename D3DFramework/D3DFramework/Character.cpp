@@ -3,6 +3,7 @@
 #include "Terrain.h"
 #include "Environment.h"
 #include "Rectangle.h"
+#include "Bullet_Water.h"
 
 Character::Character()
 {
@@ -66,47 +67,42 @@ void Character::OnTerrain()
 
 float Character::GetAngleFromCamera()
 {
-	// 카메라가 몬스터를 향하는 각
 	Vector3 camPos = Camera::GetPosition();
-	float degree1 = Vector3::AngleY(camPos, transform->position);
 
-	// 몬스터 월드 각
-	float degree2 = D3DXToDegree(atan2f(direction.x, direction.z));
+	Vector3 toCam = camPos - transform->position;
+	toCam.y = 0.f;
+	Vector3 myDir = direction;
 
-	return (degree2 - degree1);
+	D3DXVec3Normalize(&toCam, &toCam);
+	D3DXVec3Normalize(&myDir, &myDir);
+
+	float radian = acos(D3DXVec3Dot(&toCam, &myDir));
+	float degree = D3DXToDegree(radian);
+
+	Vector3 cross;
+	D3DXVec3Cross(&cross, &toCam, &myDir);
+
+	Vector3 up = { 0.f, 1.f, 0.f };
+
+	float upDot = D3DXVec3Dot(&cross, &up);
+
+	if (0.f > upDot) degree = 360 - degree;
+
+	return degree;
 }
 
 void Character::UpdateAnimation()
 {
 	float angle = GetAngleFromCamera();
 
-	angle += 202.5f;
-	
-	if (angle > 360.f)
-	{
-		angle -= 360;
-	}
+	angle += 22.5f;
 
-	if ((int)angle % 45 > 22.5f) {
-		angle /= 45.f;
-		angle -= 1;
-	}
-	else {
-		angle /= 45.f;
-	}
-	int index = angle;
+	int index = angle / 45.f;
 
-	if (index > 7)
-		index -= 8;
-	else if (index < 0)
-		index += 8;
+	index %= 8;
+
 	// 상태
 	anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
-	//int count = endArray[(int)state] - startArray[(int)state] + 1;
-
-	//TextureKey key = (TextureKey)(startArray[(int)state] + index * count);
-	//anim->SetSprite(key, (TextureKey)((count - 1) + (int)key));
-
 }
 
 void Character::SetDir(const Vector3 & dir)

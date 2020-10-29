@@ -3,7 +3,6 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "Player.h"
 
 Monster_Caterpie::Monster_Caterpie()
 {

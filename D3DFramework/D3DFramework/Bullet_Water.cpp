@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Bullet_Water.h"
 #include "Rectangle.h"
-#include "Player.h"
 
 Bullet_Water::Bullet_Water()
 {   //TODO : 불렛이 지형타는중

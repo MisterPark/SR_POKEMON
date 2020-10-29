@@ -2,7 +2,6 @@
 #include "Oddish.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "Player.h"
 
 Oddish::Oddish()
 {
