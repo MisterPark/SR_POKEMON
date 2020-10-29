@@ -1,21 +1,25 @@
 #pragma once
 #include "Character.h"
 
-class Player : public GameObject
+class Player
 {
-public:
+private:
     Player();
-	Player(Character* _character);
     virtual ~Player();
 
 public:
-	virtual void Initialize() override;
-	virtual void Update() override;
-	virtual void Render() override;
-	virtual void Release() override;
+	static Player* GetInstance();
+	static void DestroyInstance();
 
 public:
-	static Player* Create(Character* _character);
+	void Update();
+
+	void SetCharacter(Character* object);
+	Character* GetCharacter() { return character; }
+
+private:
+	void Initialize();
+	void Release();
 
 private:
 	void ResetMousePoint();
@@ -25,10 +29,13 @@ private:
 	void KeyInput();
 
 private:
+	static Player* instance;
+
 	Character* character = nullptr;
 	float radianX = 0.f;
 	float radianY = 0.f;
 	float spawnTime = 0.f;
 	bool canSpawn = true;
+	bool isFix = true;
 };
 

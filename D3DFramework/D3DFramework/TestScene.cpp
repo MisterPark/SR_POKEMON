@@ -4,7 +4,6 @@
 #include "Rectangle.h"
 #include "Cube.h"
 #include "SkyBox.h"
-#include "Player.h"
 #include "CubeMan.h"
 #include "Monster.h"
 #include "Environment.h"
@@ -18,6 +17,7 @@
 #include "Vileplume.h"
 #include "Metapod.h"
 #include "Oddish.h"
+
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
@@ -25,7 +25,8 @@ void TestScene::OnLoaded()
 
 	Bulbasaur* playerCharacter = Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
-	ObjectManager::AddObject(Player::Create(playerCharacter));
+	
+	Player::GetInstance()->SetCharacter(playerCharacter);
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
 	ObjectManager::GetInstance()->CreateObject<Psyduck>();
