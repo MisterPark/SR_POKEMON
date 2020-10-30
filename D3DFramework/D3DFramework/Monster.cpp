@@ -100,6 +100,7 @@ void Monster::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2)
 void Monster::PlayerSearch(float _range, float _rangeOut)
 {
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	if (g == nullptr) return;
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
