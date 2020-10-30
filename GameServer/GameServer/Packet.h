@@ -1,16 +1,6 @@
 #pragma once
 
-#pragma pack(push,1)
-typedef struct st_NETWORK_PACKET_HEADER
-{
-	BYTE	byCode;			// 패킷코드 0x89 고정.
-	BYTE	bySize;			// 패킷 사이즈.
-	BYTE	byType;			// 패킷타입.
-	BYTE	byTemp;			// 사용안함.
-}PACKET_HEADER;
 
-typedef BYTE ENDCODE;
-#pragma pack(pop)
 
 class Packet
 {

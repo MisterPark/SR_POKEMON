@@ -9,17 +9,13 @@ Psyduck::Psyduck()
 {
 	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3);
-	
-	
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
-	}
+	SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3,1);
+
+	UpdateAnimation();
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
 	offsetY = 1.f;
-	state = State::END;
+	state = State::READY;
 	moveSpeed = 0.5f;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -42,7 +38,7 @@ void Psyduck::Render()
 void Psyduck::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -58,10 +54,10 @@ void Psyduck::Pattern()
 	{
 		if (Dist < 5.f) {
 			isSearch = true;
-			state = State::END;
+			state = State::READY;
 		}
 
-		if (state == State::END && !isSearch)
+		if (state == State::READY && !isSearch)
 		{
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
@@ -76,17 +72,17 @@ void Psyduck::Pattern()
 	if (isSearch)
 	{
 
-		if (state == State::END&&Dist < 3.f)
+		if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if(state == State::END &&Dist >=3.f)
+		if (state == State::READY && Dist >= 3.f)
 		{
-			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
-			Dist.Normalized();
-			direction = Dist;
+			direction = Dist.Normalized();
+			state = State::WALK;
+			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -96,9 +92,9 @@ void Psyduck::Pattern()
 			if (Time[0] >= 1.5f) {
 				Frame[0] ++;
 				Time[0] = 0;
-				if (Frame[0] == 1) {			// 4번의 파닥거림 후
+				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
-					state = State::END;
+					state = State::ATTACK;
 				}
 			}
 		}
@@ -122,7 +118,7 @@ void Psyduck::RandomMovePattern()
 		Time[0] = 0;
 		if (Frame[0] == 4) {			// 4번의 파닥거림 후
 			Frame[0] = 0;
-			state = State::END;
+			state = State::READY;
 		}
 	}
 }
@@ -159,12 +155,14 @@ void Psyduck::CreateBullet(Transform* PlayerT)
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.z += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 	}
 	else {
 		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -173,12 +171,14 @@ void Psyduck::CreateBullet(Transform* PlayerT)
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 		b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 		Dir2 = direction;
 		Dir2.x += R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *transform;
+		b->isAlliance = false;
 	}
 }
 

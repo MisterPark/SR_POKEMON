@@ -3,18 +3,16 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
+#include "Range.h"
 #include "Character.h"
 
 Poliwrath::Poliwrath()
 {
 	SetTexture(State::WALK, TextureKey::WRATH_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::WRATH_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::WRATH_WALK_D_01, 3);
+	SetTexture(State::IDLE, TextureKey::WRATH_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::WRATH_WALK_D_01, 3, 1);
 
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
-	}
 	UpdateAnimation();
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
@@ -42,7 +40,7 @@ void Poliwrath::Render()
 void Poliwrath::Pattern()
 {
 
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -66,6 +64,7 @@ void Poliwrath::Pattern()
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalized();
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
@@ -82,10 +81,11 @@ void Poliwrath::Pattern()
 		}
 		if (state == State::READY && Dist >= 3.f)
 		{
-			state = State::WALK;
 			Vector3 Dist = PlayerT->position - transform->position;
 			Dist.Normalized();
 			direction = Dist;
+			state = State::WALK;
+			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -93,11 +93,11 @@ void Poliwrath::Pattern()
 			transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
 			transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 			if (Time[0] >= 1.5f) {
-				Frame[0] ++;
+				Frame[0]++;
 				Time[0] = 0;
 				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
-					state = State::READY;
+					state = State::ATTACK;
 				}
 			}
 		}
@@ -106,6 +106,7 @@ void Poliwrath::Pattern()
 			Attack(PlayerT);
 		}
 	}
+
 
 }
 
@@ -159,7 +160,8 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *PlayerT;
 		b->transform->position.y += 5.f;
-		
-	
+		b->isAlliance = false;
+		Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
+		*(r->transform) = *PlayerT;
 }
 

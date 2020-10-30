@@ -7,19 +7,23 @@ Bullet::Bullet()
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
+
+	CollisionManager::RegisterObject(this);
 }
 
-Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const int & type, const bool & isPlayer) :
-	direction(dir), isPlayer(isPlayer)
+Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const bool & alliance) :
+	direction(dir)
 {
 	transform->position = pos;
 	transform->scale = scale;
 
-	Initialize();
+	isAlliance = alliance;
 
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
+
+	CollisionManager::RegisterObject(this);
 }
 
 Bullet::~Bullet()
@@ -42,8 +46,6 @@ void Bullet::Render()
 
 void Bullet::Initialize()
 {
-	SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 15);
-	state = State::IDLE;
 }
 
 void Bullet::Release()
@@ -64,30 +66,6 @@ float Bullet::GetAngleFromCamera()
 
 void Bullet::UpdateAnimation()
 {
-	//float angle = GetAngleFromCamera();
-
-	//angle += 202.5f;
-
-	//if (angle > 360.f)
-	//{
-	//	angle -= 360;
-	//}
-
-	//if ((int)angle % 45 > 22.5f) {
-	//	angle /= 45.f;
-	//	angle -= 1;
-	//}
-	//else {
-	//	angle /= 45.f;
-	//}
-	//int index = angle;
-
-	//if (index > 7)
-	//	index -= 8;
-	//else if (index < 0)
-	//	index += 8;
-	//// ป๓ลย
-	//anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
 	anim->SetSprite(startArray[(int)state][0], endArray[(int)state][0]);
 }
 
@@ -102,7 +80,6 @@ void Bullet::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame
 			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_endFrame - 1));
 	}
 }
-
 
 void Bullet::SetDir(const Vector3 & dir)
 {
@@ -122,9 +99,9 @@ void Bullet::ChangeState(State nextState)
 	}
 }
 
-Bullet * Bullet::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const int & type, const bool & isPlayer)
+Bullet * Bullet::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const bool & isPlayer)
 {
-	Bullet* newBullet = new Bullet(pos, scale, dir, type, isPlayer);
+	Bullet* newBullet = new Bullet(pos, scale, dir, isPlayer);
 	
 	return newBullet;
 }

@@ -16,6 +16,8 @@ Monster::Monster()
 		Time[i] = 0.f;
 	}
 	offsetY = 1.f;
+
+	isAlliance = false;
 }
 
 Monster::~Monster()
