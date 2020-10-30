@@ -36,8 +36,8 @@ public:
 
 public:
 	int att;
-	bool isPlayer;
-	Vector3 direction = { 0,0,1 };;
+	bool isBillboard = true;
+	Vector3 direction = { 0,0,1 };
 	Animation2D* anim = nullptr;
 	State state = State::IDLE;
 	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];

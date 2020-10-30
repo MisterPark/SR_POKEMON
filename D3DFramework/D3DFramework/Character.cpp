@@ -3,6 +3,7 @@
 #include "Terrain.h"
 #include "Environment.h"
 #include "Rectangle.h"
+#include "Bulbasaur.h"
 
 Character::Character()
 {
@@ -73,6 +74,7 @@ float Character::GetAngleFromCamera()
 
 	Matrix rotX;
 	float radianX = transform->eulerAngles.x;
+	float radianY = transform->eulerAngles.y;
 	D3DXMatrixRotationX(&rotX, -radianX);
 	D3DXVec3TransformNormal(&myDir, &myDir, &rotX);
 
@@ -107,11 +109,6 @@ void Character::UpdateAnimation()
 
 	// ป๓ลย
 	anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
-
-	/*Bulbasaur* tester = dynamic_cast<Bulbasaur*>(this);
-	if (nullptr == tester) return;
-
-	cout << "Angle : " << angle - 25.f << endl;*/
 }
 
 void Character::SetDir(const Vector3 & dir)

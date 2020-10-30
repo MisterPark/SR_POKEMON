@@ -14,8 +14,15 @@ public:
 public:
 	void Update();
 
+public:
+	// Setter
 	void SetCharacter(Character* object);
+
+public:
+	// Getter
 	Character* GetCharacter() { return character; }
+	float GetRadianX() { return radianX; }
+	float GetRadianY() { return radianY; }
 
 private:
 	void Initialize();
@@ -23,19 +30,22 @@ private:
 
 private:
 	void ResetMousePoint();
-	void CalcSpawnTime();
+	void CalcCoolTime();
 	void Attack();
 	void CalcMouse();
 	void KeyInput();
+	void ChangeState(State state);
 
 private:
 	static Player* instance;
 
-	Character* character = nullptr;
-	float radianX = 0.f;
-	float radianY = 0.f;
-	float spawnTime = 0.f;
-	bool canSpawn = true;
-	bool isFix = true;
+	Character* character;
+	float radianX;
+	float radianY;
+	float attackCoolTime;
+	float skillCoolTime;
+	bool isAttack;
+	bool isSkill;
+	bool isFix;
 };
 

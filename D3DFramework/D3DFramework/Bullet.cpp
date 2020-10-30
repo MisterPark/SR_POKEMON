@@ -35,7 +35,7 @@ void Bullet::Update()
 {
 	GameObject::Update();
 	Move(direction);
-	Billboard();
+	if (isBillboard) Billboard();
 	UpdateAnimation();
 }
 

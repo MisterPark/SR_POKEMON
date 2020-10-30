@@ -103,7 +103,7 @@ void PKH::Camera::SetProjection3D(bool ProjectionSet)
 	pCamera->isProjection3D = ProjectionSet;
 }
 
-Vector3 PKH::Camera::ScreenToWorldPoint(const Vector3& position)
+Vector3 PKH::Camera::ScreenToWorldPoint(const Vector3& position, float zPos)
 {
 	Matrix viewProj = pCamera->viewMatrix * pCamera->projectionMatrix;
 	
@@ -111,7 +111,8 @@ Vector3 PKH::Camera::ScreenToWorldPoint(const Vector3& position)
 	Vector3 pos;
 	pos.x = (position.x * 2.f / dfCLIENT_WIDTH) - 1.f;
 	pos.y = -(position.y * 2.f / dfCLIENT_HEIGHT) + 1.f;
-	pos.z =  pCamera->nearClipPlane;
+	if(1.f == zPos) pos.z =  pCamera->nearClipPlane;
+	else pos.z = zPos;
 
 	// Projection To World
 	Matrix inverseMat = Matrix::Inverse(viewProj);

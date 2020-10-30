@@ -10,9 +10,12 @@
 #include "TestObj.h"
 #include "TitleScene.h"
 #include "Butterfree.h"
+
 #include "Bulbasaur.h"
 #include "Ivysaur.h"
 #include "Venusaur.h"
+
+#include "Charmander.h"
 
 #include "Metapod.h"
 #include "Oddish.h"
@@ -29,12 +32,13 @@
 #include "Suicune.h"
 #include "Golduck.h"
 
+
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
 
-	Venusaur* playerCharacter = Venusaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 	
 	Player::GetInstance()->SetCharacter(playerCharacter);

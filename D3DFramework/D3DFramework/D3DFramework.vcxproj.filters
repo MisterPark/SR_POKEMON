@@ -82,6 +82,9 @@
     <Filter Include="Network">
       <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\Player\04. Charmander">
+      <UniqueIdentifier>{c18641b1-3a32-4f39-937c-d9aae4a2ec9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -297,6 +300,12 @@
     <ClInclude Include="Range.h">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Scyther.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Charmander.h">
+      <Filter>GameObject\Character\Player\04. Charmander</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -476,17 +485,23 @@
     <ClCompile Include="CRingBuffer.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="Ivysaur.cpp">
+    <ClCompile Include="Range.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Scyther.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="PlayerBullet.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Ivysaur.cpp">
+      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
     </ClCompile>
     <ClCompile Include="Venusaur.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
     </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
+    <ClCompile Include="Charmander.cpp">
+      <Filter>GameObject\Character\Player\04. Charmander</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

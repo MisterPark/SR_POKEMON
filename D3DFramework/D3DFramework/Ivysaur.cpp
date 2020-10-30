@@ -25,9 +25,10 @@ void Ivysaur::Initialize()
 	SetTexture(State::IDLE, TextureKey::PG02_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PG02_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PG02_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PG02_SKILL_D_01, 2);
 
 	anim->SetLoop(true);
-	offsetY = 0.2f;
+	offsetY = 0.13f;
 
 	state = State::IDLE;
 }
