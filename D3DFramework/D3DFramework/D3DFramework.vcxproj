@@ -231,6 +231,7 @@
     <ClInclude Include="Venusaur.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Vileplume.h" />
+    <ClInclude Include="Water.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation2D.cpp" />
@@ -304,6 +305,7 @@
     <ClCompile Include="Venusaur.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="Vileplume.cpp" />
+    <ClCompile Include="Water.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D3DFramework.rc" />
