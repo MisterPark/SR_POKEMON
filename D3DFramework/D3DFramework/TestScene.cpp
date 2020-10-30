@@ -33,12 +33,13 @@
 #include "Suicune.h"
 #include "Golduck.h"
 
+#include "Water.h"
 
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
-
+	ObjectManager::GetInstance()->CreateObject<Water>();
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 	
@@ -63,7 +64,7 @@ void TestScene::OnLoaded()
 	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
 	Obj->transform->position.x += 5;
 	Obj->transform->position.z += 5;*/
-	
+
 	/*for (int i = 0; i < 10; ++i)
 	{*//*
 	*/

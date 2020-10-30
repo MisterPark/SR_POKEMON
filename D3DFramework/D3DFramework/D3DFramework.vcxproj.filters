@@ -85,11 +85,11 @@
     <Filter Include="GameObject\Character\Player\04. Charmander">
       <UniqueIdentifier>{c18641b1-3a32-4f39-937c-d9aae4a2ec9d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\Effect">
-      <UniqueIdentifier>{3c9b1f38-ee19-4051-b033-70755a2a872c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Environment">
       <UniqueIdentifier>{a176ddbd-cd5b-4d71-a544-2ec14d3fe4ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Effect">
+      <UniqueIdentifier>{536fc900-1ad6-4253-bbff-285b3ca01986}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -312,9 +312,6 @@
     <ClInclude Include="TestMultiScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>GameObject\Character\Effect</Filter>
-    </ClInclude>
     <ClInclude Include="Caterpie.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
@@ -323,6 +320,12 @@
     </ClInclude>
     <ClInclude Include="Scyther.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>GameObject\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Water.h">
+      <Filter>GameObject\Environment</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -451,9 +454,6 @@
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Environment.cpp">
-      <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Butterfree.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
@@ -668,9 +668,6 @@
     <ClCompile Include="Environment.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>GameObject\Character\Effect</Filter>
-    </ClCompile>
     <ClCompile Include="Character.cpp">
       <Filter>GameObject\Character</Filter>
     </ClCompile>
@@ -718,6 +715,15 @@
     </ClCompile>
     <ClCompile Include="Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>GameObject\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>GameObject\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Water.cpp">
+      <Filter>GameObject\Environment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
