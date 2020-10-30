@@ -85,6 +85,7 @@ void TestScene::OnLoaded()
 void TestScene::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
+	Player::GetInstance()->SetCharacter(nullptr);
 	ObjectManager::DestroyAll();
 }
 

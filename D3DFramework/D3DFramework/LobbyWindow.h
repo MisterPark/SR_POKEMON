@@ -9,21 +9,29 @@ enum CHILD_ID
 	BUTTON2
 };
 
+enum class LobbyResult
+{
+	NONE,
+	OK,
+	CANCEL,
+};
+
 class LobbyWindow
 {
 private:
 	LobbyWindow();
 	~LobbyWindow();
 public:
-	bool Create(HINSTANCE hInstance, int nCmdShow);
+	bool Create();
 	static LobbyWindow* GetInstance();
+	static void Destroy();
 	bool Run(void);
 	LRESULT WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
 
 private:
 	bool tryToConnect = false;
 	HWND hLobbyWnd;
-	WCHAR title[64] = L"로비";
+	WCHAR title[64] = L"닉네임을 적어주세요.";
 
 	HWND hEdit;
 	HWND hButton1;
@@ -31,5 +39,6 @@ private:
 
 public:
 	WCHAR serverIPtext[64];
+	LobbyResult result = LobbyResult::NONE;
 };
 

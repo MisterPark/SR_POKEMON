@@ -95,3 +95,4 @@ using namespace std;
 using namespace PKH;
 
 extern HWND g_hwnd;
+extern HINSTANCE g_hInstance;

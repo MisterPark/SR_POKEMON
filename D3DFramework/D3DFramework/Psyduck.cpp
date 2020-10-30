@@ -41,6 +41,7 @@ void Psyduck::Render()
 void Psyduck::Pattern()
 {
 	GameObject* g = Player::GetInstance()->GetCharacter();
+	if (g == nullptr) return;
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
