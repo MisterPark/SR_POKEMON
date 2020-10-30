@@ -65,9 +65,12 @@ void TestScene::OnLoaded()
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
 
-	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
+	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
+	Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
+	Obj->transform->position.x += 9;
+	Obj->transform->position.z += 9;
 	/*}*/
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });

@@ -25,7 +25,7 @@ Oddish::~Oddish()
 
 void Oddish::Update()
 {
-	Parttern();
+	Pattern();
 	Monster::Update();
 
 }
@@ -35,7 +35,7 @@ void Oddish::Render()
 	Monster::Render();
 }
 
-void Oddish::Parttern()
+void Oddish::Pattern()
 {
 
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
@@ -59,10 +59,7 @@ void Oddish::Parttern()
 		state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
 
 		if (state == State::WALK) {            // 이곳에서 패턴 레디
-			direction.x = -4.f + Random::Value(9) * 1.f;
-			direction.y = 0.f;
-			direction.z = -4.f + Random::Value(9) * 1.f;
-			direction.Normalize(&direction);
+			direction = RandomDir();
 		}
 	}
 	else if (state == State::WALK) {		//// 이곳부터 업데이트
@@ -77,8 +74,7 @@ void Oddish::Parttern()
 		}
 		direction = PlayerT->position - transform->position;
 		D3DXVec3Normalize(&direction, &direction);
-		transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-		transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+		Move();
 	}
 
 }
@@ -87,8 +83,7 @@ void Oddish::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+	Move();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;
