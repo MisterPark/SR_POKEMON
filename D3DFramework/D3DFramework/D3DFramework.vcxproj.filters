@@ -85,6 +85,74 @@
     <Filter Include="GameObject\Character\Player\04. Charmander">
       <UniqueIdentifier>{c18641b1-3a32-4f39-937c-d9aae4a2ec9d}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="Animation2D.cpp" />
+    <ClCompile Include="Bulbasaur.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullet_Water.cpp" />
+    <ClCompile Include="Butterfree.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Caterpie.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="CPacket.cpp" />
+    <ClCompile Include="CRingBuffer.cpp" />
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="CubeMan.cpp" />
+    <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="D2DRenderManager.cpp" />
+    <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Golduck.cpp" />
+    <ClCompile Include="IComponent.cpp" />
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IScene.cpp" />
+    <ClCompile Include="Ivysaur.cpp" />
+    <ClCompile Include="Jynx.cpp" />
+    <ClCompile Include="LobbyWindow.cpp" />
+    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Metapod.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Monster_Butterfree.cpp" />
+    <ClCompile Include="Network.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="Oddish.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
+    <ClCompile Include="Poliwag.cpp" />
+    <ClCompile Include="Poliwrath.cpp" />
+    <ClCompile Include="Psyduck.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Range.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Scyther.cpp" />
+    <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Suicune.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="TestMultiScene.cpp" />
+    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UI_Title.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Venusaur.cpp" />
+    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="Vileplume.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -300,12 +368,6 @@
     <ClInclude Include="Range.h">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="Scyther.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Charmander.h">
-      <Filter>GameObject\Character\Player\04. Charmander</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -485,36 +547,24 @@
     <ClCompile Include="CRingBuffer.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Scyther.cpp">
+    <ClCompile Include="Ivysaur.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Ivysaur.cpp">
-      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Venusaur.cpp">
-      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Charmander.cpp">
-      <Filter>GameObject\Character\Player\04. Charmander</Filter>
+    <ClCompile Include="Range.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="D3DFramework.rc">
-      <Filter>리소스 파일</Filter>
-    </ResourceCompile>
+    <ResourceCompile Include="D3DFramework.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="D3DFramework.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
+    <Image Include="D3DFramework.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
 </Project>

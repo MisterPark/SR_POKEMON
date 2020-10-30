@@ -15,6 +15,7 @@
 #include <vector>
 #include <set>
 #include <list>
+#include <string>
 
 //=======================================
 //  FMOD
@@ -53,6 +54,7 @@ using namespace std;
 //  My Lib
 //=======================================
 
+#include "Debug.h"
 #include "Define.h"
 #include "Functions.h"
 

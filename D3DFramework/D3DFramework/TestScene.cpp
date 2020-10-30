@@ -18,6 +18,7 @@
 #include "Charmander.h"
 
 #include "Metapod.h"
+#include "Caterpie.h"
 #include "Oddish.h"
 #include "Vileplume.h"
 
@@ -49,7 +50,7 @@ void TestScene::OnLoaded()
 	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
 	//for (int i = 0; i < 1; i++) {
-	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Butterfree>();
+	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Caterpie>();
 	//	Obj->transform->position.x += i * 1;
 	//	Obj->transform->position.z += i * 1;
 	//}
@@ -64,14 +65,15 @@ void TestScene::OnLoaded()
 	Obj->transform->position.z += 5;*/
 	
 	/*for (int i = 0; i < 10; ++i)
-	{*/
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Golduck>();
+	{*//*
+	*/
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
-
+	/*
 	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
 	Obj->transform->position.x += 7;
-	Obj->transform->position.z += 7;
+	Obj->transform->position.z += 7;*/
 	/*}*/
 	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
 	//test->SetPos({ -1.f, 0.f, 1.f });

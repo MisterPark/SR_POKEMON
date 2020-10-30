@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "TitleScene.h"
 #include "UI_Title.h"
+#include "LobbyWindow.h"
 
 void TitleScene::OnLoaded()
 {
@@ -9,6 +10,9 @@ void TitleScene::OnLoaded()
 
 
 	ObjectManager::GetInstance()->CreateObject<UI_Title>();
+
+	
+
 }
 
 void TitleScene::OnUnloaded()

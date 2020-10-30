@@ -11,7 +11,7 @@ public:
     virtual void Render() override;
 
 private:
-    void Parttern();
+    void Pattern();
     void RandomMovePattern();
 
 };

@@ -11,11 +11,13 @@ public:
     virtual void Render() override;
 
 private:
-    void Parttern();
+    void Pattern();
     void RandomMovePattern();
     void Attack(Transform* PlayerT);
     void CrossBullet();
 	void XBullet();
+
+	bool isSearch = false;
     bool AttackDelay;
 };
 
