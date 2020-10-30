@@ -60,7 +60,7 @@ void Psyduck::Pattern()
 
 		/////////////////////////////////////////////////////////// 패턴 Update
 		if (state == State::WALK) {
-			MovePlayerFollow();
+			/*MovePlayerFollow();*/
 		}
 		else if (state == State::ATTACK) {
 			// 공격 Update

@@ -364,6 +364,11 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_24, L"Texture\\Bullet\\Wind1\\Wind1 (24).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_25, L"Texture\\Bullet\\Wind1\\Wind1 (25).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::TREE01, L"Texture\\ETC\\Tree\\Tree (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE02, L"Texture\\ETC\\Tree\\Tree (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE03, L"Texture\\ETC\\Tree\\Tree (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE04, L"Texture\\ETC\\Tree\\Tree (4).png");
+
 	//RANGE
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
 
@@ -372,6 +377,8 @@ void PKH::MainGame::LoadETCSprite()
 	//WATER
 	D2DRenderManager::LoadSprite(TextureKey::WATER_ENVIRONMENT, L"Texture\\WATER.png");
 	
+	//
+
 }
 
 void PKH::MainGame::LoadUISprite()

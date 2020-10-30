@@ -1446,6 +1446,12 @@ namespace PKH
 		GRASS_MAP,
 		WATER_ENVIRONMENT,
 
+		TREE01,
+		TREE02,
+		TREE03,
+		TREE04,
+
+
 		RANGE,		
 	};
 

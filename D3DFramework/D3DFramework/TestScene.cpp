@@ -34,6 +34,7 @@
 #include "Golduck.h"
 
 #include "Water.h"
+#include "Tree.h"
 
 void TestScene::OnLoaded()
 {
@@ -48,7 +49,9 @@ void TestScene::OnLoaded()
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
 	ObjectManager::GetInstance()->CreateObject<Psyduck>();
-
+	GameObject* Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
+	Tree2->transform->position.x += 10.f;
+	Tree2->transform->position.z += 2.f;
 	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
 	//for (int i = 0; i < 1; i++) {
