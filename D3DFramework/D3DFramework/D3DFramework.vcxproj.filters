@@ -61,9 +61,6 @@
     <Filter Include="GameObject\SkyBox">
       <UniqueIdentifier>{c45ec730-8842-4b52-b2c8-607d5b9417df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\Bullet">
-      <UniqueIdentifier>{12c4a537-8f1a-43a6-9b8f-0c68ba484bca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Character\Monster\Grass">
       <UniqueIdentifier>{966f9648-0ed3-4375-92bb-67bae28bbfb2}</UniqueIdentifier>
     </Filter>
@@ -81,6 +78,12 @@
     </Filter>
     <Filter Include="Network">
       <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet">
+      <UniqueIdentifier>{c8c21601-216d-4440-b29f-9a36955535b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Effect">
+      <UniqueIdentifier>{a562431a-f8dd-4031-8e13-9e0d0109dc8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -219,17 +222,11 @@
     <ClInclude Include="Monster_Butterfree.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet_Water.h">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="CubeMan.h">
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Monster_Caterpie.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene</Filter>
@@ -285,17 +282,26 @@
     <ClInclude Include="Protocol.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerBullet.h">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="Ivysaur.h">
       <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
     </ClInclude>
     <ClInclude Include="Venusaur.h">
       <Filter>GameObject\Character\Player\03. Venusaur</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>GameObject\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Water.h">
+      <Filter>GameObject\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>GameObject\Bullet</Filter>
+    </ClInclude>
     <ClInclude Include="Range.h">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Scyther.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -413,17 +419,11 @@
     <ClCompile Include="Monster_Butterfree.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="CubeMan.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Monster_Caterpie.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
@@ -476,17 +476,26 @@
     <ClCompile Include="CRingBuffer.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="Ivysaur.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Venusaur.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Bullet_Water.cpp">
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>GameObject\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Ivysaur.cpp">
+      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+    </ClCompile>
+    <ClCompile Include="Venusaur.cpp">
+      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
+    </ClCompile>
+    <ClCompile Include="Scyther.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
