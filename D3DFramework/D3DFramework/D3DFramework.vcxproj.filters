@@ -61,6 +61,9 @@
     <Filter Include="GameObject\SkyBox">
       <UniqueIdentifier>{c45ec730-8842-4b52-b2c8-607d5b9417df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\Bullet">
+      <UniqueIdentifier>{12c4a537-8f1a-43a6-9b8f-0c68ba484bca}</UniqueIdentifier>
+    </Filter>
     <Filter Include="GameObject\Character\Monster\Grass">
       <UniqueIdentifier>{966f9648-0ed3-4375-92bb-67bae28bbfb2}</UniqueIdentifier>
     </Filter>
@@ -79,12 +82,77 @@
     <Filter Include="Network">
       <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet">
-      <UniqueIdentifier>{c8c21601-216d-4440-b29f-9a36955535b9}</UniqueIdentifier>
+    <Filter Include="GameObject\Character\Player\04. Charmander">
+      <UniqueIdentifier>{c18641b1-3a32-4f39-937c-d9aae4a2ec9d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Effect">
-      <UniqueIdentifier>{a562431a-f8dd-4031-8e13-9e0d0109dc8d}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Animation2D.cpp" />
+    <ClCompile Include="Bulbasaur.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullet_Water.cpp" />
+    <ClCompile Include="Butterfree.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Caterpie.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="CPacket.cpp" />
+    <ClCompile Include="CRingBuffer.cpp" />
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="CubeMan.cpp" />
+    <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="D2DRenderManager.cpp" />
+    <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Golduck.cpp" />
+    <ClCompile Include="IComponent.cpp" />
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IScene.cpp" />
+    <ClCompile Include="Ivysaur.cpp" />
+    <ClCompile Include="Jynx.cpp" />
+    <ClCompile Include="LobbyWindow.cpp" />
+    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Metapod.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Monster_Butterfree.cpp" />
+    <ClCompile Include="Network.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="Oddish.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
+    <ClCompile Include="Poliwag.cpp" />
+    <ClCompile Include="Poliwrath.cpp" />
+    <ClCompile Include="Psyduck.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Range.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Scyther.cpp" />
+    <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Suicune.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="TestMultiScene.cpp" />
+    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UI_Title.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Venusaur.cpp" />
+    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="Vileplume.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -222,8 +290,17 @@
     <ClInclude Include="Monster_Butterfree.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Water.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
     <ClInclude Include="CubeMan.h">
       <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster_Caterpie.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene</Filter>
@@ -279,32 +356,17 @@
     <ClInclude Include="Protocol.h">
       <Filter>Network</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
     <ClInclude Include="Ivysaur.h">
       <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
     </ClInclude>
     <ClInclude Include="Venusaur.h">
       <Filter>GameObject\Character\Player\03. Venusaur</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet_Water.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerBullet.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="Range.h">
-      <Filter>GameObject\Effect</Filter>
-    </ClInclude>
-    <ClInclude Include="Scyther.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Caterpie.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>GameObject\Effect</Filter>
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Water.h">
       <Filter>GameObject\Effect</Filter>
@@ -425,8 +487,17 @@
     <ClCompile Include="Monster_Butterfree.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet_Water.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClCompile>
     <ClCompile Include="CubeMan.cpp">
       <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster_Caterpie.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
@@ -479,48 +550,27 @@
     <ClCompile Include="CRingBuffer.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>GameObject\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Effect</Filter>
+    <ClCompile Include="Ivysaur.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Ivysaur.cpp">
-      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Venusaur.cpp">
-      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
+      <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Scyther.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Caterpie.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>GameObject\Effect</Filter>
+    <ClCompile Include="Range.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Water.cpp">
       <Filter>GameObject\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="D3DFramework.rc">
-      <Filter>리소스 파일</Filter>
-    </ResourceCompile>
+    <ResourceCompile Include="D3DFramework.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="D3DFramework.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
+    <Image Include="D3DFramework.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
 </Project>

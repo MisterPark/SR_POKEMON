@@ -4,7 +4,7 @@
 
 PlayerBullet::PlayerBullet()
 {
-    SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 1);
+    SetTexture(State::IDLE, TextureKey::BULLET_LEAF_09, 1);
 	UpdateAnimation();
     state = State::IDLE;
     anim->SetLoop(true);
@@ -36,10 +36,19 @@ void PlayerBullet::Init()
 	switch (bulletType)
 	{
 	case 0:
-		SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 1);
-		SetTexture(State::ATTACK, TextureKey::BULLET_TEARS_01, 1);
+		isBillboard = false;
+
+		transform->scale = { 0.1f, 0.1f, 0.1f };
+
+		SetTexture(State::IDLE, TextureKey::BULLET_LEAF_09, 1);
+		SetTexture(State::ATTACK, TextureKey::BULLET_LEAF_01, 9);
+		transform->eulerAngles.x = D3DXToRadian(90.f);
+		transform->eulerAngles.y = D3DXToRadian(135.f) + Player::GetInstance()->GetRadianY();
 		break;
-	case 1: break;
+	case 1:
+		transform->scale = { 0.5f, 0.5f, 0.5f };
+		SetTexture(State::IDLE, TextureKey::BULLET_FIRE_01, 5);
+		break;
 	case 2: break;
 	}
 

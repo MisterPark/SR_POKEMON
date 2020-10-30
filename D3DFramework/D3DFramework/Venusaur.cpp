@@ -25,9 +25,10 @@ void Venusaur::Initialize()
 	SetTexture(State::IDLE, TextureKey::PG03_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PG03_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PG03_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PG03_SKILL_D_01, 2);
 
 	anim->SetLoop(true);
-	offsetY = 0.2f;
+	offsetY = 0.13f;
 
 	state = State::IDLE;
 }
@@ -50,7 +51,7 @@ void Venusaur::Attack(const Vector3 & dir)
 {
 	Vector3 pos = transform->position;
 	pos.y += offsetY;
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.2f, 0.2f, 0.2f }, dir, 0);
+	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.1f, 0.1f, 0.05f }, dir, 0);
 	ObjectManager::AddObject(newBullet);
 
 	ChangeState(State::ATTACK);

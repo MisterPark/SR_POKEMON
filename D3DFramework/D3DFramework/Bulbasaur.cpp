@@ -25,11 +25,15 @@ void Bulbasaur::Initialize()
 	SetTexture(State::IDLE, TextureKey::PG01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PG01_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PG01_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PG01_SKILL_D_01, 2);
 
 	anim->SetLoop(true);
-	offsetY = 0.2f;
+	anim->SetDelay(0.1f);
+	offsetY = 0.13f;
 
 	state = State::IDLE;
+
+	UpdateAnimation();
 }
 
 void Bulbasaur::Update()
@@ -49,8 +53,8 @@ void Bulbasaur::Release()
 void Bulbasaur::Attack(const Vector3 & dir)
 {
 	Vector3 pos = transform->position;
-	pos.y += offsetY;
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.2f, 0.2f, 0.2f }, dir, 0);
+
+	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.01f, 0.01f, 0.01f }, dir, 0);
 	ObjectManager::AddObject(newBullet);
 
 	ChangeState(State::ATTACK);
@@ -58,6 +62,12 @@ void Bulbasaur::Attack(const Vector3 & dir)
 
 void Bulbasaur::Skill(const Vector3 & dir)
 {
+	Vector3 pos = transform->position;
+
+	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.01f, 0.01f, 0.01f }, dir, 0);
+	ObjectManager::AddObject(newBullet);
+
+	ChangeState(State::SKILL);
 }
 
 Bulbasaur * Bulbasaur::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)

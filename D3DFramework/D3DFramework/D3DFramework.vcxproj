@@ -35,7 +35,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -162,6 +162,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Charmander.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="CPacket.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="D2DRenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Environment.h" />
@@ -184,6 +186,7 @@
     <ClInclude Include="IScene.h" />
     <ClInclude Include="Ivysaur.h" />
     <ClInclude Include="Jynx.h" />
+    <ClInclude Include="LobbyWindow.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MemoryPool.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="Suicune.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />
+    <ClInclude Include="TestMultiScene.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeManager.h" />
@@ -227,7 +231,6 @@
     <ClInclude Include="Venusaur.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Vileplume.h" />
-    <ClInclude Include="Water.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation2D.cpp" />
@@ -238,6 +241,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Charmander.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="CPacket.cpp" />
@@ -247,6 +251,7 @@
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="D2DRenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="FileManager.cpp" />
@@ -257,6 +262,7 @@
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="Ivysaur.cpp" />
     <ClCompile Include="Jynx.cpp" />
+    <ClCompile Include="LobbyWindow.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -285,6 +291,7 @@
     </ClCompile>
     <ClCompile Include="Suicune.cpp" />
     <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="TestMultiScene.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />
@@ -297,7 +304,6 @@
     <ClCompile Include="Venusaur.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="Vileplume.cpp" />
-    <ClCompile Include="Water.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D3DFramework.rc" />

@@ -25,7 +25,7 @@ namespace PKH
 		static bool GetProjection3D();
 		static void SetProjection3D(bool ProjectionSet);
 
-		static Vector3 ScreenToWorldPoint(const Vector3& position);
+		static Vector3 ScreenToWorldPoint(const Vector3& position, float zPos = 1.f);
 		static Vector3 WorldToScreenPoint(const Vector3& position);
 
 		void SetTarget(GameObject* tar) { target = tar; }

@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "Player.h"
-//.
+
 Player* Player::instance = nullptr;
 
 Player::Player() :
 	character(nullptr), radianX(0.f), radianY(0.f),
-	spawnTime(0.f), canSpawn(true), isFix(true)
+	attackCoolTime(0.f), skillCoolTime(0.f),
+	isAttack(false), isSkill(false), isFix(true)
 {
 	Initialize();
 }
@@ -38,7 +39,7 @@ void Player::Update()
 
 	if (isFix)
 	{
-		CalcSpawnTime();
+		CalcCoolTime();
 		Attack();
 		CalcMouse();
 		ResetMousePoint();
@@ -67,21 +68,30 @@ void Player::ResetMousePoint()
 	SetCursorPos(pt.x, pt.y);
 }
 
-void Player::CalcSpawnTime()
+void Player::CalcCoolTime()
 {
-	if (!canSpawn)
+	if (isAttack)
 	{
-		spawnTime -= TimeManager::DeltaTime();
-		if (0.f >= spawnTime)
+		attackCoolTime -= TimeManager::DeltaTime();
+		if (0.f >= attackCoolTime)
 		{
-			canSpawn = true;
+			isAttack = false;
+		}
+	}
+
+	if (isSkill)
+	{
+		skillCoolTime -= TimeManager::DeltaTime();
+		if (0.f >= skillCoolTime)
+		{
+			isSkill = false;
 		}
 	}
 }
 
 void Player::Attack()
 {
-	if (canSpawn)
+	if (!isAttack && !isSkill)
 	{
 		if (InputManager::GetMouseLButton())
 		{
@@ -97,8 +107,25 @@ void Player::Attack()
 			character->SetDir(dir);
 			character->Attack(dir);
 
-			spawnTime = 0.4f;
-			canSpawn = false;
+			attackCoolTime = 0.4f;
+			isAttack = true;
+		}
+		else if (InputManager::GetMouseRButton())
+		{
+			Vector3 pos = Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
+
+			Vector3 characterPos = character->transform->position;
+			characterPos.y += character->offsetY;
+
+			Vector3 dir = pos - characterPos;
+
+			Vector3::Normalize(&dir);
+
+			character->SetDir(dir);
+			character->Skill(dir);
+
+			skillCoolTime = 0.4f;
+			isSkill = true;
 		}
 	}
 }
@@ -130,7 +157,6 @@ void Player::KeyInput()
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
-
 	if (InputManager::GetKey('W'))
 	{
 		isKeyDown = true;
@@ -152,7 +178,7 @@ void Player::KeyInput()
 
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
-		character->ChangeState(State::WALK);
+		ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('S'))
 	{
@@ -175,7 +201,7 @@ void Player::KeyInput()
 
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
-		character->ChangeState(State::WALK);
+		ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('A'))
 	{
@@ -183,7 +209,7 @@ void Player::KeyInput()
 		character->SetDir(-character->transform->right);
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
-		character->ChangeState(State::WALK);
+		ChangeState(State::WALK);
 	}
 	else if (InputManager::GetKey('D'))
 	{
@@ -191,16 +217,24 @@ void Player::KeyInput()
 		character->SetDir(character->transform->right);
 		character->SetMoveSpeed(moveSpeed);
 		character->MoveForward();
-		character->ChangeState(State::WALK);
+		ChangeState(State::WALK);
 	}
 
-	if (!isKeyDown && canSpawn)
+	if (!isKeyDown)
 	{
-		character->ChangeState(State::IDLE);
+		ChangeState(State::IDLE);
 	}
 
 	if (InputManager::GetKeyDown('Q'))
 	{
 		isFix ^= true;
+	}
+}
+
+void Player::ChangeState(State state)
+{
+	if (!isAttack && !isSkill)
+	{
+		character->ChangeState(state);
 	}
 }
