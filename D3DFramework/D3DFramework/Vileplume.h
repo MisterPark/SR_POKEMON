@@ -17,7 +17,7 @@ private:
     void CrossBullet();
 	void XBullet();
 
-	bool isSearch = false;
+	
     bool AttackDelay;
 };
 

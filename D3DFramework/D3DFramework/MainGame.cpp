@@ -140,6 +140,7 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\SKYBOX_B.png");
 
+	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\grass.png");
 
 	//´«¹°ÃÑ¾Ë
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");
@@ -160,6 +161,10 @@ void PKH::MainGame::LoadETCSprite()
 
 	//RANGE
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::WATER_ENVIRONMENT, L"Texture\\Water.png");
+
+
 }
 
 void PKH::MainGame::LoadUISprite()

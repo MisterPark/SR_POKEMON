@@ -999,6 +999,9 @@ namespace PKH
 		SLUG_ATTACK_R_02,
 		SLUG_ATTACK_RD_01,
 		SLUG_ATTACK_RD_02,
+
+			GRASS_MAP,
+			WATER_ENVIRONMENT,
 				/////////////////// √—æÀΩ√¿€  ///////////////////
 				BULLET_TEARS_01,
 				BULLET_TEARS_02,

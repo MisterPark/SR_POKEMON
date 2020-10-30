@@ -16,7 +16,7 @@
         void Attack(Transform* PlayerT);
         void CreateBullet(Transform* PlayerT);
 
-        bool isSearch = false;
+        
         bool AttackDelay;
     };
 

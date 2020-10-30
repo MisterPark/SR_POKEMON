@@ -29,11 +29,13 @@
 #include "Jynx.h"
 #include "Suicune.h"
 #include "Golduck.h"
-
+#include "Water.h"
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
+	Water* r = dynamic_cast<Water*>(ObjectManager::GetInstance()->CreateObject<Water>());
+	
 
 	Venusaur* playerCharacter = Venusaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);

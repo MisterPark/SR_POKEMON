@@ -19,8 +19,8 @@ namespace PKH
         void LoadHeightMap(const string& filePath);
         bool GetYFromPoint(float* _outY, float _x, float _z);
 
-        int width = 129;
-        int height = 129;
+        int width = dfTERRAIN_WIDTH;
+        int height = dfTERRAIN_WIDTH;
 
         Vector3* vertexInfo = nullptr;
     };

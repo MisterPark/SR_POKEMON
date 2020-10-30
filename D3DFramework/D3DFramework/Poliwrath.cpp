@@ -176,6 +176,7 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 		*(b->transform) = *PlayerT;
 		b->transform->position.y += 5.f;
 		b->isAlliance = false;
+
 		Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
 		*(r->transform) = *PlayerT;
 }

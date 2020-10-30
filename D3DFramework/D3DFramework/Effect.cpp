@@ -34,9 +34,9 @@ Effect::~Effect()
 void Effect::Update()
 {
 	GameObject::Update();
-	Move(direction);
-	Billboard();
-	UpdateAnimation();
+	
+	
+	
 }
 
 void Effect::Render()

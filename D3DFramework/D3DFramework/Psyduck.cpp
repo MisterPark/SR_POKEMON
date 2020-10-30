@@ -62,10 +62,7 @@ void Psyduck::Pattern()
 		else if (state == State::READY)
 		{
 			state = State::WALK;
-			direction.x = -4.f + Random::Value(9) * 1.f;
-			direction.y = 0.f;
-			direction.z = -4.f + Random::Value(9) * 1.f;
-			direction.Normalize(&direction);
+			direction = RandomDir();
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();

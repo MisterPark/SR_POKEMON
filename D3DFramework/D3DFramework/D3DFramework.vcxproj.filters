@@ -306,6 +306,9 @@
     <ClInclude Include="Effect.h">
       <Filter>GameObject\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Water.h">
+      <Filter>GameObject\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -501,6 +504,9 @@
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
     <ClCompile Include="Effect.cpp">
+      <Filter>GameObject\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Water.cpp">
       <Filter>GameObject\Effect</Filter>
     </ClCompile>
   </ItemGroup>

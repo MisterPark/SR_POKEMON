@@ -19,8 +19,8 @@ PKH::Camera::Camera()
 	Matrix proj;
 	D3DXMatrixPerspectiveFovLH(&proj, D3DX_PI * 0.5f,
 		(float)dfCLIENT_WIDTH / dfCLIENT_HEIGHT,
-		1.0f,
-		1000.f);
+		nearClipPlane,
+		farClipPlane);
 
 	D2DRenderManager::GetDevice()->SetTransform(D3DTS_PROJECTION, &proj);
 	isProjection3D = true;

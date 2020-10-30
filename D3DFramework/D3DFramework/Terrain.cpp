@@ -2,6 +2,7 @@
 #include "Terrain.h"
 
 PKH::Terrain::Terrain()
+	: width(dfTERRAIN_WIDTH), height(dfTERRAIN_WIDTH)
 {
 	this->vertexCount = width * height;
 	this->triangleCount = (width-1) * (height-1) * 2;
@@ -40,8 +41,8 @@ PKH::Terrain::Terrain()
 			index = i * width + j;
 			float u = j / float(width - 1);
 			
-			vertices[index] = Vertex(j, 0.f, i, D3DCOLOR_XRGB(j*20,i*20,0),u,v);
-			vertexInfo[index].x = j;
+			vertices[index] = Vertex(j, 0.f, i, D3DCOLOR_XRGB(255,255,255),u*30,v*30);
+			vertexInfo[index].x = j;	
 			vertexInfo[index].y = 0.f;
 			vertexInfo[index].z = i;
 
