@@ -23,13 +23,13 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{b5fd05d1-07cd-499b-8ec1-7885fd22ca77}</ProjectGuid>
     <RootNamespace>D3DFramework</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -160,6 +160,7 @@
     <ClInclude Include="Bullet_Water.h" />
     <ClInclude Include="Butterfree.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Caterpie.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="D3DFramework.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Effect.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="framework.h" />
@@ -191,7 +193,6 @@
     <ClInclude Include="Metapod.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Monster_Butterfree.h" />
-    <ClInclude Include="Monster_Caterpie.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Oddish.h" />
@@ -237,6 +238,7 @@
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Butterfree.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Caterpie.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -248,6 +250,7 @@
     <ClCompile Include="D2DRenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -264,7 +267,6 @@
     <ClCompile Include="Metapod.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Monster_Butterfree.cpp" />
-    <ClCompile Include="Monster_Caterpie.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Oddish.cpp" />

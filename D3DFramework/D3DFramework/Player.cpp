@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
-
+//.
 Player* Player::instance = nullptr;
 
 Player::Player() :

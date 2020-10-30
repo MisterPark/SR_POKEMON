@@ -9,18 +9,15 @@ Golduck::Golduck()
 {
 	SetTexture(State::WALK, TextureKey::GOLD_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::GOLD_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::GOLD_WALK_D_01, 3);
+	SetTexture(State::IDLE, TextureKey::GOLD_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::GOLD_WALK_D_01, 3, 1);
 
-	for (int i = 0; i < 8; i++)
-	{
-		endArray[(int)State::IDLE][(int)Direction::D + i] = (TextureKey)((int)endArray[(int)State::IDLE][(int)Direction::D + i] - 2);
-	}
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
 	UpdateAnimation();
 
 	offsetY = 1.f;
-	state = State::END;
+	state = State::READY;
 	moveSpeed = 0.5f;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -42,8 +39,6 @@ void Golduck::Render()
 
 void Golduck::Pattern()
 {
-
-
 	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
@@ -63,12 +58,13 @@ void Golduck::Pattern()
 			state = State::READY;
 		}
 
-		if (state == State::READY && !isSearch)
+		else if (state == State::READY)
 		{
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
+			direction.y = 0.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
-			direction.Normalized();
+			direction.Normalize(&direction);
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
@@ -77,13 +73,19 @@ void Golduck::Pattern()
 
 	if (isSearch)
 	{
+		if (Dist > 10.f)
+		{
+			isSearch = false;
+			Frame[0] = 0;
+			state = State::READY;
+		}
 
-		if (state == State::READY && Dist < 3.f)
+		else if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if (state == State::READY && Dist >= 3.f)
+		else if (state == State::READY && Dist >= 3.f)
 		{
 			Vector3 Dist = PlayerT->position - transform->position;
 			direction = Dist.Normalized();
@@ -93,8 +95,20 @@ void Golduck::Pattern()
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			Time[0] += TimeManager::DeltaTime();
-			transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-			transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+			float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
+			float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
+
+			if (moveX > 0.05f)
+			{
+				moveX = 0.05f;
+			}
+			if (moveZ > 0.05f)
+			{
+				moveZ = 0.05f;
+			}
+
+			transform->position.x += moveX;
+			transform->position.z += moveZ;
 			if (Time[0] >= 1.5f) {
 				Frame[0] ++;
 				Time[0] = 0;
@@ -109,7 +123,6 @@ void Golduck::Pattern()
 			Attack(PlayerT);
 		}
 	}
-
 }
 
 void Golduck::RandomMovePattern()

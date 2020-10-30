@@ -1,7 +1,7 @@
 #pragma once
-#include "Bullet.h"
+#include "Effect.h"
 class Range : //TODO : pvp를 위해 기능 추가가 필요함
-    public Bullet
+    public Effect
 {
 public:
     Range();

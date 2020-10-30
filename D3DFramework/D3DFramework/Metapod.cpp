@@ -12,7 +12,7 @@ Metapod::Metapod()
 	UpdateAnimation();
 	anim->SetLoop(true);
 
-	moveSpeed = 0.3f;
+	moveSpeed = 1.5f;
 	state = State::READY;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
@@ -39,6 +39,7 @@ void Metapod::Pattern() {
 
 		if (state == State::WALK) {            // 이곳에서 패턴 레디
 			direction.x = -4.f + Random::Value(9) * 1.f;
+			direction.y = 0.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
 			direction.Normalized();
 		}
