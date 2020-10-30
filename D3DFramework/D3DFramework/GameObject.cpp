@@ -127,6 +127,18 @@ void PKH::GameObject::Billboard()
 	transform->world = matScale*matView;
 }
 
+void PKH::GameObject::Billboard_Tree()
+{
+	Vector3 camPos = Camera::GetInstance()->GetPosition();
+	Vector3 dir = camPos - transform->position;
+	Vector3::Normalize(&dir);
+
+	float angle = atan2f(dir.x, dir.z);
+	transform->eulerAngles.y = angle;
+
+
+}
+
 void PKH::GameObject::SetPosition(Vector3 _vPos)
 {
 	transform->position = _vPos;

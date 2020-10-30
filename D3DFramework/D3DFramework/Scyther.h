@@ -12,7 +12,6 @@ public:
 
 private:
     void Parttern();
-    void RandomMovePattern();
     void SkillBullet();
 };
 

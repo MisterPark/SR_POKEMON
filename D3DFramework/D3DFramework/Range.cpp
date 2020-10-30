@@ -6,22 +6,24 @@
 
 Range::Range()
 {   //TODO : 불렛이 지형타는중
-    SetTexture(State::IDLE, TextureKey::RANGE, 1);
+    SetAniTexture(State::IDLE, TextureKey::RANGE, 1);
     UpdateAnimation();
     state = State::IDLE;
     anim->SetLoop(true);
     anim->SetDelay(0.2f);
+
+
+   
 
     for (int i = 0; i < 3; i++)
     {
         Time[i] = 0;
     }
 
-    transform->scale.x *= 0.5f;
-    transform->scale.y *= 0.5f;
-    transform->scale.z *= 0.5f;
 
     moveSpeed = 0.f;
+    isDeadTime = 2.f;
+    isBillboard = false;
 }
 
 Range::~Range()
@@ -30,15 +32,15 @@ Range::~Range()
 
 void Range::Update()
 {
-
+    
     Effect::Update();
 
     /*transform->position += direction * moveSpeed * TimeManager::DeltaTime();;*/
     Time[0] += TimeManager::DeltaTime();
-    if (Time[0] >= 2.f) {
+    if (Time[0] >= isDeadTime) {
         isDead = true;
     }
-    Billboard();
+
 }
 
 void Range::Render()

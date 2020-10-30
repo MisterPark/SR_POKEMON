@@ -34,8 +34,9 @@ Effect::~Effect()
 void Effect::Update()
 {
 	GameObject::Update();
-	
-	
+	if (isBillboard) Billboard();
+	if (isMove) MoveForward();
+	UpdateAnimation();
 	
 }
 
@@ -79,6 +80,12 @@ void Effect::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame
 		else
 			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_endFrame - 1));
 	}
+}
+
+void Effect::SetAniTexture(State _state, TextureKey _beginTextureKey, int _aniFrame)
+{
+	startArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey);
+	endArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey + _aniFrame - 1);
 }
 
 void Effect::SetDir(const Vector3 & dir)

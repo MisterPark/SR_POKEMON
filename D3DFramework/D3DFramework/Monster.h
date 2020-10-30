@@ -16,7 +16,10 @@ public:
 
 protected:
     //랜덤한 값을 가진 Vector3를 Normalize 해서 반환합니다.
-    Vector3 RandomDir();
+    Vector3 DirRandom();
+    //Player 를 향한 방향벡터를 Normalize 해서 반환합니다.
+    //인자를 true 로 주면 Y값 까지 반영됩니다.
+    Vector3 DirFromPlayer(bool _posY = false);
     //direction 의 x와 z값 만큼 이동합니다.
     //인자를 넣어서 스피드값을 한번더 줄 수 있습니다.
     void Move(float _moveSpeed2 = 1.f);
@@ -28,6 +31,7 @@ protected:
     void MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2 = 1.f);
     //PlayerSearch(Player탐지거리, Player탐지를 놓칠거리)
     //playerTrans, isSearch, disPlayer 의 값은 변경됩니다.
+    //isSearch 가 변경될경우, State::Ready 로 즉시 변경됩니다.
     void PlayerSearch(float _range, float _rangeOut);
 
 protected:

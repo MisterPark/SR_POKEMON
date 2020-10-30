@@ -41,7 +41,7 @@ void Monster::Render()
 	Character::Render();
 }
 
-Vector3 Monster::RandomDir()
+Vector3 Monster::DirRandom()
 {
 	Vector3 Dir = { 0.f, 0.f, 0.f };
 	while (Dir.x == 0 && Dir.z == 0) {
@@ -49,6 +49,15 @@ Vector3 Monster::RandomDir()
 		Dir.y = 0.f;
 		Dir.z = -5.f + Random::Value(10) * 1.f;
 	}
+	Vector3::Normalize(&Dir);
+	return Dir;
+}
+
+Vector3 Monster::DirFromPlayer(bool _posY /*= false*/)
+{
+	Vector3 Dir = playerTrans->position - transform->position;
+	if(!_posY)
+		Dir.y = 0.f;
 	Vector3::Normalize(&Dir);
 	return Dir;
 }
@@ -83,7 +92,7 @@ void Monster::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2)
 		}
 		else {
 			Frame[0] ++;
-			direction = RandomDir();
+			direction = DirRandom();
 		}
 	}
 }
@@ -103,6 +112,9 @@ void Monster::PlayerSearch(float _range, float _rangeOut)
 		if (disPlayer < _range) {
 			isSearch = true;
 			playerTrans = PlayerT;
+			state = State::READY;
+			Time[0] = 0.f;
+			Frame[0] = 0.f;
 			return;
 		}
 	}
@@ -110,6 +122,9 @@ void Monster::PlayerSearch(float _range, float _rangeOut)
 		if (disPlayer > _rangeOut) {
 			isSearch = false;
 			playerTrans = nullptr;
+			state = State::READY;
+			Time[0] = 0.f;
+			Frame[0] = 0.f;
 			return;
 		}
 	}

@@ -56,6 +56,6 @@ void Bullet_Water::OnCollision(GameObject* target)
 
     //if (dynamic_cast<Player*>(target)) {
        //몬스터와 충돌 이벤트
-    isDead = true;
+    //isDead = true;
     //}
 }

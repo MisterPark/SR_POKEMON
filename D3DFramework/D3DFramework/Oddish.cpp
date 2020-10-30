@@ -7,12 +7,11 @@
 Oddish::Oddish()
 {
 	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_01, 3);
-	SetTexture(State::PLAYER_SEARCH, TextureKey::ODDI_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::ODDI_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::ODDI_WALK_D_01, 3, 1);
 
-	anim->SetLoop(true);
 	UpdateAnimation();
+	anim->SetLoop(true);
 
 	moveSpeed = 2.5f;
 	state = State::READY;
@@ -44,8 +43,9 @@ void Oddish::Pattern()
 	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
 	if (isSearch) {
 
-		if (state == State::READY) { // 이건 랜덤패턴 갖기전 대기상태
-			state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
+		/////////////////////////////////////////////////////////// 패턴 Ready
+		if (state == State::READY) {
+			state = (State)Random::Range(1, 1);
 
 			if (state == State::WALK) {            // 이곳에서 패턴 레디
 				// 이동 Ready

@@ -34,38 +34,26 @@ void Metapod::Render()
 }
 
 void Metapod::Pattern() {
-	if (state == State::READY) { // 이건 랜덤패턴 갖기전 대기상태
-		state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
 
-		if (state == State::WALK) {            // 이곳에서 패턴 레디
-			direction.x = -4.f + Random::Value(9) * 1.f;
-			direction.y = 0.f;
-			direction.z = -4.f + Random::Value(9) * 1.f;
-			direction.Normalized();
+	/////////////////////////////////////////////////////////// 패턴 Ready
+	if (state == State::READY) {
+		state = (State)Random::Range(1, 1);
+
+		if (state == State::WALK) {
+			// 이동 Ready
 		}
-
-	}
-	else if (state == State::WALK) {		//// 이곳부터 업데이트
-		RandomMovePattern();
-	}
-
-}
-
-void Metapod::RandomMovePattern()
-{
-	Time[0] += TimeManager::DeltaTime();
-
-	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
-
-	if (Time[0] >= 1.5f) {
-		Frame[0] ++;
-		Time[0] = 0;
-		if (Frame[0] == 3) {			// 3번의 파닥거림 후
-			Frame[0] = 0;
-			state = State::READY;
+		else if (state == State::ATTACK) {
+			// 공격 Ready
 		}
 	}
+
+	/////////////////////////////////////////////////////////// 패턴 Update
+	if (state == State::WALK) {
+		//1.5f 시간동안 걷고 총 3번 반복
+		MoveRandomPattern(1.5f, 3);
+	}
+
 }
 
 
