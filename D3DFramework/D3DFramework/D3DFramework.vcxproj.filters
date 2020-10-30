@@ -1,547 +1,158 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Texture">
-      <UniqueIdentifier>{c82e7fb9-29f7-4d45-bbd3-4f9e4e711bf6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{07b99388-aaa9-4b6f-afd7-74bb6c02322b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject">
-      <UniqueIdentifier>{8ca85b68-bdab-4c73-9f5b-2f1353ab79e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component">
-      <UniqueIdentifier>{bbd383ed-dc02-4e36-a0dc-9981d706ad10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib">
-      <UniqueIdentifier>{9e576362-dfec-47dc-a23e-edae3800e429}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component\Mesh">
-      <UniqueIdentifier>{1b8ffbc5-dc60-4a07-9e65-dd48a6108dc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Cursor">
-      <UniqueIdentifier>{bda8052a-9916-4274-b18c-0a5a529b869a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Camera">
-      <UniqueIdentifier>{df649d77-5659-4738-9597-cb084172f1aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib\MainGame">
-      <UniqueIdentifier>{c38811bd-fff9-4046-a675-91418121ce87}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib\Manager">
-      <UniqueIdentifier>{ed27685c-7f77-443b-85ef-797bca8acdf2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Component\Animation">
-      <UniqueIdentifier>{8f5f6826-86f7-4bed-9621-98d62a4610b2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character">
-      <UniqueIdentifier>{546cea1a-63df-4d3e-8e04-dab3bba8ded0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\UI">
-      <UniqueIdentifier>{ada1f413-2b4a-4d3c-aad1-eb43b9b3577e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Monster">
-      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player">
-      <UniqueIdentifier>{6153c3d4-0c12-477a-8c69-b42253cec822}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\SkyBox">
-      <UniqueIdentifier>{c45ec730-8842-4b52-b2c8-607d5b9417df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Monster\Grass">
-      <UniqueIdentifier>{966f9648-0ed3-4375-92bb-67bae28bbfb2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Monster\Water">
-      <UniqueIdentifier>{caeb1c73-6f4c-4b66-b658-6f9fb01b2fa2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player\02. Ivysaur">
-      <UniqueIdentifier>{00e3f5ea-520e-4bc7-a162-6c469bf73599}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player\01. Bulbasaur">
-      <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player\03. Venusaur">
-      <UniqueIdentifier>{3df0be3c-6df4-4b7e-8f92-0a092e019945}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Network">
-      <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Bullet">
-      <UniqueIdentifier>{c8c21601-216d-4440-b29f-9a36955535b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Effect">
-      <UniqueIdentifier>{a562431a-f8dd-4031-8e13-9e0d0109dc8d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lib\Debug">
-      <UniqueIdentifier>{24f90cc3-db23-416b-a47a-3895e97d17f5}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Animation2D.cpp" />
+    <ClCompile Include="Bulbasaur.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullet_Water.cpp" />
+    <ClCompile Include="Butterfree.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Caterpie.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="CPacket.cpp" />
+    <ClCompile Include="CRingBuffer.cpp" />
+    <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="CubeMan.cpp" />
+    <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="D2DRenderManager.cpp" />
+    <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Effect.cpp" />
+    <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Golduck.cpp" />
+    <ClCompile Include="IComponent.cpp" />
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IScene.cpp" />
+    <ClCompile Include="Ivysaur.cpp" />
+    <ClCompile Include="Jynx.cpp" />
+    <ClCompile Include="LobbyWindow.cpp" />
+    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Metapod.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Monster_Butterfree.cpp" />
+    <ClCompile Include="Network.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="Oddish.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
+    <ClCompile Include="Poliwag.cpp" />
+    <ClCompile Include="Poliwrath.cpp" />
+    <ClCompile Include="Psyduck.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Range.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Scyther.cpp" />
+    <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Suicune.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="TestMultiScene.cpp" />
+    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="UI.cpp" />
+    <ClCompile Include="UI_Title.cpp" />
+    <ClCompile Include="Vector3.cpp" />
+    <ClCompile Include="Venusaur.cpp" />
+    <ClCompile Include="Vertex.cpp" />
+    <ClCompile Include="Vileplume.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="D3DFramework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Define.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="D2DRenderManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="MemoryPool.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="MainGame.h">
-      <Filter>Lib\MainGame</Filter>
-    </ClInclude>
-    <ClInclude Include="TestScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="IScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>GameObject\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Triangle.h">
-      <Filter>Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Rectangle.h">
-      <Filter>Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="IComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Quaternion.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Cursor.h">
-      <Filter>GameObject\Cursor</Filter>
-    </ClInclude>
-    <ClInclude Include="Random.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Plane.h">
-      <Filter>Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.h">
-      <Filter>Component\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="Functions.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>GameObject\Character\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation2D.h">
-      <Filter>Component\Animation</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>GameObject\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>GameObject\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>GameObject\Character\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="SkyBox.h">
-      <Filter>GameObject\SkyBox</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster_Butterfree.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="CubeMan.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Environment.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Butterfree.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Psyduck.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Bulbasaur.h">
-      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
-    </ClInclude>
-    <ClInclude Include="Vileplume.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Metapod.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Poliwrath.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Golduck.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Jynx.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Poliwag.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Suicune.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Oddish.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Title.h">
-      <Filter>GameObject\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="Network.h">
-      <Filter>Network</Filter>
-    </ClInclude>
-    <ClInclude Include="CPacket.h">
-      <Filter>Network</Filter>
-    </ClInclude>
-    <ClInclude Include="CRingBuffer.h">
-      <Filter>Network</Filter>
-    </ClInclude>
-    <ClInclude Include="Protocol.h">
-      <Filter>Network</Filter>
-    </ClInclude>
-    <ClInclude Include="Ivysaur.h">
-      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
-    </ClInclude>
-    <ClInclude Include="Venusaur.h">
-      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet_Water.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerBullet.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Range.h">
-      <Filter>GameObject\Effect</Filter>
-    </ClInclude>
-    <ClInclude Include="Scyther.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Caterpie.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>GameObject\Effect</Filter>
-    </ClInclude>
-    <ClInclude Include="Scyther.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Lib\Debug</Filter>
-    </ClInclude>
-    <ClInclude Include="TestMultiScene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="LobbyWindow.h">
-      <Filter>Lib\MainGame</Filter>
-    </ClInclude>
+    <ClInclude Include="Animation2D.h" />
+    <ClInclude Include="Bulbasaur.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Bullet_Water.h" />
+    <ClInclude Include="Butterfree.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Caterpie.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="CPacket.h" />
+    <ClInclude Include="CRingBuffer.h" />
+    <ClInclude Include="Cube.h" />
+    <ClInclude Include="CubeMan.h" />
+    <ClInclude Include="Cursor.h" />
+    <ClInclude Include="D2DRenderManager.h" />
+    <ClInclude Include="D3DFramework.h" />
+    <ClInclude Include="Debug.h" />
+    <ClInclude Include="Define.h" />
+    <ClInclude Include="Effect.h" />
+    <ClInclude Include="Environment.h" />
+    <ClInclude Include="FileManager.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="Functions.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Golduck.h" />
+    <ClInclude Include="IComponent.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="IScene.h" />
+    <ClInclude Include="Ivysaur.h" />
+    <ClInclude Include="Jynx.h" />
+    <ClInclude Include="LobbyWindow.h" />
+    <ClInclude Include="MainGame.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Metapod.h" />
+    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Monster_Butterfree.h" />
+    <ClInclude Include="Network.h" />
+    <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="Oddish.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerBullet.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Poliwag.h" />
+    <ClInclude Include="Poliwrath.h" />
+    <ClInclude Include="Protocol.h" />
+    <ClInclude Include="Psyduck.h" />
+    <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="Range.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Scyther.h" />
+    <ClInclude Include="SkyBox.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Suicune.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="TestMultiScene.h" />
+    <ClInclude Include="TestScene.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="UI.h" />
+    <ClInclude Include="UI_Title.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Venusaur.h" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="Vileplume.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DRenderManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="FileManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjectManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="TimeManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="MainGame.cpp">
-      <Filter>Lib\MainGame</Filter>
-    </ClCompile>
-    <ClCompile Include="TestScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="IScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>GameObject\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Vertex.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Triangle.cpp">
-      <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Rectangle.cpp">
-      <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="IComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Quaternion.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Random.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Cursor.cpp">
-      <Filter>GameObject\Cursor</Filter>
-    </ClCompile>
-    <ClCompile Include="Plane.cpp">
-      <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrain.cpp">
-      <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="D3DFramework.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>GameObject\Character\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation2D.cpp">
-      <Filter>Component\Animation</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>GameObject\Character</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>GameObject\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>GameObject\Character\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="SkyBox.cpp">
-      <Filter>GameObject\SkyBox</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster_Butterfree.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="CubeMan.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Environment.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Butterfree.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Psyduck.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Bulbasaur.cpp">
-      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
-    </ClCompile>
-    <ClCompile Include="Vileplume.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Metapod.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwrath.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Suicune.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwag.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Jynx.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Golduck.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Oddish.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Title.cpp">
-      <Filter>GameObject\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Network.cpp">
-      <Filter>Network</Filter>
-    </ClCompile>
-    <ClCompile Include="CPacket.cpp">
-      <Filter>Network</Filter>
-    </ClCompile>
-    <ClCompile Include="CRingBuffer.cpp">
-      <Filter>Network</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>GameObject\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Effect</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Ivysaur.cpp">
-      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
-    </ClCompile>
-    <ClCompile Include="Venusaur.cpp">
-      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
-    </ClCompile>
-    <ClCompile Include="Scyther.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Caterpie.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect.cpp">
-      <Filter>GameObject\Effect</Filter>
-    </ClCompile>
-    <ClCompile Include="Scyther.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Lib\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="TestMultiScene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="LobbyWindow.cpp">
-      <Filter>Lib\MainGame</Filter>
-    </ClCompile>
+    <ResourceCompile Include="D3DFramework.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="D3DFramework.rc">
-      <Filter>리소스 파일</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="D3DFramework.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
+    <Image Include="D3DFramework.ico" />
+    <Image Include="small.ico" />
   </ItemGroup>
 </Project>

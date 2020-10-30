@@ -11,7 +11,7 @@ void TitleScene::OnLoaded()
 
 	ObjectManager::GetInstance()->CreateObject<UI_Title>();
 
-	LobbyWindow lobby =  LobbyWindow::
+	
 
 }
 
