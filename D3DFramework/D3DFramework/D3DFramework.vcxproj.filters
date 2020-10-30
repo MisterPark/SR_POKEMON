@@ -225,9 +225,6 @@
     <ClInclude Include="CubeMan.h">
       <Filter>GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Monster_Caterpie.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -302,6 +299,12 @@
     </ClInclude>
     <ClInclude Include="Scyther.h">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Caterpie.h">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>GameObject\Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -422,9 +425,6 @@
     <ClCompile Include="CubeMan.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="Monster_Caterpie.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -496,6 +496,12 @@
     </ClCompile>
     <ClCompile Include="Scyther.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Caterpie.cpp">
+      <Filter>GameObject\Character\Monster\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>GameObject\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

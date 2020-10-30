@@ -9,14 +9,17 @@ Psyduck::Psyduck()
 {
 	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
-	SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3,1);
+	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3, 1);
+
+
 
 	UpdateAnimation();
 	transform->position.x = 10.f;
 	anim->SetLoop(true);
 	offsetY = 1.f;
 	state = State::READY;
-	moveSpeed = 0.5f;
+	moveSpeed = 1.5f;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
@@ -37,7 +40,6 @@ void Psyduck::Render()
 
 void Psyduck::Pattern()
 {
-
 	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
@@ -57,27 +59,34 @@ void Psyduck::Pattern()
 			state = State::READY;
 		}
 
-		if (state == State::READY && !isSearch)
+		else if (state == State::READY)
 		{
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
+			direction.y = 0.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
-			direction.Normalized();
+			direction.Normalize(&direction);
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
 		}
 	}
-	
+
 	if (isSearch)
 	{
+		if (Dist > 10.f)
+		{
+			isSearch = false;
+			Frame[0] = 0;
+			state = State::READY;
+		}
 
-		if (state == State::READY && Dist < 3.f)
+		else if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if (state == State::READY && Dist >= 3.f)
+		else if (state == State::READY && Dist >= 3.f)
 		{
 			Vector3 Dist = PlayerT->position - transform->position;
 			direction = Dist.Normalized();
@@ -87,8 +96,20 @@ void Psyduck::Pattern()
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			Time[0] += TimeManager::DeltaTime();
-			transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-			transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+			float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
+			float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
+
+			if (moveX > 0.05f)
+			{
+				moveX = 0.05f;
+			}
+			if (moveZ > 0.05f)
+			{
+				moveZ = 0.05f;
+			}
+
+			transform->position.x += moveX;
+			transform->position.z += moveZ;
 			if (Time[0] >= 1.5f) {
 				Frame[0] ++;
 				Time[0] = 0;
@@ -103,7 +124,6 @@ void Psyduck::Pattern()
 			Attack(PlayerT);
 		}
 	}
-
 }
 
 void Psyduck::RandomMovePattern()
