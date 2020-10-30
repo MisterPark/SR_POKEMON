@@ -16,7 +16,7 @@ void Environment::Initialize()
 {
 	Terrain* terrain = (Terrain*)AddComponent<PKH::Terrain>(L"Mesh");
 	terrain->SetTexture(TextureKey::GRASS_MAP);
-	terrain->LoadHeightMap("Texture\\Height2_2.bmp");
+	terrain->LoadHeightMap("Texture\\Lake.bmp");
 }
 
 void Environment::Release()

@@ -40,6 +40,7 @@ void TestScene::OnLoaded()
 	SkyBox::Show();
 	ObjectManager::GetInstance()->CreateObject<Environment>();
 	ObjectManager::GetInstance()->CreateObject<Water>();
+
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 	
@@ -68,7 +69,7 @@ void TestScene::OnLoaded()
 	/*for (int i = 0; i < 10; ++i)
 	{*//*
 	*/
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
 	/*

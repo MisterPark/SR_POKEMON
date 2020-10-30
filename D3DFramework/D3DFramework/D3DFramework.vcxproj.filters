@@ -327,6 +327,9 @@
     <ClInclude Include="Water.h">
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Water1.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -724,6 +727,9 @@
     </ClCompile>
     <ClCompile Include="Water.cpp">
       <Filter>GameObject\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Water1.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

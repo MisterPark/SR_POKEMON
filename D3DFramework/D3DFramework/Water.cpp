@@ -16,6 +16,8 @@ void Water::Initialize()
 {
 	Terrain* terrain = (Terrain*)AddComponent<PKH::Terrain>(L"Mesh");
 	terrain->SetTexture(TextureKey::WATER_ENVIRONMENT);
+	transform->position.y = 3.5f;
+
 	/*terrain->LoadHeightMap("Texture\\Height2_2.bmp");*/
 }
 
