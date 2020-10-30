@@ -54,7 +54,7 @@ namespace PKH
 		// 빌보드
 		// GameObject::Update() 호출 후에 호출
 		void Billboard();
-		void Billboard_Tree();
+		void BillboardYaw();
 
 		void SetPosition(Vector3 _vPos);
 

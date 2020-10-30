@@ -32,7 +32,7 @@ Range::~Range()
 
 void Range::Update()
 {
-    
+
     Effect::Update();
 
     /*transform->position += direction * moveSpeed * TimeManager::DeltaTime();;*/

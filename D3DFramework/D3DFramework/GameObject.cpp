@@ -127,14 +127,32 @@ void PKH::GameObject::Billboard()
 	transform->world = matScale*matView;
 }
 
-void PKH::GameObject::Billboard_Tree()
+void PKH::GameObject::BillboardYaw()
 {
-	Vector3 camPos = Camera::GetInstance()->GetPosition();
-	Vector3 dir = camPos - transform->position;
-	Vector3::Normalize(&dir);
+	D3DXMATRIX matScale, matView, matBill;
+	
+	matView = Matrix::identity;
+	matView = Camera::GetViewMatrix();
+	memset(&matBill._41, 0, sizeof(D3DXVECTOR3));
 
-	float angle = atan2f(dir.x, dir.z);
-	transform->eulerAngles.y = angle;
+	matBill = Matrix::identity;
+	// 뷰행렬의 Y축 회전행렬값만 가지고오기
+	matBill._11 = matView._11;
+	matBill._13 = matView._13;
+	matBill._31 = matView._31;
+	matBill._33 = matView._33;
+
+	D3DXMatrixInverse(&matBill, 0, &matBill);
+
+	
+	//스케일
+	D3DXMatrixScaling(&matScale, transform->scale.x, transform->scale.y, transform->scale.z);
+
+
+	// 이동
+	D3DXVECTOR3 BillPos = transform->position;
+	memcpy(&matBill._41, &BillPos, sizeof(D3DXVECTOR3));
+	transform->world = matScale * matBill;
 
 
 }

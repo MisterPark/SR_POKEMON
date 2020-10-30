@@ -25,7 +25,7 @@ void Tree::Update()
     
     OnTerrain();
     GameObject::Update();
-    Billboard();
+    BillboardYaw();
 }
 
 void Tree::Render()
