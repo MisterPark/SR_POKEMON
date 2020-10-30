@@ -28,8 +28,8 @@ void Monster::Update()
 {
 	//FaceTarget(Camera::GetInstance());
 	Character::Update();
-	
-	
+
+
 
 	/*Billboard();*/
 	/*OnTerrain();*/
@@ -37,13 +37,13 @@ void Monster::Update()
 
 void Monster::Render()
 {
-	
+
 	Character::Render();
 }
 
 Vector3 Monster::RandomDir()
 {
-	Vector3 Dir = {0.f, 0.f, 0.f};
+	Vector3 Dir = { 0.f, 0.f, 0.f };
 	while (Dir.x == 0 && Dir.z == 0) {
 		Dir.x = -5.f + Random::Value(10) * 1.f;
 		Dir.y = 0.f;
@@ -53,10 +53,39 @@ Vector3 Monster::RandomDir()
 	return Dir;
 }
 
-void Monster::Move()
+void Monster::Move(float _moveSpeed2)
 {
-	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+	transform->position.x += direction.x * moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	transform->position.z += direction.z * moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+}
+
+void Monster::MovePlayerFollow(float _moveSpeed2)
+{
+	if (playerTrans != nullptr) {
+		direction = playerTrans->position - transform->position;
+		direction.y = 0.f;
+		Vector3::Normalize(&direction);
+	}
+	transform->position.x += direction.x * moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	transform->position.z += direction.z * moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+}
+
+void Monster::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2)
+{
+	Time[0] += TimeManager::DeltaTime();
+	Move(_moveSpeed2);
+
+	if (Time[0] >= _moveTime) {
+		Time[0] = 0;
+		if (Frame[0] >= _count - 1) {
+			Frame[0] = 0;
+			state = State::READY;
+		}
+		else {
+			Frame[0] ++;
+			direction = RandomDir();
+		}
+	}
 }
 
 void Monster::PlayerSearch(float _range, float _rangeOut)
@@ -67,23 +96,23 @@ void Monster::PlayerSearch(float _range, float _rangeOut)
 	float distX = PlayerT->position.x - transform->position.x;
 	float distZ = PlayerT->position.z - transform->position.z;
 
-	float Dist = sqrt(distX * distX + distZ * distZ);
+	disPlayer = sqrt(distX * distX + distZ * distZ);
 
 	if (!isSearch) {
 
-		if (Dist < _range) {
+		if (disPlayer < _range) {
 			isSearch = true;
-			PlayerTrans = PlayerT;
+			playerTrans = PlayerT;
 			return;
 		}
 	}
 	else {
-		if (Dist > _rangeOut) {
+		if (disPlayer > _rangeOut) {
 			isSearch = false;
-			PlayerTrans = nullptr;
+			playerTrans = nullptr;
 			return;
 		}
 	}
-	
+
 }
 
