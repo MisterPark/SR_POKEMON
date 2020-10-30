@@ -14,7 +14,7 @@ Vileplume::Vileplume()
 	anim->SetLoop(true);
 	UpdateAnimation();
 
-	moveSpeed = 0.5f;
+	moveSpeed = 0.8f;
 	state = State::READY;
 	AttackDelay = false;
 	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
@@ -26,7 +26,7 @@ Vileplume::~Vileplume()
 
 void Vileplume::Update()
 {
-	Parttern();
+	Pattern();
 	Monster::Update();
 }
 
@@ -35,7 +35,7 @@ void Vileplume::Render()
 	Monster::Render();
 }
 
-void Vileplume::Parttern()
+void Vileplume::Pattern()
 {
 	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
@@ -46,28 +46,81 @@ void Vileplume::Parttern()
 	float Dist = sqrt(distX * distX + distZ * distZ);
 
 
+	float radian1 = PlayerT->scale.x / 2;
+	float radian2 = transform->scale.x / 2;
 
-	if (state == State::READY && Dist < 8.f) {
-		state = State::PLAYER_SEARCH;
+	if (!isSearch)
+	{
+		if (Dist < 5.f) {
+			isSearch = true;
+			state = State::READY;
+		}
 
-		Time[0] = 0;
-		Frame[0] = 0;
-	}
-	else if (state == State::READY) { // 이건 랜덤패턴 갖기전 대기상태
-		state = (State)Random::Range(1, 1); // 패턴 나누어주는곳 (랜덤)
-
-		if (state == State::WALK) {            // 이곳에서 패턴 레디
+		else if (state == State::READY)
+		{
+			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
+			direction.y = 0.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
+			direction.Normalize(&direction);
+		}
+		if (state == State::WALK) {		//// 이곳부터 업데이트
+			RandomMovePattern();
 		}
 	}
-	else if (state == State::WALK) {		//// 이곳부터 업데이트
-		RandomMovePattern();
-	}
-	else if (state == State::PLAYER_SEARCH) {
-		Attack(PlayerT);
-	}
 
+	if (isSearch)
+	{
+		if (Dist > 10.f)
+		{
+			isSearch = false;
+			Frame[0] = 0;
+			state = State::READY;
+		}
+
+		else if (state == State::READY && Dist < 3.f)
+		{
+			state = State::ATTACK;
+
+		}
+		else if (state == State::READY && Dist >= 3.f)
+		{
+			Vector3 Dist = PlayerT->position - transform->position;
+			direction = Dist.Normalized();
+			state = State::WALK;
+			Frame[0] = 0;
+		}
+
+		if (state == State::WALK) {		//// 이곳부터 업데이트
+			Time[0] += TimeManager::DeltaTime();
+			float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
+			float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
+
+			if (moveX > 0.05f)
+			{
+				moveX = 0.05f;
+			}
+			if (moveZ > 0.05f)
+			{
+				moveZ = 0.05f;
+			}
+
+			transform->position.x += moveX;
+			transform->position.z += moveZ;
+			if (Time[0] >= 1.5f) {
+				Frame[0] ++;
+				Time[0] = 0;
+				if (Frame[0] == 2) {			// 4번의 파닥거림 후
+					Frame[0] = 0;
+					state = State::ATTACK;
+				}
+			}
+		}
+		if (state == State::ATTACK)
+		{
+			Attack(PlayerT);
+		}
+	}
 }
 
 void Vileplume::RandomMovePattern()

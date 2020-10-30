@@ -2,7 +2,7 @@
 #include "Range.h"
 #include "Rectangle.h"
 #include "Player.h"
-#include "Bullet.h"
+#include "Effect.h"
 
 Range::Range()
 {   //TODO : 불렛이 지형타는중
@@ -31,7 +31,7 @@ Range::~Range()
 void Range::Update()
 {
 
-    Bullet::Update();
+    Effect::Update();
 
     /*transform->position += direction * moveSpeed * TimeManager::DeltaTime();;*/
     Time[0] += TimeManager::DeltaTime();
@@ -43,5 +43,5 @@ void Range::Update()
 
 void Range::Render()
 {
-    Bullet::Render();
+    Effect::Render();
 }

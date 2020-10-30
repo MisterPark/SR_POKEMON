@@ -18,7 +18,7 @@ Poliwrath::Poliwrath()
 	anim->SetLoop(true);
 	offsetY = 1.f;
 	state = State::READY;
-	moveSpeed = 0.5f;
+	moveSpeed = 1.f;
 	Monster::Update();
 }
 
@@ -39,7 +39,6 @@ void Poliwrath::Render()
 
 void Poliwrath::Pattern()
 {
-
 	GameObject* g = Player::GetInstance()->GetCharacter();
 	Transform* PlayerT = g->transform;
 
@@ -59,12 +58,13 @@ void Poliwrath::Pattern()
 			state = State::READY;
 		}
 
-		if (state == State::READY && !isSearch)
+		else if (state == State::READY)
 		{
 			state = State::WALK;
 			direction.x = -4.f + Random::Value(9) * 1.f;
+			direction.y = 0.f;
 			direction.z = -4.f + Random::Value(9) * 1.f;
-			direction.Normalized();
+			direction.Normalize(&direction);
 		}
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			RandomMovePattern();
@@ -73,27 +73,44 @@ void Poliwrath::Pattern()
 
 	if (isSearch)
 	{
+		if (Dist > 10.f)
+		{
+			isSearch = false;
+			Frame[0] = 0;
+			state = State::READY;
+		}
 
-		if (state == State::READY && Dist < 3.f)
+		else if (state == State::READY && Dist < 3.f)
 		{
 			state = State::ATTACK;
 
 		}
-		if (state == State::READY && Dist >= 3.f)
+		else if (state == State::READY && Dist >= 3.f)
 		{
 			Vector3 Dist = PlayerT->position - transform->position;
-			Dist.Normalized();
-			direction = Dist;
+			direction = Dist.Normalized();
 			state = State::WALK;
 			Frame[0] = 0;
 		}
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			Time[0] += TimeManager::DeltaTime();
-			transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-			transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+			float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
+			float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
+
+			if (moveX > 0.05f)
+			{
+				moveX = 0.05f;
+			}
+			if (moveZ > 0.05f)
+			{
+				moveZ = 0.05f;
+			}
+
+			transform->position.x += moveX;
+			transform->position.z += moveZ;
 			if (Time[0] >= 1.5f) {
-				Frame[0]++;
+				Frame[0] ++;
 				Time[0] = 0;
 				if (Frame[0] == 2) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
@@ -106,8 +123,6 @@ void Poliwrath::Pattern()
 			Attack(PlayerT);
 		}
 	}
-
-
 }
 
 void Poliwrath::RandomMovePattern()
