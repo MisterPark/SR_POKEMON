@@ -12,14 +12,14 @@ Range::Range()
     anim->SetLoop(true);
     anim->SetDelay(0.2f);
 
+
+   
+
     for (int i = 0; i < 3; i++)
     {
         Time[i] = 0;
     }
 
-    transform->scale.x *= 0.5f;
-    transform->scale.y *= 0.5f;
-    transform->scale.z *= 0.5f;
 
     moveSpeed = 0.f;
     isDeadTime = 2.f;
@@ -32,7 +32,7 @@ Range::~Range()
 
 void Range::Update()
 {
-
+    
     Effect::Update();
 
     /*transform->position += direction * moveSpeed * TimeManager::DeltaTime();;*/
@@ -40,7 +40,7 @@ void Range::Update()
     if (Time[0] >= isDeadTime) {
         isDead = true;
     }
-    Billboard();
+
 }
 
 void Range::Render()

@@ -40,87 +40,144 @@ void Psyduck::Render()
 
 void Psyduck::Pattern()
 {
-	GameObject* g = Player::GetInstance()->GetCharacter();
-	Transform* PlayerT = g->transform;
-
-	float distX = PlayerT->position.x - transform->position.x;
-	float distZ = PlayerT->position.z - transform->position.z;
-
-	float Dist = sqrt(distX * distX + distZ * distZ);
+	/////////////////////////////////////////////////////////// 플레이어 탐지
+	PlayerSearch(6.f, 10.f);
 
 
-	float radian1 = PlayerT->scale.x / 2;
-	float radian2 = transform->scale.x / 2;
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	if (isSearch) {
 
-	if (!isSearch)
-	{
-		if (Dist < 5.f) {
-			isSearch = true;
-			state = State::READY;
+		/////////////////////////////////////////////////////////// 패턴 Ready
+		if (state == State::READY) {
+			state = (State)Random::Range(1, 1);
+
+			if (state == State::WALK) {
+				// 이동 Ready
+			}
+			else if (state == State::ATTACK) {
+				// 공격 Ready
+			}
 		}
 
-		else if (state == State::READY)
-		{
-			state = State::WALK;
-			direction = DirRandom();
+		/////////////////////////////////////////////////////////// 패턴 Update
+		if (state == State::WALK) {
+			/*MovePlayerFollow();*/
 		}
-		if (state == State::WALK) {		//// 이곳부터 업데이트
-			RandomMovePattern();
+		else if (state == State::ATTACK) {
+			// 공격 Update
+		}
+
+	}
+
+
+
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	else {
+
+		/////////////////////////////////////////////////////////// 패턴 Ready
+		if (state == State::READY) {
+			state = (State)Random::Range(1, 1);
+
+			if (state == State::WALK) {
+				// 이동 Ready
+			}
+			else if (state == State::ATTACK) {
+				// 공격 Ready
+			}
+		}
+
+		/////////////////////////////////////////////////////////// 패턴 Update
+		if (state == State::WALK) {
+			//1.5f 시간동안 걷고 총 3번 반복
+			MoveRandomPattern(1.5f, 3);
+		}
+		else if (state == State::ATTACK) {
+			// 공격 Update
 		}
 	}
 
-	if (isSearch)
-	{
-		if (Dist > 10.f)
-		{
-			isSearch = false;
-			Frame[0] = 0;
-			state = State::READY;
-		}
 
-		else if (state == State::READY && Dist < 3.f)
-		{
-			state = State::ATTACK;
+	//GameObject* g = Player::GetInstance()->GetCharacter();
+	//Transform* PlayerT = g->transform;
 
-		}
-		else if (state == State::READY && Dist >= 3.f)
-		{
-			Vector3 Dist = PlayerT->position - transform->position;
-			direction = Dist.Normalized();
-			state = State::WALK;
-			Frame[0] = 0;
-		}
+	//float distX = PlayerT->position.x - transform->position.x;
+	//float distZ = PlayerT->position.z - transform->position.z;
 
-		if (state == State::WALK) {		//// 이곳부터 업데이트
-			Time[0] += TimeManager::DeltaTime();
-			float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
-			float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
+	//float Dist = sqrt(distX * distX + distZ * distZ);
 
-			if (moveX > 0.05f)
-			{
-				moveX = 0.05f;
-			}
-			if (moveZ > 0.05f)
-			{
-				moveZ = 0.05f;
-			}
 
-			transform->position.x += moveX;
-			transform->position.z += moveZ;
-			if (Time[0] >= 1.5f) {
-				Frame[0] ++;
-				Time[0] = 0;
-				if (Frame[0] == 2) {			// 4번의 파닥거림 후
-					Frame[0] = 0;
-					state = State::ATTACK;
-				}
-			}
-		}
-		if (state == State::ATTACK)
-		{
-			Attack(PlayerT);
-		}
-	}
+	//float radian1 = PlayerT->scale.x / 2;
+	//float radian2 = transform->scale.x / 2;
+
+	//if (!isSearch)
+	//{
+	//	if (Dist < 5.f) {
+	//		isSearch = true;
+	//		state = State::READY;
+	//	}
+
+	//	else if (state == State::READY)
+	//	{
+	//		state = State::WALK;
+	//		direction = RandomDir();
+	//	}
+	//	if (state == State::WALK) {		//// 이곳부터 업데이트
+	//		RandomMovePattern();
+	//	}
+	//}
+
+	//if (isSearch)
+	//{
+	//	if (Dist > 10.f)
+	//	{
+	//		isSearch = false;
+	//		Frame[0] = 0;
+	//		state = State::READY;
+	//	}
+
+	//	else if (state == State::READY && Dist < 3.f)
+	//	{
+	//		state = State::ATTACK;
+
+	//	}
+	//	else if (state == State::READY && Dist >= 3.f)
+	//	{
+	//		Vector3 Dist = PlayerT->position - transform->position;
+	//		direction = Dist.Normalized();
+	//		state = State::WALK;
+	//		Frame[0] = 0;
+	//	}
+
+	//	if (state == State::WALK) {		//// 이곳부터 업데이트
+	//		Time[0] += TimeManager::DeltaTime();
+	//		float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
+	//		float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
+
+	//		if (moveX > 0.05f)
+	//		{
+	//			moveX = 0.05f;
+	//		}
+	//		if (moveZ > 0.05f)
+	//		{
+	//			moveZ = 0.05f;
+	//		}
+
+	//		transform->position.x += moveX;
+	//		transform->position.z += moveZ;
+	//		if (Time[0] >= 1.5f) {
+	//			Frame[0] ++;
+	//			Time[0] = 0;
+	//			if (Frame[0] == 2) {			// 4번의 파닥거림 후
+	//				Frame[0] = 0;
+	//				state = State::ATTACK;
+	//			}
+	//		}
+	//	}
+	//	if (state == State::ATTACK)
+	//	{
+	//		Attack(PlayerT);
+	//	}
+	//}
 }
 
 void Psyduck::RandomMovePattern()

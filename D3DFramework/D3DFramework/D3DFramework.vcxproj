@@ -23,13 +23,13 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{b5fd05d1-07cd-499b-8ec1-7885fd22ca77}</ProjectGuid>
     <RootNamespace>D3DFramework</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -158,6 +158,7 @@
     <ClInclude Include="Bulbasaur.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullet_Water.h" />
+    <ClInclude Include="Bullet_Water1.h" />
     <ClInclude Include="Butterfree.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
@@ -223,6 +224,7 @@
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Tree.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UI_Title.h" />
@@ -237,6 +239,7 @@
     <ClCompile Include="Bulbasaur.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
+    <ClCompile Include="Bullet_Water1.cpp" />
     <ClCompile Include="Butterfree.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
@@ -296,6 +299,7 @@
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="UI_Title.cpp" />

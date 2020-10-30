@@ -184,6 +184,191 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_04, L"Texture\\Player\\Bullet\\Fire\\3.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_05, L"Texture\\Player\\Bullet\\Fire\\4.png");
 
+	//¸ó½ºÅÍ ÃÑ¾Ë
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_01, L"Texture\\Bullet\\Bubble1\\Bubble1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_02, L"Texture\\Bullet\\Bubble1\\Bubble1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_03, L"Texture\\Bullet\\Bubble1\\Bubble1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_04, L"Texture\\Bullet\\Bubble1\\Bubble1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_05, L"Texture\\Bullet\\Bubble1\\Bubble1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_06, L"Texture\\Bullet\\Bubble1\\Bubble1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_07, L"Texture\\Bullet\\Bubble1\\Bubble1 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_08, L"Texture\\Bullet\\Bubble1\\Bubble1 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_09, L"Texture\\Bullet\\Bubble1\\Bubble1 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_10, L"Texture\\Bullet\\Bubble1\\Bubble1 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_11, L"Texture\\Bullet\\Bubble1\\Bubble1 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_12, L"Texture\\Bullet\\Bubble1\\Bubble1 (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_13, L"Texture\\Bullet\\Bubble1\\Bubble1 (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_14, L"Texture\\Bullet\\Bubble1\\Bubble1 (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_15, L"Texture\\Bullet\\Bubble1\\Bubble1 (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_16, L"Texture\\Bullet\\Bubble1\\Bubble1 (16).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_17, L"Texture\\Bullet\\Bubble1\\Bubble1 (17).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_18, L"Texture\\Bullet\\Bubble1\\Bubble1 (18).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_19, L"Texture\\Bullet\\Bubble1\\Bubble1 (19).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_20, L"Texture\\Bullet\\Bubble1\\Bubble1 (20).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_21, L"Texture\\Bullet\\Bubble1\\Bubble1 (21).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_01, L"Texture\\Bullet\\Fire1\\Fire1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_02, L"Texture\\Bullet\\Fire1\\Fire1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_03, L"Texture\\Bullet\\Fire1\\Fire1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_04, L"Texture\\Bullet\\Fire1\\Fire1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_05, L"Texture\\Bullet\\Fire1\\Fire1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_06, L"Texture\\Bullet\\Fire1\\Fire1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_07, L"Texture\\Bullet\\Fire1\\Fire1 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_08, L"Texture\\Bullet\\Fire1\\Fire1 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_09, L"Texture\\Bullet\\Fire1\\Fire1 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_10, L"Texture\\Bullet\\Fire1\\Fire1 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_11, L"Texture\\Bullet\\Fire1\\Fire1 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_12, L"Texture\\Bullet\\Fire1\\Fire1 (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_13, L"Texture\\Bullet\\Fire1\\Fire1 (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_14, L"Texture\\Bullet\\Fire1\\Fire1 (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_15, L"Texture\\Bullet\\Fire1\\Fire1 (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_16, L"Texture\\Bullet\\Fire1\\Fire1 (16).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_17, L"Texture\\Bullet\\Fire1\\Fire1 (17).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_18, L"Texture\\Bullet\\Fire1\\Fire1 (18).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_19, L"Texture\\Bullet\\Fire1\\Fire1 (19).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_20, L"Texture\\Bullet\\Fire1\\Fire1 (20).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_21, L"Texture\\Bullet\\Fire1\\Fire1 (21).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE1_22, L"Texture\\Bullet\\Fire1\\Fire1 (22).png");
+	
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_01, L"Texture\\Bullet\\Fire2\\Fire2 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_02, L"Texture\\Bullet\\Fire2\\Fire2 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_03, L"Texture\\Bullet\\Fire2\\Fire2 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_04, L"Texture\\Bullet\\Fire2\\Fire2 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_05, L"Texture\\Bullet\\Fire2\\Fire2 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_06, L"Texture\\Bullet\\Fire2\\Fire2 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_07, L"Texture\\Bullet\\Fire2\\Fire2 (7).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_01, L"Texture\\Bullet\\Fire3\\Fire3 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_02, L"Texture\\Bullet\\Fire3\\Fire3 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_03, L"Texture\\Bullet\\Fire3\\Fire3 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_04, L"Texture\\Bullet\\Fire3\\Fire3 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_05, L"Texture\\Bullet\\Fire3\\Fire3 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_06, L"Texture\\Bullet\\Fire3\\Fire3 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_07, L"Texture\\Bullet\\Fire3\\Fire3 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_08, L"Texture\\Bullet\\Fire3\\Fire3 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_09, L"Texture\\Bullet\\Fire3\\Fire3 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_10, L"Texture\\Bullet\\Fire3\\Fire3 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_11, L"Texture\\Bullet\\Fire3\\Fire3 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_12, L"Texture\\Bullet\\Fire3\\Fire3 (12).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_01, L"Texture\\Bullet\\FireWall1\\FireWall1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_02, L"Texture\\Bullet\\FireWall1\\FireWall1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_03, L"Texture\\Bullet\\FireWall1\\FireWall1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_04, L"Texture\\Bullet\\FireWall1\\FireWall1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_05, L"Texture\\Bullet\\FireWall1\\FireWall1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_06, L"Texture\\Bullet\\FireWall1\\FireWall1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_07, L"Texture\\Bullet\\FireWall1\\FireWall1 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_08, L"Texture\\Bullet\\FireWall1\\FireWall1 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_09, L"Texture\\Bullet\\FireWall1\\FireWall1 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_10, L"Texture\\Bullet\\FireWall1\\FireWall1 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_11, L"Texture\\Bullet\\FireWall1\\FireWall1 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_12, L"Texture\\Bullet\\FireWall1\\FireWall1 (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_13, L"Texture\\Bullet\\FireWall1\\FireWall1 (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_14, L"Texture\\Bullet\\FireWall1\\FireWall1 (14).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_01, L"Texture\\Bullet\\Ice1\\Ice1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_02, L"Texture\\Bullet\\Ice1\\Ice1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_03, L"Texture\\Bullet\\Ice1\\Ice1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_04, L"Texture\\Bullet\\Ice1\\Ice1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_05, L"Texture\\Bullet\\Ice1\\Ice1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_06, L"Texture\\Bullet\\Ice1\\Ice1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_07, L"Texture\\Bullet\\Ice1\\Ice1 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_08, L"Texture\\Bullet\\Ice1\\Ice1 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_09, L"Texture\\Bullet\\Ice1\\Ice1 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_10, L"Texture\\Bullet\\Ice1\\Ice1 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_11, L"Texture\\Bullet\\Ice1\\Ice1 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_12, L"Texture\\Bullet\\Ice1\\Ice1 (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_13, L"Texture\\Bullet\\Ice1\\Ice1 (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_14, L"Texture\\Bullet\\Ice1\\Ice1 (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_15, L"Texture\\Bullet\\Ice1\\Ice1 (15).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_01, L"Texture\\Bullet\\LClaw1\\LClaw1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_02, L"Texture\\Bullet\\LClaw1\\LClaw1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_03, L"Texture\\Bullet\\LClaw1\\LClaw1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_04, L"Texture\\Bullet\\LClaw1\\LClaw1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_05, L"Texture\\Bullet\\LClaw1\\LClaw1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_06, L"Texture\\Bullet\\LClaw1\\LClaw1 (6).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_01, L"Texture\\Bullet\\Poision1\\Poison1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_02, L"Texture\\Bullet\\Poision1\\Poison1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_03, L"Texture\\Bullet\\Poision1\\Poison1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_04, L"Texture\\Bullet\\Poision1\\Poison1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_05, L"Texture\\Bullet\\Poision1\\Poison1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_06, L"Texture\\Bullet\\Poision1\\Poison1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_07, L"Texture\\Bullet\\Poision1\\Poison1 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_08, L"Texture\\Bullet\\Poision1\\Poison1 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_09, L"Texture\\Bullet\\Poision1\\Poison1 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_10, L"Texture\\Bullet\\Poision1\\Poison1 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_11, L"Texture\\Bullet\\Poision1\\Poison1 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_12, L"Texture\\Bullet\\Poision1\\Poison1 (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_13, L"Texture\\Bullet\\Poision1\\Poison1 (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_14, L"Texture\\Bullet\\Poision1\\Poison1 (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_POISION1_15, L"Texture\\Bullet\\Poision1\\Poison1 (15).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_RCLAW1_01, L"Texture\\Bullet\\RClaw1\\RClaw1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_RCLAW1_02, L"Texture\\Bullet\\RClaw1\\RClaw1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_RCLAW1_03, L"Texture\\Bullet\\RClaw1\\RClaw1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_RCLAW1_04, L"Texture\\Bullet\\RClaw1\\RClaw1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_RCLAW1_05, L"Texture\\Bullet\\RClaw1\\RClaw1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_RCLAW1_06, L"Texture\\Bullet\\RClaw1\\RClaw1 (6).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER1_01, L"Texture\\Bullet\\Water1\\Water1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER1_02, L"Texture\\Bullet\\Water1\\Water1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER1_03, L"Texture\\Bullet\\Water1\\Water1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER1_04, L"Texture\\Bullet\\Water1\\Water1 (4).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_01, L"Texture\\Bullet\\Water2\\Water2 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_02, L"Texture\\Bullet\\Water2\\Water2 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_03, L"Texture\\Bullet\\Water2\\Water2 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_04, L"Texture\\Bullet\\Water2\\Water2 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_05, L"Texture\\Bullet\\Water2\\Water2 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_06, L"Texture\\Bullet\\Water2\\Water2 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_07, L"Texture\\Bullet\\Water2\\Water2 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_08, L"Texture\\Bullet\\Water2\\Water2 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_09, L"Texture\\Bullet\\Water2\\Water2 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_10, L"Texture\\Bullet\\Water2\\Water2 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_11, L"Texture\\Bullet\\Water2\\Water2 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_12, L"Texture\\Bullet\\Water2\\Water2 (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_13, L"Texture\\Bullet\\Water2\\Water2 (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_14, L"Texture\\Bullet\\Water2\\Water2 (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_15, L"Texture\\Bullet\\Water2\\Water2 (15).png");
+
+	//WEB
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WEB1_01, L"Texture\\Bullet\\Web1\\Web1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WEB1_02, L"Texture\\Bullet\\Web1\\Web1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WEB1_03, L"Texture\\Bullet\\Web1\\Web1 (3).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_01, L"Texture\\Bullet\\Wind1\\Wind1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_02, L"Texture\\Bullet\\Wind1\\Wind1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_03, L"Texture\\Bullet\\Wind1\\Wind1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_04, L"Texture\\Bullet\\Wind1\\Wind1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_05, L"Texture\\Bullet\\Wind1\\Wind1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_06, L"Texture\\Bullet\\Wind1\\Wind1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_07, L"Texture\\Bullet\\Wind1\\Wind1 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_08, L"Texture\\Bullet\\Wind1\\Wind1 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_09, L"Texture\\Bullet\\Wind1\\Wind1 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_10, L"Texture\\Bullet\\Wind1\\Wind1 (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_11, L"Texture\\Bullet\\Wind1\\Wind1 (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_12, L"Texture\\Bullet\\Wind1\\Wind1 (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_13, L"Texture\\Bullet\\Wind1\\Wind1 (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_14, L"Texture\\Bullet\\Wind1\\Wind1 (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_15, L"Texture\\Bullet\\Wind1\\Wind1 (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_16, L"Texture\\Bullet\\Wind1\\Wind1 (16).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_17, L"Texture\\Bullet\\Wind1\\Wind1 (17).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_18, L"Texture\\Bullet\\Wind1\\Wind1 (18).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_19, L"Texture\\Bullet\\Wind1\\Wind1 (19).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_20, L"Texture\\Bullet\\Wind1\\Wind1 (20).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_21, L"Texture\\Bullet\\Wind1\\Wind1 (21).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_22, L"Texture\\Bullet\\Wind1\\Wind1 (22).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_23, L"Texture\\Bullet\\Wind1\\Wind1 (23).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_24, L"Texture\\Bullet\\Wind1\\Wind1 (24).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_25, L"Texture\\Bullet\\Wind1\\Wind1 (25).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::TREE01, L"Texture\\ETC\\Tree\\Tree (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE02, L"Texture\\ETC\\Tree\\Tree (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE03, L"Texture\\ETC\\Tree\\Tree (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE04, L"Texture\\ETC\\Tree\\Tree (4).png");
+
 	//RANGE
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
 
@@ -192,6 +377,8 @@ void PKH::MainGame::LoadETCSprite()
 	//WATER
 	D2DRenderManager::LoadSprite(TextureKey::WATER_ENVIRONMENT, L"Texture\\WATER.png");
 	
+	//
+
 }
 
 void PKH::MainGame::LoadUISprite()

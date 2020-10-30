@@ -2,7 +2,7 @@
 #include "Poliwrath.h"
 #include "Plane.h"
 #include "Rectangle.h"
-#include "Bullet_Water.h"
+#include "Bullet_Water1.h"
 #include "Range.h"
 #include "Character.h"
 
@@ -169,16 +169,25 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 	//MoveDir *= 1.5f;
 	float R = 1.f;
 	
-		Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+		Bullet_Water1* b = dynamic_cast<Bullet_Water1*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water1>());
 		Vector3 Dir2 = {0.f,0.f,0.f};
 		Dir2.y -= R;
 		D3DXVec3Normalize(&Dir2, &Dir2);
 		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
 		*(b->transform) = *PlayerT;
+		float Bulletsize = 1.f;
+		b->transform->scale.x =Bulletsize ;
+		b->transform->scale.y = Bulletsize;
 		b->transform->position.y += 5.f;
+
 		b->isAlliance = false;
 
 		Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
 		*(r->transform) = *PlayerT;
+		float size = 1.f;
+		r->transform->scale += {size, size, size};
+		r->transform->eulerAngles.x = D3DXToRadian(90);
+		/*r->transform->eulerAngles.x = D3DXToRadian(90);*/
+		
 }
 
