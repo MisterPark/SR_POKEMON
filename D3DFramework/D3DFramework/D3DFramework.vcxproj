@@ -170,6 +170,7 @@
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="D2DRenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Environment.h" />
     <ClInclude Include="FileManager.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="IScene.h" />
     <ClInclude Include="Ivysaur.h" />
     <ClInclude Include="Jynx.h" />
+    <ClInclude Include="LobbyWindow.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MemoryPool.h" />
@@ -214,6 +216,7 @@
     <ClInclude Include="Suicune.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />
+    <ClInclude Include="TestMultiScene.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeManager.h" />
@@ -244,6 +247,7 @@
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="D2DRenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -253,6 +257,7 @@
     <ClCompile Include="IScene.cpp" />
     <ClCompile Include="Ivysaur.cpp" />
     <ClCompile Include="Jynx.cpp" />
+    <ClCompile Include="LobbyWindow.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -282,6 +287,7 @@
     </ClCompile>
     <ClCompile Include="Suicune.cpp" />
     <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="TestMultiScene.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />

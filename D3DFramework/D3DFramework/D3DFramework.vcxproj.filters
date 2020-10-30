@@ -82,6 +82,9 @@
     <Filter Include="Network">
       <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lib\Debug">
+      <UniqueIdentifier>{24f90cc3-db23-416b-a47a-3895e97d17f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -297,6 +300,18 @@
     <ClInclude Include="Range.h">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Scyther.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Lib\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="TestMultiScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="LobbyWindow.h">
+      <Filter>Lib\MainGame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -487,6 +502,18 @@
     </ClCompile>
     <ClCompile Include="Range.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Scyther.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Lib\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMultiScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="LobbyWindow.cpp">
+      <Filter>Lib\MainGame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
