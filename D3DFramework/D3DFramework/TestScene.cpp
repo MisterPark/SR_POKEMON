@@ -68,9 +68,15 @@ void TestScene::OnLoaded()
 	/*for (int i = 0; i < 10; ++i)
 	{*//*
 	*/
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Scyther>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
+	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
+	Obj->transform->position.x += 5;
+	Obj->transform->position.z += 5;
+	Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	Obj->transform->position.x += 3;
+	Obj->transform->position.z += 3;
 	/*
 	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
 	Obj->transform->position.x += 7;

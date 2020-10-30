@@ -193,7 +193,6 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Metapod.h" />
     <ClInclude Include="Monster.h" />
-    <ClInclude Include="Monster_Butterfree.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Oddish.h" />
@@ -269,7 +268,6 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Metapod.cpp" />
     <ClCompile Include="Monster.cpp" />
-    <ClCompile Include="Monster_Butterfree.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Oddish.cpp" />

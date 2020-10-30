@@ -22,6 +22,8 @@ public:
 	void UpdateAnimation();
 	// 애니메이션 텍스쳐 설정
 	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame = -1);
+	// 방향없는 애니메이션 텍스쳐 설정
+	void SetAniTexture(State _state, TextureKey _beginTextureKey, int _aniFrame);
 
 public:
 	void SetDir(const Vector3& dir);
@@ -34,8 +36,9 @@ public:
 		const Vector3& dir);
 
 public:
-	int att;
-	bool isPlayer;
+	bool isBillboard = true;
+	bool isMove = false;
+	float isDeadTime = 0.f;
 	Vector3 direction = { 0,0,1 };;
 	Animation2D* anim = nullptr;
 	State state = State::IDLE;

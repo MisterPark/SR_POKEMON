@@ -13,7 +13,7 @@ public:
 
 private:
 	void Pattern();
-	void RandomMovePattern();
+	
 
 };
 
