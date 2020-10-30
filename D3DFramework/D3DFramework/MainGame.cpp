@@ -189,6 +189,9 @@ void PKH::MainGame::LoadETCSprite()
 
 	//MAP TEXTURE
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Grass.png");
+	//WATER
+	D2DRenderManager::LoadSprite(TextureKey::WATER_ENVIRONMENT, L"Texture\\WATER.png");
+	
 }
 
 void PKH::MainGame::LoadUISprite()

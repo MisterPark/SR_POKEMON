@@ -1,16 +1,13 @@
 #pragma once
-#include "Effect.h"
-class Water : //TODO : pvp를 위해 기능 추가가 필요함
-	public Effect
+#include "GameObject.h"
+class Water : public GameObject
 {
 public:
 	Water();
 	virtual ~Water();
-	// Character을(를) 통해 상속됨
-	virtual void Update() override;
-	virtual void Render() override;
 
-private:
-	float Time[3];  // 프레임(시간) 재는용도
+	virtual void Initialize() override;
+	virtual void Release() override;
+	virtual void Update() override;
 
 };
