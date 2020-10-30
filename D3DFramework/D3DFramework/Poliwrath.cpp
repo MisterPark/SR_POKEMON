@@ -88,7 +88,7 @@ void Poliwrath::Pattern()
 		else if (state == State::READY && Dist >= 3.f)
 		{
 			Vector3 Dist = PlayerT->position - transform->position;
-			direction = Dist.Normalized();
+			direction.Normalize(&Dist);
 			state = State::WALK;
 			Frame[0] = 0;
 		}
@@ -98,13 +98,13 @@ void Poliwrath::Pattern()
 			float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
 			float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
 
-			if (moveX > 0.05f)
+			if (moveX > 0.02f)
 			{
-				moveX = 0.05f;
+				moveX = 0.02f;
 			}
-			if (moveZ > 0.05f)
+			if (moveZ > 0.02f)
 			{
-				moveZ = 0.05f;
+				moveZ = 0.02f;
 			}
 
 			transform->position.x += moveX;
@@ -112,7 +112,7 @@ void Poliwrath::Pattern()
 			if (Time[0] >= 1.5f) {
 				Frame[0] ++;
 				Time[0] = 0;
-				if (Frame[0] == 2) {			// 4번의 파닥거림 후
+				if (Frame[0] == 1) {			// 4번의 파닥거림 후
 					Frame[0] = 0;
 					state = State::ATTACK;
 				}
@@ -128,6 +128,7 @@ void Poliwrath::Pattern()
 void Poliwrath::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
+
 
 	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
 	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();

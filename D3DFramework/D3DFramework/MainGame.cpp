@@ -186,6 +186,9 @@ void PKH::MainGame::LoadETCSprite()
 
 	//RANGE
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
+
+	//MAP TEXTURE
+	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Grass.png");
 }
 
 void PKH::MainGame::LoadUISprite()
