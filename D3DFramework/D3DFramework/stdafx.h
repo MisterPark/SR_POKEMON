@@ -43,7 +43,7 @@ using namespace std;
 //  Network
 //=======================================
 
-
+#include "LobbyWindow.h"
 
 #include "Protocol.h"
 #include "CRingBuffer.h"
