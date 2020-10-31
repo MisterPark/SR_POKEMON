@@ -6,6 +6,7 @@
 
 Vileplume::Vileplume()
 {
+	name = L"라플레시아";
 	SetTexture(State::WALK, TextureKey::VILE_WALK_D_01, 3);
 	SetTexture(State::PLAYER_SEARCH, TextureKey::VILE_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3, 1);

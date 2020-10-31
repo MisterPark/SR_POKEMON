@@ -4,6 +4,7 @@
 
 Metapod::Metapod()
 {
+	name = L"´Üµ¥±â";
 	SetTexture(State::WALK, TextureKey::META_WALK_D_01, 3);
 	SetTexture(State::PLAYER_SEARCH, TextureKey::META_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::META_WALK_D_01, 3, 1);
