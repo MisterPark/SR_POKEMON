@@ -7,7 +7,6 @@
 #include "CubeMan.h"
 #include "Monster.h"
 #include "Environment.h"
-#include "TestObj.h"
 #include "TitleScene.h"
 #include "Butterfree.h"
 

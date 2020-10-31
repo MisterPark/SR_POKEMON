@@ -34,6 +34,11 @@ void Charmander::Initialize()
 
 	state = State::IDLE;
 
+	skillSet.reserve(2);
+
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BulletLeaf));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BulletFire));
+
 	UpdateAnimation();
 }
 
@@ -51,24 +56,17 @@ void Charmander::Release()
 {
 }
 
-void Charmander::Attack(const Vector3 & dir)
+void Charmander::Attack(const Vector3 & dir, const int & attackType)
 {
+	if (skillSet.size() <= attackType) return;
 	Vector3 pos = transform->position;
 
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.01f, 0.01f, 0.01f }, dir, 1);
-	ObjectManager::AddObject(newBullet);
+	skillSet[attackType]->Active(pos, dir);
 
-	ChangeState(State::ATTACK);
-}
-
-void Charmander::Skill(const Vector3 & dir)
-{
-	Vector3 pos = transform->position;
-
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.01f, 0.01f, 0.01f }, dir, 1);
-	ObjectManager::AddObject(newBullet);
-
-	ChangeState(State::SKILL);
+	switch (attackType)
+	{
+	case 0: ChangeState(State::ATTACK); break;
+	}
 }
 
 Charmander * Charmander::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)

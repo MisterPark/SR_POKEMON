@@ -48,17 +48,7 @@ void Venusaur::Release()
 {
 }
 
-void Venusaur::Attack(const Vector3 & dir)
-{
-	Vector3 pos = transform->position;
-	pos.y += offsetY;
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.1f, 0.1f, 0.05f }, dir, 0);
-	ObjectManager::AddObject(newBullet);
-
-	ChangeState(State::ATTACK);
-}
-
-void Venusaur::Skill(const Vector3 & dir)
+void Venusaur::Attack(const Vector3 & dir, const int & attackType)
 {
 }
 

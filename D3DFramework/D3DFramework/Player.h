@@ -9,7 +9,7 @@ private:
 
 public:
 	static Player* GetInstance();
-	static void DestroyInstance();
+	static void Destroy();
 
 public:
 	void Update();

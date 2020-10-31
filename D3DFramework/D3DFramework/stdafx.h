@@ -90,6 +90,7 @@ using namespace std;
 #include "Animation2D.h"
 
 #include "Player.h"
+#include "SkillManager.h"
 
 using namespace std;
 using namespace PKH;

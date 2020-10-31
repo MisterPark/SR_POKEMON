@@ -51,24 +51,16 @@ void Bulbasaur::Release()
 {
 }
 
-void Bulbasaur::Attack(const Vector3 & dir)
+void Bulbasaur::Attack(const Vector3 & dir, const int & attackType)
 {
+	/*
 	Vector3 pos = transform->position;
 
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.01f, 0.01f, 0.01f }, dir, 0);
+	PlayerBullet* newBullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF);
 	ObjectManager::AddObject(newBullet);
 
 	ChangeState(State::ATTACK);
-}
-
-void Bulbasaur::Skill(const Vector3 & dir)
-{
-	Vector3 pos = transform->position;
-
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.01f, 0.01f, 0.01f }, dir, 0);
-	ObjectManager::AddObject(newBullet);
-
-	ChangeState(State::SKILL);
+	*/
 }
 
 Bulbasaur * Bulbasaur::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)

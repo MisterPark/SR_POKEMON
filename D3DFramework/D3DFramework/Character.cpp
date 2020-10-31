@@ -16,6 +16,7 @@ Character::Character()
 Character::~Character()
 {
 	CollisionManager::DisregisterObject(this);
+	Release();
 }
 
 void Character::Update()
@@ -54,6 +55,17 @@ void Character::Initialize()
 
 void Character::Release()
 {
+	for (auto skill : skillSet)
+	{
+		if (nullptr != skill)
+		{
+			delete skill;
+			skill = nullptr;
+		}
+	}
+
+	skillSet.clear();
+	skillSet.shrink_to_fit();
 }
 
 void Character::OnTerrain()
@@ -146,11 +158,7 @@ void Character::ChangeState(State nextState)
 	}
 }
 
-void Character::Attack(const Vector3 & dir)
-{
-}
-
-void Character::Skill(const Vector3 & dir)
+void Character::Attack(const Vector3 & dir, const int & attackType)
 {
 }
 

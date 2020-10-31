@@ -59,6 +59,7 @@ void PKH::MainGame::Initialize()
 	LoadETCSprite();
 
 	ObjectManager::GetInstance();
+	SkillManager::GetInstance();
 
 	// ¾À·Îµå
 	SceneManager::LoadScene<TestScene>();
@@ -112,7 +113,8 @@ void PKH::MainGame::Release()
 
 	SoundManager::Destroy();
 	Cursor::Destroy();
-	Player::DestroyInstance();
+	Player::Destroy();
+	SkillManager::Destroy();
 }
 
 void PKH::MainGame::Pause()

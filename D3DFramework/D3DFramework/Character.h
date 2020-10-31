@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 
+class Skill;
 
 class Character :
     public GameObject
@@ -32,8 +33,7 @@ public:
 	void MoveForward();
 	void ChangeState(State nextState);
 
-	virtual void Attack(const Vector3& dir);
-	virtual void Skill(const Vector3& dir);
+	virtual void Attack(const Vector3& dir, const int& attackType);
 
 public:
 	wstring name;
@@ -46,6 +46,8 @@ public:
 	State state = State::IDLE;
 	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
-	
+
+protected:
+	vector<Skill*> skillSet;
 };
 

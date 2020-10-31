@@ -48,17 +48,7 @@ void Ivysaur::Release()
 {
 }
 
-void Ivysaur::Attack(const Vector3 & dir)
-{
-	Vector3 pos = transform->position;
-	pos.y += offsetY;
-	PlayerBullet* newBullet = new PlayerBullet(pos, { 0.2f, 0.2f, 0.2f }, dir, 0);
-	ObjectManager::AddObject(newBullet);
-
-	ChangeState(State::ATTACK);
-}
-
-void Ivysaur::Skill(const Vector3 & dir)
+void Ivysaur::Attack(const Vector3 & dir, const int & attackType)
 {
 }
 

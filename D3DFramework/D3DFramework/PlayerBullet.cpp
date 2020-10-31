@@ -4,52 +4,45 @@
 
 PlayerBullet::PlayerBullet()
 {
-    SetTexture(State::IDLE, TextureKey::BULLET_LEAF_09, 1);
-	UpdateAnimation();
-    state = State::IDLE;
-    anim->SetLoop(true);
-    anim->SetDelay(0.2f);
-
-    transform->scale.x *= 0.5f;
-    transform->scale.y *= 0.5f;
-    transform->scale.z *= 0.5f;
-
-	moveSpeed = 3.f;
 }
 
-PlayerBullet::PlayerBullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const int & type, const bool & isPlayer)
-	: Bullet(pos, scale, dir, isPlayer)
+PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& type, const bool& isAlliance) :
+	Bullet(pos, { 1.f, 1.f, 1.f }, dir, isAlliance),
+	bulletType(type)
 {
 	transform->position = pos;
-	transform->scale = scale;
+	transform->scale = { 1.f, 1.f, 1.f };
 	direction = dir;
 
-	Init();
+	moveSpeed = 10.f;
+	lifeTime = 1.2f;
+
+	InitByType();
 }
 
 PlayerBullet::~PlayerBullet()
 {
 }
 
-void PlayerBullet::Init()
+void PlayerBullet::InitByType()
 {
 	switch (bulletType)
 	{
-	case 0:
+	case LEAF:
 		isBillboard = false;
 
-		transform->scale = { 0.1f, 0.1f, 0.1f };
+		transform->scale = { 0.15f, 0.15f, 0.15f };
 
 		SetTexture(State::IDLE, TextureKey::BULLET_LEAF_09, 1);
-		SetTexture(State::ATTACK, TextureKey::BULLET_LEAF_01, 9);
+		//SetTexture(State::ATTACK, TextureKey::BULLET_LEAF_01, 9);
 		transform->eulerAngles.x = D3DXToRadian(90.f);
 		transform->eulerAngles.y = D3DXToRadian(135.f) + Player::GetInstance()->GetRadianY();
 		break;
-	case 1:
-		transform->scale = { 0.5f, 0.5f, 0.5f };
+
+	case FIRE:
+		transform->scale = { 0.2f, 0.2f, 0.2f };
 		SetTexture(State::IDLE, TextureKey::BULLET_FIRE_01, 5);
 		break;
-	case 2: break;
 	}
 
 	UpdateAnimation();
@@ -57,14 +50,16 @@ void PlayerBullet::Init()
 	state = State::IDLE;
 
 	anim->SetLoop(true);
-	anim->SetDelay(0.2f);
-
-	moveSpeed = 5.f;
+	anim->SetDelay(0.05f);
 }
 
 void PlayerBullet::Update()
 {
+	if (true == isDead) return;
+
 	Bullet::Update();
+
+	CalcLifeTime();
 }
 
 void PlayerBullet::Render()
@@ -79,4 +74,11 @@ void PlayerBullet::OnCollision(GameObject* target)
     }
 
     isDead = true;
+}
+
+void PlayerBullet::CalcLifeTime()
+{
+	lifeTime -= TimeManager::DeltaTime();
+
+	if (lifeTime <= 0.f) isDead = true;
 }

@@ -52,44 +52,110 @@
     <Filter Include="GameObject\UI">
       <UniqueIdentifier>{ada1f413-2b4a-4d3c-aad1-eb43b9b3577e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\Monster">
-      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player">
-      <UniqueIdentifier>{6153c3d4-0c12-477a-8c69-b42253cec822}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\SkyBox">
       <UniqueIdentifier>{c45ec730-8842-4b52-b2c8-607d5b9417df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Character\Bullet">
-      <UniqueIdentifier>{12c4a537-8f1a-43a6-9b8f-0c68ba484bca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Monster\Grass">
-      <UniqueIdentifier>{966f9648-0ed3-4375-92bb-67bae28bbfb2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Monster\Water">
-      <UniqueIdentifier>{caeb1c73-6f4c-4b66-b658-6f9fb01b2fa2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player\02. Ivysaur">
-      <UniqueIdentifier>{00e3f5ea-520e-4bc7-a162-6c469bf73599}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player\01. Bulbasaur">
-      <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player\03. Venusaur">
-      <UniqueIdentifier>{3df0be3c-6df4-4b7e-8f92-0a092e019945}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Network">
       <UniqueIdentifier>{02e7ca7e-8b76-4a8a-9a01-564058887fbb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Player\04. Charmander">
-      <UniqueIdentifier>{c18641b1-3a32-4f39-937c-d9aae4a2ec9d}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Environment">
       <UniqueIdentifier>{a176ddbd-cd5b-4d71-a544-2ec14d3fe4ae}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Effect">
       <UniqueIdentifier>{536fc900-1ad6-4253-bbff-285b3ca01986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill">
+      <UniqueIdentifier>{25eb1bf5-7678-4757-8542-c5077d41c44d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\Manager">
+      <UniqueIdentifier>{6f38078a-14a4-4e94-a0eb-008cda0dca41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet">
+      <UniqueIdentifier>{12c4a537-8f1a-43a6-9b8f-0c68ba484bca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Player">
+      <UniqueIdentifier>{6153c3d4-0c12-477a-8c69-b42253cec822}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass">
+      <UniqueIdentifier>{4da60952-2158-4fcf-9ab0-87f6932dedeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire">
+      <UniqueIdentifier>{32cbb9d9-7020-4bea-8075-b3b204793e34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water">
+      <UniqueIdentifier>{dffce21b-ad76-4c78-9e5c-009717ea29d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\012. Butterfree">
+      <UniqueIdentifier>{ef0ff37d-f6cf-4f7e-b8f6-0645ea50599c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\001. Bulbasaur">
+      <UniqueIdentifier>{10e73d65-cd20-4912-92aa-65e1378c27cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\002. Ivysaur">
+      <UniqueIdentifier>{00e3f5ea-520e-4bc7-a162-6c469bf73599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\003. Venusaur">
+      <UniqueIdentifier>{3df0be3c-6df4-4b7e-8f92-0a092e019945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\010. Caterpie">
+      <UniqueIdentifier>{13d4a3d3-0222-4574-8396-2b6f56202f65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\011. Metapod">
+      <UniqueIdentifier>{d50efe8f-b659-42b1-abb6-24e5ae820696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\043. Oddish">
+      <UniqueIdentifier>{b571dcdf-42cd-460d-84ab-a4213e4f1060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\045. Vileplume">
+      <UniqueIdentifier>{966c5e15-7b6c-4770-afb7-173b152c21d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\123. Scyther">
+      <UniqueIdentifier>{e1c9d9a0-d35b-421e-bdae-59f63d3afe9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\054. Psyduck">
+      <UniqueIdentifier>{c0a40435-7510-4030-ba9e-9ddf15af22aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\055. Golduck">
+      <UniqueIdentifier>{8931e04c-4fbd-4ab9-80ed-ac846b12a6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\124. Jynx">
+      <UniqueIdentifier>{374ce593-baa8-457c-8c5a-e490e3405eec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\060. Poliwag">
+      <UniqueIdentifier>{7c567cef-2979-49ea-ba7f-560bcb453624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\062. Poliwrath">
+      <UniqueIdentifier>{0adcb93a-0e76-4acc-895f-0e23729a37de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\245. Suicune">
+      <UniqueIdentifier>{2650b669-b83b-4afb-8512-42d50e7f26f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\007. Squirtle">
+      <UniqueIdentifier>{3b095f08-f28e-4651-b0e0-a780465b03c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\008. Wartortle">
+      <UniqueIdentifier>{8ff14e03-73b7-4053-bb37-60f75c37f774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\009. Blastoise">
+      <UniqueIdentifier>{76e1c684-e1c7-408d-80d2-b090fc20ac78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\006. Charizard">
+      <UniqueIdentifier>{8ef955cd-69df-497a-bb1c-75a25a6d162c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\004. Charmander">
+      <UniqueIdentifier>{c18641b1-3a32-4f39-937c-d9aae4a2ec9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\005. Charmeleon">
+      <UniqueIdentifier>{a16ccc9d-2861-4d48-8d99-a3cda2510173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Monster">
+      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\01. BulletLeaf">
+      <UniqueIdentifier>{df5f8ce9-0544-4767-a4db-865dea6e665b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\02. BulletFire">
+      <UniqueIdentifier>{7041047e-6889-43f5-a4b3-635da4801ddb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -208,7 +274,7 @@
       <Filter>Lib</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>GameObject\Character\Monster</Filter>
+      <Filter>GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Animation2D.h">
       <Filter>Component\Animation</Filter>
@@ -220,55 +286,25 @@
       <Filter>GameObject\UI</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>GameObject\Character\Player</Filter>
+      <Filter>GameObject\Player</Filter>
     </ClInclude>
     <ClInclude Include="SkyBox.h">
       <Filter>GameObject\SkyBox</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Water.h">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="CubeMan.h">
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Butterfree.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Psyduck.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
     <ClInclude Include="Bulbasaur.h">
-      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
-    </ClInclude>
-    <ClInclude Include="Vileplume.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Metapod.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
-    <ClInclude Include="Poliwrath.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Golduck.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Jynx.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Poliwag.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Suicune.h">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClInclude>
-    <ClInclude Include="Oddish.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
+      <Filter>GameObject\Character\Grass\001. Bulbasaur</Filter>
     </ClInclude>
     <ClInclude Include="UI_Title.h">
       <Filter>GameObject\UI</Filter>
@@ -286,13 +322,13 @@
       <Filter>Network</Filter>
     </ClInclude>
     <ClInclude Include="PlayerBullet.h">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Ivysaur.h">
-      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+      <Filter>GameObject\Character\Grass\002. Ivysaur</Filter>
     </ClInclude>
     <ClInclude Include="Venusaur.h">
-      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
+      <Filter>GameObject\Character\Grass\003. Venusaur</Filter>
     </ClInclude>
     <ClInclude Include="Debug.h">
       <Filter>Lib</Filter>
@@ -301,19 +337,13 @@
       <Filter>Lib\MainGame</Filter>
     </ClInclude>
     <ClInclude Include="Charmander.h">
-      <Filter>GameObject\Character\Player\04. Charmander</Filter>
+      <Filter>GameObject\Character\Fire\004. Charmander</Filter>
     </ClInclude>
     <ClInclude Include="TestMultiScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Caterpie.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClInclude>
     <ClInclude Include="Environment.h">
       <Filter>GameObject\Environment</Filter>
-    </ClInclude>
-    <ClInclude Include="Scyther.h">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>GameObject\Effect</Filter>
@@ -322,13 +352,67 @@
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Water1.h">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Tree.h">
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
     <ClInclude Include="Range.h">
       <Filter>GameObject\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillManager.h">
+      <Filter>Skill\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillName.h">
+      <Filter>Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="AllSkills.h">
+      <Filter>Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Butterfree.h">
+      <Filter>GameObject\Character\Grass\012. Butterfree</Filter>
+    </ClInclude>
+    <ClInclude Include="Caterpie.h">
+      <Filter>GameObject\Character\Grass\010. Caterpie</Filter>
+    </ClInclude>
+    <ClInclude Include="Metapod.h">
+      <Filter>GameObject\Character\Grass\011. Metapod</Filter>
+    </ClInclude>
+    <ClInclude Include="Oddish.h">
+      <Filter>GameObject\Character\Grass\043. Oddish</Filter>
+    </ClInclude>
+    <ClInclude Include="Vileplume.h">
+      <Filter>GameObject\Character\Grass\045. Vileplume</Filter>
+    </ClInclude>
+    <ClInclude Include="Scyther.h">
+      <Filter>GameObject\Character\Grass\123. Scyther</Filter>
+    </ClInclude>
+    <ClInclude Include="Psyduck.h">
+      <Filter>GameObject\Character\Water\054. Psyduck</Filter>
+    </ClInclude>
+    <ClInclude Include="Golduck.h">
+      <Filter>GameObject\Character\Water\055. Golduck</Filter>
+    </ClInclude>
+    <ClInclude Include="Jynx.h">
+      <Filter>GameObject\Character\Water\124. Jynx</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwag.h">
+      <Filter>GameObject\Character\Water\060. Poliwag</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwrath.h">
+      <Filter>GameObject\Character\Water\062. Poliwrath</Filter>
+    </ClInclude>
+    <ClInclude Include="Suicune.h">
+      <Filter>GameObject\Character\Water\245. Suicune</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletLeaf.h">
+      <Filter>Skill\01. BulletLeaf</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletFire.h">
+      <Filter>Skill\02. BulletFire</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -426,7 +510,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>GameObject\Character\Monster</Filter>
+      <Filter>GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Animation2D.cpp">
       <Filter>Component\Animation</Filter>
@@ -438,55 +522,25 @@
       <Filter>GameObject\UI</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>GameObject\Character\Player</Filter>
+      <Filter>GameObject\Player</Filter>
     </ClCompile>
     <ClCompile Include="SkyBox.cpp">
       <Filter>GameObject\SkyBox</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="CubeMan.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Butterfree.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Psyduck.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
     <ClCompile Include="Bulbasaur.cpp">
-      <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
-    </ClCompile>
-    <ClCompile Include="Vileplume.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Metapod.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwrath.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Suicune.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwag.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Jynx.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Golduck.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Oddish.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
+      <Filter>GameObject\Character\Grass\001. Bulbasaur</Filter>
     </ClCompile>
     <ClCompile Include="UI_Title.cpp">
       <Filter>GameObject\UI</Filter>
@@ -636,15 +690,12 @@
       <Filter>GameObject\Character\Player\01. Bulbasaur</Filter>
     </ClCompile>
     <ClCompile Include="Ivysaur.cpp">
-      <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+      <Filter>GameObject\Character\Grass\002. Ivysaur</Filter>
     </ClCompile>
     <ClCompile Include="Venusaur.cpp">
-      <Filter>GameObject\Character\Player\03. Venusaur</Filter>
+      <Filter>GameObject\Character\Grass\003. Venusaur</Filter>
     </ClCompile>
     <ClCompile Include="Butterfree.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Caterpie.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
     <ClCompile Include="Environment.cpp">
@@ -660,7 +711,7 @@
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>GameObject\Character\Monster</Filter>
@@ -689,9 +740,6 @@
     <ClCompile Include="Oddish.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
-    <ClCompile Include="Scyther.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
     <ClCompile Include="Vileplume.cpp">
       <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
@@ -705,7 +753,7 @@
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Water1.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
@@ -720,13 +768,61 @@
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Charmander.cpp">
-      <Filter>GameObject\Character\Player\04. Charmander</Filter>
+      <Filter>GameObject\Character\Fire\004. Charmander</Filter>
     </ClCompile>
     <ClCompile Include="Venusaur.cpp">
       <Filter>GameObject\Character\Player\03. Venusaur</Filter>
     </ClCompile>
     <ClCompile Include="Ivysaur.cpp">
       <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillManager.cpp">
+      <Filter>Skill\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Butterfree.cpp">
+      <Filter>GameObject\Character\Grass\012. Butterfree</Filter>
+    </ClCompile>
+    <ClCompile Include="Caterpie.cpp">
+      <Filter>GameObject\Character\Grass\010. Caterpie</Filter>
+    </ClCompile>
+    <ClCompile Include="Metapod.cpp">
+      <Filter>GameObject\Character\Grass\011. Metapod</Filter>
+    </ClCompile>
+    <ClCompile Include="Oddish.cpp">
+      <Filter>GameObject\Character\Grass\043. Oddish</Filter>
+    </ClCompile>
+    <ClCompile Include="Vileplume.cpp">
+      <Filter>GameObject\Character\Grass\045. Vileplume</Filter>
+    </ClCompile>
+    <ClCompile Include="Scyther.cpp">
+      <Filter>GameObject\Character\Grass\123. Scyther</Filter>
+    </ClCompile>
+    <ClCompile Include="Psyduck.cpp">
+      <Filter>GameObject\Character\Water\054. Psyduck</Filter>
+    </ClCompile>
+    <ClCompile Include="Golduck.cpp">
+      <Filter>GameObject\Character\Water\055. Golduck</Filter>
+    </ClCompile>
+    <ClCompile Include="Jynx.cpp">
+      <Filter>GameObject\Character\Water\124. Jynx</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwag.cpp">
+      <Filter>GameObject\Character\Water\060. Poliwag</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwrath.cpp">
+      <Filter>GameObject\Character\Water\062. Poliwrath</Filter>
+    </ClCompile>
+    <ClCompile Include="Suicune.cpp">
+      <Filter>GameObject\Character\Water\245. Suicune</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletLeaf.cpp">
+      <Filter>Skill\01. BulletLeaf</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletFire.cpp">
+      <Filter>Skill\02. BulletFire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

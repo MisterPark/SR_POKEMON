@@ -22,7 +22,7 @@ Player * Player::GetInstance()
 	return instance;
 }
 
-void Player::DestroyInstance()
+void Player::Destroy()
 {
 	if (nullptr != instance)
 	{
@@ -105,7 +105,7 @@ void Player::Attack()
 			Vector3::Normalize(&dir);
 
 			character->SetDir(dir);
-			character->Attack(dir);
+			character->Attack(dir, 0);
 
 			attackCoolTime = 0.4f;
 			isAttack = true;
@@ -122,7 +122,7 @@ void Player::Attack()
 			Vector3::Normalize(&dir);
 
 			character->SetDir(dir);
-			character->Skill(dir);
+			character->Attack(dir, 1);
 
 			skillCoolTime = 0.4f;
 			isSkill = true;
