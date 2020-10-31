@@ -35,6 +35,9 @@ void PKH::MainGame::Destroy()
 
 void PKH::MainGame::Initialize()
 {
+	Network::GetInstance();
+	Network::Initialize();
+	LobbyWindow::GetInstance();
 	Random::InitState();
 
 	// 다른 모든 매니저 초기화
@@ -113,6 +116,8 @@ void PKH::MainGame::Release()
 	SoundManager::Destroy();
 	Cursor::Destroy();
 	Player::DestroyInstance();
+	LobbyWindow::Destroy();
+	Network::Destroy();
 }
 
 void PKH::MainGame::Pause()
