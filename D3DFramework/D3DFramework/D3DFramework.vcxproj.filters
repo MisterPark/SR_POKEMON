@@ -414,6 +414,9 @@
     <ClInclude Include="BulletFire.h">
       <Filter>Skill\02. BulletFire</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Tornado.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -775,54 +778,6 @@
     </ClCompile>
     <ClCompile Include="Ivysaur.cpp">
       <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill.cpp">
-      <Filter>Skill</Filter>
-    </ClCompile>
-    <ClCompile Include="SkillManager.cpp">
-      <Filter>Skill\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Butterfree.cpp">
-      <Filter>GameObject\Character\Grass\012. Butterfree</Filter>
-    </ClCompile>
-    <ClCompile Include="Caterpie.cpp">
-      <Filter>GameObject\Character\Grass\010. Caterpie</Filter>
-    </ClCompile>
-    <ClCompile Include="Metapod.cpp">
-      <Filter>GameObject\Character\Grass\011. Metapod</Filter>
-    </ClCompile>
-    <ClCompile Include="Oddish.cpp">
-      <Filter>GameObject\Character\Grass\043. Oddish</Filter>
-    </ClCompile>
-    <ClCompile Include="Vileplume.cpp">
-      <Filter>GameObject\Character\Grass\045. Vileplume</Filter>
-    </ClCompile>
-    <ClCompile Include="Scyther.cpp">
-      <Filter>GameObject\Character\Grass\123. Scyther</Filter>
-    </ClCompile>
-    <ClCompile Include="Psyduck.cpp">
-      <Filter>GameObject\Character\Water\054. Psyduck</Filter>
-    </ClCompile>
-    <ClCompile Include="Golduck.cpp">
-      <Filter>GameObject\Character\Water\055. Golduck</Filter>
-    </ClCompile>
-    <ClCompile Include="Jynx.cpp">
-      <Filter>GameObject\Character\Water\124. Jynx</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwag.cpp">
-      <Filter>GameObject\Character\Water\060. Poliwag</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwrath.cpp">
-      <Filter>GameObject\Character\Water\062. Poliwrath</Filter>
-    </ClCompile>
-    <ClCompile Include="Suicune.cpp">
-      <Filter>GameObject\Character\Water\245. Suicune</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletLeaf.cpp">
-      <Filter>Skill\01. BulletLeaf</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletFire.cpp">
-      <Filter>Skill\02. BulletFire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

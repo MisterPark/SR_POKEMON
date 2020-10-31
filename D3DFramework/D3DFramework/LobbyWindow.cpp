@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "LobbyWindow.h"
 
-LobbyWindow* pLobby;
+LobbyWindow* pLobby = nullptr;
 
 static LRESULT CALLBACK WndProc2(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
@@ -54,12 +54,30 @@ bool LobbyWindow::Create()
 
 LobbyWindow * LobbyWindow::GetInstance()
 {
-	static LobbyWindow lw;
-	return &lw;
+	if (pLobby == nullptr)
+	{
+		pLobby = new LobbyWindow();
+	}
+	return pLobby;
 }
 
 void LobbyWindow::Destroy()
 {
+	if (pLobby)
+	{
+		delete pLobby;
+		pLobby = nullptr;
+	}
+}
+
+void LobbyWindow::Show()
+{
+	ShowWindow(pLobby->hLobbyWnd,SW_SHOW);
+}
+
+void LobbyWindow::Hide()
+{
+	ShowWindow(pLobby->hLobbyWnd, SW_HIDE);
 }
 
 bool LobbyWindow::Run(void)
@@ -122,7 +140,7 @@ LRESULT LobbyWindow::WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 			case BUTTON2:
 				result = LobbyResult::CANCEL;
 				tryToConnect = false;
-				DestroyWindow(hLobbyWnd);
+				Hide();
 				break;
 				
 			default:

@@ -160,6 +160,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletFire.h" />
     <ClInclude Include="BulletLeaf.h" />
+    <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Water.h" />
     <ClInclude Include="Bullet_Water1.h" />
     <ClInclude Include="Butterfree.h" />
@@ -244,8 +245,6 @@
     <ClCompile Include="Animation2D.cpp" />
     <ClCompile Include="Bulbasaur.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletFire.cpp" />
-    <ClCompile Include="BulletLeaf.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Bullet_Water1.cpp" />
     <ClCompile Include="Butterfree.cpp" />

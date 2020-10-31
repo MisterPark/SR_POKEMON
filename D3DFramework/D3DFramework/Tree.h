@@ -13,6 +13,7 @@ public:
     virtual void Update() override;
     virtual void Render() override;
 
+    
     void UpdateAnimation();
 protected:
     int Frame[3]; // 패턴판단

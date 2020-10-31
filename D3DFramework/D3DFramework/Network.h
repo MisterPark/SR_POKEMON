@@ -31,7 +31,7 @@ private:
 	SOCKET sock = INVALID_SOCKET;
 	SOCKADDR_IN serveraddr;
 	int addrlen = sizeof(serveraddr);
-	WCHAR serverIPtext[64] = {};
+	WCHAR serverIPtext[64] = L"192.168.0.34";
 	CRingBuffer recvQ;
 	CRingBuffer sendQ;
 	bool sendFlag = false;

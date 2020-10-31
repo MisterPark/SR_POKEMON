@@ -39,38 +39,20 @@ void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	
-	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Lake.bmp");
-	ObjectManager::GetInstance()->CreateObject<Water>();
 
+	
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 	
 	Player::GetInstance()->SetCharacter(playerCharacter);
 
-	//ObjectManager::GetInstance()->CreateObject<Player>();
-	ObjectManager::GetInstance()->CreateObject<Psyduck>();
-	
-	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
-	
-	//for (int i = 0; i < 1; i++) {
-	//	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Caterpie>();
-	//	Obj->transform->position.x += i * 1;
-	//	Obj->transform->position.z += i * 1;
-	//}
-	//GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Monster_Caterpie>();
-	//Obj->transform->position.x += 1;
-	//Obj->transform->position.z += 1;
-	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Metapod>();
-	Obj->transform->position.x += 3;
-	Obj->transform->position.z += 3;
-	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
-	Obj->transform->position.x += 5;
-	Obj->transform->position.z += 5;*/
+	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
+//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
+SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
 
-	/*for (int i = 0; i < 10; ++i)
-	{*//*
-	*/
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	ObjectManager::GetInstance()->CreateObject<Scyther>();
+	
+	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
 	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
@@ -78,16 +60,8 @@ void TestScene::OnLoaded()
 	Obj->transform->position.z += 5;
 	Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 3;
-	Obj->transform->position.z += 3;
-	/*
-	Obj = ObjectManager::GetInstance()->CreateObject<Vileplume>();
-	Obj->transform->position.x += 7;
-	Obj->transform->position.z += 7;*/
-	/*}*/
-	//TestObj* test = dynamic_cast<TestObj*>(ObjectManager::GetInstance()->CreateObject<TestObj>());
-	//test->SetPos({ -1.f, 0.f, 1.f });
-	//test->SetDir({ 1.f, 0.f, 0.f });
-	//test->ChangeAnim(TestObj::IDLE, TestObj::R);
+	Obj->transform->position.z += 3;*/
+
 }
 
 void TestScene::OnUnloaded()
@@ -105,37 +79,182 @@ void TestScene::Update()
 	}
 }
 
-void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath)
+
+void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,float _waterHeight)
 {
+	//지형
 	GameObject* environment = ObjectManager::GetInstance()->CreateObject<Environment>();
 	dynamic_cast<Environment*>(environment)->terrain->SetTexture(_key);
 	dynamic_cast<Environment*>(environment)->terrain->LoadHeightMap(_filePath);
-	GameObject* Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
-	Tree2->transform->position.x += 13.f;
-	Tree2->transform->position.z += 40.f;
-	for (int i = 0; i < 10; i++)
+	//Tip) 높이맵의 높이는 RGB/25로 설정되어있습니다. 따라서 y축을 5로 설정할 지형을 만들고 싶다면
+	//색상값을 125로 준 채로 드로잉하면 됩니다.
+
+
+
+
+
+	if (_key == TextureKey::GRASS_MAP)
 	{
-		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
-		Tree2->transform->position.x += 15.f + 2 * i;
-		Tree2->transform->position.z += 41.f;
+		//물
+		GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
+		water->transform->position.y = _waterHeight;
+		dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
+		//나무
+		for (int i = 0; i < 10; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 15.f + 2 * i;
+			tree->transform->position.z += 41.f;
+			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 15.f + 2 * i;
+			tree->transform->position.z += 6.f;
+		}
+		for (int i = 0; i < 16; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 6.f;
+			tree->transform->position.z += 8.f + 2 * i;
+			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		}
+		for (int i = 0; i < 6; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 45.f;
+			tree->transform->position.z += 16.f + 2 * i;
+			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		}
+	}
+	if (_key == TextureKey::GRASS_MAP2)
+	{
+		//물
+		GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
+		water->transform->position.y = _waterHeight;
+		dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
+		//나무
+		////높이맵 기준 위쪽
+		//for (int i = 0; i < 10; i++)
+		//{
+		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		//	tree->transform->position.x += 15.f + 2 * i;
+		//	tree->transform->position.z += 41.f;
+		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		//}
+		//높이맵 기준 아래쪽
+		for (int i = 0; i < 10; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 19.f + 2 * i;
+			tree->transform->position.z += 8.5f;
+		}
+		//높이맵 기준 왼쪽
+		for (int i = 0; i < 16; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 7.f;
+			tree->transform->position.z += 14.f + 2 * i;
+			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		}
+
+		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		tree->transform->position.x = 32.f;
+		tree->transform->position.z += 48.f -2.f;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		tree->transform->position.x = 35.f;
+		tree->transform->position.z += 48.f - 7.f;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		tree->transform->position.x = 38.f;
+		tree->transform->position.z += 48.f - 12.f;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE02;
+		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		tree->transform->position.x = 43.f;
+		tree->transform->position.z += 48.f - 15.f;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		tree->transform->position.x = 46.f;
+		tree->transform->position.z += 48.f - 17.f;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+
+		////높이맵 기준 오른쪽
+		//for (int i = 0; i < 6; i++)
+		//{
+		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		//	tree->transform->position.x += 45.f;
+		//	tree->transform->position.z += 16.f + 2 * i;
+		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		//}
 	}
 
-	for (int i = 0; i < 10; i++)
-	{
-		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
-		Tree2->transform->position.x += 15.f + 2 * i;
-		Tree2->transform->position.z += 8.f;
+	if (_key == TextureKey::WATER_MAP)
+	{	
+		//물
+		GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
+		water->transform->position.y = _waterHeight;
+		dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::WATER_WATER_ENVIRONMENT);
+		//나무
+		
+		for (int i = 0; i < 8; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 3.f + 2 * i;
+			tree->transform->position.z += 45.f;
+			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 3.f + 2 * i;
+			tree->transform->position.z += 2.f;
+			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+
+		}
+		for (int i = 0; i < 9; i++)
+		{
+			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+			tree->transform->position.x += 46.f;
+			tree->transform->position.z += 20.f + 2 * i;
+			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
+		}
+
 	}
-	for (int i = 0; i < 16; i++)
+
+	if (_key == TextureKey::BROOK_MAP)
 	{
-		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
-		Tree2->transform->position.x += 6.f;
-		Tree2->transform->position.z += 8.f + 2 * i;
-	}
-	for (int i = 0; i < 16; i++)
-	{
-		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
-		Tree2->transform->position.x += 40.f;
-		Tree2->transform->position.z += 8.f + 2 * i;
+		//물
+		GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
+		water->transform->position.y = _waterHeight;
+		dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
+		//나무
+
+		//for (int i = 0; i < 8; i++)
+		//{
+		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		//	tree->transform->position.x += 3.f + 2 * i;
+		//	tree->transform->position.z += 45.f;
+		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+		//}
+		//for (int i = 0; i < 10; i++)
+		//{
+		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		//	tree->transform->position.x += 3.f + 2 * i;
+		//	tree->transform->position.z += 2.f;
+		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+
+		//}
+		//for (int i = 0; i < 9; i++)
+		//{
+		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
+		//	tree->transform->position.x += 46.f;
+		//	tree->transform->position.z += 20.f + 2 * i;
+		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
+		//}
+
+
+
 	}
 }

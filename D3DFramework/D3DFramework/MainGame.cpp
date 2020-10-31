@@ -35,6 +35,9 @@ void PKH::MainGame::Destroy()
 
 void PKH::MainGame::Initialize()
 {
+	Network::GetInstance();
+	Network::Initialize();
+	LobbyWindow::GetInstance();
 	Random::InitState();
 
 	// 다른 모든 매니저 초기화
@@ -115,6 +118,8 @@ void PKH::MainGame::Release()
 	Cursor::Destroy();
 	Player::Destroy();
 	SkillManager::Destroy();
+	LobbyWindow::Destroy();
+	Network::Destroy();
 }
 
 void PKH::MainGame::Pause()
@@ -355,30 +360,51 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_13, L"Texture\\Bullet\\Wind1\\Wind1 (13).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_14, L"Texture\\Bullet\\Wind1\\Wind1 (14).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_15, L"Texture\\Bullet\\Wind1\\Wind1 (15).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_16, L"Texture\\Bullet\\Wind1\\Wind1 (16).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_17, L"Texture\\Bullet\\Wind1\\Wind1 (17).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_18, L"Texture\\Bullet\\Wind1\\Wind1 (18).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_19, L"Texture\\Bullet\\Wind1\\Wind1 (19).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_20, L"Texture\\Bullet\\Wind1\\Wind1 (20).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_21, L"Texture\\Bullet\\Wind1\\Wind1 (21).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_22, L"Texture\\Bullet\\Wind1\\Wind1 (22).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_23, L"Texture\\Bullet\\Wind1\\Wind1 (23).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_24, L"Texture\\Bullet\\Wind1\\Wind1 (24).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_25, L"Texture\\Bullet\\Wind1\\Wind1 (25).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_01, L"Texture\\Bullet\\Tornado1\\Tornado1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_02, L"Texture\\Bullet\\Tornado1\\Tornado1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_03, L"Texture\\Bullet\\Tornado1\\Tornado1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_04, L"Texture\\Bullet\\Tornado1\\Tornado1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_05, L"Texture\\Bullet\\Tornado1\\Tornado1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_06, L"Texture\\Bullet\\Tornado1\\Tornado1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_07, L"Texture\\Bullet\\Tornado1\\Tornado1 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_08, L"Texture\\Bullet\\Tornado1\\Tornado1 (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_09, L"Texture\\Bullet\\Tornado1\\Tornado1 (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_10, L"Texture\\Bullet\\Tornado1\\Tornado1 (10).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_01, L"Texture\\Bullet\\Tornado2\\Tornado2 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_02, L"Texture\\Bullet\\Tornado2\\Tornado2 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_03, L"Texture\\Bullet\\Tornado2\\Tornado2 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_04, L"Texture\\Bullet\\Tornado2\\Tornado2 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_05, L"Texture\\Bullet\\Tornado2\\Tornado2 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_06, L"Texture\\Bullet\\Tornado2\\Tornado2 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_07, L"Texture\\Bullet\\Tornado2\\Tornado2 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_08, L"Texture\\Bullet\\Tornado2\\Tornado2 (8).png");
+
 
 	D2DRenderManager::LoadSprite(TextureKey::TREE01, L"Texture\\ETC\\Tree\\Tree (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE02, L"Texture\\ETC\\Tree\\Tree (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE03, L"Texture\\ETC\\Tree\\Tree (3).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE04, L"Texture\\ETC\\Tree\\Tree (4).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::PALMTREE01, L"Texture\\ETC\\PalmTree\\PalmTree (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PALMTREE02, L"Texture\\ETC\\PalmTree\\PalmTree (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PALMTREE03, L"Texture\\ETC\\PalmTree\\PalmTree (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PALMTREE04, L"Texture\\ETC\\PalmTree\\PalmTree (4).png");
+
 	//RANGE
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
 
 	//MAP TEXTURE
+	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP2, L"Texture\\Grass.png");
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Grass.png");
-	//WATER
-	D2DRenderManager::LoadSprite(TextureKey::WATER_ENVIRONMENT, L"Texture\\WATER.png");
-	
+	D2DRenderManager::LoadSprite(TextureKey::WATER_MAP, L"Texture\\Sand.png");
+	D2DRenderManager::LoadSprite(TextureKey::BROOK_MAP, L"Texture\\Brook.png");
+
+	//WATERENVIRONMENT
+	D2DRenderManager::LoadSprite(TextureKey::GRASS_WATER_ENVIRONMENT, L"Texture\\WATER.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT, L"Texture\\WATER2.png");
+
 	//
 
 }

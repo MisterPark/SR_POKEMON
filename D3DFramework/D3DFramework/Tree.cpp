@@ -22,7 +22,6 @@ Tree::~Tree()
 void Tree::Update()
 {
     UpdateAnimation();
-    
     OnTerrain();
     GameObject::Update();
     BillboardYaw();
@@ -30,11 +29,13 @@ void Tree::Update()
 
 void Tree::Render()
 {
-
+ 
     Character::Render();
 }
 
+
 void Tree::UpdateAnimation()
 {
+    
     anim->SetSprite(startArray[0][0], startArray[0][0]);
 }
