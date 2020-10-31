@@ -72,7 +72,7 @@ void TestScene::OnLoaded()
 	/*for (int i = 0; i < 10; ++i)
 	{*//*
 	*/
-	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
+	GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Scyther>();
 	Obj->transform->position.x += 7;
 	Obj->transform->position.z += 7;
 	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();

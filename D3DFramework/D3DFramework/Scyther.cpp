@@ -2,12 +2,14 @@
 #include "Scyther.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
+#include "Bullet_Tornado.h"
 #include "Player.h"
 
 Scyther::Scyther()
 {
 	SetTexture(State::WALK, TextureKey::SCY_WALK_D_01, 3);
-	SetTexture(State::SKILL, TextureKey::SCY_WALK_D_01, 3);
+	SetTexture(State::SKILL, TextureKey::SCY_ATTACK_D_01, 2);
+	SetTexture(State::SKILL2, TextureKey::SCY_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::SCY_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::SCY_WALK_D_01, 3, 1);
 
@@ -40,7 +42,7 @@ void Scyther::Render()
 void Scyther::Parttern()
 {
 	/////////////////////////////////////////////////////////// 플레이어 탐지
-	PlayerSearch(8.f, 20.f);
+	PlayerSearch(10.f, 20.f);
 
 
 	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
@@ -49,19 +51,39 @@ void Scyther::Parttern()
 		/////////////////////////////////////////////////////////// 패턴 Ready
 		if (state == State::READY) {
 			//state = (State)Random::Range(1, 1);
-			if (disPlayer > 5.5f && disPlayer < 20.f) {
+			if (disPlayer > 7.f && disPlayer < 20.f) {
 				state = State::SKILL;
 			}
-			if (state == State::SKILL) {
+			else if (disPlayer <= 7.f) {
+				if(Frame[2] == 1)
+					state = State::WALK;
+				else if(Frame[2] == 0)
+					state = State::SKILL2;
+			}
+
+			if (state == State::WALK) {
+				anim->SetDelay(0.2f);
+			}
+			else if (state == State::SKILL) {
 				anim->SetDelay(1.5f);
+			}
+			else if (state == State::SKILL2) {
+				anim->SetDelay(1.f);
 			}
 			
 		}
 
 		/////////////////////////////////////////////////////////// 패턴 Update
 		if (state == State::WALK) {
-			//1.5f 시간동안 걷고 총 3번 반복
-			MoveRandomPattern(1.5f, 1);
+			MovePlayerFollow();
+			if (Frame[2] == 1) { //토네이도 공격 쿨타임 여부
+				Time[1] += TimeManager::DeltaTime();
+				if (Time[1] > 2.5f) {
+					Time[1] = 0.f;
+					Frame[2] = 0;
+					state = State::READY;
+				}
+			}
 		}
 		else if (state == State::SKILL) {
 			Time[1] += TimeManager::DeltaTime();
@@ -73,6 +95,22 @@ void Scyther::Parttern()
 					anim->SetDelay(0.2f);
 					SkillBullet();
 					return;
+				}
+			}
+		}
+		else if (state == State::SKILL2) {
+			Time[1] += TimeManager::DeltaTime();
+			if (Time[1] > 0.8f) {
+				Time[1] = 0;
+				Frame[1]++;
+				if (Frame[1] == 1) {
+					Skill2Bullet();
+				}
+				else if (Frame[1] == 2) {
+					state = State::READY;
+					anim->SetDelay(0.2f);
+					Frame[1] = 0;
+					Frame[2]++;
 				}
 			}
 		}
@@ -125,5 +163,36 @@ void Scyther::SkillBullet()
 			//b->moveSpeed = 0.5f;
 		}
 	}
+}
+
+void Scyther::Skill2Bullet()
+{
+	Bullet_Tornado* b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+	Vector3 Dir2 = { -1.f, 0.f, 1.f };
+	Dir2.Normalized();
+	b->SetDir(Dir2);
+	*b->transform = *transform;
+
+	b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+	Dir2 = { 1.f, 0.f, 1.f };
+	Dir2.Normalized();
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	//b->transform->position.y -= 1.f;
+
+	b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+	Dir2 = { -1.f, 0.f, -1.f };
+	Dir2.Normalized();
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	//b->transform->position.y -= 1.f;
+
+	b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+	Dir2 = { 1.f, 0.f, -1.f };
+	Dir2.Normalized();
+	b->SetDir(Dir2);
+	*(b->transform) = *transform;
+	//b->transform->position.y -= 1.f;
+	
 }
 

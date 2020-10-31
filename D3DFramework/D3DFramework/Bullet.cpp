@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Bullet.h"
 #include "Rectangle.h"
-
+#include "Environment.h"
+#include "Terrain.h"
 Bullet::Bullet()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
@@ -9,6 +10,15 @@ Bullet::Bullet()
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
 	CollisionManager::RegisterObject(this);
+
+	for (int i = 0; i < 3; i++)
+	{
+		Time[i] = 0.f;
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		Frame[i] = 0;
+	}
 }
 
 Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const bool & alliance) :
@@ -36,6 +46,7 @@ void Bullet::Update()
 	GameObject::Update();
 	Move(direction);
 	if (isBillboard) Billboard();
+	if (isOnTerrain) OnTerrain();
 	UpdateAnimation();
 }
 
@@ -50,6 +61,31 @@ void Bullet::Initialize()
 
 void Bullet::Release()
 {
+}
+
+void Bullet::OnTerrain()
+{
+	GameObject* obj = ObjectManager::GetInstance()->FindObject<Environment>();
+	if (obj == nullptr)
+	{
+		transform->position.y = offsetY;
+		return;
+	}
+	Terrain* mesh = (Terrain*)obj->GetComponent(L"Mesh");
+	if (mesh == nullptr)
+	{
+		transform->position.y = offsetY;
+		return;
+	}
+
+	float y;
+	bool onTerrain = mesh->GetYFromPoint(&y, transform->position.x, transform->position.z);
+	if (onTerrain)
+		transform->position.y = y + offsetY;
+	else
+	{
+		transform->position.y = offsetY;
+	}
 }
 
 float Bullet::GetAngleFromCamera()
@@ -81,6 +117,26 @@ void Bullet::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame
 	}
 }
 
+void Bullet::SetAniTexture(State _state, TextureKey _beginTextureKey, int _aniFrame)
+{
+	startArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey);
+	endArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey + _aniFrame - 1);
+}
+
+Vector3 Bullet::PlayerSearchDir(bool PosY)
+{
+	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	if (g == nullptr) return Vector3{ 0.f, 0.f, 0.f };
+	Transform* PlayerT = g->transform;
+
+	Vector3 dir = PlayerT->position - transform->position;
+
+	if (!PosY)
+		dir.y = 0.f;
+
+	return dir;
+}
+
 void Bullet::SetDir(const Vector3 & dir)
 {
 	D3DXVec3Normalize(&direction, &dir);
@@ -89,6 +145,13 @@ void Bullet::SetDir(const Vector3 & dir)
 void Bullet::MoveForward()
 {
 	Move(direction);
+}
+
+void Bullet::MoveForwardExceptY()
+{
+	Vector3::Normalize(&direction);
+	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 }
 
 void Bullet::ChangeState(State nextState)
