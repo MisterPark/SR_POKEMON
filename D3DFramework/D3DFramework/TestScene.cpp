@@ -40,9 +40,9 @@ void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	
-	SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
-	/*SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);*/
-	/*SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);*/
+	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
+	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
+	SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
 	
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
@@ -77,6 +77,7 @@ void TestScene::Update()
 		SceneManager::LoadScene<TitleScene>();
 	}
 }
+
 
 void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,float _waterHeight)
 {
