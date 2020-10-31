@@ -17,8 +17,6 @@ Effect::Effect(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir) 
 	transform->position = pos;
 	transform->scale = scale;
 
-	
-
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
