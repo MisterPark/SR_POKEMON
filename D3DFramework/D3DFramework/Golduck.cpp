@@ -7,6 +7,7 @@
 
 Golduck::Golduck()
 {
+	name = L"°ñ´ö";
 	SetTexture(State::WALK, TextureKey::GOLD_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::GOLD_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::GOLD_WALK_D_01, 3, 1);

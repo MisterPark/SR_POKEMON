@@ -3,6 +3,7 @@
 #include "Bullet_Water.h"
 Butterfree::Butterfree()
 {
+	name = L"버터플라이";
 	//SetTexture( 동작, 처음텍스쳐, 하나의 동작 프레임수);
 	SetTexture(State::WALK, TextureKey::BUTTER_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::BUTTER_WALK_D_01, 3, 1);

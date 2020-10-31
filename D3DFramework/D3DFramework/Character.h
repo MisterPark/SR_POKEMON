@@ -11,6 +11,7 @@ public:
     // GameObject을(를) 통해 상속됨
     virtual void Update() override;
     virtual void Render() override;
+	void RenderName();
 
     // GameObject을(를) 통해 상속됨
     virtual void Initialize() override;
@@ -35,6 +36,7 @@ public:
 	virtual void Skill(const Vector3& dir);
 
 public:
+	wstring name;
 	int hp;
 	int att;
     // 지형과 간격
