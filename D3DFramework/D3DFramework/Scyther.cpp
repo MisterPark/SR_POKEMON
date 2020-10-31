@@ -7,6 +7,7 @@
 
 Scyther::Scyther()
 {
+	name = L"Ω∫∂Û≈©";
 	SetTexture(State::WALK, TextureKey::SCY_WALK_D_01, 3);
 	SetTexture(State::SKILL, TextureKey::SCY_ATTACK_D_01, 2);
 	SetTexture(State::SKILL2, TextureKey::SCY_ATTACK_D_01, 2);

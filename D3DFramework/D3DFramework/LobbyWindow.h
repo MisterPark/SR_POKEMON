@@ -14,6 +14,7 @@ enum class LobbyResult
 	NONE,
 	OK,
 	CANCEL,
+	DO,
 };
 
 class LobbyWindow
@@ -25,6 +26,10 @@ public:
 	bool Create();
 	static LobbyWindow* GetInstance();
 	static void Destroy();
+
+	static void Show();
+	static void Hide();
+
 	bool Run(void);
 	LRESULT WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
 

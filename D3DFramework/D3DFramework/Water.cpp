@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "Water.h"
-#include "Terrain.h"
+
 
 Water::Water()
 {   //TODO : 불렛이 지형타는중
 	Initialize();
+	CollisionManager::RegisterObject(this);
 
 }
 
@@ -14,9 +15,9 @@ Water::~Water()
 
 void Water::Initialize()
 {
-	Terrain* terrain = (Terrain*)AddComponent<PKH::Terrain>(L"Mesh");
-	terrain->SetTexture(TextureKey::WATER_ENVIRONMENT);
-	transform->position.y = 3.5f;
+	terrain = (Terrain*)AddComponent<PKH::Terrain>(L"Mesh");
+	
+	
 
 	/*terrain->LoadHeightMap("Texture\\Height2_2.bmp");*/
 }

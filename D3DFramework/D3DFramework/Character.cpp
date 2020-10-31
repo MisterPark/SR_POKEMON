@@ -10,7 +10,7 @@ Character::Character()
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
+	
 }
 
 Character::~Character()
@@ -29,6 +29,23 @@ void Character::Update()
 void Character::Render()
 {
 	GameObject::Render();
+	RenderName();
+}
+
+void Character::RenderName()
+{
+	Matrix view = Camera::GetViewMatrix();
+	Vector3 viewPos;
+	D3DXVec3TransformCoord(&viewPos, &transform->position, &view);
+	if (viewPos.z < 0.f)
+	{
+		return;
+	}
+	float camDist = Vector3::Distance(Camera::GetInstance()->GetPosition(), this->transform->position);
+	Vector3 pos = Camera::WorldToScreenPoint(transform->position);
+	pos.y -= transform->scale.y + 40 - camDist;
+	pos.x -= 30;
+	D2DRenderManager::DrawFont(name, pos.x, pos.y, D3DCOLOR_XRGB(255, 255, 255));
 }
 
 void Character::Initialize()

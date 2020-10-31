@@ -7,6 +7,7 @@
 
 Poliwag::Poliwag()
 {
+	name = L"πﬂ√¨¿Ã";
 	SetTexture(State::WALK, TextureKey::WAG_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::WAG_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::WAG_WALK_D_01, 3, 1);

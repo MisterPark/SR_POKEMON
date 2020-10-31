@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-
+#include "Terrain.h"
 class Environment : public GameObject
 {
 public:
@@ -11,5 +11,7 @@ public:
 	virtual void Release() override;
 	virtual void Update() override;
 
+	
+	Terrain* terrain = nullptr;
 };
 

@@ -7,6 +7,7 @@
 
 Caterpie::Caterpie()
 {
+	name = L"Ä³ÅÍÇÇ";
 	SetTexture(State::WALK, TextureKey::CATER_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::CATER_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::CATER_WALK_D_01, 3, 1);

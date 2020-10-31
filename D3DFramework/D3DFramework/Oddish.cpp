@@ -6,6 +6,7 @@
 
 Oddish::Oddish()
 {
+	name = L"¶Ñ¹÷ÃÊ";
 	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::ODDI_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::ODDI_WALK_D_01, 3, 1);
