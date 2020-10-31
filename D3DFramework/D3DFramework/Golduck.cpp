@@ -158,7 +158,6 @@ void Golduck::Attack(Transform* PlayerT)
 			Frame[0] = 0;
 			anim->SetDelay(0.2f);
 			state = State::WALK;
-
 		}
 	}
 }

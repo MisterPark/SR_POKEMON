@@ -1503,31 +1503,31 @@ void PKH::MainGame::LoadPlayerSprite()
 
 	// ATTACK
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_D_01, L"Texture\\Player\\Fire\\01\\ATTACK\\D\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_D_02, L"Texture\\Player\\Fire\\01\\ATTACK\\D\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_LD_01, L"Texture\\Player\\Fire\\01\\ATTACK\\LD\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_LD_02, L"Texture\\Player\\Fire\\01\\ATTACK\\LD\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_L_01, L"Texture\\Player\\Fire\\01\\ATTACK\\L\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_L_02, L"Texture\\Player\\Fire\\01\\ATTACK\\L\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_LU_01, L"Texture\\Player\\Fire\\01\\ATTACK\\LU\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_LU_02, L"Texture\\Player\\Fire\\01\\ATTACK\\LU\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_U_01, L"Texture\\Player\\Fire\\01\\ATTACK\\U\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_U_02, L"Texture\\Player\\Fire\\01\\ATTACK\\U\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_RU_01, L"Texture\\Player\\Fire\\01\\ATTACK\\RU\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_RU_02, L"Texture\\Player\\Fire\\01\\ATTACK\\RU\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_R_01, L"Texture\\Player\\Fire\\01\\ATTACK\\R\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_R_02, L"Texture\\Player\\Fire\\01\\ATTACK\\R\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_RD_01, L"Texture\\Player\\Fire\\01\\ATTACK\\RD\\0.png");
-	D2DRenderManager::LoadSprite(TextureKey::PF01_ATTACK_RD_02, L"Texture\\Player\\Fire\\01\\ATTACK\\RD\\1.png");
 
 	// SKILL
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_D_01, L"Texture\\Player\\Fire\\01\\SKILL\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_D_02, L"Texture\\Player\\Fire\\01\\SKILL\\D\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_LD_01, L"Texture\\Player\\Fire\\01\\SKILL\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_LD_02, L"Texture\\Player\\Fire\\01\\SKILL\\LD\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_L_01, L"Texture\\Player\\Fire\\01\\SKILL\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_L_02, L"Texture\\Player\\Fire\\01\\SKILL\\L\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_LU_01, L"Texture\\Player\\Fire\\01\\SKILL\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_LU_02, L"Texture\\Player\\Fire\\01\\SKILL\\LU\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_U_01, L"Texture\\Player\\Fire\\01\\SKILL\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_U_02, L"Texture\\Player\\Fire\\01\\SKILL\\U\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_RU_01, L"Texture\\Player\\Fire\\01\\SKILL\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_RU_02, L"Texture\\Player\\Fire\\01\\SKILL\\RU\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_R_01, L"Texture\\Player\\Fire\\01\\SKILL\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_R_02, L"Texture\\Player\\Fire\\01\\SKILL\\R\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_RD_01, L"Texture\\Player\\Fire\\01\\SKILL\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF01_SKILL_RD_02, L"Texture\\Player\\Fire\\01\\SKILL\\RD\\1.png");
 	// == PF01 END ==
 
 	// == PF02 START ==
@@ -1562,8 +1562,8 @@ void PKH::MainGame::LoadPlayerSprite()
 	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_D_02, L"Texture\\Player\\Fire\\02\\ATTACK\\D\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_LD_01, L"Texture\\Player\\Fire\\02\\ATTACK\\LD\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_LD_02, L"Texture\\Player\\Fire\\02\\ATTACK\\LD\\1.png");
-	//D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_L_01, L"Texture\\Player\\Fire\\02\\ATTACK\\L\\0.png");
-	//D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_L_02, L"Texture\\Player\\Fire\\02\\ATTACK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_L_01, L"Texture\\Player\\Fire\\02\\ATTACK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_L_02, L"Texture\\Player\\Fire\\02\\ATTACK\\L\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_LU_01, L"Texture\\Player\\Fire\\02\\ATTACK\\LU\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_LU_02, L"Texture\\Player\\Fire\\02\\ATTACK\\LU\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF02_ATTACK_U_01, L"Texture\\Player\\Fire\\02\\ATTACK\\U\\0.png");
