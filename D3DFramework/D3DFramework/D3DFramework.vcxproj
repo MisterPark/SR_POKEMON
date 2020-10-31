@@ -245,6 +245,9 @@
     <ClCompile Include="Animation2D.cpp" />
     <ClCompile Include="Bulbasaur.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletFire.cpp" />
+    <ClCompile Include="BulletLeaf.cpp" />
+    <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Bullet_Water1.cpp" />
     <ClCompile Include="Butterfree.cpp" />

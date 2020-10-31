@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Texture">
       <UniqueIdentifier>{c82e7fb9-29f7-4d45-bbd3-4f9e4e711bf6}</UniqueIdentifier>
     </Filter>
@@ -157,26 +145,11 @@
     <Filter Include="Skill\02. BulletFire">
       <UniqueIdentifier>{7041047e-6889-43f5-a4b3-635da4801ddb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="99. Defaults">
+      <UniqueIdentifier>{b8a71775-02dc-4334-a429-7a0840044527}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="D3DFramework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Define.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>Lib\Manager</Filter>
     </ClInclude>
@@ -415,13 +388,28 @@
       <Filter>Skill\02. BulletFire</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Tornado.h">
-      <Filter>GameObject\Character\Bullet</Filter>
+      <Filter>GameObject\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DFramework.h">
+      <Filter>99. Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>99. Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>99. Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99. Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>99. Defaults</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>99. Defaults</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Lib\Manager</Filter>
     </ClCompile>
@@ -508,9 +496,6 @@
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
       <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="D3DFramework.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>GameObject\Monster</Filter>
@@ -698,9 +683,6 @@
     <ClCompile Include="Venusaur.cpp">
       <Filter>GameObject\Character\Grass\003. Venusaur</Filter>
     </ClCompile>
-    <ClCompile Include="Butterfree.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
     <ClCompile Include="Environment.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
@@ -718,33 +700,6 @@
     </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>GameObject\Character\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Golduck.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Jynx.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwag.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Poliwrath.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Psyduck.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Suicune.cpp">
-      <Filter>GameObject\Character\Monster\Water</Filter>
-    </ClCompile>
-    <ClCompile Include="Metapod.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Oddish.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Vileplume.cpp">
-      <Filter>GameObject\Character\Monster\Grass</Filter>
     </ClCompile>
     <ClCompile Include="Environment.cpp">
       <Filter>GameObject\Environment</Filter>
@@ -779,18 +734,75 @@
     <ClCompile Include="Ivysaur.cpp">
       <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
     </ClCompile>
+    <ClCompile Include="SkillManager.cpp">
+      <Filter>Skill\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletLeaf.cpp">
+      <Filter>Skill\01. BulletLeaf</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletFire.cpp">
+      <Filter>Skill\02. BulletFire</Filter>
+    </ClCompile>
+    <ClCompile Include="Butterfree.cpp">
+      <Filter>GameObject\Character\Grass\012. Butterfree</Filter>
+    </ClCompile>
+    <ClCompile Include="Caterpie.cpp">
+      <Filter>GameObject\Character\Grass\010. Caterpie</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Tornado.cpp">
+      <Filter>GameObject\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Golduck.cpp">
+      <Filter>GameObject\Character\Water\055. Golduck</Filter>
+    </ClCompile>
+    <ClCompile Include="Jynx.cpp">
+      <Filter>GameObject\Character\Water\124. Jynx</Filter>
+    </ClCompile>
+    <ClCompile Include="Metapod.cpp">
+      <Filter>GameObject\Character\Grass\011. Metapod</Filter>
+    </ClCompile>
+    <ClCompile Include="Oddish.cpp">
+      <Filter>GameObject\Character\Grass\043. Oddish</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwag.cpp">
+      <Filter>GameObject\Character\Water\060. Poliwag</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwrath.cpp">
+      <Filter>GameObject\Character\Water\062. Poliwrath</Filter>
+    </ClCompile>
+    <ClCompile Include="Psyduck.cpp">
+      <Filter>GameObject\Character\Water\054. Psyduck</Filter>
+    </ClCompile>
+    <ClCompile Include="Scyther.cpp">
+      <Filter>GameObject\Character\Grass\123. Scyther</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Suicune.cpp">
+      <Filter>GameObject\Character\Water\245. Suicune</Filter>
+    </ClCompile>
+    <ClCompile Include="Vileplume.cpp">
+      <Filter>GameObject\Character\Grass\045. Vileplume</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DFramework.cpp">
+      <Filter>99. Defaults</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99. Defaults</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="D3DFramework.ico">
-      <Filter>리소스 파일</Filter>
+      <Filter>99. Defaults</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>99. Defaults</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D3DFramework.rc">
-      <Filter>리소스 파일</Filter>
+      <Filter>99. Defaults</Filter>
     </ResourceCompile>
   </ItemGroup>
 </Project>
