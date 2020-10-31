@@ -24,8 +24,8 @@ void Charmander::Initialize()
 {
 	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PF01_WALK_D_01, 3);
-	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 2);
-	SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 1);
+	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
+	SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 2);
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
