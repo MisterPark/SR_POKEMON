@@ -7,6 +7,7 @@
 
 Suicune::Suicune()
 {
+	name = L"Ω∫¿ÃƒÔ";
 	SetTexture(State::WALK, TextureKey::SUI_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::SUI_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::SUI_WALK_D_01, 3, 1);

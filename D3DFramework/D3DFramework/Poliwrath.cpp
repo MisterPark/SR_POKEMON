@@ -8,6 +8,7 @@
 
 Poliwrath::Poliwrath()
 {
+	name = L"°­Ã¬ÀÌ";
 	SetTexture(State::WALK, TextureKey::WRATH_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::WRATH_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::WRATH_WALK_D_01, 3, 1);
@@ -40,6 +41,7 @@ void Poliwrath::Render()
 void Poliwrath::Pattern()
 {
 	GameObject* g = Player::GetInstance()->GetCharacter();
+	if (g == nullptr)return;
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - transform->position.x;
@@ -169,25 +171,25 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 	//MoveDir *= 1.5f;
 	float R = 1.f;
 	
-		Bullet_Water1* b = dynamic_cast<Bullet_Water1*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water1>());
-		Vector3 Dir2 = {0.f,0.f,0.f};
-		Dir2.y -= R;
-		D3DXVec3Normalize(&Dir2, &Dir2);
-		b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
-		*(b->transform) = *PlayerT;
-		float Bulletsize = 1.f;
-		b->transform->scale.x =Bulletsize ;
-		b->transform->scale.y = Bulletsize;
-		b->transform->position.y += 5.f;
+	Bullet_Water1* b = dynamic_cast<Bullet_Water1*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water1>());
+	Vector3 Dir2 = {0.f,0.f,0.f};
+	Dir2.y -= R;
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	b->SetDir(Vector3{ Dir2.x, Dir2.y, Dir2.z });
+	*(b->transform) = *PlayerT;
+	float Bulletsize = 1.f;
+	b->transform->scale.x =Bulletsize ;
+	b->transform->scale.y = Bulletsize;
+	b->transform->position.y += 5.f;
 
-		b->isAlliance = false;
+	b->isAlliance = false;
 
-		Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
-		*(r->transform) = *PlayerT;
-		float size = 1.f;
-		r->transform->scale += {size, size, size};
-		r->transform->eulerAngles.x = D3DXToRadian(90);
-		/*r->transform->eulerAngles.x = D3DXToRadian(90);*/
+	Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
+	*(r->transform) = *PlayerT;
+	float size = 1.f;
+	r->transform->scale += {size, size, size};
+	r->transform->eulerAngles.x = D3DXToRadian(90);
+	/*r->transform->eulerAngles.x = D3DXToRadian(90);*/
 		
 }
 

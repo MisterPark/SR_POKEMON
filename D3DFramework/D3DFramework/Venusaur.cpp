@@ -22,6 +22,7 @@ Venusaur::~Venusaur()
 
 void Venusaur::Initialize()
 {
+	name = L"¿ÃªÛ«ÿ≤…";
 	SetTexture(State::IDLE, TextureKey::PG03_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PG03_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PG03_ATTACK_D_01, 2);

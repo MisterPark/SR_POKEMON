@@ -7,6 +7,7 @@
 
 Jynx::Jynx()
 {
+	name = L"∑Á¡÷∂Û";
 	SetTexture(State::WALK, TextureKey::JYNX_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::JYNX_ATTACK_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::JYNX_WALK_D_01, 3, 1);

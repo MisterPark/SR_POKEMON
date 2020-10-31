@@ -7,6 +7,7 @@
 
 Psyduck::Psyduck()
 {
+	name = L"°í¶óÆÄ´ö";
 	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
 	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3, 1);

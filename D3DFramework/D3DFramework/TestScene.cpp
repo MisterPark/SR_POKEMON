@@ -39,7 +39,8 @@
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
-	ObjectManager::GetInstance()->CreateObject<Environment>();
+	
+	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Lake.bmp");
 	ObjectManager::GetInstance()->CreateObject<Water>();
 
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
@@ -49,9 +50,7 @@ void TestScene::OnLoaded()
 
 	//ObjectManager::GetInstance()->CreateObject<Player>();
 	ObjectManager::GetInstance()->CreateObject<Psyduck>();
-	GameObject* Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
-	Tree2->transform->position.x += 10.f;
-	Tree2->transform->position.z += 2.f;
+	
 	/*ObjectManager::GetInstance()->CreateObject<Butterfree>();*/
 	
 	//for (int i = 0; i < 1; i++) {
@@ -104,5 +103,40 @@ void TestScene::Update()
 	if (InputManager::GetKey(VK_F2))
 	{
 		SceneManager::LoadScene<TitleScene>();
+	}
+}
+
+void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath)
+{
+	GameObject* environment = ObjectManager::GetInstance()->CreateObject<Environment>();
+	dynamic_cast<Environment*>(environment)->terrain->SetTexture(_key);
+	dynamic_cast<Environment*>(environment)->terrain->LoadHeightMap(_filePath);
+	GameObject* Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
+	Tree2->transform->position.x += 13.f;
+	Tree2->transform->position.z += 40.f;
+	for (int i = 0; i < 10; i++)
+	{
+		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
+		Tree2->transform->position.x += 15.f + 2 * i;
+		Tree2->transform->position.z += 41.f;
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
+		Tree2->transform->position.x += 15.f + 2 * i;
+		Tree2->transform->position.z += 8.f;
+	}
+	for (int i = 0; i < 16; i++)
+	{
+		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
+		Tree2->transform->position.x += 6.f;
+		Tree2->transform->position.z += 8.f + 2 * i;
+	}
+	for (int i = 0; i < 16; i++)
+	{
+		Tree2 = ObjectManager::GetInstance()->CreateObject<Tree>();
+		Tree2->transform->position.x += 40.f;
+		Tree2->transform->position.z += 8.f + 2 * i;
 	}
 }
