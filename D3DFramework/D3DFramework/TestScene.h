@@ -12,5 +12,7 @@ class TestScene :
     virtual void OnUnloaded() override;
     virtual void Update() override;
 
-
+public:
+    //맵텍스쳐,높이맵,임의의 트리
+    void SetTestSceneMap(TextureKey _key, const std::string& _filePath);
 };
