@@ -13,5 +13,6 @@ public:
 private:
     void Parttern();
     void SkillBullet();
+    void Skill2Bullet();
 };
 

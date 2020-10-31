@@ -358,16 +358,16 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_13, L"Texture\\Bullet\\Wind1\\Wind1 (13).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_14, L"Texture\\Bullet\\Wind1\\Wind1 (14).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_15, L"Texture\\Bullet\\Wind1\\Wind1 (15).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_16, L"Texture\\Bullet\\Wind1\\Wind1 (16).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_17, L"Texture\\Bullet\\Wind1\\Wind1 (17).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_18, L"Texture\\Bullet\\Wind1\\Wind1 (18).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_19, L"Texture\\Bullet\\Wind1\\Wind1 (19).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_20, L"Texture\\Bullet\\Wind1\\Wind1 (20).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_21, L"Texture\\Bullet\\Wind1\\Wind1 (21).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_22, L"Texture\\Bullet\\Wind1\\Wind1 (22).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_23, L"Texture\\Bullet\\Wind1\\Wind1 (23).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_24, L"Texture\\Bullet\\Wind1\\Wind1 (24).png");
-	D2DRenderManager::LoadSprite(TextureKey::BULLET_WIND1_25, L"Texture\\Bullet\\Wind1\\Wind1 (25).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_01, L"Texture\\Bullet\\Wind1\\Tornado (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_02, L"Texture\\Bullet\\Wind1\\Tornado (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_03, L"Texture\\Bullet\\Wind1\\Tornado (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_04, L"Texture\\Bullet\\Wind1\\Tornado (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_05, L"Texture\\Bullet\\Wind1\\Tornado (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_06, L"Texture\\Bullet\\Wind1\\Tornado (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_07, L"Texture\\Bullet\\Wind1\\Tornado (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_08, L"Texture\\Bullet\\Wind1\\Tornado (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_09, L"Texture\\Bullet\\Wind1\\Tornado (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO_10, L"Texture\\Bullet\\Wind1\\Tornado (10).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::TREE01, L"Texture\\ETC\\Tree\\Tree (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE02, L"Texture\\ETC\\Tree\\Tree (2).png");

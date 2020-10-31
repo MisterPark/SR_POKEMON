@@ -1,17 +1,20 @@
 #pragma once
 #include "Bullet.h"
-class Bullet_Water1 : //TODO : pvp를 위해 기능 추가가 필요함
+class Bullet_Tornado :
     public Bullet
 {
 public:
-    Bullet_Water1();
-    virtual ~Bullet_Water1();
+    Bullet_Tornado();
+    virtual ~Bullet_Tornado();
     // Character을(를) 통해 상속됨
     virtual void Update() override;
     virtual void Render() override;
     virtual void OnCollision(GameObject* target) override;
 
-private:
-    
+    void RotateMove();
 
+    float rotateMoveX = false;
+    float rotateMoveZ = false;
+    
 };
+

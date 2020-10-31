@@ -11,7 +11,5 @@ public:
     virtual void Render() override;
     virtual void OnCollision(GameObject* target) override;
 
-    private:
-    float Time[3];  // 프레임(시간) 재는용도
     
 };

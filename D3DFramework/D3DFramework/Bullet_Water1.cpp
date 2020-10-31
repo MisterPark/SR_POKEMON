@@ -12,10 +12,6 @@ Bullet_Water1::Bullet_Water1()
     anim->SetLoop(true);
     anim->SetDelay(0.2f);
 
-    for (int i = 0; i < 3; i++)
-    {
-        Time[i] = 0;
-    }
 
     transform->scale.x *= 0.5f;
     transform->scale.y *= 0.5f;

@@ -330,6 +330,9 @@
     <ClInclude Include="Range.h">
       <Filter>GameObject\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Tornado.h">
+      <Filter>GameObject\Character\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -727,6 +730,9 @@
     </ClCompile>
     <ClCompile Include="Ivysaur.cpp">
       <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Tornado.cpp">
+      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

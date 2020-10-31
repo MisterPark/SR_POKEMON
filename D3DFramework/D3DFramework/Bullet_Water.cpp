@@ -12,15 +12,11 @@ Bullet_Water::Bullet_Water()
     anim->SetLoop(true);
     anim->SetDelay(0.2f);
 
-    for (int i = 0; i < 3; i++)
-    {
-        Time[i] = 0;
-    }
-
     transform->scale.x *= 0.5f;
     transform->scale.y *= 0.5f;
     transform->scale.z *= 0.5f;
 
+    isDeadTime = 4.5f;
     moveSpeed = 3.f;
 }
 
@@ -37,7 +33,7 @@ void Bullet_Water::Update()
 
 
     Time[0] += TimeManager::DeltaTime();
-    if (Time[0] >= 5.f) {
+    if (Time[0] >= isDeadTime) {
         isDead = true;
     }
     Billboard();
