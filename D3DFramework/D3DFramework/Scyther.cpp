@@ -46,7 +46,7 @@ void Scyther::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
-	hp = 30.f;
+	hp = 60.f;
 
 	UpdateAnimation();
 }
