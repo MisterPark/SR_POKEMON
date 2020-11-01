@@ -28,7 +28,7 @@
 void Stage_Water_01::OnLoaded()
 {
 	SkyBox::Show();
-
+	SkyBox::SetTexture(TextureKey::SKYBEACH1_U);
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 

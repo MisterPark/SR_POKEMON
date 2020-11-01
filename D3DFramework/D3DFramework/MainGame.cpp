@@ -140,12 +140,48 @@ void PKH::MainGame::LoadETCSprite()
 	// ¸®¼Ò½º ·Îµå
 	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle.png");
 
-	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\SKYBOX_U.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\SKYBOX_D.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_L, L"Texture\\SKYBOX_L.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_R, L"Texture\\SKYBOX_R.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\SKYBOX_F.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\SKYBOX_B.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_L, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_R, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_U, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_D, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_L, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_R, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_F, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_B, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_U, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_D, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_L, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_R, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_F, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_B, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_U, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_D, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_L, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_R, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_F, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_B, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_U, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_D, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_L, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_R, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_F, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_B, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_U, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_D, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_L, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_R, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_F, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_B, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_B.png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BLUE_FILTER, L"Texture\\BlueFilter.png");
 
 	//´«¹°ÃÑ¾Ë
