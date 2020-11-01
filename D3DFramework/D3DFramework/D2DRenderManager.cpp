@@ -90,11 +90,11 @@ HRESULT PKH::D2DRenderManager::Initialize()
 	}
 	D3DXFONT_DESCW fontInfo;
 	ZeroMemory(&fontInfo, sizeof(D3DXFONT_DESCW));
-	fontInfo.Height = 20;
+	fontInfo.Height = 25;
 	fontInfo.Width = 0;
 	fontInfo.Weight = FW_HEAVY;
 	fontInfo.CharSet = HANGUL_CHARSET;
-	lstrcpy(fontInfo.FaceName, L"PokemonGSC");
+	lstrcpy(fontInfo.FaceName, L"배달의민족 주아");
 	if (FAILED(D3DXCreateFontIndirect(pD2DRenderManager->pDevice, &fontInfo, &pD2DRenderManager->pFont)))
 	{
 		MessageBoxW(g_hwnd, L"폰트 생성 실패", nullptr, MB_OK);

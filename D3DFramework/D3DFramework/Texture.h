@@ -69,11 +69,13 @@ namespace PKH
 		SPACE1_B,
 
 
-
-		CURSOR_TARGET,
-		LOCK_ON,
-		TITLE_SCREEN,
-		BLUE_FILTER,
+		//=========================== UI =============================
+		UI_CURSOR_TARGET,
+		UI_LOCK_ON,
+		UI_TITLE_SCREEN,
+		UI_BLUE_FILTER,
+		UI_BUTTON,
+		//============================================================
 
 		// PG 01
 		PG01_WALK_D_01,

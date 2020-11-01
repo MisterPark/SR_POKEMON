@@ -2,6 +2,7 @@
 #include "TitleScene.h"
 #include "UI_Title.h"
 #include "TestMultiScene.h"
+#include "Button.h"
 
 
 void TitleScene::OnLoaded()
@@ -12,7 +13,10 @@ void TitleScene::OnLoaded()
 
 
 	ObjectManager::GetInstance()->CreateObject<UI_Title>();
-
+	Button* btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
+	btn->text = L"½Ì±Û ÇÃ·¹ÀÌ";
+	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
+	btn->transform->position.y = 600;
 	
 	//lobby = LobbyWindow::GetInstance();
 	//lobby->Create();

@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "MainGame.h"
 #include "TestScene.h"
+#include "SkyBox.h"
+#include "TitleScene.h"
 
 using namespace PKH;
 
@@ -47,6 +49,7 @@ void PKH::MainGame::Initialize()
 	CollisionManager::GetInstance();
 	InputManager::GetInstance();
 	Player::GetInstance();
+	SkyBox::GetInstance();
 
 	//RenderManager::GetInstance();
 
@@ -63,9 +66,10 @@ void PKH::MainGame::Initialize()
 
 	ObjectManager::GetInstance();
 	SkillManager::GetInstance();
+	
 
 	// ¾À·Îµå
-	SceneManager::LoadScene<TestScene>();
+	SceneManager::LoadScene<TitleScene>();
 }
 
 void PKH::MainGame::Update()
@@ -83,6 +87,7 @@ void PKH::MainGame::Update()
 	ObjectManager::Update();
 
 	Camera::GetInstance()->Update();
+	SkyBox::GetInstance()->Update();
 	CollisionManager::Update();
 	
 
@@ -92,6 +97,7 @@ void PKH::MainGame::Update()
 	{
 		D2DRenderManager::Clear();
 
+		SkyBox::GetInstance()->Render();
 		ObjectManager::PreRender();
 		ObjectManager::Render();
 		ObjectManager::PostRender();
@@ -107,6 +113,7 @@ void PKH::MainGame::Release()
 	SceneManager::Destroy();
 	TimeManager::Destroy();
 	ObjectManager::Destroy();
+	SkyBox::Destroy();
 	//RenderManager::Release();
 	D2DRenderManager::Destroy();
 	InputManager::Destroy();
@@ -138,7 +145,7 @@ void PKH::MainGame::Shutdown()
 void PKH::MainGame::LoadETCSprite()
 {
 	// ¸®¼Ò½º ·Îµå
-	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle2.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_TITLE_SCREEN, L"Texture\\pokeTitle2.png");
 
 	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_U.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_D.png");
@@ -182,7 +189,8 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_F, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_B, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_B.png");
 
-	D2DRenderManager::LoadSprite(TextureKey::BLUE_FILTER, L"Texture\\BlueFilter.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_BLUE_FILTER, L"Texture\\BlueFilter.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_BUTTON, L"Texture\\PokemonButton.png");
 
 	//´«¹°ÃÑ¾Ë
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");

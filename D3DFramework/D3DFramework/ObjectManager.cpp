@@ -11,14 +11,14 @@ int lastUid = 0;
 
 PKH::ObjectManager::ObjectManager()
 {
-	SkyBox::GetInstance();
+	
 	Cursor::GetInstance();
 	RenderFilter::GetInstance();
 }
 
 PKH::ObjectManager::~ObjectManager()
 {
-	SkyBox::Destroy();
+	
 	Cursor::Destroy();
 	RenderFilter::Destroy();
 
@@ -86,7 +86,6 @@ void PKH::ObjectManager::AddObject(GameObject* _obj)
 
 void PKH::ObjectManager::Update()
 {
-	
 	auto& objList = pObjectManager->objectList;
 	for (auto& iter : objList)
 	{
@@ -94,7 +93,7 @@ void PKH::ObjectManager::Update()
 		iter->Update();
 	}
 
-	SkyBox::GetInstance()->Update();
+	
 	Cursor::GetInstance()->Update();
 	RenderFilter::GetInstance()->Update();
 }
@@ -132,7 +131,7 @@ void PKH::ObjectManager::PreRender()
 
 void PKH::ObjectManager::Render()
 {
-	SkyBox::GetInstance()->Render();
+	
 
 	pObjectManager->renderList.clear();
 
