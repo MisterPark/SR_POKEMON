@@ -34,7 +34,7 @@
 
 #include "Water.h"
 #include "Tree.h"
-
+#include "Stage_Grass_01.h"
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
@@ -48,7 +48,7 @@ void TestScene::OnLoaded()
 
 	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
 	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
-	SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
+	SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",-0.1f);
 
 	ObjectManager::GetInstance()->CreateObject<Scyther>();
 	
@@ -77,6 +77,10 @@ void TestScene::Update()
 	{
 		SceneManager::LoadScene<TitleScene>();
 	}
+	if (InputManager::GetKeyDown(VK_F3))
+	{
+		SceneManager::LoadScene<Stage_Grass_01>();
+	}
 }
 
 
@@ -85,7 +89,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 	//지형
 	GameObject* environment = ObjectManager::GetInstance()->CreateObject<Environment>();
 	dynamic_cast<Environment*>(environment)->terrain->SetTexture(_key);
-	dynamic_cast<Environment*>(environment)->terrain->LoadHeightMap(_filePath);
+	/*dynamic_cast<Environment*>(environment)->terrain->LoadHeightMap(_filePath);*/
 	//Tip) 높이맵의 높이는 RGB/25로 설정되어있습니다. 따라서 y축을 5로 설정할 지형을 만들고 싶다면
 	//색상값을 125로 준 채로 드로잉하면 됩니다.
 
@@ -99,6 +103,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 		water->transform->position.y = _waterHeight;
 		dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
+	
 		//나무
 		for (int i = 0; i < 10; i++)
 		{

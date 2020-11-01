@@ -10,8 +10,6 @@ Bullet::Bullet()
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
-	CollisionManager::RegisterObject(this);
-
 	for (int i = 0; i < 3; i++)
 	{
 		Time[i] = 0.f;
@@ -35,7 +33,6 @@ Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, 
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
-	CollisionManager::RegisterObject(this);
 }
 
 Bullet::~Bullet()

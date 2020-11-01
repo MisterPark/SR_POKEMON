@@ -7,36 +7,105 @@
 
 Psyduck::Psyduck()
 {
-	name = L"고라파덕";
-	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
-	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3, 1);
-	SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3, 1);
+	Initialize();
+}
 
+Psyduck::Psyduck(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	transform->position = pos;
+	transform->scale = scale;
+	direction = dir;
 
-
-	UpdateAnimation();
-	transform->position.x = 10.f;
-	anim->SetLoop(true);
-	offsetY = 1.f;
-	state = State::READY;
-	moveSpeed = 1.5f;
-	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	Initialize();
 }
 
 Psyduck::~Psyduck()
 {
 }
 
+void Psyduck::Initialize()
+{
+	name = L"고라파덕";
+	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3, 1);
+	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
+	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PSY_ATTACK2_D_01, 2);
+
+	if (!isPlayer)
+	{//AI용 패턴
+		SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3, 1);
+		UpdateAnimation();
+		transform->position.x = 10.f;
+		anim->SetLoop(true);
+		offsetY = 1.f;
+		state = State::READY;
+		moveSpeed = 1.5f;
+		Initialize();
+		Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	}
+	else if (isPlayer)
+	{
+		anim->SetLoop(true);
+		anim->SetDelay(0.1f);
+		offsetY = 0.13f;
+
+		state = State::IDLE;
+
+		skillSet.reserve(2);
+
+		skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafBullet));
+		skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+
+		UpdateAnimation();
+	}
+}
+
 void Psyduck::Update()
 {
-	Pattern();
-	Monster::Update();
+	if (isPlayer)
+	{
+		Character::Update();
+	}
+	else if (!isPlayer)
+	{
+		Pattern();
+		Monster::Update();
+	}
 }
 
 void Psyduck::Render()
 {
-	Monster::Render();
+	if (isPlayer)
+	{
+		Character::Render();
+	}
+	else if (!isPlayer)
+	{
+		Monster::Render();
+	}
+}
+
+void Psyduck::Release()
+{
+}
+
+void Psyduck::Attack(const Vector3& dir, const int& attackType)
+{
+	if (skillSet.size() <= attackType) return;
+	Vector3 pos = transform->position;
+
+	skillSet[attackType]->Active(pos, dir);
+
+	switch (attackType)
+	{
+	case 0: ChangeState(State::ATTACK); break;
+	}
+}
+
+Psyduck* Psyduck::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	Psyduck* newPokemon = new Psyduck(pos, scale, dir);
+	return newPokemon;
 }
 
 void Psyduck::Pattern()

@@ -5,12 +5,11 @@
 Water::Water()
 {   //TODO : 불렛이 지형타는중
 	Initialize();
-	CollisionManager::RegisterObject(this);
-
 }
 
 Water::~Water()
 {
+
 }
 
 void Water::Initialize()
