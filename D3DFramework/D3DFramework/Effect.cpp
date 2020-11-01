@@ -1,42 +1,53 @@
 #include "stdafx.h"
 #include "Effect.h"
 #include "Rectangle.h"
+#include "Plane.h"
 
 Effect::Effect()
 {
-	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
-	CollisionManager::RegisterObject(this);
-	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
-	CollisionManager::RegisterObject(this);
 }
 
-Effect::Effect(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir) :
-	direction(dir)
+Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir) :
+	startKey(start), endKey(end), animSpeed(delay),
+	isPlane(plane), isBillboardY(isBillY), isLoop(loop),
+	lifeTime(lifeTime), isMove(isMove), direction(dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
+	transform->scale = size;
+	moveSpeed = speed;
 
-	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	CollisionManager::RegisterObject(this);
+	Mesh* mesh;
+
+	if (isPlane) mesh = (Mesh*)AddComponent<PKH::Plane>(L"Mesh");
+	else mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
+
+	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
+
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
-	CollisionManager::RegisterObject(this);
+	Initialize();
 }
 
 Effect::~Effect()
 {
-	CollisionManager::DisregisterObject(this);
+}
+
+void Effect::Initialize()
+{
+	anim->SetSprite(startKey, endKey);
+	anim->SetDelay(animSpeed);
+	anim->SetLoop(isLoop);
 }
 
 void Effect::Update()
 {
 	GameObject::Update();
-	if (isBillboard) Billboard();
-	if (isMove) MoveForward();
-	UpdateAnimation();
-	
+
+	if (isBillboardY) BillboardYaw();
+
+	if (isMove) Move(direction);
+
+	if (IsDie()) isDead = true;
 }
 
 void Effect::Render()
@@ -44,70 +55,27 @@ void Effect::Render()
 	GameObject::Render();
 }
 
-void Effect::Initialize()
-{
-}
-
 void Effect::Release()
 {
 }
 
-float Effect::GetAngleFromCamera()
+bool Effect::IsDie()
 {
-	// 카메라가 몬스터를 향하는 각
-	Vector3 camPos = Camera::GetPosition();
-	float degree1 = Vector3::AngleY(camPos, transform->position);
-
-	// 몬스터 월드 각
-	float degree2 = D3DXToDegree(atan2f(direction.x, direction.z));
-
-	return (degree2 - degree1);
-}
-
-void Effect::UpdateAnimation()
-{
-	anim->SetSprite(startArray[(int)state][0], endArray[(int)state][0]);
-}
-
-void Effect::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame)
-{
-	for (int i = 0; i < 8; i++)
+	if (!isLoop)
 	{
-		startArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame));
-		if (-1 == _endFrame)
-			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_aniFrame - 1));
-		else
-			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_endFrame - 1));
+		return anim->IsEndFrame();
+	}
+	else
+	{
+		lifeTime -= TimeManager::DeltaTime();
+
+		if (lifeTime <= 0.f) return true;
 	}
 }
 
-void Effect::SetAniTexture(State _state, TextureKey _beginTextureKey, int _aniFrame)
+Effect * Effect::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir)
 {
-	startArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey);
-	endArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey + _aniFrame - 1);
-}
+	Effect* instance = new Effect(pos, size, start, end, delay, plane, isBillY, loop, lifeTime, isMove, speed, dir);
 
-void Effect::SetDir(const Vector3 & dir)
-{
-	D3DXVec3Normalize(&direction, &dir);
-}
-
-void Effect::MoveForward()
-{
-	Move(direction);
-}
-
-void Effect::ChangeState(State nextState)
-{
-	if (nextState != state)
-	{
-		state = nextState;
-	}
-}
-
-Effect * Effect::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
-{
-	Effect* newEffect = new Effect(pos, scale, dir);
-
-	return newEffect;
+	return instance;
 }

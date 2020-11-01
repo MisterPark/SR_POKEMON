@@ -336,9 +336,6 @@
     <ClInclude Include="Tree.h">
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
-    <ClInclude Include="Range.h">
-      <Filter>GameObject\Effect</Filter>
-    </ClInclude>
     <ClInclude Include="Skill.h">
       <Filter>Skill</Filter>
     </ClInclude>
@@ -718,9 +715,6 @@
     </ClCompile>
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
-    </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Effect</Filter>
     </ClCompile>
     <ClCompile Include="Range.cpp">
       <Filter>GameObject\Effect</Filter>
