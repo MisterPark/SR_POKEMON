@@ -33,12 +33,16 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 
 	switch (skillName)
 	{
-	case SkillName::BulletLeaf:
-		newSkill = BulletLeaf::Create();
+	case SkillName::LeafBullet:
+		newSkill = Skill_LeafBullet::Create();
 		break;
 
-	case SkillName::BulletFire:
-		newSkill = BulletFire::Create();
+	case SkillName::FireBullet:
+		newSkill = Skill_FireBullet::Create();
+		break;
+
+	case SkillName::WaterBullet:
+		newSkill = Skill_WaterBullet::Create();
 		break;
 	}
 

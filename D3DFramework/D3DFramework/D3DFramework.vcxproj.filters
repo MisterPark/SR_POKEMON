@@ -139,17 +139,23 @@
     <Filter Include="GameObject\Monster">
       <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\01. BulletLeaf">
-      <UniqueIdentifier>{df5f8ce9-0544-4767-a4db-865dea6e665b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\02. BulletFire">
-      <UniqueIdentifier>{7041047e-6889-43f5-a4b3-635da4801ddb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="99. Defaults">
       <UniqueIdentifier>{b8a71775-02dc-4334-a429-7a0840044527}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\03. WaterBullet">
+      <UniqueIdentifier>{cb469c62-f0c3-4d83-9afc-7b662589cf87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\02. FireBullet">
+      <UniqueIdentifier>{7041047e-6889-43f5-a4b3-635da4801ddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\01. LeafBullet">
+      <UniqueIdentifier>{df5f8ce9-0544-4767-a4db-865dea6e665b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Component\Transform">
       <UniqueIdentifier>{6256dccd-0b4d-4f31-b432-2a6b3d8573e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\RenderFilter">
+      <UniqueIdentifier>{f1531dbf-fa98-4ec3-81b4-47d32da7fc0e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -381,12 +387,6 @@
     <ClInclude Include="Suicune.h">
       <Filter>GameObject\Character\Water\245. Suicune</Filter>
     </ClInclude>
-    <ClInclude Include="BulletLeaf.h">
-      <Filter>Skill\01. BulletLeaf</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletFire.h">
-      <Filter>Skill\02. BulletFire</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet_Tornado.h">
       <Filter>GameObject\Bullet</Filter>
     </ClInclude>
@@ -408,9 +408,20 @@
     <ClInclude Include="targetver.h">
       <Filter>99. Defaults</Filter>
     </ClInclude>
-    <ClInclude Include="RenderFilter.h" />
     <ClInclude Include="Transform.h">
       <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_WaterBullet.h">
+      <Filter>Skill\03. WaterBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_LeafBullet.h">
+      <Filter>Skill\01. LeafBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireBullet.h">
+      <Filter>Skill\02. FireBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderFilter.h">
+      <Filter>GameObject\RenderFilter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -576,9 +587,6 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>Component\Mesh</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Component\Mesh</Filter>
-    </ClCompile>
     <ClCompile Include="Terrain.cpp">
       <Filter>Component\Mesh</Filter>
     </ClCompile>
@@ -732,12 +740,6 @@
     <ClCompile Include="SkillManager.cpp">
       <Filter>Skill\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="BulletLeaf.cpp">
-      <Filter>Skill\01. BulletLeaf</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletFire.cpp">
-      <Filter>Skill\02. BulletFire</Filter>
-    </ClCompile>
     <ClCompile Include="Butterfree.cpp">
       <Filter>GameObject\Character\Grass\012. Butterfree</Filter>
     </ClCompile>
@@ -786,11 +788,25 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>99. Defaults</Filter>
     </ClCompile>
+    <ClCompile Include="Skill_WaterBullet.cpp">
+      <Filter>Skill\03. WaterBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_LeafBullet.cpp">
+      <Filter>Skill\01. LeafBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireBullet.cpp">
+      <Filter>Skill\02. FireBullet</Filter>
+    </ClCompile>
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="RenderFilter.cpp" />
     <ClCompile Include="Transform.cpp">
       <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderFilter.cpp">
+      <Filter>GameObject\RenderFilter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

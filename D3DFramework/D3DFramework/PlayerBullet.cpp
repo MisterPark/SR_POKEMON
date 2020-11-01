@@ -34,7 +34,6 @@ void PlayerBullet::InitByType()
 		transform->scale = { 0.15f, 0.15f, 0.15f };
 
 		SetTexture(State::IDLE, TextureKey::BULLET_LEAF_09, 1);
-		//SetTexture(State::ATTACK, TextureKey::BULLET_LEAF_01, 9);
 		transform->eulerAngles.x = D3DXToRadian(90.f);
 		transform->eulerAngles.y = D3DXToRadian(135.f) + Player::GetInstance()->GetRadianY();
 		break;
@@ -42,6 +41,11 @@ void PlayerBullet::InitByType()
 	case FIRE:
 		transform->scale = { 0.2f, 0.2f, 0.2f };
 		SetTexture(State::IDLE, TextureKey::BULLET_FIRE_01, 5);
+		break;
+
+	case WATER:
+		transform->scale = { 0.1f, 0.1f, 0.1f };
+		SetTexture(State::IDLE, TextureKey::BULLET_WATER_01, 2);
 		break;
 	}
 

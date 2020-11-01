@@ -1,12 +1,12 @@
 #pragma once
 #include "Skill.h"
 
-class BulletFire :
+class Skill_FireBullet :
 	public Skill
 {
 public:
-	BulletFire();
-	virtual ~BulletFire();
+	Skill_FireBullet();
+	virtual ~Skill_FireBullet();
 
 public:
 	virtual void Active(const Vector3& pos, const Vector3& dir) override;

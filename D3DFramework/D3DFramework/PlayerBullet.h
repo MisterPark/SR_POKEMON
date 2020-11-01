@@ -4,7 +4,7 @@
 class PlayerBullet : public Bullet
 {
 public:
-	enum Type { LEAF, FIRE };
+	enum Type { LEAF, FIRE, WATER };
 
 public:
 	PlayerBullet();

@@ -36,8 +36,8 @@ void Charmander::Initialize()
 
 	skillSet.reserve(2);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BulletLeaf));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BulletFire));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
 	UpdateAnimation();
 }
