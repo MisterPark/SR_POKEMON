@@ -32,6 +32,7 @@ MonsterAI::~MonsterAI()
 void MonsterAI::Update()
 {
 	Pattern();
+	LimitPosition();
 }
 
 MonsterAI* MonsterAI::Clone()
@@ -143,6 +144,30 @@ void MonsterAI::PlayerSearch(float _range, float _rangeOut)
 		}
 	}
 
+}
+
+void MonsterAI::LimitPosition()
+{
+	Character* c = dynamic_cast<Character*>(gameObject);
+	if (c == nullptr) return;
+
+	if (c->transform->position.x < 3) {
+		c->direction.x *= -1.f;
+		c->transform->position.x = 3;
+	}
+	else if (c->transform->position.x > dfTERRAIN_WIDTH - 3) {
+		c->direction.x *= -1.f;
+		c->transform->position.x = dfTERRAIN_WIDTH - 3;
+	}
+
+	if (c->transform->position.z < 3) {
+		c->direction.z *= -1.f;
+		c->transform->position.z = 3;
+	}
+	else if (c->transform->position.z > dfTERRAIN_HEIGHT - 3) {
+		c->direction.z *= -1.f;
+		c->transform->position.z = dfTERRAIN_HEIGHT - 3;
+	}
 }
 
 void MonsterAI::SetType(MonsterType _type)

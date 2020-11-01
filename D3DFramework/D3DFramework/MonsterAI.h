@@ -37,6 +37,8 @@ public:
     //isSearch 가 변경될경우, State::Ready 로 즉시 변경됩니다.
     void PlayerSearch(float _range, float _rangeOut);
 
+    void LimitPosition();
+
     void Pattern();
 
     void MonsterIdle();
@@ -44,7 +46,7 @@ public:
     void MonsterAttack();
     void MonsterSkill();
     void MonsterSkill2();
-
+    
 
     void SetType(MonsterType _type);
     // 0.Idle   1.Walk   2.Attack   3.Skill   4.Skill2
