@@ -48,8 +48,9 @@ void Player::Update()
 
 void Player::PostUpdate()
 {
+	if (nullptr == character) return;
 	Vector3* pos = character->transform->Get_Pos();
-
+	
 	if (0.f > pos->x) pos->x = 0.f;
 	if (dfTERRAIN_WIDTH - 1 < pos->x) pos->x = dfTERRAIN_WIDTH - 1;
 	if (0.f > pos->z) pos->z = 0.f;
