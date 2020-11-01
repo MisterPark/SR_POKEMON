@@ -2,6 +2,7 @@
 
 enum class SkillName
 {
-	BulletLeaf,
-	BulletFire,
+	LeafBullet,
+	FireBullet,
+	WaterBullet,
 };

@@ -158,8 +158,6 @@
     <ClInclude Include="Animation2D.h" />
     <ClInclude Include="Bulbasaur.h" />
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="BulletFire.h" />
-    <ClInclude Include="BulletLeaf.h" />
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Water.h" />
     <ClInclude Include="Bullet_Water1.h" />
@@ -219,6 +217,9 @@
     <ClInclude Include="Skill.h" />
     <ClInclude Include="SkillManager.h" />
     <ClInclude Include="SkillName.h" />
+    <ClInclude Include="Skill_FireBullet.h" />
+    <ClInclude Include="Skill_LeafBullet.h" />
+    <ClInclude Include="Skill_WaterBullet.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="stdafx.h" />
@@ -245,8 +246,6 @@
     <ClCompile Include="Animation2D.cpp" />
     <ClCompile Include="Bulbasaur.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletFire.cpp" />
-    <ClCompile Include="BulletLeaf.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Bullet_Water1.cpp" />
@@ -298,6 +297,9 @@
     <ClCompile Include="Scyther.cpp" />
     <ClCompile Include="Skill.cpp" />
     <ClCompile Include="SkillManager.cpp" />
+    <ClCompile Include="Skill_FireBullet.cpp" />
+    <ClCompile Include="Skill_LeafBullet.cpp" />
+    <ClCompile Include="Skill_WaterBullet.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="stdafx.cpp">
