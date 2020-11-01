@@ -65,7 +65,7 @@ void Caterpie::Attack(const Vector3& dir, const int& attackType)
 	if (skillSet.size() <= attackType) return;
 	Vector3 pos = transform->position;
 
-	skillSet[attackType]->Active(pos, dir);
+	skillSet[attackType]->Active(this);
 
 	switch (attackType)
 	{

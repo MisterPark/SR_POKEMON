@@ -64,7 +64,6 @@ void TestScene::OnLoaded()
 	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
 	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
 
-	ObjectManager::GetInstance()->CreateObject<Butterfree>();
 	Butterfree* monsterCharacter = Butterfree::Create(Vector3(3.f, 3.f, 3.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
