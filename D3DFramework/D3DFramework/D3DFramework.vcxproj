@@ -210,7 +210,6 @@
     <ClInclude Include="Psyduck.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Random.h" />
-    <ClInclude Include="Range.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RenderFilter.h" />
     <ClInclude Include="Resource.h" />
@@ -299,7 +298,6 @@
     <ClCompile Include="Psyduck.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Random.cpp" />
-    <ClCompile Include="Range.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="RenderFilter.cpp" />
     <ClCompile Include="SceneManager.cpp" />
