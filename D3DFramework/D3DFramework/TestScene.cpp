@@ -32,6 +32,8 @@
 #include "Suicune.h"
 #include "Golduck.h"
 
+#include "MonsterAI.h"
+
 #include "Water.h"
 #include "Tree.h"
 
@@ -47,10 +49,39 @@ void TestScene::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 
 	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
-	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
-	SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
+	SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
+	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
 
-	ObjectManager::GetInstance()->CreateObject<Scyther>();
+	ObjectManager::GetInstance()->CreateObject<Butterfree>();
+	Butterfree* monsterCharacter = Butterfree::Create(Vector3(3.f, 3.f, 3.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
+	ObjectManager::AddObject(monsterCharacter);
+
+	//Oddish* monsterCharacter2 = Oddish::Create(Vector3(5.f, 5.f, 5.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter2->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter2->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter2->monsterAI->SetType(MonsterType::ODDISH);
+	//ObjectManager::AddObject(monsterCharacter2);
+
+	//Metapod* monsterCharacter3 = Metapod::Create(Vector3(4.f, 4.f, 4.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter3->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter3->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter3->monsterAI->SetType(MonsterType::METAPOD);
+	//ObjectManager::AddObject(monsterCharacter3);
+
+	//Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(6.f, 6.f, 6.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
+	//ObjectManager::AddObject(monsterCharacter4);
+
+	//Scyther* monsterCharacter5 = Scyther::Create(Vector3(6.f, 6.f, 6.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
+	//ObjectManager::AddObject(monsterCharacter5);
+
+	Caterpie* monsterCharacter6 = Caterpie::Create(Vector3(6.f, 6.f, 6.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter6->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter6->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter6->monsterAI->SetType(MonsterType::CATERPIE);
+	ObjectManager::AddObject(monsterCharacter6);
 	
 	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;

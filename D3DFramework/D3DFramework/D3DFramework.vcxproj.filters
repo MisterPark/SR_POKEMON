@@ -157,6 +157,9 @@
     <Filter Include="GameObject\RenderFilter">
       <UniqueIdentifier>{f1531dbf-fa98-4ec3-81b4-47d32da7fc0e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\AI">
+      <UniqueIdentifier>{b8a3617e-caf2-4354-8871-6cc77514c547}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -422,6 +425,12 @@
     </ClInclude>
     <ClInclude Include="RenderFilter.h">
       <Filter>GameObject\RenderFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterAI.h">
+      <Filter>Component\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Web.h">
+      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -807,6 +816,12 @@
     </ClCompile>
     <ClCompile Include="RenderFilter.cpp">
       <Filter>GameObject\RenderFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterAI.cpp">
+      <Filter>Component\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Web.cpp">
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

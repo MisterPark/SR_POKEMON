@@ -21,7 +21,7 @@ Poliwag::Poliwag()
 	offsetY = 1.f;
 	state = State::READY;
 	moveSpeed = 0.2f;
-	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	Character::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
 Poliwag::~Poliwag()
@@ -30,15 +30,16 @@ Poliwag::~Poliwag()
 
 void Poliwag::Update()
 {
-	Pattern();
-	Monster::Update();
+	//Pattern();
+	Character::Update();
 }
 
 void Poliwag::Render()
 {
-	Monster::Render();
+	Character::Render();
 }
 
+/*
 void Poliwag::Pattern()
 {
 	GameObject* g = Player::GetInstance()->GetCharacter();
@@ -200,3 +201,4 @@ void Poliwag::CreateBullet(Transform* PlayerT)
 
 }
 
+*/

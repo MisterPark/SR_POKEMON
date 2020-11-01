@@ -7,39 +7,81 @@
 
 Scyther::Scyther()
 {
-	name = L"스라크";
-	SetTexture(State::WALK, TextureKey::SCY_WALK_D_01, 3);
-	SetTexture(State::SKILL, TextureKey::SCY_ATTACK_D_01, 2);
-	SetTexture(State::SKILL2, TextureKey::SCY_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::SCY_WALK_D_01, 3, 1);
-	SetTexture(State::READY, TextureKey::SCY_WALK_D_01, 3, 1);
+	Initialize();
+}
 
-	anim->SetLoop(true);
-	UpdateAnimation();
+Scyther::Scyther(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	transform->position = pos;
+	transform->scale = scale;
+	direction = dir;
 
-	offsetY = 1.5f;
-	moveSpeed = 3.f;
-	state = State::READY;
-	transform->scale *= 1.5f;
-	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	Initialize();
 }
 
 Scyther::~Scyther()
 {
 }
 
+void Scyther::Initialize()
+{
+	name = L"스라크";
+	SetTexture(State::WALK, TextureKey::SCY_WALK_D_01, 3);
+	SetTexture(State::IDLE, TextureKey::SCY_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::SCY_WALK_D_01, 3, 1);
+	SetTexture(State::ATTACK, TextureKey::SCY_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::SCY_ATTACK_D_01, 2);
+	SetTexture(State::SKILL2, TextureKey::SCY_ATTACK_D_01, 2);
+
+	anim->SetLoop(true);
+	anim->SetDelay(0.1f);
+	moveSpeed = 3.5f;
+	offsetY = 1.f;
+
+	state = State::READY;
+
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+
+	UpdateAnimation();
+}
+
 void Scyther::Update()
 {
-	Parttern();
-	Monster::Update();
+	//Parttern();
+	Character::Update();
 
 }
 
 void Scyther::Render()
 {
-	Monster::Render();
+	Character::Render();
 }
 
+void Scyther::Release()
+{
+}
+
+void Scyther::Attack(const Vector3& dir, const int& attackType)
+{
+	if (skillSet.size() <= attackType) return;
+	Vector3 pos = transform->position;
+
+	skillSet[attackType]->Active(pos, dir);
+
+	switch (attackType)
+	{
+	case 0: ChangeState(State::ATTACK); break;
+	}
+}
+
+Scyther* Scyther::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	Scyther* newPokemon = new Scyther(pos, scale, dir);
+	return newPokemon;
+}
+
+/*
 void Scyther::Parttern()
 {
 	/////////////////////////////////////////////////////////// 플레이어 탐지
@@ -197,3 +239,4 @@ void Scyther::Skill2Bullet()
 	
 }
 
+*/

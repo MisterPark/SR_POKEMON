@@ -4,57 +4,74 @@
 
 Metapod::Metapod()
 {
-	name = L"단데기";
-	SetTexture(State::WALK, TextureKey::META_WALK_D_01, 3);
-	SetTexture(State::PLAYER_SEARCH, TextureKey::META_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::META_WALK_D_01, 3, 1);
-	SetTexture(State::READY, TextureKey::META_WALK_D_01, 3, 1);
-
-	UpdateAnimation();
-	anim->SetLoop(true);
-
-	moveSpeed = 1.5f;
-	state = State::READY;
-	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	Initialize();
 }
 
+Metapod::Metapod(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	transform->position = pos;
+	transform->scale = scale;
+	direction = dir;
+
+	Initialize();
+}
 
 Metapod::~Metapod()
 {
 }
 
+void Metapod::Initialize()
+{
+	name = L"단데기";
+	SetTexture(State::WALK, TextureKey::META_WALK_D_01, 3);
+	SetTexture(State::IDLE, TextureKey::META_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::META_WALK_D_01, 3, 1);
+	SetTexture(State::ATTACK, TextureKey::META_ATTACK_D_01, 2, 1);
+	SetTexture(State::SKILL, TextureKey::META_ATTACK_D_01, 2, 1);
+
+	anim->SetLoop(true);
+	anim->SetDelay(0.1f);
+	moveSpeed = 0.7f;
+	offsetY = 0.5f;
+
+	state = State::READY;
+
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+
+	UpdateAnimation();
+}
+
 void Metapod::Update()
 {
-	Pattern();
-	Monster::Update();
+	Character::Update();
+	if (monsterAI != nullptr) monsterAI->Update();
 }
 
 void Metapod::Render()
 {
-	Monster::Render();
+	Character::Render();
 }
 
-void Metapod::Pattern() {
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
-
-	/////////////////////////////////////////////////////////// 패턴 Ready
-	if (state == State::READY) {
-		state = (State)Random::Range(1, 1);
-
-		if (state == State::WALK) {
-			// 이동 Ready
-		}
-		else if (state == State::ATTACK) {
-			// 공격 Ready
-		}
-	}
-
-	/////////////////////////////////////////////////////////// 패턴 Update
-	if (state == State::WALK) {
-		//1.5f 시간동안 걷고 총 3번 반복
-		MoveRandomPattern(1.5f, 3);
-	}
-
+void Metapod::Release()
+{
 }
 
+void Metapod::Attack(const Vector3& dir, const int& attackType)
+{
+	if (skillSet.size() <= attackType) return;
+	Vector3 pos = transform->position;
 
+	skillSet[attackType]->Active(pos, dir);
+
+	switch (attackType)
+	{
+	case 0: ChangeState(State::ATTACK); break;
+	}
+}
+
+Metapod* Metapod::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	Metapod* newPokemon = new Metapod(pos, scale, dir);
+	return newPokemon;
+}
