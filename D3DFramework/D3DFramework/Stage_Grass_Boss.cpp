@@ -40,8 +40,10 @@ void Stage_Grass_Boss::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 47.f;
 	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp", 3.5f);
 
-	ObjectManager::GetInstance()->CreateObject<Scyther>();
-
+	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
+	ObjectManager::AddObject(monsterCharacter5);
 
 }
 

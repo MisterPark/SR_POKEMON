@@ -44,8 +44,6 @@ void Stage_Fire_01::OnLoaded()
 
 	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Fire1.bmp", 4.05f);
 
-	ObjectManager::GetInstance()->CreateObject<Caterpie>();
-
 
 
 }

@@ -39,7 +39,7 @@ void Stage_Water_Boss::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 44.f;
 	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 0.f);
 
-	ObjectManager::GetInstance()->CreateObject<Scyther>();
+	
 }
 
 void Stage_Water_Boss::OnUnloaded()

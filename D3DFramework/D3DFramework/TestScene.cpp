@@ -79,16 +79,6 @@ void TestScene::OnLoaded()
 	monsterCharacter3->monsterAI->SetType(MonsterType::METAPOD);
 	ObjectManager::AddObject(monsterCharacter3);
 
-	Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
-	ObjectManager::AddObject(monsterCharacter4);
-
-	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
-	ObjectManager::AddObject(monsterCharacter5);
-
 	Caterpie* monsterCharacter6 = Caterpie::Create(Vector3(42.f, 0.f, 26.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter6->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter6->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter6->monsterAI->SetType(MonsterType::CATERPIE);
