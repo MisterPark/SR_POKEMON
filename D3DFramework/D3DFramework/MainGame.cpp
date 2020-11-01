@@ -85,7 +85,7 @@ void PKH::MainGame::Update()
 	Camera::GetInstance()->Update();
 	CollisionManager::Update();
 	
-
+	Player::GetInstance()->PostUpdate();
 	ObjectManager::PostUpdate();
 
 	if (!TimeManager::SkipFrame())
@@ -243,6 +243,16 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_04, L"Texture\\Player\\Bullet\\Fire\\3.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_05, L"Texture\\Player\\Bullet\\Fire\\4.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_06, L"Texture\\Player\\Bullet\\Fire\\5.png");
+
+	// ºÒ Æø¹ß
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_01, L"Texture\\Player\\Effect\\Explosion\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_02, L"Texture\\Player\\Effect\\Explosion\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_03, L"Texture\\Player\\Effect\\Explosion\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_04, L"Texture\\Player\\Effect\\Explosion\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_05, L"Texture\\Player\\Effect\\Explosion\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_06, L"Texture\\Player\\Effect\\Explosion\\5.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_07, L"Texture\\Player\\Effect\\Explosion\\6.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_EXPLOSION_08, L"Texture\\Player\\Effect\\Explosion\\7.png");
 
 	// ¹°´ëÆ÷ÃÑ¾Ë
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER_01, L"Texture\\Player\\Bullet\\Water\\0.png");

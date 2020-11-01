@@ -37,10 +37,8 @@ void Skill_Blaze::Active(const Character* character)
 	{
 		Vector3 pos2 = position + (look * 1.f * i);
 
-		FieldFire* instance = FieldFire::Create(pos2, { size, size, size }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, 0.f);
+		FieldFire* instance = FieldFire::Create(pos2, { size, size, size }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, 0.5f);
 		ObjectManager::AddObject(instance);
-
-		cout << pos2.x << ", " << pos2.y << ", " << pos2.z << endl;
 	}
 }
 
