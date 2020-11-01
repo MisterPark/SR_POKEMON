@@ -36,7 +36,8 @@ namespace PKH
 		static void Render();
 		static void PostRender();
 
-		static bool Compare(GameObject* a, GameObject* b);
+		static bool CompareY(GameObject* a, GameObject* b);
+		static bool CompareZ(GameObject* a, GameObject* b);
 
 		static bool IsVisibleCollider();
 		static void SetVisibleCollider(bool _isVisible);

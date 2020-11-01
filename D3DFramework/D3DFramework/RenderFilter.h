@@ -1,11 +1,16 @@
 #pragma once
 #include "GameObject.h"
-#include "Terrain.h"
-class Environment : public GameObject
+
+class RenderFilter : public GameObject
 {
+private:
+	RenderFilter();
+	~RenderFilter();
+
 public:
-	Environment();
-	virtual ~Environment();
+	static RenderFilter* GetInstance();
+	static void Destroy();
+
 
 	virtual void Initialize() override;
 	virtual void Release() override;
@@ -13,6 +18,6 @@ public:
 	virtual void Render() override;
 
 	
-	Terrain* terrain = nullptr;
+
 };
 

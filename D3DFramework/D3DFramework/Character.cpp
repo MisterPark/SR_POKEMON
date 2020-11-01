@@ -8,6 +8,7 @@
 Character::Character()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
+	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 	
@@ -35,10 +36,7 @@ void Character::Render()
 
 void Character::RenderName()
 {
-	Matrix view = Camera::GetViewMatrix();
-	Vector3 viewPos;
-	D3DXVec3TransformCoord(&viewPos, &transform->position, &view);
-	if (viewPos.z < 0.f)
+	if (transform->zOrder < 0.f)
 	{
 		return;
 	}

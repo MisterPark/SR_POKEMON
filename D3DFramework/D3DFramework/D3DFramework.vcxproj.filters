@@ -148,6 +148,9 @@
     <Filter Include="99. Defaults">
       <UniqueIdentifier>{b8a71775-02dc-4334-a429-7a0840044527}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{6256dccd-0b4d-4f31-b432-2a6b3d8573e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -172,9 +175,6 @@
       <Filter>Lib\Manager</Filter>
     </ClInclude>
     <ClInclude Include="Vector3.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
       <Filter>Lib</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
@@ -408,6 +408,10 @@
     <ClInclude Include="targetver.h">
       <Filter>99. Defaults</Filter>
     </ClInclude>
+    <ClInclude Include="RenderFilter.h" />
+    <ClInclude Include="Transform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -432,9 +436,6 @@
       <Filter>Lib\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Vector3.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
       <Filter>Lib</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
@@ -623,9 +624,6 @@
     <ClCompile Include="Network.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="D3DFramework.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Quaternion.cpp">
       <Filter>Lib</Filter>
     </ClCompile>
@@ -634,9 +632,6 @@
     </ClCompile>
     <ClCompile Include="Cursor.cpp">
       <Filter>GameObject\Cursor</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
       <Filter>Scene</Filter>
@@ -790,6 +785,12 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>99. Defaults</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="RenderFilter.cpp" />
+    <ClCompile Include="Transform.cpp">
+      <Filter>Component\Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

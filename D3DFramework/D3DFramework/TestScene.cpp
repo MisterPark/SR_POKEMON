@@ -47,8 +47,8 @@ void TestScene::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 
 	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
-//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
-SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
+	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
+	SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
 
 	ObjectManager::GetInstance()->CreateObject<Scyther>();
 	

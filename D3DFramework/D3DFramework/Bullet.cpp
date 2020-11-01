@@ -6,6 +6,7 @@
 Bullet::Bullet()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
+	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
@@ -30,6 +31,7 @@ Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, 
 	isAlliance = alliance;
 
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
+	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 

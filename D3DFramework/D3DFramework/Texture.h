@@ -14,6 +14,7 @@ namespace PKH
 		CURSOR_TARGET,
 		LOCK_ON,
 		TITLE_SCREEN,
+		BLUE_FILTER,
 
 		// PG 01
 		PG01_WALK_D_01,

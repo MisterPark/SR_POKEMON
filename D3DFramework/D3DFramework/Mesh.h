@@ -3,6 +3,12 @@
 
 namespace PKH
 {
+	enum class BlendMode
+	{
+		NONE,
+		ALPHA_BLEND,
+		ALPHA_TEST,
+	};
 	class Mesh : public PKH::IComponent
 	{
 	public:
@@ -23,12 +29,14 @@ namespace PKH
 		void SetTexture(TextureKey key);
 		void SetVertexPos(UINT index, const Vector3& pos);
 		void SetUV(UINT index, float u, float v);
+		void SetBlendMode(BlendMode _mode);
 
 	protected:
 		IDirect3DVertexBuffer9* vb = nullptr;
 		IDirect3DIndexBuffer9* triangles = nullptr;
 		UINT vertexCount;
 		UINT triangleCount;
+		BlendMode blendMode = BlendMode::NONE;
 	public:
 		TextureKey textureKey = TextureKey::NONE;
 
