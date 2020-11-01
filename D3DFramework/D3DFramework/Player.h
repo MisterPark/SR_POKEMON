@@ -17,7 +17,9 @@ public:
 public:
 	// Setter
 	void SetCharacter(Character* object);
-
+	void SetRadianX(float _x) { radianX = _x; }
+	// 45도 1시 90 3시 180도 7시 270 11시
+	void SetRadianY(float _y) { radianY = _y; }
 public:
 	// Getter
 	Character* GetCharacter() { return character; }

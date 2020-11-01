@@ -157,6 +157,45 @@
     <Filter Include="GameObject\RenderFilter">
       <UniqueIdentifier>{f1531dbf-fa98-4ec3-81b4-47d32da7fc0e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\Fire\058. Growlithe">
+      <UniqueIdentifier>{9b1d9c71-a726-460b-a379-4d95b79a534a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\059. Arcanine">
+      <UniqueIdentifier>{b27e912c-7059-4098-aded-3dea96bd211f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\077. Ponyta">
+      <UniqueIdentifier>{6ad2d381-fcd3-4dbf-8c30-37f46569e9eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\078. Rapidsh">
+      <UniqueIdentifier>{e048e76e-e5c2-493e-9120-897858fb2c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\219. Magcargo">
+      <UniqueIdentifier>{3ea8b267-29c5-482c-bd74-16a2e520299d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\218. Slugma">
+      <UniqueIdentifier>{f887f94b-dc5d-496a-a2e6-1dfd7aa57af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\383. Groudon">
+      <UniqueIdentifier>{d2ef0d26-b20b-4b72-ab8f-eaf43bf4bbb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Grass">
+      <UniqueIdentifier>{cd873795-b497-4b85-a05a-908e1ed6f053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Water">
+      <UniqueIdentifier>{73603fd7-ee4d-492c-815d-15c7fef1b80d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Fire">
+      <UniqueIdentifier>{a10e632d-a347-44a3-8e7f-06942716b4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\251. Celebi">
+      <UniqueIdentifier>{d0b18ac2-5cdd-4300-a5d7-a294e35eb6dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\FieldFire">
+      <UniqueIdentifier>{9e7a670f-1de0-46d3-82e1-3f7b7a2b10d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\04. Blaze">
+      <UniqueIdentifier>{26aae199-57ad-4c31-b63c-308ca6046004}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Component\AI">
       <UniqueIdentifier>{b8a3617e-caf2-4354-8871-6cc77514c547}</UniqueIdentifier>
     </Filter>
@@ -339,9 +378,6 @@
     <ClInclude Include="Tree.h">
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
-    <ClInclude Include="Range.h">
-      <Filter>GameObject\Effect</Filter>
-    </ClInclude>
     <ClInclude Include="Skill.h">
       <Filter>Skill</Filter>
     </ClInclude>
@@ -425,6 +461,33 @@
     </ClInclude>
     <ClInclude Include="RenderFilter.h">
       <Filter>GameObject\RenderFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Grass_01.h">
+      <Filter>Scene\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Grass_Boss.h">
+      <Filter>Scene\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Celebi.h">
+      <Filter>GameObject\Character\Grass\251. Celebi</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Water_01.h">
+      <Filter>Scene\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Water_Boss.h">
+      <Filter>Scene\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Fire_01.h">
+      <Filter>Scene\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldFire.h">
+      <Filter>GameObject\FieldFire</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Blaze.h">
+      <Filter>Skill\04. Blaze</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>GameObject\UI</Filter>
     </ClInclude>
     <ClInclude Include="MonsterAI.h">
       <Filter>Component\AI</Filter>
@@ -728,12 +791,6 @@
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Effect</Filter>
-    </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Effect</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerBullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
@@ -816,6 +873,33 @@
     </ClCompile>
     <ClCompile Include="RenderFilter.cpp">
       <Filter>GameObject\RenderFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Grass_01.cpp">
+      <Filter>Scene\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Grass_Boss.cpp">
+      <Filter>Scene\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Celebi.cpp">
+      <Filter>GameObject\Character\Grass\251. Celebi</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Water_01.cpp">
+      <Filter>Scene\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Water_Boss.cpp">
+      <Filter>Scene\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Fire_01.cpp">
+      <Filter>Scene\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldFire.cpp">
+      <Filter>GameObject\FieldFire</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Blaze.cpp">
+      <Filter>Skill\04. Blaze</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
     <ClCompile Include="MonsterAI.cpp">
       <Filter>Component\AI</Filter>

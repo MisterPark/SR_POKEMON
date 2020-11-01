@@ -63,7 +63,7 @@ namespace PKH
 		void ReleaseComponents();
 
 		IComponent* GetComponent(const wstring& _key);
-		Transform* GetTransform() { return transform; } //수정
+		Transform* GetTransform() const { return transform; } //수정
 
 
 	public:

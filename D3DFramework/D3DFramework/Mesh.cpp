@@ -36,8 +36,33 @@ void PKH::Mesh::Render()
 
 		device->SetTransform(D3DTS_WORLD, &transform->world);
 
-		
+		// Z Read 모드
+		switch (zReadMode)
+		{
+		case PKH::ZReadMode::ON:
+			device->SetRenderState(D3DRS_ZENABLE, TRUE);
+			break;
+		case PKH::ZReadMode::OFF:
+			device->SetRenderState(D3DRS_ZENABLE, FALSE);
+			break;
+		default:
+			break;
+		}
 
+		// Z Write 모드
+		switch (zWriteMode)
+		{
+		case PKH::ZWriteMode::ON:
+			device->SetRenderState(D3DRS_ZWRITEENABLE, TRUE);
+			break;
+		case PKH::ZWriteMode::OFF:
+			device->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+			break;
+		default:
+			break;
+		}
+
+		// 블렌드 모드
 		switch (blendMode)
 		{
 		case PKH::BlendMode::NONE:
@@ -83,6 +108,9 @@ void PKH::Mesh::Render()
 		default:
 			break;
 		}
+
+		device->SetRenderState(D3DRS_ZENABLE, TRUE);
+		device->SetRenderState(D3DRS_ZWRITEENABLE, TRUE);
 		
 	
 	}
@@ -142,4 +170,14 @@ void PKH::Mesh::SetUV(UINT index, float u, float v)
 void PKH::Mesh::SetBlendMode(BlendMode _mode)
 {
 	this->blendMode = _mode;
+}
+
+void PKH::Mesh::SetZReadMode(ZReadMode _mode)
+{
+	zReadMode = _mode;
+}
+
+void PKH::Mesh::SetZWriteMode(ZWriteMode _mode)
+{
+	zWriteMode = _mode;
 }

@@ -1,48 +1,61 @@
 #pragma once
 #include "GameObject.h"
 
-class Effect :
+class Effect:
 	public GameObject
 {
 public:
 	Effect();
-	Effect(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir);
 	virtual ~Effect();
 
+public:
 	// GameObject을(를) 통해 상속됨
+	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void Render() override;
-
-	virtual void Initialize() override;
 	virtual void Release() override;
 
-	// 카메라로 부터 텍스쳐 각도
-	float GetAngleFromCamera();
-	// 애니메이션 업데이트
-	void UpdateAnimation();
-	// 애니메이션 텍스쳐 설정
-	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame = -1);
-	// 방향없는 애니메이션 텍스쳐 설정
-	void SetAniTexture(State _state, TextureKey _beginTextureKey, int _aniFrame);
+public:
+	bool IsDie();
 
 public:
-	void SetDir(const Vector3& dir);
-	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
-	void MoveForward();
-	void ChangeState(State nextState);
+	/*
+	start : 텍스쳐 시작 번지, end : 텍스쳐 끝 번지
+	delay : 애니메이션 프레임 사이의 딜레이 값, plane : 눕힌 이펙트로 할 것인지
+	isBillY : billboardYaw를 사용할 것인지, loop : 반복되는 이펙트인지
+	lifeTime : 반복되는 이펙트라면 몇 초 동안 존재하는지, isMove : 움직이는 이펙트인지
+	speed : 움직이는 속도, dir : 움직이는 방향
+	*/
 	static Effect* Create(
 		const Vector3& pos,
-		const Vector3& scale,
-		const Vector3& dir);
+		const Vector3& size,
+		TextureKey start,
+		TextureKey end,
+		float delay,
+		bool plane = false,
+		bool isBillY = true,
+		float radianY = 0.f,
+		bool loop = false,
+		float lifeTime = 0.f,
+		bool isMove = false,
+		float speed = 0.f,
+		const Vector3& dir = { 0.f, 0.f, 1.f }
+	);
 
-public:
-	bool isBillboard = true;
-	bool isMove = false;
-	float isDeadTime = 0.f;
-	Vector3 direction = { 0,0,1 };;
-	Animation2D* anim = nullptr;
-	State state = State::IDLE;
-	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
-	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
+private:
+	Animation2D* anim;
+	Vector3 direction;
+
+	float animSpeed;
+	float lifeTime;
+
+	TextureKey startKey;
+	TextureKey endKey;
+
+	bool isBillboardY;
+	bool isMove;
+	bool isLoop;
+	bool isEnd;
+	bool isPlane;
 };
-

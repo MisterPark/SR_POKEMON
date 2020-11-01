@@ -3,7 +3,6 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water1.h"
-#include "Range.h"
 #include "Character.h"
 
 Poliwrath::Poliwrath()
@@ -186,7 +185,7 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 
 	b->isAlliance = false;
 
-	Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
+	/*Range* r = dynamic_cast<Range*>(ObjectManager::GetInstance()->CreateObject<Range>());
 	*(r->transform) = *PlayerT;
 	float size = 1.f;
 	r->transform->scale += {size, size, size};

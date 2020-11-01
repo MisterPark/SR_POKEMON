@@ -7,7 +7,9 @@ RenderFilter* pRenderFilter = nullptr;
 
 RenderFilter::RenderFilter()
 {
-    
+    //Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
+    //mesh->SetBlendMode(BlendMode::ALPHA_BLEND);
+    //mesh->SetTexture(TextureKey::BLUE_FILTER);
 }
 
 RenderFilter::~RenderFilter()
@@ -55,13 +57,16 @@ void RenderFilter::Render()
     GameObject* playerChar = Player::GetInstance()->GetCharacter();
     if (playerChar == nullptr)return;
 
+    Vector3 dir = Camera::GetInstance()->transform->look.Normalized();
     Vector3 pos = playerChar->transform->position;
     pos.y = water->transform->position.y;
     
     Vector3 screenPos = Camera::WorldToScreenPoint(pos);
     float yPos = screenPos.y;
 
+    if (Camera::GetInstance()->transform->position.y - 0.5f > water->transform->position.y) return;
 
     D2DRenderManager::DrawImage(TextureKey::BLUE_FILTER, 0, yPos, 100);
+    //GameObject::Render();
 }
 

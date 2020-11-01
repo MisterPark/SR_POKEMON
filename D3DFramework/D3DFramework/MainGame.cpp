@@ -138,14 +138,50 @@ void PKH::MainGame::Shutdown()
 void PKH::MainGame::LoadETCSprite()
 {
 	// 리소스 로드
-	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle.png");
+	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle2.png");
 
-	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\SKYBOX_U.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\SKYBOX_D.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_L, L"Texture\\SKYBOX_L.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_R, L"Texture\\SKYBOX_R.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\SKYBOX_F.png");
-	D2DRenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\SKYBOX_B.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_L, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_R, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_U, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_D, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_L, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_R, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_F, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYDAY_B, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_U, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_D, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_L, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_R, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_F, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYNIGHT_B, L"Texture\\ETC\\Skybox\\SkyNight\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_U, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_D, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_L, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_R, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_F, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SPACE1_B, L"Texture\\ETC\\Skybox\\Space1\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_U, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_D, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_L, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_R, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_F, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYFIRE1_B, L"Texture\\ETC\\Skybox\\SkyFire1\\SKYBOX_B.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_U, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_U.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_D, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_D.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_L, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_L.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_R, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_R.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_F, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_F.png");
+	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_B, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_B.png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BLUE_FILTER, L"Texture\\BlueFilter.png");
 
 	//눈물총알
@@ -184,12 +220,29 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_KICK_05, L"Texture\\Player\\Effect\\FireKick\\4.png");
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_KICK_06, L"Texture\\Player\\Effect\\FireKick\\5.png");
 
+	// 파이어 라운드
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_01, L"Texture\\Player\\Effect\\FireRound\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_02, L"Texture\\Player\\Effect\\FireRound\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_03, L"Texture\\Player\\Effect\\FireRound\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_04, L"Texture\\Player\\Effect\\FireRound\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_05, L"Texture\\Player\\Effect\\FireRound\\4.png");
+
+	// 필드 파이어
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_01, L"Texture\\Player\\Effect\\FieldFire\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_02, L"Texture\\Player\\Effect\\FieldFire\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_03, L"Texture\\Player\\Effect\\FieldFire\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_04, L"Texture\\Player\\Effect\\FieldFire\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_05, L"Texture\\Player\\Effect\\FieldFire\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_06, L"Texture\\Player\\Effect\\FieldFire\\5.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_07, L"Texture\\Player\\Effect\\FieldFire\\6.png");
+
 	// 불덩이총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_01, L"Texture\\Player\\Bullet\\Fire\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_02, L"Texture\\Player\\Bullet\\Fire\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_03, L"Texture\\Player\\Bullet\\Fire\\2.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_04, L"Texture\\Player\\Bullet\\Fire\\3.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_05, L"Texture\\Player\\Bullet\\Fire\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_06, L"Texture\\Player\\Bullet\\Fire\\5.png");
 
 	// 물대포총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER_01, L"Texture\\Player\\Bullet\\Water\\0.png");
@@ -390,6 +443,8 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::TREE02, L"Texture\\ETC\\Tree\\Tree (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE03, L"Texture\\ETC\\Tree\\Tree (3).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE04, L"Texture\\ETC\\Tree\\Tree (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE05, L"Texture\\ETC\\Tree\\Tree (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::TREE06, L"Texture\\ETC\\Tree\\Tree (6).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::PALMTREE01, L"Texture\\ETC\\PalmTree\\PalmTree (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::PALMTREE02, L"Texture\\ETC\\PalmTree\\PalmTree (2).png");
@@ -404,13 +459,21 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Grass.png");
 	D2DRenderManager::LoadSprite(TextureKey::WATER_MAP, L"Texture\\Sand.png");
 	D2DRenderManager::LoadSprite(TextureKey::BROOK_MAP, L"Texture\\Brook.png");
-
+	D2DRenderManager::LoadSprite(TextureKey::VOLCANO_MAP, L"Texture\\Volcano.png");
+	
 	//WATERENVIRONMENT
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_WATER_ENVIRONMENT, L"Texture\\WATER.png");
 	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT, L"Texture\\WATER2.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT, L"Texture\\Lava.png");
+
 
 	//
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT01, L"Texture\\WATER1.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT02, L"Texture\\WATER2.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT03, L"Texture\\WATER3.png");
 
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT01, L"Texture\\LAVA1.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT02, L"Texture\\LAVA2.png");
 }
 
 void PKH::MainGame::LoadUISprite()

@@ -15,6 +15,8 @@ namespace PKH
 		static void Show();
 		static void Hide();
 
+		static void SetTexture(TextureKey upTexture);
+
 		virtual void Update() override;
 		virtual void Initialize() override;
 		virtual void Release() override;

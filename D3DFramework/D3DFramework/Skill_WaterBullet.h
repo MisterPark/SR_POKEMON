@@ -9,7 +9,7 @@ public:
 	virtual ~Skill_WaterBullet();
 
 public:
-	virtual void Active(const Vector3& pos, const Vector3& dir) override;
+	virtual void Active(const Character* character) override;
 
 public:
 	static Skill* Create();

@@ -9,6 +9,17 @@ namespace PKH
 		ALPHA_BLEND,
 		ALPHA_TEST,
 	};
+
+	enum class ZReadMode
+	{
+		ON,
+		OFF
+	};
+	enum class ZWriteMode
+	{
+		ON,
+		OFF
+	};
 	class Mesh : public PKH::IComponent
 	{
 	public:
@@ -30,6 +41,8 @@ namespace PKH
 		void SetVertexPos(UINT index, const Vector3& pos);
 		void SetUV(UINT index, float u, float v);
 		void SetBlendMode(BlendMode _mode);
+		void SetZReadMode(ZReadMode _mode);
+		void SetZWriteMode(ZWriteMode _mode);
 
 	protected:
 		IDirect3DVertexBuffer9* vb = nullptr;
@@ -37,6 +50,8 @@ namespace PKH
 		UINT vertexCount;
 		UINT triangleCount;
 		BlendMode blendMode = BlendMode::NONE;
+		ZReadMode zReadMode = ZReadMode::ON;
+		ZWriteMode zWriteMode = ZWriteMode::ON;
 	public:
 		TextureKey textureKey = TextureKey::NONE;
 

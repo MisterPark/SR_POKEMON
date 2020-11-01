@@ -36,8 +36,8 @@ void Charmander::Initialize()
 
 	skillSet.reserve(2);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
 
 	UpdateAnimation();
 }
@@ -61,11 +61,12 @@ void Charmander::Attack(const Vector3 & dir, const int & attackType)
 	if (skillSet.size() <= attackType) return;
 	Vector3 pos = transform->position;
 
-	skillSet[attackType]->Active(pos, dir);
+	skillSet[attackType]->Active(this);
 
 	switch (attackType)
 	{
 	case 0: ChangeState(State::ATTACK); break;
+	case 1: ChangeState(State::ATTACK); break;
 	}
 }
 
