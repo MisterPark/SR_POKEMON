@@ -61,6 +61,7 @@ void RenderFilter::Render()
     Vector3 screenPos = Camera::WorldToScreenPoint(pos);
     float yPos = screenPos.y;
 
+    if (Camera::GetInstance()->transform->position.y - 0.5f > water->transform->position.y) return;
 
     D2DRenderManager::DrawImage(TextureKey::BLUE_FILTER, 0, yPos, 100);
 }
