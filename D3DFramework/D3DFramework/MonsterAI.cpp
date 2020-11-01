@@ -213,6 +213,37 @@ void MonsterAI::SetType(MonsterType _type)
 		searchRange[1] = 6.f;
 		searchRange[3] = 10.f;
 		break;
+	case MonsterType::PSYDUCK:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
+		break;
+		break;
+	case MonsterType::GOLDUCK:
+		break;
+	case MonsterType::POLIWAG:
+		break;
+	case MonsterType::POLIWRATH:
+		break;
+	case MonsterType::JYNX:
+		break;
+	case MonsterType::SUICUNE:
+		break;
+	case MonsterType::GROWLITHE:
+		break;
+	case MonsterType::ARCANINE:
+		break;
+	case MonsterType::PONYTA:
+		break;
+	case MonsterType::RAPIDISH:
+		break;
+	case MonsterType::SLUGMA:
+		break;
+	case MonsterType::MAGCARGO:
+		break;
+	case MonsterType::GROUDON:
+		break;
 	case MonsterType::END:
 		break;
 	default:
@@ -316,6 +347,32 @@ void MonsterAI::MonsterIdle() {
 			break;
 		case MonsterType::BUTTERFREE:
 			break;
+		case MonsterType::PSYDUCK:
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -344,6 +401,32 @@ void MonsterAI::MonsterIdle() {
 		case MonsterType::SCYTHER:
 			break;
 		case MonsterType::BUTTERFREE:
+			break;
+		case MonsterType::PSYDUCK:
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
 			break;
 		case MonsterType::END:
 			break;
@@ -473,7 +556,49 @@ void MonsterAI::MonsterWalk() {
 			else {				//if (disPlayer > 10.f)
 				MovePlayerFollow();
 			}
-			
+			break;
+		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[4] > 0.f) {
+					Time[4] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[4] = 0.f;
+					c->state = State::ATTACK;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
 			break;
 		case MonsterType::END:
 			break;
@@ -558,6 +683,38 @@ void MonsterAI::MonsterWalk() {
 			}
 			MoveRandomPattern(1.5f, 3);
 			
+			break;
+		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+
+			MoveRandomPattern(1.5f, 3);
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
 			break;
 		case MonsterType::END:
 			break;
@@ -716,6 +873,57 @@ void MonsterAI::MonsterAttack() {
 			}
 			
 			break;
+		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+				c->anim->SetDelay(0.3f);
+				readyPattern = false;
+			}
+
+			Time[1] += TimeManager::DeltaTime();
+			if (Frame[3] == 0 && Time[1] >= 0.3f) {
+
+				Frame[3] = 1;
+				if (Frame[1] % 2 == 1)
+					CrossBullet();
+				else
+					XBullet();
+			}
+			if (Time[1] >= 0.6f) {
+				Time[1] = 0.f;
+				Frame[1]++;
+				Frame[3] = 0;
+				if (Frame[1] == 3) {
+					Frame[1] = 0;
+					c->anim->SetDelay(0.2f);
+					c->state = State::WALK;
+					Time[4] = 3.f; //ÄðÅ¸ÀÓ
+				}
+			}
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -790,6 +998,88 @@ void MonsterAI::MonsterAttack() {
 			}
 
 			break;
+		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::POLIWAG:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::JYNX:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::PONYTA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::SLUGMA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+
+			break;
+
 		case MonsterType::END:
 			break;
 		default:
@@ -897,6 +1187,32 @@ void MonsterAI::MonsterSkill() {
 			}
 
 			break;
+		case MonsterType::PSYDUCK:
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -970,6 +1286,32 @@ void MonsterAI::MonsterSkill() {
 				readyPattern = false;
 			}
 
+			break;
+		case MonsterType::PSYDUCK:
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
 			break;
 		case MonsterType::END:
 			break;
@@ -1090,6 +1432,32 @@ void MonsterAI::MonsterSkill2() {
 			}
 
 			break;
+		case MonsterType::PSYDUCK:
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -1154,6 +1522,32 @@ void MonsterAI::MonsterSkill2() {
 
 			}
 
+			break;
+		case MonsterType::PSYDUCK:
+			break;
+		case MonsterType::GOLDUCK:
+			break;
+		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWRATH:
+			break;
+		case MonsterType::JYNX:
+			break;
+		case MonsterType::SUICUNE:
+			break;
+		case MonsterType::GROWLITHE:
+			break;
+		case MonsterType::ARCANINE:
+			break;
+		case MonsterType::PONYTA:
+			break;
+		case MonsterType::RAPIDISH:
+			break;
+		case MonsterType::SLUGMA:
+			break;
+		case MonsterType::MAGCARGO:
+			break;
+		case MonsterType::GROUDON:
 			break;
 		case MonsterType::END:
 			break;
