@@ -17,7 +17,7 @@ UI::~UI()
 void UI::Update()
 {
 	Camera* cam = Camera::GetInstance();
-	transform->position = cam->transform->position + (cam->transform->look);
+	transform->position = cam->transform->position + (cam->transform->look.Normalized());
 	GameObject::Update();
 	BillboardYaw();
 }

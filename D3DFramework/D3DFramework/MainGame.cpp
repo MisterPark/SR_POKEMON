@@ -138,7 +138,7 @@ void PKH::MainGame::Shutdown()
 void PKH::MainGame::LoadETCSprite()
 {
 	// 리소스 로드
-	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle.png");
+	D2DRenderManager::LoadSprite(TextureKey::TITLE_SCREEN, L"Texture\\pokeTitle2.png");
 
 	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\SKYBOX_U.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\SKYBOX_D.png");
