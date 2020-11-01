@@ -5,4 +5,5 @@ enum class SkillName
 	LeafBullet,
 	FireBullet,
 	WaterBullet,
+	Blaze,
 };

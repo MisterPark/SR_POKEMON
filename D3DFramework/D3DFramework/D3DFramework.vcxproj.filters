@@ -190,6 +190,12 @@
     <Filter Include="GameObject\Character\Grass\251. Celebi">
       <UniqueIdentifier>{d0b18ac2-5cdd-4300-a5d7-a294e35eb6dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\FieldFire">
+      <UniqueIdentifier>{9e7a670f-1de0-46d3-82e1-3f7b7a2b10d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\04. Blaze">
+      <UniqueIdentifier>{26aae199-57ad-4c31-b63c-308ca6046004}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -470,6 +476,12 @@
     </ClInclude>
     <ClInclude Include="Stage_Fire_01.h">
       <Filter>Scene\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldFire.h">
+      <Filter>GameObject\FieldFire</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Blaze.h">
+      <Filter>Skill\04. Blaze</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -767,9 +779,6 @@
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Effect</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerBullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
@@ -870,6 +879,12 @@
     </ClCompile>
     <ClCompile Include="Stage_Fire_01.cpp">
       <Filter>Scene\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldFire.cpp">
+      <Filter>GameObject\FieldFire</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Blaze.cpp">
+      <Filter>Skill\04. Blaze</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

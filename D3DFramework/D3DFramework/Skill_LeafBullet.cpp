@@ -10,9 +10,11 @@ Skill_LeafBullet::~Skill_LeafBullet()
 {
 }
 
-void Skill_LeafBullet::Active(const Vector3& pos, const Vector3& dir)
+void Skill_LeafBullet::Active(const Character* character)
 {
-	// 스킬 사용 시 생성할 이펙트와 충돌체 등등
+	Vector3 pos = character->transform->position;
+	Vector3 dir = character->direction;
+
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF);
 	ObjectManager::AddObject(bullet);
 }
