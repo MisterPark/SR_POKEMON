@@ -23,6 +23,10 @@ void PKH::GameObject::Update()
 	}
 }
 
+void PKH::GameObject::PostUpdate()
+{
+}
+
 void PKH::GameObject::Render()
 {
 	if (isVisible == false) return;

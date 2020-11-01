@@ -116,6 +116,7 @@ void PKH::ObjectManager::PostUpdate()
 		}
 		else
 		{
+			target->PostUpdate();
 			++iter;
 		}
 	}

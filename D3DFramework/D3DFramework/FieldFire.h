@@ -13,6 +13,7 @@ public:
 	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void Release() override;
+	virtual void OnCollision(GameObject* target) override;
 
 public:
 	void CalcLifeTime();

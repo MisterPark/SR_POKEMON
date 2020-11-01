@@ -60,6 +60,15 @@ void FieldFire::Release()
 {
 }
 
+void FieldFire::OnCollision(GameObject * target)
+{
+	if (target->isAlliance == this->isAlliance) return;
+
+	lifeTime = -1.f;
+	ChangeState(State::ATTACK);
+	att = 0;
+}
+
 void FieldFire::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();

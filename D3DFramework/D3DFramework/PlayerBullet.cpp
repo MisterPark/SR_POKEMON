@@ -16,6 +16,7 @@ PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& t
 
 	moveSpeed = 10.f;
 	lifeTime = 1.2f;
+	isCollision = false;
 
 	InitByType();
 }
@@ -41,6 +42,7 @@ void PlayerBullet::InitByType()
 	case FIRE:
 		transform->scale = { 0.2f, 0.2f, 0.2f };
 		SetTexture(State::IDLE, TextureKey::BULLET_FIRE_01, 5);
+		SetTexture(State::HURT, TextureKey::FIRE_EXPLOSION_01, 8);
 		break;
 
 	case WATER:
@@ -60,6 +62,7 @@ void PlayerBullet::InitByType()
 void PlayerBullet::Update()
 {
 	if (true == isDead) return;
+	if (IsEndColl()) isDead = true;
 
 	Bullet::Update();
 
@@ -73,11 +76,55 @@ void PlayerBullet::Render()
 
 void PlayerBullet::OnCollision(GameObject* target)
 {
+	if (isCollision) return;
     if (target->isAlliance == this->isAlliance) {
         return;
     }
 
-    isDead = true;
+	CollSetByType();
+}
+
+void PlayerBullet::CollSetByType()
+{
+	isCollision = true;
+	att = 0;
+	state = State::HURT;
+	moveSpeed = 0.f;
+
+	switch (bulletType)
+	{
+	case PlayerBullet::LEAF:
+		break;
+	case PlayerBullet::FIRE:
+		transform->scale = { 0.5f, 0.5f, 0.5f };
+		anim->SetDelay(0.03f);
+		anim->SetLoop(false);
+		break;
+	case PlayerBullet::WATER:
+		break;
+	}
+	//UpdateAnimation();
+}
+
+bool PlayerBullet::IsEndColl()
+{
+	bool ret = false;
+
+	if (isCollision)
+	{
+		switch (bulletType)
+		{
+		case PlayerBullet::LEAF:
+			break;
+		case PlayerBullet::FIRE:
+			if (anim->GetCurrentSprite() == TextureKey::FIRE_EXPLOSION_08) ret = true;
+			break;
+		case PlayerBullet::WATER:
+			break;
+		}
+	}
+
+	return ret;
 }
 
 void PlayerBullet::CalcLifeTime()

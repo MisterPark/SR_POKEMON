@@ -16,6 +16,8 @@ public:
     virtual void Update() override;
     virtual void Render() override;
     virtual void OnCollision(GameObject* target) override;
+	void CollSetByType();
+	bool IsEndColl();
 
 public:
 	void CalcLifeTime();
@@ -23,4 +25,5 @@ public:
 private:
 	Type bulletType;
 	float lifeTime;
+	bool isCollision;
 };
