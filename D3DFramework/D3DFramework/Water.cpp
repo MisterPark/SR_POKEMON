@@ -16,7 +16,7 @@ Water::~Water()
 void Water::Initialize()
 {
 	terrain = (Terrain*)AddComponent<PKH::Terrain>(L"Mesh");
-	
+	terrain->SetBlendMode(BlendMode::ALPHA_TEST);
 	
 
 	/*terrain->LoadHeightMap("Texture\\Height2_2.bmp");*/

@@ -46,6 +46,8 @@ namespace PKH
 		Vector3 up = Vector3::UP;
 		Vector3 look = Vector3::FORWARD;
 		Matrix world;
+
+		float zOrder = 0.f;
 	};
 }
 

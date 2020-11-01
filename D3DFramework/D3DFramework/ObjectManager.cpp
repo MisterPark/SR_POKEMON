@@ -2,6 +2,7 @@
 #include "ObjectManager.h"
 #include "SkyBox.h"
 #include "Cursor.h"
+#include "RenderFilter.h"
 
 using namespace PKH;
 
@@ -12,12 +13,14 @@ PKH::ObjectManager::ObjectManager()
 {
 	SkyBox::GetInstance();
 	Cursor::GetInstance();
+	RenderFilter::GetInstance();
 }
 
 PKH::ObjectManager::~ObjectManager()
 {
 	SkyBox::Destroy();
 	Cursor::Destroy();
+	RenderFilter::Destroy();
 
 	Release();
 }
@@ -93,6 +96,7 @@ void PKH::ObjectManager::Update()
 
 	SkyBox::GetInstance()->Update();
 	Cursor::GetInstance()->Update();
+	RenderFilter::GetInstance()->Update();
 }
 
 void PKH::ObjectManager::PostUpdate()
@@ -145,8 +149,8 @@ void PKH::ObjectManager::Render()
 		pObjectManager->renderList.push_back(iter);
 	}
 
-	// y값으로 정렬
-	pObjectManager->renderList.sort(Compare);
+	// z값으로 정렬
+	pObjectManager->renderList.sort(CompareZ);
 	// 오브젝트 렌더링
 	for (auto& obj : pObjectManager->renderList)
 	{
@@ -168,13 +172,18 @@ void PKH::ObjectManager::PostRender()
 		iter->PostRender();
 	}
 
-
+	RenderFilter::GetInstance()->Render();
 	Cursor::GetInstance()->Render();
 }
 
-bool PKH::ObjectManager::Compare(GameObject* a, GameObject* b)
+bool PKH::ObjectManager::CompareY(GameObject* a, GameObject* b)
 {
 	return a->transform->position.y < b->transform->position.y;
+}
+
+bool PKH::ObjectManager::CompareZ(GameObject* a, GameObject* b)
+{
+	return a->transform->zOrder > b->transform->zOrder;
 }
 
 bool PKH::ObjectManager::IsVisibleCollider()

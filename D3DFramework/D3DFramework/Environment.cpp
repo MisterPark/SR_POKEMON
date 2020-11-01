@@ -27,3 +27,11 @@ void Environment::Update()
 {
 	GameObject::Update();
 }
+
+void Environment::Render()
+{
+	
+	GameObject::Render();
+	
+	
+}

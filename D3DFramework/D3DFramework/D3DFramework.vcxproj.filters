@@ -151,6 +151,9 @@
     <Filter Include="Skill\01. LeafBullet">
       <UniqueIdentifier>{df5f8ce9-0544-4767-a4db-865dea6e665b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{6256dccd-0b4d-4f31-b432-2a6b3d8573e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -175,9 +178,6 @@
       <Filter>Lib\Manager</Filter>
     </ClInclude>
     <ClInclude Include="Vector3.h">
-      <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
       <Filter>Lib</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
@@ -405,6 +405,10 @@
     <ClInclude Include="targetver.h">
       <Filter>99. Defaults</Filter>
     </ClInclude>
+    <ClInclude Include="RenderFilter.h" />
+    <ClInclude Include="Transform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
     <ClInclude Include="Skill_WaterBullet.h">
       <Filter>Skill\03. WaterBullet</Filter>
     </ClInclude>
@@ -438,9 +442,6 @@
       <Filter>Lib\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Vector3.cpp">
-      <Filter>Lib</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
       <Filter>Lib</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
@@ -785,12 +786,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>99. Defaults</Filter>
     </ClCompile>
-    <ClCompile Include="D3DFramework.cpp">
-      <Filter>99. Defaults</Filter>
-    </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>99. Defaults</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_WaterBullet.cpp">
       <Filter>Skill\03. WaterBullet</Filter>
     </ClCompile>
@@ -799,6 +794,12 @@
     </ClCompile>
     <ClCompile Include="Skill_FireBullet.cpp">
       <Filter>Skill\02. FireBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="RenderFilter.cpp" />
+    <ClCompile Include="Transform.cpp">
+      <Filter>Component\Transform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -74,6 +74,7 @@ namespace PKH
 		bool isVisible = true;
 		bool isEnable = true;
 		bool isAlliance = true;
+		
 
 		map<wstring, PKH::IComponent*> components;
 

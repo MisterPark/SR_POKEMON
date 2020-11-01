@@ -33,19 +33,33 @@ void PKH::Mesh::Render()
 		device->SetFVF(Vertex::FVF);
 		device->SetIndices(triangles);
 
-		
 
 		device->SetTransform(D3DTS_WORLD, &transform->world);
 
+		
+
+		switch (blendMode)
+		{
+		case PKH::BlendMode::NONE:
+			break;
+		case PKH::BlendMode::ALPHA_BLEND:
+			device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+
+			device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+			device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+			break;
+		case PKH::BlendMode::ALPHA_TEST:
+			device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+
+			device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+			device->SetRenderState(D3DRS_ALPHAREF, 0x00000088);
+			device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
+			break;
+		default:
+			break;
+		}
+		
 		device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
-		device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
-
-		//device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-		//device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
-		device->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-		device->SetRenderState(D3DRS_ALPHAREF, 0x00000088);
-		device->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATER);
-
 
 		device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 		device->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
@@ -54,7 +68,22 @@ void PKH::Mesh::Render()
 		device->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, vertexCount, 0, triangleCount);
 	
 		device->SetTexture(0, NULL);
-		device->SetRenderState(D3DRS_ALPHABLENDENABLE, FALSE);
+
+		switch (blendMode)
+		{
+		case PKH::BlendMode::NONE:
+			break;
+		case PKH::BlendMode::ALPHA_BLEND:
+			device->SetRenderState(D3DRS_ALPHABLENDENABLE, FALSE);
+			break;
+		case PKH::BlendMode::ALPHA_TEST:
+			device->SetRenderState(D3DRS_ALPHABLENDENABLE, FALSE);
+			device->SetRenderState(D3DRS_ALPHATESTENABLE, FALSE);
+			break;
+		default:
+			break;
+		}
+		
 	
 	}
 }
@@ -108,4 +137,9 @@ void PKH::Mesh::SetUV(UINT index, float u, float v)
 	vertices[index].u = u;
 	vertices[index].v = v;
 	vb->Unlock();
+}
+
+void PKH::Mesh::SetBlendMode(BlendMode _mode)
+{
+	this->blendMode = _mode;
 }
