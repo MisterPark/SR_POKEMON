@@ -11,9 +11,11 @@ Skill_WaterBullet::~Skill_WaterBullet()
 {
 }
 
-void Skill_WaterBullet::Active(const Vector3& pos, const Vector3& dir)
+void Skill_WaterBullet::Active(const Character* character)
 {
-	// 스킬 사용 시 생성할 이펙트와 충돌체 등등
+	Vector3 pos = character->transform->position;
+	Vector3 dir = character->direction;
+
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER);
 	ObjectManager::AddObject(bullet);
 

@@ -184,12 +184,29 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_KICK_05, L"Texture\\Player\\Effect\\FireKick\\4.png");
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_KICK_06, L"Texture\\Player\\Effect\\FireKick\\5.png");
 
+	// 파이어 라운드
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_01, L"Texture\\Player\\Effect\\FireRound\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_02, L"Texture\\Player\\Effect\\FireRound\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_03, L"Texture\\Player\\Effect\\FireRound\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_04, L"Texture\\Player\\Effect\\FireRound\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_ROUND_05, L"Texture\\Player\\Effect\\FireRound\\4.png");
+
+	// 필드 파이어
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_01, L"Texture\\Player\\Effect\\FieldFire\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_02, L"Texture\\Player\\Effect\\FieldFire\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_03, L"Texture\\Player\\Effect\\FieldFire\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_04, L"Texture\\Player\\Effect\\FieldFire\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_05, L"Texture\\Player\\Effect\\FieldFire\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_06, L"Texture\\Player\\Effect\\FieldFire\\5.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIELD_FIRE_07, L"Texture\\Player\\Effect\\FieldFire\\6.png");
+
 	// 불덩이총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_01, L"Texture\\Player\\Bullet\\Fire\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_02, L"Texture\\Player\\Bullet\\Fire\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_03, L"Texture\\Player\\Bullet\\Fire\\2.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_04, L"Texture\\Player\\Bullet\\Fire\\3.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_05, L"Texture\\Player\\Bullet\\Fire\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE_06, L"Texture\\Player\\Bullet\\Fire\\5.png");
 
 	// 물대포총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER_01, L"Texture\\Player\\Bullet\\Water\\0.png");

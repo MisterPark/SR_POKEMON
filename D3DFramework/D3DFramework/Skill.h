@@ -1,5 +1,6 @@
 #pragma once
 #include "SkillName.h"
+#include "Character.h"
 
 class Skill abstract
 {
@@ -8,5 +9,5 @@ public:
 	virtual ~Skill();
 
 public:
-	virtual void Active(const Vector3& pos, const Vector3& dir) = 0;
+	virtual void Active(const Character* character) = 0;
 };
