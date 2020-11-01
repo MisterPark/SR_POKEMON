@@ -43,7 +43,7 @@ void Stage_Water_01::OnLoaded()
 
 	Set_Stage_Water_01_Map(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
 
-	ObjectManager::GetInstance()->CreateObject<Caterpie>();
+	
 
 
 

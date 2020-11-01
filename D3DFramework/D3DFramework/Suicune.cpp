@@ -21,7 +21,7 @@ Suicune::Suicune()
 	offsetY = 1.f;
 	state = State::READY;
 	moveSpeed = 1.f;
-	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	Character::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 }
 
 Suicune::~Suicune()
@@ -30,15 +30,16 @@ Suicune::~Suicune()
 
 void Suicune::Update()
 {
-	Pattern();
-	Monster::Update();
+	//Pattern();
+	Character::Update();
 }
 
 void Suicune::Render()
 {
-	Monster::Render();
+	Character::Render();
 }
 
+/*
 void Suicune::Pattern()
 {
 	GameObject* g = Player::GetInstance()->GetCharacter();
@@ -199,3 +200,4 @@ void Suicune::CreateBullet(Transform* PlayerT)
 	}
 }
 
+*/

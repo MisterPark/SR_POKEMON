@@ -33,6 +33,7 @@ namespace PKH
 		virtual void Initialize() = 0;
 		virtual void Release() = 0;
 		virtual void Update() = 0;
+		virtual void PostUpdate();
 		virtual void Render();
 		virtual void Die();
 		virtual void OnCollision(GameObject* target);

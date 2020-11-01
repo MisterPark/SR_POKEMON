@@ -19,7 +19,7 @@ Poliwrath::Poliwrath()
 	offsetY = 1.f;
 	state = State::READY;
 	moveSpeed = 1.f;
-	Monster::Update();
+	Character::Update();
 }
 
 Poliwrath::~Poliwrath()
@@ -28,14 +28,16 @@ Poliwrath::~Poliwrath()
 
 void Poliwrath::Update()
 {
-	Pattern();
-	Monster::Update();
+	//Pattern();
+	Character::Update();
 }
 
 void Poliwrath::Render()
 {
-	Monster::Render();
+	Character::Render();
 }
+
+/*
 
 void Poliwrath::Pattern()
 {
@@ -187,8 +189,9 @@ void Poliwrath::CreateBullet(Transform* PlayerT)
 	*(r->transform) = *PlayerT;
 	float size = 1.f;
 	r->transform->scale += {size, size, size};
-	r->transform->eulerAngles.x = D3DXToRadian(90);*/
-	/*r->transform->eulerAngles.x = D3DXToRadian(90);*/
+	r->transform->eulerAngles.x = D3DXToRadian(90);
+	//r->transform->eulerAngles.x = D3DXToRadian(90);
 		
 }
 
+*/

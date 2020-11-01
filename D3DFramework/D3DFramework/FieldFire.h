@@ -5,7 +5,7 @@ class FieldFire :
 {
 public:
 	FieldFire();
-	FieldFire(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float lifeTime, int att);
+	FieldFire(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float lifeTime, float att);
 	virtual ~FieldFire();
 
 public:
@@ -13,12 +13,13 @@ public:
 	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void Release() override;
+	virtual void OnCollision(GameObject* target) override;
 
 public:
 	void CalcLifeTime();
 	void ChangeState(State nextState);
 	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame);
-
+	float GetAtt() { return att; }
 public:
 	static FieldFire* Create(
 		const Vector3& pos,
@@ -26,7 +27,7 @@ public:
 		TextureKey start,
 		TextureKey end,
 		float lifeTime = 3.f,
-		int att = 10
+		float att = 2.f
 	);
 
 private:
@@ -36,6 +37,6 @@ private:
 	TextureKey endArray[MaxOfEnum<State>()];
 	float lifeTime;
 	State state;
-	int att;
+	float att;
 };
 

@@ -37,8 +37,8 @@ public:
 
 public:
 	wstring name;
-	int hp;
-	int att;
+	float hp;
+	float att;
     // 지형과 간격
     float offsetY;
 	Vector3 direction = { 0,0,1 };

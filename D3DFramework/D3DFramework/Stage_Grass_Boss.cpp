@@ -40,8 +40,10 @@ void Stage_Grass_Boss::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 47.f;
 	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp", 3.5f);
 
-	ObjectManager::GetInstance()->CreateObject<Scyther>();
-
+	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
+	ObjectManager::AddObject(monsterCharacter5);
 
 }
 
@@ -82,6 +84,7 @@ void Stage_Grass_Boss::Set_Stage_Grass_Boss_Map(TextureKey _key, const std::stri
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x += 19.f + 2 * i;
 		tree->transform->position.z += 8.5f;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE06;
 	}
 	//≥Ù¿Ã∏  ±‚¡ÿ øﬁ¬ 
 	for (int i = 0; i < 16; i++)
@@ -89,28 +92,28 @@ void Stage_Grass_Boss::Set_Stage_Grass_Boss_Map(TextureKey _key, const std::stri
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x += 7.f;
 		tree->transform->position.z += 14.f + 2 * i;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE05;
 	}
 
 	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	tree->transform->position.x = 32.f;
 	tree->transform->position.z += 48.f - 2.f;
-	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE05;
 	tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	tree->transform->position.x = 35.f;
 	tree->transform->position.z += 48.f - 7.f;
-	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE06;
 	tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	tree->transform->position.x = 38.f;
 	tree->transform->position.z += 48.f - 12.f;
-	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE02;
+	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE05;
 	tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	tree->transform->position.x = 43.f;
 	tree->transform->position.z += 48.f - 15.f;
-	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE06;
 	tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	tree->transform->position.x = 46.f;
 	tree->transform->position.z += 48.f - 17.f;
-	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE05;
 
 }

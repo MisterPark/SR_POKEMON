@@ -196,6 +196,9 @@
     <Filter Include="Skill\04. Blaze">
       <UniqueIdentifier>{26aae199-57ad-4c31-b63c-308ca6046004}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Component\AI">
+      <UniqueIdentifier>{b8a3617e-caf2-4354-8871-6cc77514c547}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -485,6 +488,12 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterAI.h">
+      <Filter>Component\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Web.h">
+      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -891,6 +900,12 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterAI.cpp">
+      <Filter>Component\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Web.cpp">
+      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

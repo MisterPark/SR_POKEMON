@@ -13,6 +13,7 @@ public:
 
 public:
 	void Update();
+	void PostUpdate();
 
 public:
 	// Setter

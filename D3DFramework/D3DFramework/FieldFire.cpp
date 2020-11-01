@@ -6,7 +6,7 @@ FieldFire::FieldFire()
 {
 }
 
-FieldFire::FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, float lifeTime, int att) :
+FieldFire::FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, float lifeTime, float att) :
 	lifeTime(lifeTime), att(att)
 {
 	transform->position = pos;
@@ -60,6 +60,15 @@ void FieldFire::Release()
 {
 }
 
+void FieldFire::OnCollision(GameObject * target)
+{
+	if (target->isAlliance == this->isAlliance) return;
+
+	lifeTime = -1.f;
+	ChangeState(State::ATTACK);
+	att = 0;
+}
+
 void FieldFire::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();
@@ -85,7 +94,7 @@ void FieldFire::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFr
 	endArray[(int)_state] = (TextureKey)((int)_beginTextureKey + (_aniFrame - 1));
 }
 
-FieldFire * FieldFire::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float lifeTime, int att)
+FieldFire * FieldFire::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float lifeTime, float att)
 {
 	FieldFire* instance = new FieldFire(pos, size, start, end, lifeTime, att);
 	return instance;

@@ -46,6 +46,16 @@ void Player::Update()
 	}
 }
 
+void Player::PostUpdate()
+{
+	Vector3* pos = character->transform->Get_Pos();
+
+	if (0.f > pos->x) pos->x = 0.f;
+	if (dfTERRAIN_WIDTH - 1 < pos->x) pos->x = dfTERRAIN_WIDTH - 1;
+	if (0.f > pos->z) pos->z = 0.f;
+	if (dfTERRAIN_HEIGHT - 1 < pos->z) pos->z = dfTERRAIN_HEIGHT - 1;
+}
+
 void Player::SetCharacter(Character * object)
 {
 	character = object;
@@ -124,7 +134,7 @@ void Player::Attack()
 			character->SetDir(dir);
 			character->Attack(dir, 1);
 
-			skillCoolTime = 0.4f;
+			skillCoolTime = 0.6f;
 			isSkill = true;
 		}
 	}
@@ -157,72 +167,76 @@ void Player::KeyInput()
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
-	if (InputManager::GetKey('W'))
+	if (!isAttack && !isSkill)
 	{
-		isKeyDown = true;
 
-		if (InputManager::GetKey('A'))
+		if (InputManager::GetKey('W'))
 		{
-			moveSpeed = 5.f / sqrt(2.f);
-			character->SetDir(character->transform->look - character->transform->right);
+			isKeyDown = true;
+
+			if (InputManager::GetKey('A'))
+			{
+				moveSpeed = 5.f / sqrt(2.f);
+				character->SetDir(character->transform->look - character->transform->right);
+			}
+			else if (InputManager::GetKey('D'))
+			{
+				moveSpeed = 5.f / sqrt(2.f);
+				character->SetDir(character->transform->look + character->transform->right);
+			}
+			else
+			{
+				character->SetDir(character->transform->look);
+			}
+
+			character->SetMoveSpeed(moveSpeed);
+			character->MoveForward();
+			ChangeState(State::WALK);
+		}
+		else if (InputManager::GetKey('S'))
+		{
+			isKeyDown = true;
+
+			if (InputManager::GetKey('A'))
+			{
+				moveSpeed = 5.f / sqrt(2.f);
+				character->SetDir(-character->transform->look - character->transform->right);
+			}
+			else if (InputManager::GetKey('D'))
+			{
+				moveSpeed = 5.f / sqrt(2.f);
+				character->SetDir(-character->transform->look + character->transform->right);
+			}
+			else
+			{
+				character->SetDir(-character->transform->look);
+			}
+
+			character->SetMoveSpeed(moveSpeed);
+			character->MoveForward();
+			ChangeState(State::WALK);
+		}
+		else if (InputManager::GetKey('A'))
+		{
+			isKeyDown = true;
+			character->SetDir(-character->transform->right);
+			character->SetMoveSpeed(moveSpeed);
+			character->MoveForward();
+			ChangeState(State::WALK);
 		}
 		else if (InputManager::GetKey('D'))
 		{
-			moveSpeed = 5.f / sqrt(2.f);
-			character->SetDir(character->transform->look + character->transform->right);
-		}
-		else
-		{
-			character->SetDir(character->transform->look);
-		}
-
-		character->SetMoveSpeed(moveSpeed);
-		character->MoveForward();
-		ChangeState(State::WALK);
-	}
-	else if (InputManager::GetKey('S'))
-	{
-		isKeyDown = true;
-
-		if (InputManager::GetKey('A'))
-		{
-			moveSpeed = 5.f / sqrt(2.f);
-			character->SetDir(-character->transform->look - character->transform->right);
-		}
-		else if (InputManager::GetKey('D'))
-		{
-			moveSpeed = 5.f / sqrt(2.f);
-			character->SetDir(-character->transform->look + character->transform->right);
-		}
-		else
-		{
-			character->SetDir(-character->transform->look);
+			isKeyDown = true;
+			character->SetDir(character->transform->right);
+			character->SetMoveSpeed(moveSpeed);
+			character->MoveForward();
+			ChangeState(State::WALK);
 		}
 
-		character->SetMoveSpeed(moveSpeed);
-		character->MoveForward();
-		ChangeState(State::WALK);
-	}
-	else if (InputManager::GetKey('A'))
-	{
-		isKeyDown = true;
-		character->SetDir(-character->transform->right);
-		character->SetMoveSpeed(moveSpeed);
-		character->MoveForward();
-		ChangeState(State::WALK);
-	}
-	else if (InputManager::GetKey('D'))
-	{
-		isKeyDown = true;
-		character->SetDir(character->transform->right);
-		character->SetMoveSpeed(moveSpeed);
-		character->MoveForward();
-		ChangeState(State::WALK);
-	}
-
-	if (!isKeyDown)
-	{
-		ChangeState(State::IDLE);
+		if (!isKeyDown)
+		{
+			ChangeState(State::IDLE);
+		}
 	}
 
 	if (InputManager::GetKeyDown('Q'))

@@ -161,6 +161,7 @@
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Water.h" />
     <ClInclude Include="Bullet_Water1.h" />
+    <ClInclude Include="Bullet_Web.h" />
     <ClInclude Include="Butterfree.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Metapod.h" />
     <ClInclude Include="Monster.h" />
+    <ClInclude Include="MonsterAI.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Oddish.h" />
@@ -258,6 +260,7 @@
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Bullet_Water1.cpp" />
+    <ClCompile Include="Bullet_Web.cpp" />
     <ClCompile Include="Butterfree.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -292,6 +295,7 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Metapod.cpp" />
     <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="MonsterAI.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Oddish.cpp" />

@@ -32,6 +32,8 @@
 #include "Suicune.h"
 #include "Golduck.h"
 
+#include "MonsterAI.h"
+
 #include "Water.h"
 #include "Tree.h"
 #include "Stage_Grass_01.h"
@@ -59,8 +61,53 @@ void TestScene::OnLoaded()
 	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
 	/*SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 0.f);*/
 	SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",-0.1f);
+	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 4.05f);
+	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp",3.5f);
 
-	ObjectManager::GetInstance()->CreateObject<Scyther>();
+	Butterfree* monsterCharacter = Butterfree::Create(Vector3(5.f, 0.f, 7.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
+	ObjectManager::AddObject(monsterCharacter);
+
+	Oddish* monsterCharacter2 = Oddish::Create(Vector3(15.f, 0.f, 9.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter2->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter2->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter2->monsterAI->SetType(MonsterType::ODDISH);
+	ObjectManager::AddObject(monsterCharacter2);
+
+	Metapod* monsterCharacter3 = Metapod::Create(Vector3(25.f, 0.f, 6.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter3->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter3->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter3->monsterAI->SetType(MonsterType::METAPOD);
+	ObjectManager::AddObject(monsterCharacter3);
+
+	Caterpie* monsterCharacter6 = Caterpie::Create(Vector3(42.f, 0.f, 26.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter6->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter6->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter6->monsterAI->SetType(MonsterType::CATERPIE);
+	ObjectManager::AddObject(monsterCharacter6);
+	//
+	Butterfree* monsterCharacter7 = Butterfree::Create(Vector3(35.f, 0.f, 27.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter7->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter7->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter7->monsterAI->SetType(MonsterType::BUTTERFREE);
+	ObjectManager::AddObject(monsterCharacter7);
+
+	Oddish* monsterCharacter8 = Oddish::Create(Vector3(25.f, 0.f, 15.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter8->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter8->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter8->monsterAI->SetType(MonsterType::ODDISH);
+	ObjectManager::AddObject(monsterCharacter8);
+
+	Metapod* monsterCharacter9 = Metapod::Create(Vector3(35.f, 0.f, 25.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter9->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter9->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter9->monsterAI->SetType(MonsterType::METAPOD);
+	ObjectManager::AddObject(monsterCharacter9);
+
+	Vileplume* monsterCharacter10 = Vileplume::Create(Vector3(25.f, 0.f, 35.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter10->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter10->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter10->monsterAI->SetType(MonsterType::VILEPLUME);
+	ObjectManager::AddObject(monsterCharacter10);
+
+	Caterpie* monsterCharacter11 = Caterpie::Create(Vector3(35.f, 0.f, 42.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter11->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter11->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter11->monsterAI->SetType(MonsterType::CATERPIE);
+	ObjectManager::AddObject(monsterCharacter11);
 	
 	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;

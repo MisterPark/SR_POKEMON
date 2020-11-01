@@ -32,6 +32,16 @@ void Stage_Grass_01::OnLoaded()
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
+	Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
+	ObjectManager::AddObject(monsterCharacter4);
+
+	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
+	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
+	monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
+	ObjectManager::AddObject(monsterCharacter5);
+
 	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
 	playerCharacter->direction = { 1.f,0.f,1.f };
 
@@ -41,7 +51,6 @@ void Stage_Grass_01::OnLoaded()
 
 	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Lake.bmp", 3.5f);
 
-	ObjectManager::GetInstance()->CreateObject<Caterpie>();
 
 
 
@@ -80,31 +89,32 @@ void Stage_Grass_01::Set_Stage_Grass_01_Map(TextureKey _key, const std::string& 
 	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
 
 	//³ª¹«
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 15.f + 2 * i;
+		tree->transform->position.x += 15.f + 4 * i;
 		tree->transform->position.z += 41.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE06;
 	}
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 15.f + 2 * i;
+		tree->transform->position.x += 15.f + 4 * i;
 		tree->transform->position.z += 6.f;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE06;
 	}
 	for (int i = 0; i < 16; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x += 6.f;
 		tree->transform->position.z += 8.f + 2 * i;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE05;
 	}
 	for (int i = 0; i < 6; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x += 45.f;
 		tree->transform->position.z += 16.f + 2 * i;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE05;
 	}
 }

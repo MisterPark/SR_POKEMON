@@ -13,9 +13,9 @@ Bullet_Tornado::Bullet_Tornado()
     anim->SetLoop(true);
     anim->SetDelay(0.05f);
 
-    transform->scale.x *= 0.3f;
-    transform->scale.y *= 0.6f;
-    transform->scale.z *= 0.3f;
+    transform->scale.x = 0.9f;
+    transform->scale.y = 1.8f;
+    transform->scale.z = 0.9f;
 
     isDeadTime = 6.f;
     moveSpeed = 2.f;
@@ -23,8 +23,7 @@ Bullet_Tornado::Bullet_Tornado()
     rotateMoveX = 1.f;
     rotateMoveZ = 0.f;
     isOnTerrain = true;
-    offsetY = 1.6f;
-    //transform->position.y += transform->scale.y * 1.f;
+    offsetY = 1.8f;
 }
 
 Bullet_Tornado::~Bullet_Tornado()
@@ -33,7 +32,6 @@ Bullet_Tornado::~Bullet_Tornado()
 
 void Bullet_Tornado::Update()
 {
-
     Bullet::Update();
     RotateMove();
     if (Time[1] < 0.8f) {
