@@ -132,6 +132,8 @@ void PKH::ObjectManager::PreRender()
 
 void PKH::ObjectManager::Render()
 {
+	SkyBox::GetInstance()->Render();
+
 	pObjectManager->renderList.clear();
 
 	Vector3 camPos = Camera::GetPosition();
@@ -157,7 +159,7 @@ void PKH::ObjectManager::Render()
 		obj->Render();
 	}
 	
-	SkyBox::GetInstance()->Render();
+	
 	
 	// 디버그용
 	//TimeManager::RenderFPS();

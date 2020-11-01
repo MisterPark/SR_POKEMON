@@ -471,6 +471,9 @@
     <ClInclude Include="Stage_Fire_01.h">
       <Filter>Scene\Fire</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -767,9 +770,6 @@
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
-    <ClCompile Include="Range.cpp">
-      <Filter>GameObject\Effect</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerBullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
@@ -870,6 +870,9 @@
     </ClCompile>
     <ClCompile Include="Stage_Fire_01.cpp">
       <Filter>Scene\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

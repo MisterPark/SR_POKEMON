@@ -147,6 +147,8 @@ bool PKH::Terrain::GetYFromPoint(float* _outY, float _x, float _z)
 	if (_outY == nullptr)return false;
 	if (_x < 0)return false;
 	if (_z < 0)return false;
+	if (_x >= width-1)return false;
+	if (_z >= height-1)return false;
 
 	int x = (int)_x;
 	int z = (int)_z;
