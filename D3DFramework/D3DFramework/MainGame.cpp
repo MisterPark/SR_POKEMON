@@ -404,11 +404,11 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Grass.png");
 	D2DRenderManager::LoadSprite(TextureKey::WATER_MAP, L"Texture\\Sand.png");
 	D2DRenderManager::LoadSprite(TextureKey::BROOK_MAP, L"Texture\\Brook.png");
-
+	
 	//WATERENVIRONMENT
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_WATER_ENVIRONMENT, L"Texture\\WATER.png");
 	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT, L"Texture\\WATER2.png");
-
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT, L"Texture\\Magma.png");
 	//
 
 }

@@ -32,8 +32,12 @@ void Stage_Grass_Boss::OnLoaded()
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
+	Player::GetInstance()->SetRadianY(D3DXToRadian(45));
+	playerCharacter->direction = { 1.f,0.f,1.f };
 
+	Player::GetInstance()->SetCharacter(playerCharacter);
+	playerCharacter->transform->position.x = 1.f;
+	playerCharacter->transform->position.z = 48.f - 47.f;
 	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp", 3.5f);
 
 	ObjectManager::GetInstance()->CreateObject<Scyther>();

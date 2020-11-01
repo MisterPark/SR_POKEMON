@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Stage_Water_Boss.h"
+#include "Stage_Fire_01.h"
 #include "SkyBox.h"
 #include "Monster.h"
 #include "Environment.h"
@@ -23,11 +23,12 @@
 #include "Water.h"
 #include "Tree.h"
 
-#include "Stage_Fire_01.h"
-void Stage_Water_Boss::OnLoaded()
+#include "TestScene.h"
+
+void Stage_Fire_01::OnLoaded()
 {
 	SkyBox::Show();
-	
+
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
@@ -35,21 +36,27 @@ void Stage_Water_Boss::OnLoaded()
 	playerCharacter->direction = { 1.f,0.f,0.f };
 
 	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 5.f;
-	playerCharacter->transform->position.z = 48.f - 44.f;
-	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 0.f);
+	playerCharacter->transform->position.x = 1.f;
+	playerCharacter->transform->position.z = 48.f - 24.f;
 
-	ObjectManager::GetInstance()->CreateObject<Scyther>();
+
+
+	Set_Stage_Fire_01_Map(TextureKey::BROOK_MAP, "Texture\\Fire1.bmp", 4.05f);
+
+	ObjectManager::GetInstance()->CreateObject<Caterpie>();
+
+
+
 }
 
-void Stage_Water_Boss::OnUnloaded()
+void Stage_Fire_01::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
 	Player::GetInstance()->SetCharacter(nullptr);
 	ObjectManager::DestroyAll();
 }
 
-void Stage_Water_Boss::Update()
+void Stage_Fire_01::Update()
 {
 	if (InputManager::GetKey(VK_F2))
 	{
@@ -57,12 +64,12 @@ void Stage_Water_Boss::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Fire_01>();
+		SceneManager::LoadScene<TestScene>();
 	}
 }
 
 
-void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
+void Stage_Fire_01::Set_Stage_Fire_01_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
 {
 	//지형
 	GameObject* environment = ObjectManager::GetInstance()->CreateObject<Environment>();
@@ -72,7 +79,7 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 	//물
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
+	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::FIRE_WATER_ENVIRONMENT);
 	//나무
 
 	//for (int i = 0; i < 8; i++)
@@ -97,7 +104,4 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 	//	tree->transform->position.z += 20.f + 2 * i;
 	//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
 	//}
-
-
-
 }

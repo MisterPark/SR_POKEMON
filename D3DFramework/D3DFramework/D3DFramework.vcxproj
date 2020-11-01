@@ -224,6 +224,7 @@
     <ClInclude Include="Skill_WaterBullet.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="Stage_Fire_01.h" />
     <ClInclude Include="Stage_Grass_01.h" />
     <ClInclude Include="Stage_Grass_Boss.h" />
     <ClInclude Include="Stage_Water_01.h" />
@@ -310,6 +311,7 @@
     <ClCompile Include="Skill_WaterBullet.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="Stage_Fire_01.cpp" />
     <ClCompile Include="Stage_Grass_01.cpp" />
     <ClCompile Include="Stage_Grass_Boss.cpp" />
     <ClCompile Include="Stage_Water_01.cpp" />

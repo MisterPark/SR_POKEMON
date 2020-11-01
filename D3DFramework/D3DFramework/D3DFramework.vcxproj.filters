@@ -471,6 +471,9 @@
     <ClInclude Include="Stage_Water_Boss.h">
       <Filter>Scene\Water</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Fire_01.h">
+      <Filter>Scene\Fire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -870,6 +873,9 @@
     </ClCompile>
     <ClCompile Include="Stage_Water_Boss.cpp">
       <Filter>Scene\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Fire_01.cpp">
+      <Filter>Scene\Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

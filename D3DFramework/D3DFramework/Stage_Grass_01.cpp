@@ -32,7 +32,12 @@ void Stage_Grass_01::OnLoaded()
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
+	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
+	playerCharacter->direction = { 1.f,0.f,1.f };
+
 	Player::GetInstance()->SetCharacter(playerCharacter);
+	playerCharacter->transform->position.x = 9.f;
+	playerCharacter->transform->position.z = 48.f - 43.f;
 
 	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Lake.bmp", 3.5f);
 
