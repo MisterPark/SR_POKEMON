@@ -1,12 +1,12 @@
 #pragma once
 #include "Skill.h"
 
-class Skill_LeafBullet :
+class Skill_Blaze :
 	public Skill
 {
 public:
-	Skill_LeafBullet();
-	virtual ~Skill_LeafBullet();
+	Skill_Blaze();
+	virtual ~Skill_Blaze();
 
 public:
 	virtual void Active(const Character* character) override;

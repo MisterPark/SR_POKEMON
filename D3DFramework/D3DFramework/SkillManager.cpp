@@ -44,6 +44,10 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::WaterBullet:
 		newSkill = Skill_WaterBullet::Create();
 		break;
+
+	case SkillName::Blaze:
+		newSkill = Skill_Blaze::Create();
+		break;
 	}
 
 	return newSkill;
