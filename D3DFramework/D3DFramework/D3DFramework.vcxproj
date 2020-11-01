@@ -162,6 +162,7 @@
     <ClInclude Include="Bullet_Water.h" />
     <ClInclude Include="Bullet_Water1.h" />
     <ClInclude Include="Butterfree.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
     <ClInclude Include="Celebi.h" />
@@ -258,6 +259,7 @@
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Bullet_Water1.cpp" />
     <ClCompile Include="Butterfree.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
     <ClCompile Include="Celebi.cpp" />

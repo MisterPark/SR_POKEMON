@@ -483,6 +483,9 @@
     <ClInclude Include="Skill_Blaze.h">
       <Filter>Skill\04. Blaze</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -885,6 +888,9 @@
     </ClCompile>
     <ClCompile Include="Skill_Blaze.cpp">
       <Filter>Skill\04. Blaze</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

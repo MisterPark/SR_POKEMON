@@ -6,16 +6,16 @@
 
 void TitleScene::OnLoaded()
 {
-	Network::Connect();
+	//Network::Connect();
 	Camera::GetInstance()->SetPosition(Vector3(0, 0, 0));
-	Camera::GetInstance()->transform->look = Vector3(0, 0, 1);
+	Camera::GetInstance()->transform->look = Vector3(1, 0, 1);
 
 
 	ObjectManager::GetInstance()->CreateObject<UI_Title>();
 
 	
-	lobby = LobbyWindow::GetInstance();
-	lobby->Create();
+	//lobby = LobbyWindow::GetInstance();
+	//lobby->Create();
 }
 
 void TitleScene::OnUnloaded()
