@@ -172,6 +172,9 @@ void MonsterAI::LimitPosition()
 
 void MonsterAI::SetType(MonsterType _type)
 {
+	Character* c = dynamic_cast<Character*>(gameObject);
+	if (c == nullptr) return;
+	c->isAlliance = false;
 	type = _type;
 	switch (type)
 	{

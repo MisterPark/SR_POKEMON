@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "Butterfree.h"
 #include "Bullet_Water.h"
+#include "PlayerBullet.h"
+#include "Bullet.h"
+#include "FieldFire.h"
 Butterfree::Butterfree()
 {
 	Initialize();
@@ -33,12 +36,14 @@ void Butterfree::Initialize()
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 	moveSpeed = 1.3f;
-	offsetY = 2.5f;
+	offsetY = 1.2f;
 
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+
+	hp = 6.f;
 
 	UpdateAnimation();
 }
@@ -75,4 +80,27 @@ Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& scale, const V
 {
 	Butterfree* newPokemon = new Butterfree(pos, scale, dir);
 	return newPokemon;
+}
+
+void Butterfree::OnCollision(GameObject* target)
+{
+	if (target->isAlliance == this->isAlliance) {
+		return;
+	}
+
+	if (dynamic_cast<PlayerBullet*>(target)) {
+		//몬스터와 충돌 이벤트
+		hp -= dynamic_cast<Bullet*>(target)->att;
+
+		if (hp < 0.f)
+			isDead = true;
+	}
+
+	else if (dynamic_cast<FieldFire*>(target)) {
+		//몬스터와 충돌 이벤트
+		hp -= dynamic_cast<FieldFire*>(target)->GetAtt();
+
+		if (hp < 0.f)
+			isDead = true;
+	}
 }

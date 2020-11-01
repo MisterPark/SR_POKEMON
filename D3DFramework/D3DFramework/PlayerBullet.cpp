@@ -18,6 +18,8 @@ PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& t
 	lifeTime = 1.2f;
 	isCollision = false;
 
+	att = 1.f;
+
 	InitByType();
 }
 

@@ -3,6 +3,8 @@
 #include "Rectangle.h"
 #include "Bullet_Water.h"
 #include "Player.h"
+#include "PlayerBullet.h"
+#include "FieldFire.h"
 
 Vileplume::Vileplume()
 {
@@ -34,12 +36,14 @@ void Vileplume::Initialize()
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 	moveSpeed = 1.f;
-	offsetY = 1.f;
+	offsetY = 0.5f;
 
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+
+	hp = 6.f;
 
 	UpdateAnimation();
 }
@@ -76,6 +80,29 @@ Vileplume* Vileplume::Create(const Vector3& pos, const Vector3& scale, const Vec
 {
 	Vileplume* newPokemon = new Vileplume(pos, scale, dir);
 	return newPokemon;
+}
+
+void Vileplume::OnCollision(GameObject* target)
+{
+	if (target->isAlliance == this->isAlliance) {
+		return;
+	}
+
+	if (dynamic_cast<PlayerBullet*>(target)) {
+		//몬스터와 충돌 이벤트
+		hp -= dynamic_cast<Bullet*>(target)->att;
+
+		if (hp < 0.f)
+			isDead = true;
+	}
+
+	else if (dynamic_cast<FieldFire*>(target)) {
+		//몬스터와 충돌 이벤트
+		hp -= dynamic_cast<FieldFire*>(target)->GetAtt();
+
+		if (hp < 0.f)
+			isDead = true;
+	}
 }
 
 /*
