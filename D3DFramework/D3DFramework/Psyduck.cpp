@@ -41,7 +41,7 @@ void Psyduck::Initialize()
 		state = State::READY;
 		moveSpeed = 1.5f;
 		Initialize();
-		Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+		Character::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
 	}
 	else if (isPlayer)
 	{
@@ -62,15 +62,8 @@ void Psyduck::Initialize()
 
 void Psyduck::Update()
 {
-	if (isPlayer)
-	{
-		Character::Update();
-	}
-	else if (!isPlayer)
-	{
-		Pattern();
-		Monster::Update();
-	}
+	//Pattern();
+	Character::Update();
 }
 
 void Psyduck::Render()
@@ -81,7 +74,7 @@ void Psyduck::Render()
 	}
 	else if (!isPlayer)
 	{
-		Monster::Render();
+		Character::Render();
 	}
 }
 
@@ -108,6 +101,7 @@ Psyduck* Psyduck::Create(const Vector3& pos, const Vector3& scale, const Vector3
 	return newPokemon;
 }
 
+/*
 void Psyduck::Pattern()
 {
 	/////////////////////////////////////////////////////////// 플레이어 탐지
@@ -131,7 +125,7 @@ void Psyduck::Pattern()
 
 		/////////////////////////////////////////////////////////// 패턴 Update
 		if (state == State::WALK) {
-			/*MovePlayerFollow();*/
+			//MovePlayerFollow();
 		}
 		else if (state == State::ATTACK) {
 			// 공격 Update
@@ -326,3 +320,4 @@ void Psyduck::CreateBullet(Transform* PlayerT)
 	}
 }
 
+*/

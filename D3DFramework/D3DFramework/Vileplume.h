@@ -1,24 +1,25 @@
 #pragma once
 #include "Monster.h"
 class Vileplume :
-    public Monster
+    public Character
 {
 public:
     Vileplume();
+    Vileplume(const Vector3& pos, const Vector3& scale, const Vector3& dir);
     virtual ~Vileplume();
-    // Character을(를) 통해 상속됨
+
+public:
+    virtual void Initialize() override;
     virtual void Update() override;
     virtual void Render() override;
+    virtual void Release() override;
+    void Attack(const Vector3& dir, const int& attackType);
 
-private:
-    void Pattern();
-    void RandomMovePattern();
-    void Attack(Transform* PlayerT);
-    void CrossBullet();
-	void XBullet();
+public:
+    static Vileplume* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
 
-	
-    bool AttackDelay;
+public:
+    MonsterAI* monsterAI;
 };
 
 

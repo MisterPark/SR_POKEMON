@@ -6,36 +6,79 @@
 
 Vileplume::Vileplume()
 {
-	name = L"라플레시아";
-	SetTexture(State::WALK, TextureKey::VILE_WALK_D_01, 3);
-	SetTexture(State::PLAYER_SEARCH, TextureKey::VILE_ATTACK_D_01, 2);
-	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3, 1);
-	SetTexture(State::READY, TextureKey::VILE_WALK_D_01, 3, 1);
+	Initialize();
+}
 
-	anim->SetLoop(true);
-	UpdateAnimation();
+Vileplume::Vileplume(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	transform->position = pos;
+	transform->scale = scale;
+	direction = dir;
 
-	moveSpeed = 0.8f;
-	state = State::READY;
-	AttackDelay = false;
-	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	Initialize();
 }
 
 Vileplume::~Vileplume()
 {
 }
 
+void Vileplume::Initialize()
+{
+	name = L"라플레시아";
+	SetTexture(State::WALK, TextureKey::VILE_WALK_D_01, 3);
+	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::VILE_WALK_D_01, 3, 1);
+	SetTexture(State::ATTACK, TextureKey::VILE_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::VILE_ATTACK_D_01, 2);
+
+	anim->SetLoop(true);
+	anim->SetDelay(0.1f);
+	moveSpeed = 1.f;
+	offsetY = 1.f;
+
+	state = State::READY;
+
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+
+	UpdateAnimation();
+}
+
 void Vileplume::Update()
 {
-	Pattern();
-	Monster::Update();
+	Character::Update();
+	if (monsterAI != nullptr) monsterAI->Update();
 }
 
 void Vileplume::Render()
 {
-	Monster::Render();
+	Character::Render();
 }
 
+void Vileplume::Release()
+{
+}
+
+void Vileplume::Attack(const Vector3& dir, const int& attackType)
+{
+	if (skillSet.size() <= attackType) return;
+	Vector3 pos = transform->position;
+
+	skillSet[attackType]->Active(this);
+
+	switch (attackType)
+	{
+	case 0: ChangeState(State::ATTACK); break;
+	}
+}
+
+Vileplume* Vileplume::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	Vileplume* newPokemon = new Vileplume(pos, scale, dir);
+	return newPokemon;
+}
+
+/*
 void Vileplume::Pattern()
 {
 	GameObject* g = Player::GetInstance()->GetCharacter();
@@ -257,3 +300,4 @@ void Vileplume::XBullet()
 	b->isAlliance = false;
 }
 
+*/

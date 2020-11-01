@@ -1,22 +1,24 @@
 #pragma once
 #include "Monster.h"
 class Caterpie :
-	public Monster
+	public Character
 {
 public:
 	Caterpie();
+	Caterpie(const Vector3& pos, const Vector3& scale, const Vector3& dir);
 	virtual ~Caterpie();
 
+public:
+	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void Render() override;
+	virtual void Release() override;
+	void Attack(const Vector3& dir, const int& attackType);
 
-private:
-	void Pattern();
-	void RandomMovePattern();
-	void Attack(Transform* PlayerT);
-	void CreateBullet(Transform* PlayerT);
+public:
+	static Caterpie* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
 
-	
-	bool AttackDelay;
+public:
+	MonsterAI* monsterAI;
 };
 

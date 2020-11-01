@@ -6,94 +6,74 @@
 
 Oddish::Oddish()
 {
-	name = L"뚜벅초";
-	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_01, 3);
-	SetTexture(State::IDLE, TextureKey::ODDI_WALK_D_01, 3, 1);
-	SetTexture(State::READY, TextureKey::ODDI_WALK_D_01, 3, 1);
+	Initialize();
+}
 
-	UpdateAnimation();
-	anim->SetLoop(true);
+Oddish::Oddish(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	transform->position = pos;
+	transform->scale = scale;
+	direction = dir;
 
-	moveSpeed = 2.5f;
-	state = State::READY;
-	Monster::Update(); // 몬스터 생성하자마자 총알쏘면 위치값 0이라 총알이 비교적 내려가는거 방지
+	Initialize();
 }
 
 Oddish::~Oddish()
 {
 }
 
+void Oddish::Initialize()
+{
+	name = L"뚜벅초";
+	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_01, 3);
+	SetTexture(State::IDLE, TextureKey::ODDI_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::ODDI_WALK_D_01, 3, 1);
+	SetTexture(State::ATTACK, TextureKey::ODDI_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::ODDI_ATTACK_D_01, 2);
+
+	anim->SetLoop(true);
+	anim->SetDelay(0.1f);
+	moveSpeed = 1.f;
+	offsetY = 0.5f;
+
+	state = State::READY;
+
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+
+	UpdateAnimation();
+}
+
 void Oddish::Update()
 {
-	Pattern();
-	Monster::Update();
-
+	Character::Update();
+	if (monsterAI != nullptr) monsterAI->Update();
 }
 
 void Oddish::Render()
 {
-	Monster::Render();
+	Character::Render();
 }
 
-void Oddish::Pattern()
+void Oddish::Release()
 {
-	/////////////////////////////////////////////////////////// 플레이어 탐지
-	PlayerSearch(6.f, 10.f);
-
-
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
-	if (isSearch) {
-
-		/////////////////////////////////////////////////////////// 패턴 Ready
-		if (state == State::READY) {
-			state = (State)Random::Range(1, 1);
-
-			if (state == State::WALK) {            // 이곳에서 패턴 레디
-				// 이동 Ready
-			}
-			else if (state == State::ATTACK) {
-				// 공격 Ready
-			}
-		}
-
-		/////////////////////////////////////////////////////////// 패턴 Update
-		if (state == State::WALK) {
-			MovePlayerFollow();
-		}
-		else if (state == State::ATTACK) {
-			// 공격 Update
-		}
-
-	}
-
-
-
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
-	else {
-
-		/////////////////////////////////////////////////////////// 패턴 Ready
-		if (state == State::READY) {
-			state = (State)Random::Range(1, 1);
-
-			if (state == State::WALK) {
-				// 이동 Ready
-			}
-			else if (state == State::ATTACK) {
-				// 공격 Ready
-			}
-		}
-
-		/////////////////////////////////////////////////////////// 패턴 Update
-		if (state == State::WALK) {
-			//1.5f 시간동안 걷고 총 3번 반복
-			MoveRandomPattern(1.5f, 3);
-		}
-		else if (state == State::ATTACK) {
-			// 공격 Update
-		}
-	}
-
-
 }
 
+void Oddish::Attack(const Vector3& dir, const int& attackType)
+{
+	if (skillSet.size() <= attackType) return;
+	Vector3 pos = transform->position;
 
+	skillSet[attackType]->Active(this);
+
+	switch (attackType)
+	{
+	case 0: ChangeState(State::ATTACK); break;
+	}
+}
+
+Oddish* Oddish::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	Oddish* newPokemon = new Oddish(pos, scale, dir);
+	return newPokemon;
+}
