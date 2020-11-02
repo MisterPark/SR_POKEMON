@@ -58,6 +58,9 @@ namespace PKH
 		void Billboard();
 		void BillboardYaw();
 
+		void AddToCollideList(GameObject* object);
+		bool IsInCollideList(const GameObject* object) const;
+
 		void SetPosition(Vector3 _vPos);
 
 		template<class T>
@@ -77,6 +80,7 @@ namespace PKH
 		bool isEnable = true;
 		
 		map<wstring, PKH::IComponent*> components;
+		list<GameObject*> collideList;
 	};
 	template<class T>
 	inline IComponent* GameObject::AddComponent(const wstring & _key)

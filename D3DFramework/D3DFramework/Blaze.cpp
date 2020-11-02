@@ -18,12 +18,14 @@ Blaze::Blaze(const Vector3 & pos, const Vector3 & size, TextureKey start, Textur
 	startKey = start;
 	endKey = end;
 
+	animDelay = (float)lifeTime / (float(end) - float(start));
+
 	isOnTerrain = true;
 
 	offsetY = 0.3f;
 
 	anim->SetSprite(start, end);
-	anim->SetDelay(0.2f);
+	anim->SetDelay(animDelay);
 	anim->SetLoop(false);
 }
 

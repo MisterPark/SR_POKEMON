@@ -44,7 +44,8 @@ void TestScene::OnLoaded()
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 
 	
-	Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	//Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	//7시
@@ -183,7 +184,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 15.f + 2 * i;
 			tree->transform->position.z += 41.f;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		}
 		for (int i = 0; i < 10; i++)
 		{
@@ -196,14 +197,14 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 6.f;
 			tree->transform->position.z += 8.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		}
 		for (int i = 0; i < 6; i++)
 		{
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 45.f;
 			tree->transform->position.z += 16.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		}
 	}
 	if (_key == TextureKey::GRASS_MAP2)
@@ -219,7 +220,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 15.f + 2 * i;
 		//	tree->transform->position.z += 41.f;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		//}
 		//높이맵 기준 아래쪽
 		for (int i = 0; i < 10; i++)
@@ -234,29 +235,30 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 7.f;
 			tree->transform->position.z += 14.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+			
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		}
 
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 32.f;
 		tree->transform->position.z += 48.f -2.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 35.f;
 		tree->transform->position.z += 48.f - 7.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 38.f;
 		tree->transform->position.z += 48.f - 12.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE02;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE02);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 43.f;
 		tree->transform->position.z += 48.f - 15.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 46.f;
 		tree->transform->position.z += 48.f - 17.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 
 		////높이맵 기준 오른쪽
 		//for (int i = 0; i < 6; i++)
@@ -264,7 +266,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 45.f;
 		//	tree->transform->position.z += 16.f + 2 * i;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		//}
 	}
 
@@ -281,14 +283,14 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 3.f + 2 * i;
 			tree->transform->position.z += 45.f;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 		}
 		for (int i = 0; i < 10; i++)
 		{
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 3.f + 2 * i;
 			tree->transform->position.z += 2.f;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 
 		}
 		for (int i = 0; i < 9; i++)
@@ -296,7 +298,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 46.f;
 			tree->transform->position.z += 20.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
 		}
 
 	}
@@ -314,14 +316,14 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 3.f + 2 * i;
 		//	tree->transform->position.z += 45.f;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 		//}
 		//for (int i = 0; i < 10; i++)
 		//{
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 3.f + 2 * i;
 		//	tree->transform->position.z += 2.f;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 
 		//}
 		//for (int i = 0; i < 9; i++)
@@ -329,7 +331,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 46.f;
 		//	tree->transform->position.z += 20.f + 2 * i;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
 		//}
 
 

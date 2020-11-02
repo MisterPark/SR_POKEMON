@@ -23,6 +23,7 @@ Bullet::Bullet()
 
 Bullet::~Bullet()
 {
+	Release();
 }
 
 void Bullet::Initialize()
@@ -131,26 +132,4 @@ void Bullet::MoveForwardExceptY()
 	Vector3::Normalize(&direction);
 	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
 	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
-}
-
-void Bullet::AddToCollideList(GameObject * object)
-{
-	if (IsInCollideList(object)) return;
-
-	collideList.emplace_back(object);
-}
-
-bool Bullet::IsInCollideList(const GameObject * object) const
-{
-	bool ret = false;
-
-	for (const auto& elem : collideList)
-	{
-		if (elem == object)
-		{
-			ret = true;
-		}
-	}
-
-	return ret;
 }

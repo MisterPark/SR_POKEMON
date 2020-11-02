@@ -24,7 +24,7 @@ public:
 	Vector3 MonsterSearchDir(bool PosY, float SearchRange);
 	void MoveForward();
 	void MoveForwardExceptY();
-	void AddToCollideList(GameObject* object);
+	
 
 public:
 	// Setter
@@ -33,7 +33,6 @@ public:
 public:
 	// Getter
 	const Vector3 GetDir() const { return direction; }
-	bool IsInCollideList(const GameObject* object) const;
 
 protected:
 	Vector3 direction;
@@ -48,7 +47,5 @@ protected:
 	bool isOnTerrain;
 	bool isBillboard;
 	bool isLoop;
-
-	list<GameObject*> collideList;
 };
 
