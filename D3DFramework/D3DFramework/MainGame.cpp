@@ -473,25 +473,25 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
 
 	//MAP TEXTURE
-	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP2, L"Texture\\Grass.png");
-	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Grass.png");
-	D2DRenderManager::LoadSprite(TextureKey::WATER_MAP, L"Texture\\Sand.png");
-	D2DRenderManager::LoadSprite(TextureKey::BROOK_MAP, L"Texture\\Brook.png");
-	D2DRenderManager::LoadSprite(TextureKey::VOLCANO_MAP, L"Texture\\Volcano.png");
+	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP2, L"Texture\\Map\\Tile\\Grass.png");
+	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Map\\Tile\\Grass.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_MAP, L"Texture\\Map\\Tile\\Sand.png");
+	D2DRenderManager::LoadSprite(TextureKey::BROOK_MAP, L"Texture\\Map\\Tile\\Brook.png");
+	D2DRenderManager::LoadSprite(TextureKey::VOLCANO_MAP, L"Texture\\Map\\Tile\\Volcano.png");
 	
 	//WATERENVIRONMENT
-	D2DRenderManager::LoadSprite(TextureKey::GRASS_WATER_ENVIRONMENT, L"Texture\\WATER.png");
-	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT, L"Texture\\WATER2.png");
-	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT, L"Texture\\Lava.png");
+	D2DRenderManager::LoadSprite(TextureKey::GRASS_WATER_ENVIRONMENT, L"Texture\\Map\\Tile\\DayWater.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT, L"Texture\\Map\\Tile\\BeachWater.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT, L"Texture\\Map\\Tile\\Lava.png");
 
 
 	//
-	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT01, L"Texture\\WATER1.png");
-	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT02, L"Texture\\WATER2.png");
-	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT03, L"Texture\\WATER3.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT01, L"Texture\\Map\\Tile\\Water1.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT02, L"Texture\\Map\\Tile\\Water2.png");
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT03, L"Texture\\Map\\Tile\\Water3.png");
 
-	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT01, L"Texture\\LAVA1.png");
-	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT02, L"Texture\\LAVA2.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT01, L"Texture\\Map\\Tile\\Lava1.png");
+	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT02, L"Texture\\Map\\Tile\\Lava2.png");
 }
 
 void PKH::MainGame::LoadUISprite()

@@ -45,3 +45,15 @@ void Water::Lava()
 	anim->SetSprite(TextureKey::FIRE_WATER_ENVIRONMENT02, TextureKey::FIRE_WATER_ENVIRONMENT02);
 	anim->SetLoop(false);
 }
+
+void Water::Beach()
+{
+	anim->SetSprite(TextureKey::WATER_WATER_ENVIRONMENT, TextureKey::WATER_WATER_ENVIRONMENT);
+	anim->SetLoop(false);
+}
+
+void Water::Normal()
+{
+	anim->SetSprite(TextureKey::GRASS_WATER_ENVIRONMENT, TextureKey::GRASS_WATER_ENVIRONMENT);
+	anim->SetLoop(false);
+}

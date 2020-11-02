@@ -42,7 +42,7 @@ void Stage_Fire_01::OnLoaded()
 
 
 
-	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Fire1.bmp", 4.05f);
+	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Fire1.bmp", 4.05f);
 
 
 
@@ -78,7 +78,6 @@ void Stage_Fire_01::Set_Stage_Fire_01_Map(TextureKey _key, const std::string& _f
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::FIRE_WATER_ENVIRONMENT);
 	dynamic_cast<Water*>(water)->Lava();
 	//³ª¹«
 
