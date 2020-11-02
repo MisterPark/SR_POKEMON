@@ -35,7 +35,7 @@ void Psyduck::Initialize()
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 	moveSpeed = 1.f;
-	offsetY = 1.f;
+	offsetY = 0.5f;
 
 	state = State::READY;
 	
