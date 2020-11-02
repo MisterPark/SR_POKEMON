@@ -4,6 +4,7 @@
 
 Skill_LeafBullet::Skill_LeafBullet()
 {
+	coolTime = 0.4f;
 }
 
 Skill_LeafBullet::~Skill_LeafBullet()

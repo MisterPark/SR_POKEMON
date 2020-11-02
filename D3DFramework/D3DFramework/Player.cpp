@@ -121,7 +121,7 @@ void Player::Attack()
 			character->SetDir(dir);
 			character->Attack(dir, 0);
 
-			attackCoolTime = 0.4f;
+			attackCoolTime = character->GetSkillCollTime(1)->GetCoolTime();
 			isAttack = true;
 		}
 		else if (InputManager::GetMouseRButton())
@@ -138,7 +138,7 @@ void Player::Attack()
 			character->SetDir(dir);
 			character->Attack(dir, 1);
 
-			skillCoolTime = 0.6f;
+			skillCoolTime = character->GetSkillCollTime(2)->GetCoolTime();
 			isSkill = true;
 		}
 	}

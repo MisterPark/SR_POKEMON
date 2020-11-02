@@ -336,7 +336,7 @@ void MonsterAI::MonsterIdle() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Idle
 	if (isSearch) {
 		switch (type)
 		{
@@ -391,7 +391,7 @@ void MonsterAI::MonsterIdle() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Idle
 	else {
 		switch (type)
 		{
@@ -453,7 +453,7 @@ void MonsterAI::MonsterWalk() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Walk
 	if (isSearch) {
 		switch (type)
 		{
@@ -618,7 +618,7 @@ void MonsterAI::MonsterWalk() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Walk
 	else {
 		switch (type)
 		{
@@ -741,7 +741,7 @@ void MonsterAI::MonsterAttack() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Attack
 	if (isSearch) {
 		switch (type)
 		{
@@ -942,7 +942,7 @@ void MonsterAI::MonsterAttack() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Attack
 	else {
 		switch (type)
 		{
@@ -1105,7 +1105,7 @@ void MonsterAI::MonsterSkill() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Skill
 	if (isSearch) {
 		switch (type)
 		{
@@ -1231,7 +1231,7 @@ void MonsterAI::MonsterSkill() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Skill
 	else {
 		switch (type)
 		{
@@ -1338,7 +1338,7 @@ void MonsterAI::MonsterSkill2() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Skill2
 	if (isSearch) {
 		switch (type)
 		{
@@ -1476,7 +1476,7 @@ void MonsterAI::MonsterSkill2() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Skill2
 	else {
 		switch (type)
 		{

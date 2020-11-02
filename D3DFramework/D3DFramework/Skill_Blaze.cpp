@@ -5,6 +5,7 @@
 
 Skill_Blaze::Skill_Blaze()
 {
+	coolTime = 0.6f;
 }
 
 Skill_Blaze::~Skill_Blaze()
