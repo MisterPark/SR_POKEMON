@@ -75,6 +75,10 @@ namespace PKH
 		UI_TITLE_SCREEN,
 		UI_BLUE_FILTER,
 		UI_BUTTON,
+		UI_HP_BAR_01,
+		UI_HP_BAR_02,
+		UI_HP_BAR_03,
+		UI_HP_BAR_04,
 		//============================================================
 
 		// PG 01

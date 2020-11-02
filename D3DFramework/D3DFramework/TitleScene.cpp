@@ -10,15 +10,27 @@ void TitleScene::OnLoaded()
 {
 	//Network::Connect();
 	Camera::GetInstance()->SetPosition(Vector3(0, 0, 0));
-	Camera::GetInstance()->transform->look = Vector3(1, 0, 1);
+	Camera::GetInstance()->transform->look = Vector3(0, 0, 1);
 
-
+	// UI
 	ObjectManager::GetInstance()->CreateObject<UI_Title>();
 	Button* btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"싱글 플레이";
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
 	btn->transform->position.y = 600;
 	btn->Click = SceneManager::LoadScene<TestScene>;
+
+	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
+	btn->text = L"멀티 플레이";
+	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
+	btn->transform->position.y = 650;
+	btn->Click = SceneManager::LoadScene<TestMultiScene>;
+
+	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
+	btn->text = L"종료";
+	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
+	btn->transform->position.y = 700;
+	btn->Click = MainGame::Shutdown;
 	
 	//lobby = LobbyWindow::GetInstance();
 	//lobby->Create();

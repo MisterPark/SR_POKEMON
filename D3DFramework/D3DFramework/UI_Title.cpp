@@ -46,3 +46,7 @@ void UI_Title::OnClick()
 {
 	UI::OnClick();
 }
+
+void UI_Title::UpdateUI()
+{
+}

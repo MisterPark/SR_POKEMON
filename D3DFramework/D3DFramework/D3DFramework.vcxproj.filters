@@ -531,6 +531,7 @@
     <ClInclude Include="Skill_XBullet.h">
       <Filter>Skill\09. XBullet</Filter>
     </ClInclude>
+    <ClInclude Include="Panel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -961,6 +962,7 @@
     <ClCompile Include="Skill_XBullet.cpp">
       <Filter>Skill\09. XBullet</Filter>
     </ClCompile>
+    <ClCompile Include="Panel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

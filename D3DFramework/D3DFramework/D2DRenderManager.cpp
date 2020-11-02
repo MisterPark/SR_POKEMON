@@ -509,6 +509,18 @@ void PKH::D2DRenderManager::DrawFont(const wstring& text, float x, float y, D3DX
 	pD2DRenderManager->pSprite->End();
 }
 
+void PKH::D2DRenderManager::DrawFont(const wstring& text, Vector3 pos, Vector3 scale, D3DXCOLOR color)
+{
+	Matrix matWorld, matPos, matScale;
+	D3DXMatrixScaling(&matScale, scale.x, scale.y, 1.f);
+	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
+	matWorld = matScale * matPos;
+	pD2DRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
+	pD2DRenderManager->pSprite->SetTransform(&matWorld);
+	pD2DRenderManager->pFont->DrawTextW(pD2DRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), nullptr, 0, color);
+	pD2DRenderManager->pSprite->End();
+}
+
 void PKH::D2DRenderManager::DrawFont(LPD3DXFONT font, const wstring& text, float x, float y, D3DXCOLOR color)
 {
 	if (font == nullptr) return;

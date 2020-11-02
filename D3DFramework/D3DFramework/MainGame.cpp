@@ -63,6 +63,7 @@ void PKH::MainGame::Initialize()
 	LoadMonsterSprite();
 	LoadPlayerSprite();
 	LoadETCSprite();
+	LoadUISprite();
 
 	ObjectManager::GetInstance();
 	SkillManager::GetInstance();
@@ -144,9 +145,7 @@ void PKH::MainGame::Shutdown()
 
 void PKH::MainGame::LoadETCSprite()
 {
-	// 리소스 로드
-	D2DRenderManager::LoadSprite(TextureKey::UI_TITLE_SCREEN, L"Texture\\pokeTitle2.png");
-
+	
 	D2DRenderManager::LoadSprite(TextureKey::SKY_U, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_U.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_D, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_D.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKY_L, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_L.png");
@@ -189,9 +188,7 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_F, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_B, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_B.png");
 
-	D2DRenderManager::LoadSprite(TextureKey::UI_BLUE_FILTER, L"Texture\\BlueFilter.png");
-	D2DRenderManager::LoadSprite(TextureKey::UI_BUTTON, L"Texture\\PokemonButton.png");
-
+	
 	//눈물총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_02, L"Texture\\Bullet\\Bullet_Tears02.png");
@@ -496,6 +493,16 @@ void PKH::MainGame::LoadETCSprite()
 
 void PKH::MainGame::LoadUISprite()
 {
+	// 리소스 로드
+	D2DRenderManager::LoadSprite(TextureKey::UI_TITLE_SCREEN, L"Texture\\UI\\pokeTitle2.png");
+	// 블루필터
+	D2DRenderManager::LoadSprite(TextureKey::UI_BLUE_FILTER, L"Texture\\UI\\BlueFilter.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_BUTTON, L"Texture\\UI\\PokemonButton.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_01, L"Texture\\UI\\HP_BAR_01.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_02, L"Texture\\UI\\HP_BAR_02.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_03, L"Texture\\UI\\HP_BAR_03.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_04, L"Texture\\UI\\HP_BAR_04.png");
 }
 
 void PKH::MainGame::LoadMonsterSprite()
