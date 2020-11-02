@@ -8,7 +8,7 @@ public:
 
 public:
 	PlayerBullet();
-	PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& type, const bool& isAlliance = true);
+	PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& type);
     virtual ~PlayerBullet();
     
 public:
@@ -17,13 +17,11 @@ public:
     virtual void Render() override;
     virtual void OnCollision(GameObject* target) override;
 	void CollSetByType();
-	bool IsEndColl();
 
 public:
 	void CalcLifeTime();
 
 private:
 	Type bulletType;
-	float lifeTime;
 	bool isCollision;
 };

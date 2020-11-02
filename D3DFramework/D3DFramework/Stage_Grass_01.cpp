@@ -49,7 +49,7 @@ void Stage_Grass_01::OnLoaded()
 	playerCharacter->transform->position.x = 9.f;
 	playerCharacter->transform->position.z = 48.f - 43.f;
 
-	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Lake.bmp", 3.5f);
+	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Lake.bmp", 3.5f);
 
 
 

@@ -5,6 +5,7 @@
 
 Skill_Tornado::Skill_Tornado()
 {
+	coolTime = 0.7f;
 }
 
 Skill_Tornado::~Skill_Tornado()

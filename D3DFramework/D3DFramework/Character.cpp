@@ -153,6 +153,19 @@ void Character::SetDir(const Vector3 & dir)
 	D3DXVec3Normalize(&direction, &dir);
 }
 
+Skill* Character::GetSkillCollTime(int skillNumber)
+{
+	
+	for (auto& skill : skillSet) {
+		skillNumber--;
+		if (skillNumber == 0)
+			return skill;
+		else
+			continue;
+	}
+	return nullptr;
+}
+
 void Character::MoveForward()
 {
 	Move(direction);

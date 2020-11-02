@@ -3,37 +3,29 @@
 #include "Rectangle.h"
 #include "Environment.h"
 #include "Terrain.h"
+
 Bullet::Bullet()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
-	for (int i = 0; i < 3; i++)
-	{
-		Time[i] = 0.f;
-	}
-	for (int i = 0; i < 3; i++)
-	{
-		Frame[i] = 0;
-	}
-}
-
-Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const bool & alliance) :
-	direction(dir)
-{
-	transform->position = pos;
-	transform->scale = scale;
-
-	isAlliance = alliance;
-
-	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
-	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
-	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
+	direction = { 0.f, 0.f, 1.f };
+	attack = 1.f;
+	moveSpeed = 10.f;
+	lifeTime = 2.f;
+	offsetY = 0.f;
+	animDelay = 0.5f;
+	isOnTerrain = false;
+	isBillboard = true;
+	isLoop = true;
 }
 
 Bullet::~Bullet()
+{
+}
+
+void Bullet::Initialize()
 {
 }
 
@@ -41,18 +33,15 @@ void Bullet::Update()
 {
 	GameObject::Update();
 	Move(direction);
+	OnTerrain();
+
 	if (isBillboard) Billboard();
-	if (isOnTerrain) OnTerrain();
-	UpdateAnimation();
+	CalcLifeTime();
 }
 
 void Bullet::Render()
 {
 	GameObject::Render();
-}
-
-void Bullet::Initialize()
-{
 }
 
 void Bullet::Release()
@@ -75,48 +64,28 @@ void Bullet::OnTerrain()
 	}
 
 	float y;
+
 	bool onTerrain = mesh->GetYFromPoint(&y, transform->position.x, transform->position.z);
-	if (onTerrain)
-		transform->position.y = y + offsetY;
+
+	if (isOnTerrain)
+	{
+		if (onTerrain)
+			transform->position.y = y + offsetY;
+		else
+		{
+			transform->position.y = offsetY;
+		}
+	}
 	else
 	{
-		transform->position.y = offsetY;
+		if (transform->position.y < y) isDead = true;
 	}
 }
 
-float Bullet::GetAngleFromCamera()
+void Bullet::CalcLifeTime()
 {
-	// 카메라가 몬스터를 향하는 각
-	Vector3 camPos = Camera::GetPosition();
-	float degree1 = Vector3::AngleY(camPos, transform->position);
-
-	// 몬스터 월드 각
-	float degree2 = D3DXToDegree(atan2f(direction.x, direction.z));
-
-	return (degree2 - degree1);
-}
-
-void Bullet::UpdateAnimation()
-{
-	anim->SetSprite(startArray[(int)state][0], endArray[(int)state][0]);
-}
-
-void Bullet::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame)
-{
-	for (int i = 0; i < 8; i++)
-	{
-		startArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame));
-		if (-1 == _endFrame)
-			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_aniFrame - 1));
-		else
-			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_endFrame - 1));
-	}
-}
-
-void Bullet::SetAniTexture(State _state, TextureKey _beginTextureKey, int _aniFrame)
-{
-	startArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey);
-	endArray[(int)_state][(int)Direction::D] = (TextureKey)((int)_beginTextureKey + _aniFrame - 1);
+	lifeTime -= TimeManager::DeltaTime();
+	if (0.f >= lifeTime) isDead = true;
 }
 
 Vector3 Bullet::PlayerSearchDir(bool PosY)
@@ -137,26 +106,19 @@ Vector3 Bullet::MonsterSearchDir(bool PosY, float SearchRange)
 {
 	//TODO: 나중에 플레이어로 따라가게 수정 완료해야함
 	bool isAlliance = true;
-	GameObject* g =  nullptr;
+	GameObject* target =  nullptr;
 	while (isAlliance) {
-		g = ObjectManager::GetInstance()->FindObject<Character>();
-
-		isAlliance = g->isAlliance;
+		target = ObjectManager::GetInstance()->FindObject<Character>();
 	}
-	if (g == nullptr) return Vector3{ 0.f, 0.f, 0.f };
+	if (target == nullptr) return Vector3{ 0.f, 0.f, 0.f };
 
-	Transform* PlayerT = g->transform;
+	Transform* PlayerT = target->transform;
 	Vector3 dir = PlayerT->position - transform->position;
 
 	if (!PosY)
 		dir.y = 0.f;
 
 	return dir;
-}
-
-void Bullet::SetDir(const Vector3 & dir)
-{
-	D3DXVec3Normalize(&direction, &dir);
 }
 
 void Bullet::MoveForward()
@@ -171,17 +133,24 @@ void Bullet::MoveForwardExceptY()
 	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
 }
 
-void Bullet::ChangeState(State nextState)
+void Bullet::AddToCollideList(GameObject * object)
 {
-	if (nextState != state)
-	{
-		state = nextState;
-	}
+	if (IsInCollideList(object)) return;
+
+	collideList.emplace_back(object);
 }
 
-Bullet * Bullet::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, const bool & isPlayer)
+bool Bullet::IsInCollideList(const GameObject * object) const
 {
-	Bullet* newBullet = new Bullet(pos, scale, dir, isPlayer);
-	
-	return newBullet;
+	bool ret = false;
+
+	for (const auto& elem : collideList)
+	{
+		if (elem == object)
+		{
+			ret = true;
+		}
+	}
+
+	return ret;
 }

@@ -41,7 +41,7 @@ void Stage_Water_01::OnLoaded()
 
 
 
-	Set_Stage_Water_01_Map(TextureKey::WATER_MAP, "Texture\\Beach.bmp", 3.5f);
+	Set_Stage_Water_01_Map(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 3.5f);
 
 	
 
@@ -79,7 +79,7 @@ void Stage_Water_01::Set_Stage_Water_01_Map(TextureKey _key, const std::string& 
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::WATER_WATER_ENVIRONMENT);
+	dynamic_cast<Water*>(water)->Beach();
 	//³ª¹«
 
 	for (int i = 0; i < 8; i++)

@@ -3,8 +3,6 @@
 #include "Rectangle.h"
 #include "Bullet_Water.h"
 #include "Player.h"
-#include "PlayerBullet.h"
-#include "FieldFire.h"
 
 Vileplume::Vileplume()
 {
@@ -84,25 +82,8 @@ Vileplume* Vileplume::Create(const Vector3& pos, const Vector3& scale, const Vec
 
 void Vileplume::OnCollision(GameObject* target)
 {
-	if (target->isAlliance == this->isAlliance) {
-		return;
-	}
-
-	if (dynamic_cast<PlayerBullet*>(target)) {
-		//몬스터와 충돌 이벤트
-		hp -= dynamic_cast<Bullet*>(target)->att;
-
-		if (hp < 0.f)
-			isDead = true;
-	}
-
-	else if (dynamic_cast<FieldFire*>(target)) {
-		//몬스터와 충돌 이벤트
-		hp -= dynamic_cast<FieldFire*>(target)->GetAtt();
-
-		if (hp < 0.f)
-			isDead = true;
-	}
+	hp -= target->attack;
+	if (hp <= 0.f) isDead = true;
 }
 
 /*
