@@ -133,5 +133,9 @@ void PlayerBullet::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();
 
-	if (lifeTime <= 0.f) isDead = true;
+	if (lifeTime <= 0.f)
+	{
+		isDead = true;
+		cout << "Dead" << endl;
+	}
 }

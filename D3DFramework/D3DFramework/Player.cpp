@@ -64,6 +64,7 @@ void Player::SetCharacter(Character * object)
 	character = object;
 
 	Camera::GetInstance()->SetTarget(character);
+	if(nullptr != object) character->SetIsEnemy(false);
 }
 
 void Player::Initialize()

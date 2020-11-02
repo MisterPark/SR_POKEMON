@@ -23,12 +23,12 @@ FieldFire::FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start
 
 FieldFire::~FieldFire()
 {
-	CollisionManager::DisregisterObject(this);
+	CollisionManager::DisregisterObject(COLTYPE::PLAYER_ATTACK, this);
 }
 
 void FieldFire::Initialize()
 {
-	CollisionManager::RegisterObject(this);
+	CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, this);
 
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);

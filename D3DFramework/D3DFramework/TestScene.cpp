@@ -68,46 +68,55 @@ void TestScene::OnLoaded()
 	monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
 	ObjectManager::AddObject(monsterCharacter);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 
 	Oddish* monsterCharacter2 = Oddish::Create(Vector3(15.f, 0.f, 9.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter2->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter2->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter2->monsterAI->SetType(MonsterType::ODDISH);
 	ObjectManager::AddObject(monsterCharacter2);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter2);
 
 	Metapod* monsterCharacter3 = Metapod::Create(Vector3(25.f, 0.f, 6.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter3->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter3->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter3->monsterAI->SetType(MonsterType::METAPOD);
 	ObjectManager::AddObject(monsterCharacter3);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter3);
 
 	Caterpie* monsterCharacter6 = Caterpie::Create(Vector3(42.f, 0.f, 26.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter6->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter6->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter6->monsterAI->SetType(MonsterType::CATERPIE);
 	ObjectManager::AddObject(monsterCharacter6);
-	//
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter6);
+
 	Butterfree* monsterCharacter7 = Butterfree::Create(Vector3(35.f, 0.f, 27.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter7->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter7->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter7->monsterAI->SetType(MonsterType::BUTTERFREE);
 	ObjectManager::AddObject(monsterCharacter7);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter7);
 
 	Oddish* monsterCharacter8 = Oddish::Create(Vector3(25.f, 0.f, 15.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter8->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter8->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter8->monsterAI->SetType(MonsterType::ODDISH);
 	ObjectManager::AddObject(monsterCharacter8);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter8);
 
 	Metapod* monsterCharacter9 = Metapod::Create(Vector3(35.f, 0.f, 25.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter9->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter9->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter9->monsterAI->SetType(MonsterType::METAPOD);
 	ObjectManager::AddObject(monsterCharacter9);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter9);
 
 	Vileplume* monsterCharacter10 = Vileplume::Create(Vector3(25.f, 0.f, 35.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter10->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter10->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter10->monsterAI->SetType(MonsterType::VILEPLUME);
 	ObjectManager::AddObject(monsterCharacter10);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter10);
 
 	Caterpie* monsterCharacter11 = Caterpie::Create(Vector3(35.f, 0.f, 42.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter11->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter11->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter11->monsterAI->SetType(MonsterType::CATERPIE);
 	ObjectManager::AddObject(monsterCharacter11);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter11);
 	
 	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;

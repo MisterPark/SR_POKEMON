@@ -69,6 +69,7 @@ namespace PKH
 
 	public:
 		Transform* transform = nullptr;
+		float att = 1.f;
 		float moveSpeed = 1.f;
 		ObjectType type = ObjectType::NONE;
 		bool isDead = false;

@@ -84,6 +84,7 @@ Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& scale, const V
 
 void Butterfree::OnCollision(GameObject* target)
 {
+	/*
 	if (target->isAlliance == this->isAlliance) {
 		return;
 	}
@@ -103,4 +104,9 @@ void Butterfree::OnCollision(GameObject* target)
 		if (hp < 0.f)
 			isDead = true;
 	}
+	*/
+
+	hp -= target->att;
+	if (hp < 0.f) isDead = true;
+	cout << hp << endl;
 }

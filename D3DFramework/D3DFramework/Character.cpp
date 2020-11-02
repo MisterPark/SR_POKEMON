@@ -5,18 +5,16 @@
 #include "Rectangle.h"
 #include "Bulbasaur.h"
 
-Character::Character()
+Character::Character() :
+	isEnemy(true)
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
-	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-	
 }
 
 Character::~Character()
 {
-	CollisionManager::DisregisterObject(this);
 	Release();
 }
 

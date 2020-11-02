@@ -7,7 +7,6 @@ Bullet::Bullet()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
-	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
 	for (int i = 0; i < 3; i++)
@@ -30,14 +29,12 @@ Bullet::Bullet(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir, 
 
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
-	CollisionManager::RegisterObject(this);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 
 }
 
 Bullet::~Bullet()
 {
-	CollisionManager::DisregisterObject(this);
 }
 
 void Bullet::Update()
