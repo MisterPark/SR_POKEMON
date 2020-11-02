@@ -6,17 +6,13 @@
 
 Bullet_Water::Bullet_Water()
 {   //TODO : 불렛이 지형타는중
-    SetTexture(State::IDLE, TextureKey::BULLET_TEARS_01, 1,1);
-    UpdateAnimation();
-    state = State::IDLE;
-    anim->SetLoop(true);
-    anim->SetDelay(0.2f);
+	anim->SetSprite(TextureKey::BULLET_TEARS_01, TextureKey::BULLET_TEARS_01);
+	anim->SetLoop(true);
+	anim->SetDelay(0.2f);
 
-    transform->scale.x *= 0.5f;
-    transform->scale.y *= 0.5f;
-    transform->scale.z *= 0.5f;
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 
-    isDeadTime = 4.5f;
+    lifeTime = 4.5f;
     moveSpeed = 3.f;
 }
 
@@ -26,17 +22,7 @@ Bullet_Water::~Bullet_Water()
 
 void Bullet_Water::Update()
 {
-
-    Bullet::Update();
-
-    transform->position += direction * moveSpeed * TimeManager::DeltaTime();;
-
-
-    Time[0] += TimeManager::DeltaTime();
-    if (Time[0] >= isDeadTime) {
-        isDead = true;
-    }
-    Billboard();
+	Bullet::Update();
 }
 
 void Bullet_Water::Render()
@@ -46,12 +32,5 @@ void Bullet_Water::Render()
 
 void Bullet_Water::OnCollision(GameObject* target)
 {
-    if (target->isAlliance == this->isAlliance) {
-        return;
-    }
-
-    //if (dynamic_cast<Player*>(target)) {
-       //몬스터와 충돌 이벤트
-    //isDead = true;
-    //}
+	isDead = true;
 }

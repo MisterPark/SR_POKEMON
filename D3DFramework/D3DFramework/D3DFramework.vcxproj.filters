@@ -190,9 +190,6 @@
     <Filter Include="GameObject\Character\Grass\251. Celebi">
       <UniqueIdentifier>{d0b18ac2-5cdd-4300-a5d7-a294e35eb6dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\FieldFire">
-      <UniqueIdentifier>{9e7a670f-1de0-46d3-82e1-3f7b7a2b10d4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Skill\04. Blaze">
       <UniqueIdentifier>{26aae199-57ad-4c31-b63c-308ca6046004}</UniqueIdentifier>
     </Filter>
@@ -216,6 +213,24 @@
     </Filter>
     <Filter Include="Skill\10. WebBullet">
       <UniqueIdentifier>{f0430313-9fda-48a2-812d-617d7c27149f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\Tornado">
+      <UniqueIdentifier>{f34c9f34-416f-4fbb-9357-41495437e3eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\Tears">
+      <UniqueIdentifier>{337e1a05-9639-4d4b-a30b-c67c6f0627ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\Water">
+      <UniqueIdentifier>{6323987f-1a4b-40fc-a7af-aa17c88b0ec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\Web">
+      <UniqueIdentifier>{4ff5d99c-65e4-463e-9e7b-8afb8e87b9d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\PlayerBullet">
+      <UniqueIdentifier>{1034c00c-59ab-4cb2-99c5-8b001bff4706}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\Blaze">
+      <UniqueIdentifier>{9e7a670f-1de0-46d3-82e1-3f7b7a2b10d4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -330,9 +345,6 @@
     <ClInclude Include="SkyBox.h">
       <Filter>GameObject\SkyBox</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet_Water.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="CubeMan.h">
       <Filter>GameObject</Filter>
     </ClInclude>
@@ -360,9 +372,6 @@
     <ClInclude Include="Protocol.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerBullet.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="Ivysaur.h">
       <Filter>GameObject\Character\Grass\002. Ivysaur</Filter>
     </ClInclude>
@@ -389,9 +398,6 @@
     </ClInclude>
     <ClInclude Include="Water.h">
       <Filter>GameObject\Environment</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet_Water1.h">
-      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Tree.h">
       <Filter>GameObject\Environment</Filter>
@@ -444,9 +450,6 @@
     <ClInclude Include="Suicune.h">
       <Filter>GameObject\Character\Water\245. Suicune</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet_Tornado.h">
-      <Filter>GameObject\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="D3DFramework.h">
       <Filter>99. Defaults</Filter>
     </ClInclude>
@@ -498,9 +501,6 @@
     <ClInclude Include="Stage_Fire_01.h">
       <Filter>Scene\Fire</Filter>
     </ClInclude>
-    <ClInclude Include="FieldFire.h">
-      <Filter>GameObject\FieldFire</Filter>
-    </ClInclude>
     <ClInclude Include="Skill_Blaze.h">
       <Filter>Skill\04. Blaze</Filter>
     </ClInclude>
@@ -509,9 +509,6 @@
     </ClInclude>
     <ClInclude Include="MonsterAI.h">
       <Filter>Component\AI</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet_Web.h">
-      <Filter>GameObject\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Skill_Tornado.h">
       <Filter>Skill\05. Tornado</Filter>
@@ -530,6 +527,24 @@
     </ClInclude>
     <ClInclude Include="Skill_XBullet.h">
       <Filter>Skill\09. XBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Tornado.h">
+      <Filter>GameObject\Bullet\Tornado</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Water.h">
+      <Filter>GameObject\Bullet\Tears</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Water1.h">
+      <Filter>GameObject\Bullet\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Web.h">
+      <Filter>GameObject\Bullet\Web</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBullet.h">
+      <Filter>GameObject\Bullet\PlayerBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Blaze.h">
+      <Filter>GameObject\Bullet\Blaze</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -634,9 +649,6 @@
     </ClCompile>
     <ClCompile Include="SkyBox.cpp">
       <Filter>GameObject\SkyBox</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="CubeMan.cpp">
       <Filter>GameObject</Filter>
@@ -806,9 +818,6 @@
     <ClCompile Include="Bullet_Water.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>GameObject\Character\Monster</Filter>
     </ClCompile>
@@ -820,9 +829,6 @@
     </ClCompile>
     <ClCompile Include="Water.cpp">
       <Filter>GameObject\Environment</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet_Water1.cpp">
-      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
@@ -847,9 +853,6 @@
     </ClCompile>
     <ClCompile Include="Caterpie.cpp">
       <Filter>GameObject\Character\Grass\010. Caterpie</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet_Tornado.cpp">
-      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Golduck.cpp">
       <Filter>GameObject\Character\Water\055. Golduck</Filter>
@@ -928,9 +931,6 @@
     <ClCompile Include="Stage_Fire_01.cpp">
       <Filter>Scene\Fire</Filter>
     </ClCompile>
-    <ClCompile Include="FieldFire.cpp">
-      <Filter>GameObject\FieldFire</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_Blaze.cpp">
       <Filter>Skill\04. Blaze</Filter>
     </ClCompile>
@@ -939,9 +939,6 @@
     </ClCompile>
     <ClCompile Include="MonsterAI.cpp">
       <Filter>Component\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet_Web.cpp">
-      <Filter>GameObject\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Skill_Tornado.cpp">
       <Filter>Skill\05. Tornado</Filter>
@@ -960,6 +957,24 @@
     </ClCompile>
     <ClCompile Include="Skill_XBullet.cpp">
       <Filter>Skill\09. XBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Tornado.cpp">
+      <Filter>GameObject\Bullet\Tornado</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Water.cpp">
+      <Filter>GameObject\Bullet\Tears</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Water1.cpp">
+      <Filter>GameObject\Bullet\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Web.cpp">
+      <Filter>GameObject\Bullet\Web</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>GameObject\Bullet\PlayerBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Blaze.cpp">
+      <Filter>GameObject\Bullet\Blaze</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

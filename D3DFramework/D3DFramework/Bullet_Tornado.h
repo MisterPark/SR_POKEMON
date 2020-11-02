@@ -16,5 +16,6 @@ public:
     float rotateMoveX = false;
     float rotateMoveZ = false;
     
+	float spawnTimeGap;
+	int Frame[2];
 };
-

@@ -1,14 +1,14 @@
 #include "stdafx.h"
-#include "FieldFire.h"
+#include "Projectile.h"
 #include "Rectangle.h"
 #include "Effect.h"
 #include "Bullet.h"
 
-FieldFire::FieldFire()
+Projectile::Projectile()
 {
 }
 
-FieldFire::FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att) :
+Projectile::Projectile(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att) :
 	direction(dir), lifeTime(lifeTime), att(att)
 {
 	transform->position = pos;
@@ -21,12 +21,11 @@ FieldFire::FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start
 	Initialize();
 }
 
-FieldFire::~FieldFire()
+Projectile::~Projectile()
 {
-	CollisionManager::DisregisterObject(COLTYPE::PLAYER_ATTACK, this);
 }
 
-void FieldFire::Initialize()
+void Projectile::Initialize()
 {
 	CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, this);
 
@@ -42,7 +41,7 @@ void FieldFire::Initialize()
 	anim->SetLoop(false);
 }
 
-void FieldFire::Update()
+void Projectile::Update()
 {
 	GameObject::Update();
 
@@ -61,11 +60,11 @@ void FieldFire::Update()
 	CalcLifeTime();
 }
 
-void FieldFire::Release()
+void Projectile::Release()
 {
 }
 
-void FieldFire::OnCollision(GameObject * target)
+void Projectile::OnCollision(GameObject * target)
 {
 	if (target->isAlliance == this->isAlliance) return;
 
@@ -84,7 +83,7 @@ void FieldFire::OnCollision(GameObject * target)
 	cout << ++i << endl;
 }
 
-void FieldFire::CalcLifeTime()
+void Projectile::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();
 
@@ -94,7 +93,7 @@ void FieldFire::CalcLifeTime()
 	}
 }
 
-void FieldFire::ChangeState(State nextState)
+void Projectile::ChangeState(State nextState)
 {
 	if (state != nextState)
 	{
@@ -103,14 +102,14 @@ void FieldFire::ChangeState(State nextState)
 	}
 }
 
-void FieldFire::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame)
+void Projectile::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame)
 {
 	startArray[(int)_state] = (TextureKey)((int)_beginTextureKey);
 	endArray[(int)_state] = (TextureKey)((int)_beginTextureKey + (_aniFrame - 1));
 }
 
-FieldFire * FieldFire::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att)
+Projectile * Projectile::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att)
 {
-	FieldFire* instance = new FieldFire(pos, size, start, end, dir, speed, lifeTime, att);
+	Projectile* instance = new Projectile(pos, size, start, end, dir, speed, lifeTime, att);
 	return instance;
 }

@@ -182,7 +182,6 @@ void MonsterAI::SetType(MonsterType _type)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
-	c->isAlliance = false;
 	type = _type;
 	switch (type)
 	{
@@ -355,7 +354,7 @@ void MonsterAI::MonsterIdle() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Idle
 	if (isSearch) {
 		switch (type)
 		{
@@ -410,7 +409,7 @@ void MonsterAI::MonsterIdle() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Idle
 	else {
 		switch (type)
 		{
@@ -472,7 +471,7 @@ void MonsterAI::MonsterWalk() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Walk
 	if (isSearch) {
 		switch (type)
 		{
@@ -710,7 +709,7 @@ void MonsterAI::MonsterWalk() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Walk
 	else {
 		switch (type)
 		{
@@ -833,7 +832,7 @@ void MonsterAI::MonsterAttack() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Attack
 	if (isSearch) {
 		switch (type)
 		{
@@ -1044,7 +1043,7 @@ void MonsterAI::MonsterAttack() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Attack
 	else {
 		switch (type)
 		{
@@ -1207,7 +1206,7 @@ void MonsterAI::MonsterSkill() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Skill
 	if (isSearch) {
 		switch (type)
 		{
@@ -1333,7 +1332,7 @@ void MonsterAI::MonsterSkill() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Skill
 	else {
 		switch (type)
 		{
@@ -1440,7 +1439,7 @@ void MonsterAI::MonsterSkill2() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Skill2
 	if (isSearch) {
 		switch (type)
 		{
@@ -1578,7 +1577,7 @@ void MonsterAI::MonsterSkill2() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Skill2
 	else {
 		switch (type)
 		{
@@ -1681,7 +1680,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1691,7 +1689,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1701,7 +1698,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1711,7 +1707,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 }
 
 void MonsterAI::XBullet()
@@ -1726,7 +1721,6 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1737,7 +1731,6 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1748,7 +1741,6 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1759,5 +1751,4 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 }
