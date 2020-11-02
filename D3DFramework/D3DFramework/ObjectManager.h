@@ -29,6 +29,8 @@ namespace PKH
 
 		template<class TargetType>
 		bool GetNearestObject(TargetType* _outTarget, GameObject* _self);
+		template<class TargetType>
+		bool GetNearestObject(TargetType* _outTarget, GameObject* _self, bool (*Func)(GameObject*, GameObject*));
 
 		static void AddObject(GameObject* _obj);
 
@@ -101,6 +103,39 @@ namespace PKH
 		for (auto& iter : objectList)
 		{
 			if (dynamic_cast<TargetType*>(iter) == nullptr) continue;
+
+			if (target == nullptr)
+			{
+				target = *iter;
+				continue;
+			}
+
+			comparand = *iter;
+
+			float targetDist = Vector3::Distance(_self->transform->position, target->transform->position);
+			float compDist = Vector3::Distance(_self->transform->position, comparand->transform->position);
+
+
+			if (compDist < targetDist)
+			{
+				target = comparand;
+			}
+		}
+
+
+		return target;
+	}
+
+	template<class TargetType>
+	inline bool ObjectManager::GetNearestObject(TargetType* _outTarget, GameObject* _self, bool(*Func)(GameObject*, GameObject*))
+	{
+		TargetType* target = nullptr;
+		TargetType* comparand = nullptr;
+
+		for (auto& iter : objectList)
+		{
+			if (dynamic_cast<TargetType*>(iter) == nullptr) continue;
+			if (Func(_self, *iter) == false) continue;
 
 			if (target == nullptr)
 			{
