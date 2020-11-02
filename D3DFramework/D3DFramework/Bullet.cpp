@@ -136,6 +136,26 @@ Vector3 Bullet::PlayerSearchDir(bool PosY)
 	return dir;
 }
 
+Vector3 Bullet::MonsterSearchDir(bool PosY, float SearchRange)
+{
+	bool isAlliance = true;
+	GameObject* g =  nullptr;
+	while (isAlliance) {
+		g = ObjectManager::GetInstance()->FindObject<Character>();
+
+		isAlliance = g->isAlliance;
+	}
+	if (g == nullptr) return Vector3{ 0.f, 0.f, 0.f };
+
+	Transform* PlayerT = g->transform;
+	Vector3 dir = PlayerT->position - transform->position;
+
+	if (!PosY)
+		dir.y = 0.f;
+
+	return dir;
+}
+
 void Bullet::SetDir(const Vector3 & dir)
 {
 	D3DXVec3Normalize(&direction, &dir);
