@@ -232,6 +232,9 @@
     <Filter Include="GameObject\Bullet\Blaze">
       <UniqueIdentifier>{9e7a670f-1de0-46d3-82e1-3f7b7a2b10d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Decoration">
+      <UniqueIdentifier>{bbef4f73-09be-45f5-b416-9aec63c17d97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -399,9 +402,6 @@
     <ClInclude Include="Water.h">
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
-    <ClInclude Include="Tree.h">
-      <Filter>GameObject\Environment</Filter>
-    </ClInclude>
     <ClInclude Include="Skill.h">
       <Filter>Skill</Filter>
     </ClInclude>
@@ -545,6 +545,12 @@
     </ClInclude>
     <ClInclude Include="Blaze.h">
       <Filter>GameObject\Bullet\Blaze</Filter>
+    </ClInclude>
+    <ClInclude Include="Decoration.h">
+      <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>GameObject\Decoration</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -815,9 +821,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>GameObject\Character\Monster</Filter>
     </ClCompile>
@@ -829,12 +832,6 @@
     </ClCompile>
     <ClCompile Include="Water.cpp">
       <Filter>GameObject\Environment</Filter>
-    </ClCompile>
-    <ClCompile Include="Tree.cpp">
-      <Filter>GameObject\Environment</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Charmander.cpp">
       <Filter>GameObject\Character\Fire\004. Charmander</Filter>
@@ -975,6 +972,14 @@
     </ClCompile>
     <ClCompile Include="Blaze.cpp">
       <Filter>GameObject\Bullet\Blaze</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Water.cpp" />
+    <ClCompile Include="PlayerBullet.cpp" />
+    <ClCompile Include="Decoration.cpp">
+      <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>GameObject\Decoration</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -179,6 +179,7 @@
     <ClInclude Include="D2DRenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
     <ClInclude Include="Debug.h" />
+    <ClInclude Include="Decoration.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Environment.h" />
@@ -284,6 +285,7 @@
     <ClCompile Include="D2DRenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Decoration.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Blaze.cpp" />
