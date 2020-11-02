@@ -199,6 +199,24 @@
     <Filter Include="Component\AI">
       <UniqueIdentifier>{b8a3617e-caf2-4354-8871-6cc77514c547}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\05. Tornado">
+      <UniqueIdentifier>{67c06006-08cf-4dc5-8b4d-3548aa5ef332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\06. RushAttack">
+      <UniqueIdentifier>{fed63ff8-dbeb-4eea-a584-147beba4b895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\07. TearsBullet">
+      <UniqueIdentifier>{81d9c23a-cc97-4844-9713-0ae9a925e7f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\08. CrossBullet">
+      <UniqueIdentifier>{b463ac2b-b423-4ed4-abce-b9ff8ca27bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\09. XBullet">
+      <UniqueIdentifier>{5b4ffe65-4202-4a82-adbf-7b618bb7a7cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\10. WebBullet">
+      <UniqueIdentifier>{f0430313-9fda-48a2-812d-617d7c27149f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -494,6 +512,24 @@
     </ClInclude>
     <ClInclude Include="Bullet_Web.h">
       <Filter>GameObject\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Tornado.h">
+      <Filter>Skill\05. Tornado</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_CrossBullet.h">
+      <Filter>Skill\08. CrossBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_RushAttack.h">
+      <Filter>Skill\06. RushAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_TearsBullet.h">
+      <Filter>Skill\07. TearsBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_WebBullet.h">
+      <Filter>Skill\10. WebBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_XBullet.h">
+      <Filter>Skill\09. XBullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -906,6 +942,24 @@
     </ClCompile>
     <ClCompile Include="Bullet_Web.cpp">
       <Filter>GameObject\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Tornado.cpp">
+      <Filter>Skill\05. Tornado</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_CrossBullet.cpp">
+      <Filter>Skill\08. CrossBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_RushAttack.cpp">
+      <Filter>Skill\06. RushAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_TearsBullet.cpp">
+      <Filter>Skill\07. TearsBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_WebBullet.cpp">
+      <Filter>Skill\10. WebBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_XBullet.cpp">
+      <Filter>Skill\09. XBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

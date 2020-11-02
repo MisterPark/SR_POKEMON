@@ -31,6 +31,7 @@ public:
 	//플레이어를 향하는 방향벡터를 Normalize 하고 반환합니다.
 	//인자가 false 일시 Y값은 제외합니다.
 	Vector3 PlayerSearchDir(bool PosY = true);
+	Vector3 MonsterSearchDir(bool PosY, float SearchRange);
 	void SetDir(const Vector3& dir);
 	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
 	void MoveForward();

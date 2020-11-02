@@ -33,13 +33,23 @@ void Skill_Blaze::Active(const Character* character)
 	Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_ROUND_01, TextureKey::FIRE_ROUND_05, 0.1f, true);
 	ObjectManager::AddObject(fx);
 
-	for (int i = 0; i < 10; ++i)
+	Vector3 pos2 = position + look;
+
+	FieldFire* instance = FieldFire::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, look, 30.f, 0.f, 1.f);
+	ObjectManager::AddObject(instance);
+
+	if (character->GetIsEnemy())
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
+	else
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
+
+	/*for (int i = 0; i < 10; ++i)
 	{
 		Vector3 pos2 = position + (look * 1.f * i);
 
 		FieldFire* instance = FieldFire::Create(pos2, { size, size, size }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, 0.5f);
 		ObjectManager::AddObject(instance);
-	}
+	}*/
 }
 
 Skill * Skill_Blaze::Create()

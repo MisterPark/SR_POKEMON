@@ -83,8 +83,16 @@ void MonsterAI::MovePlayerFollow(float _moveSpeed2)
 		c->direction.y = 0.f;
 		Vector3::Normalize(&c->direction);
 	}
-	c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
-	c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+
+	float distX = playerTrans->position.x - c->transform->position.x;
+	float distZ = playerTrans->position.z - c->transform->position.z;
+
+	float dis = sqrt(distX * distX + distZ * distZ);
+
+	if (dis > 0.2f) {
+		c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+		c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	}
 }
 
 void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2)
@@ -187,7 +195,7 @@ void MonsterAI::SetType(MonsterType _type)
 	case MonsterType::CATERPIE:
 		SetPatternRange(1, 1);
 		searchRange[0] = 6.f;
-		searchRange[1] = 6.f;
+		searchRange[1] = 3.f;
 		searchRange[3] = 10.f;
 		break;
 	case MonsterType::METAPOD:
@@ -213,7 +221,7 @@ void MonsterAI::SetType(MonsterType _type)
 	case MonsterType::BUTTERFREE:
 		SetPatternRange(1, 1);
 		searchRange[0] = 6.f;
-		searchRange[1] = 6.f;
+		searchRange[1] = 4.f;
 		searchRange[3] = 10.f;
 		break;
 	case MonsterType::PSYDUCK:
@@ -479,7 +487,7 @@ void MonsterAI::MonsterWalk() {
 			if (disPlayer < searchRange[1]) {
 				if (Time[2] > 0.f) {
 					Time[2] -= TimeManager::DeltaTime();
-					MovePlayerFollow();
+					//MovePlayerFollow();
 				}
 				else {
 					c->state = State::ATTACK;

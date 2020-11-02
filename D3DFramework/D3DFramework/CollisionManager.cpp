@@ -11,6 +11,7 @@ PKH::CollisionManager::CollisionManager()
 
 PKH::CollisionManager::~CollisionManager()
 {
+	Release();
 }
 
 PKH::CollisionManager* CollisionManager::GetInstance()
@@ -30,59 +31,81 @@ void PKH::CollisionManager::Destroy()
 
 void PKH::CollisionManager::Update()
 {
+	ObjectDeadCheck();
+	CollisionCheck(COLTYPE::PLAYER_ATTACK, COLTYPE::ENEMY);
+	CollisionCheck(COLTYPE::PLAYER_MULTI_ATTACK, COLTYPE::ENEMY);
+	CollisionCheck(COLTYPE::ENEMY_ATTACK, COLTYPE::PLAYER);
+	CollisionCheck(COLTYPE::ENEMY_MULTI_ATTACK, COLTYPE::PLAYER);
+}
 
-	// Ãæµ¹
-	for (auto src : pCollisionManager->objectList)
+void PKH::CollisionManager::ObjectDeadCheck()
+{
+	for (int i = 0; i < COLTYPE::END; ++i)
 	{
-		for (auto dest : pCollisionManager->objectList)
-		{
-			if (src == dest) continue;
+		auto iter = objectList[i].begin();
+		auto iterEnd = objectList[i].end();
 
-			if (CollisionManager::IsCollided(src, dest))
+		for (;iter != iterEnd;)
+		{
+			if ((*iter)->isDead)
 			{
-				src->OnCollision(dest);
+				iter = objectList[i].erase(iter);
+			}
+			else ++iter;
+		}
+	}
+}
+
+void PKH::CollisionManager::CollisionCheck(COLTYPE srcType, COLTYPE dstType)
+{
+	for (auto& srcElem : objectList[srcType])
+	{
+		for (auto& dstElem : objectList[dstType])
+		{
+			if (IsCollided(srcElem, dstElem))
+			{
+				srcElem->OnCollision(dstElem);
+				dstElem->OnCollision(srcElem);
 			}
 		}
 	}
-
-	
-
 }
 
-void PKH::CollisionManager::RegisterObject(GameObject* _pObj)
+void PKH::CollisionManager::Release()
 {
-	if (FindObject(_pObj))
+	for (int i = 0; i < COLTYPE::END; ++i) objectList[i].clear();
+}
+
+void PKH::CollisionManager::RegisterObject(COLTYPE colType, GameObject * _pObj)
+{
+	if (FindObject(colType, _pObj))
 	{
 		return;
 	}
 
-	pCollisionManager->objectList.push_back(_pObj);
+	pCollisionManager->objectList[colType].push_back(_pObj);
 }
 
-void PKH::CollisionManager::DisregisterObject(GameObject* _pObj)
+void PKH::CollisionManager::DisregisterObject(COLTYPE colType, GameObject * _pObj)
 {
-	//if (FindObject(_pObj))
-	//{
-	//	//pCollisionManager->objectList.remove(_pObj);
-	//}
 	if (_pObj == nullptr) return;
 
-	auto iter = pCollisionManager->objectList.begin();
-	auto end = pCollisionManager->objectList.end();
+	auto iter = pCollisionManager->objectList[colType].begin();
+	auto end = pCollisionManager->objectList[colType].end();
 
 	for (; iter != end; ++iter)
 	{
 		if ((*iter) != _pObj) continue;
 
-		pCollisionManager->objectList.erase(iter);
+		pCollisionManager->objectList[colType].erase(iter);
 		return;
 	}
 }
 
-bool PKH::CollisionManager::FindObject(GameObject* _pObj)
+bool PKH::CollisionManager::FindObject(COLTYPE colType, GameObject * _pObj)
 {
 	if (_pObj == nullptr) return false;
-	for (auto iter : pCollisionManager->objectList)
+	for (auto iter : pCollisionManager->objectList[colType])
 	{
 		if (iter != _pObj) continue;
 

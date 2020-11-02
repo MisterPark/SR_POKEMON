@@ -48,6 +48,24 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Blaze:
 		newSkill = Skill_Blaze::Create();
 		break;
+	case SkillName::Tornado:
+		newSkill = Skill_Tornado::Create();
+		break;
+	case SkillName::RushAttack:
+		newSkill = Skill_RushAttack::Create();
+		break;
+	case SkillName::TearsBullet:
+		newSkill = Skill_TearsBullet::Create();
+		break;
+	case SkillName::CrossBullet:
+		newSkill = Skill_CrossBullet::Create();
+		break;
+	case SkillName::XBullet:
+		newSkill = Skill_XBullet::Create();
+		break;
+	case SkillName::WebBullet:
+		newSkill = Skill_WebBullet::Create();
+		break;
 	}
 
 	return newSkill;

@@ -29,6 +29,8 @@ public:
 
 public:
 	void SetDir(const Vector3& dir);
+	void SetIsEnemy(const bool& _isEnemy) { isEnemy = _isEnemy; }
+	bool GetIsEnemy() const { return isEnemy; }
 	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
 	void MoveForward();
 	void ChangeState(State nextState);
@@ -49,5 +51,6 @@ public:
 
 protected:
 	vector<Skill*> skillSet;
+	bool isEnemy;
 };
 

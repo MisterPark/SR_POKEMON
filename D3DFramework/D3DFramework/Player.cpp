@@ -48,13 +48,15 @@ void Player::Update()
 
 void Player::PostUpdate()
 {
-	if (character == nullptr)return;
+	if (nullptr == character) return;
 	Vector3* pos = character->transform->Get_Pos();
+	
+	if (1.f > pos->x) pos->x = 1.f;
+	if (dfTERRAIN_WIDTH - 2 < pos->x) pos->x = dfTERRAIN_WIDTH - 2;
+	if (1.f > pos->z) pos->z = 1.f;
+	if (dfTERRAIN_HEIGHT - 2 < pos->z) pos->z = dfTERRAIN_HEIGHT - 2;
 
-	if (0.f > pos->x) pos->x = 0.f;
-	if (dfTERRAIN_WIDTH - 1 < pos->x) pos->x = dfTERRAIN_WIDTH - 1;
-	if (0.f > pos->z) pos->z = 0.f;
-	if (dfTERRAIN_HEIGHT - 1 < pos->z) pos->z = dfTERRAIN_HEIGHT - 1;
+	character->OnTerrain();
 }
 
 void Player::SetCharacter(Character * object)
@@ -62,6 +64,7 @@ void Player::SetCharacter(Character * object)
 	character = object;
 
 	Camera::GetInstance()->SetTarget(character);
+	if(nullptr != object) character->SetIsEnemy(false);
 }
 
 void Player::Initialize()

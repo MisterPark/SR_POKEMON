@@ -88,9 +88,9 @@ void PKH::MainGame::Update()
 
 	Camera::GetInstance()->Update();
 	SkyBox::GetInstance()->Update();
-	CollisionManager::Update();
 	
 	Player::GetInstance()->PostUpdate();
+	CollisionManager::GetInstance()->Update();
 	ObjectManager::PostUpdate();
 
 	if (!TimeManager::SkipFrame())
@@ -112,12 +112,12 @@ void PKH::MainGame::Release()
 	// 다른 모든 매니저 해제
 	SceneManager::Destroy();
 	TimeManager::Destroy();
+	CollisionManager::Destroy();
 	ObjectManager::Destroy();
 	SkyBox::Destroy();
 	//RenderManager::Release();
 	D2DRenderManager::Destroy();
 	InputManager::Destroy();
-	CollisionManager::Destroy();
 	Camera::Destroy();
 	FileManager::Destroy();
 

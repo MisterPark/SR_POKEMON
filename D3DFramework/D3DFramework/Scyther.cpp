@@ -41,12 +41,14 @@ void Scyther::Initialize()
 	moveSpeed = 3.5f;
 	offsetY = 1.f;
 
+	
+
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tornado));
 
-	hp = 30.f;
+	hp = 60.f;
 
 	UpdateAnimation();
 }

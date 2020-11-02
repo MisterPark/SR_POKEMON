@@ -17,6 +17,11 @@ void Skill_LeafBullet::Active(const Character* character)
 
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF);
 	ObjectManager::AddObject(bullet);
+
+	if (character->GetIsEnemy())
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
 
 Skill * Skill_LeafBullet::Create()
