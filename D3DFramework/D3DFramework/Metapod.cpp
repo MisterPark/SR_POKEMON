@@ -1,9 +1,7 @@
 #include "stdafx.h"
 #include "Metapod.h"
 #include "Rectangle.h"
-#include "PlayerBullet.h"
 #include "Bullet.h"
-#include "FieldFire.h"
 
 Metapod::Metapod()
 {
@@ -83,23 +81,6 @@ Metapod* Metapod::Create(const Vector3& pos, const Vector3& scale, const Vector3
 
 void Metapod::OnCollision(GameObject* target)
 {
-	if (target->isAlliance == this->isAlliance) {
-		return;
-	}
-
-	if (dynamic_cast<PlayerBullet*>(target)) {
-		//몬스터와 충돌 이벤트
-		hp -= dynamic_cast<Bullet*>(target)->att;
-
-		if (hp < 0.f)
-			isDead = true;
-	}
-
-	else if (dynamic_cast<FieldFire*>(target)) {
-		//몬스터와 충돌 이벤트
-		hp -= dynamic_cast<FieldFire*>(target)->GetAtt();
-
-		if (hp < 0.f)
-			isDead = true;
-	}
+	hp -= target->attack;
+	if (hp <= 0.f) isDead = true;
 }

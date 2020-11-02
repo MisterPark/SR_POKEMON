@@ -182,7 +182,6 @@ void MonsterAI::SetType(MonsterType _type)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
-	c->isAlliance = false;
 	type = _type;
 	switch (type)
 	{
@@ -1579,7 +1578,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1589,7 +1587,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1599,7 +1596,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1609,7 +1605,6 @@ void MonsterAI::CrossBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 }
 
 void MonsterAI::XBullet()
@@ -1624,7 +1619,6 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1635,7 +1629,6 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1646,7 +1639,6 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	Dir2 = { 0.f,0.f,0.f };
@@ -1657,5 +1649,4 @@ void MonsterAI::XBullet()
 	b->SetDir(Dir2);
 	*(b->transform) = *gameObject->transform;
 	b->moveSpeed = 0.5f;
-	b->isAlliance = false;
 }

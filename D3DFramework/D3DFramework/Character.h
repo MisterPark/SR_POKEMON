@@ -40,7 +40,6 @@ public:
 public:
 	wstring name;
 	float hp;
-	float att;
     // 지형과 간격
     float offsetY;
 	Vector3 direction = { 0,0,1 };

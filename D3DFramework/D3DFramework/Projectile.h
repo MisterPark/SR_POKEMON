@@ -1,12 +1,12 @@
 #pragma once
 #include "GameObject.h"
-class FieldFire :
-	public GameObject
+
+class Projectile : public GameObject
 {
 public:
-	FieldFire();
-	FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att);
-	virtual ~FieldFire();
+	Projectile();
+	Projectile(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att);
+	virtual ~Projectile();
 
 public:
 	// GameObject을(를) 통해 상속됨
@@ -22,7 +22,7 @@ public:
 	float GetAtt() { return att; }
 
 public:
-	static FieldFire* Create(
+	static Projectile* Create(
 		const Vector3& pos,
 		const Vector3& size,
 		TextureKey start,
@@ -42,4 +42,3 @@ private:
 	State state;
 	float att;
 };
-
