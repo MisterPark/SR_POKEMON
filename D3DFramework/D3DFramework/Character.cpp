@@ -29,20 +29,32 @@ void Character::Update()
 void Character::Render()
 {
 	GameObject::Render();
-	RenderName();
+	RenderInfomation();
 }
 
-void Character::RenderName()
+void Character::RenderInfomation()
 {
 	if (transform->zOrder < 0.f)
 	{
 		return;
 	}
+	// 카메라와 거리
 	float camDist = Vector3::Distance(Camera::GetInstance()->GetPosition(), this->transform->position);
-	Vector3 pos = Camera::WorldToScreenPoint(transform->position);
-	pos.y -= transform->scale.y + 40 - camDist;
-	pos.x -= 30;
-	D2DRenderManager::DrawFont(name, pos.x, pos.y, D3DCOLOR_XRGB(255, 255, 255));
+	if (camDist < 15.f)
+	{
+		// 이름길이
+		float len = name.length();
+		float strW = 20;
+		Vector3 pos = Camera::WorldToScreenPoint(transform->position);
+		pos.y -= transform->scale.y + 40 - camDist;
+		pos.x -= (len / 2.f) * strW;
+		D2DRenderManager::DrawFont(name, pos.x, pos.y, D3DCOLOR_XRGB(255, 255, 255));
+
+		D2DRenderManager::DrawSprite(TextureKey::UI_HP_BAR_04, pos, 0);
+	}
+
+
+	
 }
 
 void Character::Initialize()

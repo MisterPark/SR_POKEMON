@@ -13,7 +13,6 @@ public:
 
     virtual void UpdateUI() override;
 
-    // UI을(를) 통해 상속됨
     virtual void OnHover() override;
     virtual void OnLeave() override;
     virtual void OnLButtonDown() override;

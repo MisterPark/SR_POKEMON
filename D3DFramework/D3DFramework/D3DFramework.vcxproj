@@ -205,6 +205,7 @@
     <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Oddish.h" />
+    <ClInclude Include="Panel.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
@@ -307,6 +308,7 @@
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Oddish.cpp" />
+    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />

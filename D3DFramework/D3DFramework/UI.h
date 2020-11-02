@@ -11,7 +11,8 @@ public:
     virtual void Render() override;
 
     // 각 UI마다 업데이트 해줘야 할 것 작성
-    virtual void UpdateUI() {};
+    // width , height 세팅 필수
+    virtual void UpdateUI() = 0;
 
     void UpdateEvent();
     void ClearEvent();
@@ -33,6 +34,7 @@ public:
     // 텍스트를 출력할 UI인가? (RW)
     bool textRenderFlag = false;
     TextureKey textureKey = TextureKey::NONE;
+    // 넓이 높이 (R)
     int width = 0;
     int height = 0;
 
