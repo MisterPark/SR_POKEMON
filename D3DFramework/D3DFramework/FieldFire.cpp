@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "FieldFire.h"
 #include "Rectangle.h"
+#include "Effect.h"
+#include "Bullet.h"
 
 FieldFire::FieldFire()
 {
@@ -67,9 +69,19 @@ void FieldFire::OnCollision(GameObject * target)
 {
 	if (target->isAlliance == this->isAlliance) return;
 
+	if (dynamic_cast<Bullet*>(target)) return;
+
+	Vector3 pos = target->transform->position;
+
+	Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_EXPLOSION_01, TextureKey::FIRE_EXPLOSION_08, 0.03f);
+	ObjectManager::AddObject(fx);
+
 	lifeTime = -1.f;
 	ChangeState(State::ATTACK);
-	//att = 0;
+	
+	static int i = 0;
+
+	cout << ++i << endl;
 }
 
 void FieldFire::CalcLifeTime()
