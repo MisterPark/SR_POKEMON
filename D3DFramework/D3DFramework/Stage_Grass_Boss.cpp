@@ -38,7 +38,7 @@ void Stage_Grass_Boss::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 1.f;
 	playerCharacter->transform->position.z = 48.f - 47.f;
-	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Lake3.bmp", 3.5f);
+	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp", 3.5f);
 
 	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
@@ -77,7 +77,6 @@ void Stage_Grass_Boss::Set_Stage_Grass_Boss_Map(TextureKey _key, const std::stri
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
 
 	for (int i = 0; i < 10; i++)
 	{

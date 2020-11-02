@@ -37,7 +37,7 @@ void Stage_Water_Boss::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 5.f;
 	playerCharacter->transform->position.z = 48.f - 44.f;
-	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Brook.bmp", 0.f);
+	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);
 
 	
 }
@@ -72,7 +72,7 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
+	dynamic_cast<Water*>(water)->Normal();
 	//³ª¹«
 
 	//for (int i = 0; i < 8; i++)

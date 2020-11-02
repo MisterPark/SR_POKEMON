@@ -13,9 +13,11 @@ public:
 	virtual void Update() override;
 
 	void Lava();
+	void Beach();
+	void Normal();
 	Animation2D* anim = nullptr;
 	Terrain* terrain = nullptr;
-	bool isWater = false;
+	
 private:
 	float animSpeed;
 
