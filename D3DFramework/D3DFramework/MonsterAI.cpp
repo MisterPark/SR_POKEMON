@@ -3,6 +3,7 @@
 #include "Bullet_Water.h"
 #include "Bullet_Tornado.h"
 #include "Bullet_Web.h"
+#include "Bullet_Poision.h"
 
 MonsterAI::MonsterAI()
 {
@@ -1571,82 +1572,74 @@ void MonsterAI::CrossBullet()
 {
 	float R = 1.f;
 
-	Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Bullet_Poision* b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Vector3 Dir2 = { 0.f,0.f,0.f };
 	Dir2.z -= R;
 	Dir2.Normalized();
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 
-	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Dir2 = { 0.f,0.f,0.f };
 	Dir2.z += R;
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 
-	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Dir2 = { 0.f,0.f,0.f };
 	Dir2.x += R;
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 
-	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Dir2 = { 0.f,0.f,0.f };
 	Dir2.x -= R;
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 }
 
 void MonsterAI::XBullet()
 {
 	float R = 1.f;
 
-	Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	Bullet_Poision* b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Vector3 Dir2 = { 0.f,0.f,0.f };
 	Dir2.x -= R;
 	Dir2.z -= R;
 	Dir2.Normalized();
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 
-	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Dir2 = { 0.f,0.f,0.f };
 	Dir2.x -= R;
 	Dir2.z += R;
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 
-	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Dir2 = { 0.f,0.f,0.f };
 	Dir2.x += R;
 	Dir2.z -= R;
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 
-	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Dir2 = { 0.f,0.f,0.f };
 	Dir2.x += R;
 	Dir2.z += R;
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
-	*(b->transform) = *gameObject->transform;
-	b->moveSpeed = 0.5f;
+	b->transform->position = gameObject->transform->position;
 }

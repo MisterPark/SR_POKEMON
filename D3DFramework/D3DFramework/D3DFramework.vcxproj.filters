@@ -232,6 +232,9 @@
     <Filter Include="GameObject\Bullet\Blaze">
       <UniqueIdentifier>{9e7a670f-1de0-46d3-82e1-3f7b7a2b10d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Bullet\Poision">
+      <UniqueIdentifier>{6c02274a-a07a-4f67-92ae-bfb884740f31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -546,6 +549,9 @@
     <ClInclude Include="Blaze.h">
       <Filter>GameObject\Bullet\Blaze</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Poision.h">
+      <Filter>GameObject\Bullet\Poision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -815,9 +821,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>GameObject\Character\Monster</Filter>
     </ClCompile>
@@ -832,9 +835,6 @@
     </ClCompile>
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Charmander.cpp">
       <Filter>GameObject\Character\Fire\004. Charmander</Filter>
@@ -975,6 +975,15 @@
     </ClCompile>
     <ClCompile Include="Blaze.cpp">
       <Filter>GameObject\Bullet\Blaze</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Poision.cpp">
+      <Filter>GameObject\Bullet\Poision</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBullet.cpp">
+      <Filter>GameObject\Bullet\PlayerBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Water.cpp">
+      <Filter>GameObject\Bullet\Tears</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
