@@ -182,7 +182,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Environment.h" />
-    <ClInclude Include="FieldFire.h" />
+    <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Functions.h" />
@@ -286,7 +286,7 @@
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Environment.cpp" />
-    <ClCompile Include="FieldFire.cpp" />
+    <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Golduck.cpp" />

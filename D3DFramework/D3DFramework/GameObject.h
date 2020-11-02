@@ -67,21 +67,16 @@ namespace PKH
 		IComponent* GetComponent(const wstring& _key);
 		Transform* GetTransform() const { return transform; } //¼öÁ¤
 
-
 	public:
 		Transform* transform = nullptr;
-		float att = 1.f;
+		float attack = 0.f;
 		float moveSpeed = 1.f;
 		ObjectType type = ObjectType::NONE;
 		bool isDead = false;
 		bool isVisible = true;
 		bool isEnable = true;
-		bool isAlliance = true;
 		
-
 		map<wstring, PKH::IComponent*> components;
-
-		
 	};
 	template<class T>
 	inline IComponent* GameObject::AddComponent(const wstring & _key)

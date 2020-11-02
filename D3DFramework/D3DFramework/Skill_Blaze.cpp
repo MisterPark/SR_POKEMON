@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Skill_Blaze.h"
+#include "Blaze.h"
 #include "Effect.h"
-#include "FieldFire.h"
 
 Skill_Blaze::Skill_Blaze()
 {
@@ -36,21 +36,13 @@ void Skill_Blaze::Active(const Character* character)
 
 	Vector3 pos2 = position + look;
 
-	FieldFire* instance = FieldFire::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, look, 30.f, 0.f, 1.f);
+	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, look, 30.f, 2.f, 3.f);
 	ObjectManager::AddObject(instance);
 
 	if (character->GetIsEnemy())
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
-
-	/*for (int i = 0; i < 10; ++i)
-	{
-		Vector3 pos2 = position + (look * 1.f * i);
-
-		FieldFire* instance = FieldFire::Create(pos2, { size, size, size }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, 0.5f);
-		ObjectManager::AddObject(instance);
-	}*/
 }
 
 Skill * Skill_Blaze::Create()
