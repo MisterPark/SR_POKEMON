@@ -28,9 +28,9 @@ namespace PKH
 		void FindObjectList(list<GameObject*>& outList);
 
 		template<class TargetType>
-		bool GetNearestObject(TargetType* _outTarget, GameObject* _self);
+		TargetType* GetNearestObject( GameObject* _self);
 		template<class TargetType>
-		bool GetNearestObject(TargetType* _outTarget, GameObject* _self, bool (*Func)(GameObject*, GameObject*));
+		TargetType* GetNearestObject( GameObject* _self, bool (*Func)(GameObject*, GameObject*));
 
 		static void AddObject(GameObject* _obj);
 
@@ -95,7 +95,7 @@ namespace PKH
 	}
 
 	template<class TargetType>
-	inline bool ObjectManager::GetNearestObject(TargetType* _outTarget, GameObject* _self)
+	inline TargetType* ObjectManager::GetNearestObject(GameObject* _self)
 	{
 		TargetType* target = nullptr;
 		TargetType* comparand = nullptr;
@@ -122,12 +122,12 @@ namespace PKH
 			}
 		}
 
-
+		
 		return target;
 	}
 
 	template<class TargetType>
-	inline bool ObjectManager::GetNearestObject(TargetType* _outTarget, GameObject* _self, bool(*Func)(GameObject*, GameObject*))
+	inline TargetType* ObjectManager::GetNearestObject(GameObject* _self, bool(*Func)(GameObject*, GameObject*))
 	{
 		TargetType* target = nullptr;
 		TargetType* comparand = nullptr;
