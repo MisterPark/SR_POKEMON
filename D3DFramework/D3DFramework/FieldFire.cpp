@@ -6,11 +6,12 @@ FieldFire::FieldFire()
 {
 }
 
-FieldFire::FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, float lifeTime, float att) :
-	lifeTime(lifeTime), att(att)
+FieldFire::FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att) :
+	direction(dir), lifeTime(lifeTime), att(att)
 {
 	transform->position = pos;
 	transform->scale = size;
+	moveSpeed = speed;
 
 	SetTexture(State::IDLE, start, 1);
 	SetTexture(State::ATTACK, start, int(int(end) - int(start)));
@@ -51,6 +52,8 @@ void FieldFire::Update()
 		}
 	}
 
+	Move(direction);
+
 	Billboard();
 
 	CalcLifeTime();
@@ -66,7 +69,7 @@ void FieldFire::OnCollision(GameObject * target)
 
 	lifeTime = -1.f;
 	ChangeState(State::ATTACK);
-	att = 0;
+	//att = 0;
 }
 
 void FieldFire::CalcLifeTime()
@@ -94,8 +97,8 @@ void FieldFire::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFr
 	endArray[(int)_state] = (TextureKey)((int)_beginTextureKey + (_aniFrame - 1));
 }
 
-FieldFire * FieldFire::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float lifeTime, float att)
+FieldFire * FieldFire::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att)
 {
-	FieldFire* instance = new FieldFire(pos, size, start, end, lifeTime, att);
+	FieldFire* instance = new FieldFire(pos, size, start, end, dir, speed, lifeTime, att);
 	return instance;
 }

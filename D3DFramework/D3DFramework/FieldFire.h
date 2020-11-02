@@ -5,7 +5,7 @@ class FieldFire :
 {
 public:
 	FieldFire();
-	FieldFire(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float lifeTime, float att);
+	FieldFire(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att);
 	virtual ~FieldFire();
 
 public:
@@ -20,12 +20,15 @@ public:
 	void ChangeState(State nextState);
 	void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame);
 	float GetAtt() { return att; }
+
 public:
 	static FieldFire* Create(
 		const Vector3& pos,
 		const Vector3& size,
 		TextureKey start,
 		TextureKey end,
+		const Vector3& dir = {0.f, 0.f, 0.f},
+		float speed = 0.f,
 		float lifeTime = 3.f,
 		float att = 2.f
 	);
