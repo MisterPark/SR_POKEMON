@@ -23,7 +23,6 @@
 
 #include "Psyduck.h"
 #include "Poliwag.h"
-#include "Psyduck.h"
 #include "Poliwrath.h"
 #include "Metapod.h"
 #include "Oddish.h"
@@ -65,59 +64,65 @@ void TestScene::OnLoaded()
 	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 4.05f);
 	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp",3.5f);
 
-	Butterfree* monsterCharacter = Butterfree::Create(Vector3(5.f, 0.f, 7.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	Poliwag* monsterCharacter = Poliwag::Create(Vector3(5.f, 0.f, 7.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
+	monsterCharacter->monsterAI->SetType(MonsterType::POLIWAG);
 	ObjectManager::AddObject(monsterCharacter);
 	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 
-	Oddish* monsterCharacter2 = Oddish::Create(Vector3(15.f, 0.f, 9.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter2->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter2->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter2->monsterAI->SetType(MonsterType::ODDISH);
-	ObjectManager::AddObject(monsterCharacter2);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter2);
+	//Butterfree* monsterCharacter = Butterfree::Create(Vector3(5.f, 0.f, 7.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
+	//ObjectManager::AddObject(monsterCharacter);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 
-	Metapod* monsterCharacter3 = Metapod::Create(Vector3(25.f, 0.f, 6.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter3->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter3->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter3->monsterAI->SetType(MonsterType::METAPOD);
-	ObjectManager::AddObject(monsterCharacter3);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter3);
+	//Oddish* monsterCharacter2 = Oddish::Create(Vector3(15.f, 0.f, 9.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter2->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter2->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter2->monsterAI->SetType(MonsterType::ODDISH);
+	//ObjectManager::AddObject(monsterCharacter2);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter2);
 
-	Caterpie* monsterCharacter6 = Caterpie::Create(Vector3(42.f, 0.f, 26.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter6->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter6->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter6->monsterAI->SetType(MonsterType::CATERPIE);
-	ObjectManager::AddObject(monsterCharacter6);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter6);
+	//Metapod* monsterCharacter3 = Metapod::Create(Vector3(25.f, 0.f, 6.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter3->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter3->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter3->monsterAI->SetType(MonsterType::METAPOD);
+	//ObjectManager::AddObject(monsterCharacter3);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter3);
 
-	Butterfree* monsterCharacter7 = Butterfree::Create(Vector3(35.f, 0.f, 27.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter7->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter7->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter7->monsterAI->SetType(MonsterType::BUTTERFREE);
-	ObjectManager::AddObject(monsterCharacter7);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter7);
+	//Caterpie* monsterCharacter6 = Caterpie::Create(Vector3(42.f, 0.f, 26.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter6->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter6->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter6->monsterAI->SetType(MonsterType::CATERPIE);
+	//ObjectManager::AddObject(monsterCharacter6);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter6);
 
-	Oddish* monsterCharacter8 = Oddish::Create(Vector3(25.f, 0.f, 15.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter8->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter8->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter8->monsterAI->SetType(MonsterType::ODDISH);
-	ObjectManager::AddObject(monsterCharacter8);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter8);
+	//Butterfree* monsterCharacter7 = Butterfree::Create(Vector3(35.f, 0.f, 27.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter7->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter7->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter7->monsterAI->SetType(MonsterType::BUTTERFREE);
+	//ObjectManager::AddObject(monsterCharacter7);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter7);
 
-	Metapod* monsterCharacter9 = Metapod::Create(Vector3(35.f, 0.f, 25.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter9->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter9->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter9->monsterAI->SetType(MonsterType::METAPOD);
-	ObjectManager::AddObject(monsterCharacter9);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter9);
+	//Oddish* monsterCharacter8 = Oddish::Create(Vector3(25.f, 0.f, 15.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter8->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter8->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter8->monsterAI->SetType(MonsterType::ODDISH);
+	//ObjectManager::AddObject(monsterCharacter8);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter8);
 
-	Vileplume* monsterCharacter10 = Vileplume::Create(Vector3(25.f, 0.f, 35.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter10->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter10->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter10->monsterAI->SetType(MonsterType::VILEPLUME);
-	ObjectManager::AddObject(monsterCharacter10);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter10);
+	//Metapod* monsterCharacter9 = Metapod::Create(Vector3(35.f, 0.f, 25.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter9->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter9->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter9->monsterAI->SetType(MonsterType::METAPOD);
+	//ObjectManager::AddObject(monsterCharacter9);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter9);
 
-	Caterpie* monsterCharacter11 = Caterpie::Create(Vector3(35.f, 0.f, 42.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter11->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter11->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter11->monsterAI->SetType(MonsterType::CATERPIE);
-	ObjectManager::AddObject(monsterCharacter11);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter11);
+	//Vileplume* monsterCharacter10 = Vileplume::Create(Vector3(25.f, 0.f, 35.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter10->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter10->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter10->monsterAI->SetType(MonsterType::VILEPLUME);
+	//ObjectManager::AddObject(monsterCharacter10);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter10);
+
+	//Caterpie* monsterCharacter11 = Caterpie::Create(Vector3(35.f, 0.f, 42.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter11->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter11->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter11->monsterAI->SetType(MonsterType::CATERPIE);
+	//ObjectManager::AddObject(monsterCharacter11);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter11);
 	
 	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
 	Obj->transform->position.x += 7;
@@ -179,7 +184,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 15.f + 2 * i;
 			tree->transform->position.z += 41.f;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		}
 		for (int i = 0; i < 10; i++)
 		{
@@ -192,14 +197,14 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 6.f;
 			tree->transform->position.z += 8.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		}
 		for (int i = 0; i < 6; i++)
 		{
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 45.f;
 			tree->transform->position.z += 16.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		}
 	}
 	if (_key == TextureKey::GRASS_MAP2)
@@ -215,7 +220,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 15.f + 2 * i;
 		//	tree->transform->position.z += 41.f;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		//}
 		//높이맵 기준 아래쪽
 		for (int i = 0; i < 10; i++)
@@ -230,29 +235,30 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 7.f;
 			tree->transform->position.z += 14.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+			
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		}
 
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 32.f;
 		tree->transform->position.z += 48.f -2.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 35.f;
 		tree->transform->position.z += 48.f - 7.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 38.f;
 		tree->transform->position.z += 48.f - 12.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE02;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE02);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 43.f;
 		tree->transform->position.z += 48.f - 15.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x = 46.f;
 		tree->transform->position.z += 48.f - 17.f;
-		dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE04;
+		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE04);
 
 		////높이맵 기준 오른쪽
 		//for (int i = 0; i < 6; i++)
@@ -260,7 +266,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 45.f;
 		//	tree->transform->position.z += 16.f + 2 * i;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::TREE03;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE03);
 		//}
 	}
 
@@ -277,14 +283,14 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 3.f + 2 * i;
 			tree->transform->position.z += 45.f;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 		}
 		for (int i = 0; i < 10; i++)
 		{
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 3.f + 2 * i;
 			tree->transform->position.z += 2.f;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 
 		}
 		for (int i = 0; i < 9; i++)
@@ -292,7 +298,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 			GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 			tree->transform->position.x += 46.f;
 			tree->transform->position.z += 20.f + 2 * i;
-			dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
+			dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
 		}
 
 	}
@@ -310,14 +316,14 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 3.f + 2 * i;
 		//	tree->transform->position.z += 45.f;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 		//}
 		//for (int i = 0; i < 10; i++)
 		//{
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 3.f + 2 * i;
 		//	tree->transform->position.z += 2.f;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 
 		//}
 		//for (int i = 0; i < 9; i++)
@@ -325,7 +331,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 		//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		//	tree->transform->position.x += 46.f;
 		//	tree->transform->position.z += 20.f + 2 * i;
-		//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
+		//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
 		//}
 
 

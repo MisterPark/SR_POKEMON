@@ -41,6 +41,7 @@ namespace PKH
 		static void DrawFont(const wstring& text);
 		static void DrawFont(const wstring& text, float x, float y, D3DXCOLOR color);
 		static void DrawFont(const wstring& text, float x, float y, D3DXCOLOR color, RECT* outRect);
+		static void DrawFont(const wstring& text, Vector3 pos, Vector3 scale, D3DXCOLOR color);
 		static void DrawFont(LPD3DXFONT font, const wstring& text, float x, float y, D3DXCOLOR color);
 		static void DrawFont(LPD3DXFONT font, const wstring& text, float x, float y, D3DXCOLOR color, RECT* outRect);
 

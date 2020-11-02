@@ -229,16 +229,35 @@ void MonsterAI::SetType(MonsterType _type)
 		searchRange[1] = 3.f;
 		searchRange[3] = 10.f;
 		break;
-		break;
 	case MonsterType::GOLDUCK:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::POLIWAG:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::POLIWRATH:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 4.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::JYNX:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::SUICUNE:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::GROWLITHE:
 		break;
@@ -335,7 +354,7 @@ void MonsterAI::MonsterIdle() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Idle
 	if (isSearch) {
 		switch (type)
 		{
@@ -390,7 +409,7 @@ void MonsterAI::MonsterIdle() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Idle
 	else {
 		switch (type)
 		{
@@ -452,7 +471,7 @@ void MonsterAI::MonsterWalk() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Walk
 	if (isSearch) {
 		switch (type)
 		{
@@ -580,6 +599,7 @@ void MonsterAI::MonsterWalk() {
 				else {
 					Time[4] = 0.f;
 					c->state = State::ATTACK;
+					readyPattern = true;
 				}
 			}
 			else {				//if (disPlayer > 10.f)
@@ -587,12 +607,84 @@ void MonsterAI::MonsterWalk() {
 			}
 			break;
 		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[4] > 0.f) {
+					Time[4] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[4] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[4] > 0.f) {
+					Time[4] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[4] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
 		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[4] > 0.f) {
+					Time[4] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[4] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
 		case MonsterType::JYNX:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[4] > 0.f) {
+					Time[4] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[4] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
 		case MonsterType::SUICUNE:
 			break;
@@ -617,7 +709,7 @@ void MonsterAI::MonsterWalk() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Walk
 	else {
 		switch (type)
 		{
@@ -740,7 +832,7 @@ void MonsterAI::MonsterAttack() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Attack
 	if (isSearch) {
 		switch (type)
 		{
@@ -769,6 +861,7 @@ void MonsterAI::MonsterAttack() {
 			if (readyPattern) {
 				if (disPlayer < searchRange[1]) {
 					c->state = State::ATTACK;
+					c->anim->SetDelay(0.3f);
 				}
 				else {//if (disPlayer > 10.f)
 					c->state = State::WALK;
@@ -853,6 +946,7 @@ void MonsterAI::MonsterAttack() {
 			if (readyPattern) {
 				if (disPlayer < searchRange[1]) {
 					c->state = State::ATTACK;
+					c->anim->SetDelay(0.3f);
 				}
 				else {//if (disPlayer > 10.f)
 					c->state = State::WALK;
@@ -885,28 +979,36 @@ void MonsterAI::MonsterAttack() {
 			break;
 		case MonsterType::PSYDUCK:
 			if (readyPattern) {
-				c->anim->SetDelay(0.3f);
+				if (disPlayer < searchRange[1]) {
+					c->state = State::ATTACK;
+					c->anim->SetDelay(0.3f);
+				}
+				else {//if (disPlayer > 10.f)
+					c->state = State::WALK;
+					c->anim->SetDelay(0.3f);
+				}
 				readyPattern = false;
 			}
 
 			Time[1] += TimeManager::DeltaTime();
-			if (Frame[3] == 0 && Time[1] >= 0.3f) {
 
-				Frame[3] = 1;
-				if (Frame[1] % 2 == 1)
-					CrossBullet();
-				else
-					XBullet();
-			}
-			if (Time[1] >= 0.6f) {
-				Time[1] = 0.f;
+			if (Time[1] >= 0.75f) {
+				Time[0] = 0;
 				Frame[1]++;
-				Frame[3] = 0;
-				if (Frame[1] == 3) {
-					Frame[1] = 0;
-					c->anim->SetDelay(0.2f);
-					c->state = State::WALK;
-					Time[4] = 3.f; //쿨타임
+				if (Frame[1] == 1) {
+					Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+					c->direction = DirFromPlayer(true);
+					Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
+					b->SetDir(bDir);
+					*(b->transform) = *c->transform;
+					b->transform->position.y -= 0.5f;
+				}
+				else if (Frame[1] == 2) {
+					c->anim->SetDelay(0.6f);
+					Time[1] = 0.f;
+					Frame[1] = 0.f;
+					c->state = State::READY;
+					Time[2] = 2.5f;
 				}
 			}
 			break;
@@ -941,7 +1043,7 @@ void MonsterAI::MonsterAttack() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Attack
 	else {
 		switch (type)
 		{
@@ -1104,7 +1206,7 @@ void MonsterAI::MonsterSkill() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Skill
 	if (isSearch) {
 		switch (type)
 		{
@@ -1230,7 +1332,7 @@ void MonsterAI::MonsterSkill() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Skill
 	else {
 		switch (type)
 		{
@@ -1337,7 +1439,7 @@ void MonsterAI::MonsterSkill2() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Skill2
 	if (isSearch) {
 		switch (type)
 		{
@@ -1475,7 +1577,7 @@ void MonsterAI::MonsterSkill2() {
 		}
 	}
 
-	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Skill2
 	else {
 		switch (type)
 		{

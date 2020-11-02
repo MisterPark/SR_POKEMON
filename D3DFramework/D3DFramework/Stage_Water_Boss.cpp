@@ -80,14 +80,14 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	//	tree->transform->position.x += 3.f + 2 * i;
 	//	tree->transform->position.z += 45.f;
-	//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 	//}
 	//for (int i = 0; i < 10; i++)
 	//{
 	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	//	tree->transform->position.x += 3.f + 2 * i;
 	//	tree->transform->position.z += 2.f;
-	//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE02;
+	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
 
 	//}
 	//for (int i = 0; i < 9; i++)
@@ -95,7 +95,7 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 	//	tree->transform->position.x += 46.f;
 	//	tree->transform->position.z += 20.f + 2 * i;
-	//	dynamic_cast<Tree*>(tree)->startArray[0][0] = TextureKey::PALMTREE03;
+	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
 	//}
 
 

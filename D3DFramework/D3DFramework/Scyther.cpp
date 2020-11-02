@@ -43,7 +43,7 @@ void Scyther::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::RushAttack));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tornado));
 
 	hp = 60.f;

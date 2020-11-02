@@ -179,6 +179,7 @@
     <ClInclude Include="D2DRenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
     <ClInclude Include="Debug.h" />
+    <ClInclude Include="Decoration.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Environment.h" />
@@ -204,6 +205,7 @@
     <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Oddish.h" />
+    <ClInclude Include="Panel.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
@@ -284,6 +286,7 @@
     <ClCompile Include="D2DRenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Decoration.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Blaze.cpp" />
@@ -305,6 +308,7 @@
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Oddish.cpp" />
+    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />

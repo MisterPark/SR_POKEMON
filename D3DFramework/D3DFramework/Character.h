@@ -12,7 +12,7 @@ public:
     // GameObject을(를) 통해 상속됨
     virtual void Update() override;
     virtual void Render() override;
-	void RenderName();
+	void RenderInfomation();
 
     // GameObject을(를) 통해 상속됨
     virtual void Initialize() override;
@@ -34,6 +34,8 @@ public:
 	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
 	void MoveForward();
 	void ChangeState(State nextState);
+	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
+	Skill* GetSkillCollTime(int skillNumber);
 
 	virtual void Attack(const Vector3& dir, const int& attackType);
 
