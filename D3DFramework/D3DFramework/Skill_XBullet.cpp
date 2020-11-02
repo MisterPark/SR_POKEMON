@@ -5,6 +5,7 @@
 
 Skill_XBullet::Skill_XBullet()
 {
+	coolTime = 0.6f;
 }
 
 Skill_XBullet::~Skill_XBullet()

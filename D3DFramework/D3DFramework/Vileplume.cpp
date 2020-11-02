@@ -38,8 +38,8 @@ void Vileplume::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossBullet));
 
 	hp = 6.f;
 

@@ -238,6 +238,9 @@
     <Filter Include="GameObject\Decoration">
       <UniqueIdentifier>{bbef4f73-09be-45f5-b416-9aec63c17d97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Bullet\Bubble">
+      <UniqueIdentifier>{c2ce21e4-56d7-4ecd-9dc6-564ec7d91161}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -560,6 +563,9 @@
     </ClInclude>
     <ClInclude Include="Panel.h">
       <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Bubble.h">
+      <Filter>GameObject\Bullet\Bubble</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -996,6 +1002,9 @@
     </ClCompile>
     <ClCompile Include="Bullet_Poision.cpp">
       <Filter>GameObject\Bullet\Poision</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Bubble.cpp">
+      <Filter>GameObject\Bullet\Bubble</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

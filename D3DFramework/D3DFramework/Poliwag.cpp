@@ -16,6 +16,7 @@ Poliwag::Poliwag(const Vector3& pos, const Vector3& scale, const Vector3& dir)
 	transform->scale = scale;
 	direction = dir;
 
+	
 	Initialize();
 }
 
@@ -29,13 +30,15 @@ void Poliwag::Initialize()
 	SetTexture(State::WALK, TextureKey::WAG_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::WAG_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::WAG_WALK_D_01, 3, 1);
-	SetTexture(State::ATTACK, TextureKey::WAG_ATTACK_D_01, 2);
-	SetTexture(State::SKILL, TextureKey::WAG_ATTACK_D_01, 2);
+	SetTexture(State::ATTACK, TextureKey::WAG_ATTACK_D_01, 1);
+	SetTexture(State::SKILL, TextureKey::WAG_ATTACK_D_01, 1);
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 	moveSpeed = 1.f;
 	offsetY = 0.5f;
+
+	hp = 10;
 
 	state = State::READY;
 
@@ -79,4 +82,10 @@ Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& scale, const Vector3
 {
 	Poliwag* newPokemon = new Poliwag(pos, scale, dir);
 	return newPokemon;
+}
+
+void Poliwag::OnCollision(GameObject* target)
+{
+	hp -= target->attack;
+	if (hp <= 0.f) isDead = true;
 }

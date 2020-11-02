@@ -4,7 +4,7 @@
 #include "Bullet_Tornado.h"
 #include "Bullet_Web.h"
 #include "Bullet_Poision.h"
-
+#include "Bullet_Bubble.h"
 MonsterAI::MonsterAI()
 {
 	for (int i = 0; i < 3; i++)
@@ -1016,6 +1016,39 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::GOLDUCK:
 			break;
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				if (disPlayer < searchRange[1]) {
+					c->state = State::ATTACK;
+					c->anim->SetDelay(0.3f);
+				}
+				else {//if (disPlayer > 10.f)
+					c->state = State::WALK;
+					c->anim->SetDelay(0.3f);
+				}
+				readyPattern = false;
+			}
+
+			Time[1] += TimeManager::DeltaTime();
+
+			if (Time[1] >= 1.0f) {
+				Time[0] = 0;
+				Frame[1]++;
+				if (Frame[1] == 1) {
+					Bullet_Bubble* b = dynamic_cast<Bullet_Bubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_Bubble>());
+					c->direction = DirFromPlayer(true);
+					Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
+					b->SetDir(bDir);
+					*(b->transform) = *c->transform;
+					b->transform->position.y -= 0.5f;
+				}
+				else if (Frame[1] == 2) {
+					c->anim->SetDelay(0.2f);
+					Time[1] = 0.f;
+					Frame[1] = 0.f;
+					c->state = State::READY;
+					Time[2] = 2.5f;
+				}
+			}
 			break;
 		case MonsterType::POLIWRATH:
 			break;

@@ -5,6 +5,7 @@
 
 Skill_CrossBullet::Skill_CrossBullet()
 {
+	coolTime = 0.6f;
 }
 
 Skill_CrossBullet::~Skill_CrossBullet()
