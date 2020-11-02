@@ -546,12 +546,14 @@
     <ClInclude Include="Blaze.h">
       <Filter>GameObject\Bullet\Blaze</Filter>
     </ClInclude>
-    <ClInclude Include="Panel.h" />
     <ClInclude Include="Decoration.h">
       <Filter>GameObject\Decoration</Filter>
     </ClInclude>
     <ClInclude Include="Tree.h">
       <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>GameObject\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -974,7 +976,6 @@
     <ClCompile Include="Blaze.cpp">
       <Filter>GameObject\Bullet\Blaze</Filter>
     </ClCompile>
-    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="Decoration.cpp">
@@ -982,6 +983,9 @@
     </ClCompile>
     <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
