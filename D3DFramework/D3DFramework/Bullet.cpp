@@ -138,6 +138,7 @@ Vector3 Bullet::PlayerSearchDir(bool PosY)
 
 Vector3 Bullet::MonsterSearchDir(bool PosY, float SearchRange)
 {
+	//TODO: 나중에 플레이어로 따라가게 수정 완료해야함
 	bool isAlliance = true;
 	GameObject* g =  nullptr;
 	while (isAlliance) {
