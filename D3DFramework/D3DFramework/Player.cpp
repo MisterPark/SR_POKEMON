@@ -51,9 +51,11 @@ void Player::PostUpdate()
 	if (nullptr == character) return;
 	Vector3* pos = character->transform->Get_Pos();
 	
-	if (1.f > pos->x) pos->x = 1.f;
+	float limitedX = 2.3f;
+	float limitedZ = 2.3f;
+	if (limitedX > pos->x) pos->x = limitedX;
 	if (dfTERRAIN_WIDTH - 2 < pos->x) pos->x = dfTERRAIN_WIDTH - 2;
-	if (1.f > pos->z) pos->z = 1.f;
+	if (limitedZ > pos->z) pos->z = limitedZ;
 	if (dfTERRAIN_HEIGHT - 2 < pos->z) pos->z = dfTERRAIN_HEIGHT - 2;
 
 	character->OnTerrain();
