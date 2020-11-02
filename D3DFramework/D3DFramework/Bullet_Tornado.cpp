@@ -38,7 +38,7 @@ void Bullet_Tornado::Update()
         Time[1] += TimeManager::DeltaTime();
     }
     else {
-        direction = PlayerSearchDir();
+        direction = PlayerSearchDir(false);
     }
     MoveForward();
     //transform->position += direction * moveSpeed * TimeManager::DeltaTime();;
