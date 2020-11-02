@@ -235,6 +235,9 @@
     <Filter Include="GameObject\Bullet\Poision">
       <UniqueIdentifier>{6c02274a-a07a-4f67-92ae-bfb884740f31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Decoration">
+      <UniqueIdentifier>{bbef4f73-09be-45f5-b416-9aec63c17d97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -402,9 +405,6 @@
     <ClInclude Include="Water.h">
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
-    <ClInclude Include="Tree.h">
-      <Filter>GameObject\Environment</Filter>
-    </ClInclude>
     <ClInclude Include="Skill.h">
       <Filter>Skill</Filter>
     </ClInclude>
@@ -551,6 +551,15 @@
     </ClInclude>
     <ClInclude Include="Bullet_Poision.h">
       <Filter>GameObject\Bullet\Poision</Filter>
+    </ClInclude>
+    <ClInclude Include="Decoration.h">
+      <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>GameObject\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -976,14 +985,17 @@
     <ClCompile Include="Blaze.cpp">
       <Filter>GameObject\Bullet\Blaze</Filter>
     </ClCompile>
+    <ClCompile Include="Decoration.cpp">
+      <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
     <ClCompile Include="Bullet_Poision.cpp">
       <Filter>GameObject\Bullet\Poision</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBullet.cpp">
-      <Filter>GameObject\Bullet\PlayerBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Bullet_Water.cpp">
-      <Filter>GameObject\Bullet\Tears</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -36,7 +36,7 @@ void Skill_Blaze::Active(const Character* character)
 
 	Vector3 pos2 = position + look;
 
-	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, look, 30.f, 2.f, 3.f);
+	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, look, 20.f, 0.4f, 3.f);
 	ObjectManager::AddObject(instance);
 
 	if (character->GetIsEnemy())

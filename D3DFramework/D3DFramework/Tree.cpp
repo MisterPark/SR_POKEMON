@@ -7,8 +7,9 @@
 
 Tree::Tree()
 {
-    startArray[0][0] = TextureKey::TREE02;
-    anim->SetSprite(startArray[0][0], startArray[0][0]);
+    isOnTerrain = true;
+    anim->SetSprite(TextureKey::TREE05, TextureKey::TREE05);
+    anim->SetLoop(false);
     float size = 0.f;
     transform->scale += {size, size, 0};
     offsetY = 1.f+size;
@@ -21,21 +22,28 @@ Tree::~Tree()
 
 void Tree::Update()
 {
-    UpdateAnimation();
+    
     OnTerrain();
-    GameObject::Update();
+    Decoration::Update();
     BillboardYaw();
 }
 
 void Tree::Render()
 {
  
-    Character::Render();
+    Decoration::Render();
 }
 
-
-void Tree::UpdateAnimation()
+void Tree::setTreeSprite(TextureKey _tree)
 {
-    
-    anim->SetSprite(startArray[0][0], startArray[0][0]);
+    anim->SetSprite(_tree,_tree);
+    anim->SetLoop(false);
+}
+
+void Tree::Initialize()
+{
+}
+
+void Tree::Release()
+{
 }

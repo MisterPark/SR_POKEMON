@@ -64,8 +64,11 @@ void PKH::CollisionManager::CollisionCheck(COLTYPE srcType, COLTYPE dstType)
 		{
 			if (IsCollided(srcElem, dstElem))
 			{
-				srcElem->OnCollision(dstElem);
-				dstElem->OnCollision(srcElem);
+				if (!srcElem->IsInCollideList(dstElem))
+				{
+					srcElem->OnCollision(dstElem);
+					dstElem->OnCollision(srcElem);
+				}
 			}
 		}
 	}
