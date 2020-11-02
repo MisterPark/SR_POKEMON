@@ -36,7 +36,7 @@ void PKH::GameObject::Render()
 		Mesh* mesh = dynamic_cast<Mesh*>(comp.second);
 		if (mesh == nullptr) continue;
 
-
+		
 		mesh->Render();
 	}
 }

@@ -60,6 +60,8 @@ namespace PKH
 		bool keyDowns[RANGE_OF_KEYS] = {};
 		bool keyUps[RANGE_OF_KEYS] = {};
 
+		// 마우스 버튼의 눌림상태를 유지하는 프레임 수
+		int mouseFrameCount[MaxOfEnum<Keys>()] = {};
 	public:
 		bool mouse[MaxOfEnum<Keys>()] = {};
 

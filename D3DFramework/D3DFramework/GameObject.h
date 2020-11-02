@@ -12,6 +12,7 @@ enum class Direction
 	D, LD, L, LU, U, RU, R, RD, END
 };
 
+
 namespace PKH
 {
 	class IComponent;
@@ -29,7 +30,7 @@ namespace PKH
 	public:
 		GameObject();
 		virtual ~GameObject();
-
+		
 		virtual void Initialize() = 0;
 		virtual void Release() = 0;
 		virtual void Update() = 0;

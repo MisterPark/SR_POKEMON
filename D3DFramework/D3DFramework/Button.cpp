@@ -1,7 +1,5 @@
 #include "stdafx.h"
 #include "Button.h"
-#include "TestScene.h"
-
 Button::Button()
 {
 	transform->scale = { 3.f,0.5f,1.f };
@@ -46,6 +44,8 @@ void Button::UpdateUI()
 
 void Button::OnHover()
 {
+	UI::OnHover();
+
 	if (!isUpScale)
 	{
 		isUpScale = true;
@@ -57,29 +57,35 @@ void Button::OnHover()
 
 void Button::OnLeave()
 {
+	UI::OnLeave();
+
 	if (isUpScale)
 	{
 		isUpScale = false;
 		transform->scale = originScale;
 	}
+	
 }
 
 void Button::OnLButtonDown()
 {
+	UI::OnLButtonDown();
+
 	if (!isButtonDown)
 	{
 		isButtonDown = true;
 		transform->position.x += 5;
 		transform->position.y += 5;
-		SceneManager::LoadScene<TestScene>();
 	}
+	
 }
 
 void Button::OnLButtonUp()
 {
+	UI::OnLButtonUp();
 }
 
-void Button::OnLButtonClick()
+void Button::OnClick()
 {
-	SceneManager::LoadScene<TestScene>();
+	UI::OnClick();
 }

@@ -63,7 +63,15 @@ void PKH::InputManager::ClearMouseState()
 	int count = MaxOfEnum<Keys>();
 	for (int i = 2; i < count; i++)
 	{
-		pInputManager->mouse[i] = false;
+		if (pInputManager->mouse[i])
+		{
+			pInputManager->mouseFrameCount[i]++;
+			if (pInputManager->mouseFrameCount[i] == dfINPUT_LIFE_FRAME)
+			{
+				pInputManager->mouseFrameCount[i] = 0;
+				pInputManager->mouse[i] = false;
+			}
+		}
 	}
 		
 

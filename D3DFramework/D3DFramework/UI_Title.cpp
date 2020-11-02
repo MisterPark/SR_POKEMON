@@ -24,20 +24,25 @@ void UI_Title::Release()
 
 void UI_Title::OnHover()
 {
+	UI::OnHover();
 }
 
 void UI_Title::OnLeave()
 {
+	UI::OnLeave();
 }
 
 void UI_Title::OnLButtonDown()
 {
+	UI::OnLButtonDown();
 }
 
 void UI_Title::OnLButtonUp()
 {
+	UI::OnLButtonUp();
 }
 
-void UI_Title::OnLButtonClick()
+void UI_Title::OnClick()
 {
+	UI::OnClick();
 }

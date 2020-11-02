@@ -16,6 +16,6 @@ public:
     virtual void OnLeave() override;
     virtual void OnLButtonDown() override;
     virtual void OnLButtonUp() override;
-    virtual void OnLButtonClick() override;
+    virtual void OnClick() override;
 };
 

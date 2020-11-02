@@ -48,6 +48,7 @@ void Player::Update()
 
 void Player::PostUpdate()
 {
+	if (character == nullptr)return;
 	Vector3* pos = character->transform->Get_Pos();
 
 	if (0.f > pos->x) pos->x = 0.f;
