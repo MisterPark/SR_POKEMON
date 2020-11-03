@@ -7,8 +7,9 @@ enum class SkillName
 	WaterBullet,
 	Blaze,
 	Tornado,
-	RushAttack,
+	Rush,
 	TearsBullet,
+	TearsBullet2,
 	CrossBullet,
 	XBullet,
 	WebBullet

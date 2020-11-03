@@ -104,10 +104,13 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Tornado:
 		newSkill = Skill_Tornado::Create();
 		break;
-	case SkillName::RushAttack:
-		newSkill = Skill_RushAttack::Create();
+	case SkillName::Rush:
+		newSkill = Skill_Rush::Create();
 		break;
 	case SkillName::TearsBullet:
+		newSkill = Skill_TearsBullet::Create();
+		break;
+	case SkillName::TearsBullet2:
 		newSkill = Skill_TearsBullet::Create();
 		break;
 	case SkillName::CrossBullet:

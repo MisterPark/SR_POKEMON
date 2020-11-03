@@ -230,7 +230,7 @@
     <ClInclude Include="Skill_FireBullet.h" />
     <ClInclude Include="Skill_Blaze.h" />
     <ClInclude Include="Skill_LeafBullet.h" />
-    <ClInclude Include="Skill_RushAttack.h" />
+    <ClInclude Include="Skill_Rush.h" />
     <ClInclude Include="Skill_TearsBullet.h" />
     <ClInclude Include="Skill_Tornado.h" />
     <ClInclude Include="Skill_WaterBullet.h" />
@@ -331,7 +331,7 @@
     <ClCompile Include="Skill_FireBullet.cpp" />
     <ClCompile Include="Skill_Blaze.cpp" />
     <ClCompile Include="Skill_LeafBullet.cpp" />
-    <ClCompile Include="Skill_RushAttack.cpp" />
+    <ClCompile Include="Skill_Rush.cpp" />
     <ClCompile Include="Skill_TearsBullet.cpp" />
     <ClCompile Include="Skill_Tornado.cpp" />
     <ClCompile Include="Skill_WaterBullet.cpp" />

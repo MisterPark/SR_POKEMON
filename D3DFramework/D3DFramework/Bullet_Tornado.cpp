@@ -20,7 +20,7 @@ Bullet_Tornado::Bullet_Tornado()
 	lifeTime = 6.f;
 	spawnTimeGap = 0.8f;
 	moveSpeed = 4.5f;
-
+	attack = 0.05f;
 	rotateMoveX = 1.f;
 	rotateMoveZ = 0.f;
 	isOnTerrain = true;

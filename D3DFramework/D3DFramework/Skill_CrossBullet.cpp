@@ -5,7 +5,8 @@
 
 Skill_CrossBullet::Skill_CrossBullet()
 {
-	coolTime = 0.6f;
+	coolTime = 0.5f;
+	moveStopTime = 0.5f;
 }
 
 Skill_CrossBullet::~Skill_CrossBullet()
@@ -14,7 +15,7 @@ Skill_CrossBullet::~Skill_CrossBullet()
 
 void Skill_CrossBullet::InitActiveTime()
 {
-	// activeTime = 0.6f;
+	activeTime = 0.f;
 }
 
 void Skill_CrossBullet::Update()
