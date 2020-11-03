@@ -22,6 +22,7 @@ namespace PKH
 
 	public:
 		static void RegisterObject(COLTYPE colType, GameObject* _pObj);
+		void DisregisterObject(GameObject* obj);
 		static void DisregisterObject(COLTYPE colType, GameObject* _pObj);
 		static bool FindObject(COLTYPE colType, GameObject* _pObj);
 		static bool IsCollided(GameObject* target, GameObject* other);

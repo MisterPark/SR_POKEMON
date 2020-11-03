@@ -12,6 +12,16 @@ Skill_TearsBullet::~Skill_TearsBullet()
 {
 }
 
+void Skill_TearsBullet::InitActiveTime()
+{
+}
+
+void Skill_TearsBullet::Update()
+{
+	CalcActiveTime();
+}
+
+/*
 void Skill_TearsBullet::Active(const Character* character)
 {
 	Bullet_Water* bullet = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -22,6 +32,7 @@ void Skill_TearsBullet::Active(const Character* character)
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
+*/
 
 Skill * Skill_TearsBullet::Create()
 {

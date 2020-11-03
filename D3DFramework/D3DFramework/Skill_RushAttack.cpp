@@ -13,6 +13,18 @@ Skill_RushAttack::~Skill_RushAttack()
 {
 }
 
+void Skill_RushAttack::InitActiveTime()
+{
+	// activeTime = 1.65f;
+}
+
+void Skill_RushAttack::Update()
+{
+
+	CalcActiveTime();
+}
+
+/*
 void Skill_RushAttack::Active(const Character* character)
 {
 	//Time[1] += TimeManager::DeltaTime();
@@ -41,6 +53,7 @@ void Skill_RushAttack::Active(const Character* character)
 	//	}
 	//}
 }
+*/
 
 Skill * Skill_RushAttack::Create()
 {

@@ -12,6 +12,18 @@ Skill_Tornado::~Skill_Tornado()
 {
 }
 
+void Skill_Tornado::InitActiveTime()
+{
+	// activeTime = 0.7f;
+}
+
+void Skill_Tornado::Update()
+{
+
+	CalcActiveTime();
+}
+
+/*
 void Skill_Tornado::Active(const Character* character)
 {	
 	Bullet_Tornado* bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
@@ -55,6 +67,7 @@ void Skill_Tornado::Active(const Character* character)
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
+*/
 
 Skill * Skill_Tornado::Create()
 {

@@ -567,6 +567,9 @@
     <ClInclude Include="Bullet_Bubble.h">
       <Filter>GameObject\Bullet\Bubble</Filter>
     </ClInclude>
+    <ClInclude Include="Charmeleon.h">
+      <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1005,6 +1008,9 @@
     </ClCompile>
     <ClCompile Include="Bullet_Bubble.cpp">
       <Filter>GameObject\Bullet\Bubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Charmeleon.cpp">
+      <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

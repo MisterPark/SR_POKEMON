@@ -23,6 +23,7 @@ Bullet::Bullet()
 
 Bullet::~Bullet()
 {
+	CollisionManager::GetInstance()->DisregisterObject(this);
 	Release();
 }
 

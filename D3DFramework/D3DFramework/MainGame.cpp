@@ -83,6 +83,7 @@ void PKH::MainGame::Update()
 
 	// 3. Player 업데이트
 	Player::GetInstance()->Update();
+	SkillManager::GetInstance()->Update();
 
 	// 4. Obj 업데이트
 	ObjectManager::Update();
@@ -91,6 +92,7 @@ void PKH::MainGame::Update()
 	SkyBox::GetInstance()->Update();
 	
 	Player::GetInstance()->PostUpdate();
+	SkillManager::GetInstance()->PostUpdate();
 	CollisionManager::GetInstance()->Update();
 	ObjectManager::PostUpdate();
 

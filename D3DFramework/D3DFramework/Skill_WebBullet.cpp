@@ -12,6 +12,16 @@ Skill_WebBullet::~Skill_WebBullet()
 {
 }
 
+void Skill_WebBullet::InitActiveTime()
+{
+}
+
+void Skill_WebBullet::Update()
+{
+	CalcActiveTime();
+}
+
+/*
 void Skill_WebBullet::Active(const Character* character)
 {
 	Vector3 pos = character->transform->position;
@@ -27,6 +37,7 @@ void Skill_WebBullet::Active(const Character* character)
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
+*/
 
 Skill * Skill_WebBullet::Create()
 {

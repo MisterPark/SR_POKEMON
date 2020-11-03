@@ -12,6 +12,18 @@ Skill_CrossBullet::~Skill_CrossBullet()
 {
 }
 
+void Skill_CrossBullet::InitActiveTime()
+{
+	// activeTime = 0.6f;
+}
+
+void Skill_CrossBullet::Update()
+{
+
+	CalcActiveTime();
+}
+
+/*
 void Skill_CrossBullet::Active(const Character* character)
 {
 	Bullet_Poision* bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
@@ -57,6 +69,7 @@ void Skill_CrossBullet::Active(const Character* character)
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
+*/
 
 Skill * Skill_CrossBullet::Create()
 {

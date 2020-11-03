@@ -12,6 +12,17 @@ Skill_XBullet::~Skill_XBullet()
 {
 }
 
+void Skill_XBullet::InitActiveTime()
+{
+	//activeTime = 0.6f;
+}
+
+void Skill_XBullet::Update()
+{
+	CalcActiveTime();
+}
+
+/*
 void Skill_XBullet::Active(const Character* character)
 {
 
@@ -65,6 +76,7 @@ void Skill_XBullet::Active(const Character* character)
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
+*/
 
 Skill * Skill_XBullet::Create()
 {
