@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "MonsterAI.h"
+#include "Spawner.h"
 class Skill;
 
 class Character :
@@ -44,6 +45,7 @@ public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);
 
 public:
+	Spawner* spawner = nullptr;
 	wstring name;
 	float hp;
     // 지형과 간격

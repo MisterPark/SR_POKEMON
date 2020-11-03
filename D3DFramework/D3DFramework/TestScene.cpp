@@ -7,34 +7,34 @@
 #include "CubeMan.h"
 #include "Environment.h"
 #include "TitleScene.h"
-#include "Butterfree.h"
+
+#include "Charmander.h"
 
 #include "Bulbasaur.h"
 #include "Ivysaur.h"
 #include "Venusaur.h"
 
-#include "Charmander.h"
-
-#include "Metapod.h"
 #include "Caterpie.h"
+#include "Metapod.h"
+#include "Butterfree.h"
 #include "Oddish.h"
 #include "Vileplume.h"
+#include "Scyther.h"
 
 #include "Psyduck.h"
+#include "Golduck.h"
 #include "Poliwag.h"
 #include "Poliwrath.h"
-#include "Metapod.h"
-#include "Oddish.h"
-#include "Scyther.h"
 #include "Jynx.h"
 #include "Suicune.h"
-#include "Golduck.h"
 
 #include "MonsterAI.h"
 
 #include "Water.h"
 #include "Tree.h"
 #include "Stage_Grass_01.h"
+
+#include "Spawner.h"
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
@@ -63,11 +63,16 @@ void TestScene::OnLoaded()
 	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 4.05f);
 	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp",3.5f);
 
-	Poliwag* monsterCharacter = Poliwag::Create(Vector3(20.f, 0.f, 20.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter->monsterAI->SetType(MonsterType::POLIWAG);
-	ObjectManager::AddObject(monsterCharacter);
-	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::VILEPLUME, 10.f, 0.5f);
+	poliwagSpawner->transform->position = { 24.f,0.f,24.f };
+	ObjectManager::AddObject(poliwagSpawner);
+
+	//Poliwag* monsterCharacter = Poliwag::Create(Vector3(20.f, 0.f, 20.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+	//monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+	//monsterCharacter->monsterAI->SetType(MonsterType::POLIWAG);
+	//ObjectManager::AddObject(monsterCharacter);
+	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
+
 
 
 	//Butterfree* monsterCharacter = Butterfree::Create(Vector3(5.f, 0.f, 7.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
