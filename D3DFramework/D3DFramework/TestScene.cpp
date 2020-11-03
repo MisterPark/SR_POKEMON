@@ -43,8 +43,8 @@ void TestScene::OnLoaded()
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 
 	
-	//Vileplume* playerCharacter = Vileplume::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	/*Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã

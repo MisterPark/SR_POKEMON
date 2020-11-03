@@ -36,11 +36,13 @@ void Stage_Grass_01::OnLoaded()
 	monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
 	ObjectManager::AddObject(monsterCharacter4);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter4);
 
 	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
 	ObjectManager::AddObject(monsterCharacter5);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter5);
 
 	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
 	playerCharacter->direction = { 1.f,0.f,1.f };
