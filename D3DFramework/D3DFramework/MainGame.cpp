@@ -507,6 +507,20 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_04, L"Texture\\UI\\HP_BAR_04.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_05, L"Texture\\UI\\HP_BAR_05.png");
 
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_00, L"Texture\\UI\\Damage\\NoRed0.0.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_01, L"Texture\\UI\\Damage\\NoRed0.1.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_02, L"Texture\\UI\\Damage\\NoRed0.2.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_03, L"Texture\\UI\\Damage\\NoRed0.3.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_04, L"Texture\\UI\\Damage\\NoRed0.4.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_05, L"Texture\\UI\\Damage\\NoRed0.5.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_06, L"Texture\\UI\\Damage\\NoRed0.6.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_07, L"Texture\\UI\\Damage\\NoRed0.7.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_08, L"Texture\\UI\\Damage\\NoRed0.8.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_09, L"Texture\\UI\\Damage\\NoRed0.9.png");
+
+	// ¾ó±¼ ¾ÆÀÌÄÜ
+	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_1ST, L"Texture\\UI\\pokemon_icon_1st.png", 13, 12);
+
 }
 
 void PKH::MainGame::LoadMonsterSprite()

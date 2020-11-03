@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "PlayerInfoPanel.h"
 
 Player* Player::instance = nullptr;
 
@@ -69,6 +70,8 @@ void Player::SetCharacter(Character * object)
 
 	Camera::GetInstance()->SetTarget(character);
 	if (nullptr != object) character->team = Team::PLAYERTEAM;
+
+	PlayerInfoPanel::SetTarget(object);
 }
 
 void Player::Initialize()

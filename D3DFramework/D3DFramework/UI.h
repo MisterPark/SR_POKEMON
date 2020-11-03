@@ -24,6 +24,9 @@ public:
     virtual void OnLButtonUp();
     virtual void OnClick();
     virtual void OnChangedText();
+
+    virtual void SetSize(int w, int h);
+    void SetTexture(TextureKey _key);
     
 
 public:

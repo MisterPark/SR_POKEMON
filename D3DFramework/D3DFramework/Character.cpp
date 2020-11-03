@@ -4,6 +4,7 @@
 #include "Environment.h"
 #include "Rectangle.h"
 #include "Bulbasaur.h"
+#include "TargetInfoPanel.h"
 
 Character::Character() :
 	canMove(true)
@@ -49,16 +50,18 @@ void Character::RenderInfomation()
 		float len = name.length();
 		float strW = 20;
 		Vector3 namePos = Camera::WorldToScreenPoint(transform->position);
-		namePos.y -= transform->scale.y + 40 - camDist;
 		namePos.x -= (len / 2.f) * strW;
+		namePos.y -= transform->scale.y + 70 - camDist;
 		D2DRenderManager::DrawFont(name, namePos.x, namePos.y, D3DCOLOR_XRGB(255, 255, 255));
 
 		// HP바
 		Texture* hpBarTex = D2DRenderManager::GetTexture(TextureKey::UI_HP_BAR_05);
 		float hpW = (float)hpBarTex->imageInfo.Width;
 		Vector3 hpPos = Camera::WorldToScreenPoint(transform->position);
+		hpPos.x -= (float(hpBarTex->imageInfo.Width) / hpBarTex->colCount) * 0.5f;
+		hpPos.y -= transform->scale.y + 50 - camDist;
+		D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, hpPos, Vector3(1, 1, 1), 0, float(hp)/maxHp);
 		
-		D2DRenderManager::DrawSprite(TextureKey::UI_HP_BAR_05, hpPos, 0);
 	}
 
 
@@ -82,6 +85,26 @@ void Character::Release()
 
 	skillSet.clear();
 	skillSet.shrink_to_fit();
+}
+
+void Character::OnCollision(GameObject* target)
+{
+	if (this->team == target->team) return;
+
+	hp -= target->attack;
+	if (hp <= 0)
+	{
+		isDead = true;
+		return;
+	}
+
+	// 상대가 플레이어면서 몬스터일때 해당
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	//if (target != playerCharacter) return;
+	if (playerCharacter == this) return;
+
+	TargetInfoPanel::SetTarget(this);
+	TargetInfoPanel::Show();
 }
 
 void Character::CalcMoveTime()

@@ -32,6 +32,9 @@ void Charmeleon::Initialize()
 	state = State::IDLE;
 	AnimSet();
 
+	hp = 300;
+	maxHp = 300;
+
 	skillSet.reserve(3);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));

@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Button.h"
+
+
 Button::Button()
 {
 	Initialize();
@@ -99,4 +101,10 @@ void Button::OnLButtonUp()
 void Button::OnClick()
 {
 	UI::OnClick();
+}
+
+void Button::SetSize(int w, int h)
+{
+	width = float(w) / 88.f;
+	height = float(h) / 88.f;
 }

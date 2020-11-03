@@ -36,6 +36,9 @@
 #include "Water.h"
 #include "Tree.h"
 #include "Stage_Grass_01.h"
+
+#include "Panel.h"
+
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
@@ -43,6 +46,8 @@ void TestScene::OnLoaded()
 	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 24.f));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 
+	// TestUI
+	
 	
 	//Vileplume* playerCharacter = Vileplume::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));

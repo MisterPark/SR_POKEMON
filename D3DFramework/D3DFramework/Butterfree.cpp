@@ -42,7 +42,8 @@ void Butterfree::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
-	hp = 6.f;
+	hp = 300;
+	maxHp = 300;
 
 	UpdateAnimation();
 }

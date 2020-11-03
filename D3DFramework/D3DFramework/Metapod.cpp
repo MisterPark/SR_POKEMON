@@ -40,7 +40,8 @@ void Metapod::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
-	hp = 6.f;
+	hp = 500;
+	maxHp = 500;
 
 	UpdateAnimation();
 }

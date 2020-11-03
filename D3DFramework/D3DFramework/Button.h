@@ -19,6 +19,8 @@ public:
     virtual void OnLButtonUp() override;
     virtual void OnClick() override;
 
+    virtual void SetSize(int w, int h);
+
 private:
     // hover 이벤트 전용
     float upScaleRatio = 1.1f;

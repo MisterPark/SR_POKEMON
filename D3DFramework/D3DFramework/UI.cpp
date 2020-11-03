@@ -141,3 +141,14 @@ void UI::OnChangedText()
 		ChangedText();
 	}
 }
+
+void UI::SetSize(int w, int h)
+{
+	width = w;
+	height = h;
+}
+
+void UI::SetTexture(TextureKey _key)
+{
+	textureKey = _key;
+}

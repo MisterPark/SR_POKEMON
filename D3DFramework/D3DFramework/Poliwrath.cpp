@@ -39,6 +39,9 @@ void Poliwrath::Initialize()
 
 	state = State::READY;
 
+	hp = 500;
+	maxHp = 500;
+
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 

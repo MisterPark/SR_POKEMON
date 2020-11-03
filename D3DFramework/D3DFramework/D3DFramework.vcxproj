@@ -212,6 +212,7 @@
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
+    <ClInclude Include="PlayerInfoPanel.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Poliwag.h" />
     <ClInclude Include="Poliwrath.h" />
@@ -246,6 +247,7 @@
     <ClInclude Include="Stage_Water_Boss.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Suicune.h" />
+    <ClInclude Include="TargetInfoPanel.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="TestMultiScene.h" />
@@ -318,6 +320,7 @@
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
+    <ClCompile Include="PlayerInfoPanel.cpp" />
     <ClCompile Include="Poliwag.cpp" />
     <ClCompile Include="Poliwrath.cpp" />
     <ClCompile Include="Psyduck.cpp" />
@@ -350,6 +353,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Suicune.cpp" />
+    <ClCompile Include="TargetInfoPanel.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="TestMultiScene.cpp" />
     <ClCompile Include="TestScene.cpp" />

@@ -3,6 +3,8 @@
 #include "SkyBox.h"
 #include "Cursor.h"
 #include "RenderFilter.h"
+#include "TargetInfoPanel.h"
+#include "PlayerInfoPanel.h"
 
 using namespace PKH;
 
@@ -14,6 +16,8 @@ PKH::ObjectManager::ObjectManager()
 	
 	Cursor::GetInstance();
 	RenderFilter::GetInstance();
+	TargetInfoPanel::GetInstance();
+	PlayerInfoPanel::GetInstance();
 }
 
 PKH::ObjectManager::~ObjectManager()
@@ -21,7 +25,8 @@ PKH::ObjectManager::~ObjectManager()
 	
 	Cursor::Destroy();
 	RenderFilter::Destroy();
-
+	TargetInfoPanel::Destroy();
+	PlayerInfoPanel::Destroy();
 	Release();
 }
 
@@ -95,8 +100,11 @@ void PKH::ObjectManager::Update()
 	}
 
 	
-	Cursor::GetInstance()->Update();
+	
 	RenderFilter::GetInstance()->Update();
+	TargetInfoPanel::GetInstance()->Update();
+	PlayerInfoPanel::GetInstance()->Update();
+	Cursor::GetInstance()->Update();
 }
 
 void PKH::ObjectManager::PostUpdate()
@@ -176,6 +184,8 @@ void PKH::ObjectManager::PostRender()
 	}
 
 	RenderFilter::GetInstance()->Render();
+	TargetInfoPanel::GetInstance()->Render();
+	PlayerInfoPanel::GetInstance()->Render();
 	Cursor::GetInstance()->Render();
 }
 

@@ -375,7 +375,7 @@ void PKH::D2DRenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, int index)
 	pD2DRenderManager->pSprite->End();
 }
 
-void PKH::D2DRenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index, float verticlaPer)
+void PKH::D2DRenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index, float verticalPer)
 {
 	auto find = pD2DRenderManager->textureMap.find(spriteKey);
 	if (find == pD2DRenderManager->textureMap.end())
@@ -398,7 +398,7 @@ void PKH::D2DRenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 sc
 	RECT area;
 	area.left = x;
 	area.top = y;
-	area.right = x + w;
+	area.right = (x + w) * verticalPer;
 	area.bottom = y + h;
 
 	Matrix matWorld, matPos, matScale;

@@ -23,6 +23,8 @@ Charmander::~Charmander()
 void Charmander::Initialize()
 {
 	name = L"ÆÄÀÌ¸®";
+	number = Pokemon::Charmander;
+
 	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PF01_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
@@ -37,6 +39,9 @@ void Charmander::Initialize()
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
+
+	hp = 100;
+	maxHp = 100;
 
 	UpdateAnimation();
 }

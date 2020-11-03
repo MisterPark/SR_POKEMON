@@ -41,7 +41,8 @@ void Vileplume::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossBullet));
 
-	hp = 6.f;
+	hp = 500;
+	maxHp = 500;
 
 	UpdateAnimation();
 }

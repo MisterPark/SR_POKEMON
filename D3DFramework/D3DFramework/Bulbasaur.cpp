@@ -34,6 +34,9 @@ void Bulbasaur::Initialize()
 
 	state = State::IDLE;
 
+	hp = 100;
+	maxHp = 100;
+
 	UpdateAnimation();
 }
 

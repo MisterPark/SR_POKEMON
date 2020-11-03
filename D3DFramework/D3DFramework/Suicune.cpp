@@ -39,6 +39,9 @@ void Suicune::Initialize()
 
 	state = State::READY;
 
+	hp = 2000;
+	maxHp = 2000;
+
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 

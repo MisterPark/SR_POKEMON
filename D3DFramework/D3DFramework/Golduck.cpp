@@ -21,6 +21,9 @@ Golduck::Golduck()
 
 	state = State::READY;
 
+	hp = 1000;
+	maxHp = 1000;
+
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 

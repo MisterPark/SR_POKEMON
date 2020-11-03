@@ -570,6 +570,10 @@
     <ClInclude Include="Charmeleon.h">
       <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
     </ClInclude>
+    <ClInclude Include="TargetInfoPanel.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInfoPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1012,6 +1016,10 @@
     <ClCompile Include="Charmeleon.cpp">
       <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
     </ClCompile>
+    <ClCompile Include="TargetInfoPanel.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInfoPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

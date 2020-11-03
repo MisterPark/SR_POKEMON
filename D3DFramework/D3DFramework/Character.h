@@ -3,6 +3,8 @@
 
 class Skill;
 
+
+
 class Character :
     public GameObject
 {
@@ -17,6 +19,8 @@ public:
     // GameObject을(를) 통해 상속됨
     virtual void Initialize() override;
     virtual void Release() override;
+
+	virtual void OnCollision(GameObject* target) override;
 
 	void CalcMoveTime();
 
@@ -44,8 +48,11 @@ public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);
 
 public:
+	//Stat
 	wstring name;
-	float hp;
+	int hp;
+	int maxHp;
+	Pokemon number = Pokemon::None;
     // 지형과 간격
     float offsetY;
 	Vector3 direction = { 0,0,1 };

@@ -38,7 +38,8 @@ void Caterpie::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
-	hp = 6.f;
+	hp = 60;
+	maxHp = 60;
 
 	UpdateAnimation();
 }

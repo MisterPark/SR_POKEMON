@@ -26,7 +26,12 @@ Poliwag::~Poliwag()
 
 void Poliwag::Initialize()
 {
-	name = L"¹ßÃ¬ÀÌ";
+	// stat
+	name = L"¹ßÃ¬ÀÌ";	
+	hp = 100;
+	maxHp = 100;
+	number = Pokemon::Poliwag;
+	// anim
 	SetTexture(State::WALK, TextureKey::WAG_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::WAG_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::WAG_WALK_D_01, 3, 1);
@@ -38,7 +43,7 @@ void Poliwag::Initialize()
 	moveSpeed = 1.f;
 	offsetY = 0.5f;
 
-	hp = 10;
+
 
 	state = State::READY;
 
@@ -84,8 +89,3 @@ Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& scale, const Vector3
 	return newPokemon;
 }
 
-void Poliwag::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
-}

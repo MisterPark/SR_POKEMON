@@ -31,6 +31,9 @@ void Ivysaur::Initialize()
 	anim->SetLoop(true);
 	offsetY = 0.13f;
 
+	hp = 300;
+	maxHp = 300;
+
 	state = State::IDLE;
 }
 

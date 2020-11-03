@@ -11,5 +11,7 @@ public:
     virtual void Release() override;
 
     virtual void UpdateUI() override;
+
+    virtual void SetSize(int w, int h);
 };
 

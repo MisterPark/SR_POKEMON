@@ -80,6 +80,21 @@ namespace PKH
 		UI_HP_BAR_03,
 		UI_HP_BAR_04,
 		UI_HP_BAR_05,
+
+		UI_NUM_RED_00,
+		UI_NUM_RED_01,
+		UI_NUM_RED_02,
+		UI_NUM_RED_03,
+		UI_NUM_RED_04,
+		UI_NUM_RED_05,
+		UI_NUM_RED_06,
+		UI_NUM_RED_07,
+		UI_NUM_RED_08,
+		UI_NUM_RED_09,
+
+		UI_FACE_POKEMON_1ST,
+		UI_FACE_POKEMON_2ND,
+		UI_FACE_POKEMON_3RD,
 		//============================================================
 
 		// PG 01
