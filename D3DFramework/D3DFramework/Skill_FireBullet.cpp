@@ -25,9 +25,9 @@ void Skill_FireBullet::Update()
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::FIRE);
 	ObjectManager::AddObject(bullet);
 
-	if (character->GetIsEnemy())
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
 	CalcActiveTime();

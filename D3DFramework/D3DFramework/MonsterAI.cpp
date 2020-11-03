@@ -987,6 +987,7 @@ void MonsterAI::MonsterWalk() {
 			if (readyPattern) {
 				readyPattern = false;
 			}
+			MoveRandomPattern(1.5f, 3);
 			break;
 
 		case MonsterType::POLIWRATH:

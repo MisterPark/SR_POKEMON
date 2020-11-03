@@ -29,9 +29,9 @@ void Skill_WaterBullet::Update()
 	Effect* effect = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::BULLET_FIRE_01, TextureKey::BULLET_FIRE_05, 0.2f, true);
 	ObjectManager::AddObject(effect);
 
-	if (character->GetIsEnemy())
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
 	CalcActiveTime();

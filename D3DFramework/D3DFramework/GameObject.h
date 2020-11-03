@@ -12,6 +12,10 @@ enum class Direction
 	D, LD, L, LU, U, RU, R, RD, END
 };
 
+enum class Team
+{
+	NEUTRAL,PLAYERTEAM,MONSTERTEAM,END
+};
 
 namespace PKH
 {
@@ -75,6 +79,7 @@ namespace PKH
 		float attack = 0.f;
 		float moveSpeed = 1.f;
 		ObjectType type = ObjectType::NONE;
+		Team team = Team::NEUTRAL;
 		bool isDead = false;
 		bool isVisible = true;
 		bool isEnable = true;

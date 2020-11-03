@@ -70,6 +70,7 @@ void TestScene::OnLoaded()
 	ObjectManager::AddObject(monsterCharacter);
 	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 
+
 	//Butterfree* monsterCharacter = Butterfree::Create(Vector3(5.f, 0.f, 7.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	//monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 	//monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
