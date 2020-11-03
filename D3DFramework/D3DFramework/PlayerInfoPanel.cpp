@@ -69,7 +69,8 @@ void PlayerInfoPanel::Render()
     }
 
     Vector3 barPos = { 0,0,0 };
-    //barPos.x = dfCLIENT_WIDTH - 320;
+    barPos.x = 30;
+    barPos.y = dfCLIENT_HEIGHT - 140;
     D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_01, barPos, 0);
     barPos.x += 80;
     barPos.y += 8;

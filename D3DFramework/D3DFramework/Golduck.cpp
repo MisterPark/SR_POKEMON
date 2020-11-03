@@ -7,6 +7,8 @@
 Golduck::Golduck()
 {
 	name = L"°ñ´ö";
+	number = Pokemon::Golduck;
+
 	SetTexture(State::WALK, TextureKey::GOLD_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::GOLD_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::GOLD_WALK_D_01, 3, 1);

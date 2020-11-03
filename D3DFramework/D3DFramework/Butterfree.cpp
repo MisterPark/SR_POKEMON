@@ -26,6 +26,8 @@ Butterfree::~Butterfree()
 void Butterfree::Initialize()
 {
 	name = L"버터플라이";
+	number = Pokemon::Butterfree;
+
 	SetTexture(State::WALK, TextureKey::BUTTER_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::BUTTER_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::BUTTER_WALK_D_01, 3, 1);
@@ -83,10 +85,4 @@ Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& scale, const V
 {
 	Butterfree* newPokemon = new Butterfree(pos, scale, dir);
 	return newPokemon;
-}
-
-void Butterfree::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
 }

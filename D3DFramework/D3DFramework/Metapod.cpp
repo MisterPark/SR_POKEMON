@@ -24,6 +24,8 @@ Metapod::~Metapod()
 void Metapod::Initialize()
 {
 	name = L"´Üµ¥±â";
+	number = Pokemon::Metapod;
+
 	SetTexture(State::WALK, TextureKey::META_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::META_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::META_WALK_D_01, 3, 1);
@@ -81,10 +83,4 @@ Metapod* Metapod::Create(const Vector3& pos, const Vector3& scale, const Vector3
 {
 	Metapod* newPokemon = new Metapod(pos, scale, dir);
 	return newPokemon;
-}
-
-void Metapod::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
 }

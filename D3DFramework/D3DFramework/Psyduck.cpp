@@ -26,6 +26,8 @@ Psyduck::~Psyduck()
 void Psyduck::Initialize()
 {
 	name = L"°í¶óÆÄ´ö";
+	number = Pokemon::Psyduck;
+
 	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3, 1);
@@ -82,10 +84,4 @@ Psyduck* Psyduck::Create(const Vector3& pos, const Vector3& scale, const Vector3
 {
 	Psyduck* newPokemon = new Psyduck(pos, scale, dir);
 	return newPokemon;
-}
-
-void Psyduck::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
 }

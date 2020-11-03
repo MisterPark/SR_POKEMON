@@ -22,6 +22,8 @@ Caterpie::Caterpie(const Vector3& pos, const Vector3& scale, const Vector3& dir)
 void Caterpie::Initialize()
 {
 	name = L"Ä³ÅÍÇÇ";
+	number = Pokemon::Caterpie;
+
 	SetTexture(State::WALK, TextureKey::CATER_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::CATER_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::CATER_WALK_D_01, 3, 1);
@@ -83,10 +85,4 @@ Caterpie* Caterpie::Create(const Vector3& pos, const Vector3& scale, const Vecto
 {
 	Caterpie* newPokemon = new Caterpie(pos, scale, dir);
 	return newPokemon;
-}
-
-void Caterpie::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
 }

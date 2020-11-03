@@ -25,6 +25,8 @@ Vileplume::~Vileplume()
 void Vileplume::Initialize()
 {
 	name = L"라플레시아";
+	number = Pokemon::Vileplume;
+
 	SetTexture(State::WALK, TextureKey::VILE_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::VILE_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::VILE_WALK_D_01, 3, 1);
@@ -84,11 +86,6 @@ Vileplume* Vileplume::Create(const Vector3& pos, const Vector3& scale, const Vec
 	return newPokemon;
 }
 
-void Vileplume::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
-}
 
 /*
 void Vileplume::Pattern()

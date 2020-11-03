@@ -27,6 +27,8 @@ Scyther::~Scyther()
 void Scyther::Initialize()
 {
 	name = L"½º¶óÅ©";
+	number = Pokemon::Scyther;
+
 	SetTexture(State::WALK, TextureKey::SCY_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::SCY_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::SCY_WALK_D_01, 3, 1);
@@ -90,8 +92,3 @@ Scyther* Scyther::Create(const Vector3& pos, const Vector3& scale, const Vector3
 	return newPokemon;
 }
 
-void Scyther::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
-}

@@ -26,6 +26,8 @@ Oddish::~Oddish()
 void Oddish::Initialize()
 {
 	name = L"¶Ñ¹÷ÃÊ";
+	number = Pokemon::Oddish;
+
 	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::ODDI_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::ODDI_WALK_D_01, 3, 1);
@@ -83,10 +85,4 @@ Oddish* Oddish::Create(const Vector3& pos, const Vector3& scale, const Vector3& 
 {
 	Oddish* newPokemon = new Oddish(pos, scale, dir);
 	return newPokemon;
-}
-
-void Oddish::OnCollision(GameObject* target)
-{
-	hp -= target->attack;
-	if (hp <= 0.f) isDead = true;
 }

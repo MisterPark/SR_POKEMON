@@ -18,7 +18,6 @@ public:
 public:
     static Vileplume* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
 
-    virtual void OnCollision(GameObject* target) override;
 
 public:
     MonsterAI* monsterAI;

@@ -31,6 +31,7 @@ void Poliwag::Initialize()
 	hp = 100;
 	maxHp = 100;
 	number = Pokemon::Poliwag;
+
 	// anim
 	SetTexture(State::WALK, TextureKey::WAG_WALK_D_01, 3);
 	SetTexture(State::IDLE, TextureKey::WAG_WALK_D_01, 3, 1);

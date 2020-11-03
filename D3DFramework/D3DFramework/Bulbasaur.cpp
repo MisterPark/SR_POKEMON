@@ -23,6 +23,8 @@ Bulbasaur::~Bulbasaur()
 void Bulbasaur::Initialize()
 {
 	name = L"ÀÌ»óÇØ¾¾";
+	number = Pokemon::Bulbasaur;
+
 	SetTexture(State::IDLE, TextureKey::PG01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PG01_WALK_D_01, 3);
 	SetTexture(State::ATTACK, TextureKey::PG01_ATTACK_D_01, 2);
