@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-
+#include "MonsterAI.h"
 class Skill;
 
 class Character :

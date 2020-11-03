@@ -203,7 +203,6 @@
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Metapod.h" />
-    <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterAI.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -309,7 +308,6 @@
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Metapod.cpp" />
-    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MonsterAI.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />

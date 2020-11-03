@@ -5,7 +5,6 @@
 #include "Cube.h"
 #include "SkyBox.h"
 #include "CubeMan.h"
-#include "Monster.h"
 #include "Environment.h"
 #include "TitleScene.h"
 #include "Butterfree.h"

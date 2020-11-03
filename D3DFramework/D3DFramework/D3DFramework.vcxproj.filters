@@ -136,9 +136,6 @@
     <Filter Include="GameObject\Character\Fire\005. Charmeleon">
       <UniqueIdentifier>{a16ccc9d-2861-4d48-8d99-a3cda2510173}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Monster">
-      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
-    </Filter>
     <Filter Include="99. Defaults">
       <UniqueIdentifier>{b8a71775-02dc-4334-a429-7a0840044527}</UniqueIdentifier>
     </Filter>
@@ -335,9 +332,6 @@
     </ClInclude>
     <ClInclude Include="Functions.h">
       <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Animation2D.h">
       <Filter>Component\Animation</Filter>
@@ -655,9 +649,6 @@
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
       <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Animation2D.cpp">
       <Filter>Component\Animation</Filter>

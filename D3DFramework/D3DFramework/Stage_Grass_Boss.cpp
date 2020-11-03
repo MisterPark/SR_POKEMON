@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Stage_Grass_Boss.h"
 #include "SkyBox.h"
-#include "Monster.h"
 #include "Environment.h"
 #include "TitleScene.h"
 
@@ -22,7 +21,7 @@
 
 #include "Water.h"
 #include "Tree.h"
-
+#include "MonsterAI.h"
 #include "Stage_Water_01.h"
 
 void Stage_Grass_Boss::OnLoaded()

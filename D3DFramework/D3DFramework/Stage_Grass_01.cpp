@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "Stage_Grass_01.h"
 #include "SkyBox.h"
-#include "Monster.h"
+#include "Character.h"
 #include "Environment.h"
 #include "TitleScene.h"
-
+#include "MonsterAI.h"
 
 #include "Bulbasaur.h"
 #include "Ivysaur.h"

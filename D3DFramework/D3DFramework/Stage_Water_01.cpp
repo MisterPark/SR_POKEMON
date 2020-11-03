@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Stage_Water_01.h"
 #include "SkyBox.h"
-#include "Monster.h"
 #include "Environment.h"
 #include "TitleScene.h"
 

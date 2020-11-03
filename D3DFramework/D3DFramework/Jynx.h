@@ -1,5 +1,5 @@
 #pragma once
-#include "Monster.h"
+#include "Character.h"
 class Jynx :
     public Character
 {
