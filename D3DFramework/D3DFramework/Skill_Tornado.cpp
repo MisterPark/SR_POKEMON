@@ -24,9 +24,9 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-	if (character->GetIsEnemy())
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
 
@@ -35,9 +35,9 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-	if (character->GetIsEnemy())
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
 	bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
@@ -45,9 +45,9 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-	if (character->GetIsEnemy())
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
 	bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
@@ -55,9 +55,9 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-	if (character->GetIsEnemy())
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
 	CalcActiveTime();
