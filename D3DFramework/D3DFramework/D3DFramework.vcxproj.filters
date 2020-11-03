@@ -238,6 +238,9 @@
     <Filter Include="GameObject\Bullet\Bubble">
       <UniqueIdentifier>{c2ce21e4-56d7-4ecd-9dc6-564ec7d91161}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Spawner">
+      <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -563,6 +566,9 @@
     </ClInclude>
     <ClInclude Include="Charmeleon.h">
       <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.h">
+      <Filter>GameObject\Spawner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1002,6 +1008,9 @@
     </ClCompile>
     <ClCompile Include="Charmeleon.cpp">
       <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
+      <Filter>GameObject\Spawner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
