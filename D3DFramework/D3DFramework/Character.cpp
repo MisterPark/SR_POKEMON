@@ -6,7 +6,7 @@
 #include "Bulbasaur.h"
 
 Character::Character() :
-	isEnemy(true)
+	isEnemy(true), canMove(true)
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
@@ -24,6 +24,7 @@ void Character::Update()
 	OnTerrain();
 	Billboard();
 	UpdateAnimation();
+	CalcMoveTime();
 }
 
 void Character::Render()
@@ -74,6 +75,20 @@ void Character::Release()
 
 	skillSet.clear();
 	skillSet.shrink_to_fit();
+}
+
+void Character::CalcMoveTime()
+{
+	if (!canMove)
+	{
+		moveTime -= TimeManager::DeltaTime();
+
+		if (0.f > moveTime)
+		{
+			canMove = true;
+			moveTime = 0.f;
+		}
+	}
 }
 
 void Character::OnTerrain()
@@ -168,7 +183,7 @@ Skill* Character::GetSkillCollTime(int skillNumber)
 
 void Character::MoveForward()
 {
-	Move(direction);
+	if(canMove) Move(direction);
 }
 
 void Character::ChangeState(State nextState)

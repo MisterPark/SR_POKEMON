@@ -35,6 +35,8 @@ void Player::Update()
 {
 	if (nullptr == character) return;
 
+	canMove = character->GetCanMove();
+
 	KeyInput();
 
 	if (isFix)

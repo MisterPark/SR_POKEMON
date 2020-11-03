@@ -6,6 +6,7 @@
 Skill_WaterBullet::Skill_WaterBullet()
 {
 	coolTime = 0.4f;
+	moveStopTime = 04.f;
 }
 
 Skill_WaterBullet::~Skill_WaterBullet()

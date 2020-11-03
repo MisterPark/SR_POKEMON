@@ -5,6 +5,7 @@
 Skill_FireBullet::Skill_FireBullet()
 {
 	coolTime = 0.4f;
+	moveStopTime = 0.4f;
 }
 
 Skill_FireBullet::~Skill_FireBullet()

@@ -18,6 +18,8 @@ public:
     virtual void Initialize() override;
     virtual void Release() override;
 
+	void CalcMoveTime();
+
 	// 지형 타기
     void OnTerrain();
 	// 카메라로 부터 텍스쳐 각도
@@ -36,6 +38,7 @@ public:
 	virtual void ChangeState(State nextState);
 	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
 	Skill* GetSkillCollTime(int skillNumber);
+	bool GetCanMove() { return canMove; }
 
 	virtual void Attack(const Vector3& dir, const int& attackType);
 
@@ -52,6 +55,8 @@ public:
 
 protected:
 	vector<Skill*> skillSet;
+	float moveTime;
 	bool isEnemy;
+	bool canMove;
 };
 

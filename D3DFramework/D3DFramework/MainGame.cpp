@@ -115,8 +115,8 @@ void PKH::MainGame::Release()
 	// 다른 모든 매니저 해제
 	SceneManager::Destroy();
 	TimeManager::Destroy();
-	CollisionManager::Destroy();
 	ObjectManager::Destroy();
+	CollisionManager::Destroy();
 	SkyBox::Destroy();
 	//RenderManager::Release();
 	D2DRenderManager::Destroy();

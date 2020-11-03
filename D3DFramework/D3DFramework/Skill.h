@@ -24,10 +24,14 @@ public:
 	float GetCoolTime() { return coolTime; }
 	bool GetIsActive() { return isActive; }
 	float GetActiveTime() { return activeTime; }
+	bool GetCanMove() { return canMove; }
+	float GetMoveStopTime() { return moveStopTime; }
 
 protected:
 	Character* character = nullptr;
 	float coolTime = 0.f;
 	float activeTime = 0.f;
+	float moveStopTime = 0.f;
 	bool isActive = false;
+	bool canMove = false;
 };
