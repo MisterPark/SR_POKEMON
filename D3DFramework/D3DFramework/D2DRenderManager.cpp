@@ -375,6 +375,43 @@ void PKH::D2DRenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, int index)
 	pD2DRenderManager->pSprite->End();
 }
 
+void PKH::D2DRenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index, float verticlaPer)
+{
+	auto find = pD2DRenderManager->textureMap.find(spriteKey);
+	if (find == pD2DRenderManager->textureMap.end())
+	{
+		// 로드되지 않은 스프라이트.
+		return;
+	}
+
+	const Texture* tex = find->second;
+
+	// 스프라이트 한장의 넓이와 높이, 위치
+	int w = tex->GetSpriteWidth();
+	int h = tex->GetSpriteHeight();
+
+	int row = index / tex->colCount;
+	int col = index % tex->colCount;
+
+	int x = col * w;
+	int y = row * h;
+	RECT area;
+	area.left = x;
+	area.top = y;
+	area.right = x + w;
+	area.bottom = y + h;
+
+	Matrix matWorld, matPos, matScale;
+	D3DXMatrixScaling(&matScale, scale.x, scale.y, 1.f);
+	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
+	matWorld = matScale * matPos;
+
+	pD2DRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
+	pD2DRenderManager->pSprite->SetTransform(&matWorld);
+	pD2DRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pD2DRenderManager->pSprite->End();
+}
+
 void PKH::D2DRenderManager::DrawCharacter(TextureKey spriteKey, Transform transform, DWORD row, DWORD col)
 {
 	auto find = pD2DRenderManager->textureMap.find(spriteKey);

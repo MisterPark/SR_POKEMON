@@ -503,6 +503,8 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_02, L"Texture\\UI\\HP_BAR_02.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_03, L"Texture\\UI\\HP_BAR_03.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_04, L"Texture\\UI\\HP_BAR_04.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_05, L"Texture\\UI\\HP_BAR_05.png");
+
 }
 
 void PKH::MainGame::LoadMonsterSprite()

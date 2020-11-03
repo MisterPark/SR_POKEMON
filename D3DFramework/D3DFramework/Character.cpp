@@ -45,12 +45,17 @@ void Character::RenderInfomation()
 		// 이름길이
 		float len = name.length();
 		float strW = 20;
-		Vector3 pos = Camera::WorldToScreenPoint(transform->position);
-		pos.y -= transform->scale.y + 40 - camDist;
-		pos.x -= (len / 2.f) * strW;
-		D2DRenderManager::DrawFont(name, pos.x, pos.y, D3DCOLOR_XRGB(255, 255, 255));
+		Vector3 namePos = Camera::WorldToScreenPoint(transform->position);
+		namePos.y -= transform->scale.y + 40 - camDist;
+		namePos.x -= (len / 2.f) * strW;
+		D2DRenderManager::DrawFont(name, namePos.x, namePos.y, D3DCOLOR_XRGB(255, 255, 255));
 
-		D2DRenderManager::DrawSprite(TextureKey::UI_HP_BAR_04, pos, 0);
+		// HP바
+		Texture* hpBarTex = D2DRenderManager::GetTexture(TextureKey::UI_HP_BAR_05);
+		float hpW = (float)hpBarTex->imageInfo.Width;
+		Vector3 hpPos = Camera::WorldToScreenPoint(transform->position);
+		
+		D2DRenderManager::DrawSprite(TextureKey::UI_HP_BAR_05, hpPos, 0);
 	}
 
 
