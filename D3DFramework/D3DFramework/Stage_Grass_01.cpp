@@ -22,7 +22,7 @@
 
 #include "Water.h"
 #include "Tree.h"
-
+#include "Coral.h"
 #include "Stage_Grass_Boss.h"
 
 void Stage_Grass_01::OnLoaded()
@@ -119,4 +119,56 @@ void Stage_Grass_01::Set_Stage_Grass_01_Map(TextureKey _key, const std::string& 
 		tree->transform->position.z += 16.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 	}
+	//ªÍ»£
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 16.f + i;
+			coral->transform->position.z = 48.f - 21.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::BLUECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 20.f + i;
+			coral->transform->position.z = 48.f - 32.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::WHITECORAL02);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 28.f + i;
+			coral->transform->position.z = 48.f - 25.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::REDCORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 27.f + i;
+			coral->transform->position.z = 48.f - 16.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::PURPLECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 32.f + i;
+			coral->transform->position.z = 48.f - 29.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::YELLOWCORAL01);
+		}
+	}
+
 }

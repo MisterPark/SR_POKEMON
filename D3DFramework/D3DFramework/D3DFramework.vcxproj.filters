@@ -570,6 +570,9 @@
     <ClInclude Include="Spawner.h">
       <Filter>GameObject\Spawner</Filter>
     </ClInclude>
+    <ClInclude Include="Coral.h">
+      <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -848,9 +851,6 @@
     <ClCompile Include="Water.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
-    <ClCompile Include="Tree.cpp">
-      <Filter>GameObject\Environment</Filter>
-    </ClCompile>
     <ClCompile Include="Charmander.cpp">
       <Filter>GameObject\Character\Fire\004. Charmander</Filter>
     </ClCompile>
@@ -1011,6 +1011,12 @@
     </ClCompile>
     <ClCompile Include="Spawner.cpp">
       <Filter>GameObject\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Coral.cpp">
+      <Filter>GameObject\Decoration</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

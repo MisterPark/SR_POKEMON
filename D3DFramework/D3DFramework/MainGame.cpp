@@ -468,6 +468,15 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::PALMTREE03, L"Texture\\ETC\\PalmTree\\PalmTree (3).png");
 	D2DRenderManager::LoadSprite(TextureKey::PALMTREE04, L"Texture\\ETC\\PalmTree\\PalmTree (4).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BLUECORAL01,  L"Texture\\ETC\\Coral\\BlueCoral (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BLUECORAL02,  L"Texture\\ETC\\Coral\\BlueCoral (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::WHITECORAL01,  L"Texture\\ETC\\Coral\\WhiteCoral (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::WHITECORAL02,  L"Texture\\ETC\\Coral\\WhiteCoral (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::REDCORAL01,  L"Texture\\ETC\\Coral\\RedCoral (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::REDCORAL02,  L"Texture\\ETC\\Coral\\RedCoral (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PURPLECORAL01,  L"Texture\\ETC\\Coral\\PurpleCoral (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::YELLOWCORAL01,  L"Texture\\ETC\\Coral\\YellowCoral (1).png");
+	
 	//RANGE
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
 
