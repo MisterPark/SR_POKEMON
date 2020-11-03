@@ -37,7 +37,7 @@ void Bullet_Tornado::Update()
 {
 	Bullet::Update();
 
-	RotateMove();
+	//RotateMove();
 
 	spawnTimeGap -= TimeManager::DeltaTime();
 

@@ -39,9 +39,9 @@ void Skill_Blaze::Active(const Character* character)
 	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, look, 20.f, 0.4f, 3.f);
 	ObjectManager::AddObject(instance);
 
-	if (character->GetIsEnemy())
+	if (character->team==Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
 }
 

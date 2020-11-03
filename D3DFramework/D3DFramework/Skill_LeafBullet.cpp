@@ -19,9 +19,9 @@ void Skill_LeafBullet::Active(const Character* character)
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF);
 	ObjectManager::AddObject(bullet);
 
-	if (character->GetIsEnemy())
+	if (character->team==Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else
+	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
 
