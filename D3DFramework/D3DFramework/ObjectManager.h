@@ -132,18 +132,19 @@ namespace PKH
 		TargetType* target = nullptr;
 		TargetType* comparand = nullptr;
 
-		for (auto& iter : objectList)
+		for (auto iter : objectList)
 		{
 			if (dynamic_cast<TargetType*>(iter) == nullptr) continue;
-			if (Func(_self, *iter) == false) continue;
+			GameObject* iterObj = iter;
+			if (Func(_self, iterObj) == false) continue;
 
 			if (target == nullptr)
 			{
-				target = *iter;
+				target = (TargetType*)iterObj;
 				continue;
 			}
 
-			comparand = *iter;
+			comparand = (TargetType*)iterObj;
 
 			float targetDist = Vector3::Distance(_self->transform->position, target->transform->position);
 			float compDist = Vector3::Distance(_self->transform->position, comparand->transform->position);

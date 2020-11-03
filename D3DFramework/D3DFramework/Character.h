@@ -29,8 +29,6 @@ public:
 
 public:
 	void SetDir(const Vector3& dir);
-	void SetIsEnemy(const bool& _isEnemy) { isEnemy = _isEnemy; }
-	bool GetIsEnemy() const { return isEnemy; }
 	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
 	void MoveForward();
 	virtual void ChangeState(State nextState);
@@ -38,6 +36,9 @@ public:
 	Skill* GetSkillCollTime(int skillNumber);
 
 	virtual void Attack(const Vector3& dir, const int& attackType);
+
+public:
+	static bool IsNotAlliance(GameObject* a, GameObject* b);
 
 public:
 	wstring name;
@@ -52,6 +53,6 @@ public:
 
 protected:
 	vector<Skill*> skillSet;
-	bool isEnemy;
+
 };
 

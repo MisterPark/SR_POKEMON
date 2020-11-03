@@ -5,9 +5,9 @@
 #include "Rectangle.h"
 #include "Bulbasaur.h"
 
-Character::Character() :
-	isEnemy(true)
+Character::Character()
 {
+	team = Team::MONSTERTEAM;
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
@@ -16,7 +16,6 @@ Character::Character() :
 Character::~Character()
 {
 	Release();
-	CollisionManager::GetInstance()->DisregisterObject(this);
 }
 
 void Character::Update()
@@ -182,6 +181,13 @@ void Character::ChangeState(State nextState)
 
 void Character::Attack(const Vector3 & dir, const int & attackType)
 {
+}
+
+bool Character::IsNotAlliance(GameObject * a, GameObject * b)
+{
+	Character* cb = dynamic_cast<Character*>(b);
+	if (cb == nullptr) return false;
+	return (a->team != b->team);
 }
 
 void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame) {
