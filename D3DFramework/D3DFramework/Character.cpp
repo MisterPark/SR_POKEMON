@@ -17,6 +17,7 @@ Character::Character() :
 Character::~Character()
 {
 	Release();
+	CollisionManager::GetInstance()->DisregisterObject(this);
 }
 
 void Character::Update()
@@ -82,12 +83,12 @@ void Character::CalcMoveTime()
 {
 	if (!canMove)
 	{
-		moveTime -= TimeManager::DeltaTime();
+		moveStopTime -= TimeManager::DeltaTime();
 
-		if (0.f > moveTime)
+		if (0.f > moveStopTime)
 		{
 			canMove = true;
-			moveTime = 0.f;
+			moveStopTime = 0.f;
 		}
 	}
 }

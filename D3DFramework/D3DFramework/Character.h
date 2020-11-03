@@ -59,6 +59,5 @@ protected:
 
 	float moveStopTime;
 	bool canMove;
-	float moveStopTime;
 };
 
