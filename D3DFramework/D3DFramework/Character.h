@@ -31,7 +31,7 @@ public:
 	void SetDir(const Vector3& dir);
 	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
 	void MoveForward();
-	void ChangeState(State nextState);
+	virtual void ChangeState(State nextState);
 	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
 	Skill* GetSkillCollTime(int skillNumber);
 

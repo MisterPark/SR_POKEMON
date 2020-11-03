@@ -16,6 +16,7 @@
 #include <set>
 #include <list>
 #include <string>
+#include <algorithm>
 
 //=======================================
 //  FMOD

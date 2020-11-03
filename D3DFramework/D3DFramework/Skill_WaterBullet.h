@@ -9,7 +9,9 @@ public:
 	virtual ~Skill_WaterBullet();
 
 public:
-	virtual void Active(const Character* character) override;
+	// Skill을(를) 통해 상속됨
+	virtual void InitActiveTime() override;
+	virtual void Update() override;
 
 public:
 	static Skill* Create();

@@ -15,7 +15,6 @@ PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& t
 	attack = 1.f;
 	moveSpeed = 10.f;
 	lifeTime = 1.2f;
-	isCollision = false;
 
 	animDelay = 0.05f;
 
@@ -72,8 +71,6 @@ void PlayerBullet::Render()
 
 void PlayerBullet::OnCollision(GameObject* target)
 {
-	if (isCollision) return;
-
 	CollSetByType();
 }
 

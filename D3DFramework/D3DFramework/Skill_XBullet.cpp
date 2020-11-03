@@ -12,45 +12,71 @@ Skill_XBullet::~Skill_XBullet()
 {
 }
 
+void Skill_XBullet::InitActiveTime()
+{
+	//activeTime = 0.6f;
+}
+
+void Skill_XBullet::Update()
+{
+	CalcActiveTime();
+}
+
+/*
 void Skill_XBullet::Active(const Character* character)
 {
+
 	float R = 1.f;
+	Vector3 Dir3 = { (character->direction.x + character->direction.z) * 0.5f,  0.5f, (-character->direction.x + character->direction.z) * 0.5f };
 
-	Bullet_Poision* b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Vector3 Dir2 = { 0.f,0.f,0.f };
-	Dir2.x -= R;
-	Dir2.z -= R;
+	Bullet_Poision* bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
+	Vector3 Dir2 = { Dir3.x,0.f, Dir3.z };
+
 	Dir2.Normalized();
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->GetIsEnemy())
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x -= R;
-	Dir2.z += R;
-	Dir2.Normalized();
-	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
+	Dir2 = { Dir3.z, 0.f, -Dir3.x };
 
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x += R;
-	Dir2.z -= R;
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->GetIsEnemy())
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x += R;
-	Dir2.z += R;
+	bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
+	Dir2 = { -Dir3.x, 0.f, -Dir3.z };
+
 	Dir2.Normalized();
 	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->GetIsEnemy())
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+
+	bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
+	Dir2 = { -Dir3.z,0.f,Dir3.x };
+
+	Dir2.Normalized();
+	D3DXVec3Normalize(&Dir2, &Dir2);
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->GetIsEnemy())
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 }
+*/
 
 Skill * Skill_XBullet::Create()
 {

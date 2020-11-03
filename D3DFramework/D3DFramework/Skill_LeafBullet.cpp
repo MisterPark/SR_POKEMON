@@ -11,7 +11,12 @@ Skill_LeafBullet::~Skill_LeafBullet()
 {
 }
 
-void Skill_LeafBullet::Active(const Character* character)
+void Skill_LeafBullet::InitActiveTime()
+{
+	activeTime = 0.f;
+}
+
+void Skill_LeafBullet::Update()
 {
 	Vector3 pos = character->transform->position;
 	Vector3 dir = character->direction;
@@ -19,10 +24,12 @@ void Skill_LeafBullet::Active(const Character* character)
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF);
 	ObjectManager::AddObject(bullet);
 
-	if (character->team==Team::MONSTERTEAM)
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+
+	CalcActiveTime();
 }
 
 Skill * Skill_LeafBullet::Create()

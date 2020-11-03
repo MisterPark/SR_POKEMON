@@ -19,7 +19,7 @@ Bullet_Tornado::Bullet_Tornado()
 
 	lifeTime = 6.f;
 	spawnTimeGap = 0.8f;
-	moveSpeed = 2.f;
+	moveSpeed = 4.5f;
 
 	rotateMoveX = 1.f;
 	rotateMoveZ = 0.f;
@@ -55,8 +55,8 @@ void Bullet_Tornado::OnCollision(GameObject* target)
 }
 
 void Bullet_Tornado::RotateMove() {
-	transform->position.x += rotateMoveX * 1.5f *TimeManager::DeltaTime();
-	transform->position.z += rotateMoveZ * 1.5f * TimeManager::DeltaTime();
+	transform->position.x += rotateMoveX * 0.15f *TimeManager::DeltaTime();
+	transform->position.z += rotateMoveZ * 0.15f * TimeManager::DeltaTime();
 
 	if (Frame[1] == 0 && rotateMoveX > 1.f) {
 		rotateMoveX += 0.1f;

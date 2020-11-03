@@ -12,9 +12,19 @@ public:
 	static void Destroy();
 
 public:
+	void Update();
+	void PostUpdate();
+
+public:
+	void AddSkillToList(Skill* skill);
+	void DeleteSkillFromList(Skill* skill);
+	bool IsSkillInList(Skill* skill);
+
+public:
 	Skill* GetSkill(SkillName skillName);
 
 private:
 	static SkillManager* instance;
+	list<Skill*> skillList;
 };
 

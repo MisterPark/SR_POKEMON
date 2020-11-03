@@ -12,7 +12,12 @@ Skill_Blaze::~Skill_Blaze()
 {
 }
 
-void Skill_Blaze::Active(const Character* character)
+void Skill_Blaze::InitActiveTime()
+{
+	activeTime = 0.f;
+}
+
+void Skill_Blaze::Update()
 {
 	Vector3 pos = character->transform->position;
 	Vector3 look = { 0.f, 0.f, 1.f };
@@ -39,10 +44,12 @@ void Skill_Blaze::Active(const Character* character)
 	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, look, 20.f, 0.4f, 3.f);
 	ObjectManager::AddObject(instance);
 
-	if (character->team==Team::MONSTERTEAM)
+	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
 	else if (character->team == Team::PLAYERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
+
+	CalcActiveTime();
 }
 
 Skill * Skill_Blaze::Create()

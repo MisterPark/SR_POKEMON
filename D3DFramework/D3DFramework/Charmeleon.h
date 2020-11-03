@@ -1,12 +1,12 @@
 #pragma once
 #include "Character.h"
 
-class Charmander : public Character
+class Charmeleon : public Character
 {
 public:
-	Charmander();
-	Charmander(const Vector3& pos, const Vector3& scale, const Vector3& dir);
-    virtual ~Charmander();
+	Charmeleon();
+	Charmeleon(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    virtual ~Charmeleon();
 
 public:
 	virtual void Initialize() override;
@@ -22,6 +22,6 @@ public:
 	virtual void Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Charmander* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	static Charmeleon* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
 };
 

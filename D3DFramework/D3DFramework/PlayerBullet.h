@@ -23,5 +23,4 @@ public:
 
 private:
 	Type bulletType;
-	bool isCollision;
 };
