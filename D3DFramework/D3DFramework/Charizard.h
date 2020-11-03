@@ -15,10 +15,6 @@ public:
 	virtual void Release() override;
 
 public:
-	virtual void ChangeState(State nextState) override;
-	void AnimSet();
-
-public:
 	virtual void Attack(const Vector3& dir, const int& attackType) override;
 
 public:

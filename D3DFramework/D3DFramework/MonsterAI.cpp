@@ -187,10 +187,34 @@ void MonsterAI::SetType(MonsterType _type)
 	switch (type)
 	{
 	case MonsterType::BULBASAUR:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::LVYSAUR:
 		break;
 	case MonsterType::VENUSAUR:
+		break;
+	case MonsterType::SQUIRTLE:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
+		break;
+	case MonsterType::WARTORTLE:
+		break;
+	case MonsterType::BLASTOISE:
+		break;
+	case MonsterType::CHARMANDER:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
+		break;
+	case MonsterType::CHARMELEON:
+		break;
+	case MonsterType::CHARIZARD:
 		break;
 	case MonsterType::CATERPIE:
 		SetPatternRange(1, 1);
@@ -276,6 +300,7 @@ void MonsterAI::SetType(MonsterType _type)
 		break;
 	case MonsterType::END:
 		break;
+
 	default:
 		break;
 	}
@@ -365,6 +390,18 @@ void MonsterAI::MonsterIdle() {
 			break;
 		case MonsterType::VENUSAUR:
 			break;
+		case MonsterType::SQUIRTLE:
+			break;
+		case MonsterType::WARTORTLE:
+			break;
+		case MonsterType::BLASTOISE:
+			break;
+		case MonsterType::CHARMANDER:
+			break;
+		case MonsterType::CHARMELEON:
+			break;
+		case MonsterType::CHARIZARD:
+			break;
 		case MonsterType::CATERPIE:
 			break;
 		case MonsterType::METAPOD:
@@ -409,6 +446,8 @@ void MonsterAI::MonsterIdle() {
 			break;
 		}
 	}
+	
+
 
 	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Idle
 	else {
@@ -419,6 +458,18 @@ void MonsterAI::MonsterIdle() {
 		case MonsterType::LVYSAUR:
 			break;
 		case MonsterType::VENUSAUR:
+			break;
+		case MonsterType::SQUIRTLE:
+			break;
+		case MonsterType::WARTORTLE:
+			break;
+		case MonsterType::BLASTOISE:
+			break;
+		case MonsterType::CHARMANDER:
+			break;
+		case MonsterType::CHARMELEON:
+			break;
+		case MonsterType::CHARIZARD:
 			break;
 		case MonsterType::CATERPIE:
 			break;
@@ -478,25 +529,88 @@ void MonsterAI::MonsterWalk() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
+			}
+
+			if (disPlayer < searchRange[1]) {
+				if (Time[2] > 0.f) {
+					Time[2] -= TimeManager::DeltaTime();
+					//MovePlayerFollow();
+				}
+				else {
+					c->state = State::ATTACK;
+					Time[2] = 0.f;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
 			}
 
 			break;
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
 
+			if (disPlayer < searchRange[1]) {
+				if (Time[2] > 0.f) {
+					Time[2] -= TimeManager::DeltaTime();
+					//MovePlayerFollow();
+				}
+				else {
+					c->state = State::ATTACK;
+					Time[2] = 0.f;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
+
 			break;
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
@@ -688,21 +802,53 @@ void MonsterAI::MonsterWalk() {
 			}
 			break;
 		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::PONYTA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SLUGMA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::END:
 			break;
 		default:
@@ -716,25 +862,61 @@ void MonsterAI::MonsterWalk() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
+			MoveRandomPattern(1.5f, 3);
 			break;
+
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			MoveRandomPattern(1.5f, 3);
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			MoveRandomPattern(1.5f, 3);
+			break;
+
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
 
@@ -796,29 +978,78 @@ void MonsterAI::MonsterWalk() {
 			MoveRandomPattern(1.5f, 3);
 			break;
 		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			MoveRandomPattern(1.5f, 3);
 			break;
+
 		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::JYNX:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::PONYTA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SLUGMA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::END:
 			break;
 		default:
@@ -839,25 +1070,58 @@ void MonsterAI::MonsterAttack() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
 				if (disPlayer < searchRange[1]) {
@@ -896,18 +1160,16 @@ void MonsterAI::MonsterAttack() {
 			break;
 		case MonsterType::METAPOD:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::ODDISH:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
 				c->anim->SetDelay(0.3f);
@@ -1051,25 +1313,65 @@ void MonsterAI::MonsterAttack() {
 			}
 			break;
 		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::JYNX:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::PONYTA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SLUGMA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::END:
 			break;
 		default:
@@ -1083,147 +1385,170 @@ void MonsterAI::MonsterAttack() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-			
 			break;
+
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-			
 			break;
+
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-			
 			break;
+
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-			
 			break;
+
 		case MonsterType::METAPOD:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-			
 			break;
+
 		case MonsterType::ODDISH:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-			
 			break;
+
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-			
 			break;
+
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::BUTTERFREE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::PSYDUCK:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::GOLDUCK:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::POLIWAG:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::JYNX:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::SUICUNE:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::GROWLITHE:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::ARCANINE:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::PONYTA:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::RAPIDISH:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::SLUGMA:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::MAGCARGO:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::GROUDON:
 			if (readyPattern) {
 				readyPattern = false;
 			}
-
 			break;
 
 		case MonsterType::END:
@@ -1246,49 +1571,78 @@ void MonsterAI::MonsterSkill() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::METAPOD:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::ODDISH:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
 
@@ -1324,41 +1678,92 @@ void MonsterAI::MonsterSkill() {
 					c->anim->SetDelay(0.1f);
 				}
 			}
-			
 			break;
+
 		case MonsterType::BUTTERFREE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
+			break;
 
-			break;
 		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::JYNX:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::PONYTA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SLUGMA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::END:
 			break;
 		default:
@@ -1372,95 +1777,171 @@ void MonsterAI::MonsterSkill() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::METAPOD:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::ODDISH:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::BUTTERFREE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
+			break;
 
-			break;
 		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::JYNX:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::PONYTA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
+
 		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
 		case MonsterType::SLUGMA:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
 		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
 		case MonsterType::END:
 			break;
+
 		default:
 			break;
 		}
@@ -1479,53 +1960,82 @@ void MonsterAI::MonsterSkill2() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::METAPOD:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::ODDISH:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
 				c->anim->SetDelay(1.f);
@@ -1573,39 +2083,52 @@ void MonsterAI::MonsterSkill2() {
 			break;
 		case MonsterType::BUTTERFREE:
 			if (readyPattern) {
-
 				readyPattern = false;
 			}
-
 			break;
+
 		case MonsterType::PSYDUCK:
 			break;
+
 		case MonsterType::GOLDUCK:
 			break;
+
 		case MonsterType::POLIWAG:
 			break;
+
 		case MonsterType::POLIWRATH:
 			break;
+
 		case MonsterType::JYNX:
 			break;
+
 		case MonsterType::SUICUNE:
 			break;
+
 		case MonsterType::GROWLITHE:
 			break;
+
 		case MonsterType::ARCANINE:
 			break;
+
 		case MonsterType::PONYTA:
 			break;
+
 		case MonsterType::RAPIDISH:
 			break;
+
 		case MonsterType::SLUGMA:
 			break;
+
 		case MonsterType::MAGCARGO:
 			break;
+
 		case MonsterType::GROUDON:
 			break;
+
 		case MonsterType::END:
 			break;
+
 		default:
 			break;
 		}
@@ -1617,83 +2140,115 @@ void MonsterAI::MonsterSkill2() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
-
 			}
-
+			break;
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::METAPOD:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::ODDISH:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::BUTTERFREE:
 			if (readyPattern) {
-
 			}
-
 			break;
 		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::JYNX:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::SUICUNE:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::PONYTA:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::SLUGMA:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+			}
 			break;
 		case MonsterType::END:
 			break;

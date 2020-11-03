@@ -35,6 +35,8 @@ void Player::Update()
 {
 	if (nullptr == character) return;
 
+	canMove = character->GetCanMove();
+
 	KeyInput();
 
 	if (isFix)
@@ -54,9 +56,9 @@ void Player::PostUpdate()
 	float limitedX = 2.3f;
 	float limitedZ = 2.3f;
 	if (limitedX > pos->x) pos->x = limitedX;
-	if (dfTERRAIN_WIDTH - 2 < pos->x) pos->x = dfTERRAIN_WIDTH - 2;
+	if (dfTERRAIN_WIDTH - (limitedX + 1) < pos->x) pos->x = dfTERRAIN_WIDTH - (limitedX + 1);
 	if (limitedZ > pos->z) pos->z = limitedZ;
-	if (dfTERRAIN_HEIGHT - 2 < pos->z) pos->z = dfTERRAIN_HEIGHT - 2;
+	if (dfTERRAIN_HEIGHT - (limitedZ +1) < pos->z) pos->z = dfTERRAIN_HEIGHT - (limitedZ + 1);
 
 	character->OnTerrain();
 }
@@ -66,7 +68,7 @@ void Player::SetCharacter(Character * object)
 	character = object;
 
 	Camera::GetInstance()->SetTarget(character);
-	if(nullptr != object) character->SetIsEnemy(false);
+	if (nullptr != object) character->team = Team::PLAYERTEAM;
 }
 
 void Player::Initialize()

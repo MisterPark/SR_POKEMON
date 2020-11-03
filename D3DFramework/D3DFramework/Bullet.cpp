@@ -3,7 +3,7 @@
 #include "Rectangle.h"
 #include "Environment.h"
 #include "Terrain.h"
-
+#include "Character.h"
 Bullet::Bullet()
 {
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
@@ -23,6 +23,7 @@ Bullet::Bullet()
 
 Bullet::~Bullet()
 {
+	CollisionManager::GetInstance()->DisregisterObject(this);
 	Release();
 }
 
@@ -91,7 +92,9 @@ void Bullet::CalcLifeTime()
 
 Vector3 Bullet::PlayerSearchDir(bool PosY)
 {
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	GameObject* g = ObjectManager::GetInstance()->GetNearestObject<Character>((GameObject*)this, Character::IsNotAlliance);
+	
+
 	if (g == nullptr) return Vector3{ 0.f, 0.f, 0.f };
 	Transform* PlayerT = g->transform;
 

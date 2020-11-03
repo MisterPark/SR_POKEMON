@@ -12,32 +12,57 @@ Skill_Tornado::~Skill_Tornado()
 {
 }
 
-void Skill_Tornado::Active(const Character* character)
+void Skill_Tornado::InitActiveTime()
+{
+	// activeTime = 0.7f;
+}
+
+void Skill_Tornado::Update()
 {	
-	Bullet_Tornado* b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+	Bullet_Tornado* bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
 	Vector3 Dir2 = { -1.f, 0.f, 1.f };
 	Dir2.Normalized();
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->team == Team::MONSTERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else if (character->team == Team::PLAYERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
-	b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+
+	bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
 	Dir2 = { 1.f, 0.f, 1.f };
 	Dir2.Normalized();
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->team == Team::MONSTERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else if (character->team == Team::PLAYERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
-	b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+	bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
 	Dir2 = { -1.f, 0.f, -1.f };
 	Dir2.Normalized();
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->team == Team::MONSTERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else if (character->team == Team::PLAYERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 
-	b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
+	bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
 	Dir2 = { 1.f, 0.f, -1.f };
 	Dir2.Normalized();
-	b->SetDir(Dir2);
-	b->transform->position = character->transform->position;
+	bullet->SetDir(Dir2);
+	bullet->transform->position = character->transform->position;
+	if (character->team == Team::MONSTERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+	else if (character->team == Team::PLAYERTEAM)
+		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+
+	CalcActiveTime();
 }
+
 
 Skill * Skill_Tornado::Create()
 {

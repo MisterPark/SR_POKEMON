@@ -28,10 +28,11 @@ void Charmander::Initialize()
 	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
 	SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 2);
 
+	anim->SetLoop(true);
+	anim->SetDelay(0.1f);
 	offsetY = 0.13f;
 
 	state = State::IDLE;
-	AnimSet();
 
 	skillSet.reserve(2);
 
@@ -53,41 +54,6 @@ void Charmander::Render()
 
 void Charmander::Release()
 {
-}
-
-void Charmander::ChangeState(State nextState)
-{
-	if (nextState != state)
-	{
-		state = nextState;
-
-		AnimSet();
-	}
-}
-
-void Charmander::AnimSet()
-{
-	switch (state)
-	{
-	case State::IDLE:
-		anim->SetLoop(false);
-		anim->SetDelay(0.1f);
-		break;
-	case State::WALK:
-		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
-		break;
-	case State::ATTACK:
-		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
-		break;
-	case State::SKILL:
-		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
-		break;
-	case State::HURT:
-		break;
-	}
 }
 
 void Charmander::Attack(const Vector3 & dir, const int & attackType)

@@ -13,8 +13,8 @@ Bullet_Water::Bullet_Water()
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
-    lifeTime = 2.5f;
-    moveSpeed = 3.f;
+    lifeTime = 2.f;
+    moveSpeed = 3.5f;
 }
 
 Bullet_Water::~Bullet_Water()
@@ -26,8 +26,8 @@ void Bullet_Water::Update()
 	Bullet::Update();
 
 	if (isDead) {
-		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_02, TextureKey::BULLET_TEARS_15, 0.05f);
-		ObjectManager::AddObject(fx);
+		Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_02, TextureKey::BULLET_TEARS_15, 0.05f);
+		ObjectManager::AddObject(effect);
 	}
 }
 
@@ -39,4 +39,6 @@ void Bullet_Water::Render()
 void Bullet_Water::OnCollision(GameObject* target)
 {
 	isDead = true;
+	Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_02, TextureKey::BULLET_TEARS_15, 0.02f);
+	ObjectManager::AddObject(effect);
 }

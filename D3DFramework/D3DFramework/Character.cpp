@@ -6,8 +6,9 @@
 #include "Bulbasaur.h"
 
 Character::Character() :
-	isEnemy(true)
+	canMove(true)
 {
+	team = Team::MONSTERTEAM;
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
@@ -16,6 +17,7 @@ Character::Character() :
 Character::~Character()
 {
 	Release();
+	CollisionManager::GetInstance()->DisregisterObject(this);
 }
 
 void Character::Update()
@@ -24,6 +26,7 @@ void Character::Update()
 	OnTerrain();
 	Billboard();
 	UpdateAnimation();
+	CalcMoveTime();
 }
 
 void Character::Render()
@@ -79,6 +82,20 @@ void Character::Release()
 
 	skillSet.clear();
 	skillSet.shrink_to_fit();
+}
+
+void Character::CalcMoveTime()
+{
+	if (!canMove)
+	{
+		moveStopTime -= TimeManager::DeltaTime();
+
+		if (0.f > moveStopTime)
+		{
+			canMove = true;
+			moveStopTime = 0.f;
+		}
+	}
 }
 
 void Character::OnTerrain()
@@ -173,7 +190,7 @@ Skill* Character::GetSkillCollTime(int skillNumber)
 
 void Character::MoveForward()
 {
-	Move(direction);
+	if(canMove) Move(direction);
 }
 
 void Character::ChangeState(State nextState)
@@ -186,6 +203,13 @@ void Character::ChangeState(State nextState)
 
 void Character::Attack(const Vector3 & dir, const int & attackType)
 {
+}
+
+bool Character::IsNotAlliance(GameObject * a, GameObject * b)
+{
+	Character* cb = dynamic_cast<Character*>(b);
+	if (cb == nullptr) return false;
+	return (a->team != b->team);
 }
 
 void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame) {

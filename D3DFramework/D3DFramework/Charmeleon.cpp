@@ -1,13 +1,12 @@
 #include "stdafx.h"
-#include "Charmander.h"
-#include "PlayerBullet.h"
+#include "Charmeleon.h"
 
-Charmander::Charmander()
+Charmeleon::Charmeleon()
 {
 	Initialize();
 }
 
-Charmander::Charmander(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Charmeleon::Charmeleon(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
 {
 	transform->position = pos;
 	transform->scale = scale;
@@ -16,46 +15,47 @@ Charmander::Charmander(const Vector3 & pos, const Vector3 & scale, const Vector3
 	Initialize();
 }
 
-Charmander::~Charmander()
+Charmeleon::~Charmeleon()
 {
 }
 
-void Charmander::Initialize()
+void Charmeleon::Initialize()
 {
-	name = L"파이리";
-	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PF01_WALK_D_01, 3);
-	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
-	SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 2);
+	name = L"리자드";
+	SetTexture(State::IDLE, TextureKey::PF02_WALK_D_01, 3, 1);
+	SetTexture(State::WALK, TextureKey::PF02_WALK_D_01, 3);
+	SetTexture(State::ATTACK, TextureKey::PF02_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PF02_SKILL_D_01, 2);
 
 	offsetY = 0.13f;
 
 	state = State::IDLE;
 	AnimSet();
 
-	skillSet.reserve(2);
+	skillSet.reserve(3);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
+	skillSet.emplace_back();
 
 	UpdateAnimation();
 }
 
-void Charmander::Update()
+void Charmeleon::Update()
 {
 	Character::Update();
 }
 
-void Charmander::Render()
+void Charmeleon::Render()
 {
 	Character::Render();
 }
 
-void Charmander::Release()
+void Charmeleon::Release()
 {
 }
 
-void Charmander::ChangeState(State nextState)
+void Charmeleon::ChangeState(State nextState)
 {
 	if (nextState != state)
 	{
@@ -65,7 +65,7 @@ void Charmander::ChangeState(State nextState)
 	}
 }
 
-void Charmander::AnimSet()
+void Charmeleon::AnimSet()
 {
 	switch (state)
 	{
@@ -90,7 +90,7 @@ void Charmander::AnimSet()
 	}
 }
 
-void Charmander::Attack(const Vector3 & dir, const int & attackType)
+void Charmeleon::Attack(const Vector3 & dir, const int & attackType)
 {
 	if (skillSet.size() <= attackType) return;
 	Vector3 pos = transform->position;
@@ -104,8 +104,8 @@ void Charmander::Attack(const Vector3 & dir, const int & attackType)
 	}
 }
 
-Charmander * Charmander::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Charmeleon * Charmeleon::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
 {
-	Charmander* newPokemon = new Charmander(pos, scale, dir);
+	Charmeleon* newPokemon = new Charmeleon(pos, scale, dir);
 	return newPokemon;
 }
