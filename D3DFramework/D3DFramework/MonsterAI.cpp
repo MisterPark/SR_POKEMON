@@ -43,6 +43,9 @@ MonsterAI* MonsterAI::Clone()
 
 Vector3 MonsterAI::DirRandom()
 {
+
+
+
 	Vector3 Dir = { 0.f, 0.f, 0.f };
 	while (Dir.x == 0 && Dir.z == 0) {
 		Dir.x = -5.f + Random::Value(10) * 1.f;
@@ -100,6 +103,24 @@ void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
+
+	//if (c->spawner == nullptr) return;
+
+	//int dist = Random::Value(c->spawner->radius);
+	//if (dist <= 1) return;
+	//float degree = Random::Value(360);
+	//float Radian = D3DXToRadian(degree);
+
+	//Vector3 vecSpawnPosition;
+	//vecSpawnPosition.x = dist;
+	//vecSpawnPosition.z = 0;
+
+	//float movePositionX = cosf(Radian) * vecSpawnPosition.x - sinf(Radian) * vecSpawnPosition.z + c->spawner->transform->position.x;
+	//float movePositionZ = sinf(Radian) * vecSpawnPosition.x + cosf(Radian) * vecSpawnPosition.z + c->spawner->transform->position.z;
+
+	//Vector3 Dist = { movePositionX - c->transform->position.x,0,movePositionZ - c->transform->position.z };
+	//Vector3::Normalize(&Dist);
+
 
 	Time[0] += TimeManager::DeltaTime();
 	Move(_moveSpeed2);

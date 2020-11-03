@@ -81,6 +81,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Bulbasaur* monsterCharacter = Bulbasaur::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::BULBASAUR);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -94,6 +95,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Caterpie* monsterCharacter = Caterpie::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::CATERPIE);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -103,6 +105,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Metapod* monsterCharacter = Metapod::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::METAPOD);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -112,6 +115,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Oddish* monsterCharacter = Oddish::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::ODDISH);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -121,6 +125,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Vileplume* monsterCharacter = Vileplume::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::VILEPLUME);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -130,6 +135,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Scyther* monsterCharacter = Scyther::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::SCYTHER);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -139,6 +145,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Butterfree* monsterCharacter = Butterfree::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -154,6 +161,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Psyduck* monsterCharacter = Psyduck::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::PSYDUCK);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -163,6 +171,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Golduck* monsterCharacter = Golduck::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::GOLDUCK);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -172,6 +181,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Poliwag* monsterCharacter = Poliwag::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::POLIWAG);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -181,6 +191,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Poliwrath* monsterCharacter = Poliwrath::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::POLIWRATH);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -190,6 +201,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Jynx* monsterCharacter = Jynx::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::JYNX);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -199,6 +211,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Suicune* monsterCharacter = Suicune::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::SUICUNE);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
@@ -208,6 +221,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			Charmander* monsterCharacter = Charmander::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 			monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 			monsterCharacter->monsterAI->SetType(MonsterType::CHARMANDER);
+			monsterCharacter->spawner = this;
 			ObjectManager::AddObject(monsterCharacter);
 			CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 			break;
