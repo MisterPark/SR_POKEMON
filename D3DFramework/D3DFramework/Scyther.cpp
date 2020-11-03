@@ -43,7 +43,7 @@ void Scyther::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::RushAttack));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tornado));
 
 	hp = 60.f;
@@ -74,9 +74,12 @@ void Scyther::Attack(const Vector3& dir, const int& attackType)
 
 	skillSet[attackType]->Active(this);
 
-	switch (attackType)
-	{
-	case 0: ChangeState(State::ATTACK); break;
+	if (team == Team::PLAYERTEAM) {
+		switch (attackType)
+		{
+		case 0: ChangeState(State::ATTACK); break;
+		case 1: ChangeState(State::ATTACK); break;
+		}
 	}
 }
 

@@ -143,6 +143,7 @@ void MonsterAI::PlayerSearch(float _range, float _rangeOut)
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
+	//GameObject* g = ObjectManager::GetInstance()->GetNearestObject<Character>((GameObject*)this, Character::IsNotAlliance);
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
 	if (g == nullptr) return;
 	Transform* PlayerT = g->transform;
@@ -260,7 +261,7 @@ void MonsterAI::SetType(MonsterType _type)
 	case MonsterType::SCYTHER:
 		SetPatternRange(1, 1);
 		searchRange[0] = 10.f;
-		searchRange[1] = 7.f;
+		searchRange[1] = 8.f;
 		searchRange[3] = 20.f;
 		break;
 	case MonsterType::BUTTERFREE:
@@ -690,6 +691,7 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
 			if (disPlayer < searchRange[1]) {
@@ -704,8 +706,14 @@ void MonsterAI::MonsterWalk() {
 				}
 			}
 			else {
-				c->state = State::SKILL;
-				readyPattern = true;
+				if (Time[3] > 0.f) {
+					Time[3] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					c->state = State::SKILL;
+					readyPattern = true;
+				}
 			}
 			
 			break;
@@ -975,7 +983,7 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
-
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
 			
@@ -1671,34 +1679,41 @@ void MonsterAI::MonsterSkill() {
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
 				c->anim->SetDelay(1.5f);
+				c->direction = DirFromPlayer();
+				c->Attack(c->direction, 0);
+					
 				readyPattern = false;
 			}
-			
-			Time[1] += TimeManager::DeltaTime();
-			if (1.5f < Time[1]) {
-				MovePlayerFollow(15.f);
-				if (1.65f < Time[1]) {
-					c->state = State::READY;
-					Time[1] = 0;
-					//
-					for (int j = -2; j < 3; j++)
-					{
-						for (int i = -2; i < 3; i++)
-						{
-							Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-							Vector3 Dir2 = { c->direction.x + j * 0.8f, 0.f, c->direction.z + i * 0.8f };
-							Dir2.Normalized();
-							b->SetDir(Dir2);
-							*(b->transform) = *c->transform;
-							b->transform->position.y -= 0.5f;
-							b->transform->scale.x = 0.7f;
-							b->transform->scale.y = 0.7f;
-							b->transform->scale.z = 0.7f;
-						}
-					}
-					c->anim->SetDelay(0.1f);
-				}
+			Time[2] += TimeManager::DeltaTime();
+			if (1.5f < Time[2]) {
+				Time[2] = 0;
+				c->state = State::READY;
+				Time[3] = 0.5f; // ÄðÅ¸ÀÓ
 			}
+			//if (1.5f < Time[1]) {
+			//	MovePlayerFollow(15.f);
+			//	if (1.65f < Time[1]) {
+			//		c->state = State::READY;
+			//		Time[1] = 0;
+			//		//
+			//		for (int j = -2; j < 3; j++)
+			//		{
+			//			for (int i = -2; i < 3; i++)
+			//			{
+			//				Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
+			//				Vector3 Dir2 = { c->direction.x + j * 0.8f, 0.f, c->direction.z + i * 0.8f };
+			//				Dir2.Normalized();
+			//				b->SetDir(Dir2);
+			//				*(b->transform) = *c->transform;
+			//				b->transform->position.y -= 0.5f;
+			//				b->transform->scale.x = 0.7f;
+			//				b->transform->scale.y = 0.7f;
+			//				b->transform->scale.z = 0.7f;
+			//			}
+			//		}
+			//		c->anim->SetDelay(0.1f);
+			//	}
+			//}
 			break;
 
 		case MonsterType::BUTTERFREE:
@@ -2068,29 +2083,8 @@ void MonsterAI::MonsterSkill2() {
 				Time[1] = 0;
 				Frame[1]++;
 				if (Frame[1] == 1) {
-					Bullet_Tornado* b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
-					Vector3 Dir2 = { -1.f, 0.f, 1.f };
-					Dir2.Normalized();
-					b->SetDir(Dir2);
-					b->transform->position = c->transform->position;
+					c->Attack(c->direction, 1);
 
-					b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
-					Dir2 = { 1.f, 0.f, 1.f };
-					Dir2.Normalized();
-					b->SetDir(Dir2);
-					b->transform->position = c->transform->position;
-
-					b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
-					Dir2 = { -1.f, 0.f, -1.f };
-					Dir2.Normalized();
-					b->SetDir(Dir2);
-					b->transform->position = c->transform->position;
-
-					b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
-					Dir2 = { 1.f, 0.f, -1.f };
-					Dir2.Normalized();
-					b->SetDir(Dir2);
-					b->transform->position = c->transform->position;
 				}
 				else if (Frame[1] == 2) {
 					c->state = State::READY;
@@ -2098,6 +2092,7 @@ void MonsterAI::MonsterSkill2() {
 					Frame[1] = 0;
 					Frame[2]++;
 					Time[2] = 3.f; //ÄðÅ¸ÀÓ
+					
 				}
 			}
 			

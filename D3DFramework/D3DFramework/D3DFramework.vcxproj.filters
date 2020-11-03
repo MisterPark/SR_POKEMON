@@ -519,9 +519,6 @@
     <ClInclude Include="Skill_CrossBullet.h">
       <Filter>Skill\08. CrossBullet</Filter>
     </ClInclude>
-    <ClInclude Include="Skill_RushAttack.h">
-      <Filter>Skill\06. RushAttack</Filter>
-    </ClInclude>
     <ClInclude Include="Skill_TearsBullet.h">
       <Filter>Skill\07. TearsBullet</Filter>
     </ClInclude>
@@ -572,6 +569,9 @@
     </ClInclude>
     <ClInclude Include="Coral.h">
       <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Rush.h">
+      <Filter>Skill\06. RushAttack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -839,9 +839,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>GameObject\Character\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Environment.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
@@ -961,9 +958,6 @@
     <ClCompile Include="Skill_CrossBullet.cpp">
       <Filter>Skill\08. CrossBullet</Filter>
     </ClCompile>
-    <ClCompile Include="Skill_RushAttack.cpp">
-      <Filter>Skill\06. RushAttack</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_TearsBullet.cpp">
       <Filter>Skill\07. TearsBullet</Filter>
     </ClCompile>
@@ -1017,6 +1011,9 @@
     </ClCompile>
     <ClCompile Include="Coral.cpp">
       <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Rush.cpp">
+      <Filter>Skill\06. RushAttack</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

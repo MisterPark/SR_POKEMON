@@ -6,6 +6,8 @@
 
 Skill_WebBullet::Skill_WebBullet()
 {
+	coolTime = 0.4f;
+	moveStopTime = 0.4f;
 }
 
 Skill_WebBullet::~Skill_WebBullet()
@@ -14,6 +16,7 @@ Skill_WebBullet::~Skill_WebBullet()
 
 void Skill_WebBullet::InitActiveTime()
 {
+	activeTime = 0.f;
 }
 
 void Skill_WebBullet::Update()
