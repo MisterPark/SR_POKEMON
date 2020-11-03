@@ -12,6 +12,17 @@ Skill_XBullet::~Skill_XBullet()
 {
 }
 
+void Skill_XBullet::InitActiveTime()
+{
+	//activeTime = 0.6f;
+}
+
+void Skill_XBullet::Update()
+{
+	CalcActiveTime();
+}
+
+/*
 void Skill_XBullet::Active(const Character* character)
 {
 	float R = 1.f;
@@ -51,6 +62,7 @@ void Skill_XBullet::Active(const Character* character)
 	b->SetDir(Dir2);
 	b->transform->position = character->transform->position;
 }
+*/
 
 Skill * Skill_XBullet::Create()
 {

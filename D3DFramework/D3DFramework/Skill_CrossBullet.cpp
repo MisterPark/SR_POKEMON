@@ -12,6 +12,18 @@ Skill_CrossBullet::~Skill_CrossBullet()
 {
 }
 
+void Skill_CrossBullet::InitActiveTime()
+{
+	// activeTime = 0.6f;
+}
+
+void Skill_CrossBullet::Update()
+{
+
+	CalcActiveTime();
+}
+
+/*
 void Skill_CrossBullet::Active(const Character* character)
 {
 	float R = 1.f;
@@ -47,6 +59,7 @@ void Skill_CrossBullet::Active(const Character* character)
 	b->SetDir(Dir2);
 	b->transform->position = character->transform->position;
 }
+*/
 
 Skill * Skill_CrossBullet::Create()
 {

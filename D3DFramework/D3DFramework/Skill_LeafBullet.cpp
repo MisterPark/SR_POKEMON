@@ -11,7 +11,12 @@ Skill_LeafBullet::~Skill_LeafBullet()
 {
 }
 
-void Skill_LeafBullet::Active(const Character* character)
+void Skill_LeafBullet::InitActiveTime()
+{
+	activeTime = 0.f;
+}
+
+void Skill_LeafBullet::Update()
 {
 	Vector3 pos = character->transform->position;
 	Vector3 dir = character->direction;
@@ -23,6 +28,8 @@ void Skill_LeafBullet::Active(const Character* character)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+
+	CalcActiveTime();
 }
 
 Skill * Skill_LeafBullet::Create()

@@ -11,6 +11,16 @@ Skill_TearsBullet::~Skill_TearsBullet()
 {
 }
 
+void Skill_TearsBullet::InitActiveTime()
+{
+}
+
+void Skill_TearsBullet::Update()
+{
+	CalcActiveTime();
+}
+
+/*
 void Skill_TearsBullet::Active(const Character* character)
 {
 	Vector3 pos = character->transform->position;
@@ -19,6 +29,7 @@ void Skill_TearsBullet::Active(const Character* character)
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER);
 	ObjectManager::AddObject(bullet);
 }
+*/
 
 Skill * Skill_TearsBullet::Create()
 {

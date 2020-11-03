@@ -12,6 +12,18 @@ Skill_Tornado::~Skill_Tornado()
 {
 }
 
+void Skill_Tornado::InitActiveTime()
+{
+	// activeTime = 0.7f;
+}
+
+void Skill_Tornado::Update()
+{
+
+	CalcActiveTime();
+}
+
+/*
 void Skill_Tornado::Active(const Character* character)
 {	
 	Bullet_Tornado* b = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
@@ -38,6 +50,7 @@ void Skill_Tornado::Active(const Character* character)
 	b->SetDir(Dir2);
 	b->transform->position = character->transform->position;
 }
+*/
 
 Skill * Skill_Tornado::Create()
 {

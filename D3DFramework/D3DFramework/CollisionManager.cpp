@@ -89,6 +89,19 @@ void PKH::CollisionManager::RegisterObject(COLTYPE colType, GameObject * _pObj)
 	pCollisionManager->objectList[colType].push_back(_pObj);
 }
 
+void PKH::CollisionManager::DisregisterObject(GameObject * obj)
+{
+	for (int i = 0; i < COLTYPE::END; ++i)
+	{
+		auto iter = find_if(objectList[i].begin(), objectList[i].end(), [obj](GameObject* elem)
+		{
+			return elem == obj;
+		});
+
+		if (objectList[i].end() != iter) objectList[i].erase(iter);
+	}
+}
+
 void PKH::CollisionManager::DisregisterObject(COLTYPE colType, GameObject * _pObj)
 {
 	if (_pObj == nullptr) return;
