@@ -19,12 +19,6 @@ void Skill_XBullet::InitActiveTime()
 
 void Skill_XBullet::Update()
 {
-	CalcActiveTime();
-}
-
-/*
-void Skill_XBullet::Active(const Character* character)
-{
 
 	float R = 1.f;
 	Vector3 Dir3 = { (character->direction.x + character->direction.z) * 0.5f,  0.5f, (-character->direction.x + character->direction.z) * 0.5f };
@@ -75,8 +69,9 @@ void Skill_XBullet::Active(const Character* character)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+
+	CalcActiveTime();
 }
-*/
 
 Skill * Skill_XBullet::Create()
 {

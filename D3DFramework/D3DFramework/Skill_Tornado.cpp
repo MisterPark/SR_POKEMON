@@ -18,13 +18,6 @@ void Skill_Tornado::InitActiveTime()
 }
 
 void Skill_Tornado::Update()
-{
-
-	CalcActiveTime();
-}
-
-/*
-void Skill_Tornado::Active(const Character* character)
 {	
 	Bullet_Tornado* bullet = dynamic_cast<Bullet_Tornado*>(ObjectManager::GetInstance()->CreateObject<Bullet_Tornado>());
 	Vector3 Dir2 = { -1.f, 0.f, 1.f };
@@ -66,8 +59,10 @@ void Skill_Tornado::Active(const Character* character)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+
+	CalcActiveTime();
 }
-*/
+
 
 Skill * Skill_Tornado::Create()
 {

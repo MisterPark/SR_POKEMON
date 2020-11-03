@@ -16,6 +16,7 @@ Character::Character() :
 Character::~Character()
 {
 	Release();
+	CollisionManager::GetInstance()->DisregisterObject(this);
 }
 
 void Character::Update()

@@ -49,6 +49,7 @@ void PKH::ObjectManager::Release()
 	for (;iter!=end;++iter)
 	{
 		delete (*iter);
+		*iter = nullptr;
 	}
 	objList.clear();
 }
