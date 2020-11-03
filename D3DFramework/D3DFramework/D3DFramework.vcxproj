@@ -174,6 +174,7 @@
     <ClInclude Include="Charmeleon.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Coral.h" />
     <ClInclude Include="CPacket.h" />
     <ClInclude Include="CRingBuffer.h" />
     <ClInclude Include="Cube.h" />
@@ -203,7 +204,6 @@
     <ClInclude Include="MemoryPool.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Metapod.h" />
-    <ClInclude Include="Monster.h" />
     <ClInclude Include="MonsterAI.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="ObjectManager.h" />
@@ -232,7 +232,7 @@
     <ClInclude Include="Skill_FireBullet.h" />
     <ClInclude Include="Skill_Blaze.h" />
     <ClInclude Include="Skill_LeafBullet.h" />
-    <ClInclude Include="Skill_RushAttack.h" />
+    <ClInclude Include="Skill_Rush.h" />
     <ClInclude Include="Skill_TearsBullet.h" />
     <ClInclude Include="Skill_Tornado.h" />
     <ClInclude Include="Skill_WaterBullet.h" />
@@ -240,6 +240,7 @@
     <ClInclude Include="Skill_XBullet.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="Spawner.h" />
     <ClInclude Include="Stage_Fire_01.h" />
     <ClInclude Include="Stage_Grass_01.h" />
     <ClInclude Include="Stage_Grass_Boss.h" />
@@ -286,6 +287,7 @@
     <ClCompile Include="Charmeleon.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Coral.cpp" />
     <ClCompile Include="CPacket.cpp" />
     <ClCompile Include="CRingBuffer.cpp" />
     <ClCompile Include="Cube.cpp" />
@@ -311,7 +313,6 @@
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Metapod.cpp" />
-    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="MonsterAI.cpp" />
     <ClCompile Include="Network.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
@@ -336,7 +337,7 @@
     <ClCompile Include="Skill_FireBullet.cpp" />
     <ClCompile Include="Skill_Blaze.cpp" />
     <ClCompile Include="Skill_LeafBullet.cpp" />
-    <ClCompile Include="Skill_RushAttack.cpp" />
+    <ClCompile Include="Skill_Rush.cpp" />
     <ClCompile Include="Skill_TearsBullet.cpp" />
     <ClCompile Include="Skill_Tornado.cpp" />
     <ClCompile Include="Skill_WaterBullet.cpp" />
@@ -344,6 +345,7 @@
     <ClCompile Include="Skill_XBullet.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Stage_Fire_01.cpp" />
     <ClCompile Include="Stage_Grass_01.cpp" />
     <ClCompile Include="Stage_Grass_Boss.cpp" />

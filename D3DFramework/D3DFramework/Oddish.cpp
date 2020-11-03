@@ -70,9 +70,12 @@ void Oddish::Attack(const Vector3& dir, const int& attackType)
 
 	skillSet[attackType]->Active(this);
 
-	switch (attackType)
-	{
-	case 0: ChangeState(State::ATTACK); break;
+	if (team == Team::PLAYERTEAM) {
+		switch (attackType)
+		{
+		case 0: ChangeState(State::ATTACK); break;
+		case 1: ChangeState(State::ATTACK); break;
+		}
 	}
 }
 

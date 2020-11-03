@@ -136,9 +136,6 @@
     <Filter Include="GameObject\Character\Fire\005. Charmeleon">
       <UniqueIdentifier>{a16ccc9d-2861-4d48-8d99-a3cda2510173}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Monster">
-      <UniqueIdentifier>{de3a47f3-c8d9-4201-823b-221fcd780d76}</UniqueIdentifier>
-    </Filter>
     <Filter Include="99. Defaults">
       <UniqueIdentifier>{b8a71775-02dc-4334-a429-7a0840044527}</UniqueIdentifier>
     </Filter>
@@ -241,6 +238,9 @@
     <Filter Include="GameObject\Bullet\Bubble">
       <UniqueIdentifier>{c2ce21e4-56d7-4ecd-9dc6-564ec7d91161}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Spawner">
+      <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -335,9 +335,6 @@
     </ClInclude>
     <ClInclude Include="Functions.h">
       <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Animation2D.h">
       <Filter>Component\Animation</Filter>
@@ -522,9 +519,6 @@
     <ClInclude Include="Skill_CrossBullet.h">
       <Filter>Skill\08. CrossBullet</Filter>
     </ClInclude>
-    <ClInclude Include="Skill_RushAttack.h">
-      <Filter>Skill\06. RushAttack</Filter>
-    </ClInclude>
     <ClInclude Include="Skill_TearsBullet.h">
       <Filter>Skill\07. TearsBullet</Filter>
     </ClInclude>
@@ -569,6 +563,15 @@
     </ClInclude>
     <ClInclude Include="Charmeleon.h">
       <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.h">
+      <Filter>GameObject\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="Coral.h">
+      <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Rush.h">
+      <Filter>Skill\06. RushAttack</Filter>
     </ClInclude>
     <ClInclude Include="TargetInfoPanel.h">
       <Filter>GameObject\UI</Filter>
@@ -659,9 +662,6 @@
     </ClCompile>
     <ClCompile Include="Terrain.cpp">
       <Filter>Component\Mesh</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Animation2D.cpp">
       <Filter>Component\Animation</Filter>
@@ -843,9 +843,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>GameObject\Character\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
-      <Filter>GameObject\Character\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="Environment.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
@@ -853,9 +850,6 @@
       <Filter>GameObject\Effect</Filter>
     </ClCompile>
     <ClCompile Include="Water.cpp">
-      <Filter>GameObject\Environment</Filter>
-    </ClCompile>
-    <ClCompile Include="Tree.cpp">
       <Filter>GameObject\Environment</Filter>
     </ClCompile>
     <ClCompile Include="Charmander.cpp">
@@ -968,9 +962,6 @@
     <ClCompile Include="Skill_CrossBullet.cpp">
       <Filter>Skill\08. CrossBullet</Filter>
     </ClCompile>
-    <ClCompile Include="Skill_RushAttack.cpp">
-      <Filter>Skill\06. RushAttack</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_TearsBullet.cpp">
       <Filter>Skill\07. TearsBullet</Filter>
     </ClCompile>
@@ -1015,6 +1006,18 @@
     </ClCompile>
     <ClCompile Include="Charmeleon.cpp">
       <Filter>GameObject\Character\Fire\005. Charmeleon</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
+      <Filter>GameObject\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="Tree.cpp">
+      <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Coral.cpp">
+      <Filter>GameObject\Decoration</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Rush.cpp">
+      <Filter>Skill\06. RushAttack</Filter>
     </ClCompile>
     <ClCompile Include="TargetInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>

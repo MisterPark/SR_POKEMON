@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Stage_Fire_01.h"
 #include "SkyBox.h"
-#include "Monster.h"
+#include "Character.h"
 #include "Environment.h"
 #include "TitleScene.h"
 

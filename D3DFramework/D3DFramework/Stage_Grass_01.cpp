@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "Stage_Grass_01.h"
 #include "SkyBox.h"
-#include "Monster.h"
+#include "Character.h"
 #include "Environment.h"
 #include "TitleScene.h"
-
+#include "MonsterAI.h"
 
 #include "Bulbasaur.h"
 #include "Ivysaur.h"
@@ -22,25 +22,27 @@
 
 #include "Water.h"
 #include "Tree.h"
-
+#include "Coral.h"
 #include "Stage_Grass_Boss.h"
 
 void Stage_Grass_01::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
 	ObjectManager::AddObject(monsterCharacter4);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter4);
 
 	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
 	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
 	monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
 	ObjectManager::AddObject(monsterCharacter5);
+	CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter5);
 
 	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
 	playerCharacter->direction = { 1.f,0.f,1.f };
@@ -117,4 +119,56 @@ void Stage_Grass_01::Set_Stage_Grass_01_Map(TextureKey _key, const std::string& 
 		tree->transform->position.z += 16.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 	}
+	//ªÍ»£
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 16.f + i;
+			coral->transform->position.z = 48.f - 21.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::BLUECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 20.f + i;
+			coral->transform->position.z = 48.f - 32.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::WHITECORAL02);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 28.f + i;
+			coral->transform->position.z = 48.f - 25.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::REDCORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 27.f + i;
+			coral->transform->position.z = 48.f - 16.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::PURPLECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 32.f + i;
+			coral->transform->position.z = 48.f - 29.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::YELLOWCORAL01);
+		}
+	}
+
 }

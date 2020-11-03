@@ -14,6 +14,7 @@ Skill_TearsBullet::~Skill_TearsBullet()
 
 void Skill_TearsBullet::InitActiveTime()
 {
+	activeTime = 0.f;
 }
 
 void Skill_TearsBullet::Update()

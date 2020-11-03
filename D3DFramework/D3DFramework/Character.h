@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
-
+#include "MonsterAI.h"
+#include "Spawner.h"
 class Skill;
 
 
@@ -48,6 +49,7 @@ public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);
 
 public:
+	Spawner* spawner = nullptr;
 	//Stat
 	wstring name;
 	int hp;

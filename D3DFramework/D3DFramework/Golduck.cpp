@@ -3,7 +3,6 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-#include "Character.h"
 
 Golduck::Golduck()
 {

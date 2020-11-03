@@ -24,7 +24,8 @@ public:
 	Vector3 MonsterSearchDir(bool PosY, float SearchRange);
 	void MoveForward();
 	void MoveForwardExceptY();
-	
+	//총알의 팀을 설정해줍니다.
+	void SetTeam(Team _team);
 
 public:
 	// Setter

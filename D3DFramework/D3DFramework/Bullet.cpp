@@ -9,6 +9,7 @@ Bullet::Bullet()
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
+	team = Team::NEUTRAL;
 
 	direction = { 0.f, 0.f, 1.f };
 	attack = 1.f;
@@ -93,7 +94,6 @@ void Bullet::CalcLifeTime()
 Vector3 Bullet::PlayerSearchDir(bool PosY)
 {
 	GameObject* g = ObjectManager::GetInstance()->GetNearestObject<Character>((GameObject*)this, Character::IsNotAlliance);
-	
 
 	if (g == nullptr) return Vector3{ 0.f, 0.f, 0.f };
 	Transform* PlayerT = g->transform;
@@ -135,4 +135,9 @@ void Bullet::MoveForwardExceptY()
 	Vector3::Normalize(&direction);
 	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
 	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+}
+
+void Bullet::SetTeam(Team _team)
+{
+	team = _team;
 }
