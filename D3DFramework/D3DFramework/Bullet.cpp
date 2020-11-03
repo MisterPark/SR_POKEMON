@@ -92,6 +92,7 @@ void Bullet::CalcLifeTime()
 Vector3 Bullet::PlayerSearchDir(bool PosY)
 {
 	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
+	//TODO 이거 고쳐야함
 	if (g == nullptr) return Vector3{ 0.f, 0.f, 0.f };
 	Transform* PlayerT = g->transform;
 

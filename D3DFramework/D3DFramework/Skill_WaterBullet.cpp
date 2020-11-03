@@ -20,9 +20,6 @@ void Skill_WaterBullet::Active(const Character* character)
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER);
 	ObjectManager::AddObject(bullet);
 
-	Effect* effect = Effect::Create(pos, {0.2f, 0.2f, 0.2f}, TextureKey::BULLET_FIRE_01, TextureKey::BULLET_FIRE_05, 0.2f, true);
-	ObjectManager::AddObject(effect);
-
 	if (character->GetIsEnemy())
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else
@@ -35,3 +32,4 @@ Skill * Skill_WaterBullet::Create()
 
 	return instance;
 }
+
