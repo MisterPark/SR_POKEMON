@@ -30,6 +30,11 @@ namespace PKH
 
 		void SetTarget(GameObject* tar) { target = tar; }
 
+		// 카메라 흔들기
+		static void Shake();
+		void UpdateShake();
+		static void SetShakeDuration(float _duration);
+
 	private:
 		void PerspectiveProjection();
 		void OrthogonalProjection();
@@ -41,6 +46,11 @@ namespace PKH
 		Matrix viewMatrix;
 		Matrix projectionMatrix;
 		GameObject* target = nullptr;
+
+		// 카메라 흔들기
+		bool isShake = false;
+		float shakeTick = 0.f;
+		float shakeDuration = 0.5f;
 		
 	};
 }

@@ -41,7 +41,7 @@ private:
 private:
 	static Player* instance;
 
-	Character* character;
+	Character* character = nullptr;
 	float radianX;
 	float radianY;
 	bool isFix;

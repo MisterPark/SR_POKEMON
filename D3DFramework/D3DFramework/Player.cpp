@@ -148,10 +148,14 @@ void Player::KeyInput()
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
+	if (InputManager::GetKeyDown(VK_SPACE))
+	{
+		Camera::Shake();
+	}
+	
 	if (InputManager::GetKey('W'))
 	{
 		isKeyDown = true;
-
 		if (InputManager::GetKey('A'))
 		{
 			moveSpeed = 5.f / sqrt(2.f);

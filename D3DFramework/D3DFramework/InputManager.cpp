@@ -132,6 +132,16 @@ bool PKH::InputManager::GetMouseRButtonDouble()
 	return pInputManager->mouse[(int)Keys::RBUTTON_DOUBLE];
 }
 
+bool PKH::InputManager::GetMouseWheelUp()
+{
+	return pInputManager->mouse[(int)Keys::WHEEL_UP];
+}
+
+bool PKH::InputManager::GetMouseWheelDown()
+{
+	return pInputManager->mouse[(int)Keys::WHEEL_DOWN];
+}
+
 
 POINT PKH::InputManager::GetMousePosOnClient()
 {
