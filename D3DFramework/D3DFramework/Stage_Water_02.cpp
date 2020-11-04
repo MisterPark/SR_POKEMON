@@ -1,5 +1,6 @@
 #include "stdafx.h"
-#include "Stage_Grass_02.h"
+
+#include "Stage_Water_02.h"
 #include "SkyBox.h"
 #include "Character.h"
 #include "Environment.h"
@@ -29,19 +30,19 @@
 #include "Spawner.h"
 #include "TriggerBox.h"
 
-void Stage_Grass_02::OnLoaded()
+void Stage_Water_02::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Charmeleon* playerCharacter = Charmeleon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(60));
+	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
 	playerCharacter->direction = { 1.f,0.f,1.f };
 
 	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 7.f;
-	playerCharacter->transform->position.z = 48.f - 24.f;
+	playerCharacter->transform->position.z = 48.f - 35.f;
 
 	//Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	//monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
@@ -62,19 +63,19 @@ void Stage_Grass_02::OnLoaded()
 	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
 
 
-	Set_Stage_Grass_02_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Grass2.bmp", 0.1f);
+	Set_Stage_Water_02_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Lake.bmp", 3.f);
 
 
 }
 
-void Stage_Grass_02::OnUnloaded()
+void Stage_Water_02::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
 	Player::GetInstance()->SetCharacter(nullptr);
 	ObjectManager::DestroyAll();
 }
 
-void Stage_Grass_02::Update()
+void Stage_Water_02::Update()
 {
 
 
@@ -86,12 +87,12 @@ void Stage_Grass_02::Update()
 	{
 		SceneManager::LoadScene<Stage_Grass_Boss>();
 	}
-	Stage_Grass_02_Wave();
+	Stage_Water_02_Wave();
 
 }
 
 
-void Stage_Grass_02::Set_Stage_Grass_02_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
+void Stage_Water_02::Set_Stage_Water_02_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
 {
 	//지형
 	GameObject* environment = ObjectManager::GetInstance()->CreateObject<Environment>();
@@ -114,7 +115,7 @@ void Stage_Grass_02::Set_Stage_Grass_02_Map(TextureKey _key, const std::string& 
 	for (int i = 0; i < 5; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 16.f + 4 * i;
+		tree->transform->position.x += 26.f + 4 * i;
 		tree->transform->position.z += 6.f;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE06);
 	}
@@ -129,64 +130,64 @@ void Stage_Grass_02::Set_Stage_Grass_02_Map(TextureKey _key, const std::string& 
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
 		tree->transform->position.x += 43.f;
-		tree->transform->position.z += 18.f + 2 * i;
+		tree->transform->position.z += 10.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 	}
-	////산호
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 16.f + i;
-	//		coral->transform->position.z = 48.f - 21.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::BLUECORAL01);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 20.f + i;
-	//		coral->transform->position.z = 48.f - 32.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::WHITECORAL02);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 28.f + i;
-	//		coral->transform->position.z = 48.f - 25.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::REDCORAL01);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 27.f + i;
-	//		coral->transform->position.z = 48.f - 16.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::PURPLECORAL01);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 32.f + i;
-	//		coral->transform->position.z = 48.f - 29.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::YELLOWCORAL01);
-	//	}
-	//}
+	//산호
+	for (float i = 0; i < 3; i += 0.7)
+	{
+		for (float j = 0; j < 3; j += 0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 16.f + i;
+			coral->transform->position.z = 48.f - 21.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::BLUECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i += 0.7)
+	{
+		for (float j = 0; j < 3; j += 0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 20.f + i;
+			coral->transform->position.z = 48.f - 32.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::WHITECORAL02);
+		}
+	}
+	for (float i = 0; i < 3; i += 0.7)
+	{
+		for (float j = 0; j < 3; j += 0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 28.f + i;
+			coral->transform->position.z = 48.f - 25.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::REDCORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i += 0.7)
+	{
+		for (float j = 0; j < 3; j += 0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 27.f + i;
+			coral->transform->position.z = 48.f - 16.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::PURPLECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i += 0.7)
+	{
+		for (float j = 0; j < 3; j += 0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 32.f + i;
+			coral->transform->position.z = 48.f - 29.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::YELLOWCORAL01);
+		}
+	}
 
 }
 
-void Stage_Grass_02::Stage_Grass_02_Wave()
+void Stage_Water_02::Stage_Water_02_Wave()
 {
 	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
 	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
@@ -227,14 +228,14 @@ void Stage_Grass_02::Stage_Grass_02_Wave()
 	}
 }
 
-void Stage_Grass_02::CreateSpawner()
+void Stage_Water_02::CreateSpawner()
 {
 	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 }
 
-void Stage_Grass_02::Portal()
+void Stage_Water_02::Portal()
 {
 	SceneManager::LoadScene<Stage_Grass_Boss>();
 }
