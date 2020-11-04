@@ -6,10 +6,10 @@ Charmander::Charmander()
 	Initialize();
 }
 
-Charmander::Charmander(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Charmander::Charmander(const Vector3 & pos, const Vector3 & dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
+	transform->scale = { 0.2f, 0.2f, 0.2f };
 	direction = dir;
 
 	Initialize();
@@ -83,11 +83,11 @@ void Charmander::AnimSet()
 		break;
 	case State::ATTACK:
 		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
+		anim->SetDelay(0.2f);
 		break;
 	case State::SKILL:
 		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
+		anim->SetDelay(0.2f);
 		break;
 	case State::HURT:
 		break;
@@ -100,8 +100,14 @@ bool Charmander::Attack(const Vector3 & dir, const int & attackType)
 	{
 		switch (attackType)
 		{
-		case 0: ChangeState(State::ATTACK); break;
-		case 1: ChangeState(State::ATTACK); break;
+		case 0:
+			ChangeState(State::ATTACK);
+			anim->SetTick(0.f);
+			break;
+		case 1:
+			ChangeState(State::ATTACK);
+			anim->SetTick(0.f);
+			break;
 		}
 
 		return true;
@@ -109,8 +115,8 @@ bool Charmander::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
-Charmander * Charmander::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Charmander * Charmander::Create(const Vector3 & pos, const Vector3 & dir)
 {
-	Charmander* newPokemon = new Charmander(pos, scale, dir);
+	Charmander* newPokemon = new Charmander(pos, dir);
 	return newPokemon;
 }

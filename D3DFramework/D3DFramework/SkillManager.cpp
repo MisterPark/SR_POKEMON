@@ -129,6 +129,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::WebBullet:
 		newSkill = Skill_WebBullet::Create();
 		break;
+	case SkillName::XClaw:
+		newSkill = Skill_XClaw::Create();
+		break;
 	}
 
 	return newSkill;

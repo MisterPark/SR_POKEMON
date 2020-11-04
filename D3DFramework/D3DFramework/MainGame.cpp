@@ -265,6 +265,16 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER_01, L"Texture\\Player\\Bullet\\Water\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER_02, L"Texture\\Player\\Bullet\\Water\\1.png");
 
+	// X 클로
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_01, L"Texture\\Player\\Effect\\XClaw\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_02, L"Texture\\Player\\Effect\\XClaw\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_03, L"Texture\\Player\\Effect\\XClaw\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_04, L"Texture\\Player\\Effect\\XClaw\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_05, L"Texture\\Player\\Effect\\XClaw\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_06, L"Texture\\Player\\Effect\\XClaw\\5.png");
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_07, L"Texture\\Player\\Effect\\XClaw\\6.png");
+	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_08, L"Texture\\Player\\Effect\\XClaw\\7.png");
+
 	//몬스터 총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_01, L"Texture\\Bullet\\Bubble1\\Bubble1 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_02, L"Texture\\Bullet\\Bubble1\\Bubble1 (2).png");

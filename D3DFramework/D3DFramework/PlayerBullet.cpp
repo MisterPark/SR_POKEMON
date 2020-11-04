@@ -12,7 +12,7 @@ PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& t
 	transform->position = pos;
 	direction = dir;
 
-	attack = 1.f;
+	attack = 50.f;
 	moveSpeed = 10.f;
 	lifeTime = 1.2f;
 
