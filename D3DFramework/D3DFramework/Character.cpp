@@ -93,9 +93,13 @@ void Character::OnCollision(GameObject* target)
 	if (this->team == target->team) return;
 
 	hp -= target->attack;
-	if (hp <= 0)
+	if (!isDead && hp <= 0)
 	{
+		
 		isDead = true;
+		if (nullptr==spawner)
+			return;
+		spawner->monsterCount--;
 		return;
 	}
 

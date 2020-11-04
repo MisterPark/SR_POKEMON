@@ -69,7 +69,11 @@ void Player::SetCharacter(Character * object)
 	character = object;
 
 	Camera::GetInstance()->SetTarget(character);
-	if (nullptr != object) character->team = Team::PLAYERTEAM;
+	if (nullptr != object)
+	{
+		character->team = Team::PLAYERTEAM;
+		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
+	}
 
 	PlayerInfoPanel::SetTarget(object);
 }
