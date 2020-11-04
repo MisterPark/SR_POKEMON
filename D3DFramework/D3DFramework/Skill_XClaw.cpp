@@ -5,7 +5,7 @@
 
 Skill_XClaw::Skill_XClaw()
 {
-	skillIcon = TextureKey::X_CLAW_02;
+	skillIcon = TextureKey::ICON_XCLAW;
 	moveStopTime = 1.4f;
 	isSpawn = false;
 }

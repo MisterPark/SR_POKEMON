@@ -5,7 +5,7 @@
 
 Skill_Blaze::Skill_Blaze()
 {
-	skillIcon = TextureKey::FIELD_FIRE_01;
+	skillIcon = TextureKey::ICON_FIELDFIRE;
 	moveStopTime = 0.6f;
 }
 
