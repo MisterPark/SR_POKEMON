@@ -43,9 +43,6 @@ MonsterAI* MonsterAI::Clone()
 
 Vector3 MonsterAI::DirRandom()
 {
-
-
-
 	Vector3 Dir = { 0.f, 0.f, 0.f };
 	while (Dir.x == 0 && Dir.z == 0) {
 		Dir.x = -5.f + Random::Value(10) * 1.f;
@@ -54,6 +51,35 @@ Vector3 MonsterAI::DirRandom()
 	}
 	Vector3::Normalize(&Dir);
 	return Dir;
+}
+
+void MonsterAI::SpawnInRandomPos()
+{
+	Character* c = dynamic_cast<Character*>(gameObject);
+	if (c == nullptr) return;
+
+	if (c->spawner == nullptr) return;
+
+	int dist = 0;
+	while (dist < 2) {
+		dist = Random::Value(c->spawner->radius);
+	}
+	float degree = Random::Value(360);
+	float Radian = D3DXToRadian(degree);
+
+	Vector3 vecSpawnPosition;
+	vecSpawnPosition.x = dist;
+	vecSpawnPosition.z = 0;
+
+	float movePositionX = cosf(Radian) * vecSpawnPosition.x - sinf(Radian) * vecSpawnPosition.z + c->spawner->transform->position.x;
+	float movePositionZ = sinf(Radian) * vecSpawnPosition.x + cosf(Radian) * vecSpawnPosition.z + c->spawner->transform->position.z;
+
+	spawnInPos = { movePositionX, 0.f, movePositionZ };
+	c->direction = spawnInPos - c->transform->position;
+	c->direction.y = 0.f;
+	Vector3::Normalize(&c->direction);
+
+	return;
 }
 
 Vector3 MonsterAI::DirFromPlayer(bool _posY /*= false*/)
@@ -104,25 +130,21 @@ void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	//if (c->spawner == nullptr) return;
+	float distX = spawnInPos.x - c->transform->position.x;
+	float distZ = spawnInPos.z - c->transform->position.z;
 
-	//int dist = Random::Value(c->spawner->radius);
-	//if (dist <= 1) return;
-	//float degree = Random::Value(360);
-	//float Radian = D3DXToRadian(degree);
+	float dis = sqrt(distX * distX + distZ * distZ);
+	if (dis < 0.2f) {
+		SpawnInRandomPos();
+	}
+	
+	//c->direction = spawnInPos- c->transform->position;
+	//c->direction.y = 0.f;
+	//Vector3::Normalize(&c->direction);
 
-	//Vector3 vecSpawnPosition;
-	//vecSpawnPosition.x = dist;
-	//vecSpawnPosition.z = 0;
-
-	//float movePositionX = cosf(Radian) * vecSpawnPosition.x - sinf(Radian) * vecSpawnPosition.z + c->spawner->transform->position.x;
-	//float movePositionZ = sinf(Radian) * vecSpawnPosition.x + cosf(Radian) * vecSpawnPosition.z + c->spawner->transform->position.z;
-
-	//Vector3 Dist = { movePositionX - c->transform->position.x,0,movePositionZ - c->transform->position.z };
-	//Vector3::Normalize(&Dist);
-
-
-	Time[0] += TimeManager::DeltaTime();
+	c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	/*Time[0] += TimeManager::DeltaTime();
 	Move(_moveSpeed2);
 
 	if (Time[0] >= _moveTime) {
@@ -135,7 +157,7 @@ void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2
 			Frame[0] ++;
 			c->direction = DirRandom();
 		}
-	}
+	}*/
 }
 
 void MonsterAI::PlayerSearch(float _range, float _rangeOut)
@@ -891,6 +913,7 @@ void MonsterAI::MonsterWalk() {
 		{
 		case MonsterType::BULBASAUR:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			MoveRandomPattern(1.5f, 3);
@@ -898,18 +921,21 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::LVYSAUR:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::VENUSAUR:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::SQUIRTLE:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			MoveRandomPattern(1.5f, 3);
@@ -917,18 +943,21 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::WARTORTLE:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::BLASTOISE:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::CHARMANDER:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			MoveRandomPattern(1.5f, 3);
@@ -936,19 +965,21 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::CHARMELEON:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::CHARIZARD:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::CATERPIE:
 			if (readyPattern) {
-
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			MoveRandomPattern(1.5f, 3);
@@ -956,7 +987,7 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::METAPOD:
 			if (readyPattern) {
-
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			
@@ -965,7 +996,7 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::ODDISH:
 			if (readyPattern) {
-
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			
@@ -974,7 +1005,7 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
-
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			
@@ -984,6 +1015,7 @@ void MonsterAI::MonsterWalk() {
 		case MonsterType::SCYTHER:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			
@@ -992,7 +1024,7 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::BUTTERFREE:
 			if (readyPattern) {
-
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			MoveRandomPattern(1.5f, 3);
@@ -1000,7 +1032,7 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::PSYDUCK:
 			if (readyPattern) {
-
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 
@@ -1008,12 +1040,14 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::GOLDUCK:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::POLIWAG:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			MoveRandomPattern(1.5f, 3);
@@ -1021,60 +1055,70 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::JYNX:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::SUICUNE:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::GROWLITHE:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::ARCANINE:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::PONYTA:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::RAPIDISH:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::SLUGMA:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::MAGCARGO:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
 
 		case MonsterType::GROUDON:
 			if (readyPattern) {
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			break;
@@ -1170,12 +1214,14 @@ void MonsterAI::MonsterAttack() {
 				Time[0] = 0;
 				Frame[1]++;
 				if (Frame[1] == 1) {
-					Bullet_Web* b = dynamic_cast<Bullet_Web*>(ObjectManager::GetInstance()->CreateObject<Bullet_Web>());
-					c->direction = DirFromPlayer(true);
-					Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
-					b->SetDir(bDir);
-					*(b->transform) = *c->transform;
-					b->transform->position.y -= 0.5f;
+					c->direction = DirFromPlayer();
+					c->Attack(c->direction, 0);
+					//Bullet_Web* b = dynamic_cast<Bullet_Web*>(ObjectManager::GetInstance()->CreateObject<Bullet_Web>());
+					//c->direction = DirFromPlayer(true);
+					//Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
+					//b->SetDir(bDir);
+					//*(b->transform) = *c->transform;
+					//b->transform->position.y -= 0.5f;
 				}
 				else if (Frame[1] == 2) {
 					c->anim->SetDelay(0.2f);	
@@ -1202,6 +1248,7 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
 				c->anim->SetDelay(0.3f);
+				SpawnInRandomPos();
 				readyPattern = false;
 			}
 			
@@ -1238,27 +1285,23 @@ void MonsterAI::MonsterAttack() {
 			if (readyPattern) {
 				if (disPlayer < searchRange[1]) {
 					c->state = State::ATTACK;
-					c->anim->SetDelay(0.3f);
+					c->anim->SetDelay(0.5f);
 				}
 				else {//if (disPlayer > 10.f)
 					c->state = State::WALK;
-					c->anim->SetDelay(0.3f);
+					c->anim->SetDelay(0.5f);
 				}
 				readyPattern = false;
 			}
 			
 			Time[1] += TimeManager::DeltaTime();
 
-			if (Time[1] >= 0.25f) {
+			if (Time[1] >= 0.9f) {
 				Time[0] = 0;
 				Frame[1]++;
 				if (Frame[1] == 1) {
-					Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 					c->direction = DirFromPlayer(true);
-					Vector3 bDir = { c->direction.x, c->direction.y + 0.1f, c->direction.z };
-					b->SetDir(bDir);
-					b->transform->position = c->transform->position;
-					b->transform->position.y -= 0.5f;
+					c->Attack(c->direction, 0);
 				}
 				else if (Frame[1] == 2) {
 					c->anim->SetDelay(0.2f);

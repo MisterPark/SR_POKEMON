@@ -65,7 +65,7 @@ void TestScene::OnLoaded()
 	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 4.05f);
 	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp",3.5f);
 
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::VILEPLUME, 10.f, 0.5f);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f);
 	poliwagSpawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(poliwagSpawner);
 

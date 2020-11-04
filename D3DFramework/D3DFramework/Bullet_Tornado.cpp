@@ -20,13 +20,14 @@ Bullet_Tornado::Bullet_Tornado()
 	lifeTime = 6.f;
 	spawnTimeGap = 0.8f;
 	moveSpeed = 4.5f;
-	attack = 0.05f;
+	attack = 5.f;
 	rotateMoveX = 1.f;
 	rotateMoveZ = 0.f;
 	isOnTerrain = true;
 	offsetY = 1.8f;
 	Frame[0] = 0;
 	Frame[1] = 0;
+	damageTime = 0.1f;
 }
 
 Bullet_Tornado::~Bullet_Tornado()
@@ -37,10 +38,19 @@ void Bullet_Tornado::Update()
 {
 	Bullet::Update();
 
+	/*damageTime -= TimeManager::DeltaTime();
+	if (0.f > damageTime)
+	{
+		collideList.clear();
+
+		damageTime = 0.1f;
+	}*/
+	attack = TimeManager::DeltaTime() * 5.f;
+
 	//RotateMove();
 
 	spawnTimeGap -= TimeManager::DeltaTime();
-
+	
 	if (0.f >= spawnTimeGap) direction = PlayerSearchDir(false);
 }
 
@@ -52,10 +62,12 @@ void Bullet_Tornado::Render()
 void Bullet_Tornado::OnCollision(GameObject* target)
 {
 	// Coll
+	//collideList.emplace_back(target);
+	
 }
 
 void Bullet_Tornado::RotateMove() {
-	transform->position.x += rotateMoveX * 0.15f *TimeManager::DeltaTime();
+	transform->position.x += rotateMoveX * 0.15f * TimeManager::DeltaTime();
 	transform->position.z += rotateMoveZ * 0.15f * TimeManager::DeltaTime();
 
 	if (Frame[1] == 0 && rotateMoveX > 1.f) {

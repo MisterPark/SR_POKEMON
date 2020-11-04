@@ -13,6 +13,7 @@ Bullet_Bubble::Bullet_Bubble()
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
+	attack = 10.f;
 	lifeTime = 1.6f;
 	moveSpeed = 3.f;
 }

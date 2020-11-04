@@ -90,7 +90,7 @@ void Character::Release()
 void Character::OnCollision(GameObject* target)
 {
 	if (this->team == target->team) return;
-
+	
 	hp -= target->attack;
 	if (hp <= 0)
 	{

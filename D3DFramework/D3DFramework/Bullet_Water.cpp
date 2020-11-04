@@ -13,6 +13,7 @@ Bullet_Water::Bullet_Water()
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
+	attack = 10.f;
     lifeTime = 2.f;
     moveSpeed = 3.5f;
 }

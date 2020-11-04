@@ -17,5 +17,6 @@ public:
     float rotateMoveZ = false;
     
 	float spawnTimeGap;
+	float damageTime;
 	int Frame[2];
 };

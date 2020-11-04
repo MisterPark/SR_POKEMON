@@ -37,8 +37,8 @@ void Caterpie::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
 	hp = 60;
 	maxHp = 60;

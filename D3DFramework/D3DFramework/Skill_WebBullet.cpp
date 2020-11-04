@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Skill_WebBullet.h"
 #include "Bullet_Web.h"
-#include "PlayerBullet.h"
 #include "Effect.h"
 
 Skill_WebBullet::Skill_WebBullet()
@@ -21,14 +20,9 @@ void Skill_WebBullet::InitActiveTime()
 
 void Skill_WebBullet::Update()
 {
-	Vector3 pos = character->transform->position;
-	Vector3 dir = character->direction;
-
-	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER);
-	ObjectManager::AddObject(bullet);
-
-	Effect* effect = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::BULLET_FIRE_01, TextureKey::BULLET_FIRE_05, 0.2f, true);
-	ObjectManager::AddObject(effect);
+	Bullet_Web* bullet = dynamic_cast<Bullet_Web*>(ObjectManager::GetInstance()->CreateObject<Bullet_Web>());
+	bullet->transform->position = character->transform->position;
+	bullet->SetDir(character->direction);
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else if (character->team == Team::PLAYERTEAM)

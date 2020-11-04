@@ -41,8 +41,8 @@ void Butterfree::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
 
 	hp = 300;
 	maxHp = 300;
