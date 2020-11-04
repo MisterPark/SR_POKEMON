@@ -244,6 +244,7 @@
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="Stage_Fire_01.h" />
     <ClInclude Include="Stage_Grass_01.h" />
+    <ClInclude Include="Stage_Grass_02.h" />
     <ClInclude Include="Stage_Grass_Boss.h" />
     <ClInclude Include="Stage_Water_01.h" />
     <ClInclude Include="Stage_Water_Boss.h" />
@@ -352,6 +353,7 @@
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Stage_Fire_01.cpp" />
     <ClCompile Include="Stage_Grass_01.cpp" />
+    <ClCompile Include="Stage_Grass_02.cpp" />
     <ClCompile Include="Stage_Grass_Boss.cpp" />
     <ClCompile Include="Stage_Water_01.cpp" />
     <ClCompile Include="Stage_Water_Boss.cpp" />

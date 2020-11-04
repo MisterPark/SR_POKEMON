@@ -40,6 +40,7 @@ Spawner::Spawner(MonsterType _monsterType, int _radius, float _createDelay, int 
 
 Spawner::~Spawner()
 {
+	
 	Release();
 }
 

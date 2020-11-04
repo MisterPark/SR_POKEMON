@@ -65,10 +65,6 @@ void TestScene::OnLoaded()
 	trigerBox->OnTriggered = CreateSpawner;
 	trigerBox->transform->position = { 25.f,0.f,35.f };
 
-	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = CreateSpawner;
-	trigerBox->transform->position = { 10.f,0.f,35.f };
-
 
 	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = Portal;
