@@ -11,6 +11,7 @@
 #include "Venusaur.h"
 
 #include "Charmander.h"
+#include "Charmeleon.h"
 
 #include "Caterpie.h"
 #include "Metapod.h"
@@ -32,7 +33,7 @@ void Stage_Grass_02::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	Charmeleon* playerCharacter = Charmeleon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	Player::GetInstance()->SetRadianY(D3DXToRadian(30));

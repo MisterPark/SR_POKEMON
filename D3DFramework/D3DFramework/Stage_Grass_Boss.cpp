@@ -10,7 +10,7 @@
 #include "Venusaur.h"
 
 #include "Charmander.h"
-
+#include "Charmeleon.h"
 #include "Caterpie.h"
 #include "Metapod.h"
 #include "Butterfree.h"
@@ -23,12 +23,12 @@
 #include "Tree.h"
 #include "MonsterAI.h"
 #include "Stage_Water_01.h"
-
+#include "TriggerBox.h"
 void Stage_Grass_Boss::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYNIGHT_U);
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	Charmeleon* playerCharacter = Charmeleon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	Player::GetInstance()->SetRadianY(D3DXToRadian(45));
@@ -39,10 +39,10 @@ void Stage_Grass_Boss::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 47.f;
 	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp", 3.5f);
 
-	Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
-	monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
-	monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
-	ObjectManager::AddObject(monsterCharacter5);
+
+	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	/*trigerBox->OnTriggered = CreateSpawner;*/
+	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
 
 }
 
@@ -63,6 +63,7 @@ void Stage_Grass_Boss::Update()
 	{
 		SceneManager::LoadScene<Stage_Water_01>();
 	}
+	Stage_Grass_Boss_Wave();
 }
 
 
@@ -114,4 +115,83 @@ void Stage_Grass_Boss::Set_Stage_Grass_Boss_Map(TextureKey _key, const std::stri
 	tree->transform->position.z += 48.f - 17.f;
 	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 
+}
+
+void Stage_Grass_Boss::Stage_Grass_Boss_Wave()
+{
+	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
+	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
+
+	if (nullptr == isTriger && spawnerCount == 0)
+	{
+		Spawner* spawner = Spawner::Create(MonsterType::ODDISH, 10.f, 0.5f, 5);
+		spawner->transform->position = { 24.f,0.f,24.f };
+		ObjectManager::AddObject(spawner);
+
+		spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 5);
+		spawner->transform->position = { 24.f,0.f,24.f };
+		ObjectManager::AddObject(spawner);
+
+		triggerOn = true;
+		spawnerCount++;
+	}
+	else if (isSpawner == nullptr)
+	{
+		if (spawnerCount == 1)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::GLOOM, 10.f, 0.5f, 4);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawner = Spawner::Create(MonsterType::METAPOD, 10.f, 0.5f, 4);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+
+			spawnerCount++;
+
+		}
+		else if (spawnerCount == 2)
+		{
+
+			Spawner* spawner = Spawner::Create(MonsterType::VILEPLUME, 10.f, 0.5f, 3);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f, 3);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+
+			spawnerCount++;
+		}
+		else if (spawnerCount == 3)
+		{
+
+			Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+
+
+			spawnerCount++;
+			triggerOn = false;
+		}
+
+		else if (spawnerCount == 4 && triggerOn == false)
+		{
+			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = Portal;
+			trigerBox->transform->position = { 40.f,0.f,40.f };
+			trigerBox->Portal();
+			spawnerCount++;
+		}
+	}
+}
+
+void Stage_Grass_Boss::CreateSpawner()
+{
+	Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1);
+	spawner->transform->position = { 24.f,0.f,24.f };
+	ObjectManager::AddObject(spawner);
+}
+
+void Stage_Grass_Boss::Portal()
+{
+	SceneManager::LoadScene<Stage_Water_01>();
 }

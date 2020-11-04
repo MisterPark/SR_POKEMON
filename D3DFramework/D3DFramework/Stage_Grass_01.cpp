@@ -32,7 +32,7 @@ void Stage_Grass_01::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
-	Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
@@ -217,6 +217,7 @@ void Stage_Grass_01::Stage_Grass_01_Wave()
 		}
 		else if (spawnerCount == 3 && triggerOn == false)
 		{
+			Player::GetInstance()->Evolution();
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
