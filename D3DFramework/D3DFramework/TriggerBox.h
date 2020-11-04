@@ -12,7 +12,13 @@ public:
 	virtual void Release() override;
 	virtual void Update() override;
 
-private:
+	virtual void OnCollision(GameObject* target);
+	void OnTerrain();
 
+public:
+	void(*OnTriggered)() = nullptr;
+
+private:
+	float offsetY;
 };
 
