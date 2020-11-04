@@ -94,7 +94,11 @@ void Character::OnCollision(GameObject* target)
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	
-	hp -= target->attack;
+	// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
+	float error = target->attack * 0.4f;
+	error = Random::Range(0.f, error);
+	error -= 0.2f;
+	hp -= target->attack + error;
 	
 	if (!isDead && hp <= 0)
 	{
