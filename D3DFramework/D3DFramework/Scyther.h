@@ -16,6 +16,10 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
+	virtual void ChangeState(State nextState) override;
+	void AnimSet();
+
+public:
     static Scyther* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
 
 

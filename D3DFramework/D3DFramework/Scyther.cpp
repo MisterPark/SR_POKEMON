@@ -29,7 +29,7 @@ void Scyther::Initialize()
 	name = L"½º¶óÅ©";
 	number = Pokemon::Scyther;
 
-	SetTexture(State::WALK, TextureKey::SCY_WALK_D_02, 3,2);
+	SetTexture(State::WALK, TextureKey::SCY_WALK_D_02, 3, 2);
 	SetTexture(State::IDLE, TextureKey::SCY_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::SCY_WALK_D_01, 3, 1);
 	SetTexture(State::ATTACK, TextureKey::SCY_ATTACK_D_01, 2);
@@ -92,6 +92,40 @@ bool Scyther::Attack(const Vector3& dir, const int& attackType)
 		return true;
 	}
 	return false;
+}
+
+void Scyther::ChangeState(State nextState)
+{
+	if (nextState != state)
+	{
+		state = nextState;
+
+		AnimSet();
+	}
+}
+
+void Scyther::AnimSet()
+{
+	switch (state)
+	{
+	case State::IDLE:
+		anim->SetLoop(false);
+		anim->SetDelay(0.1f);
+		anim->SetTick(0.f);
+		break;
+	case State::WALK:
+		anim->SetLoop(true);
+		anim->SetDelay(0.15f);
+		anim->SetTick(0.f);
+		break;
+	case State::ATTACK:
+		anim->SetLoop(false);
+		anim->SetDelay(0.2f);
+		anim->SetTick(0.f);
+		break;
+	case State::HURT:
+		break;
+	}
 }
 
 Scyther* Scyther::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
