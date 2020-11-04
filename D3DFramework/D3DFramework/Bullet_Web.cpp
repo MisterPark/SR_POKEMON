@@ -38,4 +38,6 @@ void Bullet_Web::Render()
 void Bullet_Web::OnCollision(GameObject* target)
 {
 	isDead = true;
+	Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_WEB1_02, TextureKey::BULLET_WEB1_03, 0.05f);
+	ObjectManager::AddObject(fx);
 }

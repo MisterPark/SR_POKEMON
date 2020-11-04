@@ -48,6 +48,8 @@ void Scyther::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tornado));
 
+	attack = 30;
+
 	hp = 700;
 	maxHp = 700;
 

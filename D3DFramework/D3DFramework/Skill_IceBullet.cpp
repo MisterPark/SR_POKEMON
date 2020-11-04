@@ -39,12 +39,14 @@ void Skill_IceBullet::Update()
 		bullet->transform->position.y += 1.f;
 		bullet->transform->position.z += Dir.z * 0.1f;
 		bullet->SetDir(Dir);
-		bullet->SetInitAttack(character->attack * 2);
-
-		if (character->team == Team::MONSTERTEAM)
+		if (character->team == Team::MONSTERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		else if (character->team == Team::PLAYERTEAM)
+			bullet->SetInitAttack(character->attack * 0.5f);
+		}
+		else if (character->team == Team::PLAYERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+			bullet->SetInitAttack(character->attack * 2.f);
+		}
 		delay = 0.02f;
 	}
 	else {

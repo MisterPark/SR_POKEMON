@@ -19,8 +19,8 @@ Bullet_Tornado::Bullet_Tornado()
 
 	lifeTime = 6.f;
 	spawnTimeGap = 0.8f;
-	moveSpeed = 4.5f;
-	attack = 5.f;
+	moveSpeed = 3.f;
+
 	rotateMoveX = 1.f;
 	rotateMoveZ = 0.f;
 	isOnTerrain = true;
@@ -45,7 +45,7 @@ void Bullet_Tornado::Update()
 
 		damageTime = 0.1f;
 	}*/
-	attack = TimeManager::DeltaTime() * 5.f;
+	attack = TimeManager::DeltaTime() * initAttack;
 
 	//RotateMove();
 

@@ -61,10 +61,6 @@ public:
     // 0.Idle   1.Walk   2.Attack   3.Skill   4.Skill2
     void SetPatternRange(int _begin, int _end) { beginPattern = _begin; endPattern = _end; }
 
-private:
-    void CrossBullet();
-    void XBullet();
-
 public:
     int Frame[5]; // 패턴판단
     float Time[5];  // 프레임(시간) 재는용도

@@ -5,7 +5,7 @@
 
 Skill_Blaze::Skill_Blaze()
 {
-	skillIcon = TextureKey::FIELD_FIRE_01;
+	skillIcon = TextureKey::ICON_FIELDFIRE;
 	moveStopTime = 0.6f;
 }
 
@@ -50,10 +50,14 @@ void Skill_Blaze::Update()
 	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, character->attack, look, 20.f, 0.4f);
 	ObjectManager::AddObject(instance);
 
-	if (character->team == Team::MONSTERTEAM)
+	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
-	else if (character->team == Team::PLAYERTEAM)
+		instance->SetInitAttack(character->attack * 0.25f);
+	}
+	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
+		instance->SetInitAttack(character->attack);
+	}
 
 	CalcActiveTime();
 }

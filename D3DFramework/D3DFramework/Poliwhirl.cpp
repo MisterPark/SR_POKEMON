@@ -41,8 +41,9 @@ void Poliwhirl::Initialize()
 
 	state = State::READY;
 
-	hp = 500;
-	maxHp = 500;
+	attack = 40;
+	hp = 300;
+	maxHp = 300;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
