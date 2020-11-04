@@ -24,6 +24,7 @@ public:
 
 public:
 	// Getter
+	TextureKey GetSkillIcon();
 	float GetCoolTime();
 	float GetActiveTime();
 	float GetMoveStopTime();

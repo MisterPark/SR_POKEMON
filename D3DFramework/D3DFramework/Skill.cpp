@@ -61,6 +61,11 @@ void Skill::SetNoneActive()
 	isActive = false;
 }
 
+TextureKey Skill::GetSkillIcon()
+{
+	return skillIcon;
+}
+
 float Skill::GetCoolTime()
 {
 	return coolTime;
