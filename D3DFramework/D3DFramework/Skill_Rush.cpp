@@ -43,6 +43,7 @@ void Skill_Rush::Update()
 				bullet->transform->scale.x = 0.7f;
 				bullet->transform->scale.y = 0.7f;
 				bullet->transform->scale.z = 0.7f;
+				bullet->SetInitAttack(character->attack);
 
 				if (character->team == Team::MONSTERTEAM)
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);

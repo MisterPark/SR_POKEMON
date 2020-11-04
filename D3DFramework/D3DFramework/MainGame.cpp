@@ -362,6 +362,16 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_13, L"Texture\\Bullet\\Ice1\\Ice1 (13).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_14, L"Texture\\Bullet\\Ice1\\Ice1 (14).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_15, L"Texture\\Bullet\\Ice1\\Ice1 (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_16, L"Texture\\Bullet\\Ice1\\Ice1 (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_17, L"Texture\\Bullet\\Ice1\\Ice1 (16).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_18, L"Texture\\Bullet\\Ice1\\Ice1 (18).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_19, L"Texture\\Bullet\\Ice1\\Ice1 (19).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_20, L"Texture\\Bullet\\Ice1\\Ice1 (20).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_21, L"Texture\\Bullet\\Ice1\\Ice1 (21).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_22, L"Texture\\Bullet\\Ice1\\Ice1 (22).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_23, L"Texture\\Bullet\\Ice1\\Ice1 (23).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_24, L"Texture\\Bullet\\Ice1\\Ice1 (24).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_ICE1_25, L"Texture\\Bullet\\Ice1\\Ice1 (25).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_01, L"Texture\\Bullet\\LClaw1\\LClaw1 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_LCLAW1_02, L"Texture\\Bullet\\LClaw1\\LClaw1 (2).png");

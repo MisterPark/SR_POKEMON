@@ -34,16 +34,20 @@ void Suicune::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
-	offsetY = 0.5f;
+	moveSpeed = 3.5f;
+	offsetY = 1.f;
 
 	state = State::READY;
 
 	hp = 2000;
 	maxHp = 2000;
+	attack = 20.f;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet2));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet2));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet3));
 
 	UpdateAnimation();
 
@@ -71,7 +75,13 @@ bool Suicune::Attack(const Vector3& dir, const int& attackType)
 	{
 		switch (attackType)
 		{
-		case 0: ChangeState(State::ATTACK); break;
+		case 0:
+			ChangeState(State::ATTACK);
+			//anim->SetDelay(animDelay);
+			//anim->SetTick(0.f);
+
+			break;
+		case 1: ChangeState(State::ATTACK); break;
 		}
 		return true;
 	}

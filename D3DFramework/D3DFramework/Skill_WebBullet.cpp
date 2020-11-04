@@ -28,6 +28,8 @@ void Skill_WebBullet::Update()
 	Bullet_Web* bullet = dynamic_cast<Bullet_Web*>(ObjectManager::GetInstance()->CreateObject<Bullet_Web>());
 	bullet->transform->position = character->transform->position;
 	bullet->SetDir(character->direction);
+	bullet->SetInitAttack(character->attack);
+
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else if (character->team == Team::PLAYERTEAM)

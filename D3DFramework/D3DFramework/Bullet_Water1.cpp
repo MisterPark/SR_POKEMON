@@ -5,7 +5,7 @@
 #include "Bullet.h"
 
 Bullet_Water1::Bullet_Water1()
-{   //TODO : 불렛이 지형타는중
+{
 	anim->SetSprite(TextureKey::BULLET_WATER1_01, TextureKey::BULLET_WATER1_01);
     anim->SetLoop(true);
     anim->SetDelay(0.2f);

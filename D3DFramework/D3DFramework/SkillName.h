@@ -12,5 +12,10 @@ enum class SkillName
 	TearsBullet2,
 	CrossBullet,
 	XBullet,
-	WebBullet
+	WebBullet,
+	IceBullet,
+	IceBullet2,
+	IceBullet3,
+	BubbleBullet,
+	BubbleBullet2
 };

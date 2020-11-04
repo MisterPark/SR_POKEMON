@@ -30,11 +30,8 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-	
-	if(character->team==Team::PLAYERTEAM)
-	bullet->SetTeam(Team::PLAYERTEAM);
-	else if (character->team == Team::MONSTERTEAM)
-	bullet->SetTeam(Team::MONSTERTEAM);
+	bullet->SetInitAttack(character->attack);
+	bullet->SetTeam(character->team);
 
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
@@ -47,11 +44,8 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-
-	if (character->team == Team::PLAYERTEAM)
-		bullet->SetTeam(Team::PLAYERTEAM);
-	else if (character->team == Team::MONSTERTEAM)
-		bullet->SetTeam(Team::MONSTERTEAM);
+	bullet->SetInitAttack(character->attack);
+	bullet->SetTeam(character->team);
 
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
@@ -63,11 +57,8 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-
-	if (character->team == Team::PLAYERTEAM)
-		bullet->SetTeam(Team::PLAYERTEAM);
-	else if (character->team == Team::MONSTERTEAM)
-		bullet->SetTeam(Team::MONSTERTEAM);
+	bullet->SetInitAttack(character->attack);
+	bullet->SetTeam(character->team);
 
 
 	if (character->team == Team::MONSTERTEAM)
@@ -80,11 +71,8 @@ void Skill_Tornado::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
-
-	if (character->team == Team::PLAYERTEAM)
-		bullet->SetTeam(Team::PLAYERTEAM);
-	else if (character->team == Team::MONSTERTEAM)
-		bullet->SetTeam(Team::MONSTERTEAM);
+	bullet->SetInitAttack(character->attack);
+	bullet->SetTeam(character->team);
 
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);

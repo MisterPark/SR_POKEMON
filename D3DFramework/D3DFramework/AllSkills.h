@@ -12,3 +12,8 @@
 #include "Skill_CrossBullet.h"
 #include "Skill_XBullet.h"
 #include "Skill_WebBullet.h"
+#include "Skill_IceBullet.h"
+#include "Skill_IceBullet2.h"
+#include "Skill_IceBullet3.h"
+#include "Skill_BubbleBullet.h"
+#include "Skill_BubbleBullet2.h"

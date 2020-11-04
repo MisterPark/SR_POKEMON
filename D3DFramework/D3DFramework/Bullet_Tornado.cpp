@@ -5,7 +5,7 @@
 #include "Bullet.h"
 
 Bullet_Tornado::Bullet_Tornado()
-{   //TODO : 불렛이 지형타는중
+{
 	/*SetAniTexture(State::IDLE, TextureKey::BULLET_TORNADO1_01, 10);*/
 	anim->SetSprite(TextureKey::BULLET_TORNADO2_01, TextureKey::BULLET_TORNADO2_08);
 	anim->SetLoop(true);
