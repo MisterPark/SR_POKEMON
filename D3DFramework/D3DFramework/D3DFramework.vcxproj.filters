@@ -244,6 +244,12 @@
     <Filter Include="GameObject\TriggerBox">
       <UniqueIdentifier>{99faca5d-c3cc-4633-b888-2e9e507f37f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\11. XClaw">
+      <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\XClaw">
+      <UniqueIdentifier>{49aaf383-193e-4fc4-8432-3dc289d1f415}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -582,6 +588,12 @@
     <ClInclude Include="PlayerInfoPanel.h" />
     <ClInclude Include="TriggerBox.h">
       <Filter>GameObject\TriggerBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_XClaw.h">
+      <Filter>Skill\11. XClaw</Filter>
+    </ClInclude>
+    <ClInclude Include="XClaw.h">
+      <Filter>GameObject\Bullet\XClaw</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1031,6 +1043,12 @@
     <ClCompile Include="PlayerInfoPanel.cpp" />
     <ClCompile Include="TriggerBox.cpp">
       <Filter>GameObject\TriggerBox</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_XClaw.cpp">
+      <Filter>Skill\11. XClaw</Filter>
+    </ClCompile>
+    <ClCompile Include="XClaw.cpp">
+      <Filter>GameObject\Bullet\XClaw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

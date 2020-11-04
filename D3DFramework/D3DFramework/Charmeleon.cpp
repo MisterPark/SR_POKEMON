@@ -6,10 +6,10 @@ Charmeleon::Charmeleon()
 	Initialize();
 }
 
-Charmeleon::Charmeleon(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Charmeleon::Charmeleon(const Vector3 & pos, const Vector3 & dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
+	transform->scale = { 0.2f, 0.2f, 0.2f };
 	direction = dir;
 
 	Initialize();
@@ -41,7 +41,7 @@ void Charmeleon::Initialize()
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
-	skillSet.emplace_back();
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 
 	UpdateAnimation();
 }
@@ -77,18 +77,22 @@ void Charmeleon::AnimSet()
 	case State::IDLE:
 		anim->SetLoop(false);
 		anim->SetDelay(0.1f);
+		anim->SetTick(0.f);
 		break;
 	case State::WALK:
 		anim->SetLoop(true);
 		anim->SetDelay(0.1f);
+		anim->SetTick(0.f);
 		break;
 	case State::ATTACK:
-		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
+		anim->SetLoop(false);
+		anim->SetDelay(0.2f);
+		anim->SetTick(0.f);
 		break;
 	case State::SKILL:
 		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
+		anim->SetDelay(1.f);
+		anim->SetTick(0.f);
 		break;
 	case State::HURT:
 		break;
@@ -103,6 +107,7 @@ bool Charmeleon::Attack(const Vector3 & dir, const int & attackType)
 		{
 		case 0: ChangeState(State::ATTACK); break;
 		case 1: ChangeState(State::ATTACK); break;
+		case 2: ChangeState(State::SKILL); break;
 		}
 
 		return true;
@@ -110,8 +115,8 @@ bool Charmeleon::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
-Charmeleon * Charmeleon::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Charmeleon * Charmeleon::Create(const Vector3 & pos, const Vector3 & dir)
 {
-	Charmeleon* newPokemon = new Charmeleon(pos, scale, dir);
+	Charmeleon* newPokemon = new Charmeleon(pos, dir);
 	return newPokemon;
 }

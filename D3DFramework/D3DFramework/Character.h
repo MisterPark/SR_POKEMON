@@ -41,6 +41,7 @@ public:
 	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
 	float GetSkillCoolTime(int num);
 	bool GetCanMove() { return canMove; }
+	int GetSkillSetSize() { return skillSet.size(); }
 
 	virtual bool Attack(const Vector3& dir, const int& attackType);
 

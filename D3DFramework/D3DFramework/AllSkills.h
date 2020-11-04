@@ -12,3 +12,4 @@
 #include "Skill_CrossBullet.h"
 #include "Skill_XBullet.h"
 #include "Skill_WebBullet.h"
+#include "Skill_XClaw.h"

@@ -233,7 +233,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::CHARMANDER:
 			{
-				Charmander* monsterCharacter = Charmander::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				Charmander* monsterCharacter = Charmander::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::CHARMANDER);
 				monsterCharacter->spawner = this;

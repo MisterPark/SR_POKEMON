@@ -12,5 +12,6 @@ enum class SkillName
 	TearsBullet2,
 	CrossBullet,
 	XBullet,
-	WebBullet
+	WebBullet,
+	XClaw,
 };

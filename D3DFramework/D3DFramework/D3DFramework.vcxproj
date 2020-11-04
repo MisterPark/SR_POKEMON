@@ -238,6 +238,7 @@
     <ClInclude Include="Skill_WaterBullet.h" />
     <ClInclude Include="Skill_WebBullet.h" />
     <ClInclude Include="Skill_XBullet.h" />
+    <ClInclude Include="Skill_XClaw.h" />
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Spawner.h" />
@@ -267,6 +268,7 @@
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Vileplume.h" />
     <ClInclude Include="Water.h" />
+    <ClInclude Include="XClaw.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation2D.cpp" />
@@ -344,6 +346,7 @@
     <ClCompile Include="Skill_WaterBullet.cpp" />
     <ClCompile Include="Skill_WebBullet.cpp" />
     <ClCompile Include="Skill_XBullet.cpp" />
+    <ClCompile Include="Skill_XClaw.cpp" />
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Spawner.cpp" />
@@ -374,6 +377,7 @@
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="Vileplume.cpp" />
     <ClCompile Include="Water.cpp" />
+    <ClCompile Include="XClaw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="D3DFramework.rc" />

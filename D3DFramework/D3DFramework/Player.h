@@ -33,7 +33,6 @@ private:
 
 private:
 	void ResetMousePoint();
-	void CalcCoolTime();
 	void Attack();
 	void CalcMouse();
 	void KeyInput();
@@ -45,11 +44,7 @@ private:
 	Character* character;
 	float radianX;
 	float radianY;
-	float attackCoolTime;
-	float skillCoolTime;
-	bool isAttack;
-	bool isSkill;
 	bool isFix;
-	bool canMove;
+	int skillNum;
 };
 
