@@ -5,12 +5,16 @@
 
 Skill_Tornado::Skill_Tornado()
 {
-	coolTime = 0.7f;
 	moveStopTime = 0.7f;
 }
 
 Skill_Tornado::~Skill_Tornado()
 {
+}
+
+void Skill_Tornado::InitCoolTime()
+{
+	coolTime = 0.7f;
 }
 
 void Skill_Tornado::InitActiveTime()

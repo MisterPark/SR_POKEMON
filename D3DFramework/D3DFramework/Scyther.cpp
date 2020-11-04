@@ -70,20 +70,28 @@ void Scyther::Release()
 {
 }
 
-void Scyther::Attack(const Vector3& dir, const int& attackType)
+bool Scyther::Attack(const Vector3& dir, const int& attackType)
 {
-	if (skillSet.size() <= attackType) return;
-	Vector3 pos = transform->position;
+	if (Character::Attack(dir, attackType))
+	{
+		float animDelay = skillSet[attackType]->GetActiveTime();
+		animDelay *= 0.85f;
 
-	skillSet[attackType]->Active(this);
-
-	if (team == Team::PLAYERTEAM) {
-		switch (attackType)
-		{
-		case 0: ChangeState(State::ATTACK); break;
-		case 1: ChangeState(State::ATTACK); break;
+		if (team == Team::PLAYERTEAM) {
+			switch (attackType)
+			{
+			case 0:
+				ChangeState(State::ATTACK);
+				anim->SetDelay(animDelay);
+				anim->SetTick(0.f);
+				
+				break;
+			case 1: ChangeState(State::ATTACK); break;
+			}
 		}
+		return true;
 	}
+	return false;
 }
 
 Scyther* Scyther::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)

@@ -69,7 +69,11 @@ void Player::SetCharacter(Character * object)
 	character = object;
 
 	Camera::GetInstance()->SetTarget(character);
-	if (nullptr != object) character->team = Team::PLAYERTEAM;
+	if (nullptr != object)
+	{
+		character->team = Team::PLAYERTEAM;
+		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
+	}
 
 	PlayerInfoPanel::SetTarget(object);
 }
@@ -128,7 +132,7 @@ void Player::Attack()
 			character->SetDir(dir);
 			character->Attack(dir, 0);
 
-			attackCoolTime = character->GetSkillCollTime(1)->GetCoolTime();
+			attackCoolTime = character->GetSkillCoolTime(0);
 			isAttack = true;
 		}
 		else if (InputManager::GetMouseRButton())
@@ -145,7 +149,7 @@ void Player::Attack()
 			character->SetDir(dir);
 			character->Attack(dir, 1);
 
-			skillCoolTime = character->GetSkillCollTime(2)->GetCoolTime();
+			skillCoolTime = character->GetSkillCoolTime(1);
 			isSkill = true;
 		}
 	}
@@ -244,7 +248,7 @@ void Player::KeyInput()
 			ChangeState(State::WALK);
 		}
 
-		if (!isKeyDown)
+		if (!isKeyDown && character->GetCanMove())
 		{
 			ChangeState(State::IDLE);
 		}

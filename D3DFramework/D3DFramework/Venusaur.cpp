@@ -53,8 +53,21 @@ void Venusaur::Release()
 {
 }
 
-void Venusaur::Attack(const Vector3 & dir, const int & attackType)
+bool Venusaur::Attack(const Vector3 & dir, const int & attackType)
 {
+	if (Character::Attack(dir, attackType))
+	{
+		/*
+		switch (attackType)
+		{
+		case 0: ChangeState(State::ATTACK); break;
+		case 1: ChangeState(State::ATTACK); break;
+		}
+		*/
+
+		return true;
+	}
+	return false;
 }
 
 Venusaur * Venusaur::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)

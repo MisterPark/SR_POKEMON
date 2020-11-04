@@ -35,6 +35,7 @@
 #include "Stage_Grass_01.h"
 
 #include "Spawner.h"
+#include "TriggerBox.h"
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
@@ -45,8 +46,8 @@ void TestScene::OnLoaded()
 	// TestUI
 	
 	
-	Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
-	/*Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
+	/*Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
+	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã
@@ -54,92 +55,30 @@ void TestScene::OnLoaded()
 	playerCharacter->direction = { -1.f,0.f,-1.f };
 
 	Player::GetInstance()->SetCharacter(playerCharacter);
+
 	playerCharacter->transform->position.x = 24.f;
 	playerCharacter->transform->position.z = 48.f - 24.f;
 
 
+	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->OnTriggered = CreateSpawner;
+	trigerBox->transform->position = { 25.f,0.f,35.f };
+
+	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->OnTriggered = CreateSpawner;
+	trigerBox->transform->position = { 10.f,0.f,35.f };
+
+
+	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->OnTriggered = Portal;
+	trigerBox->transform->position = { 40.f,0.f,40.f };
+	trigerBox->Portal();
 
 	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 3.5f);
 	/*SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);*/
 	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Normal.bmp",-0.1f);
 	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 4.05f);
 	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp",3.5f);
-
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f);
-	poliwagSpawner->transform->position = { 24.f,0.f,24.f };
-	ObjectManager::AddObject(poliwagSpawner);
-
-	//Poliwag* monsterCharacter = Poliwag::Create(Vector3(20.f, 0.f, 20.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter->monsterAI->SetType(MonsterType::POLIWAG);
-	//ObjectManager::AddObject(monsterCharacter);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
-
-
-
-	//Butterfree* monsterCharacter = Butterfree::Create(Vector3(5.f, 0.f, 7.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
-	//ObjectManager::AddObject(monsterCharacter);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
-
-	//Oddish* monsterCharacter2 = Oddish::Create(Vector3(15.f, 0.f, 9.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter2->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter2->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter2->monsterAI->SetType(MonsterType::ODDISH);
-	//ObjectManager::AddObject(monsterCharacter2);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter2);
-
-	//Metapod* monsterCharacter3 = Metapod::Create(Vector3(25.f, 0.f, 6.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter3->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter3->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter3->monsterAI->SetType(MonsterType::METAPOD);
-	//ObjectManager::AddObject(monsterCharacter3);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter3);
-
-	//Caterpie* monsterCharacter6 = Caterpie::Create(Vector3(42.f, 0.f, 26.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter6->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter6->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter6->monsterAI->SetType(MonsterType::CATERPIE);
-	//ObjectManager::AddObject(monsterCharacter6);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter6);
-
-	//Butterfree* monsterCharacter7 = Butterfree::Create(Vector3(35.f, 0.f, 27.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter7->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter7->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter7->monsterAI->SetType(MonsterType::BUTTERFREE);
-	//ObjectManager::AddObject(monsterCharacter7);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter7);
-
-	//Oddish* monsterCharacter8 = Oddish::Create(Vector3(25.f, 0.f, 15.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter8->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter8->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter8->monsterAI->SetType(MonsterType::ODDISH);
-	//ObjectManager::AddObject(monsterCharacter8);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter8);
-
-	//Metapod* monsterCharacter9 = Metapod::Create(Vector3(35.f, 0.f, 25.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter9->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter9->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter9->monsterAI->SetType(MonsterType::METAPOD);
-	//ObjectManager::AddObject(monsterCharacter9);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter9);
-
-	//Vileplume* monsterCharacter10 = Vileplume::Create(Vector3(25.f, 0.f, 35.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter10->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter10->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter10->monsterAI->SetType(MonsterType::VILEPLUME);
-	//ObjectManager::AddObject(monsterCharacter10);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter10);
-
-	//Caterpie* monsterCharacter11 = Caterpie::Create(Vector3(35.f, 0.f, 42.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter11->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter11->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter11->monsterAI->SetType(MonsterType::CATERPIE);
-	//ObjectManager::AddObject(monsterCharacter11);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter11);
-	
-	/*GameObject* Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
-	Obj->transform->position.x += 7;
-	Obj->transform->position.z += 7;
-	Obj = ObjectManager::GetInstance()->CreateObject<Oddish>();
-	Obj->transform->position.x += 5;
-	Obj->transform->position.z += 5;
-	Obj = ObjectManager::GetInstance()->CreateObject<Poliwrath>();
-	Obj->transform->position.x += 3;
-	Obj->transform->position.z += 3;*/
 
 }
 
@@ -344,4 +283,18 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 
 
 	}
+}
+
+void TestScene::CreateSpawner()
+{
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::VILEPLUME, 10.f, 0.5f, 10);
+	poliwagSpawner->transform->position = { 24.f,0.f,24.f };
+	ObjectManager::AddObject(poliwagSpawner);
+
+
+}
+
+void TestScene::Portal()
+{
+	SceneManager::LoadScene<Stage_Grass_01>();
 }

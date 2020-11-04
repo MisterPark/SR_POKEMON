@@ -500,6 +500,8 @@ void PKH::MainGame::LoadETCSprite()
 
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT01, L"Texture\\Map\\Tile\\Lava1.png");
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT02, L"Texture\\Map\\Tile\\Lava2.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::MONSTERBALL, L"Texture\\Monster\\MonsterBall.png");
 }
 
 void PKH::MainGame::LoadUISprite()

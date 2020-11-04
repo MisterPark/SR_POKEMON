@@ -56,16 +56,19 @@ void Bulbasaur::Release()
 {
 }
 
-void Bulbasaur::Attack(const Vector3 & dir, const int & attackType)
+bool Bulbasaur::Attack(const Vector3 & dir, const int & attackType)
 {
-	/*
-	Vector3 pos = transform->position;
+	if (Character::Attack(dir, attackType))
+	{
+		/*switch (attackType)
+		{
+		case 0: ChangeState(State::ATTACK); break;
+		case 1: ChangeState(State::ATTACK); break;
+		}*/
 
-	PlayerBullet* newBullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF);
-	ObjectManager::AddObject(newBullet);
-
-	ChangeState(State::ATTACK);
-	*/
+		return true;
+	}
+	return false;
 }
 
 Bulbasaur * Bulbasaur::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)

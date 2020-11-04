@@ -6,13 +6,16 @@
 
 Skill_Rush::Skill_Rush()
 {
-	coolTime = 1.5f;
 	moveStopTime = 1.5f;
-	activeTime = 1.5f;
 }
 
 Skill_Rush::~Skill_Rush()
 {
+}
+
+void Skill_Rush::InitCoolTime()
+{
+	coolTime = 1.5f;
 }
 
 void Skill_Rush::InitActiveTime()
@@ -22,9 +25,6 @@ void Skill_Rush::InitActiveTime()
 
 void Skill_Rush::Update()
 {
-	if (activeTime > 0.2f) {
-		character->anim->SetDelay(1.3f);
-	}
 	if (activeTime < 0.2f) {
 		character->transform->position.x += character->direction.x * character->moveSpeed * 15.f * TimeManager::DeltaTime();
 		character->transform->position.z += character->direction.z * character->moveSpeed * 15.f * TimeManager::DeltaTime();
@@ -51,7 +51,7 @@ void Skill_Rush::Update()
 			}
 		}
 		activeTime = 0;
-		character->anim->SetDelay(0.2f);
+		
 	}
 
 	//if (0.15f < activeTime) {

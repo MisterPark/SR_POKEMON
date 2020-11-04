@@ -31,6 +31,13 @@ void SkillManager::Update()
 {
 	for (auto& skill : skillList)
 	{
+		// 쿨다운이 진행중일 때
+		if (skill->GetIsCoolDown())
+		{
+			skill->CalcCoolTime();
+		}
+
+		// 스킬이 액티브 중일 때
 		if (skill->GetIsActive())
 		{
 			skill->Update();
