@@ -17,4 +17,6 @@ public:
     void SetTestSceneMap(TextureKey _key, const std::string& _filePath, float _waterHeight);
 
 	static void CreateSpawner();
+
+	static void Portal();
 };

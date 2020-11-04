@@ -3,6 +3,7 @@
 #include "Terrain.h"
 #include "Environment.h"
 #include "Plane.h"
+#include "Rectangle.h"
 TriggerBox::TriggerBox()
 {
 	Initialize();
@@ -19,12 +20,16 @@ TriggerBox::~TriggerBox()
 void TriggerBox::Initialize()
 {
 	attack = 0.f;
-	offsetY = 0.01f;
+	offsetY = 1.f;
 	team = Team::MONSTERTEAM;
 	CollisionManager::RegisterObject(COLTYPE::TRIGGERBOX, this);
-	Mesh* mesh = (Mesh*)AddComponent<PKH::Plane>(L"Mesh");
+	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
-	mesh->SetTexture(TextureKey::MONSTERBALL);
+	/*mesh->SetTexture(TextureKey::MONSTERBALL);*/
+
+	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
+	anim->SetSprite(TextureKey::MONSTERBALL, TextureKey::MONSTERBALL);
+	anim->SetLoop(false);
 
 }
 
@@ -36,6 +41,7 @@ void TriggerBox::Update()
 {
 	GameObject::Update();
 	OnTerrain();
+	Billboard();
 }
 
 void TriggerBox::OnCollision(GameObject * target)
@@ -71,4 +77,11 @@ void TriggerBox::OnTerrain()
 	{
 		transform->position.y = offsetY;
 	}
+}
+
+void TriggerBox::Portal()
+{
+	anim->SetSprite(TextureKey::BULLET_WATER2_01, TextureKey::BULLET_WATER2_03);
+	anim->SetDelay(0.1f);
+	anim->SetLoop(true);
 }

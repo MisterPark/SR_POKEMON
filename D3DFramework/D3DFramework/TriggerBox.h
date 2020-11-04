@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "Animation2D.h"
 class TriggerBox :
 	public GameObject
 {
@@ -15,6 +16,10 @@ public:
 	virtual void OnCollision(GameObject* target);
 	void OnTerrain();
 
+	void Portal();
+
+	Animation2D* anim = nullptr;
+	
 public:
 	void(*OnTriggered)() = nullptr;
 

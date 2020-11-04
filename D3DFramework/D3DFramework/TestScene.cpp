@@ -68,6 +68,12 @@ void TestScene::OnLoaded()
 	trigerBox->OnTriggered = CreateSpawner;
 	trigerBox->transform->position = { 10.f,0.f,35.f };
 
+
+	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->OnTriggered = Portal;
+	trigerBox->transform->position = { 40.f,0.f,40.f };
+	trigerBox->Portal();
+
 	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 3.5f);
 	/*SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);*/
 	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Normal.bmp",-0.1f);
@@ -286,4 +292,9 @@ void TestScene::CreateSpawner()
 	ObjectManager::AddObject(poliwagSpawner);
 
 
+}
+
+void TestScene::Portal()
+{
+	SceneManager::LoadScene<Stage_Grass_01>();
 }
