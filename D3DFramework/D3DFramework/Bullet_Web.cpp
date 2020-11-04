@@ -6,14 +6,13 @@
 #include "Effect.h"
 
 Bullet_Web::Bullet_Web()
-{   //TODO : 불렛이 지형타는중
+{
 	anim->SetSprite(TextureKey::BULLET_WEB1_01, TextureKey::BULLET_WEB1_01);
     anim->SetLoop(true);
     anim->SetDelay(0.2f);
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
-	attack = 10.f;
     lifeTime = 1.6f;
     moveSpeed = 3.f;
 }

@@ -28,7 +28,7 @@ void Psyduck::Initialize()
 	name = L"°í¶óÆÄ´ö";
 	number = Pokemon::Psyduck;
 
-	SetTexture(State::WALK, TextureKey::PSY_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::PSY_WALK_D_02, 3,2);
 	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3, 1);
 	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);

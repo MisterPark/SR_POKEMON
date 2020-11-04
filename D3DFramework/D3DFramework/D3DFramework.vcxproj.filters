@@ -244,11 +244,26 @@
     <Filter Include="GameObject\TriggerBox">
       <UniqueIdentifier>{99faca5d-c3cc-4633-b888-2e9e507f37f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\11. IceBullet">
+      <UniqueIdentifier>{22410907-ae42-4ea7-b6ba-ee6e858408af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\Ice">
+      <UniqueIdentifier>{5221dc8a-9908-4013-a712-44f4348d9622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\12. BubbleBullet">
+      <UniqueIdentifier>{47c0363f-5c86-4b55-9316-dc8e6749477b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Skill\11. XClaw">
       <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Bullet\XClaw">
       <UniqueIdentifier>{49aaf383-193e-4fc4-8432-3dc289d1f415}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\045. Gloom">
+      <UniqueIdentifier>{33ed4623-5da2-4221-83fc-bf69cfc9fd9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\061. Poliwhirl">
+      <UniqueIdentifier>{613c516a-9f51-4adf-a784-5cd2f3539012}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -589,6 +604,27 @@
     <ClInclude Include="TriggerBox.h">
       <Filter>GameObject\TriggerBox</Filter>
     </ClInclude>
+    <ClInclude Include="Skill_IceBullet.h">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Ice.h">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_IceBullet2.h">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_IceBullet3.h">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Bubble2.h">
+      <Filter>GameObject\Bullet\Bubble</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_BubbleBullet.h">
+      <Filter>Skill\12. BubbleBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_BubbleBullet2.h">
+      <Filter>Skill\12. BubbleBullet</Filter>
+    </ClInclude>
     <ClInclude Include="Skill_XClaw.h">
       <Filter>Skill\11. XClaw</Filter>
     </ClInclude>
@@ -597,6 +633,12 @@
     </ClInclude>
     <ClInclude Include="Stage_Grass_02.h">
       <Filter>Scene\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Gloom.h">
+      <Filter>GameObject\Character\Grass\045. Gloom</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwhirl.h">
+      <Filter>GameObject\Character\Water\061. Poliwhirl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1047,6 +1089,27 @@
     <ClCompile Include="TriggerBox.cpp">
       <Filter>GameObject\TriggerBox</Filter>
     </ClCompile>
+    <ClCompile Include="Skill_IceBullet.cpp">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Ice.cpp">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_IceBullet2.cpp">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_IceBullet3.cpp">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Bubble2.cpp">
+      <Filter>GameObject\Bullet\Bubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_BubbleBullet.cpp">
+      <Filter>Skill\12. BubbleBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_BubbleBullet2.cpp">
+      <Filter>Skill\12. BubbleBullet</Filter>
+    </ClCompile>
     <ClCompile Include="Skill_XClaw.cpp">
       <Filter>Skill\11. XClaw</Filter>
     </ClCompile>
@@ -1055,6 +1118,12 @@
     </ClCompile>
     <ClCompile Include="Stage_Grass_02.cpp">
       <Filter>Scene\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Gloom.cpp">
+      <Filter>GameObject\Character\Grass\045. Gloom</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwhirl.cpp">
+      <Filter>GameObject\Character\Water\061. Poliwhirl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

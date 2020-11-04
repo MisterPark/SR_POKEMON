@@ -26,10 +26,10 @@ public:
 	void MoveForwardExceptY();
 	//총알의 팀을 설정해줍니다.
 	void SetTeam(Team _team);
-
 public:
 	// Setter
 	void SetDir(const Vector3& dir) { D3DXVec3Normalize(&direction, &dir); }
+	void SetInitAttack(float initattack) { initAttack = initattack; attack = initAttack;}
 
 public:
 	// Getter
@@ -44,6 +44,7 @@ protected:
 	float lifeTime;
 	float offsetY;
 	float animDelay;
+	float initAttack;
 
 	bool isOnTerrain;
 	bool isBillboard;

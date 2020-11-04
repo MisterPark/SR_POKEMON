@@ -2,15 +2,17 @@
 #include "Effect.h"
 #include "Rectangle.h"
 #include "Plane.h"
+#include "Environment.h"
 
 Effect::Effect()
 {
 }
 
-Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir) :
+Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY) :
 	startKey(start), endKey(end), animSpeed(delay),
 	isPlane(plane), isBillboardY(isBillY), isLoop(loop),
-	lifeTime(lifeTime), isMove(isMove), direction(dir)
+	lifeTime(lifeTime), isMove(isMove), direction(dir),
+	isOnTerrain(onTerrain), offsetY(_offsetY)
 {
 	transform->position = pos;
 	transform->scale = size;
@@ -49,6 +51,8 @@ void Effect::Update()
 	if (isMove) Move(direction);
 
 	if (IsDie()) isDead = true;
+
+	if (isOnTerrain) OnTerrain();
 }
 
 void Effect::Render()
@@ -74,9 +78,34 @@ bool Effect::IsDie()
 	}
 }
 
-Effect * Effect::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir)
+void Effect::OnTerrain()
 {
-	Effect* instance = new Effect(pos, size, start, end, delay, plane, isBillY, radianY, loop, lifeTime, isMove, speed, dir);
+	GameObject* obj = ObjectManager::GetInstance()->FindObject<Environment>();
+	if (obj == nullptr)
+	{
+		transform->position.y = offsetY;
+		return;
+	}
+	Terrain* mesh = (Terrain*)obj->GetComponent(L"Mesh");
+	if (mesh == nullptr)
+	{
+		transform->position.y = offsetY;
+		return;
+	}
+
+	float y;
+	bool onTerrain = mesh->GetYFromPoint(&y, transform->position.x, transform->position.z);
+	if (onTerrain)
+		transform->position.y = y + offsetY;
+	else
+	{
+		transform->position.y = offsetY;
+	}
+}
+
+Effect * Effect::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY)
+{
+	Effect* instance = new Effect(pos, size, start, end, delay, plane, isBillY, radianY, loop, lifeTime, isMove, speed, dir, onTerrain, _offsetY);
 
 	return instance;
 }

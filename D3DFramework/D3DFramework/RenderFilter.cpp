@@ -49,7 +49,6 @@ void RenderFilter::Update()
 
 void RenderFilter::Render()
 {
-    // TODO : 경훈 // 워터 필터 수정해야함.
 
     // 워터 필터
     GameObject* water = ObjectManager::GetInstance()->FindObject<Water>();

@@ -6,14 +6,13 @@
 #include "Effect.h"
 
 Bullet_Poision::Bullet_Poision()
-{   //TODO : 불렛이 지형타는중
+{
 	anim->SetSprite(TextureKey::BULLET_POISION1_01, TextureKey::BULLET_POISION1_03);
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
-	attack = 10.f;
 	lifeTime = 2.5f;
 	moveSpeed = 1.f;
 }

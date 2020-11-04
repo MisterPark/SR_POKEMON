@@ -27,7 +27,7 @@ void Jynx::Initialize()
 {
 	name = L"∑Á¡÷∂Û";
 	number = Pokemon::Jynx;
-	SetTexture(State::WALK, TextureKey::JYNX_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::JYNX_WALK_D_02, 3,2);
 	SetTexture(State::IDLE, TextureKey::JYNX_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::JYNX_WALK_D_01, 3, 1);
 	SetTexture(State::ATTACK, TextureKey::JYNX_ATTACK_D_01, 2);

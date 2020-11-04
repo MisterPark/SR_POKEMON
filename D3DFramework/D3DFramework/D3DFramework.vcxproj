@@ -159,6 +159,8 @@
     <ClInclude Include="Bulbasaur.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullet_Bubble.h" />
+    <ClInclude Include="Bullet_Bubble2.h" />
+    <ClInclude Include="Bullet_Ice.h" />
     <ClInclude Include="Bullet_Poision.h" />
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Water.h" />
@@ -192,6 +194,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Gloom.h" />
     <ClInclude Include="Golduck.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="InputManager.h" />
@@ -215,6 +218,7 @@
     <ClInclude Include="PlayerInfoPanel.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Poliwag.h" />
+    <ClInclude Include="Poliwhirl.h" />
     <ClInclude Include="Poliwrath.h" />
     <ClInclude Include="Protocol.h" />
     <ClInclude Include="Psyduck.h" />
@@ -228,9 +232,14 @@
     <ClInclude Include="Skill.h" />
     <ClInclude Include="SkillManager.h" />
     <ClInclude Include="SkillName.h" />
+    <ClInclude Include="Skill_BubbleBullet.h" />
+    <ClInclude Include="Skill_BubbleBullet2.h" />
     <ClInclude Include="Skill_CrossBullet.h" />
     <ClInclude Include="Skill_FireBullet.h" />
     <ClInclude Include="Skill_Blaze.h" />
+    <ClInclude Include="Skill_IceBullet.h" />
+    <ClInclude Include="Skill_IceBullet2.h" />
+    <ClInclude Include="Skill_IceBullet3.h" />
     <ClInclude Include="Skill_LeafBullet.h" />
     <ClInclude Include="Skill_Rush.h" />
     <ClInclude Include="Skill_TearsBullet.h" />
@@ -276,6 +285,8 @@
     <ClCompile Include="Bulbasaur.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet_Bubble.cpp" />
+    <ClCompile Include="Bullet_Bubble2.cpp" />
+    <ClCompile Include="Bullet_Ice.cpp" />
     <ClCompile Include="Bullet_Poision.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
@@ -306,6 +317,7 @@
     <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Gloom.cpp" />
     <ClCompile Include="Golduck.cpp" />
     <ClCompile Include="IComponent.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -327,6 +339,7 @@
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="PlayerInfoPanel.cpp" />
     <ClCompile Include="Poliwag.cpp" />
+    <ClCompile Include="Poliwhirl.cpp" />
     <ClCompile Include="Poliwrath.cpp" />
     <ClCompile Include="Psyduck.cpp" />
     <ClCompile Include="Quaternion.cpp" />
@@ -337,9 +350,14 @@
     <ClCompile Include="Scyther.cpp" />
     <ClCompile Include="Skill.cpp" />
     <ClCompile Include="SkillManager.cpp" />
+    <ClCompile Include="Skill_BubbleBullet.cpp" />
+    <ClCompile Include="Skill_BubbleBullet2.cpp" />
     <ClCompile Include="Skill_CrossBullet.cpp" />
     <ClCompile Include="Skill_FireBullet.cpp" />
     <ClCompile Include="Skill_Blaze.cpp" />
+    <ClCompile Include="Skill_IceBullet.cpp" />
+    <ClCompile Include="Skill_IceBullet2.cpp" />
+    <ClCompile Include="Skill_IceBullet3.cpp" />
     <ClCompile Include="Skill_LeafBullet.cpp" />
     <ClCompile Include="Skill_Rush.cpp" />
     <ClCompile Include="Skill_TearsBullet.cpp" />
