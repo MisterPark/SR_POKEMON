@@ -195,6 +195,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_RBUTTONDBLCLK:
         InputManager::GetInstance()->mouse[(int)Keys::RBUTTON_DOUBLE] = true;
         break;
+	case WM_MOUSEWHEEL:
+		if ((SHORT)HIWORD(wParam) > 0)
+		{
+			InputManager::GetInstance()->mouse[(int)Keys::WHEEL_UP] = true;
+		}
+		else
+		{
+			InputManager::GetInstance()->mouse[(int)Keys::WHEEL_DOWN] = true;
+		}
+		
+
+		break;
 
 	case WM_KEYDOWN:
 		if (VK_ESCAPE == wParam) PostQuitMessage(0); //DestroyWindow(hWnd);
