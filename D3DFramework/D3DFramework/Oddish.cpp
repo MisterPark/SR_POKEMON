@@ -28,7 +28,7 @@ void Oddish::Initialize()
 	name = L"¶Ñ¹÷ÃÊ";
 	number = Pokemon::Oddish;
 
-	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_02, 3,2);
 	SetTexture(State::IDLE, TextureKey::ODDI_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::ODDI_WALK_D_01, 3, 1);
 	SetTexture(State::ATTACK, TextureKey::ODDI_ATTACK_D_01, 2);

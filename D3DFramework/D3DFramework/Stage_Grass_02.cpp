@@ -32,7 +32,7 @@ void Stage_Grass_02::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
@@ -202,7 +202,7 @@ void Stage_Grass_02::Stage_Grass_02_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 7);
+			Spawner* spawner = Spawner::Create(MonsterType::GLOOM, 10.f, 0.5f, 7);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;

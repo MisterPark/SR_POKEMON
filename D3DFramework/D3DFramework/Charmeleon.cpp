@@ -25,7 +25,7 @@ void Charmeleon::Initialize()
 	number = Pokemon::Charmeleon;
 
 	SetTexture(State::IDLE, TextureKey::PF02_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PF02_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::PF02_WALK_D_02, 3,2);
 	SetTexture(State::ATTACK, TextureKey::PF02_ATTACK_D_01, 2);
 	SetTexture(State::SKILL, TextureKey::PF02_SKILL_D_01, 2);
 

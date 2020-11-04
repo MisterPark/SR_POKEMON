@@ -25,7 +25,7 @@ void Charmander::Initialize()
 	number = Pokemon::Charmander;
 
 	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PF01_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::PF01_WALK_D_02, 3,2);
 	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
 	SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 2);
 
