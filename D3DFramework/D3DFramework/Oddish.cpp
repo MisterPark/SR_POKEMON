@@ -44,8 +44,10 @@ void Oddish::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
-	hp = 60;
-	maxHp = 60;
+	attack = 30;
+
+	hp = 100;
+	maxHp = 100;
 
 	UpdateAnimation();
 }

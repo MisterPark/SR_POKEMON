@@ -253,9 +253,6 @@
     <Filter Include="Skill\12. BubbleBullet">
       <UniqueIdentifier>{47c0363f-5c86-4b55-9316-dc8e6749477b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\11. XClaw">
-      <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Bullet\XClaw">
       <UniqueIdentifier>{49aaf383-193e-4fc4-8432-3dc289d1f415}</UniqueIdentifier>
     </Filter>
@@ -264,6 +261,9 @@
     </Filter>
     <Filter Include="GameObject\Character\Water\061. Poliwhirl">
       <UniqueIdentifier>{613c516a-9f51-4adf-a784-5cd2f3539012}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\13. XClaw">
+      <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -626,7 +626,7 @@
       <Filter>Skill\12. BubbleBullet</Filter>
     </ClInclude>
     <ClInclude Include="Skill_XClaw.h">
-      <Filter>Skill\11. XClaw</Filter>
+      <Filter>Skill\13. XClaw</Filter>
     </ClInclude>
     <ClInclude Include="XClaw.h">
       <Filter>GameObject\Bullet\XClaw</Filter>
@@ -1114,7 +1114,7 @@
       <Filter>Skill\12. BubbleBullet</Filter>
     </ClCompile>
     <ClCompile Include="Skill_XClaw.cpp">
-      <Filter>Skill\11. XClaw</Filter>
+      <Filter>Skill\13. XClaw</Filter>
     </ClCompile>
     <ClCompile Include="XClaw.cpp">
       <Filter>GameObject\Bullet\XClaw</Filter>

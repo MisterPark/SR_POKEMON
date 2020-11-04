@@ -22,8 +22,10 @@ Golduck::Golduck()
 
 	state = State::READY;
 
-	hp = 1000;
-	maxHp = 1000;
+	attack = 35;
+
+	hp = 200;
+	maxHp = 200;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));

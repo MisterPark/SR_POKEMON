@@ -34,10 +34,14 @@ void Skill_LeafBullet::Update()
 	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF, character->attack);
 	ObjectManager::AddObject(bullet);
 
-	if (character->team == Team::MONSTERTEAM)
+	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-	else if (character->team == Team::PLAYERTEAM)
+		bullet->SetInitAttack(character->attack * 0.25f);
+	}
+	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+		bullet->SetInitAttack(character->attack);
+	}
 
 	CalcActiveTime();
 }

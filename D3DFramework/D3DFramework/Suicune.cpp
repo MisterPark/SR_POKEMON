@@ -39,14 +39,14 @@ void Suicune::Initialize()
 
 	state = State::READY;
 
-	hp = 2000;
-	maxHp = 2000;
-	attack = 20.f;
+	hp = 1600;
+	maxHp = 1600;
+	attack = 50.f;
 
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet));
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet2));
-	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet2));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet2));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet3));
 
 	UpdateAnimation();

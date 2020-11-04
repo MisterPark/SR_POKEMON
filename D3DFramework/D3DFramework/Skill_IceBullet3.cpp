@@ -42,12 +42,15 @@ void Skill_IceBullet3::Update()
 		ObjectManager::AddObject(effect);
 		bullet->SetDir(Vector3{0.f, -0.4f, 0.f});
 		bullet->attack = character->attack * 3.f;
-		bullet->SetInitAttack(character->attack * 2);
 
-		if (character->team == Team::MONSTERTEAM)
+		if (character->team == Team::MONSTERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		else if (character->team == Team::PLAYERTEAM)
+			bullet->SetInitAttack(character->attack * 0.25f);
+		}
+		else if (character->team == Team::PLAYERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+			bullet->SetInitAttack(character->attack);
+		}
 		delay = 0.05f;
 	}
 	else {

@@ -41,11 +41,13 @@ void Gloom::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XBullet));
 
-	hp = 60;
-	maxHp = 60;
+	attack = 30;
+
+	hp = 120;
+	maxHp = 120;
 
 	UpdateAnimation();
 }
