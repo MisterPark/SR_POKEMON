@@ -28,6 +28,7 @@ public:
 	Character* GetCharacter() { return character; }
 	float GetRadianX() { return radianX; }
 	float GetRadianY() { return radianY; }
+	int GetCurrentSkillIndex() { return skillNum; }
 
 private:
 	void Initialize();

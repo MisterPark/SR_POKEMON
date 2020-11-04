@@ -42,6 +42,7 @@ public:
 	float GetSkillCoolTime(int num);
 	bool GetCanMove() { return canMove; }
 	int GetSkillSetSize() { return skillSet.size(); }
+	vector<Skill*> GetSkillSet() { return skillSet; }
 
 	virtual bool Attack(const Vector3& dir, const int& attackType);
 

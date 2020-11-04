@@ -600,7 +600,6 @@
     <ClInclude Include="TargetInfoPanel.h">
       <Filter>GameObject\UI</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerInfoPanel.h" />
     <ClInclude Include="TriggerBox.h">
       <Filter>GameObject\TriggerBox</Filter>
     </ClInclude>
@@ -642,6 +641,12 @@
     </ClInclude>
     <ClInclude Include="Stage_Water_02.h">
       <Filter>Scene\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageSkin.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInfoPanel.h">
+      <Filter>GameObject\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1088,7 +1093,6 @@
     <ClCompile Include="TargetInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerInfoPanel.cpp" />
     <ClCompile Include="TriggerBox.cpp">
       <Filter>GameObject\TriggerBox</Filter>
     </ClCompile>
@@ -1130,6 +1134,12 @@
     </ClCompile>
     <ClCompile Include="Stage_Water_02.cpp">
       <Filter>Scene\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageSkin.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInfoPanel.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

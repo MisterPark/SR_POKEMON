@@ -95,6 +95,8 @@ namespace PKH
 		UI_FACE_POKEMON_1ST,
 		UI_FACE_POKEMON_2ND,
 		UI_FACE_POKEMON_3RD,
+
+		UI_ICON_BORDER,
 		//============================================================
 
 		// PG 01

@@ -552,6 +552,8 @@ void PKH::MainGame::LoadUISprite()
 	// 얼굴 아이콘
 	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_1ST, L"Texture\\UI\\pokemon_icon_1st.png", 13, 12);
 
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_BORDER, L"Texture\\UI\\iconBorder.png");
+
 }
 
 void PKH::MainGame::LoadMonsterSprite()

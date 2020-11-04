@@ -184,6 +184,7 @@
     <ClInclude Include="Cursor.h" />
     <ClInclude Include="D2DRenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
+    <ClInclude Include="DamageSkin.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Decoration.h" />
     <ClInclude Include="Define.h" />
@@ -311,6 +312,7 @@
     <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="D2DRenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
+    <ClCompile Include="DamageSkin.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Decoration.cpp" />
     <ClCompile Include="Effect.cpp" />
