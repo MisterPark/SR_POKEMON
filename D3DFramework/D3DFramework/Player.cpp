@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "PlayerInfoPanel.h"
+#include "Charmander.h"
+#include "Charmeleon.h"
 
 Player* Player::instance = nullptr;
 
@@ -60,6 +62,27 @@ void Player::PostUpdate()
 	character->OnTerrain();
 }
 
+void Player::Evolution()
+{
+	//TODO: 진화 구조 바꾸기
+	switch (character->number)
+	{
+	case Pokemon::Charmander:
+	{
+		Character* oldCharacter = character;
+		Character* newCharacter = Charmeleon::Create(character->transform->position, character->direction);
+		ObjectManager::AddObject(newCharacter);
+		CollisionManager::RegisterObject(COLTYPE::PLAYER, newCharacter);
+		SetCharacter(newCharacter);
+		oldCharacter->isDead = true;
+	}
+	break;
+
+	case Pokemon::Charmeleon:
+		break;
+	}
+}
+
 void Player::SetCharacter(Character * object)
 {
 	character = object;
@@ -68,10 +91,12 @@ void Player::SetCharacter(Character * object)
 	if (nullptr != object)
 	{
 		character->team = Team::PLAYERTEAM;
+		skillSetSize = character->GetSkillSetSize();
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
+		PlayerInfoPanel::SetTarget(object);
 	}
 
-	PlayerInfoPanel::SetTarget(object);
+
 }
 
 void Player::Initialize()
@@ -150,7 +175,28 @@ void Player::KeyInput()
 
 	if (InputManager::GetKeyDown(VK_SPACE))
 	{
-		Camera::Shake();
+		Evolution();
+		//Camera::Shake();
+	}
+
+	if (InputManager::GetMouseWheelUp())
+	{
+		--skillNum;
+		if (skillNum < 1)
+		{
+			skillNum += (skillSetSize - 1);
+		}
+	}
+
+	if (InputManager::GetMouseWheelDown())
+	{
+		++skillNum;
+
+		if (skillNum >= skillSetSize)
+		{
+			skillNum %= skillSetSize;
+			++skillNum;
+		}
 	}
 	
 	if (InputManager::GetKey('W'))
