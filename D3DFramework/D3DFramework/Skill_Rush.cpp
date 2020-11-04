@@ -6,13 +6,16 @@
 
 Skill_Rush::Skill_Rush()
 {
-	coolTime = 1.5f;
 	moveStopTime = 1.5f;
-	activeTime = 1.5f;
 }
 
 Skill_Rush::~Skill_Rush()
 {
+}
+
+void Skill_Rush::InitCoolTime()
+{
+	coolTime = 1.5f;
 }
 
 void Skill_Rush::InitActiveTime()

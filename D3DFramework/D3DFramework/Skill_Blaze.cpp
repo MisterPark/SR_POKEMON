@@ -5,12 +5,16 @@
 
 Skill_Blaze::Skill_Blaze()
 {
-	coolTime = 3.f;
 	moveStopTime = 0.6f;
 }
 
 Skill_Blaze::~Skill_Blaze()
 {
+}
+
+void Skill_Blaze::InitCoolTime()
+{
+	coolTime = 3.f;
 }
 
 void Skill_Blaze::InitActiveTime()

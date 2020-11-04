@@ -13,7 +13,7 @@ public:
     virtual void Update() override;
     virtual void Render() override;
     virtual void Release() override;
-    void Attack(const Vector3& dir, const int& attackType);
+    virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 
 private:

@@ -2,9 +2,8 @@
 #include "GameObject.h"
 #include "MonsterAI.h"
 #include "Spawner.h"
+
 class Skill;
-
-
 
 class Character :
     public GameObject
@@ -40,10 +39,10 @@ public:
 	void MoveForward();
 	virtual void ChangeState(State nextState);
 	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
-	Skill* GetSkillCollTime(int skillNumber);
+	float GetSkillCoolTime(int num);
 	bool GetCanMove() { return canMove; }
 
-	virtual void Attack(const Vector3& dir, const int& attackType);
+	virtual bool Attack(const Vector3& dir, const int& attackType);
 
 public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);

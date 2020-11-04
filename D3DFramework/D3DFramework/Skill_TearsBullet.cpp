@@ -12,6 +12,11 @@ Skill_TearsBullet::~Skill_TearsBullet()
 {
 }
 
+void Skill_TearsBullet::InitCoolTime()
+{
+	coolTime = 0.4f;
+}
+
 void Skill_TearsBullet::InitActiveTime()
 {
 	activeTime = 0.f;

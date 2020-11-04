@@ -1,6 +1,7 @@
 #pragma once
 #include "SkillName.h"
-#include "Character.h"
+
+class Character;
 
 class Skill abstract
 {
@@ -9,10 +10,12 @@ public:
 	virtual ~Skill();
 
 public:
+	virtual void InitCoolTime() = 0;
 	virtual void InitActiveTime() = 0;
 	virtual void Update() = 0;
-	void Active(Character* _character);
+	bool Active(Character* _character);
 	void CalcActiveTime();
+	void CalcCoolTime();
 
 public:
 	// Setter
@@ -21,17 +24,20 @@ public:
 
 public:
 	// Getter
-	float GetCoolTime() { return coolTime; }
-	bool GetIsActive() { return isActive; }
-	float GetActiveTime() { return activeTime; }
-	bool GetCanMove() { return canMove; }
-	float GetMoveStopTime() { return moveStopTime; }
+	float GetCoolTime();
+	float GetActiveTime();
+	float GetMoveStopTime();
+
+	bool GetIsCoolDown();
+	bool GetIsActive();
+	bool GetCanMove();
 
 protected:
-	Character* character = nullptr;
-	float coolTime = 0.f;
-	float activeTime = 0.f;
-	float moveStopTime = 0.f;
-	bool isActive = false;
-	bool canMove = false;
+	Character* character;
+	float coolTime;
+	float activeTime;
+	float moveStopTime;
+	bool isCoolDownNow;
+	bool isActive;
+	bool canMove;
 };

@@ -5,6 +5,7 @@
 #include "Rectangle.h"
 #include "Bulbasaur.h"
 #include "TargetInfoPanel.h"
+#include "Skill.h"
 
 Character::Character() :
 	canMove(true)
@@ -195,20 +196,8 @@ void Character::UpdateAnimation()
 
 void Character::SetDir(const Vector3 & dir)
 {
-	D3DXVec3Normalize(&direction, &dir);
-}
-
-Skill* Character::GetSkillCollTime(int skillNumber)
-{
-	
-	for (auto& skill : skillSet) {
-		skillNumber--;
-		if (skillNumber == 0)
-			return skill;
-		else
-			continue;
-	}
-	return nullptr;
+	if (canMove)
+		D3DXVec3Normalize(&direction, &dir);
 }
 
 void Character::MoveForward()
@@ -224,8 +213,25 @@ void Character::ChangeState(State nextState)
 	}
 }
 
-void Character::Attack(const Vector3 & dir, const int & attackType)
+float Character::GetSkillCoolTime(int num)
 {
+	if (skillSet.size() >= num) return -5.f;
+
+	return skillSet[num]->GetCoolTime();
+}
+
+bool Character::Attack(const Vector3 & dir, const int & attackType)
+{
+	if (attackType >= skillSet.size()) return false;
+
+	if (skillSet[attackType]->Active(this))
+	{
+		canMove = skillSet[attackType]->GetCanMove();
+		moveStopTime = skillSet[attackType]->GetMoveStopTime();
+		return true;
+	}
+
+	return false;
 }
 
 bool Character::IsNotAlliance(GameObject * a, GameObject * b)

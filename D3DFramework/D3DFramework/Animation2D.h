@@ -13,6 +13,7 @@ public:
     void SetSprite(TextureKey _startTexture, TextureKey _endTexture);
     void SetLoop(bool _isLoop);
     void SetDelay(float _delay);
+	void SetTick(float _tick);
 	TextureKey GetCurrentSprite();
 	bool IsEndFrame();
     // IComponent을(를) 통해 상속됨

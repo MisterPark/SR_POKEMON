@@ -5,12 +5,16 @@
 
 Skill_XBullet::Skill_XBullet()
 {
-	coolTime = 0.5f;
 	moveStopTime = 0.5f;
 }
 
 Skill_XBullet::~Skill_XBullet()
 {
+}
+
+void Skill_XBullet::InitCoolTime()
+{
+	coolTime = 0.5f;
 }
 
 void Skill_XBullet::InitActiveTime()

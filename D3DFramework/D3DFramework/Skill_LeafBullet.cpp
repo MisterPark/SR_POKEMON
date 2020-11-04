@@ -4,12 +4,16 @@
 
 Skill_LeafBullet::Skill_LeafBullet()
 {
-	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }
 
 Skill_LeafBullet::~Skill_LeafBullet()
 {
+}
+
+void Skill_LeafBullet::InitCoolTime()
+{
+	coolTime = 0.4f;
 }
 
 void Skill_LeafBullet::InitActiveTime()
