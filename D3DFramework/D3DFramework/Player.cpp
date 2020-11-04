@@ -182,6 +182,11 @@ void Player::KeyInput()
 	bool isKeyDown = false;
 	float moveSpeed = 5.f;
 
+	if (InputManager::GetKeyDown(VK_SPACE))
+	{
+		Camera::Shake();
+	}
+
 	if (!isAttack && !isSkill)
 	{
 

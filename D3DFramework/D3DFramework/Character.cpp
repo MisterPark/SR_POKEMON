@@ -92,20 +92,31 @@ void Character::OnCollision(GameObject* target)
 {
 	if (this->team == target->team) return;
 
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	
 	hp -= target->attack;
+	
 	if (!isDead && hp <= 0)
 	{
-		
-		isDead = true;
-		if (nullptr==spawner)
+		if (playerCharacter == this)
+		{
+
 			return;
-		spawner->monsterCount--;
-		return;
+		}
+		else
+		{
+			isDead = true;
+			if (nullptr == spawner)
+				return;
+			spawner->monsterCount--;
+			return;
+		}
+		
 	}
 
 	// 상대가 플레이어면서 몬스터일때 해당
-	Character* playerCharacter = Player::GetInstance()->GetCharacter();
-	//if (target != playerCharacter) return;
+	
+
 	if (playerCharacter == this) return;
 
 	TargetInfoPanel::SetTarget(this);
