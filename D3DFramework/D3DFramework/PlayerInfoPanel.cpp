@@ -87,7 +87,7 @@ void PlayerInfoPanel::Render()
     {
         Skill* skill = skillSet[i];
         barPos.x = 60 +(i * 80);
-        barPos.y = dfCLIENT_HEIGHT - 80;
+        barPos.y = dfCLIENT_HEIGHT - 70;
         D2DRenderManager::DrawUI(skill->GetSkillIcon(), barPos, 0);
 
         //ÄðÅ¸ÀÓ
@@ -102,7 +102,7 @@ void PlayerInfoPanel::Render()
 
         if (currentSkill == i)
         {
-            D2DRenderManager::DrawUI(TextureKey::UI_ICON_BORDER, barPos, 0);
+            D2DRenderManager::DrawUI(TextureKey::UI_ICON_BORDER, Vector3(barPos.x-8,barPos.y-8,0), 0);
         }
     }
     

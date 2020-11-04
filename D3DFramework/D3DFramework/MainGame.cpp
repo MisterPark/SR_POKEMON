@@ -191,7 +191,7 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_B, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_B.png");
 
 	// ICON
-	D2DRenderManager::LoadSprite(TextureKey::ICON_FIELDFIRE,	L"Texture\\Player\\Icon\\FiedlFire.png");
+	D2DRenderManager::LoadSprite(TextureKey::ICON_FIELDFIRE,	L"Texture\\Player\\Icon\\FieldFire.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_XCLAW,		L"Texture\\Player\\Icon\\XClaw.png");
 
 	
