@@ -40,6 +40,8 @@ void Caterpie::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
+	attack = 15;
+
 	hp = 60;
 	maxHp = 60;
 

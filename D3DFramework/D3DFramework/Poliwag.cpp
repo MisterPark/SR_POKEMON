@@ -28,8 +28,6 @@ void Poliwag::Initialize()
 {
 	// stat
 	name = L"πﬂ√¨¿Ã";	
-	hp = 100;
-	maxHp = 100;
 	number = Pokemon::Poliwag;
 
 	// anim
@@ -44,7 +42,9 @@ void Poliwag::Initialize()
 	moveSpeed = 1.f;
 	offsetY = 0.5f;
 
-
+	attack = 30;
+	hp = 200;
+	maxHp = 200;
 
 	state = State::READY;
 

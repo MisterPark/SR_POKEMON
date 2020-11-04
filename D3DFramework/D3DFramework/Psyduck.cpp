@@ -41,8 +41,10 @@ void Psyduck::Initialize()
 
 	state = State::READY;
 
-	hp = 300;
-	maxHp = 300;
+	attack = 25;
+
+	hp = 150;
+	maxHp = 150;
 	
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));

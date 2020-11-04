@@ -29,11 +29,15 @@ void Skill_BubbleBullet2::Update()
 		Bullet_Bubble2* bullet = dynamic_cast<Bullet_Bubble2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Bubble2>());
 		bullet->transform->position = character->transform->position;
 		bullet->SetDir(character->direction);
-		bullet->SetInitAttack(character->attack * 2);
-		if (character->team == Team::MONSTERTEAM)
+
+		if (character->team == Team::MONSTERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		else if (character->team == Team::PLAYERTEAM)
+			bullet->SetInitAttack(character->attack * 0.5f);
+		}
+		else if (character->team == Team::PLAYERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+			bullet->SetInitAttack(character->attack * 2.f);
+		}
 		activeTime = 0.f;
 	}
 

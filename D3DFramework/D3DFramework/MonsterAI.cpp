@@ -1333,7 +1333,7 @@ void MonsterAI::MonsterAttack() {
 
 				Frame[3] = 1;
 				if (Frame[1] % 1 == 0)
-					CrossBullet();
+					c->Attack(c->direction, 0);
 			}
 			if (Time[1] >= 0.6f) {
 				Time[1] = 0.f;
@@ -1359,9 +1359,9 @@ void MonsterAI::MonsterAttack() {
 
 				Frame[3] = 1;
 				if (Frame[1] % 2 == 1)
-					CrossBullet();
+					c->Attack(c->direction, 0);
 				else
-					XBullet();
+					c->Attack(c->direction, 1);
 			}
 			if (Time[1] >= 0.6f) {
 				Time[1] = 0.f;
@@ -2502,80 +2502,4 @@ void MonsterAI::MonsterSkill2() {
 			break;
 		}
 	}
-}
-
-void MonsterAI::CrossBullet()
-{
-	float R = 1.f;
-
-	Bullet_Poision* b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Vector3 Dir2 = { 0.f,0.f,0.f };
-	Dir2.z -= R;
-	Dir2.Normalized();
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
-
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.z += R;
-	Dir2.Normalized();
-	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
-
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x += R;
-	Dir2.Normalized();
-	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
-
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x -= R;
-	Dir2.Normalized();
-	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
-}
-
-void MonsterAI::XBullet()
-{
-	float R = 1.f;
-
-	Bullet_Poision* b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Vector3 Dir2 = { 0.f,0.f,0.f };
-	Dir2.x -= R;
-	Dir2.z -= R;
-	Dir2.Normalized();
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
-
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x -= R;
-	Dir2.z += R;
-	Dir2.Normalized();
-	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
-
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x += R;
-	Dir2.z -= R;
-	Dir2.Normalized();
-	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
-
-	b = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
-	Dir2 = { 0.f,0.f,0.f };
-	Dir2.x += R;
-	Dir2.z += R;
-	Dir2.Normalized();
-	D3DXVec3Normalize(&Dir2, &Dir2);
-	b->SetDir(Dir2);
-	b->transform->position = gameObject->transform->position;
 }

@@ -34,15 +34,15 @@ void Charmander::Initialize()
 	state = State::IDLE;
 	AnimSet();
 
-	attack = 50;
+	attack = 30;
 
 	skillSet.reserve(2);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
 
-	hp = 100;
-	maxHp = 100;
+	hp = 250;
+	maxHp = 250;
 
 	UpdateAnimation();
 }

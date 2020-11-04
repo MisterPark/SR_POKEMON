@@ -44,8 +44,10 @@ void Butterfree::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
 
-	hp = 300;
-	maxHp = 300;
+	attack = 20;
+
+	hp = 120;
+	maxHp = 120;
 
 	UpdateAnimation();
 }

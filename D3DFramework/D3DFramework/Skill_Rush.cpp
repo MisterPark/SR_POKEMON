@@ -44,10 +44,14 @@ void Skill_Rush::Update()
 				bullet->transform->scale.y = 0.7f;
 				bullet->transform->scale.z = 0.7f;
 
-				if (character->team == Team::MONSTERTEAM)
+				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-				else if (character->team == Team::PLAYERTEAM)
+					bullet->SetInitAttack(character->attack * 0.25f);
+				}
+				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+					bullet->SetInitAttack(character->attack);
+				}
 			}
 		}
 		activeTime = 0;
