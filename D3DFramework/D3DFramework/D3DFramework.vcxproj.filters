@@ -640,6 +640,9 @@
     <ClInclude Include="Poliwhirl.h">
       <Filter>GameObject\Character\Water\061. Poliwhirl</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Water_02.h">
+      <Filter>Scene\Water</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1124,6 +1127,9 @@
     </ClCompile>
     <ClCompile Include="Poliwhirl.cpp">
       <Filter>GameObject\Character\Water\061. Poliwhirl</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Water_02.cpp">
+      <Filter>Scene\Water</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

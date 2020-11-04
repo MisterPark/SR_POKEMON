@@ -60,7 +60,7 @@ void TestScene::OnLoaded()
 	playerCharacter->transform->position.x = 24.f;
 	playerCharacter->transform->position.z = 48.f - 24.f;
 
-
+	
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = CreateSpawner;
 	trigerBox->transform->position = { 25.f,0.f,35.f };
