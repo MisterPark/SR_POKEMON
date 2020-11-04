@@ -4,6 +4,7 @@
 
 Skill_LeafBullet::Skill_LeafBullet()
 {
+	skillIcon = TextureKey::BULLET_LEAF_09;
 	moveStopTime = 0.4f;
 }
 
@@ -30,7 +31,7 @@ void Skill_LeafBullet::Update()
 	Vector3 pos = character->transform->position;
 	Vector3 dir = character->direction;
 
-	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF);
+	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::LEAF, character->attack);
 	ObjectManager::AddObject(bullet);
 
 	if (character->team == Team::MONSTERTEAM)

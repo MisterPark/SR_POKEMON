@@ -12,7 +12,7 @@ XClaw::XClaw(const Vector3 & pos, const Vector3 & size, TextureKey start, Textur
 	transform->scale = size;
 	direction = dir;
 	lifeTime = _lifeTime;
-	attack = att;
+	attack = att * 2.f;
 	moveSpeed = speed;
 
 	startKey = start;
@@ -57,7 +57,7 @@ void XClaw::OnCollision(GameObject * target)
 	ObjectManager::AddObject(fx);
 }
 
-XClaw * XClaw::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att)
+XClaw * XClaw::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, float att, const Vector3 & dir, float speed, float lifeTime)
 {
 	XClaw* instance = new XClaw(pos, size, start, end, dir, speed, lifeTime, att);
 	return instance;

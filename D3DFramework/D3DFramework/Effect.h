@@ -6,7 +6,7 @@ class Effect:
 {
 public:
 	Effect();
-	Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir);
+	Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY);
 	virtual ~Effect();
 
 public:
@@ -18,6 +18,8 @@ public:
 
 public:
 	bool IsDie();
+	// 지형 타기
+	void OnTerrain();
 
 public:
 	/*
@@ -40,7 +42,9 @@ public:
 		float lifeTime = 0.f,
 		bool isMove = false,
 		float speed = 0.f,
-		const Vector3& dir = { 0.f, 0.f, 1.f }
+		const Vector3& dir = { 0.f, 0.f, 1.f },
+		bool isOnTerrain = false,
+		float _offsetY = 0.f
 	);
 
 private:
@@ -58,4 +62,6 @@ private:
 	bool isLoop;
 	bool isEnd;
 	bool isPlane;
+	bool isOnTerrain;
+	float offsetY;
 };

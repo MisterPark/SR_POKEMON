@@ -33,6 +33,7 @@ public:
 	bool GetCanMove();
 
 protected:
+	TextureKey skillIcon;
 	Character* character;
 	float coolTime;
 	float activeTime;

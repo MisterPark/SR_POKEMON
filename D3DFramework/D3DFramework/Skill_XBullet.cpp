@@ -34,6 +34,7 @@ void Skill_XBullet::Update()
 	Dir2.Normalized();
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
+	bullet->SetInitAttack(character->attack);
 	if (character->team==Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else if (character->team == Team::PLAYERTEAM)
@@ -46,6 +47,7 @@ void Skill_XBullet::Update()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
+	bullet->SetInitAttack(character->attack);
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else if (character->team == Team::PLAYERTEAM)
@@ -58,6 +60,7 @@ void Skill_XBullet::Update()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
+	bullet->SetInitAttack(character->attack);
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else if (character->team == Team::PLAYERTEAM)
@@ -70,6 +73,7 @@ void Skill_XBullet::Update()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	bullet->SetDir(Dir2);
 	bullet->transform->position = character->transform->position;
+	bullet->SetInitAttack(character->attack);
 	if (character->team == Team::MONSTERTEAM)
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
 	else if (character->team == Team::PLAYERTEAM)

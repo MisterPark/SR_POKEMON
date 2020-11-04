@@ -22,10 +22,10 @@ public:
 		const Vector3& size,
 		TextureKey start,
 		TextureKey end,
+		float att,
 		const Vector3& dir = {0.f, 0.f, 0.f},
 		float speed = 0.f,
-		float lifeTime = 3.f,
-		float att = 2.f
+		float lifeTime = 3.f
 	);
 };
 

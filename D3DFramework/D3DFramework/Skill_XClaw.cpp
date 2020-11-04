@@ -5,6 +5,7 @@
 
 Skill_XClaw::Skill_XClaw()
 {
+	skillIcon = TextureKey::X_CLAW_02;
 	moveStopTime = 1.4f;
 	isSpawn = false;
 }
@@ -15,7 +16,7 @@ Skill_XClaw::~Skill_XClaw()
 
 void Skill_XClaw::InitCoolTime()
 {
-	coolTime = 5.f;
+	coolTime = 6.f;
 	isSpawn = false;
 }
 
@@ -39,7 +40,7 @@ void Skill_XClaw::Update()
 			float size = 0.4f;
 			float lifeTime = 0.4f;
 
-			XClaw* instance = XClaw::Create(pos, { size, size, size }, TextureKey::X_CLAW_01, TextureKey::X_CLAW_08, dir, speed, lifeTime, 100.f);
+			XClaw* instance = XClaw::Create(pos, { size, size, size }, TextureKey::X_CLAW_01, TextureKey::X_CLAW_08, character->attack, dir, speed, lifeTime);
 			ObjectManager::AddObject(instance);
 			if (character->team == Team::MONSTERTEAM)
 				CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);

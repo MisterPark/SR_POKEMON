@@ -8,7 +8,7 @@ public:
 
 public:
 	PlayerBullet();
-	PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& type);
+	PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& type, const float& att);
     virtual ~PlayerBullet();
     
 public:
