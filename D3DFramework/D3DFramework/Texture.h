@@ -1599,6 +1599,8 @@ namespace PKH
 		PURPLECORAL01,
 		YELLOWCORAL01,
 
+		MONSTERBALL,
+
 		RANGE,		
 	};
 

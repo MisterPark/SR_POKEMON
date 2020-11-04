@@ -69,6 +69,11 @@ void PKH::Animation2D::SetDelay(float _delay)
 	delay = _delay;
 }
 
+void PKH::Animation2D::SetTick(float _tick)
+{
+	tick = _tick;
+}
+
 TextureKey PKH::Animation2D::GetCurrentSprite()
 {
 	return currentTexture;

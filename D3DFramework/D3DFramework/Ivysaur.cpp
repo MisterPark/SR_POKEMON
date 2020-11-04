@@ -53,8 +53,21 @@ void Ivysaur::Release()
 {
 }
 
-void Ivysaur::Attack(const Vector3 & dir, const int & attackType)
+bool Ivysaur::Attack(const Vector3 & dir, const int & attackType)
 {
+	if (Character::Attack(dir, attackType))
+	{
+		/*
+		switch (attackType)
+		{
+		case 0: ChangeState(State::ATTACK); break;
+		case 1: ChangeState(State::ATTACK); break;
+		}
+		*/
+
+		return true;
+	}
+	return false;
 }
 
 Ivysaur * Ivysaur::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)

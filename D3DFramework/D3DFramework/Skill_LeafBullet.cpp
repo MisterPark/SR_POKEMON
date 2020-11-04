@@ -4,12 +4,16 @@
 
 Skill_LeafBullet::Skill_LeafBullet()
 {
-	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }
 
 Skill_LeafBullet::~Skill_LeafBullet()
 {
+}
+
+void Skill_LeafBullet::InitCoolTime()
+{
+	coolTime = 0.4f;
 }
 
 void Skill_LeafBullet::InitActiveTime()
@@ -19,6 +23,10 @@ void Skill_LeafBullet::InitActiveTime()
 
 void Skill_LeafBullet::Update()
 {
+	/*if (1)
+	{
+	Skill_WaterBullet::Create()->Active(character);
+	}*/
 	Vector3 pos = character->transform->position;
 	Vector3 dir = character->direction;
 

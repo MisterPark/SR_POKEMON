@@ -19,7 +19,7 @@ public:
 	void AnimSet();
 
 public:
-	virtual void Attack(const Vector3& dir, const int& attackType) override;
+	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
 	static Charmeleon* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);

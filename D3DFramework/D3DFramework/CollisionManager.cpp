@@ -33,6 +33,7 @@ void PKH::CollisionManager::Update()
 {
 	ObjectDeadCheck();
 	CollisionCheck(COLTYPE::PLAYER_ATTACK, COLTYPE::ENEMY);
+	CollisionCheck(COLTYPE::PLAYER, COLTYPE::TRIGGERBOX);
 	CollisionCheck(COLTYPE::PLAYER_MULTI_ATTACK, COLTYPE::ENEMY);
 	CollisionCheck(COLTYPE::ENEMY_ATTACK, COLTYPE::PLAYER);
 	CollisionCheck(COLTYPE::ENEMY_MULTI_ATTACK, COLTYPE::PLAYER);

@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Charmander.h"
-#include "PlayerBullet.h"
 
 Charmander::Charmander()
 {
@@ -95,18 +94,19 @@ void Charmander::AnimSet()
 	}
 }
 
-void Charmander::Attack(const Vector3 & dir, const int & attackType)
+bool Charmander::Attack(const Vector3 & dir, const int & attackType)
 {
-	if (skillSet.size() <= attackType) return;
-	Vector3 pos = transform->position;
-
-	skillSet[attackType]->Active(this);
-
-	switch (attackType)
+	if (Character::Attack(dir, attackType))
 	{
-	case 0: ChangeState(State::ATTACK); break;
-	case 1: ChangeState(State::ATTACK); break;
+		switch (attackType)
+		{
+		case 0: ChangeState(State::ATTACK); break;
+		case 1: ChangeState(State::ATTACK); break;
+		}
+
+		return true;
 	}
+	return false;
 }
 
 Charmander * Charmander::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)

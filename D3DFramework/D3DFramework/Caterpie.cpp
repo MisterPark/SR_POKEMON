@@ -37,8 +37,8 @@ void Caterpie::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
 	hp = 60;
 	maxHp = 60;
@@ -65,20 +65,20 @@ void Caterpie::Release()
 {
 }
 
-void Caterpie::Attack(const Vector3& dir, const int& attackType)
+bool Caterpie::Attack(const Vector3& dir, const int& attackType)
 {
-	if (skillSet.size() <= attackType) return;
-	Vector3 pos = transform->position;
-
-	skillSet[attackType]->Active(this);
-
-	if (team == Team::PLAYERTEAM) {
-		switch (attackType)
-		{
-		case 0: ChangeState(State::ATTACK); break;
-		case 1: ChangeState(State::ATTACK); break;
+	if (Character::Attack(dir, attackType))
+	{
+		if (team == Team::PLAYERTEAM) {
+			switch (attackType)
+			{
+			case 0: ChangeState(State::ATTACK); break;
+			case 1: ChangeState(State::ATTACK); break;
+			}
 		}
+		return true;
 	}
+	return false;
 }
 
 Caterpie* Caterpie::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)

@@ -85,6 +85,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::BULBASAUR);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -99,6 +100,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::CATERPIE);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -109,6 +111,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::METAPOD);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -119,6 +122,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::ODDISH);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -129,6 +133,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::VILEPLUME);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -139,6 +144,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::SCYTHER);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -149,6 +155,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -165,6 +172,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::PSYDUCK);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -175,6 +183,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::GOLDUCK);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -185,6 +194,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::POLIWAG);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -195,6 +205,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::POLIWRATH);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -215,6 +226,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::SUICUNE);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
@@ -225,6 +237,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::CHARMANDER);
 				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
 				ObjectManager::AddObject(monsterCharacter);
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;

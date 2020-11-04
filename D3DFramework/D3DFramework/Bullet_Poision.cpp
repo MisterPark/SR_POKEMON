@@ -13,6 +13,7 @@ Bullet_Poision::Bullet_Poision()
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
+	attack = 10.f;
 	lifeTime = 2.5f;
 	moveSpeed = 1.f;
 }

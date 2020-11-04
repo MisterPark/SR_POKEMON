@@ -23,6 +23,8 @@
 #include "Tree.h"
 
 #include "Stage_Fire_01.h"
+#include "TriggerBox.h"
+
 void Stage_Water_Boss::OnLoaded()
 {
 	SkyBox::Show();
@@ -37,8 +39,20 @@ void Stage_Water_Boss::OnLoaded()
 	playerCharacter->transform->position.x = 5.f;
 	playerCharacter->transform->position.z = 48.f - 44.f;
 	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);
-
 	
+	float size = 1.f;
+	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->OnTriggered = Create_Monster_A_Spawner;
+	trigerBox->transform->position = { 17.f,0.f,48.f-4.f };
+	trigerBox->transform->scale += {size, size, size};
+	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->OnTriggered = Create_Monster_B_Spawner;
+	trigerBox->transform->position = { 44.f,0.f,48.f - 18.f };
+	trigerBox->transform->scale += {size, size, size};
+	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->OnTriggered = Create_Monster_C_Spawner;
+	trigerBox->transform->position = { 43.f,0.f,48.f - 32.f };
+	trigerBox->transform->scale += {size, size, size};
 }
 
 void Stage_Water_Boss::OnUnloaded()
@@ -99,4 +113,26 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 
 
 
+}
+
+void Stage_Water_Boss::Create_Monster_A_Spawner()
+{
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWAG, 7.f, 0.5f, 10);
+	poliwagSpawner->transform->position = { 6.f,0.f,48.f-13.f };
+	ObjectManager::AddObject(poliwagSpawner);
+
+}
+
+void Stage_Water_Boss::Create_Monster_B_Spawner()
+{
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWRATH, 10.f, 0.5f, 10);
+	poliwagSpawner->transform->position = { 41.f,0.f,48.f - 8.f };
+	ObjectManager::AddObject(poliwagSpawner);
+}
+
+void Stage_Water_Boss::Create_Monster_C_Spawner()
+{
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::GOLDUCK, 6.f, 0.5f, 10);
+	poliwagSpawner->transform->position = { 36.f,0.f,48.f - 42.f };
+	ObjectManager::AddObject(poliwagSpawner);
 }

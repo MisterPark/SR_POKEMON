@@ -5,12 +5,16 @@
 
 Skill_WaterBullet::Skill_WaterBullet()
 {
-	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }
 
 Skill_WaterBullet::~Skill_WaterBullet()
 {
+}
+
+void Skill_WaterBullet::InitCoolTime()
+{
+	coolTime = 0.4f;
 }
 
 void Skill_WaterBullet::InitActiveTime()

@@ -41,8 +41,8 @@ void Butterfree::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
 
 	hp = 300;
 	maxHp = 300;
@@ -65,20 +65,20 @@ void Butterfree::Release()
 {
 }
 
-void Butterfree::Attack(const Vector3& dir, const int& attackType)
+bool Butterfree::Attack(const Vector3& dir, const int& attackType)
 {
-	if (skillSet.size() <= attackType) return;
-	Vector3 pos = transform->position;
-
-	skillSet[attackType]->Active(this);
-
-	if (team == Team::PLAYERTEAM) {
-		switch (attackType)
-		{
-		case 0: ChangeState(State::ATTACK); break;
-		case 1: ChangeState(State::ATTACK); break;
+	if (Character::Attack(dir, attackType))
+	{
+		if (team == Team::PLAYERTEAM) {
+			switch (attackType)
+			{
+			case 0: ChangeState(State::ATTACK); break;
+			case 1: ChangeState(State::ATTACK); break;
+			}
 		}
+		return true;
 	}
+	return false;
 }
 
 Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)

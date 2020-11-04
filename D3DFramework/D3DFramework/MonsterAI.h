@@ -26,6 +26,9 @@ public:
 
     //랜덤한 값을 가진 Vector3를 Normalize 해서 반환합니다.
     Vector3 DirRandom();
+	//스폰의 반경에서 랜덤한 위치를 가진 Vector3를 "spawnInPos"로 받고,
+	// 그곳에 대한 방향벡터를 "direction" 으로 넣어줍니다.
+	void SpawnInRandomPos();
     //Player 를 향한 방향벡터를 Normalize 해서 반환합니다.
     //인자를 true 로 주면 Y값 까지 반영됩니다.
     Vector3 DirFromPlayer(bool _posY = false);
@@ -75,5 +78,6 @@ public:
     int endPattern = (int)State::END;
     //SearchRange[0]: 몬스터감지최소거리, SearchRange[3]: 몬스터가플레이어를놓칠거리
     float searchRange[4];
+	Vector3 spawnInPos = { 0.f, 0.f, 0.f };
 };
 

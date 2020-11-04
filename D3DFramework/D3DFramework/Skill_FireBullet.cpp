@@ -4,12 +4,16 @@
 
 Skill_FireBullet::Skill_FireBullet()
 {
-	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }
 
 Skill_FireBullet::~Skill_FireBullet()
 {
+}
+
+void Skill_FireBullet::InitCoolTime()
+{
+	coolTime = 0.4f;
 }
 
 void Skill_FireBullet::InitActiveTime()
