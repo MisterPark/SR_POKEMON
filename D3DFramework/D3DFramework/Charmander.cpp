@@ -25,7 +25,7 @@ void Charmander::Initialize()
 	number = Pokemon::Charmander;
 
 	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PF01_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::PF01_WALK_D_02, 3, 2);
 	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
 	SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 2);
 
@@ -76,18 +76,22 @@ void Charmander::AnimSet()
 	case State::IDLE:
 		anim->SetLoop(false);
 		anim->SetDelay(0.1f);
+		anim->SetTick(0.f);
 		break;
 	case State::WALK:
 		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
+		anim->SetDelay(0.15f);
+		anim->SetTick(0.f);
 		break;
 	case State::ATTACK:
 		anim->SetLoop(true);
 		anim->SetDelay(0.2f);
+		anim->SetTick(0.f);
 		break;
 	case State::SKILL:
 		anim->SetLoop(true);
 		anim->SetDelay(0.2f);
+		anim->SetTick(0.f);
 		break;
 	case State::HURT:
 		break;

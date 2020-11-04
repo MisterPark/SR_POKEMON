@@ -274,6 +274,12 @@ void MonsterAI::SetType(MonsterType _type)
 		searchRange[0] = 6.f;
 		searchRange[3] = 10.f;
 		break;
+	case MonsterType::GLOOM:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
+		break;
 	case MonsterType::VILEPLUME:
 		SetPatternRange(1, 1);
 		searchRange[0] = 6.f;
@@ -305,6 +311,12 @@ void MonsterAI::SetType(MonsterType _type)
 		searchRange[3] = 10.f;
 		break;
 	case MonsterType::POLIWAG:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
+		break;
+	case MonsterType::POLIWHIRL:
 		SetPatternRange(1, 1);
 		searchRange[0] = 6.f;
 		searchRange[1] = 3.f;
@@ -452,6 +464,10 @@ void MonsterAI::MonsterIdle() {
 			break;
 		case MonsterType::ODDISH:
 			break;
+		case MonsterType::GLOOM:
+			break;
+		case MonsterType::POLIWHIRL:
+			break;
 		case MonsterType::VILEPLUME:
 			break;
 		case MonsterType::SCYTHER:
@@ -521,6 +537,8 @@ void MonsterAI::MonsterIdle() {
 			break;
 		case MonsterType::ODDISH:
 			break;
+		case MonsterType::GLOOM:
+			break;
 		case MonsterType::VILEPLUME:
 			break;
 		case MonsterType::SCYTHER:
@@ -532,6 +550,8 @@ void MonsterAI::MonsterIdle() {
 		case MonsterType::GOLDUCK:
 			break;
 		case MonsterType::POLIWAG:
+			break;
+		case MonsterType::POLIWHIRL:
 			break;
 		case MonsterType::POLIWRATH:
 			break;
@@ -691,6 +711,26 @@ void MonsterAI::MonsterWalk() {
 			MovePlayerFollow();
 
 			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[4] > 0.f) {
+					Time[4] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[4] = 0.f;
+					c->state = State::ATTACK;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
+
+			break;
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
 
@@ -793,6 +833,27 @@ void MonsterAI::MonsterWalk() {
 			}
 			break;
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[4] > 0.f) {
+					Time[4] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[4] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
+			break;
+
+		case MonsterType::POLIWHIRL:
 			if (readyPattern) {
 
 				readyPattern = false;
@@ -1003,6 +1064,16 @@ void MonsterAI::MonsterWalk() {
 			MoveRandomPattern(1.5f, 3);
 			
 			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+				SpawnInRandomPos();
+				readyPattern = false;
+			}
+
+			MoveRandomPattern(1.5f, 3);
+
+			break;
+
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
 				SpawnInRandomPos();
@@ -1052,7 +1123,13 @@ void MonsterAI::MonsterWalk() {
 			}
 			MoveRandomPattern(1.5f, 3);
 			break;
-
+		case MonsterType::POLIWHIRL:
+			if (readyPattern) {
+				SpawnInRandomPos();
+				readyPattern = false;
+			}
+			MoveRandomPattern(1.5f, 3);
+			break;
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
 				SpawnInRandomPos();
@@ -1244,6 +1321,31 @@ void MonsterAI::MonsterAttack() {
 				readyPattern = false;
 			}
 			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+				c->anim->SetDelay(0.3f);
+				SpawnInRandomPos();
+				readyPattern = false;
+			}
+
+			Time[1] += TimeManager::DeltaTime();
+			if (Frame[3] == 0 && Time[1] >= 0.3f) {
+
+				Frame[3] = 1;
+				if (Frame[1] % 1 == 0)
+					CrossBullet();
+			}
+			if (Time[1] >= 0.6f) {
+				Time[1] = 0.f;
+				Frame[1]++;
+				Frame[3] = 0;
+				if (Frame[1] == 3) {
+					Frame[1] = 0;
+					c->anim->SetDelay(0.2f);
+					c->state = State::WALK;
+					Time[4] = 3.f; //ÄðÅ¸ÀÓ
+				}
+			}
 
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
@@ -1350,6 +1452,41 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::GOLDUCK:
 			break;
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				if (disPlayer < searchRange[1]) {
+					c->state = State::ATTACK;
+					c->anim->SetDelay(0.3f);
+				}
+				else {//if (disPlayer > 10.f)
+					c->state = State::WALK;
+					c->anim->SetDelay(0.3f);
+				}
+				readyPattern = false;
+			}
+
+			Time[1] += TimeManager::DeltaTime();
+
+			if (Time[1] >= 1.0f) {
+				Time[0] = 0;
+				Frame[1]++;
+				if (Frame[1] == 1) {
+					Bullet_Bubble* b = dynamic_cast<Bullet_Bubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_Bubble>());
+					c->direction = DirFromPlayer(true);
+					Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
+					b->SetDir(bDir);
+					*(b->transform) = *c->transform;
+					b->transform->position.y -= 0.5f;
+				}
+				else if (Frame[1] == 2) {
+					c->anim->SetDelay(0.2f);
+					Time[1] = 0.f;
+					Frame[1] = 0.f;
+					c->state = State::READY;
+					Time[2] = 2.5f;
+				}
+			}
+			break;
+		case MonsterType::POLIWHIRL:
 			if (readyPattern) {
 				if (disPlayer < searchRange[1]) {
 					c->state = State::ATTACK;
@@ -1526,6 +1663,11 @@ void MonsterAI::MonsterAttack() {
 				readyPattern = false;
 			}
 			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
@@ -1562,7 +1704,11 @@ void MonsterAI::MonsterAttack() {
 				readyPattern = false;
 			}
 			break;
-
+		case MonsterType::POLIWHIRL:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
 				readyPattern = false;
@@ -1712,7 +1858,11 @@ void MonsterAI::MonsterSkill() {
 				readyPattern = false;
 			}
 			break;
-
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
 				readyPattern = false;
@@ -1782,7 +1932,11 @@ void MonsterAI::MonsterSkill() {
 				readyPattern = false;
 			}
 			break;
-
+		case MonsterType::POLIWHIRL:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
 				readyPattern = false;
@@ -1925,6 +2079,11 @@ void MonsterAI::MonsterSkill() {
 				readyPattern = false;
 			}
 			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
@@ -1961,7 +2120,11 @@ void MonsterAI::MonsterSkill() {
 				readyPattern = false;
 			}
 			break;
-
+		case MonsterType::POLIWHIRL:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
 				readyPattern = false;
@@ -2108,6 +2271,11 @@ void MonsterAI::MonsterSkill2() {
 				readyPattern = false;
 			}
 			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
@@ -2153,9 +2321,19 @@ void MonsterAI::MonsterSkill2() {
 			break;
 
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
-
+		case MonsterType::POLIWHIRL:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
 
 		case MonsterType::JYNX:
@@ -2245,6 +2423,11 @@ void MonsterAI::MonsterSkill2() {
 			if (readyPattern) {
 			}
 			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+			}
+			break;
+
 		case MonsterType::VILEPLUME:
 			if (readyPattern) {
 			}
@@ -2266,6 +2449,10 @@ void MonsterAI::MonsterSkill2() {
 			}
 			break;
 		case MonsterType::POLIWAG:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::POLIWHIRL:
 			if (readyPattern) {
 			}
 			break;

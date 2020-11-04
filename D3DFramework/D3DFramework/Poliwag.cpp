@@ -33,7 +33,7 @@ void Poliwag::Initialize()
 	number = Pokemon::Poliwag;
 
 	// anim
-	SetTexture(State::WALK, TextureKey::WAG_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::WAG_WALK_D_02, 3,2);
 	SetTexture(State::IDLE, TextureKey::WAG_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::WAG_WALK_D_01, 3, 1);
 	SetTexture(State::ATTACK, TextureKey::WAG_ATTACK_D_01, 1);

@@ -202,7 +202,7 @@ void Stage_Grass_02::Stage_Grass_02_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 7);
+			Spawner* spawner = Spawner::Create(MonsterType::GLOOM, 10.f, 0.5f, 7);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
