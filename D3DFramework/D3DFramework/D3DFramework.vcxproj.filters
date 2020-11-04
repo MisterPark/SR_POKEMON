@@ -583,6 +583,9 @@
     <ClInclude Include="TriggerBox.h">
       <Filter>GameObject\TriggerBox</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Grass_02.h">
+      <Filter>Scene\Grass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1031,6 +1034,9 @@
     <ClCompile Include="PlayerInfoPanel.cpp" />
     <ClCompile Include="TriggerBox.cpp">
       <Filter>GameObject\TriggerBox</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Grass_02.cpp">
+      <Filter>Scene\Grass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

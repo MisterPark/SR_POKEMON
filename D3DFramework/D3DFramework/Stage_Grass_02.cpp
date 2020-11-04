@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Stage_Grass_01.h"
+#include "Stage_Grass_02.h"
 #include "SkyBox.h"
 #include "Character.h"
 #include "Environment.h"
@@ -23,16 +23,16 @@
 #include "Water.h"
 #include "Tree.h"
 #include "Coral.h"
-#include "Stage_Grass_02.h"
+#include "Stage_Grass_Boss.h"
 
 #include "Spawner.h"
 #include "TriggerBox.h"
 
-void Stage_Grass_01::OnLoaded()
+void Stage_Grass_02::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
-	Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
@@ -58,22 +58,22 @@ void Stage_Grass_01::OnLoaded()
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	/*trigerBox->OnTriggered = CreateSpawner;*/
-	trigerBox->transform->position = { 18.f,0.f,48.f-21.f };
+	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
 
 
-	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Grass1.bmp", 0.1f);
+	Set_Stage_Grass_02_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Lake.bmp", 3.f);
 
 
 }
 
-void Stage_Grass_01::OnUnloaded()
+void Stage_Grass_02::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
 	Player::GetInstance()->SetCharacter(nullptr);
 	ObjectManager::DestroyAll();
 }
 
-void Stage_Grass_01::Update()
+void Stage_Grass_02::Update()
 {
 
 
@@ -83,14 +83,14 @@ void Stage_Grass_01::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Grass_02>();
+		SceneManager::LoadScene<Stage_Grass_Boss>();
 	}
-	Stage_Grass_01_Wave();
-	
+	Stage_Grass_02_Wave();
+
 }
 
 
-void Stage_Grass_01::Set_Stage_Grass_01_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
+void Stage_Grass_02::Set_Stage_Grass_02_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
 {
 	//지형
 	GameObject* environment = ObjectManager::GetInstance()->CreateObject<Environment>();
@@ -131,68 +131,68 @@ void Stage_Grass_01::Set_Stage_Grass_01_Map(TextureKey _key, const std::string& 
 		tree->transform->position.z += 10.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 	}
-	////산호
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 16.f + i;
-	//		coral->transform->position.z = 48.f - 21.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::BLUECORAL01);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 20.f + i;
-	//		coral->transform->position.z = 48.f - 32.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::WHITECORAL02);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 28.f + i;
-	//		coral->transform->position.z = 48.f - 25.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::REDCORAL01);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 27.f + i;
-	//		coral->transform->position.z = 48.f - 16.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::PURPLECORAL01);
-	//	}
-	//}
-	//for (float i = 0; i < 3; i+=0.7)
-	//{
-	//	for (float j = 0; j < 3; j+=0.7)
-	//	{
-	//		GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
-	//		coral->transform->position.x = 32.f + i;
-	//		coral->transform->position.z = 48.f - 29.f + j;
-	//		dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::YELLOWCORAL01);
-	//	}
-	//}
+	//산호
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 16.f + i;
+			coral->transform->position.z = 48.f - 21.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::BLUECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 20.f + i;
+			coral->transform->position.z = 48.f - 32.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::WHITECORAL02);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 28.f + i;
+			coral->transform->position.z = 48.f - 25.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::REDCORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 27.f + i;
+			coral->transform->position.z = 48.f - 16.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::PURPLECORAL01);
+		}
+	}
+	for (float i = 0; i < 3; i+=0.7)
+	{
+		for (float j = 0; j < 3; j+=0.7)
+		{
+			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
+			coral->transform->position.x = 32.f + i;
+			coral->transform->position.z = 48.f - 29.f + j;
+			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::YELLOWCORAL01);
+		}
+	}
 
 }
 
-void Stage_Grass_01::Stage_Grass_01_Wave()
+void Stage_Grass_02::Stage_Grass_02_Wave()
 {
 	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
 	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10);
+		Spawner* spawner = Spawner::Create(MonsterType::ODDISH, 10.f, 0.5f, 10);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 		triggerOn = true;
@@ -202,14 +202,14 @@ void Stage_Grass_01::Stage_Grass_01_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::METAPOD, 10.f, 0.5f, 7);
+			Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 7);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
 		}
 		else if (spawnerCount == 2)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f, 5);
+			Spawner* spawner = Spawner::Create(MonsterType::VILEPLUME, 10.f, 0.5f, 5);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
@@ -226,14 +226,14 @@ void Stage_Grass_01::Stage_Grass_01_Wave()
 	}
 }
 
-void Stage_Grass_01::CreateSpawner()
+void Stage_Grass_02::CreateSpawner()
 {
 	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 }
 
-void Stage_Grass_01::Portal()
+void Stage_Grass_02::Portal()
 {
-	SceneManager::LoadScene<Stage_Grass_02>();
+	SceneManager::LoadScene<Stage_Grass_Boss>();
 }

@@ -17,7 +17,7 @@ public:
 public:
 	//몬스터타입, 나오는 범위(인트형),나오는 딜레이(주기), 나오는 몬스터의 수
 	static Spawner* Create(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount);
-	
+
 
 	MonsterType monsterType;
 	//스포너의 반지름
