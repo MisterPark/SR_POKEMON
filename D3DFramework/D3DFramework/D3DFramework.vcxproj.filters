@@ -241,6 +241,9 @@
     <Filter Include="GameObject\Spawner">
       <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\TriggerBox">
+      <UniqueIdentifier>{99faca5d-c3cc-4633-b888-2e9e507f37f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -577,6 +580,9 @@
       <Filter>GameObject\UI</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInfoPanel.h" />
+    <ClInclude Include="TriggerBox.h">
+      <Filter>GameObject\TriggerBox</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1023,6 +1029,9 @@
       <Filter>GameObject\UI</Filter>
     </ClCompile>
     <ClCompile Include="PlayerInfoPanel.cpp" />
+    <ClCompile Include="TriggerBox.cpp">
+      <Filter>GameObject\TriggerBox</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

@@ -4,7 +4,7 @@ class Spawner : public GameObject
 {
 public:
 	Spawner();
-	Spawner(MonsterType _monsterType, int _radius, float _createDelay);
+	Spawner(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount);
 	virtual ~Spawner();
 
 
@@ -15,13 +15,21 @@ public:
 	virtual void Update() override;
 	void CreateMonster(MonsterType _monsterType);
 public:
-	//몬스터타입, 나오는 범위(인트형),나오는 딜레이(주기)
-	static Spawner* Create(MonsterType _monsterType, int _radius, float _createDelay);
+	//몬스터타입, 나오는 범위(인트형),나오는 딜레이(주기), 나오는 몬스터의 수
+	static Spawner* Create(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount);
 	
 
 	MonsterType monsterType;
+	//스포너의 반지름
 	int radius;
+	//몬스터 생성주기에 관한 변수
 	float createDelay;
+	//몬스터 생성주기에 관한 변수
 	float createTick;
+	//몬스터의 수
+	int monsterCount;
+	//만들 몬스터의 수
+	int monsterCreateCount;
+	
 };
 
