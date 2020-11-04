@@ -5,6 +5,7 @@
 #include "Rectangle.h"
 #include "TargetInfoPanel.h"
 #include "Skill.h"
+#include "DamageSkin.h"
 
 Character::Character() :
 	canMove(true)
@@ -99,8 +100,14 @@ void Character::OnCollision(GameObject* target)
 	float errorHalf = error * 0.5f;
 	error = Random::Range(0.f, error);
 	error -= errorHalf;
-	hp -= target->attack + error;
-	
+	float damageSum = target->attack + error;
+	hp -= damageSum;
+
+	DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
+	skin->transform->position = this->transform->position;
+	skin->SetDamage(damageSum);
+
+	// ªÁ∏¡√≥∏Æ
 	if (!isDead && hp <= 0)
 	{
 		hp = 0;
