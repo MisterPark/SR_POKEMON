@@ -26,7 +26,7 @@ void Ivysaur::Initialize()
 	number = Pokemon::Ivysaur;
 
 	SetTexture(State::IDLE, TextureKey::PG02_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PG02_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::PG02_WALK_D_02, 3,2);
 	SetTexture(State::ATTACK, TextureKey::PG02_ATTACK_D_01, 2);
 	SetTexture(State::SKILL, TextureKey::PG02_SKILL_D_01, 2);
 

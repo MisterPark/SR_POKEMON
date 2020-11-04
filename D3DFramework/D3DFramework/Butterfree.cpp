@@ -28,7 +28,7 @@ void Butterfree::Initialize()
 	name = L"버터플라이";
 	number = Pokemon::Butterfree;
 
-	SetTexture(State::WALK, TextureKey::BUTTER_WALK_D_01, 3);
+	SetTexture(State::WALK, TextureKey::BUTTER_WALK_D_02, 3,2);
 	SetTexture(State::IDLE, TextureKey::BUTTER_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::BUTTER_WALK_D_01, 3, 1);
 	SetTexture(State::ATTACK, TextureKey::BUTTER_ATTACK_D_01, 2);

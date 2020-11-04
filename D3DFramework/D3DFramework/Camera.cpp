@@ -55,8 +55,13 @@ void PKH::Camera::Update()
 	{
 		transform->position = target->GetTransform()->position - (target->GetTransform()->look * 1.2f);
 		transform->position.y += 1.f;
+
+
 		transform->look = target->GetTransform()->position + (target->GetTransform()->look * 10.f);
 	}
+
+	
+	UpdateShake();
 
 	viewMatrix = Matrix::LookAtLH(transform->position, transform->look, transform->up);
 	//D3DXMatrixLookAtLH(&viewMatrix, &transform->position, &transform->look, &transform->up);
@@ -138,7 +143,39 @@ Vector3 PKH::Camera::WorldToScreenPoint(const Vector3& position)
 	return pos;
 }
 
-void PKH::Camera::PerspectiveProjection() 
+void PKH::Camera::Shake()
+{
+	pCamera->isShake = true;
+	pCamera->shakeTick = 0.f;
+}
+
+void PKH::Camera::UpdateShake()
+{
+	shakeTick += TimeManager::DeltaTime();
+	if (shakeTick > shakeDuration)
+	{
+		shakeTick = 0.f;
+		isShake = false;
+	}
+
+	if (isShake)
+	{
+		float ranX = Random::Range(0.f, 0.2f);
+		float ranY = Random::Range(0.f, 0.2f);
+		float ranZ = Random::Range(0.f, 0.2f);
+
+		transform->position.x += ranX;
+		transform->position.y += ranY;
+		transform->position.z += ranZ;
+	}
+}
+
+void PKH::Camera::SetShakeDuration(float _duration)
+{
+	pCamera->shakeDuration = _duration;
+}
+
+void PKH::Camera::PerspectiveProjection()
 {
 	pCamera->projectionMatrix = Matrix::PerspectiveFovLH(D3DXToRadian(90.f),
 		(float)dfCLIENT_WIDTH / dfCLIENT_HEIGHT,

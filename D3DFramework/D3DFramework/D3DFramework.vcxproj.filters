@@ -253,6 +253,18 @@
     <Filter Include="Skill\12. BubbleBullet">
       <UniqueIdentifier>{47c0363f-5c86-4b55-9316-dc8e6749477b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\11. XClaw">
+      <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\XClaw">
+      <UniqueIdentifier>{49aaf383-193e-4fc4-8432-3dc289d1f415}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Grass\045. Gloom">
+      <UniqueIdentifier>{33ed4623-5da2-4221-83fc-bf69cfc9fd9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Water\061. Poliwhirl">
+      <UniqueIdentifier>{613c516a-9f51-4adf-a784-5cd2f3539012}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -612,6 +624,21 @@
     </ClInclude>
     <ClInclude Include="Skill_BubbleBullet2.h">
       <Filter>Skill\12. BubbleBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_XClaw.h">
+      <Filter>Skill\11. XClaw</Filter>
+    </ClInclude>
+    <ClInclude Include="XClaw.h">
+      <Filter>GameObject\Bullet\XClaw</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Grass_02.h">
+      <Filter>Scene\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="Gloom.h">
+      <Filter>GameObject\Character\Grass\045. Gloom</Filter>
+    </ClInclude>
+    <ClInclude Include="Poliwhirl.h">
+      <Filter>GameObject\Character\Water\061. Poliwhirl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1082,6 +1109,21 @@
     </ClCompile>
     <ClCompile Include="Skill_BubbleBullet2.cpp">
       <Filter>Skill\12. BubbleBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_XClaw.cpp">
+      <Filter>Skill\11. XClaw</Filter>
+    </ClCompile>
+    <ClCompile Include="XClaw.cpp">
+      <Filter>GameObject\Bullet\XClaw</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Grass_02.cpp">
+      <Filter>Scene\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="Gloom.cpp">
+      <Filter>GameObject\Character\Grass\045. Gloom</Filter>
+    </ClCompile>
+    <ClCompile Include="Poliwhirl.cpp">
+      <Filter>GameObject\Character\Water\061. Poliwhirl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

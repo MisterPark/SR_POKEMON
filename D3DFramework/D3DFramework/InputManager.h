@@ -52,6 +52,8 @@ namespace PKH
 		static bool GetMouseRButtonUp();
 		static bool GetMouseRButtonDown();
 		static bool GetMouseRButtonDouble();
+		static bool GetMouseWheelUp();
+		static bool GetMouseWheelDown();
 
 		static POINT GetMousePosOnClient();
 		static POINT GetMousePosOnWorld();

@@ -3,7 +3,6 @@
 #include "Terrain.h"
 #include "Environment.h"
 #include "Rectangle.h"
-#include "Bulbasaur.h"
 #include "TargetInfoPanel.h"
 #include "Skill.h"
 
@@ -92,20 +91,38 @@ void Character::OnCollision(GameObject* target)
 {
 	if (this->team == target->team) return;
 
-	hp -= target->attack;
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	
+	// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
+	
+	float error = target->attack * 0.4f;
+	float errorHalf = error * 0.5f;
+	error = Random::Range(0.f, error);
+	error -= errorHalf;
+	hp -= target->attack + error;
+	
 	if (!isDead && hp <= 0)
 	{
-		
-		isDead = true;
-		if (nullptr==spawner)
+		hp = 0;
+		if (playerCharacter == this)
+		{
+
 			return;
-		spawner->monsterCount--;
-		return;
+		}
+		else
+		{
+			isDead = true;
+			if (nullptr == spawner)
+				return;
+			spawner->monsterCount--;
+			return;
+		}
+		
 	}
 
 	// 상대가 플레이어면서 몬스터일때 해당
-	Character* playerCharacter = Player::GetInstance()->GetCharacter();
-	//if (target != playerCharacter) return;
+	
+
 	if (playerCharacter == this) return;
 
 	TargetInfoPanel::SetTarget(this);

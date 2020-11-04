@@ -144,6 +144,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::BubbleBullet2:
 		newSkill = Skill_BubbleBullet2::Create();
 		break;
+	case SkillName::XClaw:
+		newSkill = Skill_XClaw::Create();
+		break;
 	}
 
 	return newSkill;

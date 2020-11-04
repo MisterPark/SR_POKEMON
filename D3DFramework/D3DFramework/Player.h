@@ -14,6 +14,7 @@ public:
 public:
 	void Update();
 	void PostUpdate();
+	void Evolution();
 
 public:
 	// Setter
@@ -21,6 +22,7 @@ public:
 	void SetRadianX(float _x) { radianX = _x; }
 	// 45도 1시 90 3시 180도 7시 270 11시
 	void SetRadianY(float _y) { radianY = _y; }
+
 public:
 	// Getter
 	Character* GetCharacter() { return character; }
@@ -33,7 +35,6 @@ private:
 
 private:
 	void ResetMousePoint();
-	void CalcCoolTime();
 	void Attack();
 	void CalcMouse();
 	void KeyInput();
@@ -42,14 +43,11 @@ private:
 private:
 	static Player* instance;
 
-	Character* character;
+	Character* character = nullptr;
 	float radianX;
 	float radianY;
-	float attackCoolTime;
-	float skillCoolTime;
-	bool isAttack;
-	bool isSkill;
 	bool isFix;
-	bool canMove;
+	int skillNum;
+	int skillSetSize;
 };
 
