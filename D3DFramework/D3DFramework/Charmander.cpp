@@ -34,6 +34,8 @@ void Charmander::Initialize()
 	state = State::IDLE;
 	AnimSet();
 
+	attack = 50;
+
 	skillSet.reserve(2);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));

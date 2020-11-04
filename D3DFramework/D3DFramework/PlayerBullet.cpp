@@ -6,13 +6,13 @@ PlayerBullet::PlayerBullet()
 {
 }
 
-PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& type) :
+PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& type, const float& att) :
 	bulletType(type)
 {
 	transform->position = pos;
 	direction = dir;
 
-	attack = 50.f;
+	attack = att;
 	moveSpeed = 10.f;
 	lifeTime = 1.2f;
 

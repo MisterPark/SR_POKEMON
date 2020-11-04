@@ -4,6 +4,7 @@
 
 Skill_FireBullet::Skill_FireBullet()
 {
+	skillIcon = TextureKey::BULLET_FIRE_01;
 	moveStopTime = 0.4f;
 }
 
@@ -26,7 +27,7 @@ void Skill_FireBullet::Update()
 	Vector3 pos = character->transform->position;
 	Vector3 dir = character->direction;
 
-	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::FIRE);
+	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::FIRE, character->attack);
 	ObjectManager::AddObject(bullet);
 
 	if (character->team == Team::MONSTERTEAM)

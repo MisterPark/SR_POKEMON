@@ -5,6 +5,7 @@
 
 Skill_WaterBullet::Skill_WaterBullet()
 {
+	skillIcon = TextureKey::BULLET_WATER_01;
 	moveStopTime = 0.4f;
 }
 
@@ -27,7 +28,7 @@ void Skill_WaterBullet::Update()
 	Vector3 pos = character->transform->position;
 	Vector3 dir = character->direction;
 
-	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER);
+	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER, character->attack);
 	ObjectManager::AddObject(bullet);
 
 	Effect* effect = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::BULLET_FIRE_01, TextureKey::BULLET_FIRE_05, 0.2f, true);

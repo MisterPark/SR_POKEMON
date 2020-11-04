@@ -12,7 +12,7 @@ Blaze::Blaze(const Vector3 & pos, const Vector3 & size, TextureKey start, Textur
 	transform->scale = size;
 	direction = dir;
 	lifeTime = _lifeTime;
-	attack = att;
+	attack = att * 1.5f;
 	moveSpeed = speed;
 
 	startKey = start;
@@ -58,7 +58,7 @@ void Blaze::OnCollision(GameObject * target)
 	ObjectManager::AddObject(fx);
 }
 
-Blaze * Blaze::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att)
+Blaze * Blaze::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, float att, const Vector3 & dir, float speed, float lifeTime)
 {
 	Blaze* instance = new Blaze(pos, size, start, end, dir, speed, lifeTime, att);
 	return instance;
