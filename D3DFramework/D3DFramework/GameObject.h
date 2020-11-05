@@ -73,11 +73,11 @@ namespace PKH
 
 		IComponent* GetComponent(const wstring& _key);
 		Transform* GetTransform() const { return transform; } //¼öÁ¤
+		STAT GetStat() const { return stat; }
 
 	public:
 		Transform* transform = nullptr;
-		float attack = 0.f;
-		float moveSpeed = 1.f;
+		STAT stat;
 		ObjectType type = ObjectType::NONE;
 		Team team = Team::NEUTRAL;
 		bool isDead = false;

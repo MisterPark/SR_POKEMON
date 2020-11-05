@@ -36,15 +36,15 @@ void Psyduck::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
 	state = State::READY;
 
-	attack = 25;
+	stat.attack = 25;
 
-	hp = 150;
-	maxHp = 150;
+	stat.hp = 150;
+	stat.maxHp = 150;
 	
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));

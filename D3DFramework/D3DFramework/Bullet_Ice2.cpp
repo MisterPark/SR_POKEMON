@@ -13,9 +13,9 @@ Bullet_Ice2::Bullet_Ice2()
 
 	transform->scale = { 1.2f, 1.2f, 1.2f };
 
-	attack = initAttack;
+	stat.attack = initAttack;
 	lifeTime = 25.f;
-	moveSpeed = 3.5f;
+	stat.moveSpeed = 3.5f;
 	isOnTerrain = true;
 	offsetY = 1.2f;
 }

@@ -13,9 +13,9 @@ Bullet_Ice::Bullet_Ice()
 
 	transform->scale = { 0.6f, 0.6f, 0.6f };
 
-	attack = initAttack;
+	stat.attack = initAttack;
 	lifeTime = 2.6f;
-	moveSpeed = 3.f;
+	stat.moveSpeed = 3.f;
 }
 
 Bullet_Ice::~Bullet_Ice()
@@ -27,11 +27,11 @@ void Bullet_Ice::Update()
 	Bullet::Update();
 
 	if (lifeTime > 2.f) {
-		moveSpeed = 0.f;
+		stat.moveSpeed = 0.f;
 	}
 	else {
 		anim->SetSprite(TextureKey::BULLET_ICE1_12, TextureKey::BULLET_ICE1_13);
-		moveSpeed = 8.f;
+		stat.moveSpeed = 8.f;
 	}
 
 	if (isDead) {

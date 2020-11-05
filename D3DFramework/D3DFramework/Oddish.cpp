@@ -36,7 +36,7 @@ void Oddish::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
 	state = State::READY;
@@ -44,10 +44,10 @@ void Oddish::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
-	attack = 30;
+	stat.attack = 30;
 
-	hp = 100;
-	maxHp = 100;
+	stat.hp = 100;
+	stat.maxHp = 100;
 
 	UpdateAnimation();
 }

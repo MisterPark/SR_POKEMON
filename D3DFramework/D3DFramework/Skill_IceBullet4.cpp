@@ -31,12 +31,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ character->direction.x, 0.f, character->direction.z });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 	bullet = dynamic_cast<Bullet_Ice2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice2>());
@@ -44,12 +44,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ character->direction.z, 0.f, -character->direction.x });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 	bullet = dynamic_cast<Bullet_Ice2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice2>());
@@ -57,12 +57,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ -character->direction.x, 0.f, -character->direction.z });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 	
 	bullet = dynamic_cast<Bullet_Ice2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice2>());
@@ -70,12 +70,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ -character->direction.z, 0.f, character->direction.x });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 	////
@@ -87,12 +87,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ Dir2.x, 0.f, Dir2.z });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 	bullet = dynamic_cast<Bullet_Ice2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice2>());
@@ -100,12 +100,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ Dir2.z, 0.f, -Dir2.x });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 	bullet = dynamic_cast<Bullet_Ice2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice2>());
@@ -113,12 +113,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ -Dir2.x, 0.f, -Dir2.z });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 	bullet = dynamic_cast<Bullet_Ice2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice2>());
@@ -126,12 +126,12 @@ void Skill_IceBullet4::Update()
 	bullet->SetDir(Vector3{ -Dir2.z, 0.f, Dir2.x });
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 		CollisionManager::RegisterObject(COLTYPE::ENEMY, bullet);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 

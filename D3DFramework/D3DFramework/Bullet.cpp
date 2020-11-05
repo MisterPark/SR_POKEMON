@@ -12,8 +12,8 @@ Bullet::Bullet()
 	team = Team::NEUTRAL;
 
 	direction = { 0.f, 0.f, 1.f };
-	attack = 1.f;
-	moveSpeed = 10.f;
+	stat.attack = 1.f;
+	stat.moveSpeed = 10.f;
 	lifeTime = 2.f;
 	offsetY = 0.f;
 	animDelay = 0.5f;
@@ -133,8 +133,8 @@ void Bullet::MoveForward()
 void Bullet::MoveForwardExceptY()
 {
 	Vector3::Normalize(&direction);
-	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+	transform->position.x += direction.x * stat.moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += direction.z * stat.moveSpeed * TimeManager::DeltaTime();
 }
 
 void Bullet::SetTeam(Team _team)

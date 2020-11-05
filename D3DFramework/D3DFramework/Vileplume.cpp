@@ -35,7 +35,7 @@ void Vileplume::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
 	state = State::READY;
@@ -43,10 +43,10 @@ void Vileplume::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossBullet));
 
-	attack = 30;
+	stat.attack = 30;
 
-	hp = 160;
-	maxHp = 160;
+	stat.hp = 160;
+	stat.maxHp = 160;
 
 	UpdateAnimation();
 }
@@ -148,8 +148,8 @@ void Vileplume::Pattern()
 
 		if (state == State::WALK) {		//// 이곳부터 업데이트
 			Time[0] += TimeManager::DeltaTime();
-			float moveX = direction.x * moveSpeed * TimeManager::DeltaTime();
-			float moveZ = direction.z * moveSpeed * TimeManager::DeltaTime();
+			float moveX = direction.x * stat.moveSpeed * TimeManager::DeltaTime();
+			float moveZ = direction.z * stat.moveSpeed * TimeManager::DeltaTime();
 
 			if (moveX > 0.05f)
 			{
@@ -182,8 +182,8 @@ void Vileplume::RandomMovePattern()
 {
 	Time[0] += TimeManager::DeltaTime();
 
-	transform->position.x += direction.x * moveSpeed * TimeManager::DeltaTime();
-	transform->position.z += direction.z * moveSpeed * TimeManager::DeltaTime();
+	transform->position.x += direction.x * stat.moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += direction.z * stat.moveSpeed * TimeManager::DeltaTime();
 
 	if (Time[0] >= 1.5f) {
 		Frame[0] ++;
@@ -229,7 +229,7 @@ void Vileplume::CrossBullet()
 	Dir2.Normalized();
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -239,7 +239,7 @@ void Vileplume::CrossBullet()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -249,7 +249,7 @@ void Vileplume::CrossBullet()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -259,7 +259,7 @@ void Vileplume::CrossBullet()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 }
 
@@ -274,7 +274,7 @@ void Vileplume::XBullet()
 	Dir2.Normalized();
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -285,7 +285,7 @@ void Vileplume::XBullet()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -296,7 +296,7 @@ void Vileplume::XBullet()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 
 	b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
@@ -307,7 +307,7 @@ void Vileplume::XBullet()
 	D3DXVec3Normalize(&Dir2, &Dir2);
 	b->SetDir(Dir2);
 	*(b->transform) = *transform;
-	b->moveSpeed = 0.5f;
+	b->stat.moveSpeed = 0.5f;
 	b->isAlliance = false;
 }
 

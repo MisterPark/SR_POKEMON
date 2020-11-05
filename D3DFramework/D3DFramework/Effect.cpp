@@ -17,7 +17,7 @@ Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, Textu
 	transform->position = pos;
 	transform->scale = size;
 	transform->eulerAngles.y = radianY;
-	moveSpeed = speed;
+	stat.moveSpeed = speed;
 
 	Mesh* mesh;
 

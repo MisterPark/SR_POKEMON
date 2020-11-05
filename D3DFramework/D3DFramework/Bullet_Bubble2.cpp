@@ -14,7 +14,7 @@ Bullet_Bubble2::Bullet_Bubble2()
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
 	lifeTime = 2.6f;
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 }
 
 Bullet_Bubble2::~Bullet_Bubble2()
@@ -24,8 +24,8 @@ Bullet_Bubble2::~Bullet_Bubble2()
 void Bullet_Bubble2::Update()
 {
 	Bullet::Update();
-	if (moveSpeed < 15.f) {
-		moveSpeed *= 1.1f;
+	if (stat.moveSpeed < 15.f) {
+		stat.moveSpeed *= 1.1f;
 	}
 
 	if (lifeTime < 2.3f) {

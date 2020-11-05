@@ -476,6 +476,11 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_07, L"Texture\\Bullet\\Tornado2\\Tornado2 (7).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_08, L"Texture\\Bullet\\Tornado2\\Tornado2 (8).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_01, L"Texture\\Bullet\\Heart1\\Heart (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_02, L"Texture\\Bullet\\Heart1\\Heart (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_03, L"Texture\\Bullet\\Heart1\\Heart (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_04, L"Texture\\Bullet\\Heart1\\Heart (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_05, L"Texture\\Bullet\\Heart1\\Heart (5).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::TREE01, L"Texture\\ETC\\Tree\\Tree (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE02, L"Texture\\ETC\\Tree\\Tree (2).png");
@@ -518,6 +523,9 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT01, L"Texture\\Map\\Tile\\Water1.png");
 	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT02, L"Texture\\Map\\Tile\\Water2.png");
 	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT03, L"Texture\\Map\\Tile\\Water3.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT04, L"Texture\\Map\\Tile\\WaterWater1.png");
+	/*D2DRenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT05, L"Texture\\Map\\Tile\\Water3.png");*/
 
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT01, L"Texture\\Map\\Tile\\Lava1.png");
 	D2DRenderManager::LoadSprite(TextureKey::FIRE_WATER_ENVIRONMENT02, L"Texture\\Map\\Tile\\Lava2.png");

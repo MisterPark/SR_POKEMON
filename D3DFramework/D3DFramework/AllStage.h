@@ -13,3 +13,4 @@
 #include "Stage_Water_Boss.h"
 
 #include "Stage_Fire_01.h"
+#include "Stage_Fire_02.h"

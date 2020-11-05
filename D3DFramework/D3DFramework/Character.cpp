@@ -6,7 +6,7 @@
 #include "TargetInfoPanel.h"
 #include "Skill.h"
 #include "DamageSkin.h"
-
+#include "Effect.h"
 Character::Character() :
 	canMove(true)
 {
@@ -61,7 +61,7 @@ void Character::RenderInfomation()
 		Vector3 hpPos = Camera::WorldToScreenPoint(transform->position);
 		hpPos.x -= (float(hpBarTex->imageInfo.Width) / hpBarTex->colCount) * 0.5f;
 		hpPos.y -= transform->scale.y + 50 - camDist;
-		D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, hpPos, Vector3(1, 1, 1), 0, float(hp)/maxHp);
+		D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, hpPos, Vector3(1, 1, 1), 0, float(stat.hp)/ stat.maxHp);
 		
 	}
 
@@ -96,15 +96,32 @@ void Character::OnCollision(GameObject* target)
 	
 	// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
 	
-	float error = target->attack * 0.4f;
+	float error = target->stat.attack * 0.4f;
 	float errorHalf = error * 0.5f;
 	error = Random::Range(0.f, error);
 	error -= errorHalf;
-	float damageSum = target->attack + error;
-	hp -= damageSum;
+	float damageSum = target->stat.attack + error;
+	stat.hp -= damageSum;
+
+
+	if (damageSum < 0)
+	{
+		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
+		skin->transform->position = this->transform->position;
+		skin->SetDamage(-damageSum);
+		skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
+
+		if (hp > maxHp)
+		{
+			hp = maxHp;
+		}
+		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
+		/*fx->transform->position.y += 1.f;*/
+		ObjectManager::AddObject(fx);
+	}
 
 	// 데미지 스킨
-	if (damageSum >= 1)
+	else if (damageSum >= 1)
 	{
 		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 		skin->transform->position = this->transform->position;
@@ -116,9 +133,9 @@ void Character::OnCollision(GameObject* target)
 	}
 
 	// 사망처리
-	if (!isDead && hp <= 0)
+	if (!isDead && stat.hp <= 0)
 	{
-		hp = 0;
+		stat.hp = 0;
 		if (playerCharacter == this)
 		{
 
@@ -192,26 +209,26 @@ float Character::GetAngleFromCamera()
 	toCam.y = 0;
 	Vector3 myDir = direction;
 
-	Matrix rotX;
-	float radianX = transform->eulerAngles.x;
-	float radianY = transform->eulerAngles.y;
-	D3DXMatrixRotationX(&rotX, -radianX);
-	D3DXVec3TransformNormal(&myDir, &myDir, &rotX);
-
 	D3DXVec3Normalize(&toCam, &toCam);
+	D3DXVec3Normalize(&toRealCam, &toRealCam);
 	D3DXVec3Normalize(&myDir, &myDir);
 
 	float radian = acos(D3DXVec3Dot(&toCam, &myDir));
 	float degree = D3DXToDegree(radian);
 
 	Vector3 cross;
-	D3DXVec3Cross(&cross, &toCam, &myDir);
+	D3DXVec3Cross(&cross, &toRealCam, &myDir);
+
+	Vector3 empty = { 0, 0, 0 };
+
+	if (cross == empty)
+		int i = 0;
 
 	Vector3 up = transform->up;
 
 	float upDot = D3DXVec3Dot(&cross, &up);
 
-	if (0.f > upDot)
+	if (0 > upDot)
 	{
 		degree = 360 - degree;
 	}

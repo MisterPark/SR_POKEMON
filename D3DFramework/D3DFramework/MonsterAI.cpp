@@ -99,8 +99,8 @@ void MonsterAI::Move(float _moveSpeed2)
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
-	c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.x += c->direction.x * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 }
 
 void MonsterAI::MovePlayerFollow(float _moveSpeed2)
@@ -120,8 +120,8 @@ void MonsterAI::MovePlayerFollow(float _moveSpeed2)
 	float dis = sqrt(distX * distX + distZ * distZ);
 
 	if (dis > 0.2f) {
-		c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
-		c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+		c->transform->position.x += c->direction.x * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+		c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 	}
 }
 
@@ -142,8 +142,8 @@ void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2
 	//c->direction.y = 0.f;
 	//Vector3::Normalize(&c->direction);
 
-	c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
-	c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.x += c->direction.x * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 	/*Time[0] += TimeManager::DeltaTime();
 	Move(_moveSpeed2);
 

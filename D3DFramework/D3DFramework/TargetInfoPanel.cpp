@@ -84,7 +84,7 @@ void TargetInfoPanel::Render()
     D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_01, barPos, 0);
     barPos.x += 80;
     barPos.y += 8;
-    D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, barPos,Vector3(1,1,1), 0,float(target->hp)/target->maxHp);
+    D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, barPos,Vector3(1,1,1), 0,float(target->stat.hp)/target->stat.maxHp);
     barPos.x -= 100;
     D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, barPos, int(target->number)-1);
 }
