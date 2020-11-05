@@ -190,10 +190,7 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_F, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH1_B, L"Texture\\ETC\\Skybox\\SkyBeach1\\SKYBOX_B.png");
 
-	// ICON
-	D2DRenderManager::LoadSprite(TextureKey::ICON_FIELDFIRE,	L"Texture\\Player\\Icon\\FieldFire.png");
-	D2DRenderManager::LoadSprite(TextureKey::ICON_XCLAW,		L"Texture\\Player\\Icon\\XClaw.png");
-
+	
 	
 	//´«¹°ÃÑ¾Ë
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");
@@ -556,7 +553,12 @@ void PKH::MainGame::LoadUISprite()
 	// ¾ó±¼ ¾ÆÀÌÄÜ
 	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_1ST, L"Texture\\UI\\pokemon_icon_1st.png", 13, 12);
 
+
+	// ICON
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_BORDER, L"Texture\\UI\\iconBorder.png");
+	D2DRenderManager::LoadSprite(TextureKey::ICON_FIELDFIRE, L"Texture\\Player\\Icon\\FieldFire.png");
+	D2DRenderManager::LoadSprite(TextureKey::ICON_XCLAW, L"Texture\\Player\\Icon\\XClaw.png");
+	D2DRenderManager::LoadSprite(TextureKey::ICON_FILTER, L"Texture\\UI\\iconFilter.png");
 
 }
 

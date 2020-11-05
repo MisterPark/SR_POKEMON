@@ -16,7 +16,7 @@ Skill_XClaw::~Skill_XClaw()
 
 void Skill_XClaw::InitCoolTime()
 {
-	coolTime = 6.f;
+	maxCoolTime = coolTime = 6.f;
 	isSpawn = false;
 }
 

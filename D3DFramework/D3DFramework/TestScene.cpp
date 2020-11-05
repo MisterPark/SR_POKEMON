@@ -37,6 +37,7 @@
 
 #include "Spawner.h"
 #include "TriggerBox.h"
+
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();

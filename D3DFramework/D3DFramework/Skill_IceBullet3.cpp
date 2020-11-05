@@ -15,7 +15,7 @@ Skill_IceBullet3::~Skill_IceBullet3()
 
 void Skill_IceBullet3::InitCoolTime()
 {
-	coolTime = 3.f;
+	maxCoolTime = coolTime = 3.f;
 }
 
 void Skill_IceBullet3::InitActiveTime()

@@ -15,7 +15,7 @@ Skill_WebBullet::~Skill_WebBullet()
 
 void Skill_WebBullet::InitCoolTime()
 {
-	coolTime = 0.4f;
+	maxCoolTime = coolTime = 0.4f;
 }
 
 void Skill_WebBullet::InitActiveTime()

@@ -16,10 +16,12 @@ public:
 
 public:
     void SetDamage(int _damage);
+	void SetColor(D3DCOLOR _color);
 
 private:
     int damage = 0;
     float lifeTick = 0.f;
     float lifeTime = 1.5f;
+	D3DCOLOR color = D3DCOLOR_XRGB(200, 0, 0);
 };
 

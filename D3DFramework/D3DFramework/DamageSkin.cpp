@@ -52,11 +52,16 @@ void DamageSkin::Render()
 	if (pos.z < 0.f) return;
 	WCHAR wstr[20] = {};
 	wsprintf(wstr, L"%d", damage);
-	D2DRenderManager::DrawFont(wstr, pos.x, pos.y, D3DCOLOR_XRGB(200, 0, 0));
+	D2DRenderManager::DrawFont(wstr, pos.x, pos.y, color);
 
 }
 
 void DamageSkin::SetDamage(int _damage)
 {
 	damage = _damage;
+}
+
+void DamageSkin::SetColor(D3DCOLOR _color)
+{
+	color = _color;
 }

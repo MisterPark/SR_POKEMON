@@ -14,7 +14,7 @@ Skill_LeafBullet::~Skill_LeafBullet()
 
 void Skill_LeafBullet::InitCoolTime()
 {
-	coolTime = 0.4f;
+	maxCoolTime = coolTime = 0.4f;
 }
 
 void Skill_LeafBullet::InitActiveTime()

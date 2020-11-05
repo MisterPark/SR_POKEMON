@@ -15,7 +15,7 @@ Skill_BubbleBullet2::~Skill_BubbleBullet2()
 
 void Skill_BubbleBullet2::InitCoolTime()
 {
-	coolTime = 0.5f;
+	maxCoolTime = coolTime = 0.5f;
 }
 
 void Skill_BubbleBullet2::InitActiveTime()

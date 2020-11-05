@@ -15,7 +15,7 @@ Skill_WaterBullet::~Skill_WaterBullet()
 
 void Skill_WaterBullet::InitCoolTime()
 {
-	coolTime = 0.4f;
+	maxCoolTime = coolTime = 0.4f;
 }
 
 void Skill_WaterBullet::InitActiveTime()

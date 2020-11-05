@@ -14,7 +14,7 @@ Skill_CrossBullet::~Skill_CrossBullet()
 
 void Skill_CrossBullet::InitCoolTime()
 {
-	coolTime = 0.5f;
+	maxCoolTime = coolTime = 0.5f;
 }
 
 void Skill_CrossBullet::InitActiveTime()

@@ -15,7 +15,7 @@ Skill_Rush::~Skill_Rush()
 
 void Skill_Rush::InitCoolTime()
 {
-	coolTime = 1.5f;
+	maxCoolTime = coolTime = 1.5f;
 }
 
 void Skill_Rush::InitActiveTime()

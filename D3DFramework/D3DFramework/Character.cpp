@@ -103,11 +103,16 @@ void Character::OnCollision(GameObject* target)
 	float damageSum = target->attack + error;
 	hp -= damageSum;
 
+	// 데미지 스킨
 	if (damageSum >= 1)
 	{
 		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 		skin->transform->position = this->transform->position;
 		skin->SetDamage(damageSum);
+		if (this == playerCharacter)
+		{
+			skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
+		}
 	}
 
 	// 사망처리

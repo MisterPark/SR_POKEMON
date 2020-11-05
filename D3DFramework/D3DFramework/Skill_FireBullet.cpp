@@ -14,7 +14,7 @@ Skill_FireBullet::~Skill_FireBullet()
 
 void Skill_FireBullet::InitCoolTime()
 {
-	coolTime = 0.4f;
+	maxCoolTime = coolTime = 0.4f;
 }
 
 void Skill_FireBullet::InitActiveTime()

@@ -3,7 +3,7 @@
 #include "Character.h"
 
 Skill::Skill() :
-	character(nullptr), coolTime(0.f),
+	character(nullptr), coolTime(0.f), maxCoolTime(0.f),
 	activeTime(0.f), moveStopTime(0.f),
 	isCoolDownNow(false), isActive(false), canMove(false)
 {
@@ -69,6 +69,11 @@ TextureKey Skill::GetSkillIcon()
 float Skill::GetCoolTime()
 {
 	return coolTime;
+}
+
+float Skill::GetMaxCoolTime()
+{
+	return maxCoolTime;
 }
 
 float Skill::GetActiveTime()

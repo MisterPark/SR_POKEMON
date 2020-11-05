@@ -15,7 +15,7 @@ Skill_Blaze::~Skill_Blaze()
 
 void Skill_Blaze::InitCoolTime()
 {
-	coolTime = 3.f;
+	maxCoolTime = coolTime = 3.f;
 }
 
 void Skill_Blaze::InitActiveTime()

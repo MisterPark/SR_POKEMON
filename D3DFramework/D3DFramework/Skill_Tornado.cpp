@@ -14,7 +14,7 @@ Skill_Tornado::~Skill_Tornado()
 
 void Skill_Tornado::InitCoolTime()
 {
-	coolTime = 0.7f;
+	maxCoolTime = coolTime = 0.7f;
 }
 
 void Skill_Tornado::InitActiveTime()

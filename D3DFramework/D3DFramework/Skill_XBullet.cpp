@@ -14,7 +14,7 @@ Skill_XBullet::~Skill_XBullet()
 
 void Skill_XBullet::InitCoolTime()
 {
-	coolTime = 0.5f;
+	maxCoolTime = coolTime = 0.5f;
 }
 
 void Skill_XBullet::InitActiveTime()

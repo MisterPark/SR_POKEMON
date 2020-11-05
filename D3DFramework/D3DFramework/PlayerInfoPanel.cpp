@@ -85,25 +85,33 @@ void PlayerInfoPanel::Render()
 
     for (int i = 1; i < skillSize; i++)
     {
+		
+
+		// 스킬 아이콘
         Skill* skill = skillSet[i];
         barPos.x = 60 +(i * 80);
         barPos.y = dfCLIENT_HEIGHT - 70;
         D2DRenderManager::DrawUI(skill->GetSkillIcon(), barPos, 0);
 
         //쿨타임
-        int cool = (int)skill->GetCoolTime();
+		float maxCool = skill->GetMaxCoolTime();
+        float cool = skill->GetCoolTime();
         bool isCool = skill->GetIsCoolDown();
         if (isCool && cool > 0)
         {
+			//쿨타임 필터
+			D2DRenderManager::DrawUIHorizontal(TextureKey::ICON_FILTER, barPos,Vector3(1,1,1), 0,cool/maxCool);
+			//쿨타임 폰트
             WCHAR wstr[20] = {};
             wsprintf(wstr, L"%d", cool);
             D2DRenderManager::DrawFont(wstr, barPos.x+25, barPos.y+25, D3DCOLOR_XRGB(0, 0, 0));
         }
 
-        if (currentSkill == i)
-        {
-            D2DRenderManager::DrawUI(TextureKey::UI_ICON_BORDER, Vector3(barPos.x-8,barPos.y-8,0), 0);
-        }
+		// 아이콘 보더
+		if (currentSkill == i)
+		{
+			D2DRenderManager::DrawUI(TextureKey::UI_ICON_BORDER, Vector3(barPos.x - 8, barPos.y - 8, 0), 0);
+		}
     }
     
    
