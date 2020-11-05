@@ -25,7 +25,7 @@ void Skill_XBullet::InitActiveTime()
 void Skill_XBullet::Update()
 {
 
-	float R = 1.f;
+
 	Vector3 Dir3 = { (character->direction.x + character->direction.z) * 0.5f,  0.5f, (-character->direction.x + character->direction.z) * 0.5f };
 
 	Bullet_Poision* bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
