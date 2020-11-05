@@ -103,9 +103,12 @@ void Character::OnCollision(GameObject* target)
 	float damageSum = target->attack + error;
 	hp -= damageSum;
 
-	DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
-	skin->transform->position = this->transform->position;
-	skin->SetDamage(damageSum);
+	if (damageSum >= 1)
+	{
+		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
+		skin->transform->position = this->transform->position;
+		skin->SetDamage(damageSum);
+	}
 
 	// ªÁ∏¡√≥∏Æ
 	if (!isDead && hp <= 0)

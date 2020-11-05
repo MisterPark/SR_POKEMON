@@ -53,8 +53,8 @@ public:
 	Spawner* spawner = nullptr;
 	//Stat
 	wstring name;
-	int hp;
-	int maxHp;
+	float hp;
+	float maxHp;
 	Pokemon number = Pokemon::None;
     // 지형과 간격
     float offsetY;

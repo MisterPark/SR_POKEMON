@@ -154,7 +154,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AllCharacters.h" />
+    <ClInclude Include="AllDecorations.h" />
+    <ClInclude Include="AllEnvironments.h" />
+    <ClInclude Include="AllMeshs.h" />
     <ClInclude Include="AllSkills.h" />
+    <ClInclude Include="AllStage.h" />
     <ClInclude Include="Animation2D.h" />
     <ClInclude Include="Bulbasaur.h" />
     <ClInclude Include="Bullet.h" />

@@ -1,34 +1,10 @@
 #include "stdafx.h"
-
-#include "Stage_Water_02.h"
+#include "AllStage.h"
+#include "AllCharacters.h"
+#include "AllMeshs.h"
+#include "AllDecorations.h"
+#include "AllEnvironments.h"
 #include "SkyBox.h"
-#include "Character.h"
-#include "Environment.h"
-#include "TitleScene.h"
-#include "MonsterAI.h"
-
-#include "Bulbasaur.h"
-#include "Ivysaur.h"
-#include "Venusaur.h"
-
-#include "Charmander.h"
-#include "Charmeleon.h"
-
-#include "Caterpie.h"
-#include "Metapod.h"
-#include "Butterfree.h"
-#include "Oddish.h"
-#include "Vileplume.h"
-#include "Scyther.h"
-#include "Celebi.h"
-
-#include "Water.h"
-#include "Tree.h"
-#include "Coral.h"
-#include "Stage_Grass_Boss.h"
-
-#include "Spawner.h"
-#include "TriggerBox.h"
 
 void Stage_Water_02::OnLoaded()
 {
