@@ -7,7 +7,7 @@
 
 Bullet_HealBubble::Bullet_HealBubble()
 {
-	anim->SetSprite(TextureKey::BULLET_WATER2_01, TextureKey::BULLET_WATER2_03);
+	anim->SetSprite(TextureKey::BULLET_WATERDROP1_01, TextureKey::BULLET_WATERDROP1_01);
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 
@@ -26,12 +26,12 @@ Bullet_HealBubble::~Bullet_HealBubble()
 void Bullet_HealBubble::Update()
 {
 	Bullet::Update();
-	transform->position.y -= moveSpeed * TimeManager::DeltaTime();
+	transform->position.y -= stat.moveSpeed * TimeManager::DeltaTime();
 	if (lifeTime > 3.f) {
 		stat.moveSpeed = 0.f;
 	}
 	else {
-		anim->SetSprite(TextureKey::BULLET_WATER2_01, TextureKey::BULLET_WATER2_03);
+		anim->SetSprite(TextureKey::BULLET_WATERDROP1_01, TextureKey::BULLET_WATERDROP1_01);
 		stat.moveSpeed = 8.f;
 	}
 

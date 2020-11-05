@@ -111,9 +111,9 @@ void Character::OnCollision(GameObject* target)
 		skin->SetDamage(-damageSum);
 		skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
 
-		if (hp > maxHp)
+		if (stat.hp > stat.maxHp)
 		{
-			hp = maxHp;
+			stat.hp = stat.maxHp;
 		}
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
 		/*fx->transform->position.y += 1.f;*/
