@@ -45,8 +45,8 @@ void Poliwhirl::Initialize()
 	hp = 300;
 	maxHp = 300;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
 
 	UpdateAnimation();
 

@@ -16,12 +16,11 @@ public:
 	bool Active(Character* _character);
 	void CalcActiveTime();
 	void CalcCoolTime();
-
 public:
 	// Setter
 	void SetIsActive(bool active) { isActive = active; }
 	void SetNoneActive();
-
+	
 public:
 	// Getter
 	TextureKey GetSkillIcon();

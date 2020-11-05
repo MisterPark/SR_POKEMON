@@ -18,3 +18,4 @@
 #include "Skill_BubbleBullet.h"
 #include "Skill_BubbleBullet2.h"
 #include "Skill_XClaw.h"
+#include "Skill_HealBubble.h"

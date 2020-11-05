@@ -18,5 +18,6 @@ enum class SkillName
 	IceBullet3,
 	BubbleBullet,
 	BubbleBullet2,
+	HealBubble,
 	XClaw,
 };

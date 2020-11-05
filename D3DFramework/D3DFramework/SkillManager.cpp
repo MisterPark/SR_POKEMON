@@ -147,6 +147,10 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::XClaw:
 		newSkill = Skill_XClaw::Create();
 		break;
+	case SkillName::HealBubble:
+		newSkill = Skill_HealBubble::Create();
+		break;
+
 	}
 
 	return newSkill;
