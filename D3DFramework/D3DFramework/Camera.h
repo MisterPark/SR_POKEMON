@@ -29,6 +29,7 @@ namespace PKH
 		static Vector3 WorldToScreenPoint(const Vector3& position);
 
 		void SetTarget(GameObject* tar) { target = tar; }
+		void SlowChaseTarget(GameObject* tar);
 
 		// 카메라 흔들기
 		static void Shake();
@@ -49,6 +50,7 @@ namespace PKH
 
 		// 카메라 흔들기
 		bool isShake = false;
+		bool isSlowChase = false;
 		float shakeTick = 0.f;
 		float shakeDuration = 0.5f;
 		

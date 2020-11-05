@@ -14,10 +14,13 @@ public:
 	virtual void InitActiveTime() override;
 	virtual void Update() override;
 
+	virtual void CalcActiveTime() override;
+
 public:
 	static Skill* Create();
 
 private:
+	bool isDetachCamera;
 	bool isSpawn;
 };
 

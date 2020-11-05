@@ -53,11 +53,34 @@ void PKH::Camera::Update()
 {
 	if (nullptr != target)
 	{
-		transform->position = target->GetTransform()->position - (target->GetTransform()->look * 1.2f);
-		transform->position.y += 1.f;
+		if (isSlowChase)
+		{
+			Vector3 dst = target->transform->position - (target->GetTransform()->look * 1.2f);
+			dst.y += 1.f;
 
+			Vector3 dir = dst - transform->position;
 
-		transform->look = target->GetTransform()->position + (target->GetTransform()->look * 10.f);
+			float distance = D3DXVec3Length(&dir);
+
+			if (0.1f > distance)
+			{
+				isSlowChase = false;
+			}
+			else
+			{
+				D3DXVec3Normalize(&dir, &dir);
+
+				transform->position += dir * TimeManager::DeltaTime() * 8.f;
+				transform->look = target->GetTransform()->position + (target->GetTransform()->look * 10.f);
+			}
+		}
+		else
+		{
+			transform->position = target->GetTransform()->position - (target->GetTransform()->look * 1.2f);
+			transform->position.y += 1.f;
+
+			transform->look = target->GetTransform()->position + (target->GetTransform()->look * 10.f);
+		}
 	}
 
 	
@@ -141,6 +164,12 @@ Vector3 PKH::Camera::WorldToScreenPoint(const Vector3& position)
 	pos.y = (pos.y - 1.f) * -0.5f * dfCLIENT_HEIGHT;
 
 	return pos;
+}
+
+void PKH::Camera::SlowChaseTarget(GameObject * tar)
+{
+	isSlowChase = true;
+	target = tar;
 }
 
 void PKH::Camera::Shake()

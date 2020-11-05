@@ -648,6 +648,9 @@
     <ClInclude Include="PlayerInfoPanel.h">
       <Filter>GameObject\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Charizard.h">
+      <Filter>GameObject\Character\Fire\006. Charizard</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1140,6 +1143,9 @@
     </ClCompile>
     <ClCompile Include="PlayerInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Charizard.cpp">
+      <Filter>GameObject\Character\Fire\006. Charizard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

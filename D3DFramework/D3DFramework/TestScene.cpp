@@ -10,6 +10,7 @@
 
 #include "Charmander.h"
 #include "Charmeleon.h"
+#include "Charizard.h"
 
 #include "Bulbasaur.h"
 #include "Ivysaur.h"
@@ -47,8 +48,9 @@ void TestScene::OnLoaded()
 	// TestUI
 	
 	/*Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
+	Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã

@@ -182,8 +182,9 @@ float Character::GetAngleFromCamera()
 {
 	Vector3 camPos = Camera::GetPosition();
 
-	Vector3 toCam = camPos - transform->position;
-	toCam.y = 0.f;
+	Vector3 toRealCam = camPos - transform->position;
+	Vector3 toCam = toRealCam;
+	toCam.y = 0;
 	Vector3 myDir = direction;
 
 	Matrix rotX;
@@ -205,8 +206,10 @@ float Character::GetAngleFromCamera()
 
 	float upDot = D3DXVec3Dot(&cross, &up);
 
-	if (0.f > upDot) 
+	if (0.f > upDot)
+	{
 		degree = 360 - degree;
+	}
 
 	return degree;
 }

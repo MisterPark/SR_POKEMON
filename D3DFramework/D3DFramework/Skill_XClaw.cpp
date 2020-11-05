@@ -18,6 +18,7 @@ void Skill_XClaw::InitCoolTime()
 {
 	coolTime = 6.f;
 	isSpawn = false;
+	isDetachCamera = false;
 }
 
 void Skill_XClaw::InitActiveTime()
@@ -27,6 +28,13 @@ void Skill_XClaw::InitActiveTime()
 
 void Skill_XClaw::Update()
 {
+	if (!isDetachCamera && Team::PLAYERTEAM == character->team)
+	{
+		Camera::GetInstance()->SetTarget(nullptr);
+
+		isDetachCamera = true;
+	}
+
 	if (0.4f >= activeTime)
 	{
 		float speed = 20.f;
@@ -52,6 +60,20 @@ void Skill_XClaw::Update()
 	}
 
 	CalcActiveTime();
+}
+
+void Skill_XClaw::CalcActiveTime()
+{
+	if (isActive)
+	{
+		activeTime -= TimeManager::DeltaTime();
+		if (0.f > activeTime)
+		{
+			if (isDetachCamera && Team::PLAYERTEAM == character->team)
+				Camera::GetInstance()->SlowChaseTarget(character);
+			SetNoneActive();
+		}
+	}
 }
 
 Skill * Skill_XClaw::Create()
