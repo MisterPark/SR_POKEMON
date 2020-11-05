@@ -138,6 +138,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::IceBullet3:
 		newSkill = Skill_IceBullet3::Create();
 		break;
+	case SkillName::IceBullet4:
+		newSkill = Skill_IceBullet4::Create();
+		break;
 	case SkillName::BubbleBullet:
 		newSkill = Skill_BubbleBullet::Create();
 		break;

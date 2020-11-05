@@ -648,6 +648,12 @@
     <ClInclude Include="PlayerInfoPanel.h">
       <Filter>GameObject\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Ice2.h">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_IceBullet4.h">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1140,6 +1146,12 @@
     </ClCompile>
     <ClCompile Include="PlayerInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Ice2.cpp">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_IceBullet4.cpp">
+      <Filter>Skill\11. IceBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

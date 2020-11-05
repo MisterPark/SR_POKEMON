@@ -160,9 +160,9 @@ void PKH::Camera::UpdateShake()
 
 	if (isShake)
 	{
-		float ranX = Random::Range(0.f, 0.2f);
-		float ranY = Random::Range(0.f, 0.2f);
-		float ranZ = Random::Range(0.f, 0.2f);
+		float ranX = Random::Range(0.f, 0.1f);
+		float ranY = Random::Range(0.f, 0.1f);
+		float ranZ = Random::Range(0.f, 0.1f);
 
 		transform->position.x += ranX;
 		transform->position.y += ranY;

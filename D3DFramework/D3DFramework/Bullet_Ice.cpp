@@ -14,7 +14,7 @@ Bullet_Ice::Bullet_Ice()
 	transform->scale = { 0.6f, 0.6f, 0.6f };
 
 	attack = initAttack;
-	lifeTime = 3.6f;
+	lifeTime = 2.6f;
 	moveSpeed = 3.f;
 }
 
@@ -26,7 +26,7 @@ void Bullet_Ice::Update()
 {
 	Bullet::Update();
 
-	if (lifeTime > 3.f) {
+	if (lifeTime > 2.f) {
 		moveSpeed = 0.f;
 	}
 	else {
