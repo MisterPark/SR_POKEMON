@@ -45,7 +45,7 @@ void Skill_IceBullet2::Update()
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 			bullet->SetInitAttack(character->stat.attack);
 		}
-		delay = 0.1f;
+		delay = 0.2f;
 	}
 	else {
 		delay -= TimeManager::DeltaTime();

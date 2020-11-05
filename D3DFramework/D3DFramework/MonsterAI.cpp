@@ -895,16 +895,16 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::JYNX:
 			if (readyPattern) {
-
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
 			if (disPlayer < searchRange[1]) {
-				if (Time[4] > 0.f) {
-					Time[4] -= TimeManager::DeltaTime();
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
 					MovePlayerFollow();
 				}
 				else {
-					Time[4] = 0.f;
+					Time[1] = 0.f;
 					c->state = State::ATTACK;
 					readyPattern = true;
 				}
@@ -918,13 +918,13 @@ void MonsterAI::MonsterWalk() {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			Time[1] -= TimeManager::DeltaTime();
+			Time[2] -= TimeManager::DeltaTime();
 			if (Time[1] < 0.f) {
 				c->state = State::SKILL2;
 				readyPattern = true;
 			}
 			else {
-				Time[1] -= TimeManager::DeltaTime();
-				Time[2] -= TimeManager::DeltaTime();
 				if (disPlayer > searchRange[1]) {
 					MovePlayerFollow();
 				}
@@ -1166,6 +1166,7 @@ void MonsterAI::MonsterWalk() {
 				SpawnInRandomPos();
 				readyPattern = false;
 			}
+			MoveRandomPattern(1.5f, 3);
 			break;
 
 		case MonsterType::SUICUNE:
@@ -1318,12 +1319,6 @@ void MonsterAI::MonsterAttack() {
 				if (Frame[1] == 1) {
 					c->direction = DirFromPlayer();
 					c->Attack(c->direction, 0);
-					//Bullet_Web* b = dynamic_cast<Bullet_Web*>(ObjectManager::GetInstance()->CreateObject<Bullet_Web>());
-					//c->direction = DirFromPlayer(true);
-					//Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
-					//b->SetDir(bDir);
-					//*(b->transform) = *c->transform;
-					//b->transform->position.y -= 0.5f;
 				}
 				else if (Frame[1] == 2) {
 					c->anim->SetDelay(0.2f);	
@@ -1552,14 +1547,22 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::JYNX:
 			if (readyPattern) {
 				readyPattern = false;
+				c->Attack(c->direction, 0);
+				Time[4] = 3.5f;
+				Time[1] = 3.f;
+				c->anim->SetDelay(1.f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
 			}
 			break;
-
 		case MonsterType::SUICUNE:
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 0);
-				Time[3] = 2.f;
+				Time[3] = 4.f;
 				c->anim->SetDelay(0.7f);
 			}
 			Time[3] -= TimeManager::DeltaTime();
@@ -1748,6 +1751,14 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::JYNX:
 			if (readyPattern) {
 				readyPattern = false;
+				c->Attack(c->direction, 0);
+				Time[4] = 6.f;
+				c->anim->SetDelay(1.f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
 			}
 			break;
 
@@ -1983,7 +1994,7 @@ void MonsterAI::MonsterSkill() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 1);
-				Time[3] = 3.f;
+				Time[3] = 5.f;
 				c->anim->SetDelay(0.8f);
 			}
 			Time[3] -= TimeManager::DeltaTime();
@@ -2388,7 +2399,7 @@ void MonsterAI::MonsterSkill2() {
 			if (Time[3] < 0.f) {
 				c->state = State::READY;
 				Time[3] = 0.f;
-				Time[1] = 5.f;
+				Time[1] = 4.f;
 			}
 			break;
 

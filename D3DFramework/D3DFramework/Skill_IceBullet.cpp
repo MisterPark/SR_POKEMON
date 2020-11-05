@@ -29,9 +29,9 @@ void Skill_IceBullet::Update()
 		Bullet_Ice* bullet = dynamic_cast<Bullet_Ice*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice>());
 		Vector3 Dir = { 0.f, 0.f, 0.f };
 		while (Dir.x == 0 && Dir.z == 0) {
-			Dir.x = -5.f + Random::Value(10) * 1.f;
+			Dir.x = -7.5f + Random::Value(10) * 1.5f;
 			Dir.y = -2.5f;
-			Dir.z = -5.f + Random::Value(10) * 1.f;
+			Dir.z = -7.5f + Random::Value(10) * 1.5f;
 		}
 		Vector3::Normalize(&Dir);
 		bullet->transform->position = character->transform->position;
