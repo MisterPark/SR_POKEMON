@@ -66,18 +66,18 @@ void PKH::GameObject::OnCollision(GameObject* target)
 void PKH::GameObject::Move(Vector3 _direction)
 {
 	Vector3::Normalize(&_direction);
-	transform->position.x += _direction.x * moveSpeed * TimeManager::DeltaTime();
-	transform->position.y += _direction.y * moveSpeed * TimeManager::DeltaTime();
-	transform->position.z += _direction.z * moveSpeed * TimeManager::DeltaTime();
+	transform->position.x += _direction.x * stat.moveSpeed * TimeManager::DeltaTime();
+	transform->position.y += _direction.y * stat.moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += _direction.z * stat.moveSpeed * TimeManager::DeltaTime();
 }
 
 void PKH::GameObject::MoveToTarget(Vector3 _target)
 {
 	Vector3 dir = _target - transform->position;
 	Vector3::Normalize(&dir);
-	transform->position.x += dir.x * moveSpeed * TimeManager::DeltaTime();
-	transform->position.y += dir.y * moveSpeed * TimeManager::DeltaTime();
-	transform->position.z += dir.z * moveSpeed * TimeManager::DeltaTime();
+	transform->position.x += dir.x * stat.moveSpeed * TimeManager::DeltaTime();
+	transform->position.y += dir.y * stat.moveSpeed * TimeManager::DeltaTime();
+	transform->position.z += dir.z * stat.moveSpeed * TimeManager::DeltaTime();
 }
 
 void PKH::GameObject::FollowTarget(const GameObject* _target)

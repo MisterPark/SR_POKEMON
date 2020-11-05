@@ -26,8 +26,8 @@ void Skill_Rush::InitActiveTime()
 void Skill_Rush::Update()
 {
 	if (activeTime < 0.2f) {
-		character->transform->position.x += character->direction.x * character->moveSpeed * 15.f * TimeManager::DeltaTime();
-		character->transform->position.z += character->direction.z * character->moveSpeed * 15.f * TimeManager::DeltaTime();
+		character->transform->position.x += character->direction.x * character->stat.moveSpeed * 15.f * TimeManager::DeltaTime();
+		character->transform->position.z += character->direction.z * character->stat.moveSpeed * 15.f * TimeManager::DeltaTime();
 	}
 	if (activeTime <= 0.05f) {
 		for (int j = -2; j < 3; j++)
@@ -46,11 +46,11 @@ void Skill_Rush::Update()
 
 				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-					bullet->SetInitAttack(character->attack * 0.25f);
+					bullet->SetInitAttack(character->stat.attack * 0.25f);
 				}
 				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-					bullet->SetInitAttack(character->attack);
+					bullet->SetInitAttack(character->stat.attack);
 				}
 			}
 		}

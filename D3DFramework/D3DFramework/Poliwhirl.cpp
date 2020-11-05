@@ -36,14 +36,14 @@ void Poliwhirl::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
 	state = State::READY;
 
-	attack = 40;
-	hp = 300;
-	maxHp = 300;
+	stat.attack = 40;
+	stat.hp = 300;
+	stat.maxHp = 300;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));

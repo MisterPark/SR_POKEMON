@@ -36,14 +36,14 @@ void Poliwrath::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
 	state = State::READY;
 
-	attack = 35;
-	hp = 450;
-	maxHp = 450;
+	stat.attack = 35;
+	stat.hp = 450;
+	stat.maxHp = 450;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));

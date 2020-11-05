@@ -19,7 +19,7 @@ TriggerBox::~TriggerBox()
 
 void TriggerBox::Initialize()
 {
-	attack = 0.f;
+	stat.attack = 0.f;
 	offsetY = 1.f;
 	team = Team::MONSTERTEAM;
 	CollisionManager::RegisterObject(COLTYPE::TRIGGERBOX, this);

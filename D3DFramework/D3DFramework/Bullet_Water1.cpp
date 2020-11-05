@@ -13,7 +13,7 @@ Bullet_Water1::Bullet_Water1()
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
 	lifeTime = 5.f;
-    moveSpeed = 6.f;
+    stat.moveSpeed = 6.f;
 }
 
 Bullet_Water1::~Bullet_Water1()

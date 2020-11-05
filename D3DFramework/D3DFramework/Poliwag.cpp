@@ -39,12 +39,12 @@ void Poliwag::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
-	attack = 30;
-	hp = 200;
-	maxHp = 200;
+	stat.attack = 30;
+	stat.hp = 200;
+	stat.maxHp = 200;
 
 	state = State::READY;
 
