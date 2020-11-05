@@ -172,7 +172,7 @@ void Character::OnTerrain()
 		transform->position.y = offsetY;
 		return;
 	}
-
+	
 	float y;
 	bool onTerrain = mesh->GetYFromPoint(&y, transform->position.x, transform->position.z);
 	if (onTerrain)
