@@ -1501,16 +1501,12 @@ void MonsterAI::MonsterAttack() {
 
 			Time[1] += TimeManager::DeltaTime();
 
-			if (Time[1] >= 1.0f) {
+			if (Time[1] >= 0.25f) {
 				Time[0] = 0;
 				Frame[1]++;
 				if (Frame[1] == 1) {
-					Bullet_Bubble* b = dynamic_cast<Bullet_Bubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_Bubble>());
-					c->direction = DirFromPlayer(true);
-					Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
-					b->SetDir(bDir);
-					*(b->transform) = *c->transform;
-					b->transform->position.y -= 0.5f;
+					c->direction = DirFromPlayer();
+					c->Attack(c->direction, 0);
 				}
 				else if (Frame[1] == 2) {
 					c->anim->SetDelay(0.2f);
@@ -1520,6 +1516,7 @@ void MonsterAI::MonsterAttack() {
 					Time[2] = 2.5f;
 				}
 			}
+
 			break;
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {

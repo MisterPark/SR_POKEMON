@@ -265,6 +265,12 @@
     <Filter Include="Skill\13. XClaw">
       <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\14. HealBubble">
+      <UniqueIdentifier>{b72bab92-34d1-4778-b35b-4c86d402cc6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\HealBubble">
+      <UniqueIdentifier>{9f2439a2-a512-4533-a02c-6d4764fd626a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -647,6 +653,33 @@
     </ClInclude>
     <ClInclude Include="PlayerInfoPanel.h">
       <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Ice2.h">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_IceBullet4.h">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="AllCharacters.h">
+      <Filter>GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="AllStage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="AllMeshs.h">
+      <Filter>Component\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="AllDecorations.h">
+      <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="AllEnvironments.h">
+      <Filter>GameObject\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_HealBubble.h">
+      <Filter>Skill\14. HealBubble</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_HealBubble.h">
+      <Filter>GameObject\Bullet\HealBubble</Filter>
     </ClInclude>
     <ClInclude Include="Charizard.h">
       <Filter>GameObject\Character\Fire\006. Charizard</Filter>
@@ -1143,6 +1176,18 @@
     </ClCompile>
     <ClCompile Include="PlayerInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Ice2.cpp">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_IceBullet4.cpp">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_HealBubble.cpp">
+      <Filter>Skill\14. HealBubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_HealBubble.cpp">
+      <Filter>GameObject\Bullet\HealBubble</Filter>
     </ClCompile>
     <ClCompile Include="Charizard.cpp">
       <Filter>GameObject\Character\Fire\006. Charizard</Filter>

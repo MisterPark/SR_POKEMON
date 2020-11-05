@@ -275,6 +275,8 @@ bool Character::IsNotAlliance(GameObject * a, GameObject * b)
 	return (a->team != b->team);
 }
 
+
+
 void Character::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame) {
 	for (int i = 0; i < 8; i++)
 	{

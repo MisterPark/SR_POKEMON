@@ -48,7 +48,6 @@ public:
 
 public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);
-
 public:
 	Spawner* spawner = nullptr;
 	//Stat

@@ -154,13 +154,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AllCharacters.h" />
+    <ClInclude Include="AllDecorations.h" />
+    <ClInclude Include="AllEnvironments.h" />
+    <ClInclude Include="AllMeshs.h" />
     <ClInclude Include="AllSkills.h" />
+    <ClInclude Include="AllStage.h" />
     <ClInclude Include="Animation2D.h" />
     <ClInclude Include="Bulbasaur.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullet_Bubble.h" />
     <ClInclude Include="Bullet_Bubble2.h" />
+    <ClInclude Include="Bullet_HealBubble.h" />
     <ClInclude Include="Bullet_Ice.h" />
+    <ClInclude Include="Bullet_Ice2.h" />
     <ClInclude Include="Bullet_Poision.h" />
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Water.h" />
@@ -239,9 +246,11 @@
     <ClInclude Include="Skill_CrossBullet.h" />
     <ClInclude Include="Skill_FireBullet.h" />
     <ClInclude Include="Skill_Blaze.h" />
+    <ClInclude Include="Skill_HealBubble.h" />
     <ClInclude Include="Skill_IceBullet.h" />
     <ClInclude Include="Skill_IceBullet2.h" />
     <ClInclude Include="Skill_IceBullet3.h" />
+    <ClInclude Include="Skill_IceBullet4.h" />
     <ClInclude Include="Skill_LeafBullet.h" />
     <ClInclude Include="Skill_Rush.h" />
     <ClInclude Include="Skill_TearsBullet.h" />
@@ -289,7 +298,9 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet_Bubble.cpp" />
     <ClCompile Include="Bullet_Bubble2.cpp" />
+    <ClCompile Include="Bullet_HealBubble.cpp" />
     <ClCompile Include="Bullet_Ice.cpp" />
+    <ClCompile Include="Bullet_Ice2.cpp" />
     <ClCompile Include="Bullet_Poision.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
@@ -360,9 +371,11 @@
     <ClCompile Include="Skill_CrossBullet.cpp" />
     <ClCompile Include="Skill_FireBullet.cpp" />
     <ClCompile Include="Skill_Blaze.cpp" />
+    <ClCompile Include="Skill_HealBubble.cpp" />
     <ClCompile Include="Skill_IceBullet.cpp" />
     <ClCompile Include="Skill_IceBullet2.cpp" />
     <ClCompile Include="Skill_IceBullet3.cpp" />
+    <ClCompile Include="Skill_IceBullet4.cpp" />
     <ClCompile Include="Skill_LeafBullet.cpp" />
     <ClCompile Include="Skill_Rush.cpp" />
     <ClCompile Include="Skill_TearsBullet.cpp" />

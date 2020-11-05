@@ -21,7 +21,7 @@ public:
 	// Setter
 	void SetIsActive(bool active) { isActive = active; }
 	void SetNoneActive();
-
+	
 public:
 	// Getter
 	TextureKey GetSkillIcon();

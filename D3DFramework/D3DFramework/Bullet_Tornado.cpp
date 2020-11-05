@@ -14,7 +14,7 @@ Bullet_Tornado::Bullet_Tornado()
 	transform->scale = { 0.9f, 1.8f, 0.9f };
 
 	transform->scale.x = 0.9f;
-	transform->scale.y = 1.8f;
+	transform->scale.y = 1.2f;
 	transform->scale.z = 0.9f;
 
 	lifeTime = 6.f;
@@ -24,7 +24,7 @@ Bullet_Tornado::Bullet_Tornado()
 	rotateMoveX = 1.f;
 	rotateMoveZ = 0.f;
 	isOnTerrain = true;
-	offsetY = 1.8f;
+	offsetY = 1.2f;
 	Frame[0] = 0;
 	Frame[1] = 0;
 	damageTime = 0.1f;
