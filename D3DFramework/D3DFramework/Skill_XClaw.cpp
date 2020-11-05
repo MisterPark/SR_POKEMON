@@ -29,7 +29,7 @@ void Skill_XClaw::Update()
 {
 	if (0.4f >= activeTime)
 	{
-		float speed = 15.f;
+		float speed = 20.f;
 		character->transform->position.x += character->direction.x * speed * TimeManager::DeltaTime();
 		character->transform->position.z += character->direction.z * speed * TimeManager::DeltaTime();
 
