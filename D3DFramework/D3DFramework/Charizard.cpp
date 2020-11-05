@@ -29,7 +29,7 @@ void Charizard::Initialize()
 	SetTexture(State::ATTACK, TextureKey::PF03_ATTACK_D_01, 2);
 	SetTexture(State::SKILL, TextureKey::PF03_SKILL_D_01, 2);
 
-	offsetY = 0.13f;
+	offsetY = 0.15f;
 
 	state = State::IDLE;
 	AnimSet();

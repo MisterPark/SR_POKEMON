@@ -70,7 +70,13 @@ void PKH::Camera::Update()
 			{
 				D3DXVec3Normalize(&dir, &dir);
 
-				transform->position += dir * TimeManager::DeltaTime() * 8.f;
+				float speed = 5.f;
+
+				transform->position += dir * TimeManager::DeltaTime() * (speed + slowTime);
+
+				slowTime += TimeManager::DeltaTime();
+
+				//transform->look = target->GetTransform()->position;
 				transform->look = target->GetTransform()->position + (target->GetTransform()->look * 10.f);
 			}
 		}
@@ -170,6 +176,7 @@ void PKH::Camera::SlowChaseTarget(GameObject * tar)
 {
 	isSlowChase = true;
 	target = tar;
+	slowTime = 0.f;
 }
 
 void PKH::Camera::Shake()
