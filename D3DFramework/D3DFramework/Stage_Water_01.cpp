@@ -24,7 +24,7 @@ void Stage_Water_01::OnLoaded()
 
 
 
-	Set_Stage_Water_01_Map(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 3.5f);
+	Set_Stage_Water_01_Map(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 9.5f);
 
 	
 

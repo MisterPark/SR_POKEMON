@@ -19,7 +19,7 @@ void Stage_Grass_Boss::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 1.f;
 	playerCharacter->transform->position.z = 48.f - 47.f;
-	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp", 3.5f);
+	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp", 8.5f);
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();

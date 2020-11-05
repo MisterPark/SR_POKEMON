@@ -81,32 +81,32 @@ void Stage_Grass_02::Set_Stage_Grass_02_Map(TextureKey _key, const std::string& 
 	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
 
 	//나무
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 15.f + 4 * i;
-		tree->transform->position.z += 41.f;
+		tree->transform->position.x += 19.f + 3 * i;
+		tree->transform->position.z += 48.f-12.f;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE06);
 	}
 	for (int i = 0; i < 5; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 16.f + 4 * i;
-		tree->transform->position.z += 6.f;
+		tree->transform->position.x += 20.f + 3 * i;
+		tree->transform->position.z += 48.f-30.f;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE06);
 	}
 	for (int i = 0; i < 7; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 6.f;
-		tree->transform->position.z += 26.f + 2 * i;
+		tree->transform->position.x += 16.f;
+		tree->transform->position.z += 48.f-27.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 	}
 	for (int i = 0; i < 6; i++)
 	{
 		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 43.f;
-		tree->transform->position.z += 18.f + 2 * i;
+		tree->transform->position.x += 32.f;
+		tree->transform->position.z += 48.f - 25.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 	}
 	////산호

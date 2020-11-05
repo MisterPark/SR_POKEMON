@@ -42,7 +42,7 @@ void Stage_Fire_01::OnLoaded()
 
 
 
-	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Fire1.bmp", 4.05f);
+	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Fire1.bmp", 10.15f);
 
 
 
