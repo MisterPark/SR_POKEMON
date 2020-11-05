@@ -44,10 +44,11 @@ void Suicune::Initialize()
 	attack = 50.f;
 
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet));
-	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet2));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet2));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet));
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet2));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet3));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet3));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet4));
 
 	UpdateAnimation();
 

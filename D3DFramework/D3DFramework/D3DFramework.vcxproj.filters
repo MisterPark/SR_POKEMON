@@ -654,6 +654,12 @@
     <ClInclude Include="PlayerInfoPanel.h">
       <Filter>GameObject\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Ice2.h">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_IceBullet4.h">
+      <Filter>Skill\11. IceBullet</Filter>
+    </ClInclude>
     <ClInclude Include="AllCharacters.h">
       <Filter>GameObject\Character</Filter>
     </ClInclude>
@@ -1167,6 +1173,12 @@
     </ClCompile>
     <ClCompile Include="PlayerInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Ice2.cpp">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_IceBullet4.cpp">
+      <Filter>Skill\11. IceBullet</Filter>
     </ClCompile>
     <ClCompile Include="Skill_HealBubble.cpp">
       <Filter>Skill\14. HealBubble</Filter>
