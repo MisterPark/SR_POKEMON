@@ -22,6 +22,9 @@ void Stage_Water_Boss::OnLoaded()
 	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\WaterBoss.bmp", 0.f);
 	
 
+	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	/*trigerBox->OnTriggered = CreateSpawner;*/
+	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
 }
 
 void Stage_Water_Boss::OnUnloaded()
@@ -41,6 +44,7 @@ void Stage_Water_Boss::Update()
 	{
 		SceneManager::LoadScene<Stage_Fire_01>();
 	}
+	Stage_Water_Boss_Wave();
 }
 
 
@@ -55,53 +59,46 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
 	dynamic_cast<Water*>(water)->WaterTextureChange(TextureKey::WATER_WATER_ENVIRONMENT04, TextureKey::WATER_WATER_ENVIRONMENT04, false);
-	//³ª¹«
-
-	//for (int i = 0; i < 8; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 45.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-	//}
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 2.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-
-	//}
-	//for (int i = 0; i < 9; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 46.f;
-	//	tree->transform->position.z += 20.f + 2 * i;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
-	//}
-
 
 
 }
 
-void Stage_Water_Boss::Create_Monster_A_Spawner()
+void Stage_Water_Boss::Stage_Water_Boss_Wave()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWAG, 7.f, 0.5f, 10);
-	poliwagSpawner->transform->position = { 6.f,0.f,48.f-13.f };
-	ObjectManager::AddObject(poliwagSpawner);
+	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
+	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
 
+	if (nullptr == isTriger && spawnerCount == 0)
+	{
+		Spawner* spawner = Spawner::Create(MonsterType::SUICUNE, 20.f, 0.5f, 1);
+		spawner->transform->position = { 24.f,0.f,24.f };
+		ObjectManager::AddObject(spawner);
+
+
+		triggerOn = false;
+		spawnerCount++;
+	}
+	else if (isSpawner == nullptr)
+	{
+		if (spawnerCount ==1 && triggerOn == false)
+		{
+			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = Portal;
+			trigerBox->transform->position = { 40.f,0.f,40.f };
+			trigerBox->Portal();
+			spawnerCount++;
+		}
+	}
 }
 
-void Stage_Water_Boss::Create_Monster_B_Spawner()
+void Stage_Water_Boss::CreateSpawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWRATH, 10.f, 0.5f, 10);
-	poliwagSpawner->transform->position = { 41.f,0.f,48.f - 8.f };
-	ObjectManager::AddObject(poliwagSpawner);
+	Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1);
+	spawner->transform->position = { 24.f,0.f,24.f };
+	ObjectManager::AddObject(spawner);
 }
 
-void Stage_Water_Boss::Create_Monster_C_Spawner()
+void Stage_Water_Boss::Portal()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::GOLDUCK, 6.f, 0.5f, 10);
-	poliwagSpawner->transform->position = { 36.f,0.f,48.f - 42.f };
-	ObjectManager::AddObject(poliwagSpawner);
+	SceneManager::LoadScene<Stage_Water_01>();
 }
