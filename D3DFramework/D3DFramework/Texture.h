@@ -100,7 +100,8 @@ namespace PKH
 
 		ICON_FIELDFIRE,
 		ICON_XCLAW,
-		ICON_FILTER,
+		UI_BLACK_FILTER,
+		UI_RED_FILTER,
 
 		//============================================================
 

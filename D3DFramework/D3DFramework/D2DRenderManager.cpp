@@ -434,13 +434,13 @@ void PKH::D2DRenderManager::DrawUIHorizontal(TextureKey spriteKey, Vector3 pos, 
 	int y = row * h;
 	RECT area;
 	area.left = x;
-	area.top = y - y * horizontalPer;
+	area.top = y;
 	area.right = (x + w);
-	area.bottom = y + h;
+	area.bottom = (y + h) * horizontalPer;
 
 	Matrix matWorld, matPos, matScale;
 	D3DXMatrixScaling(&matScale, scale.x, scale.y, 1.f);
-	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
+	D3DXMatrixTranslation(&matPos, pos.x, pos.y+h-h*horizontalPer, 0.f);
 	matWorld = matScale * matPos;
 
 	pD2DRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
