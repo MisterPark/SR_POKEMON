@@ -648,6 +648,21 @@
     <ClInclude Include="PlayerInfoPanel.h">
       <Filter>GameObject\UI</Filter>
     </ClInclude>
+    <ClInclude Include="AllCharacters.h">
+      <Filter>GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="AllStage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="AllMeshs.h">
+      <Filter>Component\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="AllDecorations.h">
+      <Filter>GameObject\Decoration</Filter>
+    </ClInclude>
+    <ClInclude Include="AllEnvironments.h">
+      <Filter>GameObject\Environment</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">

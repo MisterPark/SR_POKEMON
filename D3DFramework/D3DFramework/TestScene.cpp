@@ -1,42 +1,14 @@
 #include "stdafx.h"
-#include "TestScene.h"
-#include "Triangle.h"
-#include "Rectangle.h"
-#include "Cube.h"
+#include "AllStage.h"
+#include "AllCharacters.h"
+#include "AllMeshs.h"
+#include "AllDecorations.h"
+#include "AllEnvironments.h"
 #include "SkyBox.h"
-#include "CubeMan.h"
-#include "Environment.h"
-#include "TitleScene.h"
 
-#include "Charmander.h"
-#include "Charmeleon.h"
 
-#include "Bulbasaur.h"
-#include "Ivysaur.h"
-#include "Venusaur.h"
 
-#include "Caterpie.h"
-#include "Metapod.h"
-#include "Butterfree.h"
-#include "Oddish.h"
-#include "Vileplume.h"
-#include "Scyther.h"
 
-#include "Psyduck.h"
-#include "Golduck.h"
-#include "Poliwag.h"
-#include "Poliwrath.h"
-#include "Jynx.h"
-#include "Suicune.h"
-
-#include "MonsterAI.h"
-
-#include "Water.h"
-#include "Tree.h"
-#include "Stage_Grass_01.h"
-
-#include "Spawner.h"
-#include "TriggerBox.h"
 void TestScene::OnLoaded()
 {
 	SkyBox::Show();
@@ -46,8 +18,8 @@ void TestScene::OnLoaded()
 
 	// TestUI
 	
-	/*Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
+	/*Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));*/
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
 	ObjectManager::AddObject(playerCharacter);
 
