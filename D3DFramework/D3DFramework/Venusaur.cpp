@@ -33,10 +33,10 @@ void Venusaur::Initialize()
 	anim->SetLoop(true);
 	offsetY = 0.13f;
 
-	attack = 100;
+	stat.attack = 100;
 
-	hp = 1000;
-	maxHp = 1000;
+	stat.hp = 1000;
+	stat.maxHp = 1000;
 
 	state = State::IDLE;
 }

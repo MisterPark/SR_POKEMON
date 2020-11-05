@@ -38,7 +38,7 @@ void Scyther::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 3.5f;
+	stat.moveSpeed = 3.5f;
 	offsetY = 1.f;
 
 	
@@ -48,10 +48,10 @@ void Scyther::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tornado));
 
-	attack = 30;
+	stat.attack = 30;
 
-	hp = 700;
-	maxHp = 700;
+	stat.hp = 700;
+	stat.maxHp = 700;
 
 	UpdateAnimation();
 }

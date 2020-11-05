@@ -34,14 +34,14 @@ void Suicune::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 3.5f;
+	stat.moveSpeed = 3.5f;
 	offsetY = 1.f;
 
 	state = State::READY;
 
-	hp = 1600;
-	maxHp = 1600;
-	attack = 50.f;
+	stat.hp = 1600;
+	stat.maxHp = 1600;
+	stat.attack = 50.f;
 
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet2));

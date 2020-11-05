@@ -12,8 +12,8 @@ Blaze::Blaze(const Vector3 & pos, const Vector3 & size, TextureKey start, Textur
 	transform->scale = size;
 	direction = dir;
 	lifeTime = _lifeTime;
-	attack = att * 1.5f;
-	moveSpeed = speed;
+	stat.attack = att * 1.5f;
+	stat.moveSpeed = speed;
 
 	startKey = start;
 	endKey = end;

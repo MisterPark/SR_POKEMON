@@ -13,9 +13,9 @@ Bullet_HealBubble::Bullet_HealBubble()
 
 	transform->scale = { 0.6f, 0.6f, 0.6f };
 
-	attack = initAttack;
+	stat.attack = initAttack;
 	lifeTime = 3.6f;
-	moveSpeed = 3.f;
+	stat.moveSpeed = 3.f;
 
 }
 
@@ -28,11 +28,11 @@ void Bullet_HealBubble::Update()
 	Bullet::Update();
 	transform->position.y -= moveSpeed * TimeManager::DeltaTime();
 	if (lifeTime > 3.f) {
-		moveSpeed = 0.f;
+		stat.moveSpeed = 0.f;
 	}
 	else {
 		anim->SetSprite(TextureKey::BULLET_WATER2_01, TextureKey::BULLET_WATER2_03);
-		moveSpeed = 8.f;
+		stat.moveSpeed = 8.f;
 	}
 
 	//if (isDead) {

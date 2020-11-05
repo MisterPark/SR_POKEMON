@@ -47,16 +47,16 @@ void Skill_Blaze::Update()
 
 	Vector3 pos2 = position + look;
 
-	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, character->attack, look, 20.f, 0.4f);
+	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, character->stat.attack, look, 20.f, 0.4f);
 	ObjectManager::AddObject(instance);
 
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
-		instance->SetInitAttack(character->attack * 0.25f);
+		instance->SetInitAttack(character->stat.attack * 0.25f);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
-		instance->SetInitAttack(character->attack);
+		instance->SetInitAttack(character->stat.attack);
 	}
 
 	CalcActiveTime();

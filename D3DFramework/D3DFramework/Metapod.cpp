@@ -34,7 +34,7 @@ void Metapod::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 0.7f;
+	stat.moveSpeed = 0.7f;
 	offsetY = 0.5f;
 
 	state = State::READY;
@@ -42,10 +42,10 @@ void Metapod::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
-	attack = 30;
+	stat.attack = 30;
 
-	hp = 110;
-	maxHp = 110;
+	stat.hp = 110;
+	stat.maxHp = 110;
 
 	UpdateAnimation();
 }

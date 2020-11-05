@@ -36,7 +36,7 @@ void Gloom::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
 	state = State::READY;
@@ -44,10 +44,10 @@ void Gloom::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XBullet));
 
-	attack = 30;
+	stat.attack = 30;
 
-	hp = 120;
-	maxHp = 120;
+	stat.hp = 120;
+	stat.maxHp = 120;
 
 	UpdateAnimation();
 }

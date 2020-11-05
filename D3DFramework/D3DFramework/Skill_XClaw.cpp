@@ -48,7 +48,7 @@ void Skill_XClaw::Update()
 			float size = 0.4f;
 			float lifeTime = 0.4f;
 
-			XClaw* instance = XClaw::Create(pos, { size, size, size }, TextureKey::X_CLAW_01, TextureKey::X_CLAW_08, character->attack, dir, speed, lifeTime);
+			XClaw* instance = XClaw::Create(pos, { size, size, size }, TextureKey::X_CLAW_01, TextureKey::X_CLAW_08, character->stat.attack, dir, speed, lifeTime);
 			ObjectManager::AddObject(instance);
 			if (character->team == Team::MONSTERTEAM)
 				CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);

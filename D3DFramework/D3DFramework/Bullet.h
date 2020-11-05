@@ -29,7 +29,7 @@ public:
 public:
 	// Setter
 	void SetDir(const Vector3& dir) { D3DXVec3Normalize(&direction, &dir); }
-	void SetInitAttack(float initattack) { initAttack = initattack; attack = initAttack;}
+	void SetInitAttack(float initattack) { initAttack = initattack; stat.attack = initAttack;}
 
 public:
 	// Getter

@@ -14,7 +14,7 @@ Bullet_Bubble::Bullet_Bubble()
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
 	lifeTime = 1.6f;
-	moveSpeed = 3.f;
+	stat.moveSpeed = 3.f;
 }
 
 Bullet_Bubble::~Bullet_Bubble()

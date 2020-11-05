@@ -34,10 +34,10 @@ void Charizard::Initialize()
 	state = State::IDLE;
 	AnimSet();
 
-	attack = 100;
+	stat.attack = 100;
 
-	hp = 600;
-	maxHp = 600;
+	stat.hp = 600;
+	stat.maxHp = 600;
 
 	skillSet.reserve(4);
 

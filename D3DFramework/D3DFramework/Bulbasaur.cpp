@@ -36,10 +36,10 @@ void Bulbasaur::Initialize()
 
 	state = State::IDLE;
 
-	attack = 30;
+	stat.attack = 30;
 
-	hp = 250;
-	maxHp = 250;
+	stat.hp = 250;
+	stat.maxHp = 250;
 
 	UpdateAnimation();
 }

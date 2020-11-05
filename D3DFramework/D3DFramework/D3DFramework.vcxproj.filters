@@ -687,6 +687,9 @@
     <ClInclude Include="Stage_Fire_02.h">
       <Filter>Scene\Fire</Filter>
     </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>99. Defaults</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
