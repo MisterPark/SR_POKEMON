@@ -9,7 +9,7 @@
 void Stage_Water_Boss::OnLoaded()
 {
 	SkyBox::Show();
-	SkyBox::SetTexture(TextureKey::SPACE1_U);
+	SkyBox::SetTexture(TextureKey::SKYBLUE1_U);
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
