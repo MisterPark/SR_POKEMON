@@ -277,7 +277,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 
 void TestScene::CreateSpawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWHIRL, 10.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::SUICUNE, 10.f, 0.5f, 1);
 	poliwagSpawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(poliwagSpawner);
 

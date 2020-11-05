@@ -690,6 +690,9 @@
     <ClInclude Include="Struct.h">
       <Filter>99. Defaults</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_Ice3.h">
+      <Filter>GameObject\Bullet\Ice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1200,6 +1203,9 @@
     </ClCompile>
     <ClCompile Include="Stage_Fire_02.cpp">
       <Filter>Scene\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Ice3.cpp">
+      <Filter>GameObject\Bullet\Ice</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

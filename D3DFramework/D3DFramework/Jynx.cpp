@@ -44,7 +44,7 @@ void Jynx::Initialize()
 	stat.hp = 450;
 	stat.maxHp = 450;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet2));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
 
 	UpdateAnimation();
@@ -71,9 +71,12 @@ bool Jynx::Attack(const Vector3& dir, const int& attackType)
 {
 	if (Character::Attack(dir, attackType))
 	{
-		switch (attackType)
-		{
-		case 0: ChangeState(State::ATTACK); break;
+		if (team == Team::PLAYERTEAM) {
+			switch (attackType)
+			{
+			case 0: ChangeState(State::ATTACK); break;
+			case 1: ChangeState(State::ATTACK); break;
+			}
 		}
 		return true;
 	}
