@@ -26,7 +26,7 @@ Bullet_HealBubble::~Bullet_HealBubble()
 void Bullet_HealBubble::Update()
 {
 	Bullet::Update();
-	transform->position.y -= moveSpeed * TimeManager::DeltaTime();
+	transform->position.y -= stat.moveSpeed * TimeManager::DeltaTime();
 	if (lifeTime > 3.f) {
 		stat.moveSpeed = 0.f;
 	}
