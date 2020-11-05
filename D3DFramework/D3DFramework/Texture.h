@@ -40,6 +40,20 @@ namespace PKH
 		SKYBEACH2_F,
 		SKYBEACH2_B,
 
+		SKYBLUE_U,
+		SKYBLUE_D,
+		SKYBLUE_L,
+		SKYBLUE_R,
+		SKYBLUE_F,
+		SKYBLUE_B,
+
+		SKYBLUE1_U,
+		SKYBLUE1_D,
+		SKYBLUE1_L,
+		SKYBLUE1_R,
+		SKYBLUE1_F,
+		SKYBLUE1_B,
+
 		SKYDAY1_U,
 		SKYDAY1_D,
 		SKYDAY1_L,
@@ -100,7 +114,8 @@ namespace PKH
 
 		ICON_FIELDFIRE,
 		ICON_XCLAW,
-		ICON_FILTER,
+		UI_BLACK_FILTER,
+		UI_RED_FILTER,
 
 		//============================================================
 

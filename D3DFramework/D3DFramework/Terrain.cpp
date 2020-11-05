@@ -129,7 +129,7 @@ void PKH::Terrain::LoadHeightMap(const string& filePath)
 		for (int j = 0; j < width; j++)
 		{
 			index = i * width + j;
-			h = buffer[k] / 25.f;
+			h = buffer[k] / 10.f;
 			vertices[index].y = h;
 			vertexInfo[index].y = h;
 			k += byteCount;

@@ -41,7 +41,7 @@ void Skill_HealBubble::Update()
 
 		bullet->SetDir(Vector3{ 0.f, -0.4f, 0.f });
 		bullet->stat.attack = character->stat.attack * -3.f;
-
+		bullet->transform->scale = { 0.3f,0.3f,0.3f };
 		if (character->team == Team::MONSTERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
 			bullet->SetInitAttack(character->stat.attack * - 0.25f);

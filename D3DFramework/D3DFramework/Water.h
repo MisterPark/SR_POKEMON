@@ -12,6 +12,7 @@ public:
 	virtual void Release() override;
 	virtual void Update() override;
 
+	void WaterTextureChange(TextureKey _StartKey, TextureKey _EndKey, bool _isLoop, float _delay = 1.f);
 	void Lava();
 	void Beach();
 	void Normal();

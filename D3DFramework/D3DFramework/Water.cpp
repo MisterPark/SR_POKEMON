@@ -40,6 +40,15 @@ void Water::Update()
 	
 }
 
+
+void Water::WaterTextureChange(TextureKey _StartKey, TextureKey _EndKey, bool _isLoop, float _delay)
+{
+	anim->SetSprite(_StartKey, _EndKey);
+	anim->SetLoop(_isLoop);
+	if(_isLoop==true)
+	anim->SetDelay(_delay);
+}
+
 void Water::Lava()
 {
 	anim->SetSprite(TextureKey::FIRE_WATER_ENVIRONMENT02, TextureKey::FIRE_WATER_ENVIRONMENT02);

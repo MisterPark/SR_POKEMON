@@ -53,6 +53,7 @@ namespace PKH
 		bool isSlowChase = false;
 		float shakeTick = 0.f;
 		float shakeDuration = 0.5f;
+		float slowTime = 0.f;
 		
 	};
 }

@@ -70,7 +70,7 @@ void PlayerInfoPanel::Render()
 
     Vector3 barPos = { 0,0,0 };
     barPos.x = 30;
-    barPos.y = dfCLIENT_HEIGHT - 150;
+    barPos.y = 0;
     D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_01, barPos, 0);
     barPos.x += 80;
     barPos.y += 8;
@@ -90,7 +90,7 @@ void PlayerInfoPanel::Render()
 		// 스킬 아이콘
         Skill* skill = skillSet[i];
         barPos.x = 60 +(i * 80);
-        barPos.y = dfCLIENT_HEIGHT - 70;
+        barPos.y = 80;
         D2DRenderManager::DrawUI(skill->GetSkillIcon(), barPos, 0);
 
         //쿨타임
@@ -100,11 +100,11 @@ void PlayerInfoPanel::Render()
         if (isCool && cool > 0)
         {
 			//쿨타임 필터
-			D2DRenderManager::DrawUIHorizontal(TextureKey::ICON_FILTER, barPos,Vector3(1,1,1), 0,cool/maxCool);
+			D2DRenderManager::DrawUIHorizontal(TextureKey::UI_BLACK_FILTER, barPos,Vector3(1,1,1), 0,cool/maxCool);
 			//쿨타임 폰트
             WCHAR wstr[20] = {};
-            wsprintf(wstr, L"%d", cool);
-            D2DRenderManager::DrawFont(wstr, barPos.x+25, barPos.y+25, D3DCOLOR_XRGB(0, 0, 0));
+            wsprintf(wstr, L"%d", (int)(cool+1));
+            D2DRenderManager::DrawFont(wstr, barPos.x+25, barPos.y+25, D3DCOLOR_XRGB(255, 255, 255));
         }
 
 		// 아이콘 보더
