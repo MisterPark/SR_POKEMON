@@ -26,7 +26,7 @@ Bullet_HealBubble::~Bullet_HealBubble()
 void Bullet_HealBubble::Update()
 {
 	Bullet::Update();
-
+	transform->position.y -= moveSpeed * TimeManager::DeltaTime();
 	if (lifeTime > 3.f) {
 		moveSpeed = 0.f;
 	}
@@ -35,10 +35,11 @@ void Bullet_HealBubble::Update()
 		moveSpeed = 8.f;
 	}
 
-	if (isDead) {
-		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_WATER2_01, TextureKey::BULLET_WATER2_03, 0.05f);
-		ObjectManager::AddObject(fx);
-	}
+	//if (isDead) {
+	//	Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
+	//	fx->transform->position.y += 1.f;
+	//	ObjectManager::AddObject(fx);
+	//}
 }
 
 void Bullet_HealBubble::Render()

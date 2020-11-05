@@ -33,7 +33,7 @@ void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKY_U);
-	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 24.f));
+	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 36.f));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 
 	// TestUI

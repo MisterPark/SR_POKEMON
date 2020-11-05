@@ -684,6 +684,9 @@
     <ClInclude Include="Charizard.h">
       <Filter>GameObject\Character\Fire\006. Charizard</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Fire_02.h">
+      <Filter>Scene\Fire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1191,6 +1194,9 @@
     </ClCompile>
     <ClCompile Include="Charizard.cpp">
       <Filter>GameObject\Character\Fire\006. Charizard</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Fire_02.cpp">
+      <Filter>Scene\Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

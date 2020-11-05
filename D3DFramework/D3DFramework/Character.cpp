@@ -6,7 +6,7 @@
 #include "TargetInfoPanel.h"
 #include "Skill.h"
 #include "DamageSkin.h"
-
+#include "Effect.h"
 Character::Character() :
 	canMove(true)
 {
@@ -103,8 +103,25 @@ void Character::OnCollision(GameObject* target)
 	float damageSum = target->attack + error;
 	hp -= damageSum;
 
+
+	if (damageSum < 0)
+	{
+		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
+		skin->transform->position = this->transform->position;
+		skin->SetDamage(-damageSum);
+		skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
+
+		if (hp > maxHp)
+		{
+			hp = maxHp;
+		}
+		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
+		/*fx->transform->position.y += 1.f;*/
+		ObjectManager::AddObject(fx);
+	}
+
 	// 데미지 스킨
-	if (damageSum >= 1)
+	else if (damageSum >= 1)
 	{
 		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 		skin->transform->position = this->transform->position;

@@ -262,6 +262,7 @@
     <ClInclude Include="SkyBox.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Spawner.h" />
+    <ClInclude Include="Stage_Fire_02.h" />
     <ClInclude Include="Stage_Water_02.h" />
     <ClInclude Include="Stage_Fire_01.h" />
     <ClInclude Include="Stage_Grass_01.h" />
@@ -387,6 +388,7 @@
     <ClCompile Include="SkyBox.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Spawner.cpp" />
+    <ClCompile Include="Stage_Fire_02.cpp" />
     <ClCompile Include="Stage_Water_02.cpp" />
     <ClCompile Include="Stage_Fire_01.cpp" />
     <ClCompile Include="Stage_Grass_01.cpp" />
