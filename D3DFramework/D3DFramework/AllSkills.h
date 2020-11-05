@@ -15,6 +15,8 @@
 #include "Skill_IceBullet.h"
 #include "Skill_IceBullet2.h"
 #include "Skill_IceBullet3.h"
+#include "Skill_IceBullet4.h"
 #include "Skill_BubbleBullet.h"
 #include "Skill_BubbleBullet2.h"
 #include "Skill_XClaw.h"
+#include "Skill_HealBubble.h"

@@ -55,6 +55,7 @@ void Skill::CalcCoolTime()
 	}
 }
 
+
 void Skill::SetNoneActive()
 {
 	InitActiveTime();

@@ -1,8 +1,9 @@
 #include "stdafx.h"
-#include "TestScene.h"
-#include "Triangle.h"
-#include "Rectangle.h"
-#include "Cube.h"
+#include "AllStage.h"
+#include "AllCharacters.h"
+#include "AllMeshs.h"
+#include "AllDecorations.h"
+#include "AllEnvironments.h"
 #include "SkyBox.h"
 #include "CubeMan.h"
 #include "Environment.h"
@@ -22,18 +23,8 @@
 #include "Vileplume.h"
 #include "Scyther.h"
 
-#include "Psyduck.h"
-#include "Golduck.h"
-#include "Poliwag.h"
-#include "Poliwrath.h"
-#include "Jynx.h"
-#include "Suicune.h"
 
-#include "MonsterAI.h"
 
-#include "Water.h"
-#include "Tree.h"
-#include "Stage_Grass_01.h"
 
 #include "Spawner.h"
 #include "TriggerBox.h"
@@ -47,9 +38,10 @@ void TestScene::OnLoaded()
 
 	// TestUI
 	
-	/*Scyther* playerCharacter = Scyther::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	/*Poliwhirl* playerCharacter = Poliwhirl::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
+	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
+	Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã
@@ -285,7 +277,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 
 void TestScene::CreateSpawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::VILEPLUME, 10.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWHIRL, 10.f, 0.5f, 10);
 	poliwagSpawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(poliwagSpawner);
 

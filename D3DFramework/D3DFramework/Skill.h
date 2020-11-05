@@ -13,15 +13,15 @@ public:
 	virtual void InitCoolTime() = 0;
 	virtual void InitActiveTime() = 0;
 	virtual void Update() = 0;
-	bool Active(Character* _character);
-	void CalcActiveTime();
-	void CalcCoolTime();
+	virtual bool Active(Character* _character);
+	virtual void CalcActiveTime();
+	virtual void CalcCoolTime();
 
 public:
 	// Setter
 	void SetIsActive(bool active) { isActive = active; }
 	void SetNoneActive();
-
+	
 public:
 	// Getter
 	TextureKey GetSkillIcon();

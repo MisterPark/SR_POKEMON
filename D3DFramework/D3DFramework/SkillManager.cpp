@@ -138,6 +138,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::IceBullet3:
 		newSkill = Skill_IceBullet3::Create();
 		break;
+	case SkillName::IceBullet4:
+		newSkill = Skill_IceBullet4::Create();
+		break;
 	case SkillName::BubbleBullet:
 		newSkill = Skill_BubbleBullet::Create();
 		break;
@@ -147,6 +150,10 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::XClaw:
 		newSkill = Skill_XClaw::Create();
 		break;
+	case SkillName::HealBubble:
+		newSkill = Skill_HealBubble::Create();
+		break;
+
 	}
 
 	return newSkill;

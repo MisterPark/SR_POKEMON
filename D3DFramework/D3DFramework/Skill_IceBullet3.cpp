@@ -26,6 +26,8 @@ void Skill_IceBullet3::InitActiveTime()
 void Skill_IceBullet3::Update()
 {
 	if (delay <= 0.f) {
+		Camera::SetShakeDuration(0.05f);
+		Camera::Shake();
 		Bullet_Ice* bullet = dynamic_cast<Bullet_Ice*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice>());
 		bullet->transform->position = character->transform->position;
 		bullet->transform->position.x += character->direction.x * 3.f;
