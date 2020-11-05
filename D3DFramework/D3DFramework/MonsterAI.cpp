@@ -1490,7 +1490,9 @@ void MonsterAI::MonsterAttack() {
 			if (readyPattern) {
 				if (disPlayer < searchRange[1]) {
 					c->state = State::ATTACK;
-					c->anim->SetDelay(0.3f);
+					c->anim->SetDelay(0.4f);
+					/*c->anim->SetDelay(false);
+					c->anim->SetTick(0.f);*/
 				}
 				else {//if (disPlayer > 10.f)
 					c->state = State::WALK;

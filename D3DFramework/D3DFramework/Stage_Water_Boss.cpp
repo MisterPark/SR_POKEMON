@@ -19,21 +19,9 @@ void Stage_Water_Boss::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 5.f;
 	playerCharacter->transform->position.z = 48.f - 44.f;
-	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);
+	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\WaterBoss.bmp", 0.f);
 	
-	float size = 1.f;
-	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = Create_Monster_A_Spawner;
-	trigerBox->transform->position = { 17.f,0.f,48.f-4.f };
-	trigerBox->transform->scale += {size, size, size};
-	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = Create_Monster_B_Spawner;
-	trigerBox->transform->position = { 44.f,0.f,48.f - 18.f };
-	trigerBox->transform->scale += {size, size, size};
-	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = Create_Monster_C_Spawner;
-	trigerBox->transform->position = { 43.f,0.f,48.f - 32.f };
-	trigerBox->transform->scale += {size, size, size};
+
 }
 
 void Stage_Water_Boss::OnUnloaded()
@@ -66,7 +54,7 @@ void Stage_Water_Boss::Set_Stage_Water_Boss_Map(TextureKey _key, const std::stri
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-	dynamic_cast<Water*>(water)->Normal();
+	dynamic_cast<Water*>(water)->WaterTextureChange(TextureKey::WATER_WATER_ENVIRONMENT04, TextureKey::WATER_WATER_ENVIRONMENT04, false);
 	//³ª¹«
 
 	//for (int i = 0; i < 8; i++)
