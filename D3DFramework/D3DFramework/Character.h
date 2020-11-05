@@ -35,7 +35,7 @@ public:
 
 public:
 	void SetDir(const Vector3& dir);
-	void SetMoveSpeed(const float& speed) { moveSpeed = speed; }
+	void SetMoveSpeed(const float& speed) { stat.moveSpeed = speed; }
 	void MoveForward();
 	virtual void ChangeState(State nextState);
 	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
@@ -53,8 +53,6 @@ public:
 	Spawner* spawner = nullptr;
 	//Stat
 	wstring name;
-	float hp;
-	float maxHp;
 	Pokemon number = Pokemon::None;
     // 지형과 간격
     float offsetY;

@@ -14,7 +14,7 @@ Bullet_Web::Bullet_Web()
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
     lifeTime = 1.6f;
-    moveSpeed = 3.f;
+    stat.moveSpeed = 3.f;
 }
 
 Bullet_Web::~Bullet_Web()

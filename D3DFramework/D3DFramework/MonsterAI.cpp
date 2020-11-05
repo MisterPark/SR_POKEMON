@@ -99,8 +99,8 @@ void MonsterAI::Move(float _moveSpeed2)
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
-	c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.x += c->direction.x * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 }
 
 void MonsterAI::MovePlayerFollow(float _moveSpeed2)
@@ -120,8 +120,8 @@ void MonsterAI::MovePlayerFollow(float _moveSpeed2)
 	float dis = sqrt(distX * distX + distZ * distZ);
 
 	if (dis > 0.2f) {
-		c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
-		c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+		c->transform->position.x += c->direction.x * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+		c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 	}
 }
 
@@ -142,8 +142,8 @@ void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2
 	//c->direction.y = 0.f;
 	//Vector3::Normalize(&c->direction);
 
-	c->transform->position.x += c->direction.x * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
-	c->transform->position.z += c->direction.z * c->moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.x += c->direction.x * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 	/*Time[0] += TimeManager::DeltaTime();
 	Move(_moveSpeed2);
 
@@ -336,9 +336,9 @@ void MonsterAI::SetType(MonsterType _type)
 		break;
 	case MonsterType::SUICUNE:
 		SetPatternRange(1, 1);
-		searchRange[0] = 6.f;
-		searchRange[1] = 3.f;
-		searchRange[3] = 10.f;
+		searchRange[0] = 8.f;
+		searchRange[1] = 5.f;
+		searchRange[3] = 30.f;
 		break;
 	case MonsterType::GROWLITHE:
 		break;
@@ -915,7 +915,31 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::SUICUNE:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
+			}
+			if (Time[1] < 0.f) {
+				c->state = State::SKILL2;
+				readyPattern = true;
+			}
+			else {
+				Time[1] -= TimeManager::DeltaTime();
+				Time[2] -= TimeManager::DeltaTime();
+				if (disPlayer > searchRange[1]) {
+					MovePlayerFollow();
+				}
+				else if (Time[2] < 0) {
+					if (Frame[1] == 0) {
+						c->state = State::ATTACK;
+						readyPattern = true;
+						Frame[1] = 1;
+					}
+					else if (Frame[1] == 1) {
+						c->state = State::SKILL;
+						readyPattern = true;
+						Frame[1] = 0;
+					}
+				}
 			}
 			break;
 
@@ -1149,6 +1173,7 @@ void MonsterAI::MonsterWalk() {
 				SpawnInRandomPos();
 				readyPattern = false;
 			}
+			MoveRandomPattern(1.5f, 3);
 			break;
 
 		case MonsterType::GROWLITHE:
@@ -1533,6 +1558,14 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::SUICUNE:
 			if (readyPattern) {
 				readyPattern = false;
+				c->Attack(c->direction, 0);
+				Time[3] = 2.f;
+				c->anim->SetDelay(0.7f);
+			}
+			Time[3] -= TimeManager::DeltaTime();
+			if (Time[3] < 0.f) {
+				c->state = State::READY;
+				Time[3] = 0.f;
 			}
 			break;
 
@@ -1949,6 +1982,14 @@ void MonsterAI::MonsterSkill() {
 		case MonsterType::SUICUNE:
 			if (readyPattern) {
 				readyPattern = false;
+				c->Attack(c->direction, 1);
+				Time[3] = 3.f;
+				c->anim->SetDelay(0.8f);
+			}
+			Time[3] -= TimeManager::DeltaTime();
+			if (Time[3] < 0.f) {
+				Time[3] = 0.f;
+				c->state = State::READY;
 			}
 			break;
 
@@ -2337,6 +2378,18 @@ void MonsterAI::MonsterSkill2() {
 			break;
 
 		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 2);
+				Time[3] = 3.f;
+				c->anim->SetDelay(0.6f);
+			}
+			Time[3] -= TimeManager::DeltaTime();
+			if (Time[3] < 0.f) {
+				c->state = State::READY;
+				Time[3] = 0.f;
+				Time[1] = 5.f;
+			}
 			break;
 
 		case MonsterType::GROWLITHE:

@@ -12,8 +12,8 @@ XClaw::XClaw(const Vector3 & pos, const Vector3 & size, TextureKey start, Textur
 	transform->scale = size;
 	direction = dir;
 	lifeTime = _lifeTime;
-	attack = att * 2.f;
-	moveSpeed = speed;
+	stat.attack = att * 2.f;
+	stat.moveSpeed = speed;
 
 	startKey = start;
 	endKey = end;

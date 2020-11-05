@@ -41,11 +41,11 @@ void Skill_IceBullet::Update()
 		bullet->SetDir(Dir);
 		if (character->team == Team::MONSTERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-			bullet->SetInitAttack(character->attack * 0.5f);
+			bullet->SetInitAttack(character->stat.attack * 0.5f);
 		}
 		else if (character->team == Team::PLAYERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-			bullet->SetInitAttack(character->attack * 2.f);
+			bullet->SetInitAttack(character->stat.attack * 2.f);
 		}
 		delay = 0.02f;
 	}

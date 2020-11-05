@@ -33,7 +33,7 @@ void TestScene::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKY_U);
-	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 24.f));
+	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 36.f));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 
 	// TestUI
@@ -41,7 +41,7 @@ void TestScene::OnLoaded()
 	/*Poliwhirl* playerCharacter = Poliwhirl::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
 	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
-	Character* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã

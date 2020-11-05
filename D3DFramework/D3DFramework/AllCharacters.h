@@ -1,6 +1,7 @@
 #pragma once
 #include "Charmander.h"
 #include "Charmeleon.h"
+#include "Charizard.h"
 
 #include "Bulbasaur.h"
 #include "Ivysaur.h"

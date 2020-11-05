@@ -28,7 +28,7 @@ void Skill_WaterBullet::Update()
 	Vector3 pos = character->transform->position;
 	Vector3 dir = character->direction;
 
-	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER, character->attack);
+	PlayerBullet* bullet = new PlayerBullet(pos, dir, PlayerBullet::WATER, character->stat.attack);
 	ObjectManager::AddObject(bullet);
 
 	Effect* effect = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::BULLET_FIRE_01, TextureKey::BULLET_FIRE_05, 0.2f, true);
@@ -36,11 +36,11 @@ void Skill_WaterBullet::Update()
 
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack * 0.25f);
+		bullet->SetInitAttack(character->stat.attack * 0.25f);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->attack);
+		bullet->SetInitAttack(character->stat.attack);
 	}
 
 	CalcActiveTime();

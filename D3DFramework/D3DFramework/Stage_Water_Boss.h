@@ -19,4 +19,5 @@ public:
 	static void Create_Monster_A_Spawner();
 	static void Create_Monster_B_Spawner();
 	static void Create_Monster_C_Spawner();
+
 };

@@ -57,6 +57,7 @@ using namespace std;
 
 #include "Debug.h"
 #include "Define.h"
+#include "Struct.h"
 #include "Functions.h"
 
 #include"MemoryPool.h"

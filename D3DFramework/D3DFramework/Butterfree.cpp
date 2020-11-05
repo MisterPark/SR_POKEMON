@@ -36,7 +36,7 @@ void Butterfree::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.3f;
+	stat.moveSpeed = 1.3f;
 	offsetY = 1.2f;
 
 	state = State::READY;
@@ -44,10 +44,10 @@ void Butterfree::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
 
-	attack = 20;
+	stat.attack = 20;
 
-	hp = 120;
-	maxHp = 120;
+	stat.hp = 120;
+	stat.maxHp = 120;
 
 	UpdateAnimation();
 }

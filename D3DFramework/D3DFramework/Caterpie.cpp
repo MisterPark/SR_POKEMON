@@ -32,7 +32,7 @@ void Caterpie::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	moveSpeed = 1.f;
+	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
 	state = State::READY;
@@ -40,10 +40,10 @@ void Caterpie::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebBullet));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
-	attack = 15;
+	stat.attack = 15;
 
-	hp = 60;
-	maxHp = 60;
+	stat.hp = 60;
+	stat.maxHp = 60;
 
 	UpdateAnimation();
 }

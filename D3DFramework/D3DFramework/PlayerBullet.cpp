@@ -12,8 +12,8 @@ PlayerBullet::PlayerBullet(const Vector3& pos, const Vector3& dir, const Type& t
 	transform->position = pos;
 	direction = dir;
 
-	attack = att;
-	moveSpeed = 10.f;
+	stat.attack = att;
+	stat.moveSpeed = 10.f;
 	lifeTime = 1.2f;
 
 	animDelay = 0.05f;
