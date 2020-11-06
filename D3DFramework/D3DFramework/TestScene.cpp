@@ -35,13 +35,12 @@ void TestScene::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKY_U);
 	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 36.f));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
-
 	// TestUI
 	
-	/*Poliwhirl* playerCharacter = Poliwhirl::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));*/
+	Groudon* playerCharacter = Groudon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
 	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
-	Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	/*Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));*/
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã
@@ -51,7 +50,7 @@ void TestScene::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 
 	playerCharacter->transform->position.x = 24.f;
-	playerCharacter->transform->position.z = 48.f - 24.f;
+	playerCharacter->transform->position.z = 48.f - 10.f;
 
 	
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
@@ -71,14 +70,12 @@ void TestScene::OnLoaded()
 	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp",3.5f);
 
 }
-
 void TestScene::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
 	Player::GetInstance()->SetCharacter(nullptr);
 	ObjectManager::DestroyAll();
 }
-
 void TestScene::Update()
 {
 	if (InputManager::GetKey(VK_F2))
@@ -90,8 +87,6 @@ void TestScene::Update()
 		SceneManager::LoadScene<Stage_Grass_01>();
 	}
 }
-
-
 void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,float _waterHeight)
 {
 	//ÁöÇü
@@ -274,10 +269,9 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 
 	}
 }
-
 void TestScene::CreateSpawner()
 {
-	Spawner* spawner = Spawner::Create(MonsterType::POLIWHIRL, 10.f, 0.5f, 10);
+	Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 
