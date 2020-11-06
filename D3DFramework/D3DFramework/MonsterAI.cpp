@@ -347,8 +347,8 @@ void MonsterAI::SetType(MonsterType _type)
 		break;
 	case MonsterType::GROUDON:
 		SetPatternRange(1, 1);
-		searchRange[0] = 48.f;
-		searchRange[1] = 2.f;
+		searchRange[0] = 8.f;
+		searchRange[1] = 5.f;
 		searchRange[3] = 30.f;
 		break;
 	case MonsterType::END:
@@ -979,28 +979,30 @@ void MonsterAI::MonsterWalk() {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
-			if (disPlayer < searchRange[1]) {
-				if (Time[2] > 0.f) {
-					Time[2] -= TimeManager::DeltaTime();
-					MovePlayerFollow();
-				}
-				else {
-					Time[2] = 0.f;
-					c->state = State::SKILL2;
-					readyPattern = true;
-				}
+			Time[3] -= TimeManager::DeltaTime();
+			if (Time[3] < 0.f) {
+				c->state = State::SKILL2;
+				readyPattern = true;
 			}
 			else {
-				if (Time[3] > 0.f) {
-					Time[3] -= TimeManager::DeltaTime();
+				Time[2] -= TimeManager::DeltaTime();
+				if (disPlayer > searchRange[1]) {
 					MovePlayerFollow();
 				}
-				else {
-					c->state = State::SKILL;
-					readyPattern = true;
+				else if (Time[2] < 0) {
+					Time[2] = 2.f;
+					if (Frame[1] == 0) {
+						c->state = State::ATTACK;
+						readyPattern = true;
+						Frame[1] = 1;
+					}
+					else if (Frame[1] == 1) {
+						c->state = State::SKILL;
+						readyPattern = true;
+						Frame[1] = 0;
+					}
 				}
 			}
-
 			break;
 		case MonsterType::END:
 			break;
@@ -2079,18 +2081,17 @@ void MonsterAI::MonsterSkill() {
 
 		case MonsterType::GROUDON:
 			if (readyPattern) {
-				c->anim->SetDelay(1.5f);
-				c->direction = DirFromPlayer();
-				c->Attack(c->direction, 0);
-
 				readyPattern = false;
+				c->Attack(c->direction, 1);
+				Time[4] = 5.f;
+				c->anim->SetDelay(0.8f);
 			}
-			Time[2] += TimeManager::DeltaTime();
-			if (1.5f < Time[2]) {
-				Time[2] = 0;
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
 				c->state = State::READY;
-				Time[3] = 0.5f; // ÄðÅ¸ÀÓ
 			}
+			break;
+
 
 		case MonsterType::END:
 			break;

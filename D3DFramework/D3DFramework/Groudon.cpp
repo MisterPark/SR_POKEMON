@@ -43,8 +43,8 @@ void Groudon::Initialize()
 
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowFall));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowCrystal));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
 
 	UpdateAnimation();
 

@@ -21,4 +21,7 @@ enum class SkillName
 	HealBubble,
 	XClaw,
 	Quake,
+	FireWallWave,
+	FireBlast
+
 };

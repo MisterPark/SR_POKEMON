@@ -153,7 +153,12 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Quake:
 		newSkill = Skill_Quake::Create();
 		break;
-
+	case SkillName::FireWallWave:
+		newSkill = Skill_FireWallWave::Create();
+		break;
+	case SkillName::FireBlast:
+		newSkill = Skill_Quake::Create();
+		break;
 	}
 
 	return newSkill;
