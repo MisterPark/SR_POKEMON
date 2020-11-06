@@ -33,6 +33,8 @@ void Skill_XClaw::Update()
 		Camera::GetInstance()->SetTarget(nullptr);
 
 		isDetachCamera = true;
+
+		Camera::GetInstance()->Shake(1.f);
 	}
 
 	if (0.4f >= activeTime)
@@ -70,7 +72,10 @@ void Skill_XClaw::CalcActiveTime()
 		if (0.f > activeTime)
 		{
 			if (isDetachCamera && Team::PLAYERTEAM == character->team)
+			{
 				Camera::GetInstance()->SlowChaseTarget(character);
+				Camera::SetShakeDuration(-1.f);
+			}
 			SetNoneActive();
 		}
 	}

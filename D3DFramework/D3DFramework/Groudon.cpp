@@ -42,7 +42,7 @@ void Groudon::Initialize()
 	stat.attack = 50.f;
 
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowRain));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowFall));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowCrystal));
 

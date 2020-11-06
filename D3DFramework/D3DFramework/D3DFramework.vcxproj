@@ -255,6 +255,7 @@
     <ClInclude Include="Skill_FireBall.h" />
     <ClInclude Include="Skill_Blaze.h" />
     <ClInclude Include="Skill_HealBubble.h" />
+    <ClInclude Include="Skill_Quake.h" />
     <ClInclude Include="Skill_SnowRain.h" />
     <ClInclude Include="Skill_SnowVulcan.h" />
     <ClInclude Include="Skill_SnowFall.h" />
@@ -393,6 +394,7 @@
     <ClCompile Include="Skill_FireBall.cpp" />
     <ClCompile Include="Skill_Blaze.cpp" />
     <ClCompile Include="Skill_HealBubble.cpp" />
+    <ClCompile Include="Skill_Quake.cpp" />
     <ClCompile Include="Skill_SnowRain.cpp" />
     <ClCompile Include="Skill_SnowVulcan.cpp" />
     <ClCompile Include="Skill_SnowFall.cpp" />

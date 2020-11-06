@@ -55,9 +55,6 @@
     <Filter Include="Skill">
       <UniqueIdentifier>{25eb1bf5-7678-4757-8542-c5077d41c44d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\Manager">
-      <UniqueIdentifier>{6f38078a-14a4-4e94-a0eb-008cda0dca41}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Bullet">
       <UniqueIdentifier>{12c4a537-8f1a-43a6-9b8f-0c68ba484bca}</UniqueIdentifier>
     </Filter>
@@ -283,6 +280,12 @@
     <Filter Include="Skill\18. HealBubble">
       <UniqueIdentifier>{b72bab92-34d1-4778-b35b-4c86d402cc6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\19. Quake">
+      <UniqueIdentifier>{b7154b03-61c3-4cea-8b5c-5b4a3d493b59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\99. Manager">
+      <UniqueIdentifier>{6f38078a-14a4-4e94-a0eb-008cda0dca41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -451,7 +454,7 @@
       <Filter>Skill</Filter>
     </ClInclude>
     <ClInclude Include="SkillManager.h">
-      <Filter>Skill\Manager</Filter>
+      <Filter>Skill\99. Manager</Filter>
     </ClInclude>
     <ClInclude Include="SkillName.h">
       <Filter>Skill</Filter>
@@ -734,6 +737,9 @@
     </ClInclude>
     <ClInclude Include="Skill_AccelWater.h">
       <Filter>Skill\16. AccelWater</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Quake.h">
+      <Filter>Skill\19. Quake</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1020,7 +1026,7 @@
       <Filter>GameObject\Character\Player\02. Ivysaur</Filter>
     </ClCompile>
     <ClCompile Include="SkillManager.cpp">
-      <Filter>Skill\Manager</Filter>
+      <Filter>Skill\99. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Butterfree.cpp">
       <Filter>GameObject\Character\Grass\012. Butterfree</Filter>
@@ -1278,6 +1284,9 @@
     </ClCompile>
     <ClCompile Include="Skill_AccelWater.cpp">
       <Filter>Skill\16. AccelWater</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Quake.cpp">
+      <Filter>Skill\19. Quake</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

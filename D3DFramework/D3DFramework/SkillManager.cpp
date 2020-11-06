@@ -150,6 +150,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::HealBubble:
 		newSkill = Skill_HealBubble::Create();
 		break;
+	case SkillName::Quake:
+		newSkill = Skill_Quake::Create();
+		break;
 
 	}
 

@@ -32,7 +32,7 @@ namespace PKH
 		void SlowChaseTarget(GameObject* tar);
 
 		// 카메라 흔들기
-		static void Shake();
+		void Shake(float _duration = 0.05f, float _magnitude = 0.03f);
 		void UpdateShake();
 		static void SetShakeDuration(float _duration);
 
@@ -48,14 +48,14 @@ namespace PKH
 		Matrix projectionMatrix;
 		GameObject* target = nullptr;
 
+		// 카메라 천천히 따라가기
+		bool isSlowChase = false;
+		float slowTime = 0.f;
+
 		// 카메라 흔들기
 		bool isShake = false;
-		bool isSlowChase = false;
-		float shakeTick = 0.f;
-		float shakeDuration = 0.5f;
-		float slowTime = 0.f;
-		
+		float shakeDuration;
+		float shakeMagnitude;
+		Vector3 originCamPos;
 	};
 }
-
-
