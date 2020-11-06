@@ -29,6 +29,8 @@ void Character::Update()
 	Billboard();
 	UpdateAnimation();
 	CalcMoveTime();
+
+	oldState = state;
 }
 
 void Character::Render()
@@ -246,8 +248,18 @@ void Character::UpdateAnimation()
 
 	index %= 8;
 
-	// ป๓ลย
-	anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+	if (oldState != state)
+	{
+		anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+	}
+	else
+	{
+		int curIndex = ((int)anim->GetEndSprite() - (int)anim->GetCurrentSprite());
+
+		anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+		curIndex = (int)endArray[(int)state][index] - curIndex;
+		anim->SetCurrentSprite((TextureKey)curIndex);
+	}
 }
 
 void Character::SetDir(const Vector3 & dir)
