@@ -20,5 +20,9 @@ enum class SkillName
 	AccelWater,
 	XClaw,
 	HealBubble,
-	Meteor,
+	XClaw,
+	Quake,
+	FireWallWave,
+	FireBlast,
+	Meteor
 };
