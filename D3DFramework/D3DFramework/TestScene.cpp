@@ -271,7 +271,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 }
 void TestScene::CreateSpawner()
 {
-	Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1);
+	Spawner* spawner = Spawner::Create(MonsterType::GOLDUCK, 10.f, 0.5f, 1);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 
