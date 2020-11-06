@@ -20,3 +20,4 @@
 #include "Skill_AccelWater.h"
 #include "Skill_XClaw.h"
 #include "Skill_HealBubble.h"
+#include "Skill_Quake.h"
