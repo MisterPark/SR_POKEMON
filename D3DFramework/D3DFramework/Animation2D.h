@@ -11,10 +11,13 @@ public:
     virtual void Update();
 
     void SetSprite(TextureKey _startTexture, TextureKey _endTexture);
-    void SetLoop(bool _isLoop);
+	void SetCurrentSprite(TextureKey _currentTexture);
+	void SetLoop(bool _isLoop);
     void SetDelay(float _delay);
 	void SetTick(float _tick);
 	TextureKey GetCurrentSprite();
+	TextureKey GetStartSprite();
+	TextureKey GetEndSprite();
 	bool IsEndFrame();
     // IComponent을(를) 통해 상속됨
     virtual IComponent* Clone() override;
