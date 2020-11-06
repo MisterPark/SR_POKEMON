@@ -52,7 +52,6 @@ Vector3 MonsterAI::DirRandom()
 	Vector3::Normalize(&Dir);
 	return Dir;
 }
-
 void MonsterAI::SpawnInRandomPos()
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -81,7 +80,6 @@ void MonsterAI::SpawnInRandomPos()
 
 	return;
 }
-
 Vector3 MonsterAI::DirFromPlayer(bool _posY /*= false*/)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -93,7 +91,6 @@ Vector3 MonsterAI::DirFromPlayer(bool _posY /*= false*/)
 	Vector3::Normalize(&Dir);
 	return Dir;
 }
-
 void MonsterAI::Move(float _moveSpeed2)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -102,7 +99,6 @@ void MonsterAI::Move(float _moveSpeed2)
 	c->transform->position.x += c->direction.x * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 	c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 }
-
 void MonsterAI::MovePlayerFollow(float _moveSpeed2)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -124,7 +120,6 @@ void MonsterAI::MovePlayerFollow(float _moveSpeed2)
 		c->transform->position.z += c->direction.z * c->stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
 	}
 }
-
 void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -159,7 +154,6 @@ void MonsterAI::MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2
 		}
 	}*/
 }
-
 void MonsterAI::PlayerSearch(float _range, float _rangeOut)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -198,7 +192,6 @@ void MonsterAI::PlayerSearch(float _range, float _rangeOut)
 	}
 
 }
-
 void MonsterAI::LimitPosition()
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -222,7 +215,7 @@ void MonsterAI::LimitPosition()
 		c->transform->position.z = dfTERRAIN_HEIGHT - 3;
 	}
 }
-
+#pragma region SetType
 void MonsterAI::SetType(MonsterType _type)
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -353,6 +346,10 @@ void MonsterAI::SetType(MonsterType _type)
 	case MonsterType::MAGCARGO:
 		break;
 	case MonsterType::GROUDON:
+		SetPatternRange(1, 1);
+		searchRange[0] = 48.f;
+		searchRange[1] = 2.f;
+		searchRange[3] = 30.f;
 		break;
 	case MonsterType::END:
 		break;
@@ -361,7 +358,8 @@ void MonsterAI::SetType(MonsterType _type)
 		break;
 	}
 }
-
+#pragma endregion
+#pragma region Pattern
 void MonsterAI::Pattern()
 {
 	Character* c = dynamic_cast<Character*>(gameObject);
@@ -429,9 +427,8 @@ void MonsterAI::Pattern()
 	}
 
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////// Idle
-
+#pragma endregion
+#pragma region MonsterIdle
 void MonsterAI::MonsterIdle() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
@@ -580,9 +577,8 @@ void MonsterAI::MonsterIdle() {
 		}
 	}
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////// Walk
-
+#pragma endregion
+#pragma region MonsterWalk
 void MonsterAI::MonsterWalk() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
@@ -980,10 +976,32 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::GROUDON:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
-			break;
+			if (disPlayer < searchRange[1]) {
+				if (Time[2] > 0.f) {
+					Time[2] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					Time[2] = 0.f;
+					c->state = State::SKILL2;
+					readyPattern = true;
+				}
+			}
+			else {
+				if (Time[3] > 0.f) {
+					Time[3] -= TimeManager::DeltaTime();
+					MovePlayerFollow();
+				}
+				else {
+					c->state = State::SKILL;
+					readyPattern = true;
+				}
+			}
 
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -1232,9 +1250,8 @@ void MonsterAI::MonsterWalk() {
 		}
 	}
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////// Attack
-
+#pragma endregion
+#pragma region MonsterAttack
 void MonsterAI::MonsterAttack() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
@@ -1624,6 +1641,14 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::GROUDON:
 			if (readyPattern) {
 				readyPattern = false;
+				c->Attack(c->direction, 0);
+				Time[3] = 4.f;
+				c->anim->SetDelay(0.7f);
+			}
+			Time[3] -= TimeManager::DeltaTime();
+			if (Time[3] < 0.f) {
+				c->state = State::READY;
+				Time[3] = 0.f;
 			}
 			break;
 
@@ -1635,6 +1660,7 @@ void MonsterAI::MonsterAttack() {
 	}
 
 	/////////////////////////////////////////////////////////// ÇÃ·¹ÀÌ¾î Å½Áö FALSE		Attack
+
 	else {
 		switch (type)
 		{
@@ -1830,9 +1856,8 @@ void MonsterAI::MonsterAttack() {
 		}
 	}
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////// Skill
-
+#pragma endregion
+#pragma region MonsterSkill
 void MonsterAI::MonsterSkill() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
@@ -2054,9 +2079,18 @@ void MonsterAI::MonsterSkill() {
 
 		case MonsterType::GROUDON:
 			if (readyPattern) {
+				c->anim->SetDelay(1.5f);
+				c->direction = DirFromPlayer();
+				c->Attack(c->direction, 0);
+
 				readyPattern = false;
 			}
-			break;
+			Time[2] += TimeManager::DeltaTime();
+			if (1.5f < Time[2]) {
+				Time[2] = 0;
+				c->state = State::READY;
+				Time[3] = 0.5f; // ÄðÅ¸ÀÓ
+			}
 
 		case MonsterType::END:
 			break;
@@ -2250,9 +2284,8 @@ void MonsterAI::MonsterSkill() {
 		}
 	}
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////// Skill2
-
+#pragma endregion
+#pragma region MonsterSkill2
 void MonsterAI::MonsterSkill2() {
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
@@ -2575,3 +2608,4 @@ void MonsterAI::MonsterSkill2() {
 		}
 	}
 }
+#pragma endregion
