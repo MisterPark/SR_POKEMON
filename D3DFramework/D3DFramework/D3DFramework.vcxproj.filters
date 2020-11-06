@@ -283,6 +283,9 @@
     <Filter Include="Skill\18. HealBubble">
       <UniqueIdentifier>{b72bab92-34d1-4778-b35b-4c86d402cc6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\19. Meteor">
+      <UniqueIdentifier>{b804921a-3ab6-456d-9085-b4e7ba9dff93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -734,6 +737,9 @@
     </ClInclude>
     <ClInclude Include="Skill_AccelWater.h">
       <Filter>Skill\16. AccelWater</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Meteor.h">
+      <Filter>Skill\19. Meteor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1278,6 +1284,9 @@
     </ClCompile>
     <ClCompile Include="Skill_AccelWater.cpp">
       <Filter>Skill\16. AccelWater</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Meteor.cpp">
+      <Filter>Skill\19. Meteor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

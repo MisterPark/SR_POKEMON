@@ -18,6 +18,7 @@ enum class SkillName
 	SnowCrystal,
 	BubbleShot,
 	AccelWater,
-	HealBubble,
 	XClaw,
+	HealBubble,
+	Meteor,
 };
