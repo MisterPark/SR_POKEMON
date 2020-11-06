@@ -37,7 +37,7 @@ void Caterpie::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
 	stat.attack = 15;

@@ -70,7 +70,7 @@ void PKH::Camera::Update()
 			{
 				D3DXVec3Normalize(&dir, &dir);
 
-				float speed = 5.f;
+				float speed = 10.f;
 
 				transform->position += dir * TimeManager::DeltaTime() * (speed + slowTime);
 

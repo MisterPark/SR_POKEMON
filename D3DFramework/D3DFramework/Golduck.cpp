@@ -27,8 +27,8 @@ Golduck::Golduck()
 	stat.hp = 200;
 	stat.maxHp = 200;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	UpdateAnimation();
 }

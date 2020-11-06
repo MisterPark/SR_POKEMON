@@ -41,7 +41,7 @@ void Charizard::Initialize()
 
 	skillSet.reserve(4);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBall));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName:: ? ? ));
@@ -84,12 +84,12 @@ void Charizard::AnimSet()
 		break;
 	case State::WALK:
 		anim->SetLoop(true);
-		anim->SetDelay(0.1f);
+		anim->SetDelay(0.15f);
 		anim->SetTick(0.f);
 		break;
 	case State::ATTACK:
 		anim->SetLoop(false);
-		anim->SetDelay(0.3f);
+		anim->SetDelay(0.2f);
 		anim->SetTick(0.f);
 		break;
 	case State::SKILL:

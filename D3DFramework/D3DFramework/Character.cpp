@@ -132,7 +132,9 @@ void Character::OnCollision(GameObject* target)
 		{
 			skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
 		}
+
 	}
+
 
 	// 사망처리
 	if (!isDead && stat.hp <= 0)
@@ -155,12 +157,12 @@ void Character::OnCollision(GameObject* target)
 	}
 
 	// 상대가 플레이어면서 몬스터일때 해당
+	if (damageSum < 0)return;
 	
-
 	if (playerCharacter == this) return;
-
 	TargetInfoPanel::SetTarget(this);
 	TargetInfoPanel::Show();
+	
 }
 
 void Character::CalcMoveTime()
@@ -275,9 +277,11 @@ void Character::MoveForward()
 
 void Character::ChangeState(State nextState)
 {
-	if (nextState != state)
-	{
-		state = nextState;
+	if (team == Team::PLAYERTEAM) {
+		if (nextState != state)
+		{
+			state = nextState;
+		}
 	}
 }
 
