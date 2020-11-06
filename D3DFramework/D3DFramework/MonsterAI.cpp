@@ -855,16 +855,15 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::POLIWHIRL:
 			if (readyPattern) {
-
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
 			if (disPlayer < searchRange[1]) {
-				if (Time[4] > 0.f) {
-					Time[4] -= TimeManager::DeltaTime();
-					MovePlayerFollow();
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
 				}
 				else {
-					Time[4] = 0.f;
+					Time[1] = 0.f;
 					c->state = State::ATTACK;
 					readyPattern = true;
 				}
@@ -917,17 +916,18 @@ void MonsterAI::MonsterWalk() {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
-			Time[1] -= TimeManager::DeltaTime();
-			Time[2] -= TimeManager::DeltaTime();
-			if (Time[1] < 0.f) {
+			Time[3] -= TimeManager::DeltaTime();
+			if (Time[3] < 0.f) {
 				c->state = State::SKILL2;
 				readyPattern = true;
 			}
 			else {
+				Time[2] -= TimeManager::DeltaTime();
 				if (disPlayer > searchRange[1]) {
 					MovePlayerFollow();
 				}
 				else if (Time[2] < 0) {
+					Time[2] = 2.f;
 					if (Frame[1] == 0) {
 						c->state = State::ATTACK;
 						readyPattern = true;
@@ -1507,15 +1507,17 @@ void MonsterAI::MonsterAttack() {
 			break;
 		case MonsterType::POLIWHIRL:
 			if (readyPattern) {
-				readyPattern = false;
 				c->Attack(c->direction, 0);
-				Time[4] = 1.2f;
-				c->anim->SetDelay(0.65f);
+				c->direction = DirFromPlayer();
+				Time[4] = 2.f;
+				c->anim->SetDelay(0.4f);
+				readyPattern = false;
 			}
 			Time[4] -= TimeManager::DeltaTime();
 			if (Time[4] < 0.f) {
 				c->state = State::READY;
 				Time[4] = 0.f;
+				Time[1] = 0.f; //Attack쿨타임
 			}
 			break;
 			//if (readyPattern) {
@@ -1561,8 +1563,8 @@ void MonsterAI::MonsterAttack() {
 				readyPattern = false;
 				c->Attack(c->direction, 0);
 				Time[4] = 3.5f;
-				Time[1] = 3.f;
 				c->anim->SetDelay(1.f);
+				Time[1] = 3.f;
 			}
 			Time[4] -= TimeManager::DeltaTime();
 			if (Time[4] < 0.f) {
@@ -1574,13 +1576,12 @@ void MonsterAI::MonsterAttack() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 0);
-				Time[3] = 4.f;
+				Time[4] = 4.f;
 				c->anim->SetDelay(0.7f);
 			}
-			Time[3] -= TimeManager::DeltaTime();
-			if (Time[3] < 0.f) {
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
 				c->state = State::READY;
-				Time[3] = 0.f;
 			}
 			break;
 
@@ -2006,12 +2007,11 @@ void MonsterAI::MonsterSkill() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 1);
-				Time[3] = 5.f;
+				Time[4] = 5.f;
 				c->anim->SetDelay(0.8f);
 			}
-			Time[3] -= TimeManager::DeltaTime();
-			if (Time[3] < 0.f) {
-				Time[3] = 0.f;
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
 				c->state = State::READY;
 			}
 			break;
@@ -2403,15 +2403,14 @@ void MonsterAI::MonsterSkill2() {
 		case MonsterType::SUICUNE:
 			if (readyPattern) {
 				readyPattern = false;
-				c->Attack(c->direction, 2);
-				Time[3] = 3.f;
-				c->anim->SetDelay(0.6f);
+				c->Attack(c->direction, 2); //몬스터의 3번째 스킬
+				Time[4] = 3.f;				//모션 고정할 시간 (State)
+				c->anim->SetDelay(0.6f);	//애니메이션 셋딜레이
 			}
-			Time[3] -= TimeManager::DeltaTime();
-			if (Time[3] < 0.f) {
-				c->state = State::READY;
-				Time[3] = 0.f;
-				Time[1] = 4.f;
+			Time[4] -= TimeManager::DeltaTime(); //Update 영역 모션고정할시간 계속빼줌
+			if (Time[4] < 0.f) {			//위에서 설정한 3초가 나면
+				c->state = State::READY;	//State를 READY 로 설정
+				Time[3] = 4.f;				//현재 스킬 즉 패턴 Skill2 의 쿨타임으로 활용
 			}
 			break;
 
