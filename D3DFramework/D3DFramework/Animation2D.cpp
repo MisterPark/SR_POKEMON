@@ -59,6 +59,11 @@ void PKH::Animation2D::SetSprite(TextureKey _startTexture, TextureKey _endTextur
 	
 }
 
+void PKH::Animation2D::SetCurrentSprite(TextureKey _currentTexture)
+{
+	currentTexture = _currentTexture;
+}
+
 void PKH::Animation2D::SetLoop(bool _isLoop)
 {
 	isLoop = _isLoop;
@@ -77,6 +82,16 @@ void PKH::Animation2D::SetTick(float _tick)
 TextureKey PKH::Animation2D::GetCurrentSprite()
 {
 	return currentTexture;
+}
+
+TextureKey PKH::Animation2D::GetStartSprite()
+{
+	return startTexture;
+}
+
+TextureKey PKH::Animation2D::GetEndSprite()
+{
+	return endTexture;
 }
 
 bool PKH::Animation2D::IsEndFrame()
