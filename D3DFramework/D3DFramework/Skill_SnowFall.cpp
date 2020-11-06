@@ -26,8 +26,7 @@ void Skill_SnowFall::InitActiveTime()
 void Skill_SnowFall::Update()
 {
 	if (delay <= 0.f) {
-		Camera::SetShakeDuration(0.05f);
-		Camera::Shake();
+		Camera::GetInstance()->Shake(0.05f);
 		Bullet_Ice3* bullet = dynamic_cast<Bullet_Ice3*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice3>());
 		bullet->transform->position = character->transform->position;
 		bullet->transform->position.x += character->direction.x * 3.f;
