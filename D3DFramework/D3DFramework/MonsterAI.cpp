@@ -901,7 +901,6 @@ void MonsterAI::MonsterWalk() {
 			if (disPlayer < searchRange[1]) {
 				if (Time[1] > 0.f) {
 					Time[1] -= TimeManager::DeltaTime();
-					MovePlayerFollow();
 				}
 				else {
 					Time[1] = 0.f;
