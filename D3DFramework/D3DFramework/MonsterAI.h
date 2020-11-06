@@ -40,7 +40,7 @@ public:
     void MovePlayerFollow(float _moveSpeed2 = 1.f);
     //MoveRandomPattern(한번 움직일때 움직이는시간, 움직일 횟수, 스피드값2)
     //Time[0], Frame[0] 사용중
-    void MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2 = 1.f);
+    void MoveRandomPattern(float _moveSpeed2 = 1.f);
     //PlayerSearch(Player탐지거리, Player탐지를 놓칠거리)
     //playerTrans, isSearch, disPlayer 의 값은 변경됩니다.
     //isSearch 가 변경될경우, State::Ready 로 즉시 변경됩니다.
