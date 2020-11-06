@@ -139,15 +139,6 @@
     <Filter Include="99. Defaults">
       <UniqueIdentifier>{b8a71775-02dc-4334-a429-7a0840044527}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\03. WaterBullet">
-      <UniqueIdentifier>{cb469c62-f0c3-4d83-9afc-7b662589cf87}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\02. FireBullet">
-      <UniqueIdentifier>{7041047e-6889-43f5-a4b3-635da4801ddb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\01. LeafBullet">
-      <UniqueIdentifier>{df5f8ce9-0544-4767-a4db-865dea6e665b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Transform">
       <UniqueIdentifier>{6256dccd-0b4d-4f31-b432-2a6b3d8573e5}</UniqueIdentifier>
     </Filter>
@@ -162,9 +153,6 @@
     </Filter>
     <Filter Include="GameObject\Character\Fire\077. Ponyta">
       <UniqueIdentifier>{6ad2d381-fcd3-4dbf-8c30-37f46569e9eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Character\Fire\078. Rapidsh">
-      <UniqueIdentifier>{e048e76e-e5c2-493e-9120-897858fb2c35}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Character\Fire\219. Magcargo">
       <UniqueIdentifier>{3ea8b267-29c5-482c-bd74-16a2e520299d}</UniqueIdentifier>
@@ -199,18 +187,6 @@
     <Filter Include="Skill\06. RushAttack">
       <UniqueIdentifier>{fed63ff8-dbeb-4eea-a584-147beba4b895}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\07. TearsBullet">
-      <UniqueIdentifier>{81d9c23a-cc97-4844-9713-0ae9a925e7f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\08. CrossBullet">
-      <UniqueIdentifier>{b463ac2b-b423-4ed4-abce-b9ff8ca27bcc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\09. XBullet">
-      <UniqueIdentifier>{5b4ffe65-4202-4a82-adbf-7b618bb7a7cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\10. WebBullet">
-      <UniqueIdentifier>{f0430313-9fda-48a2-812d-617d7c27149f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Bullet\Tornado">
       <UniqueIdentifier>{f34c9f34-416f-4fbb-9357-41495437e3eb}</UniqueIdentifier>
     </Filter>
@@ -244,14 +220,8 @@
     <Filter Include="GameObject\TriggerBox">
       <UniqueIdentifier>{99faca5d-c3cc-4633-b888-2e9e507f37f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\11. IceBullet">
-      <UniqueIdentifier>{22410907-ae42-4ea7-b6ba-ee6e858408af}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Bullet\Ice">
       <UniqueIdentifier>{5221dc8a-9908-4013-a712-44f4348d9622}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\12. BubbleBullet">
-      <UniqueIdentifier>{47c0363f-5c86-4b55-9316-dc8e6749477b}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Bullet\XClaw">
       <UniqueIdentifier>{49aaf383-193e-4fc4-8432-3dc289d1f415}</UniqueIdentifier>
@@ -262,14 +232,56 @@
     <Filter Include="GameObject\Character\Water\061. Poliwhirl">
       <UniqueIdentifier>{613c516a-9f51-4adf-a784-5cd2f3539012}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\13. XClaw">
-      <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\14. HealBubble">
-      <UniqueIdentifier>{b72bab92-34d1-4778-b35b-4c86d402cc6b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Bullet\HealBubble">
       <UniqueIdentifier>{9f2439a2-a512-4533-a02c-6d4764fd626a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Character\Fire\078. Rapidash">
+      <UniqueIdentifier>{e048e76e-e5c2-493e-9120-897858fb2c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\01. LeafShot">
+      <UniqueIdentifier>{df5f8ce9-0544-4767-a4db-865dea6e665b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\07. TearsShot">
+      <UniqueIdentifier>{81d9c23a-cc97-4844-9713-0ae9a925e7f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\08. CrossShot">
+      <UniqueIdentifier>{b463ac2b-b423-4ed4-abce-b9ff8ca27bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\09. XShot">
+      <UniqueIdentifier>{5b4ffe65-4202-4a82-adbf-7b618bb7a7cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\10. WebShot">
+      <UniqueIdentifier>{f0430313-9fda-48a2-812d-617d7c27149f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\02. FireBall">
+      <UniqueIdentifier>{7041047e-6889-43f5-a4b3-635da4801ddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\03. WaterCannon">
+      <UniqueIdentifier>{cb469c62-f0c3-4d83-9afc-7b662589cf87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\12. SnowVulcan">
+      <UniqueIdentifier>{d345ee3b-9153-4084-8809-dfe302fe0137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\13. SnowFall">
+      <UniqueIdentifier>{7effe3ea-1df9-4550-8b95-aa3f6592ec3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\14. SnowCrystal">
+      <UniqueIdentifier>{f85aedca-35bc-4532-9922-a97f39220b56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\11. SnowRain">
+      <UniqueIdentifier>{22410907-ae42-4ea7-b6ba-ee6e858408af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\15. BubbleShot">
+      <UniqueIdentifier>{47c0363f-5c86-4b55-9316-dc8e6749477b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\16. AccelWater">
+      <UniqueIdentifier>{e6678694-e2c9-4b2b-9198-a2b088f9ed25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\17. XClaw">
+      <UniqueIdentifier>{676bdeaf-20a2-4b6d-a303-21a6ddc84732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\18. HealBubble">
+      <UniqueIdentifier>{b72bab92-34d1-4778-b35b-4c86d402cc6b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -504,15 +516,6 @@
     <ClInclude Include="Transform.h">
       <Filter>Component\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="Skill_WaterBullet.h">
-      <Filter>Skill\03. WaterBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_LeafBullet.h">
-      <Filter>Skill\01. LeafBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_FireBullet.h">
-      <Filter>Skill\02. FireBullet</Filter>
-    </ClInclude>
     <ClInclude Include="RenderFilter.h">
       <Filter>GameObject\RenderFilter</Filter>
     </ClInclude>
@@ -545,18 +548,6 @@
     </ClInclude>
     <ClInclude Include="Skill_Tornado.h">
       <Filter>Skill\05. Tornado</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_CrossBullet.h">
-      <Filter>Skill\08. CrossBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_TearsBullet.h">
-      <Filter>Skill\07. TearsBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_WebBullet.h">
-      <Filter>Skill\10. WebBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_XBullet.h">
-      <Filter>Skill\09. XBullet</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Tornado.h">
       <Filter>GameObject\Bullet\Tornado</Filter>
@@ -609,29 +600,14 @@
     <ClInclude Include="TriggerBox.h">
       <Filter>GameObject\TriggerBox</Filter>
     </ClInclude>
-    <ClInclude Include="Skill_IceBullet.h">
-      <Filter>Skill\11. IceBullet</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet_Ice.h">
       <Filter>GameObject\Bullet\Ice</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_IceBullet2.h">
-      <Filter>Skill\11. IceBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_IceBullet3.h">
-      <Filter>Skill\11. IceBullet</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Bubble2.h">
       <Filter>GameObject\Bullet\Bubble</Filter>
     </ClInclude>
-    <ClInclude Include="Skill_BubbleBullet.h">
-      <Filter>Skill\12. BubbleBullet</Filter>
-    </ClInclude>
-    <ClInclude Include="Skill_BubbleBullet2.h">
-      <Filter>Skill\12. BubbleBullet</Filter>
-    </ClInclude>
     <ClInclude Include="Skill_XClaw.h">
-      <Filter>Skill\13. XClaw</Filter>
+      <Filter>Skill\17. XClaw</Filter>
     </ClInclude>
     <ClInclude Include="XClaw.h">
       <Filter>GameObject\Bullet\XClaw</Filter>
@@ -657,9 +633,6 @@
     <ClInclude Include="Bullet_Ice2.h">
       <Filter>GameObject\Bullet\Ice</Filter>
     </ClInclude>
-    <ClInclude Include="Skill_IceBullet4.h">
-      <Filter>Skill\11. IceBullet</Filter>
-    </ClInclude>
     <ClInclude Include="AllCharacters.h">
       <Filter>GameObject\Character</Filter>
     </ClInclude>
@@ -676,7 +649,7 @@
       <Filter>GameObject\Environment</Filter>
     </ClInclude>
     <ClInclude Include="Skill_HealBubble.h">
-      <Filter>Skill\14. HealBubble</Filter>
+      <Filter>Skill\18. HealBubble</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_HealBubble.h">
       <Filter>GameObject\Bullet\HealBubble</Filter>
@@ -692,6 +665,75 @@
     </ClInclude>
     <ClInclude Include="Bullet_Ice3.h">
       <Filter>GameObject\Bullet\Ice</Filter>
+    </ClInclude>
+    <ClInclude Include="Groudon.h">
+      <Filter>GameObject\Character\Fire\383. Groudon</Filter>
+    </ClInclude>
+    <ClInclude Include="Growlithe.h">
+      <Filter>GameObject\Character\Fire\058. Growlithe</Filter>
+    </ClInclude>
+    <ClInclude Include="Arcanine.h">
+      <Filter>GameObject\Character\Fire\059. Arcanine</Filter>
+    </ClInclude>
+    <ClInclude Include="Magcargo.h">
+      <Filter>GameObject\Character\Fire\219. Magcargo</Filter>
+    </ClInclude>
+    <ClInclude Include="Rapidash.h">
+      <Filter>GameObject\Character\Fire\078. Rapidash</Filter>
+    </ClInclude>
+    <ClInclude Include="Ponyta.h">
+      <Filter>GameObject\Character\Fire\077. Ponyta</Filter>
+    </ClInclude>
+    <ClInclude Include="Slugma.h">
+      <Filter>GameObject\Character\Fire\218. Slugma</Filter>
+    </ClInclude>
+    <ClInclude Include="Blastoise.h">
+      <Filter>GameObject\Character\Water\009. Blastoise</Filter>
+    </ClInclude>
+    <ClInclude Include="Squirtle.h">
+      <Filter>GameObject\Character\Water\007. Squirtle</Filter>
+    </ClInclude>
+    <ClInclude Include="Waterortle.h">
+      <Filter>GameObject\Character\Water\008. Wartortle</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_LeafShot.h">
+      <Filter>Skill\01. LeafShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireBall.h">
+      <Filter>Skill\02. FireBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_WaterCannon.h">
+      <Filter>Skill\03. WaterCannon</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_TearsShot.h">
+      <Filter>Skill\07. TearsShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_CrossShot.h">
+      <Filter>Skill\08. CrossShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_XShot.h">
+      <Filter>Skill\09. XShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_WebShot.h">
+      <Filter>Skill\10. WebShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_SnowRain.h">
+      <Filter>Skill\11. SnowRain</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_BubbleShot.h">
+      <Filter>Skill\15. BubbleShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_SnowVulcan.h">
+      <Filter>Skill\12. SnowVulcan</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_SnowFall.h">
+      <Filter>Skill\13. SnowFall</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_SnowCrystal.h">
+      <Filter>Skill\14. SnowCrystal</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_AccelWater.h">
+      <Filter>Skill\16. AccelWater</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1025,15 +1067,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>99. Defaults</Filter>
     </ClCompile>
-    <ClCompile Include="Skill_WaterBullet.cpp">
-      <Filter>Skill\03. WaterBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_LeafBullet.cpp">
-      <Filter>Skill\01. LeafBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_FireBullet.cpp">
-      <Filter>Skill\02. FireBullet</Filter>
-    </ClCompile>
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Transform.cpp">
@@ -1074,18 +1107,6 @@
     </ClCompile>
     <ClCompile Include="Skill_Tornado.cpp">
       <Filter>Skill\05. Tornado</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_CrossBullet.cpp">
-      <Filter>Skill\08. CrossBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_TearsBullet.cpp">
-      <Filter>Skill\07. TearsBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_WebBullet.cpp">
-      <Filter>Skill\10. WebBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_XBullet.cpp">
-      <Filter>Skill\09. XBullet</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Tornado.cpp">
       <Filter>GameObject\Bullet\Tornado</Filter>
@@ -1141,29 +1162,14 @@
     <ClCompile Include="TriggerBox.cpp">
       <Filter>GameObject\TriggerBox</Filter>
     </ClCompile>
-    <ClCompile Include="Skill_IceBullet.cpp">
-      <Filter>Skill\11. IceBullet</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet_Ice.cpp">
       <Filter>GameObject\Bullet\Ice</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_IceBullet2.cpp">
-      <Filter>Skill\11. IceBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_IceBullet3.cpp">
-      <Filter>Skill\11. IceBullet</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Bubble2.cpp">
       <Filter>GameObject\Bullet\Bubble</Filter>
     </ClCompile>
-    <ClCompile Include="Skill_BubbleBullet.cpp">
-      <Filter>Skill\12. BubbleBullet</Filter>
-    </ClCompile>
-    <ClCompile Include="Skill_BubbleBullet2.cpp">
-      <Filter>Skill\12. BubbleBullet</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_XClaw.cpp">
-      <Filter>Skill\13. XClaw</Filter>
+      <Filter>Skill\17. XClaw</Filter>
     </ClCompile>
     <ClCompile Include="XClaw.cpp">
       <Filter>GameObject\Bullet\XClaw</Filter>
@@ -1189,11 +1195,8 @@
     <ClCompile Include="Bullet_Ice2.cpp">
       <Filter>GameObject\Bullet\Ice</Filter>
     </ClCompile>
-    <ClCompile Include="Skill_IceBullet4.cpp">
-      <Filter>Skill\11. IceBullet</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_HealBubble.cpp">
-      <Filter>Skill\14. HealBubble</Filter>
+      <Filter>Skill\18. HealBubble</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_HealBubble.cpp">
       <Filter>GameObject\Bullet\HealBubble</Filter>
@@ -1206,6 +1209,75 @@
     </ClCompile>
     <ClCompile Include="Bullet_Ice3.cpp">
       <Filter>GameObject\Bullet\Ice</Filter>
+    </ClCompile>
+    <ClCompile Include="Groudon.cpp">
+      <Filter>GameObject\Character\Fire\383. Groudon</Filter>
+    </ClCompile>
+    <ClCompile Include="Growlithe.cpp">
+      <Filter>GameObject\Character\Fire\058. Growlithe</Filter>
+    </ClCompile>
+    <ClCompile Include="Arcanine.cpp">
+      <Filter>GameObject\Character\Fire\059. Arcanine</Filter>
+    </ClCompile>
+    <ClCompile Include="Magcargo.cpp">
+      <Filter>GameObject\Character\Fire\219. Magcargo</Filter>
+    </ClCompile>
+    <ClCompile Include="Rapidash.cpp">
+      <Filter>GameObject\Character\Fire\078. Rapidash</Filter>
+    </ClCompile>
+    <ClCompile Include="Ponyta.cpp">
+      <Filter>GameObject\Character\Fire\077. Ponyta</Filter>
+    </ClCompile>
+    <ClCompile Include="Slugma.cpp">
+      <Filter>GameObject\Character\Fire\218. Slugma</Filter>
+    </ClCompile>
+    <ClCompile Include="Blastoise.cpp">
+      <Filter>GameObject\Character\Water\009. Blastoise</Filter>
+    </ClCompile>
+    <ClCompile Include="Squirtle.cpp">
+      <Filter>GameObject\Character\Water\007. Squirtle</Filter>
+    </ClCompile>
+    <ClCompile Include="Waterortle.cpp">
+      <Filter>GameObject\Character\Water\008. Wartortle</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_LeafShot.cpp">
+      <Filter>Skill\01. LeafShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireBall.cpp">
+      <Filter>Skill\02. FireBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_WaterCannon.cpp">
+      <Filter>Skill\03. WaterCannon</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_TearsShot.cpp">
+      <Filter>Skill\07. TearsShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_CrossShot.cpp">
+      <Filter>Skill\08. CrossShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_XShot.cpp">
+      <Filter>Skill\09. XShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_WebShot.cpp">
+      <Filter>Skill\10. WebShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_SnowRain.cpp">
+      <Filter>Skill\11. SnowRain</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_SnowVulcan.cpp">
+      <Filter>Skill\12. SnowVulcan</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_SnowFall.cpp">
+      <Filter>Skill\13. SnowFall</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_SnowCrystal.cpp">
+      <Filter>Skill\14. SnowCrystal</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_BubbleShot.cpp">
+      <Filter>Skill\15. BubbleShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_AccelWater.cpp">
+      <Filter>Skill\16. AccelWater</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

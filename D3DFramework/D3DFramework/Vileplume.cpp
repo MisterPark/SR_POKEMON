@@ -40,8 +40,8 @@ void Vileplume::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XShot));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossShot));
 
 	stat.attack = 30;
 
@@ -202,9 +202,9 @@ void Vileplume::Attack(Transform* PlayerT)
 
 		AttackDelay = true;
 		if (Frame[0] % 2 == 1)
-			CrossBullet();
+			CrossShot();
 		else
-			XBullet();
+			XShot();
 	}
 	if (Time[0] >= 0.6f) {
 		Time[0] = 0.f;
@@ -219,7 +219,7 @@ void Vileplume::Attack(Transform* PlayerT)
 	}
 }
 
-void Vileplume::CrossBullet()
+void Vileplume::CrossShot()
 {
 	float R = 1.f;
 
@@ -263,7 +263,7 @@ void Vileplume::CrossBullet()
 	b->isAlliance = false;
 }
 
-void Vileplume::XBullet()
+void Vileplume::XShot()
 {
 	float R = 1.f;
 

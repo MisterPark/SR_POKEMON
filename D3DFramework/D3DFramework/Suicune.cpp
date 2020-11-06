@@ -44,12 +44,12 @@ void Suicune::Initialize()
 	stat.maxHp = 1600;
 	stat.attack = 50.f;
 
-	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet));
-	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleBullet2));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet));
-	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet2));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet3));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::IceBullet4));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::AccelWater));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowRain));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowVulcan));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowFall));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowCrystal));
 
 	UpdateAnimation();
 

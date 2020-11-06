@@ -41,8 +41,8 @@ void Butterfree::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsShot));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsShot));
 
 	stat.attack = 20;
 

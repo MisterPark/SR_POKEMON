@@ -38,7 +38,7 @@ void Charmander::Initialize()
 
 	skillSet.reserve(2);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBall));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
 
 	stat.hp = 250;
