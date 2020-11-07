@@ -115,6 +115,23 @@ void Button::OnClick()
 
 void Button::SetSize(int w, int h)
 {
-	width = float(w) / 88.f;
-	height = float(h) / 88.f;
+	float scaleX = float(w) / 88.f;
+	float scaleY = float(h) / 88.f;
+
+	transform->scale.x = scaleX;
+	transform->scale.y = scaleY;
+	originScale.x = scaleX;
+	originScale.y = scaleY;
+
+	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	if (texture != nullptr)
+	{
+		width = transform->scale.x * texture->GetSpriteWidth();
+		height = transform->scale.y * texture->GetSpriteHeight();
+	}
+	else
+	{
+		width = transform->scale.x * 88;
+		height = transform->scale.y * 88;
+	}
 }

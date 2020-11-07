@@ -3,12 +3,12 @@
 
 using namespace PKH;
 
-class TestMultiScene : public IScene
+class SelectScene : public IScene
 {
-	// IScene을(를) 통해 상속됨
-	virtual void OnLoaded() override;
-	virtual void OnUnloaded() override;
-	virtual void Update() override;
+    // IScene을(를) 통해 상속됨
+    virtual void OnLoaded() override;
+    virtual void OnUnloaded() override;
+    virtual void Update() override;
 
 	static void StartRotateChar();
 	static void CancelRotateChar();
@@ -22,8 +22,6 @@ class TestMultiScene : public IScene
 	Character* pokeC = nullptr;
 
 	static bool isClickedRotateButton;
-
 	static float rotationAngle;
-	
 };
 

@@ -205,6 +205,7 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_FireBlast.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Functions.h" />
@@ -356,6 +357,7 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gloom.cpp" />

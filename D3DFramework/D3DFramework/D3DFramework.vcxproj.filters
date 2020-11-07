@@ -771,6 +771,7 @@
     <ClInclude Include="Skill_Meteor.h">
       <Filter>Skill\19. Meteor</Filter>
     </ClInclude>
+    <ClInclude Include="SelectScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1333,6 +1334,7 @@
     <ClCompile Include="Skill_Meteor.cpp">
       <Filter>Skill\19. Meteor</Filter>
     </ClCompile>
+    <ClCompile Include="SelectScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

@@ -1,13 +1,13 @@
 #include "stdafx.h"
-#include "TestMultiScene.h"
+#include "SelectScene.h"
 #include "SkyBox.h"
 #include "AllCharacters.h"
 #include "Button.h"
 
-bool TestMultiScene::isClickedRotateButton = false;
-float TestMultiScene::rotationAngle = 0.f;
+bool SelectScene::isClickedRotateButton = false;
+float SelectScene::rotationAngle = 0.f;
 
-void TestMultiScene::OnLoaded()
+void SelectScene::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBLUE1_U);
@@ -53,15 +53,14 @@ void TestMultiScene::OnLoaded()
 	btnRight->transform->position.y = 100;
 
 	selectedPoke = pokeA;
-
 }
 
-void TestMultiScene::OnUnloaded()
+void SelectScene::OnUnloaded()
 {
 	ObjectManager::DestroyAll();
 }
 
-void TestMultiScene::Update()
+void SelectScene::Update()
 {
 	if (isClickedRotateButton)
 	{
@@ -74,20 +73,20 @@ void TestMultiScene::Update()
 	}
 }
 
-void TestMultiScene::StartRotateChar()
+void SelectScene::StartRotateChar()
 {
 	isClickedRotateButton = true;
 }
 
-void TestMultiScene::CancelRotateChar()
+void SelectScene::CancelRotateChar()
 {
 	isClickedRotateButton = false;
 }
 
-void TestMultiScene::ChangeNext()
+void SelectScene::ChangeNext()
 {
 }
 
-void TestMultiScene::ChangePrev()
+void SelectScene::ChangePrev()
 {
 }
