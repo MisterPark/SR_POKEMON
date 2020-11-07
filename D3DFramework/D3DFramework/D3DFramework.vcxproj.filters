@@ -310,8 +310,20 @@
     <Filter Include="GameObject\Bullet\22. FireBlast">
       <UniqueIdentifier>{8ca0c28c-6130-4fc2-a0dc-a350104771f8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet\23.ReverseHealBubble">
+    <Filter Include="GameObject\Bullet\27. WaterFlow">
+      <UniqueIdentifier>{b226fdad-4917-4503-8c05-959a6671a04f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\23. ReverseHealBubble">
       <UniqueIdentifier>{8146c74c-f813-40a6-95b0-ff205c8a1e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\28. WaterBomb">
+      <UniqueIdentifier>{9a5868b9-4951-4520-8830-ed876a07586e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\26. WaterBomb">
+      <UniqueIdentifier>{1613d427-78a2-40b5-9825-4efe8c2ccb11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\25. WaterFlow">
+      <UniqueIdentifier>{e0a537f3-684b-445b-abce-e7a960f04d78}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -781,7 +793,7 @@
       <Filter>Skill\19. Meteor</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_ReverseHealBubble.h">
-      <Filter>GameObject\Bullet\23.ReverseHealBubble</Filter>
+      <Filter>GameObject\Bullet\23. ReverseHealBubble</Filter>
     </ClInclude>
     <ClInclude Include="Skill_ReverseHealBubble.h">
       <Filter>Skill\23. ReverseHealBubble</Filter>
@@ -797,6 +809,18 @@
     </ClInclude>
     <ClInclude Include="Wartortle.h">
       <Filter>GameObject\Character\Water\008. Wartortle</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_WaterFlow.h">
+      <Filter>GameObject\Bullet\27. WaterFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_WaterBomb.h">
+      <Filter>GameObject\Bullet\28. WaterBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_WaterFlow.h">
+      <Filter>Skill\25. WaterFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_WaterBomb.h">
+      <Filter>Skill\26. WaterBomb</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1358,7 +1382,7 @@
       <Filter>Skill\19. Meteor</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_ReverseHealBubble.cpp">
-      <Filter>GameObject\Bullet\23.ReverseHealBubble</Filter>
+      <Filter>GameObject\Bullet\23. ReverseHealBubble</Filter>
     </ClCompile>
     <ClCompile Include="Skill_ReverseHealBubble.cpp">
       <Filter>Skill\23. ReverseHealBubble</Filter>
@@ -1374,6 +1398,18 @@
     </ClCompile>
     <ClCompile Include="Wartortle.cpp">
       <Filter>GameObject\Character\Water\008. Wartortle</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_WaterFlow.cpp">
+      <Filter>GameObject\Bullet\27. WaterFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_WaterBomb.cpp">
+      <Filter>GameObject\Bullet\28. WaterBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_WaterFlow.cpp">
+      <Filter>Skill\25. WaterFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_WaterBomb.cpp">
+      <Filter>Skill\26. WaterBomb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

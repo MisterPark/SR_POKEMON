@@ -85,11 +85,19 @@ void Player::Evolution()
 
 void Player::SetCharacter(Character * object)
 {
+	if (character != nullptr)
+	{
+		if (character == object) return;
+
+		character->dontDestroy = false;
+		character->Die();
+	}
 	character = object;
 
 	Camera::GetInstance()->SetTarget(character);
 	if (nullptr != object)
 	{
+		character->dontDestroy = true;
 		character->team = Team::PLAYERTEAM;
 		skillSetSize = character->GetSkillSetSize();
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
@@ -157,10 +165,10 @@ void Player::CalcMouse()
 
 	radianX += D3DXToRadian(ySize);
 
-	if (radianX > D3DXToRadian(40.f))
-		radianX = D3DXToRadian(40.f);
-	else if (radianX < D3DXToRadian(-30.f))
-		radianX = D3DXToRadian(-30.f);
+	if (radianX > D3DXToRadian(20.f))
+		radianX = D3DXToRadian(20.f);
+	else if (radianX < D3DXToRadian(-15.f))
+		radianX = D3DXToRadian(-15.f);
 
 	radianY += D3DXToRadian(xSize);
 

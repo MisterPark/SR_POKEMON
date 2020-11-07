@@ -31,7 +31,6 @@ void Stage_Grass_01::OnLoaded()
 void Stage_Grass_01::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
 	ObjectManager::DestroyAll();
 }
 

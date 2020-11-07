@@ -312,9 +312,9 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::METEOR_06, L"Texture\\Player\\Effect\\Meteor\\5.png");
 	D2DRenderManager::LoadSprite(TextureKey::METEOR_07, L"Texture\\Player\\Effect\\Meteor\\6.png");
 	D2DRenderManager::LoadSprite(TextureKey::METEOR_08, L"Texture\\Player\\Effect\\Meteor\\7.png");
-	D2DRenderManager::LoadSprite(TextureKey::METEOR_06, L"Texture\\Player\\Effect\\Meteor\\8.png");
-	D2DRenderManager::LoadSprite(TextureKey::METEOR_07, L"Texture\\Player\\Effect\\Meteor\\9.png");
-	D2DRenderManager::LoadSprite(TextureKey::METEOR_08, L"Texture\\Player\\Effect\\Meteor\\10.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_09, L"Texture\\Player\\Effect\\Meteor\\8.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_10, L"Texture\\Player\\Effect\\Meteor\\9.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_11, L"Texture\\Player\\Effect\\Meteor\\10.png");
 
 	//¸ó½ºÅÍ ÃÑ¾Ë
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_01, L"Texture\\Bullet\\Bubble1\\Bubble1 (1).png");
@@ -640,6 +640,7 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_BORDER, L"Texture\\UI\\iconBorder.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_FIELDFIRE, L"Texture\\Player\\Icon\\FieldFire.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_XCLAW, L"Texture\\Player\\Icon\\XClaw.png");
+	D2DRenderManager::LoadSprite(TextureKey::ICON_METEOR, L"Texture\\Player\\Icon\\Meteor.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_BLACK_FILTER, L"Texture\\UI\\iconFilter.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_RED_FILTER, L"Texture\\UI\\redFilter.png");
 
