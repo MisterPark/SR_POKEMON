@@ -40,11 +40,11 @@ void Skill_FireBlast::Update()
 
 		if (character->team == Team::MONSTERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-			bullet->SetInitAttack(character->stat.attack * 0.25f);
+			bullet->SetInitAttack(character->stat.attack * 0.005f);
 		}
 		else if (character->team == Team::PLAYERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-			bullet->SetInitAttack(character->stat.attack);
+			bullet->SetInitAttack(character->stat.attack*0.01);
 		}
 		//delay = 0.2f;
 	}
