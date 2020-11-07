@@ -6,7 +6,7 @@ class Meteor :
 {
 public:
 	Meteor();
-	Meteor(const Vector3 & pos, const Vector3 & size, const Vector3 & dir, float speed, float lifeTime, float att);
+	Meteor(const Vector3& pos, const Vector3& size, const Vector3& dir, float att, float speed);
 	virtual ~Meteor();
 
 public:
@@ -21,10 +21,15 @@ public:
 	static Meteor* Create(
 		const Vector3& pos,
 		const Vector3& size,
+		const Vector3& dir,
 		float att,
-		const Vector3& dir = {0.f, 0.f, 0.f},
-		float speed = 0.f,
-		float lifeTime = 3.f
+		float speed = 5.f
 	);
+
+private:
+	bool isExplosion;
+	float initAttack;
+	float initSize;
+	float stackSize;
 };
 

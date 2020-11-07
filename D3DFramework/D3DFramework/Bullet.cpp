@@ -84,7 +84,8 @@ void Bullet::OnTerrain()
 	}
 	else
 	{
-		if (transform->position.y < y) isCollideOnTerrain = true;
+		if (transform->position.y < y)
+			isCollideOnTerrain = true;
 	}
 }
 
