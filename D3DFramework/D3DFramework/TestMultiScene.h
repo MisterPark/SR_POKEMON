@@ -9,5 +9,17 @@ class TestMultiScene : public IScene
 	virtual void OnLoaded() override;
 	virtual void OnUnloaded() override;
 	virtual void Update() override;
+
+	static void StartRotateChar();
+	static void CancelRotateChar();
+	static void ChangeNext();
+	static void ChangePrev();
+
+
+	Character* selectedPoke = nullptr;
+	Character* pokeA = nullptr;
+	Character* pokeB = nullptr;
+	Character* pokeC = nullptr;
+	
 };
 

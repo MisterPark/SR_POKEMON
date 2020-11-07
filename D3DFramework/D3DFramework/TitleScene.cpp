@@ -18,18 +18,22 @@ void TitleScene::OnLoaded()
 	btn->text = L"싱글 플레이";
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
 	btn->transform->position.y = 600;
+	btn->transform->scale = { 3.f,0.5f,1.f };
 	btn->Click = SceneManager::LoadScene<TestScene>;
 
 	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"멀티 플레이";
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
 	btn->transform->position.y = 650;
+	btn->transform->scale = { 3.f,0.5f,1.f };
+	btn->SetSize(300, 50);
 	btn->Click = SceneManager::LoadScene<TestMultiScene>;
 
 	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"종료";
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
 	btn->transform->position.y = 700;
+	btn->transform->scale = { 3.f,0.5f,1.f };
 	btn->Click = MainGame::Shutdown;
 	
 	//lobby = LobbyWindow::GetInstance();
