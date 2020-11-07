@@ -165,10 +165,10 @@ void Player::CalcMouse()
 
 	radianX += D3DXToRadian(ySize);
 
-	if (radianX > D3DXToRadian(40.f))
-		radianX = D3DXToRadian(40.f);
-	else if (radianX < D3DXToRadian(-30.f))
-		radianX = D3DXToRadian(-30.f);
+	if (radianX > D3DXToRadian(20.f))
+		radianX = D3DXToRadian(20.f);
+	else if (radianX < D3DXToRadian(-15.f))
+		radianX = D3DXToRadian(-15.f);
 
 	radianY += D3DXToRadian(xSize);
 

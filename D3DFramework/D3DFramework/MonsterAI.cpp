@@ -1731,10 +1731,11 @@ void MonsterAI::MonsterAttack() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 0);
-				Time[3] = 4.f;
-				c->anim->SetDelay(1.5f);
+				Time[3] = 8.f;
+				c->anim->SetDelay(0.8f);
 			}
 			Time[3] -= TimeManager::DeltaTime();
+			c->direction = DirFromPlayer();
 			if (Time[3] < 0.f) {
 				c->state = State::READY;
 				Time[3] = 0.f;
@@ -2169,13 +2170,14 @@ void MonsterAI::MonsterSkill() {
 		case MonsterType::GROUDON:
 			if (readyPattern) {
 				readyPattern = false;
-				c->Attack(c->direction, 1);
-				Time[4] = 5.f;
-				c->anim->SetDelay(1.5f);
+				c->Attack(c->direction, 0);
+				Time[4] = 6.f;
+				c->anim->SetDelay(1.f);
 			}
 			Time[4] -= TimeManager::DeltaTime();
 			if (Time[4] < 0.f) {
 				c->state = State::READY;
+				Time[4] = 0.f;
 			}
 			break;
 
@@ -2557,8 +2559,8 @@ void MonsterAI::MonsterSkill2() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 2); //몬스터의 3번째 스킬
-				Time[4] = 7.f;				//모션 고정할 시간 (State)
-				c->anim->SetDelay(0.8f);	//애니메이션 셋딜레이
+				Time[4] = 9.f;				//모션 고정할 시간 (State)
+				c->anim->SetDelay(0.75f);	//애니메이션 셋딜레이
 			}
 			Time[4] -= TimeManager::DeltaTime(); //Update 영역 모션고정할시간 계속빼줌
 			if (Time[4] < 0.f) {			//위에서 설정한 3초가 나면

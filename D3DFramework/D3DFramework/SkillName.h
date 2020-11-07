@@ -25,5 +25,7 @@ enum class SkillName
 	FireWallWave,
 	FireBlast,
 	ReverseHealBubble,
-	MiniRush
+	MiniRush,
+	WaterFlow,
+	WaterBomb
 };

@@ -42,8 +42,8 @@ void Squirtle::Initialize()
 
 	skillSet.reserve(2);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterFlow));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBomb));
 
 	UpdateAnimation();
 }
