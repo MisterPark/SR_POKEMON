@@ -7,6 +7,8 @@
 #include "Skill.h"
 #include "DamageSkin.h"
 #include "Effect.h"
+#include "PlayerInfoPanel.h"
+
 Character::Character() :
 	canMove(true)
 {
@@ -132,6 +134,7 @@ void Character::OnCollision(GameObject* target)
 		if (this == playerCharacter)
 		{
 			skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
+			PlayerInfoPanel::ActiveRedFilter();
 		}
 
 	}
@@ -141,19 +144,13 @@ void Character::OnCollision(GameObject* target)
 	if (!IsDead() && stat.hp <= 0)
 	{
 		stat.hp = 0;
-		if (playerCharacter == this)
-		{
+		if (dontDestroy == true) return;
 
+		Die();
+		if (nullptr == spawner)
 			return;
-		}
-		else
-		{
-			Die();
-			if (nullptr == spawner)
-				return;
-			spawner->monsterCount--;
-			return;
-		}
+		spawner->monsterCount--;
+		return;
 		
 	}
 

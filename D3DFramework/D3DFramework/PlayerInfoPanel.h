@@ -15,6 +15,8 @@ public:
     static void Hide();
 
     static void SetTarget(Character* _target);
+    static void ActiveRedFilter();
+    void UpdateRedFilter();
 
     virtual void Initialize() override;
     virtual void Release() override;
@@ -22,7 +24,16 @@ public:
     virtual void Render() override;
 
 
+
 private:
     Character* target = nullptr;
+    
+    // 레드필터 전용
+    bool isAttacked = false;
+    float redTick = 0.f;
+    float redDuration = 0.3f;
+    bool flashFlag = false;
+    float flashTick = 0.f;
+    float flashDelay = 0.1f;
 };
 

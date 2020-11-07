@@ -102,8 +102,9 @@ void PKH::ObjectManager::Update()
 	
 	
 	RenderFilter::GetInstance()->Update();
-	TargetInfoPanel::GetInstance()->Update();
+	
 	PlayerInfoPanel::GetInstance()->Update();
+	TargetInfoPanel::GetInstance()->Update();
 	Cursor::GetInstance()->Update();
 }
 
@@ -192,8 +193,8 @@ void PKH::ObjectManager::PostRender()
 	}
 
 	RenderFilter::GetInstance()->Render();
-	TargetInfoPanel::GetInstance()->Render();
 	PlayerInfoPanel::GetInstance()->Render();
+	TargetInfoPanel::GetInstance()->Render();
 	Cursor::GetInstance()->Render();
 }
 

@@ -10,15 +10,14 @@ void Stage_Grass_Boss::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYNIGHT_U);
-	Charmeleon* playerCharacter = Charmeleon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
 
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	Player::GetInstance()->SetRadianY(D3DXToRadian(45));
 	playerCharacter->direction = { 1.f,0.f,1.f };
-
-	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 1.f;
 	playerCharacter->transform->position.z = 48.f - 47.f;
+	Camera::GetInstance()->SetTarget(playerCharacter);
+
 	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp", 8.5f);
 
 

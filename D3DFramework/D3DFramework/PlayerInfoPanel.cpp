@@ -46,6 +46,37 @@ void PlayerInfoPanel::SetTarget(Character* _target)
     pPlayerInfoPanel->target = _target;
 }
 
+void PlayerInfoPanel::ActiveRedFilter()
+{
+    pPlayerInfoPanel->isAttacked = true;
+    pPlayerInfoPanel->redTick = 0.f;
+}
+
+void PlayerInfoPanel::UpdateRedFilter()
+{
+    float dt = TimeManager::DeltaTime();
+
+    if (isAttacked)
+    {
+        redTick += dt;
+        flashTick += dt;
+    }
+
+    if (redTick > redDuration)
+    {
+        redTick = 0.f;
+        flashTick = 0.f;
+        isAttacked = false;
+    }
+
+    
+    if (flashTick > flashDelay)
+    {
+        flashTick = 0.f;
+        flashFlag = !flashFlag;
+    }
+}
+
 void PlayerInfoPanel::Initialize()
 {
 }
@@ -56,6 +87,7 @@ void PlayerInfoPanel::Release()
 
 void PlayerInfoPanel::Update()
 {
+    UpdateRedFilter();
 }
 
 void PlayerInfoPanel::Render()
@@ -68,6 +100,14 @@ void PlayerInfoPanel::Render()
         return;
     }
 
+    // 레드 필터 (맞았을떄)
+    if (isAttacked)
+    {
+        if(flashFlag)
+            D2DRenderManager::DrawUI(TextureKey::UI_RED_FILTER, Vector3(0, 0, 0), 0);
+    }
+    
+    // HP 바, 아이콘
     Vector3 barPos = { 0,0,0 };
     barPos.x = 30;
     barPos.y = 0;
@@ -78,6 +118,7 @@ void PlayerInfoPanel::Render()
     barPos.x -= 100;
     D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, barPos, int(target->number) - 1);
 
+    // 스킬 표시
     vector<Skill*> skillSet = target->GetSkillSet();
     int currentSkill = Player::GetInstance()->GetCurrentSkillIndex();
     
@@ -85,8 +126,6 @@ void PlayerInfoPanel::Render()
 
     for (int i = 1; i < skillSize; i++)
     {
-		
-
 		// 스킬 아이콘
         Skill* skill = skillSet[i];
         barPos.x = 60 +(i * 80);
@@ -118,3 +157,4 @@ void PlayerInfoPanel::Render()
     
     
 }
+

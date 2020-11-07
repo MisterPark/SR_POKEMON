@@ -85,11 +85,19 @@ void Player::Evolution()
 
 void Player::SetCharacter(Character * object)
 {
+	if (character != nullptr)
+	{
+		if (character == object) return;
+
+		character->dontDestroy = false;
+		character->Die();
+	}
 	character = object;
 
 	Camera::GetInstance()->SetTarget(character);
 	if (nullptr != object)
 	{
+		character->dontDestroy = true;
 		character->team = Team::PLAYERTEAM;
 		skillSetSize = character->GetSkillSetSize();
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
