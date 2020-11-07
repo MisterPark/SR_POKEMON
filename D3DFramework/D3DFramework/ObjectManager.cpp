@@ -117,8 +117,16 @@ void PKH::ObjectManager::PostUpdate()
 	for (; iter != end;)
 	{
 		target = *iter;
+		
+
 		if (target->isDead)
 		{
+			if (target->dontDestroy)
+			{
+				target->isDead = false;
+				++iter;
+				continue;
+			}
 			iter = objList.erase(iter);
 			delete target;
 		}

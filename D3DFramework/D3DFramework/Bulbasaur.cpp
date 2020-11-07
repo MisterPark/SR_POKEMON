@@ -7,10 +7,10 @@ Bulbasaur::Bulbasaur()
 	Initialize();
 }
 
-Bulbasaur::Bulbasaur(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Bulbasaur::Bulbasaur(const Vector3 & pos, const Vector3 & dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
+	transform->scale = { 0.2f,0.2f, 0.2f};
 	direction = dir;
 
 	Initialize();
@@ -73,8 +73,8 @@ bool Bulbasaur::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
-Bulbasaur * Bulbasaur::Create(const Vector3 & pos, const Vector3 & scale, const Vector3 & dir)
+Bulbasaur * Bulbasaur::Create(const Vector3 & pos, const Vector3 & dir)
 {
-	Bulbasaur* newPokemon = new Bulbasaur(pos, scale, dir);
+	Bulbasaur* newPokemon = new Bulbasaur(pos, dir);
 	return newPokemon;
 }

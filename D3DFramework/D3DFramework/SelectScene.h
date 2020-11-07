@@ -14,14 +14,16 @@ class SelectScene : public IScene
 	static void CancelRotateChar();
 	static void ChangeNext();
 	static void ChangePrev();
+	static void SelectCharacter();
 
 
-	Character* selectedPoke = nullptr;
+	static Character* selectedPoke;
 	Character* pokeA = nullptr;
 	Character* pokeB = nullptr;
 	Character* pokeC = nullptr;
 
 	static bool isClickedRotateButton;
 	static float rotationAngle;
+	static Pokemon selectedIndex;
 };
 
