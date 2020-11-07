@@ -18,7 +18,7 @@ Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, Textu
 	transform->scale = size;
 	transform->eulerAngles.y = radianY;
 	stat.moveSpeed = speed;
-
+		
 	Mesh* mesh;
 
 	if (isPlane) mesh = (Mesh*)AddComponent<PKH::Plane>(L"Mesh");
@@ -27,7 +27,7 @@ Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, Textu
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
 
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
-
+	
 	Initialize();
 }
 
@@ -75,8 +75,8 @@ bool Effect::IsDie()
 		lifeTime -= TimeManager::DeltaTime();
 
 		if (lifeTime <= 0.f) return true;
+		return false;
 	}
-	return false;
 }
 
 void Effect::OnTerrain()

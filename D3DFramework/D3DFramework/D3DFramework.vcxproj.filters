@@ -834,6 +834,9 @@
     <ClInclude Include="Bullet_Tsunami.h">
       <Filter>GameObject\Bullet\29. Tsunami</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Fire_Boss.h">
+      <Filter>Scene\Fire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1428,6 +1431,9 @@
     </ClCompile>
     <ClCompile Include="Bullet_Tsunami.cpp">
       <Filter>GameObject\Bullet\29. Tsunami</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Fire_Boss.cpp">
+      <Filter>Scene\Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

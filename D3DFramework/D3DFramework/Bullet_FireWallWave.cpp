@@ -7,32 +7,31 @@
 
 Bullet_FireWallWave::Bullet_FireWallWave()
 {
-	anim->SetSprite(TextureKey::BULLET_INVISIBLE_01, TextureKey::BULLET_INVISIBLE_01);
+	anim->SetSprite(TextureKey::BULLET_FIRE4_03, TextureKey::BULLET_FIRE4_10);
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 
-	transform->scale = { 0.6f, 0.6f, 0.6f };
 
 	stat.attack = initAttack;
-	lifeTime = 4.f;
+	lifeTime = 20.f;
 	stat.moveSpeed = 3.f;
+	isBillboard = false;
+	isOnTerrain = true;
 
 }
 
 Bullet_FireWallWave::~Bullet_FireWallWave()
 {
+
 }
 
 void Bullet_FireWallWave::Update()
 {
+	if (transform->position.z < 1)
+		Die();
 	Bullet::Update();
-	if (lifeTime > 3.f) {
-		stat.moveSpeed = 0.f;
-	}
-	else {
-		anim->SetSprite(TextureKey::BULLET_INVISIBLE_01, TextureKey::BULLET_INVISIBLE_01);
-		stat.moveSpeed = 8.f;
-	}
+	stat.attack = TimeManager::DeltaTime() * initAttack;
+	
 
 }
 
@@ -43,9 +42,7 @@ void Bullet_FireWallWave::Render()
 
 void Bullet_FireWallWave::OnCollision(GameObject* target)
 {
-	stack++;
-	if (stack > 50)
-	{
-		Die();
-	}
+
+		/*Die();*/
+	
 }
