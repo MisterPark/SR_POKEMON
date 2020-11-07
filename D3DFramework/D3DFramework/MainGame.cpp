@@ -303,6 +303,19 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_07, L"Texture\\Player\\Effect\\XClaw\\6.png");
 	D2DRenderManager::LoadSprite(TextureKey::X_CLAW_08, L"Texture\\Player\\Effect\\XClaw\\7.png");
 
+	// 메테오
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_01, L"Texture\\Player\\Effect\\Meteor\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_02, L"Texture\\Player\\Effect\\Meteor\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_03, L"Texture\\Player\\Effect\\Meteor\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_04, L"Texture\\Player\\Effect\\Meteor\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_05, L"Texture\\Player\\Effect\\Meteor\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_06, L"Texture\\Player\\Effect\\Meteor\\5.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_07, L"Texture\\Player\\Effect\\Meteor\\6.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_08, L"Texture\\Player\\Effect\\Meteor\\7.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_06, L"Texture\\Player\\Effect\\Meteor\\8.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_07, L"Texture\\Player\\Effect\\Meteor\\9.png");
+	D2DRenderManager::LoadSprite(TextureKey::METEOR_08, L"Texture\\Player\\Effect\\Meteor\\10.png");
+
 	//몬스터 총알
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_01, L"Texture\\Bullet\\Bubble1\\Bubble1 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_02, L"Texture\\Bullet\\Bubble1\\Bubble1 (2).png");
@@ -1970,4 +1983,175 @@ void PKH::MainGame::LoadPlayerSprite()
 	D2DRenderManager::LoadSprite(TextureKey::PF03_SKILL_RD_01, L"Texture\\Player\\Fire\\03\\SKILL\\RD\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::PF03_SKILL_RD_02, L"Texture\\Player\\Fire\\03\\SKILL\\RD\\1.png");
 	// == PF03 END ==
+
+	// == PW01 START ==
+	// WALK
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_D_01, L"Texture\\Player\\Water\\01\\WALK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_D_02, L"Texture\\Player\\Water\\01\\WALK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_D_03, L"Texture\\Player\\Water\\01\\WALK\\D\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_LD_01, L"Texture\\Player\\Water\\01\\WALK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_LD_02, L"Texture\\Player\\Water\\01\\WALK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_LD_03, L"Texture\\Player\\Water\\01\\WALK\\LD\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_L_01, L"Texture\\Player\\Water\\01\\WALK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_L_02, L"Texture\\Player\\Water\\01\\WALK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_L_03, L"Texture\\Player\\Water\\01\\WALK\\L\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_LU_01, L"Texture\\Player\\Water\\01\\WALK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_LU_02, L"Texture\\Player\\Water\\01\\WALK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_LU_03, L"Texture\\Player\\Water\\01\\WALK\\LU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_U_01, L"Texture\\Player\\Water\\01\\WALK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_U_02, L"Texture\\Player\\Water\\01\\WALK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_U_03, L"Texture\\Player\\Water\\01\\WALK\\U\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_RU_01, L"Texture\\Player\\Water\\01\\WALK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_RU_02, L"Texture\\Player\\Water\\01\\WALK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_RU_03, L"Texture\\Player\\Water\\01\\WALK\\RU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_R_01, L"Texture\\Player\\Water\\01\\WALK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_R_02, L"Texture\\Player\\Water\\01\\WALK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_R_03, L"Texture\\Player\\Water\\01\\WALK\\R\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_RD_01, L"Texture\\Player\\Water\\01\\WALK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_RD_02, L"Texture\\Player\\Water\\01\\WALK\\RD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_WALK_RD_03, L"Texture\\Player\\Water\\01\\WALK\\RD\\2.png");
+
+	// ATTACK
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_D_01, L"Texture\\Player\\Water\\01\\ATTACK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_D_02, L"Texture\\Player\\Water\\01\\ATTACK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_D_03, L"Texture\\Player\\Water\\01\\ATTACK\\D\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_LD_01, L"Texture\\Player\\Water\\01\\ATTACK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_LD_02, L"Texture\\Player\\Water\\01\\ATTACK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_LD_03, L"Texture\\Player\\Water\\01\\ATTACK\\LD\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_L_01, L"Texture\\Player\\Water\\01\\ATTACK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_L_02, L"Texture\\Player\\Water\\01\\ATTACK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_L_03, L"Texture\\Player\\Water\\01\\ATTACK\\L\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_LU_01, L"Texture\\Player\\Water\\01\\ATTACK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_LU_02, L"Texture\\Player\\Water\\01\\ATTACK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_LU_03, L"Texture\\Player\\Water\\01\\ATTACK\\LU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_U_01, L"Texture\\Player\\Water\\01\\ATTACK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_U_02, L"Texture\\Player\\Water\\01\\ATTACK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_U_03, L"Texture\\Player\\Water\\01\\ATTACK\\U\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_RU_01, L"Texture\\Player\\Water\\01\\ATTACK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_RU_02, L"Texture\\Player\\Water\\01\\ATTACK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_RU_03, L"Texture\\Player\\Water\\01\\ATTACK\\RU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_R_01, L"Texture\\Player\\Water\\01\\ATTACK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_R_02, L"Texture\\Player\\Water\\01\\ATTACK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_R_03, L"Texture\\Player\\Water\\01\\ATTACK\\R\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_RD_01, L"Texture\\Player\\Water\\01\\ATTACK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_RD_02, L"Texture\\Player\\Water\\01\\ATTACK\\RD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_ATTACK_RD_03, L"Texture\\Player\\Water\\01\\ATTACK\\RD\\2.png");
+
+	// SKILL
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_D_01, L"Texture\\Player\\Water\\01\\SKILL\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_LD_01, L"Texture\\Player\\Water\\01\\SKILL\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_L_01, L"Texture\\Player\\Water\\01\\SKILL\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_LU_01, L"Texture\\Player\\Water\\01\\SKILL\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_U_01, L"Texture\\Player\\Water\\01\\SKILL\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_RU_01, L"Texture\\Player\\Water\\01\\SKILL\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_R_01, L"Texture\\Player\\Water\\01\\SKILL\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW01_SKILL_RD_01, L"Texture\\Player\\Water\\01\\SKILL\\RD\\0.png");
+
+	// == PW01 END ==
+
+	// == PW02 START ==
+	// WALK
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_D_01, L"Texture\\Player\\Water\\02\\WALK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_D_02, L"Texture\\Player\\Water\\02\\WALK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_D_03, L"Texture\\Player\\Water\\02\\WALK\\D\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_LD_01, L"Texture\\Player\\Water\\02\\WALK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_LD_02, L"Texture\\Player\\Water\\02\\WALK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_LD_03, L"Texture\\Player\\Water\\02\\WALK\\LD\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_L_01, L"Texture\\Player\\Water\\02\\WALK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_L_02, L"Texture\\Player\\Water\\02\\WALK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_L_03, L"Texture\\Player\\Water\\02\\WALK\\L\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_LU_01, L"Texture\\Player\\Water\\02\\WALK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_LU_02, L"Texture\\Player\\Water\\02\\WALK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_LU_03, L"Texture\\Player\\Water\\02\\WALK\\LU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_U_01, L"Texture\\Player\\Water\\02\\WALK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_U_02, L"Texture\\Player\\Water\\02\\WALK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_U_03, L"Texture\\Player\\Water\\02\\WALK\\U\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_RU_01, L"Texture\\Player\\Water\\02\\WALK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_RU_02, L"Texture\\Player\\Water\\02\\WALK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_RU_03, L"Texture\\Player\\Water\\02\\WALK\\RU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_R_01, L"Texture\\Player\\Water\\02\\WALK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_R_02, L"Texture\\Player\\Water\\02\\WALK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_R_03, L"Texture\\Player\\Water\\02\\WALK\\R\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_RD_01, L"Texture\\Player\\Water\\02\\WALK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_RD_02, L"Texture\\Player\\Water\\02\\WALK\\RD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_WALK_RD_03, L"Texture\\Player\\Water\\02\\WALK\\RD\\2.png");
+
+	// ATTACK
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_D_01, L"Texture\\Player\\Water\\02\\ATTACK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_D_02, L"Texture\\Player\\Water\\02\\ATTACK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_LD_01, L"Texture\\Player\\Water\\02\\ATTACK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_LD_02, L"Texture\\Player\\Water\\02\\ATTACK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_L_01, L"Texture\\Player\\Water\\02\\ATTACK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_L_02, L"Texture\\Player\\Water\\02\\ATTACK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_LU_01, L"Texture\\Player\\Water\\02\\ATTACK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_LU_02, L"Texture\\Player\\Water\\02\\ATTACK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_U_01, L"Texture\\Player\\Water\\02\\ATTACK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_U_02, L"Texture\\Player\\Water\\02\\ATTACK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_RU_01, L"Texture\\Player\\Water\\02\\ATTACK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_RU_02, L"Texture\\Player\\Water\\02\\ATTACK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_R_01, L"Texture\\Player\\Water\\02\\ATTACK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_R_02, L"Texture\\Player\\Water\\02\\ATTACK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_RD_01, L"Texture\\Player\\Water\\02\\ATTACK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_ATTACK_RD_02, L"Texture\\Player\\Water\\02\\ATTACK\\RD\\1.png");
+
+	// SKILL
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_D_01, L"Texture\\Player\\Water\\02\\SKILL\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_LD_01, L"Texture\\Player\\Water\\02\\SKILL\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_L_01, L"Texture\\Player\\Water\\02\\SKILL\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_LU_01, L"Texture\\Player\\Water\\02\\SKILL\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_U_01, L"Texture\\Player\\Water\\02\\SKILL\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_RU_01, L"Texture\\Player\\Water\\02\\SKILL\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_R_01, L"Texture\\Player\\Water\\02\\SKILL\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW02_SKILL_RD_01, L"Texture\\Player\\Water\\02\\SKILL\\RD\\0.png");
+
+	// == PW02 END ==
+
+	// == PW03 START ==
+	// WALK
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_D_01, L"Texture\\Player\\Water\\03\\WALK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_D_02, L"Texture\\Player\\Water\\03\\WALK\\D\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_D_03, L"Texture\\Player\\Water\\03\\WALK\\D\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_LD_01, L"Texture\\Player\\Water\\03\\WALK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_LD_02, L"Texture\\Player\\Water\\03\\WALK\\LD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_LD_03, L"Texture\\Player\\Water\\03\\WALK\\LD\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_L_01, L"Texture\\Player\\Water\\03\\WALK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_L_02, L"Texture\\Player\\Water\\03\\WALK\\L\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_L_03, L"Texture\\Player\\Water\\03\\WALK\\L\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_LU_01, L"Texture\\Player\\Water\\03\\WALK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_LU_02, L"Texture\\Player\\Water\\03\\WALK\\LU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_LU_03, L"Texture\\Player\\Water\\03\\WALK\\LU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_U_01, L"Texture\\Player\\Water\\03\\WALK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_U_02, L"Texture\\Player\\Water\\03\\WALK\\U\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_U_03, L"Texture\\Player\\Water\\03\\WALK\\U\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_RU_01, L"Texture\\Player\\Water\\03\\WALK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_RU_02, L"Texture\\Player\\Water\\03\\WALK\\RU\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_RU_03, L"Texture\\Player\\Water\\03\\WALK\\RU\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_R_01, L"Texture\\Player\\Water\\03\\WALK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_R_02, L"Texture\\Player\\Water\\03\\WALK\\R\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_R_03, L"Texture\\Player\\Water\\03\\WALK\\R\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_RD_01, L"Texture\\Player\\Water\\03\\WALK\\RD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_RD_02, L"Texture\\Player\\Water\\03\\WALK\\RD\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_WALK_RD_03, L"Texture\\Player\\Water\\03\\WALK\\RD\\2.png");
+
+	// ATTACK
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_D_01, L"Texture\\Player\\Water\\03\\ATTACK\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_LD_01, L"Texture\\Player\\Water\\03\\ATTACK\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_L_01, L"Texture\\Player\\Water\\03\\ATTACK\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_LU_01, L"Texture\\Player\\Water\\03\\ATTACK\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_U_01, L"Texture\\Player\\Water\\03\\ATTACK\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_RU_01, L"Texture\\Player\\Water\\03\\ATTACK\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_R_01, L"Texture\\Player\\Water\\03\\ATTACK\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_ATTACK_RD_01, L"Texture\\Player\\Water\\03\\ATTACK\\RD\\0.png");
+
+	// SKILL
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_D_01, L"Texture\\Player\\Water\\03\\SKILL\\D\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_LD_01, L"Texture\\Player\\Water\\03\\SKILL\\LD\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_L_01, L"Texture\\Player\\Water\\03\\SKILL\\L\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_LU_01, L"Texture\\Player\\Water\\03\\SKILL\\LU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_U_01, L"Texture\\Player\\Water\\03\\SKILL\\U\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_RU_01, L"Texture\\Player\\Water\\03\\SKILL\\RU\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_R_01, L"Texture\\Player\\Water\\03\\SKILL\\R\\0.png");
+	D2DRenderManager::LoadSprite(TextureKey::PW03_SKILL_RD_01, L"Texture\\Player\\Water\\03\\SKILL\\RD\\0.png");
+
+	// == PW03 END ==
 }

@@ -92,7 +92,7 @@ void Charmeleon::AnimSet()
 		anim->SetTick(0.f);
 		break;
 	case State::SKILL:
-		anim->SetLoop(true);
+		anim->SetLoop(false);
 		anim->SetDelay(1.f);
 		anim->SetTick(0.f);
 		break;

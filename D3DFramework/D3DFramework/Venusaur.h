@@ -5,8 +5,8 @@ class Venusaur : public Character
 {
 public:
 	Venusaur();
-	Venusaur(const Vector3& pos, const Vector3& scale, const Vector3& dir);
-    virtual ~Venusaur();
+	Venusaur(const Vector3& pos, const Vector3& dir);
+	virtual ~Venusaur();
 
 public:
 	virtual void Initialize() override;
@@ -15,9 +15,14 @@ public:
 	virtual void Release() override;
 
 public:
+	virtual void ChangeState(State nextState) override;
+	void AnimSet();
+
+public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Venusaur* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	static Venusaur* Create(const Vector3& pos, const Vector3& dir);
+public:
+	MonsterAI* monsterAI;
 };
-

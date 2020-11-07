@@ -36,13 +36,13 @@ void Charmander::Initialize()
 
 	stat.attack = 30;
 
+	stat.hp = 250;
+	stat.maxHp = 250;
+
 	skillSet.reserve(2);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBall));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
-
-	stat.hp = 250;
-	stat.maxHp = 250;
 
 	UpdateAnimation();
 }
@@ -86,12 +86,12 @@ void Charmander::AnimSet()
 		anim->SetTick(0.f);
 		break;
 	case State::ATTACK:
-		anim->SetLoop(true);
+		anim->SetLoop(false);
 		anim->SetDelay(0.2f);
 		anim->SetTick(0.f);
 		break;
 	case State::SKILL:
-		anim->SetLoop(true);
+		anim->SetLoop(false);
 		anim->SetDelay(0.2f);
 		anim->SetTick(0.f);
 		break;

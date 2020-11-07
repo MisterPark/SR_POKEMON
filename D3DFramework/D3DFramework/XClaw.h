@@ -6,7 +6,7 @@ class XClaw :
 {
 public:
 	XClaw();
-	XClaw(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float lifeTime, float att);
+	XClaw(const Vector3 & pos, const Vector3 & size, const Vector3 & dir, float speed, float lifeTime, float att);
 	virtual ~XClaw();
 
 public:
@@ -20,8 +20,6 @@ public:
 	static XClaw* Create(
 		const Vector3& pos,
 		const Vector3& size,
-		TextureKey start,
-		TextureKey end,
 		float att,
 		const Vector3& dir = {0.f, 0.f, 0.f},
 		float speed = 0.f,
