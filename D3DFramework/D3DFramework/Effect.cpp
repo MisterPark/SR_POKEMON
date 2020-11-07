@@ -76,6 +76,7 @@ bool Effect::IsDie()
 
 		if (lifeTime <= 0.f) return true;
 	}
+	return false;
 }
 
 void Effect::OnTerrain()
