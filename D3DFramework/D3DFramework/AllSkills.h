@@ -27,3 +27,5 @@
 #include "Skill_FireBlast.h"
 #include "Skill_ReverseHealBubble.h"
 #include "Skill_MiniRush.h"
+#include "Skill_WaterBomb.h"
+#include "Skill_WaterFlow.h"

@@ -178,6 +178,8 @@
     <ClInclude Include="Bullet_ReverseHealBubble.h" />
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Water.h" />
+    <ClInclude Include="Bullet_WaterBomb.h" />
+    <ClInclude Include="Bullet_WaterFlow.h" />
     <ClInclude Include="Bullet_Web.h" />
     <ClInclude Include="Butterfree.h" />
     <ClInclude Include="Button.h" />
@@ -274,7 +276,9 @@
     <ClInclude Include="Skill_Rush.h" />
     <ClInclude Include="Skill_TearsShot.h" />
     <ClInclude Include="Skill_Tornado.h" />
+    <ClInclude Include="Skill_WaterBomb.h" />
     <ClInclude Include="Skill_WaterCannon.h" />
+    <ClInclude Include="Skill_WaterFlow.h" />
     <ClInclude Include="Skill_WebShot.h" />
     <ClInclude Include="Skill_XShot.h" />
     <ClInclude Include="Skill_XClaw.h" />
@@ -335,6 +339,8 @@
     <ClCompile Include="Bullet_ReverseHealBubble.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
+    <ClCompile Include="Bullet_WaterBomb.cpp" />
+    <ClCompile Include="Bullet_WaterFlow.cpp" />
     <ClCompile Include="Bullet_Web.cpp" />
     <ClCompile Include="Butterfree.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -423,7 +429,9 @@
     <ClCompile Include="Skill_Rush.cpp" />
     <ClCompile Include="Skill_TearsShot.cpp" />
     <ClCompile Include="Skill_Tornado.cpp" />
+    <ClCompile Include="Skill_WaterBomb.cpp" />
     <ClCompile Include="Skill_WaterCannon.cpp" />
+    <ClCompile Include="Skill_WaterFlow.cpp" />
     <ClCompile Include="Skill_WebShot.cpp" />
     <ClCompile Include="Skill_XShot.cpp" />
     <ClCompile Include="Skill_XClaw.cpp" />

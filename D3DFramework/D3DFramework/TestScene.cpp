@@ -37,7 +37,7 @@ void TestScene::OnLoaded()
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 	// TestUI
 	
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f));
+	Squirtle* playerCharacter = Squirtle::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f));
 	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
 	/*Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));*/
