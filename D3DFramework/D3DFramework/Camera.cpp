@@ -206,7 +206,10 @@ void PKH::Camera::UpdateShake()
 
 		Vector3 randVec = { ranX, ranY, ranZ };
 
-		transform->position = originCamPos + (randVec * shakeMagnitude);
+		if (nullptr == target)
+			transform->position = originCamPos + (randVec * shakeMagnitude);
+		else
+			transform->position = transform->position + (randVec * shakeMagnitude);
 	}
 }
 

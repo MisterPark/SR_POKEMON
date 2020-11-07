@@ -15,8 +15,8 @@ Meteor::Meteor(const Vector3 & pos, const Vector3 & size, const Vector3 & dir, f
 	direction = dir;
 
 	lifeTime = 9999.f;
-	initAttack = att * 3.f;
-	stat.attack = 50.f;
+	initAttack = att;
+	stat.attack = att;
 	stat.moveSpeed = speed;
 
 	offsetY = 0.3f;
@@ -45,7 +45,7 @@ void Meteor::Update()
 
 	if (isExplosion)
 	{
-		stat.attack = TimeManager::DeltaTime() * initAttack;
+		stat.attack = TimeManager::DeltaTime() * initAttack * 0.7f;
 
 		stackSize += TimeManager::DeltaTime() * 5.f;
 		float bigSize = initSize + stackSize;
@@ -53,6 +53,8 @@ void Meteor::Update()
 		transform->scale = { bigSize, bigSize, bigSize };
 
 		transform->position.y += TimeManager::DeltaTime() * 4.f;
+
+		Camera::GetInstance()->Shake(0.1f, 0.2f);
 
 		if (endKey == anim->GetCurrentSprite())
 			Die();
@@ -92,8 +94,6 @@ void Meteor::CollideOnTerrain()
 			anim->SetSprite(startKey, endKey);
 			anim->SetDelay(0.1f);
 			anim->SetLoop(false);
-
-			//Camera::GetInstance()->Shake(1.f, 0.5f);
 
 			stat.attack = TimeManager::DeltaTime() * initAttack;
 

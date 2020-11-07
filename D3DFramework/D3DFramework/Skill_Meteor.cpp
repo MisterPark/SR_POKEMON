@@ -27,22 +27,18 @@ void Skill_Meteor::Update()
 {
 	for (int i = 0; i < 10; ++i)
 	{
-		float randX = Random::Range(-1.f, 1.f);
-		float randY = Random::Range(-1.f, 1.f);
-		float randZ = Random::Range(-1.f, 1.f);
+		float randX = Random::Range(-0.5f, 0.5f);
+		float randY = Random::Range(7.f, 12.f);
+		float randZ = Random::Range(-0.5f, 0.5f);
 
 		Vector3 ranVec = { randX, randY, randZ };
 
 		Vector3 pos = character->transform->position + ranVec;
 
-		pos.y += 10.f;
-
-		randX = Random::Range(-1.f, 1.f) * 0.5f;
-		randZ = Random::Range(-1.f, 1.f) * 0.5f;
+		randX = Random::Range(-1.f, 1.f) * 0.1f;
+		randZ = Random::Range(-1.f, 1.f) * 0.1f;
 
 		Vector3 dir = { randX, -1.f, randZ };
-
-		//dir = { 0.f, -1.f, 0.f };
 
 		Meteor* instance = Meteor::Create(pos, { 0.2f, 0.2f, 0.2f }, dir, character->GetStat().attack);
 		instance->SetTeam(character->team);
