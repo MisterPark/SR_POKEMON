@@ -822,6 +822,9 @@
     <ClInclude Include="Skill_WaterBomb.h">
       <Filter>Skill\26. WaterBomb</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Fire_Boss.h">
+      <Filter>Scene\Fire</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1410,6 +1413,9 @@
     </ClCompile>
     <ClCompile Include="Skill_WaterBomb.cpp">
       <Filter>Skill\26. WaterBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Fire_Boss.cpp">
+      <Filter>Scene\Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

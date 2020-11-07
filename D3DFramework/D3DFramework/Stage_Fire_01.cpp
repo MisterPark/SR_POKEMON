@@ -1,29 +1,10 @@
 #include "stdafx.h"
-#include "Stage_Fire_01.h"
+#include "AllStage.h"
+#include "AllCharacters.h"
+#include "AllMeshs.h"
+#include "AllDecorations.h"
+#include "AllEnvironments.h"
 #include "SkyBox.h"
-#include "Character.h"
-#include "Environment.h"
-#include "TitleScene.h"
-
-
-#include "Bulbasaur.h"
-#include "Ivysaur.h"
-#include "Venusaur.h"
-
-#include "Charmander.h"
-
-#include "Caterpie.h"
-#include "Metapod.h"
-#include "Butterfree.h"
-#include "Oddish.h"
-#include "Vileplume.h"
-#include "Scyther.h"
-#include "Celebi.h"
-
-#include "Water.h"
-#include "Tree.h"
-
-#include "TestScene.h"
 
 void Stage_Fire_01::OnLoaded()
 {
@@ -51,7 +32,6 @@ void Stage_Fire_01::OnLoaded()
 void Stage_Fire_01::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
 	ObjectManager::DestroyAll();
 }
 
@@ -63,7 +43,7 @@ void Stage_Fire_01::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<TestScene>();
+		SceneManager::LoadScene<Stage_Fire_Boss>();
 	}
 }
 

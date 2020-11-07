@@ -18,7 +18,7 @@ public:
 private:
 	float delay = 0.f;
 	Vector3 bulletDir;
-	bool create = false;
+
 
 	int Frame[5];
 	float patternTime;

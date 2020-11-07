@@ -46,7 +46,7 @@ void Skill_Quake::Update()
 				//bulletDir.x = bullet->transform->position.x;
 				//bulletDir.y = 0.f;
 				//bulletDir.z = bullet->transform->position.z;
-				create = true;
+				
 				Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::BULLET_FIRE4_01, TextureKey::BULLET_FIRE4_13, 0.1f, true, true, 1.5f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
 				effect->transform->position.y = -1.f;
 				ObjectManager::AddObject(effect);
@@ -80,7 +80,7 @@ void Skill_Quake::Update()
 				bulletDir.x = bullet->transform->position.x;
 				bulletDir.y = 0.f;
 				bulletDir.z = bullet->transform->position.z;
-				create = true;
+				
 				
 				Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::BULLET_FIRE4_01, TextureKey::BULLET_FIRE4_13, 0.1f, true, true, 1.5f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
 				effect->transform->position.y = -1.f;
@@ -111,7 +111,7 @@ void Skill_Quake::Update()
 				bulletDir.x = bullet->transform->position.x;
 				bulletDir.y = 0.f;
 				bulletDir.z = bullet->transform->position.z;
-				create = true;
+				
 				Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::BULLET_FIRE4_01, TextureKey::BULLET_FIRE4_13, 0.1f, true, true, 1.5f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
 				effect->transform->position.y = -1.f;
 				ObjectManager::AddObject(effect);
@@ -142,7 +142,7 @@ void Skill_Quake::Update()
 				bulletDir.x = bullet->transform->position.x;
 				bulletDir.y = 0.f;
 				bulletDir.z = bullet->transform->position.z;
-				create = true;
+				
 				Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::BULLET_FIRE4_01, TextureKey::BULLET_FIRE4_13, 0.1f, true, true, 1.5f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
 				effect->transform->position.y = -1.f;
 				ObjectManager::AddObject(effect);
@@ -171,7 +171,7 @@ void Skill_Quake::Update()
 				bulletDir.x = bullet->transform->position.x;
 				bulletDir.y = 0.f;
 				bulletDir.z = bullet->transform->position.z;
-				create = true;
+				
 				Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::BULLET_FIRE4_01, TextureKey::BULLET_FIRE4_13, 0.1f, true, true, 1.5f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
 				effect->transform->position.y = -1.f;
 				ObjectManager::AddObject(effect);
@@ -204,7 +204,7 @@ void Skill_Quake::Update()
 				bulletDir.x = bullet->transform->position.x;
 				bulletDir.y = 0.f;
 				bulletDir.z = bullet->transform->position.z;
-				create = true;
+				
 				Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::BULLET_FIRE4_01, TextureKey::BULLET_FIRE4_13, 0.1f, true, true, 1.5f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
 				effect->transform->position.y = -1.f;
 				ObjectManager::AddObject(effect);
