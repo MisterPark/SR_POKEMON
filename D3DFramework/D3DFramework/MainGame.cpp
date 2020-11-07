@@ -608,6 +608,10 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_BLACK_FILTER, L"Texture\\UI\\iconFilter.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_RED_FILTER, L"Texture\\UI\\redFilter.png");
 
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_LEFT, L"Texture\\UI\\leftArrow.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_RIGHT, L"Texture\\UI\\rightArrow.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_REFRESH, L"Texture\\UI\\refreshArrow.png");
+
 }
 
 void PKH::MainGame::LoadMonsterSprite()

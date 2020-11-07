@@ -116,7 +116,9 @@ namespace PKH
 		ICON_XCLAW,
 		UI_BLACK_FILTER,
 		UI_RED_FILTER,
-
+		UI_ICON_ARROW_RIGHT,
+		UI_ICON_ARROW_LEFT,
+		UI_ICON_ARROW_REFRESH,
 		//============================================================
 
 		// PG 01
