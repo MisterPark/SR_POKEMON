@@ -36,7 +36,7 @@ void TestScene::OnLoaded()
 	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 36.f));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 	// TestUI
-	
+	/*Groudon* playerCharacter = Groudon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3{0.f,0.f,1.f});*/
 	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f));
 	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
@@ -65,7 +65,7 @@ void TestScene::OnLoaded()
 
 	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 3.5f);
 	/*SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);*/
-	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Normal.bmp",-0.1f);
+	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp",-0.1f);
 	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 4.05f);
 	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp",3.5f);
 

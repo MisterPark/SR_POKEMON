@@ -32,7 +32,7 @@ void Groudon::Initialize()
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-	stat.moveSpeed = 3.5f;
+	stat.moveSpeed = 1.5f;
 	offsetY = 1.f;
 
 	state = State::READY;
@@ -43,7 +43,7 @@ void Groudon::Initialize()
 
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBlast));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireWallWave));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
 
 	UpdateAnimation();
