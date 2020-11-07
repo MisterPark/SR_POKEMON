@@ -139,6 +139,11 @@ void Character::OnCollision(GameObject* target)
 
 	}
 
+	if (damageSum > 0.f && this == playerCharacter)
+	{
+		PlayerInfoPanel::ActiveRedFilter();
+	}
+
 
 	// ªÁ∏¡√≥∏Æ
 	if (!IsDead() && stat.hp <= 0)
