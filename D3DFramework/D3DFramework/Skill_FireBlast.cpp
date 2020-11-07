@@ -1,14 +1,12 @@
 #include "stdafx.h"
 #include "Skill_FireBlast.h"
-#include "Bullet_HealBubble.h"
-#include "Player.h"
+#include "Bullet_FireBlast.h"
 #include "Effect.h"
 
 Skill_FireBlast::Skill_FireBlast()
 {
-	coolTime = 1.f;
-	moveStopTime = 1.f;
-	bulletDir = { 0.f,0.f,0.f };
+	coolTime = 2.f;
+	moveStopTime = 2.f;
 }
 
 Skill_FireBlast::~Skill_FireBlast()
@@ -17,42 +15,42 @@ Skill_FireBlast::~Skill_FireBlast()
 
 void Skill_FireBlast::InitCoolTime()
 {
-	coolTime = 1.f;
+	maxCoolTime = coolTime = 2.f;
 }
 
 void Skill_FireBlast::InitActiveTime()
 {
-	activeTime = 0.f;
+
+	activeTime = 2.f;
 }
 
 void Skill_FireBlast::Update()
 {
+	if (delay <= 0.f) {
+		Bullet_FireBlast* bullet = dynamic_cast<Bullet_FireBlast*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireBlast>());
+		bullet->transform->position = character->transform->position;
+		bullet->transform->position.y = 0.3f;
+		Vector3 rDir = character->direction;
+		rDir.x += -0.1f + Random::Value(10) * 0.02f;
+		rDir.y += -0.1f + Random::Value(10) * 0.02f;
+		rDir.z += -0.1f + Random::Value(10) * 0.02f;
+		Vector3::Normalize(&rDir);
+		bullet->SetDir(rDir);
+		//bullet->SetDir(character->direction);
 
-	Bullet_HealBubble* bullet = dynamic_cast<Bullet_HealBubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_HealBubble>());
-	bullet->transform->position = character->transform->position;
-	bullet->transform->position.y += 5.f;
-
-	bulletDir.x = bullet->transform->position.x;
-	bulletDir.y = 0.f;
-	bulletDir.z = bullet->transform->position.z;
-	create = true;
-
-
-
-	bullet->SetDir(Vector3{ 0.f, -0.4f, 0.f });
-	bullet->stat.attack = character->stat.attack * -3.f;
-	bullet->transform->scale = { 0.3f,0.3f,0.3f };
-	if (character->team == Team::MONSTERTEAM) {
-		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * -0.25f);
+		if (character->team == Team::MONSTERTEAM) {
+			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+			bullet->SetInitAttack(character->stat.attack * 0.25f);
+		}
+		else if (character->team == Team::PLAYERTEAM) {
+			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+			bullet->SetInitAttack(character->stat.attack);
+		}
+		//delay = 0.2f;
 	}
-	else if (character->team == Team::PLAYERTEAM) {
-		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * -1.f);
+	else {
+		delay -= TimeManager::DeltaTime();
 	}
-
-	Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::RANGE, TextureKey::RANGE, 1.f, true, true, 0.0f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
-	ObjectManager::AddObject(effect);
 
 	CalcActiveTime();
 }

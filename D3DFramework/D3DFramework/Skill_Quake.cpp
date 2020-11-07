@@ -58,11 +58,11 @@ void Skill_Quake::Update()
 				bullet->transform->scale = { 0.3f,0.3f,0.3f };
 				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack *  0.01f);
+					bullet->SetInitAttack(character->stat.attack *  2.f);
 				}
 				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack *  0.04f);
+					bullet->SetInitAttack(character->stat.attack);
 				}
 			}
 		}
@@ -95,11 +95,11 @@ void Skill_Quake::Update()
 				bullet->transform->scale = { 0.3f,0.3f,0.3f };
 				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack *  2.f);
 				}
 				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack);
 				}
 			}
 		}
@@ -128,11 +128,11 @@ void Skill_Quake::Update()
 				bullet->transform->scale = { 0.3f,0.3f,0.3f };
 				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack *  2.f);
 				}
 				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack);
 				}
 			}
 		}
@@ -162,11 +162,11 @@ void Skill_Quake::Update()
 				bullet->transform->scale = { 0.3f,0.3f,0.3f };
 				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack *  2.f);
 				}
 				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack);
 				}
 			}
 		}
@@ -194,11 +194,11 @@ void Skill_Quake::Update()
 				bullet->transform->scale = { 0.3f,0.3f,0.3f };
 				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack *  2.f);
 				}
 				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack);
 				}
 			}
 		}
@@ -230,11 +230,11 @@ void Skill_Quake::Update()
 				bullet->transform->scale = { 0.3f,0.3f,0.3f };
 				if (character->team == Team::MONSTERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack *  2.f);
 				}
 				else if (character->team == Team::PLAYERTEAM) {
 					CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-					bullet->SetInitAttack(character->stat.attack * 0.04f);
+					bullet->SetInitAttack(character->stat.attack);
 				}
 			}
 		}

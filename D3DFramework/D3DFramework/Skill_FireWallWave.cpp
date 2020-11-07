@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Skill_FireWallWave.h"
-#include "Bullet_HealBubble.h"
+#include "Bullet_FireWallWave.h"
 #include "Player.h"
 #include "Effect.h"
 
@@ -28,7 +28,7 @@ void Skill_FireWallWave::InitActiveTime()
 void Skill_FireWallWave::Update()
 {
 
-	Bullet_HealBubble* bullet = dynamic_cast<Bullet_HealBubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_HealBubble>());
+	Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 	bullet->transform->position = character->transform->position;
 	bullet->transform->position.y += 5.f;
 

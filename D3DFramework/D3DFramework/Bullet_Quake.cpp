@@ -26,6 +26,7 @@ Bullet_Quake::~Bullet_Quake()
 void Bullet_Quake::Update()
 {
 	Bullet::Update();
+	stat.attack = TimeManager::DeltaTime() * initAttack;
 	if (lifeTime > 3.f) {
 		stat.moveSpeed = 0.f;
 	}
