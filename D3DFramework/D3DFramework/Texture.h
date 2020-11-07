@@ -1700,6 +1700,7 @@ namespace PKH
 		BULLET_HEART1_05,
 
 		BULLET_WATERDROP1_01,
+		BULLET_WATERDROP1_02,
 
 		GRASS_MAP,
 		GRASS_MAP2,
@@ -1746,7 +1747,8 @@ namespace PKH
 
 		MONSTERBALL,
 
-		RANGE,		
+		RANGE,
+		RANGE2,
 	};
 
 	enum class TextureType

@@ -301,6 +301,15 @@
     <Filter Include="Skill\19. Meteor">
       <UniqueIdentifier>{b804921a-3ab6-456d-9085-b4e7ba9dff93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Bullet\22.ReverseHealBubble">
+      <UniqueIdentifier>{8146c74c-f813-40a6-95b0-ff205c8a1e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\22.ReverseHealBubble">
+      <UniqueIdentifier>{39ad2458-ef27-49a1-ac4f-905febb243e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\23.MiniRush">
+      <UniqueIdentifier>{a1fd4d47-f1ea-47cf-9918-0c83cedae1a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -770,6 +779,15 @@
     </ClInclude>
     <ClInclude Include="Skill_Meteor.h">
       <Filter>Skill\19. Meteor</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_ReverseHealBubble.h">
+      <Filter>GameObject\Bullet\22.ReverseHealBubble</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_ReverseHealBubble.h">
+      <Filter>Skill\22.ReverseHealBubble</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_MiniRush.h">
+      <Filter>Skill\23.MiniRush</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1332,6 +1350,15 @@
     </ClCompile>
     <ClCompile Include="Skill_Meteor.cpp">
       <Filter>Skill\19. Meteor</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_ReverseHealBubble.cpp">
+      <Filter>GameObject\Bullet\22.ReverseHealBubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_ReverseHealBubble.cpp">
+      <Filter>Skill\22.ReverseHealBubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_MiniRush.cpp">
+      <Filter>Skill\23.MiniRush</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

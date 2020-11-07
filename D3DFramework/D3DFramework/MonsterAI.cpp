@@ -455,8 +455,66 @@ void MonsterAI::MonsterIdle() {
 		case MonsterType::BUTTERFREE:
 			break;
 		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK; //WALK 와 다른점
+			}
 			break;
 		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK; //WALK 와 다른점
+			}
+			break;
+		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK;
+			}
+			break;
+		case MonsterType::POLIWRATH:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
@@ -475,10 +533,6 @@ void MonsterAI::MonsterIdle() {
 				MovePlayerFollow();
 				c->state = State::WALK; //WALK 와 다른점
 			}
-			break;
-		case MonsterType::POLIWAG:
-			break;
-		case MonsterType::POLIWRATH:
 			break;
 		case MonsterType::JYNX:
 			if (readyPattern) {
@@ -838,16 +892,16 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::PSYDUCK:
 			if (readyPattern) {
-
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			Time[1] -= TimeManager::DeltaTime();
 			if (disPlayer < searchRange[1]) {
-				if (Time[4] > 0.f) {
-					Time[4] -= TimeManager::DeltaTime();
-					MovePlayerFollow();
+				if (Time[1] > 0.f) {
+					c->state = State::IDLE;  //IDLE 와 다른점
 				}
 				else {
-					Time[4] = 0.f;
+					Time[1] = 0.f;
 					c->state = State::ATTACK;
 					readyPattern = true;
 				}
@@ -857,6 +911,26 @@ void MonsterAI::MonsterWalk() {
 			}
 			break;
 		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					c->state = State::IDLE;  //IDLE 와 다른점
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
+			break;
+		case MonsterType::POLIWAG:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
@@ -876,26 +950,6 @@ void MonsterAI::MonsterWalk() {
 				MovePlayerFollow();
 			}
 			break;
-		case MonsterType::POLIWAG:
-			if (readyPattern) {
-
-				readyPattern = false;
-			}
-			if (disPlayer < searchRange[1]) {
-				if (Time[4] > 0.f) {
-					Time[4] -= TimeManager::DeltaTime();
-					MovePlayerFollow();
-				}
-				else {
-					Time[4] = 0.f;
-					c->state = State::ATTACK;
-					readyPattern = true;
-				}
-			}
-			else {				//if (disPlayer > 10.f)
-				MovePlayerFollow();
-			}
-			break;
 
 		case MonsterType::POLIWHIRL:
 			if (readyPattern) {
@@ -905,6 +959,7 @@ void MonsterAI::MonsterWalk() {
 			if (disPlayer < searchRange[1]) {
 				if (Time[1] > 0.f) {
 					Time[1] -= TimeManager::DeltaTime();
+					c->state = State::IDLE;  //IDLE 와 다른점
 				}
 				else {
 					Time[1] = 0.f;
@@ -918,16 +973,16 @@ void MonsterAI::MonsterWalk() {
 			break;
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
-
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
 			if (disPlayer < searchRange[1]) {
-				if (Time[4] > 0.f) {
-					Time[4] -= TimeManager::DeltaTime();
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
 					MovePlayerFollow();
 				}
 				else {
-					Time[4] = 0.f;
+					Time[1] = 0.f;
 					c->state = State::ATTACK;
 					readyPattern = true;
 				}
@@ -1513,90 +1568,49 @@ void MonsterAI::MonsterAttack() {
 					c->state = State::READY;
 				}
 			}
-			
 			break;
 		case MonsterType::PSYDUCK:
 			if (readyPattern) {
-				if (disPlayer < searchRange[1]) {
-					c->state = State::ATTACK;
-					c->anim->SetDelay(0.3f);
-				}
-				else {//if (disPlayer > 10.f)
-					c->state = State::WALK;
-					c->anim->SetDelay(0.3f);
-				}
 				readyPattern = false;
+				c->direction = DirFromPlayer();
+				c->Attack(c->direction, 0);
+				Time[4] = 2.4f;
+				c->anim->SetDelay(0.9f);
 			}
-
-			Time[1] += TimeManager::DeltaTime();
-
-			if (Time[1] >= 0.75f) {
-				Time[0] = 0;
-				Frame[1]++;
-				if (Frame[1] == 1) {
-					Bullet_Water* b = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
-					c->direction = DirFromPlayer(true);
-					Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
-					b->SetDir(bDir);
-					*(b->transform) = *c->transform;
-					b->transform->position.y -= 0.5f;
-				}
-				else if (Frame[1] == 2) {
-					c->anim->SetDelay(0.6f);
-					Time[1] = 0.f;
-					Frame[1] = 0.f;
-					c->state = State::READY;
-					Time[2] = 2.5f;
-				}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 2.2f;
 			}
 			break;
 		case MonsterType::GOLDUCK:
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 0);
-				Time[4] = 2.2f;
-				c->anim->SetDelay(0.6f);
-				Time[1] = 1.5f;
+				Time[4] = 1.4f;
+				c->anim->SetDelay(1.3f);
 			}
 			Time[4] -= TimeManager::DeltaTime();
 			if (Time[4] < 0.f) {
 				c->state = State::READY;
 				Time[4] = 0.f;
+				Time[1] = 0.5f;
 			}
 			break;
 		case MonsterType::POLIWAG:
 			if (readyPattern) {
-				if (disPlayer < searchRange[1]) {
-					c->state = State::ATTACK;
-					c->anim->SetDelay(0.3f);
-				}
-				else {//if (disPlayer > 10.f)
-					c->state = State::WALK;
-					c->anim->SetDelay(0.3f);
-				}
+				c->Attack(c->direction, 0);
+				c->direction = DirFromPlayer();
+				Time[4] = 2.f;
+				c->anim->SetDelay(0.3f);
 				readyPattern = false;
 			}
-
-			Time[1] += TimeManager::DeltaTime();
-
-			if (Time[1] >= 1.0f) {
-				Time[0] = 0;
-				Frame[1]++;
-				if (Frame[1] == 1) {
-					Bullet_Bubble* b = dynamic_cast<Bullet_Bubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_Bubble>());
-					c->direction = DirFromPlayer(true);
-					Vector3 bDir = { c->direction.x, c->direction.y + 0.2f, c->direction.z };
-					b->SetDir(bDir);
-					*(b->transform) = *c->transform;
-					b->transform->position.y -= 0.5f;
-				}
-				else if (Frame[1] == 2) {
-					c->anim->SetDelay(0.2f);
-					Time[1] = 0.f;
-					Frame[1] = 0.f;
-					c->state = State::READY;
-					Time[2] = 2.5f;
-				}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 1.f; //Attack쿨타임
 			}
 			break;
 		case MonsterType::POLIWHIRL:
@@ -1614,44 +1628,21 @@ void MonsterAI::MonsterAttack() {
 				Time[1] = 0.f; //Attack쿨타임
 			}
 			break;
-			//if (readyPattern) {
-			//	if (disPlayer < searchRange[1]) {
-			//		c->state = State::ATTACK;
-			//		c->anim->SetDelay(0.4f);
-			//		/*c->anim->SetDelay(false);
-			//		c->anim->SetTick(0.f);*/
-			//	}
-			//	else {//if (disPlayer > 10.f)
-			//		c->state = State::WALK;
-			//		c->anim->SetDelay(0.3f);
-			//	}
-			//	readyPattern = false;
-			//}
-
-			//Time[1] += TimeManager::DeltaTime();
-
-			//if (Time[1] >= 0.25f) {
-			//	Time[0] = 0;
-			//	Frame[1]++;
-			//	if (Frame[1] == 1) {
-			//		c->direction = DirFromPlayer();
-			//		c->Attack(c->direction, 0);
-			//	}
-			//	else if (Frame[1] == 2) {
-			//		c->anim->SetDelay(0.2f);
-			//		Time[1] = 0.f;
-			//		Frame[1] = 0.f;
-			//		c->state = State::READY;
-			//		Time[2] = 2.5f;
-			//	}
-			//}
-
 		case MonsterType::POLIWRATH:
 			if (readyPattern) {
+				c->Attack(c->direction, 0);
+				c->direction = DirFromPlayer();
+				Time[4] = 2.f;
+				c->anim->SetDelay(0.4f);
 				readyPattern = false;
 			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 0.f; //Attack쿨타임
+			}
 			break;
-
 		case MonsterType::JYNX:
 			if (readyPattern) {
 				readyPattern = false;
