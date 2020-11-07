@@ -23,5 +23,7 @@ enum class SkillName
 	Quake,
 	FireWallWave,
 	FireBlast,
-	Meteor
+	Meteor,
+	ReverseHealBubble,
+	MiniRush
 };
