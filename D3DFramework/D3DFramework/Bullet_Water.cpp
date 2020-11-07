@@ -25,7 +25,7 @@ void Bullet_Water::Update()
 {
 	Bullet::Update();
 
-	if (isDead) {
+	if (IsDead()) {
 		Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_02, TextureKey::BULLET_TEARS_15, 0.05f);
 		ObjectManager::AddObject(effect);
 	}
@@ -38,7 +38,7 @@ void Bullet_Water::Render()
 
 void Bullet_Water::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 	Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_02, TextureKey::BULLET_TEARS_15, 0.02f);
 	ObjectManager::AddObject(effect);
 }

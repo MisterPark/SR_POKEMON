@@ -48,7 +48,7 @@ void PKH::CollisionManager::ObjectDeadCheck()
 
 		for (;iter != iterEnd;)
 		{
-			if ((*iter)->isDead)
+			if ((*iter)->IsDead())
 			{
 				iter = objectList[i].erase(iter);
 			}

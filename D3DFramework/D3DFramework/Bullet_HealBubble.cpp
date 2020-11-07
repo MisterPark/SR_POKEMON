@@ -49,5 +49,5 @@ void Bullet_HealBubble::Render()
 
 void Bullet_HealBubble::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 }

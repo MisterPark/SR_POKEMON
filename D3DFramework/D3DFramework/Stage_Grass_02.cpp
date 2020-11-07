@@ -10,13 +10,10 @@ void Stage_Grass_02::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
-	Charmeleon* playerCharacter = Charmeleon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
 
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	Player::GetInstance()->SetRadianY(D3DXToRadian(60));
 	playerCharacter->direction = { 1.f,0.f,1.f };
-
-	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 7.f;
 	playerCharacter->transform->position.z = 48.f - 24.f;
 

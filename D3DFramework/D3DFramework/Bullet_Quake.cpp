@@ -44,5 +44,5 @@ void Bullet_Quake::Render()
 
 void Bullet_Quake::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 }

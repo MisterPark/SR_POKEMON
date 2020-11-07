@@ -41,7 +41,7 @@ void XClaw::Update()
 {
 	Bullet::Update();
 
-	if (anim->IsEndFrame()) isDead = true;
+	if (anim->IsEndFrame()) Die();
 }
 
 void XClaw::Release()

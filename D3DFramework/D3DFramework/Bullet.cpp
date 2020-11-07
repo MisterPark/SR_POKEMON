@@ -81,14 +81,14 @@ void Bullet::OnTerrain()
 	}
 	else
 	{
-		if (transform->position.y < y) isDead = true;
+		if (transform->position.y < y) Die();
 	}
 }
 
 void Bullet::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();
-	if (0.f >= lifeTime) isDead = true;
+	if (0.f >= lifeTime) Die();
 }
 
 Vector3 Bullet::PlayerSearchDir(bool PosY)
