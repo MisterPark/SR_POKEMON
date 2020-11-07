@@ -49,5 +49,5 @@ void Bullet_ReverseHealBubble::Render()
 
 void Bullet_ReverseHealBubble::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 }

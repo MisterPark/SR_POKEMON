@@ -34,7 +34,7 @@ void Bullet_Ice::Update()
 		stat.moveSpeed = 8.f;
 	}
 
-	if (isDead) {
+	if (IsDead()) {
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_14, TextureKey::BULLET_ICE1_20, 0.05f);
 		ObjectManager::AddObject(fx);
 	}
@@ -47,5 +47,5 @@ void Bullet_Ice::Render()
 
 void Bullet_Ice::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 }

@@ -41,7 +41,7 @@ void Blaze::Update()
 {
 	Bullet::Update();
 
-	if (anim->GetCurrentSprite() == endKey) isDead = true;
+	if (anim->GetCurrentSprite() == endKey) Die();
 }
 
 void Blaze::Release()

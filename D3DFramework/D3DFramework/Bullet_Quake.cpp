@@ -46,6 +46,6 @@ void Bullet_Quake::OnCollision(GameObject* target)
 	stack++;
 	if (stack > 50)
 	{
-		isDead = true;
+		Die();
 	}
 }

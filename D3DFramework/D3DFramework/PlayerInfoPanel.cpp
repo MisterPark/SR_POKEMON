@@ -62,7 +62,7 @@ void PlayerInfoPanel::Render()
 {
     if (pPlayerInfoPanel->isVisible == false) return;
     if (pPlayerInfoPanel->target == nullptr) return;
-    if (pPlayerInfoPanel->target->isDead)
+    if (pPlayerInfoPanel->target->IsDead())
     {
         target = nullptr;
         return;

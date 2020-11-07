@@ -74,7 +74,7 @@ void Player::Evolution()
 		ObjectManager::AddObject(newCharacter);
 		CollisionManager::RegisterObject(COLTYPE::PLAYER, newCharacter);
 		SetCharacter(newCharacter);
-		oldCharacter->isDead = true;
+		oldCharacter->Die();
 	}
 	break;
 

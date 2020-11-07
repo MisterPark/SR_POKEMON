@@ -75,18 +75,22 @@ namespace PKH
 		Transform* GetTransform() const { return transform; } //¼öÁ¤
 		STAT GetStat() const { return stat; }
 
+		bool IsDead();
+
 	public:
 		Transform* transform = nullptr;
 		STAT stat;
 		ObjectType type = ObjectType::NONE;
 		Team team = Team::NEUTRAL;
-		bool isDead = false;
+		
 		bool isVisible = true;
 		bool isEnable = true;
 		bool dontDestroy = false;
 		
 		map<wstring, PKH::IComponent*> components;
 		list<GameObject*> collideList;
+	protected:
+		bool isDead = false;
 	};
 	template<class T>
 	inline IComponent* GameObject::AddComponent(const wstring & _key)

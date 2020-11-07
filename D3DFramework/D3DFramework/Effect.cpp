@@ -50,7 +50,7 @@ void Effect::Update()
 
 	if (isMove) Move(direction);
 
-	if (IsDie()) isDead = true;
+	if (IsDie()) Die();
 
 	if (isOnTerrain) OnTerrain();
 }

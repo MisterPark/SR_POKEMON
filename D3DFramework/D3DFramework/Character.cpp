@@ -138,7 +138,7 @@ void Character::OnCollision(GameObject* target)
 
 
 	// ªÁ∏¡√≥∏Æ
-	if (!isDead && stat.hp <= 0)
+	if (!IsDead() && stat.hp <= 0)
 	{
 		stat.hp = 0;
 		if (playerCharacter == this)
@@ -148,7 +148,7 @@ void Character::OnCollision(GameObject* target)
 		}
 		else
 		{
-			isDead = true;
+			Die();
 			if (nullptr == spawner)
 				return;
 			spawner->monsterCount--;

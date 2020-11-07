@@ -57,7 +57,7 @@ void PlayerBullet::InitByType()
 
 void PlayerBullet::Update()
 {
-	if (true == isDead) return;
+	if (true == IsDead()) return;
 
 	Bullet::Update();
 
@@ -76,7 +76,7 @@ void PlayerBullet::OnCollision(GameObject* target)
 
 void PlayerBullet::CollSetByType()
 {
-	isDead = true;
+	Die();
 	Vector3 pos = transform->position;
 
 	switch (bulletType)
@@ -98,5 +98,5 @@ void PlayerBullet::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();
 
-	if (lifeTime <= 0.f) isDead = true;
+	if (lifeTime <= 0.f) Die();
 }

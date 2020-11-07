@@ -20,7 +20,7 @@ TriggerBox::~TriggerBox()
 void TriggerBox::Initialize()
 {
 	stat.attack = 0.f;
-	offsetY = 1.f;
+	offsetY = 0.f;
 	team = Team::MONSTERTEAM;
 	CollisionManager::RegisterObject(COLTYPE::TRIGGERBOX, this);
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
@@ -51,7 +51,7 @@ void TriggerBox::OnCollision(GameObject * target)
 	if (OnTriggered != nullptr)
 		OnTriggered();
 
-	isDead = true;
+	Die();
 }
 
 void TriggerBox::OnTerrain()
