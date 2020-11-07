@@ -93,16 +93,16 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 
 	switch (skillName)
 	{
-	case SkillName::LeafBullet:
-		newSkill = Skill_LeafBullet::Create();
+	case SkillName::LeafShot:
+		newSkill = Skill_LeafShot::Create();
 		break;
 
-	case SkillName::FireBullet:
-		newSkill = Skill_FireBullet::Create();
+	case SkillName::FireBall:
+		newSkill = Skill_FireBall::Create();
 		break;
 
-	case SkillName::WaterBullet:
-		newSkill = Skill_WaterBullet::Create();
+	case SkillName::WaterCannon:
+		newSkill = Skill_WaterCannon::Create();
 		break;
 
 	case SkillName::Blaze:
@@ -114,38 +114,35 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Rush:
 		newSkill = Skill_Rush::Create();
 		break;
-	case SkillName::TearsBullet:
-		newSkill = Skill_TearsBullet::Create();
+	case SkillName::TearsShot:
+		newSkill = Skill_TearsShot::Create();
 		break;
-	case SkillName::TearsBullet2:
-		newSkill = Skill_TearsBullet::Create();
+	case SkillName::CrossShot:
+		newSkill = Skill_CrossShot::Create();
 		break;
-	case SkillName::CrossBullet:
-		newSkill = Skill_CrossBullet::Create();
+	case SkillName::XShot:
+		newSkill = Skill_XShot::Create();
 		break;
-	case SkillName::XBullet:
-		newSkill = Skill_XBullet::Create();
+	case SkillName::WebShot:
+		newSkill = Skill_WebShot::Create();
 		break;
-	case SkillName::WebBullet:
-		newSkill = Skill_WebBullet::Create();
+	case SkillName::SnowRain:
+		newSkill = Skill_SnowRain::Create();
 		break;
-	case SkillName::IceBullet:
-		newSkill = Skill_IceBullet::Create();
+	case SkillName::SnowVulcan:
+		newSkill = Skill_SnowVulcan::Create();
 		break;
-	case SkillName::IceBullet2:
-		newSkill = Skill_IceBullet2::Create();
+	case SkillName::SnowFall:
+		newSkill = Skill_SnowFall::Create();
 		break;
-	case SkillName::IceBullet3:
-		newSkill = Skill_IceBullet3::Create();
+	case SkillName::SnowCrystal:
+		newSkill = Skill_SnowCrystal::Create();
 		break;
-	case SkillName::IceBullet4:
-		newSkill = Skill_IceBullet4::Create();
+	case SkillName::BubbleShot:
+		newSkill = Skill_BubbleShot::Create();
 		break;
-	case SkillName::BubbleBullet:
-		newSkill = Skill_BubbleBullet::Create();
-		break;
-	case SkillName::BubbleBullet2:
-		newSkill = Skill_BubbleBullet2::Create();
+	case SkillName::AccelWater:
+		newSkill = Skill_AccelWater::Create();
 		break;
 	case SkillName::XClaw:
 		newSkill = Skill_XClaw::Create();
@@ -153,7 +150,15 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::HealBubble:
 		newSkill = Skill_HealBubble::Create();
 		break;
-
+	case SkillName::Quake:
+		newSkill = Skill_Quake::Create();
+		break;
+	case SkillName::FireWallWave:
+		newSkill = Skill_FireWallWave::Create();
+		break;
+	case SkillName::FireBlast:
+		newSkill = Skill_Quake::Create();
+		break;
 	}
 
 	return newSkill;

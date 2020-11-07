@@ -68,5 +68,6 @@ protected:
 
 	float moveStopTime;
 	bool canMove;
+	State oldState = State::IDLE;
 };
 

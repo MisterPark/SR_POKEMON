@@ -6,8 +6,8 @@
 
 Skill_HealBubble::Skill_HealBubble()
 {
-	coolTime = 0.4f;
-	moveStopTime = 0.4f;
+	coolTime = 1.f;
+	moveStopTime = 1.f;
 	bulletDir = { 0.f,0.f,0.f };
 }
 
@@ -17,7 +17,7 @@ Skill_HealBubble::~Skill_HealBubble()
 
 void Skill_HealBubble::InitCoolTime()
 {
-	coolTime = 0.4f;
+	coolTime = 1.f;
 }
 
 void Skill_HealBubble::InitActiveTime()

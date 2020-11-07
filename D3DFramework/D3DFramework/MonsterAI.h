@@ -40,7 +40,7 @@ public:
     void MovePlayerFollow(float _moveSpeed2 = 1.f);
     //MoveRandomPattern(한번 움직일때 움직이는시간, 움직일 횟수, 스피드값2)
     //Time[0], Frame[0] 사용중
-    void MoveRandomPattern(float _moveTime, int _count, float _moveSpeed2 = 1.f);
+    void MoveRandomPattern(float _moveSpeed2 = 1.f);
     //PlayerSearch(Player탐지거리, Player탐지를 놓칠거리)
     //playerTrans, isSearch, disPlayer 의 값은 변경됩니다.
     //isSearch 가 변경될경우, State::Ready 로 즉시 변경됩니다.
@@ -63,7 +63,10 @@ public:
 
 public:
     int Frame[5]; // 패턴판단
-    float Time[5];  // 프레임(시간) 재는용도
+	// 프레임(시간) 재는용도
+	// Time[1] = Attack CoolTime / Time[2] = Skill CoolTime / Time[3] = Skill2 CoolTime
+	// Time[4] = Attack, Skill 등 유지하는 시간
+    float Time[5];
     Transform* playerTrans = nullptr;
     bool isSearch = false;
     float disPlayer = 0.f;

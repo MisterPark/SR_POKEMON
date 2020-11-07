@@ -41,8 +41,8 @@ void Gloom::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossBullet));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XBullet));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossShot));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XShot));
 
 	stat.attack = 30;
 

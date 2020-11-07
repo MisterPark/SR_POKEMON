@@ -70,7 +70,7 @@ void PKH::Camera::Update()
 			{
 				D3DXVec3Normalize(&dir, &dir);
 
-				float speed = 5.f;
+				float speed = 10.f;
 
 				transform->position += dir * TimeManager::DeltaTime() * (speed + slowTime);
 
@@ -89,7 +89,6 @@ void PKH::Camera::Update()
 		}
 	}
 
-	
 	UpdateShake();
 
 	viewMatrix = Matrix::LookAtLH(transform->position, transform->look, transform->up);
@@ -179,30 +178,35 @@ void PKH::Camera::SlowChaseTarget(GameObject * tar)
 	slowTime = 0.f;
 }
 
-void PKH::Camera::Shake()
+void PKH::Camera::Shake(float _duration, float _magnitude)
 {
-	pCamera->isShake = true;
-	pCamera->shakeTick = 0.f;
+	isShake = true;
+	shakeDuration = _duration;
+	shakeMagnitude = _magnitude;
+	originCamPos = transform->position;
 }
 
 void PKH::Camera::UpdateShake()
 {
-	shakeTick += TimeManager::DeltaTime();
-	if (shakeTick > shakeDuration)
-	{
-		shakeTick = 0.f;
-		isShake = false;
-	}
-
 	if (isShake)
 	{
-		float ranX = Random::Range(0.f, 0.1f);
-		float ranY = Random::Range(0.f, 0.1f);
-		float ranZ = Random::Range(0.f, 0.1f);
+		shakeDuration -= TimeManager::DeltaTime();
 
-		transform->position.x += ranX;
-		transform->position.y += ranY;
-		transform->position.z += ranZ;
+		if (0 >= shakeDuration)
+		{
+			isShake = false;
+			transform->position = originCamPos;
+			shakeDuration = 0.f;
+			return;
+		}
+
+		float ranX = Random::Range(-1.f, 1.f);
+		float ranY = Random::Range(-1.f, 1.f);
+		float ranZ = Random::Range(-1.f, 1.f);
+
+		Vector3 randVec = { ranX, ranY, ranZ };
+
+		transform->position = originCamPos + (randVec * shakeMagnitude);
 	}
 }
 

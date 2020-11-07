@@ -1,28 +1,5 @@
 #include "stdafx.h"
-#include "Spawner.h"
-
-#include "Charmander.h"
-
-#include "Bulbasaur.h"
-#include "Ivysaur.h"
-#include "Venusaur.h"
-
-#include "Caterpie.h"
-#include "Metapod.h"
-#include "Butterfree.h"
-#include "Oddish.h"
-#include "Gloom.h"
-#include "Vileplume.h"
-#include "Scyther.h"
-
-
-#include "Psyduck.h"
-#include "Golduck.h"
-#include "Poliwag.h"
-#include "Poliwhirl.h"
-#include "Poliwrath.h"
-#include "Jynx.h"
-#include "Suicune.h"
+#include "AllCharacters.h"
 
 Spawner::Spawner()
 {
@@ -284,7 +261,18 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			case MonsterType::MAGCARGO:
 				break;
 			case MonsterType::GROUDON:
+			{
+				float _size = 2.f;
+				Groudon* monsterCharacter = Groudon::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(_size, _size, _size), Vector3(0.f, 0.f, 1.f));
+				monsterCharacter->offsetY=_size;
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::GROUDON);
+				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
+			}
 			case MonsterType::END:
 				break;
 

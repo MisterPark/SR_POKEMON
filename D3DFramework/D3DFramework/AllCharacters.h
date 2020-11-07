@@ -7,6 +7,19 @@
 #include "Ivysaur.h"
 #include "Venusaur.h"
 
+#include "Squirtle.h"
+#include "Waterortle.h"
+#include "Blastoise.h"
+
+#include "Growlithe.h"
+#include "Arcanine.h"
+#include "Ponyta.h"
+#include "Rapidash.h"
+#include "Slugma.h"
+#include "Magcargo.h"
+#include "Groudon.h"
+
+
 #include "Caterpie.h"
 #include "Metapod.h"
 #include "Butterfree.h"
