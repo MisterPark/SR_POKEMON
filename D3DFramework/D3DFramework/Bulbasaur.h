@@ -5,8 +5,8 @@ class Bulbasaur : public Character
 {
 public:
 	Bulbasaur();
-	Bulbasaur(const Vector3& pos, const Vector3& scale, const Vector3& dir);
-    virtual ~Bulbasaur();
+	Bulbasaur(const Vector3& pos, const Vector3& dir);
+	virtual ~Bulbasaur();
 
 public:
 	virtual void Initialize() override;
@@ -15,11 +15,14 @@ public:
 	virtual void Release() override;
 
 public:
+	virtual void ChangeState(State nextState) override;
+	void AnimSet();
+
+public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Bulbasaur* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	static Bulbasaur* Create(const Vector3& pos, const Vector3& dir);
 public:
 	MonsterAI* monsterAI;
 };
-

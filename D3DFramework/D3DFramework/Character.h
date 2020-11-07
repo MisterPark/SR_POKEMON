@@ -61,6 +61,7 @@ public:
 	State state = State::IDLE;
 	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
+	bool infoVisible = true;
 
 protected:
 	vector<Skill*> skillSet;

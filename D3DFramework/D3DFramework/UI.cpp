@@ -144,6 +144,7 @@ void UI::OnChangedText()
 
 void UI::SetSize(int w, int h)
 {
+
 	width = w;
 	height = h;
 }
@@ -151,4 +152,17 @@ void UI::SetSize(int w, int h)
 void UI::SetTexture(TextureKey _key)
 {
 	textureKey = _key;
+
+
+	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	if (texture != nullptr)
+	{
+		width = transform->scale.x * texture->GetSpriteWidth();
+		height = transform->scale.y * texture->GetSpriteHeight();
+	}
+	else
+	{
+		width = transform->scale.x * 88;
+		height = transform->scale.y * 88;
+	}
 }

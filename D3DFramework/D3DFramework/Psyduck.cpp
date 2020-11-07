@@ -31,8 +31,8 @@ void Psyduck::Initialize()
 	SetTexture(State::WALK, TextureKey::PSY_WALK_D_02, 3,2);
 	SetTexture(State::IDLE, TextureKey::PSY_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::PSY_WALK_D_01, 3, 1);
-	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK2_D_01, 2);
-	SetTexture(State::SKILL, TextureKey::PSY_ATTACK2_D_01, 2);
+	SetTexture(State::ATTACK, TextureKey::PSY_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PSY_ATTACK_D_01, 2);
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
@@ -46,7 +46,7 @@ void Psyduck::Initialize()
 	stat.hp = 150;
 	stat.maxHp = 150;
 	
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::MiniRush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	UpdateAnimation();
@@ -62,7 +62,7 @@ void Psyduck::Update()
 
 void Psyduck::Render()
 {
-		Character::Render();
+	Character::Render();
 }
 
 void Psyduck::Release()

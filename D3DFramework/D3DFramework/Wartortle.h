@@ -1,12 +1,12 @@
 #pragma once
 #include "Character.h"
 
-class Ivysaur : public Character
+class Wartortle : public Character
 {
 public:
-	Ivysaur();
-	Ivysaur(const Vector3& pos, const Vector3& dir);
-	virtual ~Ivysaur();
+	Wartortle();
+	Wartortle(const Vector3& pos, const Vector3& dir);
+	virtual ~Wartortle();
 
 public:
 	virtual void Initialize() override;
@@ -22,7 +22,9 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Ivysaur* Create(const Vector3& pos, const Vector3& dir);
+	static Wartortle* Create(const Vector3& pos, const Vector3& dir);
 public:
 	MonsterAI* monsterAI;
 };
+
+

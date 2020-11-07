@@ -14,7 +14,7 @@ Button::~Button()
 
 void Button::Initialize()
 {
-	transform->scale = { 3.f,0.5f,1.f };
+	transform->scale = { 1.f,1.f,1.f };
 	textureKey = TextureKey::UI_BUTTON;
 	textRenderFlag = true;
 	text = L"¹öÆ°";
@@ -37,8 +37,18 @@ void Button::Update()
 
 void Button::UpdateUI()
 {
-	width = transform->scale.x * 88;
-	height = transform->scale.y * 88;
+	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	if (texture != nullptr)
+	{
+		width = transform->scale.x * texture->GetSpriteWidth();
+		height = transform->scale.y * texture->GetSpriteHeight();
+	}
+	else
+	{
+		width = transform->scale.x * 88;
+		height = transform->scale.y * 88;
+	}
+	
 
 	int len = lstrlenW(text.c_str());
 	int strW = 20;
@@ -105,6 +115,23 @@ void Button::OnClick()
 
 void Button::SetSize(int w, int h)
 {
-	width = float(w) / 88.f;
-	height = float(h) / 88.f;
+	float scaleX = float(w) / 88.f;
+	float scaleY = float(h) / 88.f;
+
+	transform->scale.x = scaleX;
+	transform->scale.y = scaleY;
+	originScale.x = scaleX;
+	originScale.y = scaleY;
+
+	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	if (texture != nullptr)
+	{
+		width = transform->scale.x * texture->GetSpriteWidth();
+		height = transform->scale.y * texture->GetSpriteHeight();
+	}
+	else
+	{
+		width = transform->scale.x * 88;
+		height = transform->scale.y * 88;
+	}
 }

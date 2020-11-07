@@ -41,6 +41,7 @@ void Character::Render()
 
 void Character::RenderInfomation()
 {
+	if (infoVisible == false)return;
 	if (transform->zOrder < 0.f)
 	{
 		return;

@@ -17,6 +17,8 @@ Bullet::Bullet()
 	lifeTime = 2.f;
 	offsetY = 0.f;
 	animDelay = 0.5f;
+
+	isCollideOnTerrain = false;
 	isOnTerrain = false;
 	isBillboard = true;
 	isLoop = true;
@@ -37,6 +39,7 @@ void Bullet::Update()
 	GameObject::Update();
 	Move(direction);
 	OnTerrain();
+	CollideOnTerrain();
 
 	if (isBillboard) Billboard();
 	CalcLifeTime();
@@ -81,7 +84,7 @@ void Bullet::OnTerrain()
 	}
 	else
 	{
-		if (transform->position.y < y) isDead = true;
+		if (transform->position.y < y) isCollideOnTerrain = true;
 	}
 }
 
@@ -89,6 +92,11 @@ void Bullet::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();
 	if (0.f >= lifeTime) isDead = true;
+}
+
+void Bullet::CollideOnTerrain()
+{
+	if (isCollideOnTerrain) isDead = true;
 }
 
 Vector3 Bullet::PlayerSearchDir(bool PosY)

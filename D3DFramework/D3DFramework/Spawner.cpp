@@ -61,7 +61,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			{
 			case MonsterType::BULBASAUR:
 			{
-				Bulbasaur* monsterCharacter = Bulbasaur::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				Bulbasaur* monsterCharacter = Bulbasaur::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::BULBASAUR);
 				monsterCharacter->spawner = this;

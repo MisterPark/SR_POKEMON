@@ -37,9 +37,7 @@ void TestScene::OnLoaded()
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 	// TestUI
 	
-	Groudon* playerCharacter = Groudon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
-	playerCharacter->offsetY = 0.23f;
-	/*playerCharacter->offsetY = 0.23f;*/
+	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f));
 	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
 	/*Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));*/
@@ -273,7 +271,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 }
 void TestScene::CreateSpawner()
 {
-	Spawner* spawner = Spawner::Create(MonsterType::GOLDUCK, 10.f, 0.5f, 1);
+	Spawner* spawner = Spawner::Create(MonsterType::PSYDUCK, 10.f, 0.5f, 5);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 

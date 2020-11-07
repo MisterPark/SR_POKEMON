@@ -247,17 +247,8 @@
     <Filter Include="Skill\18. HealBubble">
       <UniqueIdentifier>{b72bab92-34d1-4778-b35b-4c86d402cc6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Skill\19. Quake">
-      <UniqueIdentifier>{b7154b03-61c3-4cea-8b5c-5b4a3d493b59}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Skill\99. Manager">
       <UniqueIdentifier>{6f38078a-14a4-4e94-a0eb-008cda0dca41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\20. FireWallWave">
-      <UniqueIdentifier>{d193034f-029b-4051-937f-57cfb49cf5b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Skill\21. FireBlast">
-      <UniqueIdentifier>{d2e14425-c240-4489-a501-0c046d58f847}</UniqueIdentifier>
     </Filter>
     <Filter Include="Skill\06. Rush">
       <UniqueIdentifier>{fed63ff8-dbeb-4eea-a584-147beba4b895}</UniqueIdentifier>
@@ -270,12 +261,6 @@
     </Filter>
     <Filter Include="GameObject\Bullet\18. HealBubble">
       <UniqueIdentifier>{9f2439a2-a512-4533-a02c-6d4764fd626a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Bullet\20. FireWallWave">
-      <UniqueIdentifier>{4d78e804-c4ae-453f-8e58-97e872ecb6a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Bullet\19. Quake">
-      <UniqueIdentifier>{1b662fd9-7fb6-4dbf-92bf-b44e1aff0908}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Bullet\01~03.PlayerBullet">
       <UniqueIdentifier>{1034c00c-59ab-4cb2-99c5-8b001bff4706}</UniqueIdentifier>
@@ -295,11 +280,38 @@
     <Filter Include="GameObject\Bullet\10. Web">
       <UniqueIdentifier>{4ff5d99c-65e4-463e-9e7b-8afb8e87b9d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet\21. FireBlast">
-      <UniqueIdentifier>{8ca0c28c-6130-4fc2-a0dc-a350104771f8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Skill\19. Meteor">
       <UniqueIdentifier>{b804921a-3ab6-456d-9085-b4e7ba9dff93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\19. Meteor">
+      <UniqueIdentifier>{237af1d9-788f-4919-b8b8-e27c85671e0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\20. Quake">
+      <UniqueIdentifier>{b7154b03-61c3-4cea-8b5c-5b4a3d493b59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\21. FireWallWave">
+      <UniqueIdentifier>{d193034f-029b-4051-937f-57cfb49cf5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\22. FireBlast">
+      <UniqueIdentifier>{d2e14425-c240-4489-a501-0c046d58f847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\23. ReverseHealBubble">
+      <UniqueIdentifier>{39ad2458-ef27-49a1-ac4f-905febb243e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\24. MiniRush">
+      <UniqueIdentifier>{a1fd4d47-f1ea-47cf-9918-0c83cedae1a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\20. Quake">
+      <UniqueIdentifier>{1b662fd9-7fb6-4dbf-92bf-b44e1aff0908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\21. FireWallWave">
+      <UniqueIdentifier>{4d78e804-c4ae-453f-8e58-97e872ecb6a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\22. FireBlast">
+      <UniqueIdentifier>{8ca0c28c-6130-4fc2-a0dc-a350104771f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\23.ReverseHealBubble">
+      <UniqueIdentifier>{8146c74c-f813-40a6-95b0-ff205c8a1e04}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -708,9 +720,6 @@
     <ClInclude Include="Squirtle.h">
       <Filter>GameObject\Character\Water\007. Squirtle</Filter>
     </ClInclude>
-    <ClInclude Include="Waterortle.h">
-      <Filter>GameObject\Character\Water\008. Wartortle</Filter>
-    </ClInclude>
     <ClInclude Include="Skill_LeafShot.h">
       <Filter>Skill\01. LeafShot</Filter>
     </ClInclude>
@@ -751,25 +760,43 @@
       <Filter>Skill\16. AccelWater</Filter>
     </ClInclude>
     <ClInclude Include="Skill_Quake.h">
-      <Filter>Skill\19. Quake</Filter>
+      <Filter>Skill\20. Quake</Filter>
     </ClInclude>
     <ClInclude Include="Skill_FireWallWave.h">
-      <Filter>Skill\20. FireWallWave</Filter>
+      <Filter>Skill\21. FireWallWave</Filter>
     </ClInclude>
     <ClInclude Include="Skill_FireBlast.h">
-      <Filter>Skill\21. FireBlast</Filter>
+      <Filter>Skill\22. FireBlast</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Quake.h">
-      <Filter>GameObject\Bullet\19. Quake</Filter>
+      <Filter>GameObject\Bullet\20. Quake</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_FireWallWave.h">
-      <Filter>GameObject\Bullet\20. FireWallWave</Filter>
+      <Filter>GameObject\Bullet\21. FireWallWave</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_FireBlast.h">
-      <Filter>GameObject\Bullet\21. FireBlast</Filter>
+      <Filter>GameObject\Bullet\22. FireBlast</Filter>
     </ClInclude>
     <ClInclude Include="Skill_Meteor.h">
       <Filter>Skill\19. Meteor</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_ReverseHealBubble.h">
+      <Filter>GameObject\Bullet\23.ReverseHealBubble</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_ReverseHealBubble.h">
+      <Filter>Skill\23. ReverseHealBubble</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_MiniRush.h">
+      <Filter>Skill\24. MiniRush</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Meteor.h">
+      <Filter>GameObject\Bullet\19. Meteor</Filter>
+    </ClInclude>
+    <ClInclude Include="Wartortle.h">
+      <Filter>GameObject\Character\Water\008. Wartortle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1270,9 +1297,6 @@
     <ClCompile Include="Squirtle.cpp">
       <Filter>GameObject\Character\Water\007. Squirtle</Filter>
     </ClCompile>
-    <ClCompile Include="Waterortle.cpp">
-      <Filter>GameObject\Character\Water\008. Wartortle</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_LeafShot.cpp">
       <Filter>Skill\01. LeafShot</Filter>
     </ClCompile>
@@ -1313,25 +1337,43 @@
       <Filter>Skill\16. AccelWater</Filter>
     </ClCompile>
     <ClCompile Include="Skill_Quake.cpp">
-      <Filter>Skill\19. Quake</Filter>
+      <Filter>Skill\20. Quake</Filter>
     </ClCompile>
     <ClCompile Include="Skill_FireWallWave.cpp">
-      <Filter>Skill\20. FireWallWave</Filter>
+      <Filter>Skill\21. FireWallWave</Filter>
     </ClCompile>
     <ClCompile Include="Skill_FireBlast.cpp">
-      <Filter>Skill\21. FireBlast</Filter>
+      <Filter>Skill\22. FireBlast</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Quake.cpp">
-      <Filter>GameObject\Bullet\19. Quake</Filter>
+      <Filter>GameObject\Bullet\20. Quake</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_FireWallWave.cpp">
-      <Filter>GameObject\Bullet\20. FireWallWave</Filter>
+      <Filter>GameObject\Bullet\21. FireWallWave</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_FireBlast.cpp">
-      <Filter>GameObject\Bullet\21. FireBlast</Filter>
+      <Filter>GameObject\Bullet\22. FireBlast</Filter>
     </ClCompile>
     <ClCompile Include="Skill_Meteor.cpp">
       <Filter>Skill\19. Meteor</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_ReverseHealBubble.cpp">
+      <Filter>GameObject\Bullet\23.ReverseHealBubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_ReverseHealBubble.cpp">
+      <Filter>Skill\23. ReverseHealBubble</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_MiniRush.cpp">
+      <Filter>Skill\24. MiniRush</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Meteor.cpp">
+      <Filter>GameObject\Bullet\19. Meteor</Filter>
+    </ClCompile>
+    <ClCompile Include="Wartortle.cpp">
+      <Filter>GameObject\Character\Water\008. Wartortle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

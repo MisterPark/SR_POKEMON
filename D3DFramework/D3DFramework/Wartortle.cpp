@@ -1,12 +1,12 @@
 #include "stdafx.h"
-#include "Ivysaur.h"
+#include "Wartortle.h"
 
-Ivysaur::Ivysaur()
+Wartortle::Wartortle()
 {
 	Initialize();
 }
 
-Ivysaur::Ivysaur(const Vector3& pos, const Vector3& dir)
+Wartortle::Wartortle(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
@@ -16,19 +16,19 @@ Ivysaur::Ivysaur(const Vector3& pos, const Vector3& dir)
 
 }
 
-Ivysaur::~Ivysaur()
+Wartortle::~Wartortle()
 {
 }
 
-void Ivysaur::Initialize()
+void Wartortle::Initialize()
 {
-	name = L"이상해풀";
-	number = Pokemon::Ivysaur;
+	name = L"어니부기";
+	number = Pokemon::Wartortle;
 
-	SetTexture(State::IDLE, TextureKey::PG02_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PG02_WALK_D_02, 3, 2);
-	SetTexture(State::ATTACK, TextureKey::PG02_ATTACK_D_01, 2);
-	SetTexture(State::SKILL, TextureKey::PG02_SKILL_D_01, 2);
+	SetTexture(State::IDLE, TextureKey::PW02_WALK_D_01, 3, 1);
+	SetTexture(State::WALK, TextureKey::PW02_WALK_D_02, 3, 2);
+	SetTexture(State::ATTACK, TextureKey::PW02_ATTACK_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PW02_SKILL_D_01, 1);
 
 	offsetY = 0.13f;
 
@@ -42,28 +42,28 @@ void Ivysaur::Initialize()
 
 	skillSet.reserve(3);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafShot));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 
 	UpdateAnimation();
 }
 
-void Ivysaur::Update()
+void Wartortle::Update()
 {
 	Character::Update();
 }
 
-void Ivysaur::Render()
+void Wartortle::Render()
 {
 	Character::Render();
 }
 
-void Ivysaur::Release()
+void Wartortle::Release()
 {
 }
 
-void Ivysaur::ChangeState(State nextState)
+void Wartortle::ChangeState(State nextState)
 {
 	if (nextState != state)
 	{
@@ -73,7 +73,7 @@ void Ivysaur::ChangeState(State nextState)
 	}
 }
 
-void Ivysaur::AnimSet()
+void Wartortle::AnimSet()
 {
 	switch (state)
 	{
@@ -102,7 +102,7 @@ void Ivysaur::AnimSet()
 	}
 }
 
-bool Ivysaur::Attack(const Vector3& dir, const int& attackType)
+bool Wartortle::Attack(const Vector3& dir, const int& attackType)
 {
 	if (Character::Attack(dir, attackType))
 	{
@@ -123,8 +123,8 @@ bool Ivysaur::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Ivysaur* Ivysaur::Create(const Vector3& pos, const Vector3& dir)
+Wartortle* Wartortle::Create(const Vector3& pos, const Vector3& dir)
 {
-	Ivysaur* newPokemon = new Ivysaur(pos, dir);
+	Wartortle* newPokemon = new Wartortle(pos, dir);
 	return newPokemon;
 }

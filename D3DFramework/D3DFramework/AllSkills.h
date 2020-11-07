@@ -20,7 +20,10 @@
 #include "Skill_AccelWater.h"
 #include "Skill_XClaw.h"
 #include "Skill_HealBubble.h"
+#include "Skill_Meteor.h"
 #include "Skill_Quake.h"
-#include "Skill_FireWallWave.h"
 
+#include "Skill_FireWallWave.h"
 #include "Skill_FireBlast.h"
+#include "Skill_ReverseHealBubble.h"
+#include "Skill_MiniRush.h"

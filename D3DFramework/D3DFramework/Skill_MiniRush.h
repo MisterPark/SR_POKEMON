@@ -1,12 +1,12 @@
 #pragma once
 #include "Skill.h"
 
-class Skill_Meteor :
+class Skill_MiniRush :
 	public Skill
 {
 public:
-	Skill_Meteor();
-	virtual ~Skill_Meteor();
+	Skill_MiniRush();
+	virtual ~Skill_MiniRush();
 
 public:
 	// Skill을(를) 통해 상속됨
@@ -18,5 +18,9 @@ public:
 
 public:
 	static Skill* Create();
+
+private:
+	bool isDetachCamera;
+	bool isSpawn;
 };
 

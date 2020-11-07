@@ -6,7 +6,7 @@ XClaw::XClaw()
 {
 }
 
-XClaw::XClaw(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, const Vector3 & dir, float speed, float _lifeTime, float att)
+XClaw::XClaw(const Vector3 & pos, const Vector3 & size, const Vector3 & dir, float speed, float _lifeTime, float att)
 {
 	transform->position = pos;
 	transform->scale = size;
@@ -15,17 +15,15 @@ XClaw::XClaw(const Vector3 & pos, const Vector3 & size, TextureKey start, Textur
 	stat.attack = att * 2.f;
 	stat.moveSpeed = speed;
 
-	startKey = start;
-	endKey = end;
-
-	animDelay = (float)lifeTime / (float(end) - float(start));
-
 	isOnTerrain = true;
 
 	offsetY = 0.3f;
 
-	anim->SetSprite(start, end);
-	anim->SetDelay(animDelay);
+	startKey = TextureKey::X_CLAW_01;
+	endKey = TextureKey::X_CLAW_08;
+
+	anim->SetSprite(startKey, endKey);
+	anim->SetDelay(lifeTime / 8.f);
 	anim->SetLoop(false);
 }
 
@@ -57,8 +55,8 @@ void XClaw::OnCollision(GameObject * target)
 	ObjectManager::AddObject(fx);
 }
 
-XClaw * XClaw::Create(const Vector3 & pos, const Vector3 & size, TextureKey start, TextureKey end, float att, const Vector3 & dir, float speed, float lifeTime)
+XClaw * XClaw::Create(const Vector3 & pos, const Vector3 & size, float att, const Vector3 & dir, float speed, float lifeTime)
 {
-	XClaw* instance = new XClaw(pos, size, start, end, dir, speed, lifeTime, att);
+	XClaw* instance = new XClaw(pos, size, dir, speed, lifeTime, att);
 	return instance;
 }

@@ -83,6 +83,7 @@ namespace PKH
 		bool isDead = false;
 		bool isVisible = true;
 		bool isEnable = true;
+		bool dontDestroy = false;
 		
 		map<wstring, PKH::IComponent*> components;
 		list<GameObject*> collideList;

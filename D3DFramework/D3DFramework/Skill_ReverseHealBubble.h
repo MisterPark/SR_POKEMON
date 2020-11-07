@@ -1,12 +1,11 @@
 #pragma once
 #include "Skill.h"
-
-class Skill_Meteor :
+class Skill_ReverseHealBubble :
 	public Skill
 {
 public:
-	Skill_Meteor();
-	virtual ~Skill_Meteor();
+	class Skill_ReverseHealBubble();
+	virtual ~Skill_ReverseHealBubble();
 
 public:
 	// Skill을(를) 통해 상속됨
@@ -14,9 +13,11 @@ public:
 	virtual void InitActiveTime() override;
 	virtual void Update() override;
 
-	virtual void CalcActiveTime() override;
-
 public:
 	static Skill* Create();
+private:
+	float delay = 0.f;
+	Vector3 bulletDir;
+	bool create = false;
 };
 
