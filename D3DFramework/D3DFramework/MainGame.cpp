@@ -356,6 +356,7 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_05, L"Texture\\Bullet\\Fire2\\Fire2 (5).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_06, L"Texture\\Bullet\\Fire2\\Fire2 (6).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_07, L"Texture\\Bullet\\Fire2\\Fire2 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE2_08, L"Texture\\Bullet\\Fire2\\Fire2 (8).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_01, L"Texture\\Bullet\\Fire3\\Fire3 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE3_02, L"Texture\\Bullet\\Fire3\\Fire3 (2).png");
@@ -517,6 +518,8 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_04, L"Texture\\Bullet\\Heart1\\Heart (4).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_05, L"Texture\\Bullet\\Heart1\\Heart (5).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_INVISIBLE_01, L"Texture\\Bullet\\Invisible\\Invisible (1).png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATERDROP1_01, L"Texture\\Bullet\\WaterDrop1\\WaterDrop (1).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::TREE01, L"Texture\\ETC\\Tree\\Tree (1).png");
@@ -542,7 +545,11 @@ void PKH::MainGame::LoadETCSprite()
 	
 	//RANGE
 	D2DRenderManager::LoadSprite(TextureKey::RANGE, L"Texture\\Bullet\\Range\\Range.png");
-
+	D2DRenderManager::LoadSprite(TextureKey::WHITERANGE, L"Texture\\Bullet\\Range\\WhiteRange.png");
+	D2DRenderManager::LoadSprite(TextureKey::REDRANGE, L"Texture\\Bullet\\Range\\RedRange.png");
+	D2DRenderManager::LoadSprite(TextureKey::ORANGERANGE, L"Texture\\Bullet\\Range\\OrangeRange.png");
+	D2DRenderManager::LoadSprite(TextureKey::BLUERANGE, L"Texture\\Bullet\\Range\\BlueRange.png");
+	D2DRenderManager::LoadSprite(TextureKey::BLACKRANGE, L"Texture\\Bullet\\Range\\BlackRange.png");
 	//MAP TEXTURE
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP2, L"Texture\\Map\\Tile\\Grass.png");
 	D2DRenderManager::LoadSprite(TextureKey::GRASS_MAP, L"Texture\\Map\\Tile\\Grass.png");

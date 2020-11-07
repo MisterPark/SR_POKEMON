@@ -44,7 +44,7 @@ void Groudon::Initialize()
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 
 	UpdateAnimation();
 
