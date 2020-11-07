@@ -789,7 +789,9 @@
     <ClInclude Include="Skill_MiniRush.h">
       <Filter>Skill\23.MiniRush</Filter>
     </ClInclude>
-    <ClInclude Include="SelectScene.h" />
+    <ClInclude Include="SelectScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1361,7 +1363,9 @@
     <ClCompile Include="Skill_MiniRush.cpp">
       <Filter>Skill\23.MiniRush</Filter>
     </ClCompile>
-    <ClCompile Include="SelectScene.cpp" />
+    <ClCompile Include="SelectScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">
