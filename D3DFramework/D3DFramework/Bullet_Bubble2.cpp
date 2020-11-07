@@ -31,7 +31,7 @@ void Bullet_Bubble2::Update()
 	if (lifeTime < 2.3f) {
 		anim->SetSprite(TextureKey::BULLET_BUBBLE1_15, TextureKey::BULLET_BUBBLE1_18);
 	}
-	if (isDead) {
+	if (IsDead()) {
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_BUBBLE1_19, TextureKey::BULLET_BUBBLE1_21, 0.05f);
 		ObjectManager::AddObject(fx);
 	}
@@ -44,5 +44,5 @@ void Bullet_Bubble2::Render()
 
 void Bullet_Bubble2::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 }

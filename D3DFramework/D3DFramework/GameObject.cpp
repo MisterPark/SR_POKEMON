@@ -44,6 +44,7 @@ void PKH::GameObject::Render()
 
 void PKH::GameObject::Die()
 {
+	if (dontDestroy) return;
 	isDead = true;
 }
 
@@ -205,5 +206,10 @@ IComponent* PKH::GameObject::GetComponent(const wstring& _key)
 	auto f = components.find(_key);
 	if (f == components.end()) return nullptr;
 	return f->second;
+}
+
+bool PKH::GameObject::IsDead()
+{
+	return isDead;
 }
 

@@ -42,8 +42,8 @@ void Groudon::Initialize()
 	stat.attack = 50.f;
 
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBlast));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
 
 	UpdateAnimation();

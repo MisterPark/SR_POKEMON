@@ -24,7 +24,7 @@ Bullet_Bubble::~Bullet_Bubble()
 void Bullet_Bubble::Update()
 {
 	Bullet::Update();
-	if (isDead) {
+	if (IsDead()) {
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_BUBBLE1_01, TextureKey::BULLET_BUBBLE1_21, 0.05f);
 		ObjectManager::AddObject(fx);
 	}
@@ -37,5 +37,5 @@ void Bullet_Bubble::Render()
 
 void Bullet_Bubble::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 }

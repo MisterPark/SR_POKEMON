@@ -56,6 +56,6 @@ void Decoration::OnTerrain()
 	}
 	else
 	{
-		if (transform->position.y < y) isDead = true;
+		if (transform->position.y < y) Die();
 	}
 }

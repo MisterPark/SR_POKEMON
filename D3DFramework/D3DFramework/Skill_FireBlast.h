@@ -4,7 +4,7 @@ class Skill_FireBlast :
 	public Skill
 {
 public:
-	class Skill_FireBlast();
+	Skill_FireBlast();
 	virtual ~Skill_FireBlast();
 
 public:
@@ -17,7 +17,5 @@ public:
 	static Skill* Create();
 private:
 	float delay = 0.f;
-	Vector3 bulletDir;
-	bool create = false;
 };
 

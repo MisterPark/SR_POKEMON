@@ -72,7 +72,7 @@ void TargetInfoPanel::Render()
 {
     if (pTargetInfoPanel->isVisible == false) return;
     if (pTargetInfoPanel->target == nullptr) return;
-    if (pTargetInfoPanel->target->isDead)
+    if (pTargetInfoPanel->target->IsDead())
     {
         target = nullptr;
         return;

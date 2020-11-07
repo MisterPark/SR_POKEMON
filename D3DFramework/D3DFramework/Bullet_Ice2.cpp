@@ -29,7 +29,7 @@ void Bullet_Ice2::Update()
 	Bullet::Update();
 
 
-	if (isDead) {
+	if (IsDead()) {
 		//Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_14, TextureKey::BULLET_ICE1_20, 0.05f);
 		//ObjectManager::AddObject(fx);
 	}
@@ -49,7 +49,7 @@ void Bullet_Ice2::Update()
 		transform->scale.y -= decScale;
 		transform->scale.z -= decScale;
 	}
-	if (isDead) {
+	if (IsDead()) {
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_14, TextureKey::BULLET_ICE1_20, 0.05f);
 		ObjectManager::AddObject(fx);
 	}
@@ -62,5 +62,5 @@ void Bullet_Ice2::Render()
 
 void Bullet_Ice2::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 }

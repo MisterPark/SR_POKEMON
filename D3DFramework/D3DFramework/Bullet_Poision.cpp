@@ -27,7 +27,7 @@ void Bullet_Poision::Update()
 	if (lifeTime < 3.2f) {
 		anim->SetSprite(TextureKey::BULLET_POISION1_04, TextureKey::BULLET_POISION1_07);
 	}
-	if (isDead) {
+	if (IsDead()) {
 		Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_POISION1_08, TextureKey::BULLET_POISION1_15, 0.05f);
 		ObjectManager::AddObject(effect);
 	}
@@ -40,7 +40,7 @@ void Bullet_Poision::Render()
 
 void Bullet_Poision::OnCollision(GameObject* target)
 {
-	isDead = true;
+	Die();
 	Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_POISION1_08, TextureKey::BULLET_POISION1_15, 0.05f);
 	ObjectManager::AddObject(effect);
 }

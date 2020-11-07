@@ -119,11 +119,11 @@ void PKH::ObjectManager::PostUpdate()
 		target = *iter;
 		
 
-		if (target->isDead)
+		if (target->IsDead())
 		{
 			if (target->dontDestroy)
 			{
-				target->isDead = false;
+
 				++iter;
 				continue;
 			}

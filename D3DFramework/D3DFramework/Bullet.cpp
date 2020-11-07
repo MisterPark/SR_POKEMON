@@ -92,12 +92,12 @@ void Bullet::OnTerrain()
 void Bullet::CalcLifeTime()
 {
 	lifeTime -= TimeManager::DeltaTime();
-	if (0.f >= lifeTime) isDead = true;
+	if (0.f >= lifeTime) Die();
 }
 
 void Bullet::CollideOnTerrain()
 {
-	if (isCollideOnTerrain) isDead = true;
+	if (isCollideOnTerrain) Die();
 }
 
 Vector3 Bullet::PlayerSearchDir(bool PosY)
