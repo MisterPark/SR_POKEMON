@@ -23,6 +23,8 @@ Groudon::~Groudon()
 void Groudon::Initialize()
 {
 	name = L"±×¶õµ·";
+	
+
 	SetTexture(State::WALK, TextureKey::GROU_WALK_D_02, 3, 2);
 	SetTexture(State::IDLE, TextureKey::GROU_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::GROU_WALK_D_01, 3, 1);
