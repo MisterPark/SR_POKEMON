@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Squirtle.h"
 
-
 Squirtle::Squirtle()
 {
     Initialize();
@@ -17,7 +16,6 @@ Squirtle::Squirtle(const Vector3& pos, const Vector3& dir)
 
 }
 
-
 Squirtle::~Squirtle()
 {
 }
@@ -25,12 +23,12 @@ Squirtle::~Squirtle()
 void Squirtle::Initialize()
 {
 	name = L"²¿ºÎ±â";
-	number = Pokemon::Charmander;
+	number = Pokemon::Squirtle;
 
-	SetTexture(State::IDLE, TextureKey::PF02_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PF02_WALK_D_02, 3, 2);
-	SetTexture(State::ATTACK, TextureKey::PF02_ATTACK_D_01, 1);
-	SetTexture(State::SKILL, TextureKey::PF02_SKILL_D_01, 2);
+	SetTexture(State::IDLE, TextureKey::PW01_WALK_D_01, 3, 1);
+	SetTexture(State::WALK, TextureKey::PW01_WALK_D_02, 3, 2);
+	SetTexture(State::ATTACK, TextureKey::PW01_ATTACK_D_01, 3);
+	SetTexture(State::SKILL, TextureKey::PW01_SKILL_D_01, 1);
 
 	offsetY = 0.13f;
 
@@ -39,13 +37,13 @@ void Squirtle::Initialize()
 
 	stat.attack = 30;
 
-	skillSet.reserve(2);
-
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBall));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
-
 	stat.hp = 250;
 	stat.maxHp = 250;
+
+	skillSet.reserve(2);
+
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
 
 	UpdateAnimation();
 }
@@ -89,12 +87,12 @@ void Squirtle::AnimSet()
 		anim->SetTick(0.f);
 		break;
 	case State::ATTACK:
-		anim->SetLoop(true);
+		anim->SetLoop(false);
 		anim->SetDelay(0.2f);
 		anim->SetTick(0.f);
 		break;
 	case State::SKILL:
-		anim->SetLoop(true);
+		anim->SetLoop(false);
 		anim->SetDelay(0.2f);
 		anim->SetTick(0.f);
 		break;

@@ -15,7 +15,12 @@ public:
 
 	// 지형 타기
 	void OnTerrain();
+
+	// 라이프타임 계산
 	void CalcLifeTime();
+
+	// 총알이 지형에 부딪혔을때의 처리
+	virtual void CollideOnTerrain();
 
 public:
 	//플레이어를 향하는 방향벡터를 Normalize 하고 반환합니다.
@@ -46,6 +51,7 @@ protected:
 	float animDelay;
 	float initAttack;
 
+	bool isCollideOnTerrain;
 	bool isOnTerrain;
 	bool isBillboard;
 	bool isLoop;

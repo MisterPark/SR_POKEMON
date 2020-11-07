@@ -206,6 +206,7 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Meteor.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_FireBlast.h" />
     <ClInclude Include="framework.h" />
@@ -312,7 +313,7 @@
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Vileplume.h" />
     <ClInclude Include="Water.h" />
-    <ClInclude Include="Waterortle.h" />
+    <ClInclude Include="Wartortle.h" />
     <ClInclude Include="XClaw.h" />
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +362,7 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -460,7 +462,7 @@
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="Vileplume.cpp" />
     <ClCompile Include="Water.cpp" />
-    <ClCompile Include="Waterortle.cpp" />
+    <ClCompile Include="Wartortle.cpp" />
     <ClCompile Include="XClaw.cpp" />
   </ItemGroup>
   <ItemGroup>

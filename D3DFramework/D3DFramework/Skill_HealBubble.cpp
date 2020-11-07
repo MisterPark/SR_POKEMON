@@ -52,6 +52,7 @@ void Skill_HealBubble::Update()
 		}
 
 		Effect* effect = Effect::Create(bullet->transform->position, bullet->transform->scale, TextureKey::RANGE, TextureKey::RANGE, 1.f, true, true, 0.0f, false, 0.0f, false, 0.0f, { 0.f, 0.f, 0.f }, true, 0.1f);
+		effect->transform->position.y = -1.f;
 		ObjectManager::AddObject(effect);
 
 	CalcActiveTime();

@@ -150,8 +150,8 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::HealBubble:
 		newSkill = Skill_HealBubble::Create();
 		break;
-	case SkillName::ReverseHealBubble:
-		newSkill = Skill_ReverseHealBubble::Create();
+	case SkillName::Meteor:
+		newSkill = Skill_Meteor::Create();
 		break;
 	case SkillName::Quake:
 		newSkill = Skill_Quake::Create();
@@ -161,6 +161,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 		break;
 	case SkillName::FireBlast:
 		newSkill = Skill_FireBlast::Create();
+		break;
+	case SkillName::ReverseHealBubble:
+		newSkill = Skill_ReverseHealBubble::Create();
 		break;
 	case SkillName::MiniRush:
 		newSkill = Skill_MiniRush::Create();

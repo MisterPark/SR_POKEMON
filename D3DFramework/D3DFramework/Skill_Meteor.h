@@ -18,9 +18,5 @@ public:
 
 public:
 	static Skill* Create();
-
-private:
-	bool isDetachCamera;
-	bool isSpawn;
 };
 

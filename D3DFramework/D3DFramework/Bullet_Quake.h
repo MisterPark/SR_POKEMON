@@ -11,5 +11,6 @@ public:
 	virtual void Render() override;
 	virtual void OnCollision(GameObject* target) override;
 
+	int stack;
 };
 

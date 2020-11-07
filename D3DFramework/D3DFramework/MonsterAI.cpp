@@ -598,6 +598,24 @@ void MonsterAI::MonsterIdle() {
 		case MonsterType::MAGCARGO:
 			break;
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK; //WALK 와 다른점
+			}
 			break;
 		case MonsterType::END:
 			break;
@@ -1097,7 +1115,7 @@ void MonsterAI::MonsterWalk() {
 					MovePlayerFollow();
 				}
 				else if (Time[2] < 0) {
-					Time[2] = 2.f;
+					Time[2] = 1.2f;
 					if (Frame[1] == 0) {
 						c->state = State::ATTACK;
 						readyPattern = true;
@@ -1108,6 +1126,9 @@ void MonsterAI::MonsterWalk() {
 						readyPattern = true;
 						Frame[1] = 0;
 					}
+				}
+				else {
+					c->state = State::IDLE;
 				}
 			}
 			break;
@@ -1711,7 +1732,7 @@ void MonsterAI::MonsterAttack() {
 				readyPattern = false;
 				c->Attack(c->direction, 0);
 				Time[3] = 4.f;
-				c->anim->SetDelay(0.7f);
+				c->anim->SetDelay(1.5f);
 			}
 			Time[3] -= TimeManager::DeltaTime();
 			if (Time[3] < 0.f) {
@@ -2150,7 +2171,7 @@ void MonsterAI::MonsterSkill() {
 				readyPattern = false;
 				c->Attack(c->direction, 1);
 				Time[4] = 5.f;
-				c->anim->SetDelay(0.8f);
+				c->anim->SetDelay(1.5f);
 			}
 			Time[4] -= TimeManager::DeltaTime();
 			if (Time[4] < 0.f) {
@@ -2533,6 +2554,17 @@ void MonsterAI::MonsterSkill2() {
 			break;
 
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 2); //몬스터의 3번째 스킬
+				Time[4] = 7.f;				//모션 고정할 시간 (State)
+				c->anim->SetDelay(0.8f);	//애니메이션 셋딜레이
+			}
+			Time[4] -= TimeManager::DeltaTime(); //Update 영역 모션고정할시간 계속빼줌
+			if (Time[4] < 0.f) {			//위에서 설정한 3초가 나면
+				c->state = State::READY;	//State를 READY 로 설정
+				Time[3] = 15.f;				//현재 스킬 즉 패턴 Skill2 의 쿨타임으로 활용
+			}
 			break;
 
 		case MonsterType::END:

@@ -53,12 +53,12 @@ void TestScene::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 10.f;
 
 	
+	Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1);
+	spawner->transform->position = { 24.f,0.f,24.f };
+	ObjectManager::AddObject(spawner);
+
+
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = CreateSpawner;
-	trigerBox->transform->position = { 25.f,0.f,35.f };
-
-
-	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = Portal;
 	trigerBox->transform->position = { 40.f,0.f,40.f };
 	trigerBox->Portal();
