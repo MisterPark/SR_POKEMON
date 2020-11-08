@@ -253,13 +253,45 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			case MonsterType::ARCANINE:
 				break;
 			case MonsterType::PONYTA:
+			{
+				Ponyta* monsterCharacter = Ponyta::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::PONYTA);
+				monsterCharacter->spawner = this;
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
+			}
 			case MonsterType::RAPIDISH:
+			{
+				Rapidash* monsterCharacter = Rapidash::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::RAPIDISH);
+				monsterCharacter->spawner = this;
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
+			}
 			case MonsterType::SLUGMA:
+			{
+				Slugma* monsterCharacter = Slugma::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::SLUGMA);
+				monsterCharacter->spawner = this;
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
+			}
 			case MonsterType::MAGCARGO:
+			{
+				Magcargo* monsterCharacter = Magcargo::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::MAGCARGO);
+				monsterCharacter->spawner = this;
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
+			}
 			case MonsterType::GROUDON:
 			{
 				float _size = 2.f;

@@ -168,6 +168,9 @@
     <ClInclude Include="Bullet_Bubble.h" />
     <ClInclude Include="Bullet_Bubble2.h" />
     <ClInclude Include="Bullet_FireBlast.h" />
+    <ClInclude Include="Bullet_FireBomb.h" />
+    <ClInclude Include="Bullet_FireMiniBomb.h" />
+    <ClInclude Include="Bullet_FireShot.h" />
     <ClInclude Include="Bullet_FireWallWave.h" />
     <ClInclude Include="Bullet_HealBubble.h" />
     <ClInclude Include="Bullet_Ice.h" />
@@ -213,6 +216,7 @@
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_ClawBlast.h" />
+    <ClInclude Include="Skill_FireBomb.h" />
     <ClInclude Include="Skill_FireBlast.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Functions.h" />
@@ -265,7 +269,9 @@
     <ClInclude Include="Skill_CrossShot.h" />
     <ClInclude Include="Skill_FireBall.h" />
     <ClInclude Include="Skill_Blaze.h" />
+    <ClInclude Include="Skill_FireShot.h" />
     <ClInclude Include="Skill_FireWallWave.h" />
+    <ClInclude Include="Skill_FireXCrossBomb.h" />
     <ClInclude Include="Skill_HealBubble.h" />
     <ClInclude Include="Skill_LeechSeed.h" />
     <ClInclude Include="Skill_MiniRush.h" />
@@ -337,6 +343,9 @@
     <ClCompile Include="Bullet_Bubble.cpp" />
     <ClCompile Include="Bullet_Bubble2.cpp" />
     <ClCompile Include="Bullet_FireBlast.cpp" />
+    <ClCompile Include="Bullet_FireBomb.cpp" />
+    <ClCompile Include="Bullet_FireMiniBomb.cpp" />
+    <ClCompile Include="Bullet_FireShot.cpp" />
     <ClCompile Include="Bullet_FireWallWave.cpp" />
     <ClCompile Include="Bullet_HealBubble.cpp" />
     <ClCompile Include="Bullet_Ice.cpp" />
@@ -381,6 +390,7 @@
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_ClawBlast.cpp" />
+    <ClCompile Include="Skill_FireBomb.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gloom.cpp" />
@@ -426,7 +436,9 @@
     <ClCompile Include="Skill_CrossShot.cpp" />
     <ClCompile Include="Skill_FireBall.cpp" />
     <ClCompile Include="Skill_Blaze.cpp" />
+    <ClCompile Include="Skill_FireShot.cpp" />
     <ClCompile Include="Skill_FireWallWave.cpp" />
+    <ClCompile Include="Skill_FireXCrossBomb.cpp" />
     <ClCompile Include="Skill_HealBubble.cpp" />
     <ClCompile Include="Skill_LeechSeed.cpp" />
     <ClCompile Include="Skill_MiniRush.cpp" />

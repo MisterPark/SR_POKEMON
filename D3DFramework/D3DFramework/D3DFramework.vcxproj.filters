@@ -352,6 +352,24 @@
     <Filter Include="GameObject\Bullet\31. ShortWaterFlow">
       <UniqueIdentifier>{155a97fb-5437-40af-a15e-83d6f6231338}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Bullet\33. FireBomb">
+      <UniqueIdentifier>{571fbd82-ef58-4dc0-88bd-794e03940429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\34. FireShot">
+      <UniqueIdentifier>{538e38d6-2b1e-465c-b793-ea5135c4e630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\34. FireShot">
+      <UniqueIdentifier>{f13e72d7-90d5-4e8e-ab98-2d32c8d2cc1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\33. FireBomb">
+      <UniqueIdentifier>{fbd275ec-48e5-4bd3-a6f3-8aca58e6df87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\36. FireXCrossBomb">
+      <UniqueIdentifier>{09ed3d4f-f40e-4d70-ac31-235ccd74c949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\36. FireMiniBomb">
+      <UniqueIdentifier>{6721b102-67c3-4b66-8554-62b34eae55d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -872,6 +890,24 @@
     </ClInclude>
     <ClInclude Include="Bullet_ShortWaterFlow.h">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireShot.h">
+      <Filter>GameObject\Bullet\34. FireShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireShot.h">
+      <Filter>Skill\34. FireShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireBomb.h">
+      <Filter>Skill\33. FireBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireBomb.h">
+      <Filter>GameObject\Bullet\33. FireBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireXCrossBomb.h">
+      <Filter>Skill\36. FireXCrossBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireMiniBomb.h">
+      <Filter>GameObject\Bullet\36. FireMiniBomb</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1485,6 +1521,24 @@
     </ClCompile>
     <ClCompile Include="Bullet_ShortWaterFlow.cpp">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireShot.cpp">
+      <Filter>GameObject\Bullet\34. FireShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireShot.cpp">
+      <Filter>Skill\34. FireShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireBomb.cpp">
+      <Filter>Skill\33. FireBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireBomb.cpp">
+      <Filter>GameObject\Bullet\33. FireBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireXCrossBomb.cpp">
+      <Filter>Skill\36. FireXCrossBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireMiniBomb.cpp">
+      <Filter>GameObject\Bullet\36. FireMiniBomb</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

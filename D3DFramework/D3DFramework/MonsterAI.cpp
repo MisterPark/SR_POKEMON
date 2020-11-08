@@ -321,12 +321,28 @@ void MonsterAI::SetType(MonsterType _type)
 	case MonsterType::ARCANINE:
 		break;
 	case MonsterType::PONYTA:
+		SetPatternRange(1, 1);
+		searchRange[0] = 8.f;
+		searchRange[1] = 4.f;
+		searchRange[3] = 14.f;
 		break;
 	case MonsterType::RAPIDISH:
+		SetPatternRange(1, 1);
+		searchRange[0] = 8.f;
+		searchRange[1] = 4.f;
+		searchRange[3] = 14.f;
 		break;
 	case MonsterType::SLUGMA:
+		SetPatternRange(1, 1);
+		searchRange[0] = 8.f;
+		searchRange[1] = 6.f;
+		searchRange[3] = 14.f;
 		break;
 	case MonsterType::MAGCARGO:
+		SetPatternRange(1, 1);
+		searchRange[0] = 8.f;
+		searchRange[1] = 6.f;
+		searchRange[3] = 14.f;
 		break;
 	case MonsterType::GROUDON:
 		SetPatternRange(1, 1);
@@ -601,12 +617,84 @@ void MonsterAI::MonsterIdle() {
 		case MonsterType::ARCANINE:
 			break;
 		case MonsterType::PONYTA:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK; //WALK 와 다른점
+			}
 			break;
 		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK; //WALK 와 다른점
+			}
 			break;
 		case MonsterType::SLUGMA:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK; //WALK 와 다른점
+			}
 			break;
 		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK; //WALK 와 다른점
+			}
 			break;
 		case MonsterType::GROUDON:
 			if (readyPattern) {
@@ -1092,28 +1180,84 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::PONYTA:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					c->state = State::IDLE;  //IDLE 와 다른점
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
-
 		case MonsterType::RAPIDISH:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					c->state = State::IDLE;  //IDLE 와 다른점
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
-
 		case MonsterType::SLUGMA:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					c->state = State::IDLE;  //IDLE 와 다른점
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
-
 		case MonsterType::MAGCARGO:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			Time[1] -= TimeManager::DeltaTime();
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					c->state = State::IDLE;  //IDLE 와 다른점
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
-
 		case MonsterType::GROUDON:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
@@ -1734,27 +1878,66 @@ void MonsterAI::MonsterAttack() {
 		case MonsterType::PONYTA:
 			if (readyPattern) {
 				readyPattern = false;
+				c->direction = DirFromPlayer();
+				c->Attack(c->direction, 0);
+				Time[4] = 2.4f;
+				c->anim->SetDelay(0.9f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 2.2f;
 			}
 			break;
 
 		case MonsterType::RAPIDISH:
 			if (readyPattern) {
 				readyPattern = false;
+				c->direction = DirFromPlayer();
+				c->Attack(c->direction, 0);
+				Time[4] = 2.4f;
+				c->anim->SetDelay(0.9f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->Attack(c->direction, 1);
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 2.2f;
 			}
 			break;
 
 		case MonsterType::SLUGMA:
 			if (readyPattern) {
 				readyPattern = false;
+				c->direction = DirFromPlayer();
+				c->Attack(c->direction, 0);
+				Time[4] = 2.4f;
+				c->anim->SetDelay(0.9f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 2.2f;
 			}
 			break;
-
 		case MonsterType::MAGCARGO:
 			if (readyPattern) {
 				readyPattern = false;
+				c->direction = DirFromPlayer();
+				c->Attack(c->direction, 0);
+				Time[4] = 2.4f;
+				c->anim->SetDelay(0.9f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 2.2f;
 			}
 			break;
-
 		case MonsterType::GROUDON:
 			if (readyPattern) {
 				readyPattern = false;

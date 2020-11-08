@@ -452,6 +452,19 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE4_12, L"Texture\\Bullet\\Fire4\\Fire4 (12).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIRE4_13, L"Texture\\Bullet\\Fire4\\Fire4 (13).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_01, L"Texture\\Bullet\\FireEtc1\\FireBomb (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_02, L"Texture\\Bullet\\FireEtc1\\FireBomb (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_03, L"Texture\\Bullet\\FireEtc1\\FireBomb (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_04, L"Texture\\Bullet\\FireEtc1\\FireBomb (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_05, L"Texture\\Bullet\\FireEtc1\\FireBomb (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_06, L"Texture\\Bullet\\FireEtc1\\FireBomb (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_07, L"Texture\\Bullet\\FireEtc1\\FireBomb (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_08, L"Texture\\Bullet\\FireEtc1\\FireBomb (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_09, L"Texture\\Bullet\\FireEtc1\\FireBomb (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_10, L"Texture\\Bullet\\FireEtc1\\FireBomb (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_11, L"Texture\\Bullet\\FireEtc1\\FireBomb (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREBOMB_12, L"Texture\\Bullet\\FireEtc1\\FireBomb (12).png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_01, L"Texture\\Bullet\\FireWall1\\FireWall1 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_02, L"Texture\\Bullet\\FireWall1\\FireWall1 (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_03, L"Texture\\Bullet\\FireWall1\\FireWall1 (3).png");

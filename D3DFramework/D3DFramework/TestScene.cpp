@@ -53,7 +53,7 @@ void TestScene::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 10.f;
 
 	
-	Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1);
+	Spawner* spawner = Spawner::Create(MonsterType::MAGCARGO, 10.f, 0.5f, 5);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 
@@ -270,7 +270,7 @@ void TestScene::SetTestSceneMap(TextureKey _key, const std::string& _filePath,fl
 }
 void TestScene::CreateSpawner()
 {
-	Spawner* spawner = Spawner::Create(MonsterType::PSYDUCK, 10.f, 0.5f, 5);
+	Spawner* spawner = Spawner::Create(MonsterType::PONYTA, 10.f, 0.5f, 5);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 
