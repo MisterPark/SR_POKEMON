@@ -35,6 +35,6 @@ enum class SkillName
 	ClawBlast,
 	FireShot,
 	FireBomb,
-	FireXCrossBomb
-	Synthesis,
+	FireXCrossBomb,
+	Synthesis
 };

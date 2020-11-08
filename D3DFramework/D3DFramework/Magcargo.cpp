@@ -96,8 +96,6 @@ void Magcargo::OnCollision(GameObject* target)
 {
 	if (this->team == target->team) return;
 	
-	DeadAction();
-	
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
 
@@ -148,7 +146,7 @@ void Magcargo::OnCollision(GameObject* target)
 	// 사망처리
 	if (!IsDead() && stat.hp <= 0)
 	{
-		
+		DeadAction();
 		stat.hp = 0;
 		if (dontDestroy == true) return;
 
