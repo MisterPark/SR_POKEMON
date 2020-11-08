@@ -40,7 +40,7 @@ void Bulbasaur::Initialize()
 	stat.hp = 250;
 	stat.maxHp = 250;
 
-	skillSet.reserve(3);
+	skillSet.reserve(2);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Synthesis));
@@ -112,7 +112,7 @@ bool Bulbasaur::Attack(const Vector3& dir, const int& attackType)
 			anim->SetTick(0.f);
 			break;
 		case 1:
-			ChangeState(State::ATTACK);
+			ChangeState(State::SKILL);
 			anim->SetTick(0.f);
 			break;
 		}

@@ -733,8 +733,10 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::ICON_FIELDFIRE, L"Texture\\Player\\Icon\\FieldFire.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_XCLAW, L"Texture\\Player\\Icon\\XClaw.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_METEOR, L"Texture\\Player\\Icon\\Meteor.png");
+	D2DRenderManager::LoadSprite(TextureKey::ICON_SYNTHESIS, L"Texture\\Player\\Icon\\Synthesis.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_LEECHSEED, L"Texture\\Player\\Icon\\LeechSeed.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_PETALBLIZZARD, L"Texture\\Player\\Icon\\PetalBlizzard.png");
+	
 
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_LEFT, L"Texture\\UI\\leftArrow.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_RIGHT, L"Texture\\UI\\rightArrow.png");

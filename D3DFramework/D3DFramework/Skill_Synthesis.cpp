@@ -6,6 +6,7 @@
 
 Skill_Synthesis::Skill_Synthesis()
 {
+	skillIcon = TextureKey::ICON_SYNTHESIS;
 	coolTime = 1.f;
 	moveStopTime = 1.f;
 }

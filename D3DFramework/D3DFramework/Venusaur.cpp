@@ -43,10 +43,9 @@ void Venusaur::Initialize()
 	skillSet.reserve(4);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Meteor));
-
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Synthesis));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeechSeed));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::PetalBlizzard));
 
 	UpdateAnimation();
 }
@@ -115,6 +114,14 @@ bool Venusaur::Attack(const Vector3& dir, const int& attackType)
 			anim->SetTick(0.f);
 			break;
 		case 1:
+			ChangeState(State::ATTACK);
+			anim->SetTick(0.f);
+			break;
+		case 2:
+			ChangeState(State::ATTACK);
+			anim->SetTick(0.f);
+			break;
+		case 3:
 			ChangeState(State::ATTACK);
 			anim->SetTick(0.f);
 			break;
