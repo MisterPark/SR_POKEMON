@@ -174,6 +174,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Tsunami:
 		newSkill = Skill_Tsunami::Create();
 		break;
+	case SkillName::ClawBlast:
+		newSkill = Skill_ClawBlast::Create();
+		break;
 	}
 
 	return newSkill;
