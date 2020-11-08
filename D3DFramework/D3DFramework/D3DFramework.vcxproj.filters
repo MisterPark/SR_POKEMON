@@ -873,6 +873,12 @@
     <ClInclude Include="Bullet_ShortWaterFlow.h">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
     </ClInclude>
+    <ClInclude Include="LeechSeed.h">
+      <Filter>GameObject\Bullet\29. LeechSeed</Filter>
+    </ClInclude>
+    <ClInclude Include="PetalBlizzard.h">
+      <Filter>GameObject\Bullet\30. PetalBlizzard</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1485,6 +1491,12 @@
     </ClCompile>
     <ClCompile Include="Bullet_ShortWaterFlow.cpp">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="LeechSeed.cpp">
+      <Filter>GameObject\Bullet\29. LeechSeed</Filter>
+    </ClCompile>
+    <ClCompile Include="PetalBlizzard.cpp">
+      <Filter>GameObject\Bullet\30. PetalBlizzard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

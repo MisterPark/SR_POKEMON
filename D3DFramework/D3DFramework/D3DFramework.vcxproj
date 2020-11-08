@@ -210,7 +210,9 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="LeechSeed.h" />
     <ClInclude Include="Meteor.h" />
+    <ClInclude Include="PetalBlizzard.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_ClawBlast.h" />
     <ClInclude Include="Skill_FireBlast.h" />
@@ -378,7 +380,9 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="LeechSeed.cpp" />
     <ClCompile Include="Meteor.cpp" />
+    <ClCompile Include="PetalBlizzard.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_ClawBlast.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />

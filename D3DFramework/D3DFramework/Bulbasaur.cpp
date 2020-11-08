@@ -40,10 +40,11 @@ void Bulbasaur::Initialize()
 	stat.hp = 250;
 	stat.maxHp = 250;
 
-	skillSet.reserve(2);
+	skillSet.reserve(3);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeechSeed));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::PetalBlizzard));
 
 	UpdateAnimation();
 }

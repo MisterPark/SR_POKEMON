@@ -6,7 +6,7 @@ class Effect:
 {
 public:
 	Effect();
-	Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY);
+	Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY, Character* _tar);
 	virtual ~Effect();
 
 public:
@@ -44,11 +44,12 @@ public:
 		float speed = 0.f,
 		const Vector3& dir = { 0.f, 0.f, 1.f },
 		bool isOnTerrain = false,
-		float _offsetY = 0.f
+		float _offsetY = 0.f,
+		Character* _target = nullptr
 	);
 	Animation2D* anim;
 private:
-
+	Character* target;
 	Vector3 direction;
 
 	float animSpeed;

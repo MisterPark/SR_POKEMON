@@ -16,5 +16,9 @@ public:
 
 public:
 	static Skill* Create();
+
+private:
+	float passTime;
+	bool isSpawn;
 };
 

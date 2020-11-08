@@ -330,6 +330,17 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::LEECH_SEED_10, L"Texture\\Player\\Effect\\LeechSeed\\8.png");
 	D2DRenderManager::LoadSprite(TextureKey::LEECH_SEED_11, L"Texture\\Player\\Effect\\LeechSeed\\9.png");
 
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_01, L"Texture\\Player\\Effect\\LeechSeed\\9.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_02, L"Texture\\Player\\Effect\\LeechSeed\\8.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_03, L"Texture\\Player\\Effect\\LeechSeed\\7.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_04, L"Texture\\Player\\Effect\\LeechSeed\\6.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_05, L"Texture\\Player\\Effect\\LeechSeed\\5.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_06, L"Texture\\Player\\Effect\\LeechSeed\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_07, L"Texture\\Player\\Effect\\LeechSeed\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_08, L"Texture\\Player\\Effect\\LeechSeed\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_09, L"Texture\\Player\\Effect\\LeechSeed\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_10, L"Texture\\Player\\Effect\\LeechSeed\\0.png");
+
 	// ²Éº¸¶ó
 	D2DRenderManager::LoadSprite(TextureKey::PETAL_01, L"Texture\\Player\\Effect\\Petal\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::PETAL_02, L"Texture\\Player\\Effect\\Petal\\1.png");
