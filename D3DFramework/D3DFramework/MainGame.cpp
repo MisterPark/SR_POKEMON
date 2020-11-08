@@ -330,6 +330,17 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::LEECH_SEED_10, L"Texture\\Player\\Effect\\LeechSeed\\8.png");
 	D2DRenderManager::LoadSprite(TextureKey::LEECH_SEED_11, L"Texture\\Player\\Effect\\LeechSeed\\9.png");
 
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_01, L"Texture\\Player\\Effect\\LeechSeed\\9.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_02, L"Texture\\Player\\Effect\\LeechSeed\\8.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_03, L"Texture\\Player\\Effect\\LeechSeed\\7.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_04, L"Texture\\Player\\Effect\\LeechSeed\\6.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_05, L"Texture\\Player\\Effect\\LeechSeed\\5.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_06, L"Texture\\Player\\Effect\\LeechSeed\\4.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_07, L"Texture\\Player\\Effect\\LeechSeed\\3.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_08, L"Texture\\Player\\Effect\\LeechSeed\\2.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_09, L"Texture\\Player\\Effect\\LeechSeed\\1.png");
+	D2DRenderManager::LoadSprite(TextureKey::R_LEECH_SEED_10, L"Texture\\Player\\Effect\\LeechSeed\\0.png");
+
 	// ²Éº¸¶ó
 	D2DRenderManager::LoadSprite(TextureKey::PETAL_01, L"Texture\\Player\\Effect\\Petal\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::PETAL_02, L"Texture\\Player\\Effect\\Petal\\1.png");
@@ -612,6 +623,24 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_04, L"Texture\\Bullet\\Heart1\\Heart (4).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_05, L"Texture\\Bullet\\Heart1\\Heart (5).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_01, L"Texture\\Player\\Effect\\Synthesis\\Effect (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_02, L"Texture\\Player\\Effect\\Synthesis\\Effect (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_03, L"Texture\\Player\\Effect\\Synthesis\\Effect (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_04, L"Texture\\Player\\Effect\\Synthesis\\Effect (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_05, L"Texture\\Player\\Effect\\Synthesis\\Effect (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_06, L"Texture\\Player\\Effect\\Synthesis\\Effect (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_07, L"Texture\\Player\\Effect\\Synthesis\\Effect (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_08, L"Texture\\Player\\Effect\\Synthesis\\Effect (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_09, L"Texture\\Player\\Effect\\Synthesis\\Effect (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_10, L"Texture\\Player\\Effect\\Synthesis\\Effect (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_11, L"Texture\\Player\\Effect\\Synthesis\\Effect (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_12, L"Texture\\Player\\Effect\\Synthesis\\Effect (12).png");
+																			 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_01, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_02, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_03, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_04, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (4).png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_INVISIBLE_01, L"Texture\\Bullet\\Invisible\\Invisible (1).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL2_01, L"Texture\\Bullet\\FireWall2\\FireWall2 (1).png");
@@ -717,8 +746,10 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::ICON_FIELDFIRE, L"Texture\\Player\\Icon\\FieldFire.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_XCLAW, L"Texture\\Player\\Icon\\XClaw.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_METEOR, L"Texture\\Player\\Icon\\Meteor.png");
+	D2DRenderManager::LoadSprite(TextureKey::ICON_SYNTHESIS, L"Texture\\Player\\Icon\\Synthesis.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_LEECHSEED, L"Texture\\Player\\Icon\\LeechSeed.png");
 	D2DRenderManager::LoadSprite(TextureKey::ICON_PETALBLIZZARD, L"Texture\\Player\\Icon\\PetalBlizzard.png");
+	
 
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_LEFT, L"Texture\\UI\\leftArrow.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_RIGHT, L"Texture\\UI\\rightArrow.png");

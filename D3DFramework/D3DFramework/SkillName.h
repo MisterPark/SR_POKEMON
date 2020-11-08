@@ -36,4 +36,5 @@ enum class SkillName
 	FireShot,
 	FireBomb,
 	FireXCrossBomb
+	Synthesis,
 };

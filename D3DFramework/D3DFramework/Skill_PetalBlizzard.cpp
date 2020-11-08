@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "Skill_PetalBlizzard.h"
-#include "Blaze.h"
+#include "PetalBlizzard.h"
 #include "Effect.h"
 
 Skill_PetalBlizzard::Skill_PetalBlizzard()
 {
 	skillIcon = TextureKey::ICON_PETALBLIZZARD;
-	moveStopTime = 0.6f;
+	moveStopTime = 1.f;
+	passTime = 0.f;
+	isSpawn = false;
 }
 
 Skill_PetalBlizzard::~Skill_PetalBlizzard()
@@ -15,48 +17,67 @@ Skill_PetalBlizzard::~Skill_PetalBlizzard()
 
 void Skill_PetalBlizzard::InitCoolTime()
 {
-	maxCoolTime = coolTime = 3.f;
+	maxCoolTime = coolTime = 30.f;
 }
 
 void Skill_PetalBlizzard::InitActiveTime()
 {
-	activeTime = 0.f;
+	activeTime = 8.f;
+	passTime = 0.f;
+	isSpawn = false;
 }
 
 void Skill_PetalBlizzard::Update()
 {
-	Vector3 pos = character->transform->position;
-	Vector3 look = { 0.f, 0.f, 1.f };
+	if (!isSpawn)
+	{
+		Vector3 pos = character->transform->position;
 
-	Vector3 dir = character->direction;
-	float radianY = character->transform->eulerAngles.y;
+		float delay = 1.f / 26.f;
+		float offSetY = 0.5f;
 
-	Matrix rot;
-	D3DXMatrixRotationY(&rot, radianY);
-	D3DXVec3TransformNormal(&look, &look, &rot);
+		pos.y += offSetY;
 
-	Vector3 position = pos + (look * 0.2f);
+		Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::PETAL_EFFECT_01, TextureKey::PETAL_EFFECT_26, delay);
+		ObjectManager::AddObject(fx);
 
-	position.y += 0.1f;
-
-	float size = 0.3f;
-
-	// 스킬 사용 시 생성할 이펙트와 충돌체 등등
-	Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_ROUND_01, TextureKey::FIRE_ROUND_05, 0.1f, true);
-	ObjectManager::AddObject(fx);
-
-	Vector3 pos2 = position + look;
-
-	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, character->stat.attack, look, 20.f, 0.4f);
-	ObjectManager::AddObject(instance);
-
-	if (character->team == Team::MONSTERTEAM) {
-		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
-		instance->SetInitAttack(character->stat.attack * 0.25f);
+		isSpawn = true;
 	}
-	else if (character->team == Team::PLAYERTEAM) {
-		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
-		instance->SetInitAttack(character->stat.attack);
+
+	passTime += TimeManager::DeltaTime();
+
+	if (0.2f >= passTime)
+	{
+		passTime = 0.f;
+
+		Vector3 pos = character->transform->position;
+
+		float randOffSet = 0.5f;
+
+		float randX = Random::Range(-3.f, 3.f);
+		float randY = Random::Range(3.f, 5.f);
+		float randZ = Random::Range(-3.f, 3.f);
+
+		pos += { randX, randY, randZ };
+
+		randX = Random::Range(-1.f, 1.f) * randOffSet;
+		randZ = Random::Range(-1.f, 1.f) * randOffSet;
+
+		Vector3 dir = { randX, -1.f, randZ };
+
+		D3DXVec3Normalize(&dir, &dir);
+
+		PetalBlizzard* instance = PetalBlizzard::Create(pos, { 0.03f, 0.03f, 0.03f }, dir, character->stat.attack);
+		ObjectManager::AddObject(instance);
+
+		if (character->team == Team::MONSTERTEAM) {
+			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
+			instance->SetInitAttack(character->stat.attack * 0.25f);
+		}
+		else if (character->team == Team::PLAYERTEAM) {
+			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
+			instance->SetInitAttack(character->stat.attack);
+		}
 	}
 
 	CalcActiveTime();

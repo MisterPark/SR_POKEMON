@@ -198,6 +198,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::FireXCrossBomb:
 		newSkill = Skill_FireXCrossBomb::Create();
 		break;
+	case SkillName::Synthesis:
+		newSkill = Skill_Synthesis::Create();
+		break;
 	}
 
 	return newSkill;

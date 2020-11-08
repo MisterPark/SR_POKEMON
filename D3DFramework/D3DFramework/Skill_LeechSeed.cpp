@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Skill_LeechSeed.h"
-#include "Blaze.h"
+#include "LeechSeed.h"
 #include "Effect.h"
 
 Skill_LeechSeed::Skill_LeechSeed()
@@ -15,7 +15,7 @@ Skill_LeechSeed::~Skill_LeechSeed()
 
 void Skill_LeechSeed::InitCoolTime()
 {
-	maxCoolTime = coolTime = 3.f;
+	maxCoolTime = coolTime = 5.f;
 }
 
 void Skill_LeechSeed::InitActiveTime()
@@ -26,37 +26,29 @@ void Skill_LeechSeed::InitActiveTime()
 void Skill_LeechSeed::Update()
 {
 	Vector3 pos = character->transform->position;
-	Vector3 look = { 0.f, 0.f, 1.f };
 
-	Vector3 dir = character->direction;
-	float radianY = character->transform->eulerAngles.y;
+	for (int i = 0; i < 3; ++i)
+	{
+		Vector3 dir = character->direction;
 
-	Matrix rot;
-	D3DXMatrixRotationY(&rot, radianY);
-	D3DXVec3TransformNormal(&look, &look, &rot);
+		float angle = (30.f * i) - 30.f;
 
-	Vector3 position = pos + (look * 0.2f);
+		Matrix rot;
+		D3DXMatrixRotationY(&rot, D3DXToRadian(angle));
 
-	position.y += 0.1f;
+		D3DXVec3TransformNormal(&dir, &dir, &rot);
 
-	float size = 0.3f;
+		LeechSeed* instance = LeechSeed::Create(pos, { 0.1f, 0.1f, 0.1f }, character->stat.attack, dir, 20.f, 6.f);
+		ObjectManager::AddObject(instance);
 
-	// 스킬 사용 시 생성할 이펙트와 충돌체 등등
-	Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_ROUND_01, TextureKey::FIRE_ROUND_05, 0.1f, true);
-	ObjectManager::AddObject(fx);
-
-	Vector3 pos2 = position + look;
-
-	Blaze* instance = Blaze::Create(position, { 0.4f, 0.4f, 0.4f }, TextureKey::FIELD_FIRE_01, TextureKey::FIELD_FIRE_07, character->stat.attack, look, 20.f, 0.4f);
-	ObjectManager::AddObject(instance);
-
-	if (character->team == Team::MONSTERTEAM) {
-		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
-		instance->SetInitAttack(character->stat.attack * 0.25f);
-	}
-	else if (character->team == Team::PLAYERTEAM) {
-		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
-		instance->SetInitAttack(character->stat.attack);
+		if (character->team == Team::MONSTERTEAM) {
+			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
+			instance->SetInitAttack(character->stat.attack * 0.25f);
+		}
+		else if (character->team == Team::PLAYERTEAM) {
+			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
+			instance->SetInitAttack(character->stat.attack);
+		}
 	}
 
 	CalcActiveTime();

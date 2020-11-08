@@ -1,12 +1,11 @@
 #pragma once
 #include "Skill.h"
-
-class Skill_PetalBlizzard :
+class Skill_Synthesis :
 	public Skill
 {
 public:
-	Skill_PetalBlizzard();
-	virtual ~Skill_PetalBlizzard();
+	class Skill_Synthesis();
+	virtual ~Skill_Synthesis();
 
 public:
 	// Skill을(를) 통해 상속됨
@@ -16,9 +15,8 @@ public:
 
 public:
 	static Skill* Create();
-
 private:
-	float passTime;
-	bool isSpawn;
+	float delay = 0.f;
+	bool create = false;
 };
 

@@ -180,6 +180,7 @@
     <ClInclude Include="Bullet_Quake.h" />
     <ClInclude Include="Bullet_ReverseHealBubble.h" />
     <ClInclude Include="Bullet_ShortWaterFlow.h" />
+    <ClInclude Include="Bullet_Synthesis.h" />
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Tsunami.h" />
     <ClInclude Include="Bullet_Water.h" />
@@ -213,7 +214,9 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="LeechSeed.h" />
     <ClInclude Include="Meteor.h" />
+    <ClInclude Include="PetalBlizzard.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_ClawBlast.h" />
     <ClInclude Include="Skill_FireBomb.h" />
@@ -286,6 +289,7 @@
     <ClInclude Include="Skill_SnowCrystal.h" />
     <ClInclude Include="Skill_LeafShot.h" />
     <ClInclude Include="Skill_Rush.h" />
+    <ClInclude Include="Skill_Synthesis.h" />
     <ClInclude Include="Skill_TearsShot.h" />
     <ClInclude Include="Skill_Tornado.h" />
     <ClInclude Include="Skill_Tsunami.h" />
@@ -355,6 +359,7 @@
     <ClCompile Include="Bullet_Quake.cpp" />
     <ClCompile Include="Bullet_ReverseHealBubble.cpp" />
     <ClCompile Include="Bullet_ShortWaterFlow.cpp" />
+    <ClCompile Include="Bullet_Synthesis.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Tsunami.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
@@ -387,7 +392,9 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="LeechSeed.cpp" />
     <ClCompile Include="Meteor.cpp" />
+    <ClCompile Include="PetalBlizzard.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_ClawBlast.cpp" />
     <ClCompile Include="Skill_FireBomb.cpp" />
@@ -453,6 +460,7 @@
     <ClCompile Include="Skill_SnowCrystal.cpp" />
     <ClCompile Include="Skill_LeafShot.cpp" />
     <ClCompile Include="Skill_Rush.cpp" />
+    <ClCompile Include="Skill_Synthesis.cpp" />
     <ClCompile Include="Skill_TearsShot.cpp" />
     <ClCompile Include="Skill_Tornado.cpp" />
     <ClCompile Include="Skill_Tsunami.cpp" />

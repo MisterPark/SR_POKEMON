@@ -8,11 +8,11 @@ Effect::Effect()
 {
 }
 
-Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY) :
+Effect::Effect(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY, Character * _target) :
 	startKey(start), endKey(end), animSpeed(delay),
 	isPlane(plane), isBillboardY(isBillY), isLoop(loop),
 	lifeTime(lifeTime), isMove(isMove), direction(dir),
-	isOnTerrain(onTerrain), offsetY(_offsetY)
+	isOnTerrain(onTerrain), offsetY(_offsetY), target(_target)
 {
 	transform->position = pos;
 	transform->scale = size;
@@ -53,6 +53,12 @@ void Effect::Update()
 	if (IsDie()) Die();
 
 	if (isOnTerrain) OnTerrain();
+
+	if (target)
+	{
+		transform->position = target->transform->position;
+		transform->position.y += offsetY;
+	}
 }
 
 void Effect::Render()
@@ -104,9 +110,9 @@ void Effect::OnTerrain()
 	}
 }
 
-Effect * Effect::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY)
+Effect * Effect::Create(const Vector3 & pos, const Vector3& size, TextureKey start, TextureKey end, float delay, bool plane, bool isBillY, float radianY, bool loop, float lifeTime, bool isMove, float speed, const Vector3 & dir, bool onTerrain, float _offsetY, Character * _target)
 {
-	Effect* instance = new Effect(pos, size, start, end, delay, plane, isBillY, radianY, loop, lifeTime, isMove, speed, dir, onTerrain, _offsetY);
+	Effect* instance = new Effect(pos, size, start, end, delay, plane, isBillY, radianY, loop, lifeTime, isMove, speed, dir, onTerrain, _offsetY, _target);
 
 	return instance;
 }
