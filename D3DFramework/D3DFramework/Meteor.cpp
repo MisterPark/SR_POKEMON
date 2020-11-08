@@ -22,11 +22,11 @@ Meteor::Meteor(const Vector3 & pos, const Vector3 & size, const Vector3 & dir, f
 	offsetY = 0.3f;
 
 	startKey = TextureKey::METEOR_01;
-	endKey = TextureKey::METEOR_01;
+	endKey = TextureKey::METEOR_04;
 
 	anim->SetSprite(startKey, endKey);
-	anim->SetDelay(1.f);
-	anim->SetLoop(true);
+	anim->SetDelay(0.5f);
+	anim->SetLoop(false);
 
 	isExplosion = false;
 }
@@ -54,9 +54,9 @@ void Meteor::Update()
 
 		transform->position.y += TimeManager::DeltaTime() * 4.f;
 
-		Camera::GetInstance()->Shake(0.1f, 0.2f);
+		Camera::GetInstance()->Shake(0.2f, 0.2f);
 
-		if (endKey == anim->GetCurrentSprite())
+		if (TextureKey::METEOR_EXPLOSION_11 == anim->GetCurrentSprite())
 			Die();
 	}
 }
@@ -88,8 +88,8 @@ void Meteor::CollideOnTerrain()
 
 			stat.moveSpeed = 0.f;
 
-			startKey = TextureKey::METEOR_01;
-			endKey = TextureKey::METEOR_11;
+			startKey = TextureKey::METEOR_EXPLOSION_01;
+			endKey = TextureKey::METEOR_EXPLOSION_11;
 
 			anim->SetSprite(startKey, endKey);
 			anim->SetDelay(0.1f);

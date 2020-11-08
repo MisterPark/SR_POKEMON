@@ -28,5 +28,7 @@ enum class SkillName
 	MiniRush,
 	WaterFlow,
 	WaterBomb,
-	Tsunami
+	Tsunami,
+
+	LeechSeed,
 };

@@ -265,7 +265,9 @@
     <ClInclude Include="Skill_Blaze.h" />
     <ClInclude Include="Skill_FireWallWave.h" />
     <ClInclude Include="Skill_HealBubble.h" />
+    <ClInclude Include="Skill_LeechSeed.h" />
     <ClInclude Include="Skill_MiniRush.h" />
+    <ClInclude Include="Skill_PetalBlizzard.h" />
     <ClInclude Include="Skill_Quake.h" />
     <ClInclude Include="Skill_Meteor.h" />
     <ClInclude Include="Skill_ReverseHealBubble.h" />
@@ -421,7 +423,9 @@
     <ClCompile Include="Skill_Blaze.cpp" />
     <ClCompile Include="Skill_FireWallWave.cpp" />
     <ClCompile Include="Skill_HealBubble.cpp" />
+    <ClCompile Include="Skill_LeechSeed.cpp" />
     <ClCompile Include="Skill_MiniRush.cpp" />
+    <ClCompile Include="Skill_PetalBlizzard.cpp" />
     <ClCompile Include="Skill_Quake.cpp" />
     <ClCompile Include="Skill_Meteor.cpp" />
     <ClCompile Include="Skill_ReverseHealBubble.cpp" />
