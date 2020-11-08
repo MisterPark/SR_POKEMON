@@ -29,5 +29,8 @@ enum class SkillName
 	WaterFlow,
 	WaterBomb,
 	Tsunami,
+	ShellAttack,
+	LeechSeed,
+	PetalBlizzard,
 	ClawBlast,
 };

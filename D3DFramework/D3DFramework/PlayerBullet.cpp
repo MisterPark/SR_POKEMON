@@ -30,14 +30,8 @@ void PlayerBullet::InitByType()
 	switch (bulletType)
 	{
 	case LEAF:
-		isBillboard = false;
-
-		transform->scale = { 0.15f, 0.15f, 0.15f };
-
-		anim->SetSprite(TextureKey::BULLET_LEAF_09, TextureKey::BULLET_LEAF_09);
-
-		transform->eulerAngles.x = D3DXToRadian(90.f);
-		transform->eulerAngles.y = D3DXToRadian(135.f) + Player::GetInstance()->GetRadianY();
+		transform->scale = { 0.2f, 0.2f, 0.2f };
+		anim->SetSprite(TextureKey::BULLET_LEAF_01, TextureKey::BULLET_LEAF_04);
 		break;
 
 	case FIRE:

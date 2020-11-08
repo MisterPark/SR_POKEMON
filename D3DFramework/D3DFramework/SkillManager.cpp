@@ -174,6 +174,15 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Tsunami:
 		newSkill = Skill_Tsunami::Create();
 		break;
+	case SkillName::ShellAttack:
+		newSkill = Skill_ShellAttack::Create();
+		break;
+	case SkillName::LeechSeed:
+		newSkill = Skill_LeechSeed::Create();
+		break;
+	case SkillName::PetalBlizzard:
+		newSkill = Skill_PetalBlizzard::Create();
+		break;
 	case SkillName::ClawBlast:
 		newSkill = Skill_ClawBlast::Create();
 		break;
