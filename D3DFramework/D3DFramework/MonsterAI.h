@@ -55,7 +55,7 @@ public:
     void MonsterAttack();
     void MonsterSkill();
     void MonsterSkill2();
-    
+    void MonsterSkill3();
 
     void SetType(MonsterType _type);
     // 0.Idle   1.Walk   2.Attack   3.Skill   4.Skill2
@@ -66,7 +66,7 @@ public:
 	// 프레임(시간) 재는용도
 	// Time[1] = Attack CoolTime / Time[2] = Skill CoolTime / Time[3] = Skill2 CoolTime
 	// Time[4] = Attack, Skill 등 유지하는 시간
-    float Time[5];
+    float Time[6];
     Transform* playerTrans = nullptr;
     bool isSearch = false;
     float disPlayer = 0.f;

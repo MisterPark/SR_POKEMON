@@ -331,9 +331,12 @@ void MonsterAI::SetType(MonsterType _type)
 	case MonsterType::GROUDON:
 		SetPatternRange(1, 1);
 		searchRange[0] = 8.f;
-		searchRange[1] = 5.f;
-		searchRange[2] = 5.f;
+		searchRange[1] = 4.f;
+		searchRange[2] = 4.f;//Quake 사거리
 		searchRange[3] = 30.f;
+		Time[1] = 5.f;
+		Time[2] = 25.f;
+		Time[5] = 3.f;
 		break;
 	case MonsterType::END:
 		break;
@@ -378,7 +381,9 @@ void MonsterAI::Pattern()
 		else if (c->state == State::SKILL2) {
 			MonsterSkill2();
 		}
-
+		else if (c->state == State::SKILL3) {
+			MonsterSkill3();
+		}
 	}
 
 
@@ -407,6 +412,9 @@ void MonsterAI::Pattern()
 		}
 		else if (c->state == State::SKILL2) {
 			MonsterSkill2();
+		}
+		else if (c->state == State::SKILL3) {
+			MonsterSkill3();
 		}
 	}
 
@@ -561,10 +569,12 @@ void MonsterAI::MonsterIdle() {
 				readyPattern = false;
 			}
 			Time[3] -= TimeManager::DeltaTime();
+		
 			if (Time[3] < 0.f) {
 				c->state = State::SKILL2;
 				readyPattern = true;
 			}
+
 			else {
 				Time[2] -= TimeManager::DeltaTime();
 				if (disPlayer > searchRange[1]) {
@@ -603,9 +613,13 @@ void MonsterAI::MonsterIdle() {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+
 			if (disPlayer < searchRange[1]) {
 				if (Time[1] > 0.f) {
 					Time[1] -= TimeManager::DeltaTime();
+					Time[2] -= TimeManager::DeltaTime();
+					Time[3] -= TimeManager::DeltaTime();
+					Time[5] -= TimeManager::DeltaTime();
 				}
 				else {
 					Time[1] = 0.f;
@@ -1106,28 +1120,37 @@ void MonsterAI::MonsterWalk() {
 				readyPattern = false;
 			}
 			Time[3] -= TimeManager::DeltaTime();
-			
+			Time[5] -= TimeManager::DeltaTime();
+
 			if (Time[3] < 0.f && disPlayer<searchRange[2]) {
 				
 				c->state = State::SKILL2;
 				readyPattern = true;
 			}
+
 			else {
 				Time[1] -= TimeManager::DeltaTime();
 				Time[2] -= TimeManager::DeltaTime();
+				Time[3] -= TimeManager::DeltaTime();
+				Time[5] -= TimeManager::DeltaTime();
+				
 				if (Time[1] < 0) {
-						Time[1] = 10.f;
-						c->state = State::ATTACK;
-						readyPattern = true;
-
+					Time[1] = 10.f;//첫쿨
+					c->state = State::ATTACK; //불뿜기
+					readyPattern = true;
+				}
+				else if (Time[2] < 0 && c->stat.hp <= c->stat.maxHp / 2) {
+					Time[2] = 10.f;//첫쿨
+					c->state = State::SKILL; //파이어웨이브
+					readyPattern = true;
 
 				}
-				else if (Time[2] < 0) {
-						Time[2] = 10.f;
-						c->state = State::SKILL;
-						readyPattern = true;
-					
+				else if (Time[5] < 0.f)
+				{
+					c->state = State::SKILL3;
+					readyPattern = true;
 				}
+				
 				else if (disPlayer > searchRange[1]) {
 						MovePlayerFollow();
 					}
@@ -1736,14 +1759,14 @@ void MonsterAI::MonsterAttack() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 0);
-				Time[3] = 8.f;
+				Time[4] = 8.f;
 				c->anim->SetDelay(0.8f);
 			}
-			Time[3] -= TimeManager::DeltaTime();
+			Time[4] -= TimeManager::DeltaTime();
 			c->direction = DirFromPlayer();
-			if (Time[3] < 0.f) {
+			if (Time[4] < 0.f) {
 				c->state = State::READY;
-				Time[3] = 0.f;
+				Time[1] = 10.f;
 			}
 			break;
 
@@ -2176,13 +2199,13 @@ void MonsterAI::MonsterSkill() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 1);
-				Time[4] = 6.f;
+				Time[4] = 20.f;//패턴 고정시간
 				c->anim->SetDelay(1.f);
 			}
 			Time[4] -= TimeManager::DeltaTime();
 			if (Time[4] < 0.f) {
 				c->state = State::READY;
-				Time[4] = 0.f;
+				Time[2] = 60.f;
 			}
 			break;
 
@@ -2715,3 +2738,338 @@ void MonsterAI::MonsterSkill2() {
 	}
 }
 #pragma endregion
+
+void MonsterAI::MonsterSkill3()
+{
+	Character* c = dynamic_cast<Character*>(gameObject);
+	if (c == nullptr) return;
+
+	/////////////////////////////////////////////////////////// 플레이어 탐지 TRUE		Skill2
+	if (isSearch) {
+		switch (type)
+		{
+		case MonsterType::BULBASAUR:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::LVYSAUR:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::VENUSAUR:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::CATERPIE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::METAPOD:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::ODDISH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::VILEPLUME:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::SCYTHER:
+			if (readyPattern) {
+				c->anim->SetDelay(1.f);
+				readyPattern = false;
+			}
+
+			Time[1] += TimeManager::DeltaTime();
+			if (Time[1] > 0.8f) {
+				Time[1] = 0;
+				Frame[1]++;
+				if (Frame[1] == 1) {
+					c->Attack(c->direction, 1);
+
+				}
+				else if (Frame[1] == 2) {
+					c->state = State::READY;
+					c->anim->SetDelay(0.1f);
+					Frame[1] = 0;
+					Frame[2]++;
+					Time[2] = 3.f; //쿨타임
+
+				}
+			}
+
+			break;
+		case MonsterType::BUTTERFREE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::PSYDUCK:
+			break;
+
+		case MonsterType::GOLDUCK:
+			break;
+
+		case MonsterType::POLIWAG:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+		case MonsterType::POLIWHIRL:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
+
+		case MonsterType::JYNX:
+			break;
+
+		case MonsterType::SUICUNE:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 2); //몬스터의 3번째 스킬
+				Time[4] = 3.f;				//모션 고정할 시간 (State)
+				c->anim->SetDelay(0.6f);	//애니메이션 셋딜레이
+			}
+			Time[4] -= TimeManager::DeltaTime(); //Update 영역 모션고정할시간 계속빼줌
+			if (Time[4] < 0.f) {			//위에서 설정한 3초가 나면
+				c->state = State::READY;	//State를 READY 로 설정
+				Time[3] = 4.f;				//현재 스킬 즉 패턴 Skill2 의 쿨타임으로 활용
+			}
+			break;
+
+		case MonsterType::GROWLITHE:
+			break;
+
+		case MonsterType::ARCANINE:
+			break;
+
+		case MonsterType::PONYTA:
+			break;
+
+		case MonsterType::RAPIDISH:
+			break;
+
+		case MonsterType::SLUGMA:
+			break;
+
+		case MonsterType::MAGCARGO:
+			break;
+
+		case MonsterType::GROUDON:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 3); //몬스터의 4번째 스킬
+				Time[4] = 1.f;				//모션 고정할 시간 (State)
+				c->anim->SetDelay(0.25f);	//애니메이션 셋딜레이
+			}
+			Time[4] -= TimeManager::DeltaTime(); //Update 영역 모션고정할시간 계속빼줌
+			if (Time[4] < 0.f) {			//위에서 설정한 3초가 나면
+				c->state = State::READY;	//State를 READY 로 설정
+				Time[5] = 3.f;				//현재 스킬 즉 패턴 Skill2 의 쿨타임으로 활용
+			}
+			break;
+
+		case MonsterType::END:
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	/////////////////////////////////////////////////////////// 플레이어 탐지 FALSE		Skill2
+	else {
+		switch (type)
+		{
+		case MonsterType::BULBASAUR:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::LVYSAUR:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::VENUSAUR:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::SQUIRTLE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::WARTORTLE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::BLASTOISE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::CHARMANDER:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::CHARMELEON:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::CHARIZARD:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::CATERPIE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::METAPOD:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::ODDISH:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::GLOOM:
+			if (readyPattern) {
+			}
+			break;
+
+		case MonsterType::VILEPLUME:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::SCYTHER:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::BUTTERFREE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::PSYDUCK:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::GOLDUCK:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::POLIWAG:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::POLIWHIRL:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::POLIWRATH:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::JYNX:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::SUICUNE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::ARCANINE:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::PONYTA:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::RAPIDISH:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::SLUGMA:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::MAGCARGO:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::GROUDON:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::END:
+			break;
+		default:
+			break;
+		}
+	}
+}

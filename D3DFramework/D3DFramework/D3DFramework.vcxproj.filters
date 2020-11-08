@@ -331,6 +331,9 @@
     <Filter Include="GameObject\Bullet\29. Tsunami">
       <UniqueIdentifier>{9c26223c-213f-4834-9203-c9e81fb8e49c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\31. ClawBlast">
+      <UniqueIdentifier>{63818515-97db-4f8e-ae31-0cd6283daef9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -362,9 +365,6 @@
     </ClInclude>
     <ClInclude Include="MemoryPool.h">
       <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Texture</Filter>
     </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>Lib\MainGame</Filter>
@@ -836,6 +836,12 @@
     </ClInclude>
     <ClInclude Include="Stage_Fire_Boss.h">
       <Filter>Scene\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_ClawBlast.h">
+      <Filter>Skill\31. ClawBlast</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1434,6 +1440,9 @@
     </ClCompile>
     <ClCompile Include="Stage_Fire_Boss.cpp">
       <Filter>Scene\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_ClawBlast.cpp">
+      <Filter>Skill\31. ClawBlast</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

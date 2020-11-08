@@ -547,6 +547,8 @@ void PKH::MainGame::LoadETCSprite()
 
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_INVISIBLE_01, L"Texture\\Bullet\\Invisible\\Invisible (1).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL2_01, L"Texture\\Bullet\\FireWall2\\FireWall2 (1).png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATERDROP1_01, L"Texture\\Bullet\\WaterDrop1\\WaterDrop (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATERDROP1_02, L"Texture\\Bullet\\WaterDrop1\\WaterDrop (2).png");
 
@@ -636,6 +638,8 @@ void PKH::MainGame::LoadUISprite()
 
 	// ¾ó±¼ ¾ÆÀÌÄÜ
 	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_1ST, L"Texture\\UI\\pokemon_icon_1st.png", 13, 12);
+	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_2ND, L"Texture\\UI\\pokemon_icon_2nd.png", 13, 12);
+	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_3RD, L"Texture\\UI\\pokemon_icon_3rd.png", 13, 12);
 
 
 	// ICON
