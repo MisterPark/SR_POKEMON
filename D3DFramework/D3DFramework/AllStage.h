@@ -14,3 +14,4 @@
 
 #include "Stage_Fire_01.h"
 #include "Stage_Fire_02.h"
+#include "Stage_Fire_Boss.h"

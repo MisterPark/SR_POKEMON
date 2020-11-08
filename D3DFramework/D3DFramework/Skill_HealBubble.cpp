@@ -8,7 +8,6 @@ Skill_HealBubble::Skill_HealBubble()
 {
 	coolTime = 1.f;
 	moveStopTime = 1.f;
-	bulletDir = { 0.f,0.f,0.f };
 }
 
 Skill_HealBubble::~Skill_HealBubble()
@@ -32,9 +31,7 @@ void Skill_HealBubble::Update()
 		bullet->transform->position = character->transform->position;
 		bullet->transform->position.y+=5.f;
 			
-			bulletDir.x = bullet->transform->position.x;
-			bulletDir.y = 0.f;
-			bulletDir.z = bullet->transform->position.z;
+		
 			create = true;
 		
 

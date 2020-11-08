@@ -60,6 +60,7 @@ void Bullet_WaterBomb::OnCollision(GameObject* target)
 		createDelay = 0.8f;
 		direction.x *= 0.7f;
 		direction.z *= 0.7f;
+		lifeTime = 1.2f;
 	}
 
 }

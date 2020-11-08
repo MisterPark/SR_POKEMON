@@ -177,6 +177,7 @@
     <ClInclude Include="Bullet_Quake.h" />
     <ClInclude Include="Bullet_ReverseHealBubble.h" />
     <ClInclude Include="Bullet_Tornado.h" />
+    <ClInclude Include="Bullet_Tsunami.h" />
     <ClInclude Include="Bullet_Water.h" />
     <ClInclude Include="Bullet_WaterBomb.h" />
     <ClInclude Include="Bullet_WaterFlow.h" />
@@ -276,6 +277,7 @@
     <ClInclude Include="Skill_Rush.h" />
     <ClInclude Include="Skill_TearsShot.h" />
     <ClInclude Include="Skill_Tornado.h" />
+    <ClInclude Include="Skill_Tsunami.h" />
     <ClInclude Include="Skill_WaterBomb.h" />
     <ClInclude Include="Skill_WaterCannon.h" />
     <ClInclude Include="Skill_WaterFlow.h" />
@@ -288,6 +290,7 @@
     <ClInclude Include="Spawner.h" />
     <ClInclude Include="Squirtle.h" />
     <ClInclude Include="Stage_Fire_02.h" />
+    <ClInclude Include="Stage_Fire_Boss.h" />
     <ClInclude Include="Stage_Water_02.h" />
     <ClInclude Include="Stage_Fire_01.h" />
     <ClInclude Include="Stage_Grass_01.h" />
@@ -338,6 +341,7 @@
     <ClCompile Include="Bullet_Quake.cpp" />
     <ClCompile Include="Bullet_ReverseHealBubble.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
+    <ClCompile Include="Bullet_Tsunami.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
     <ClCompile Include="Bullet_WaterBomb.cpp" />
     <ClCompile Include="Bullet_WaterFlow.cpp" />
@@ -429,6 +433,7 @@
     <ClCompile Include="Skill_Rush.cpp" />
     <ClCompile Include="Skill_TearsShot.cpp" />
     <ClCompile Include="Skill_Tornado.cpp" />
+    <ClCompile Include="Skill_Tsunami.cpp" />
     <ClCompile Include="Skill_WaterBomb.cpp" />
     <ClCompile Include="Skill_WaterCannon.cpp" />
     <ClCompile Include="Skill_WaterFlow.cpp" />
@@ -441,6 +446,7 @@
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Squirtle.cpp" />
     <ClCompile Include="Stage_Fire_02.cpp" />
+    <ClCompile Include="Stage_Fire_Boss.cpp" />
     <ClCompile Include="Stage_Water_02.cpp" />
     <ClCompile Include="Stage_Fire_01.cpp" />
     <ClCompile Include="Stage_Grass_01.cpp" />

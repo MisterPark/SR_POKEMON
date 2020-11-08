@@ -325,6 +325,12 @@
     <Filter Include="Skill\25. WaterFlow">
       <UniqueIdentifier>{e0a537f3-684b-445b-abce-e7a960f04d78}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\27. Tsunami">
+      <UniqueIdentifier>{9072ccb6-f0e7-405c-93f0-7c4176401096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\29. Tsunami">
+      <UniqueIdentifier>{9c26223c-213f-4834-9203-c9e81fb8e49c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -821,6 +827,15 @@
     </ClInclude>
     <ClInclude Include="Skill_WaterBomb.h">
       <Filter>Skill\26. WaterBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Tsunami.h">
+      <Filter>Skill\27. Tsunami</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Tsunami.h">
+      <Filter>GameObject\Bullet\29. Tsunami</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Fire_Boss.h">
+      <Filter>Scene\Fire</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1410,6 +1425,15 @@
     </ClCompile>
     <ClCompile Include="Skill_WaterBomb.cpp">
       <Filter>Skill\26. WaterBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Tsunami.cpp">
+      <Filter>Skill\27. Tsunami</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Tsunami.cpp">
+      <Filter>GameObject\Bullet\29. Tsunami</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Fire_Boss.cpp">
+      <Filter>Scene\Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

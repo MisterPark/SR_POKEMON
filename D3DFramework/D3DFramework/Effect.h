@@ -46,9 +46,9 @@ public:
 		bool isOnTerrain = false,
 		float _offsetY = 0.f
 	);
-
-private:
 	Animation2D* anim;
+private:
+
 	Vector3 direction;
 
 	float animSpeed;

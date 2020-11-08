@@ -27,5 +27,6 @@ enum class SkillName
 	ReverseHealBubble,
 	MiniRush,
 	WaterFlow,
-	WaterBomb
+	WaterBomb,
+	Tsunami
 };
