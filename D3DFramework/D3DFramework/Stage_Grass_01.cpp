@@ -5,6 +5,7 @@
 #include "AllDecorations.h"
 #include "AllEnvironments.h"
 #include "SkyBox.h"
+#include "Item_Tomato.h"
 
 void Stage_Grass_01::OnLoaded()
 {
@@ -27,6 +28,8 @@ void Stage_Grass_01::OnLoaded()
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->transform->position = { 18.f,0.f,48.f-21.f };
 
+	Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
+	tomato->transform->position = { 20.f,0.f,48.f - 21.f };
 
 	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Grass1.bmp", 0.1f);
 

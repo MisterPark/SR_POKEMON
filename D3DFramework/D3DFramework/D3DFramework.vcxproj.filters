@@ -331,6 +331,12 @@
     <Filter Include="GameObject\Bullet\29. Tsunami">
       <UniqueIdentifier>{9c26223c-213f-4834-9203-c9e81fb8e49c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Item">
+      <UniqueIdentifier>{58f3ad62-8bb2-456a-b47f-4de7029f0af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\UI\Inventory">
+      <UniqueIdentifier>{3c5e9bdc-0eba-4712-912a-e5e5f9c2101e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -837,6 +843,14 @@
     <ClInclude Include="Stage_Fire_Boss.h">
       <Filter>Scene\Fire</Filter>
     </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Slot.h" />
+    <ClInclude Include="Item_Tomato.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1435,6 +1449,14 @@
     <ClCompile Include="Stage_Fire_Boss.cpp">
       <Filter>Scene\Fire</Filter>
     </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Slot.cpp" />
+    <ClCompile Include="Item_Tomato.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

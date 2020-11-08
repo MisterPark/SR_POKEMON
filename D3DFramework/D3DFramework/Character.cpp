@@ -138,7 +138,7 @@ void Character::OnCollision(GameObject* target)
 		}
 
 	}
-
+	// ÇÇ°ÝÀÌÆåÆ®
 	if (damageSum > 0.f && this == playerCharacter)
 	{
 		PlayerInfoPanel::ActiveRedFilter();

@@ -33,6 +33,7 @@ namespace PKH
 		TargetType* GetNearestObject( GameObject* _self, bool (*Func)(GameObject*, GameObject*));
 
 		static void AddObject(GameObject* _obj);
+		static void RemoveObject(GameObject* _obj);
 
 		
 		static void Update();

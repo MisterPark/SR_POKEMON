@@ -654,7 +654,31 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_STAT_ATTACK, L"Texture\\UI\\StatIcon_02.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_STAT_SPEED, L"Texture\\UI\\StatIcon_03.png");
 
-}
+	D2DRenderManager::LoadSprite(TextureKey::UI_BAG, L"Texture\\UI\\bag.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SLOT, L"Texture\\UI\\slot.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_TOMATO, L"Texture\\UI\\item_01.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_CLAM, L"Texture\\UI\\item_02.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_GRAPE, L"Texture\\UI\\item_03.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_PEAR, L"Texture\\UI\\item_04.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_GAJI, L"Texture\\UI\\item_05.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_LEMON, L"Texture\\UI\\item_06.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_BLUEBERRY, L"Texture\\UI\\item_07.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_HP_POTION, L"Texture\\UI\\item_08.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_EXP_POTION, L"Texture\\UI\\item_09.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_FIRE, L"Texture\\UI\\item_10.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_WATER, L"Texture\\UI\\item_11.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_LEAF, L"Texture\\UI\\item_12.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_THUNDER, L"Texture\\UI\\item_13.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_MOON, L"Texture\\UI\\item_14.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_SUN, L"Texture\\UI\\item_15.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_LIGHT, L"Texture\\UI\\item_16.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_AWAKE, L"Texture\\UI\\item_17.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_STONE_OF_DARK, L"Texture\\UI\\item_18.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_POKE_BALL, L"Texture\\UI\\item_19.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_GREAT_BALL, L"Texture\\UI\\item_20.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_ULTRA_BALL, L"Texture\\UI\\item_21.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_MASTER_BALL, L"Texture\\UI\\item_22.png");
+}										
 
 void PKH::MainGame::LoadMonsterSprite()
 {

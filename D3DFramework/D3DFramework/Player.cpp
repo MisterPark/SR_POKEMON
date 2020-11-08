@@ -3,6 +3,7 @@
 #include "PlayerInfoPanel.h"
 #include "Charmander.h"
 #include "Charmeleon.h"
+#include "Inventory.h"
 
 Player* Player::instance = nullptr;
 
@@ -185,6 +186,18 @@ void Player::KeyInput()
 	{
 		//Evolution();
 		//Camera::Shake();
+	}
+
+	if (InputManager::GetKeyDown('I'))
+	{
+		if (character != nullptr)
+		{
+			Inventory* inven = Inventory::GetInstance();
+			Inventory::Show(!inven->isVisible);
+			isFix ^= true;
+			//Cursor::Show(!Cursor::IsVisible());
+		}
+		
 	}
 
 	if (InputManager::GetMouseWheelUp())

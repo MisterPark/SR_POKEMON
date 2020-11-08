@@ -209,6 +209,9 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_FireBlast.h" />
@@ -285,6 +288,7 @@
     <ClInclude Include="Skill_XShot.h" />
     <ClInclude Include="Skill_XClaw.h" />
     <ClInclude Include="SkyBox.h" />
+    <ClInclude Include="Slot.h" />
     <ClInclude Include="Slugma.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Spawner.h" />
@@ -372,6 +376,9 @@
     <ClCompile Include="Environment.cpp" />
     <ClCompile Include="Blaze.cpp" />
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Item_Tomato.cpp" />
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />
@@ -441,6 +448,7 @@
     <ClCompile Include="Skill_XShot.cpp" />
     <ClCompile Include="Skill_XClaw.cpp" />
     <ClCompile Include="SkyBox.cpp" />
+    <ClCompile Include="Slot.cpp" />
     <ClCompile Include="Slugma.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Spawner.cpp" />
