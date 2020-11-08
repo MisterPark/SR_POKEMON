@@ -1,12 +1,11 @@
 #pragma once
 #include "Skill.h"
-
-class Skill_ClawBlast :
+class Skill_Synthesis :
 	public Skill
 {
 public:
-	Skill_ClawBlast();
-	virtual ~Skill_ClawBlast();
+	class Skill_Synthesis();
+	virtual ~Skill_Synthesis();
 
 public:
 	// Skill을(를) 통해 상속됨
@@ -14,13 +13,10 @@ public:
 	virtual void InitActiveTime() override;
 	virtual void Update() override;
 
-	virtual void CalcActiveTime() override;
-
 public:
 	static Skill* Create();
-
 private:
-	bool isDetachCamera;
-	bool isSpawn;
+	float delay = 0.f;
+	bool create = false;
 };
 

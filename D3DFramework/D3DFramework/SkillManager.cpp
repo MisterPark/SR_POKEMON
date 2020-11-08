@@ -183,6 +183,12 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::PetalBlizzard:
 		newSkill = Skill_PetalBlizzard::Create();
 		break;
+	case SkillName::ClawBlast:
+		newSkill = Skill_ClawBlast::Create();
+		break;
+	case SkillName::Synthesis:
+		newSkill = Skill_Synthesis::Create();
+		break;
 	}
 
 	return newSkill;

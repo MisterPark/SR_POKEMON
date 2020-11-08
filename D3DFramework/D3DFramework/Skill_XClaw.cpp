@@ -40,6 +40,7 @@ void Skill_XClaw::Update()
 	if (0.4f >= activeTime)
 	{
 		float speed = 20.f;
+		character->isInvincible = true;
 		character->transform->position.x += character->direction.x * speed * TimeManager::DeltaTime();
 		character->transform->position.z += character->direction.z * speed * TimeManager::DeltaTime();
 
@@ -76,6 +77,7 @@ void Skill_XClaw::CalcActiveTime()
 				Camera::GetInstance()->SlowChaseTarget(character);
 				Camera::SetShakeDuration(-1.f);
 			}
+			character->isInvincible = true;
 			SetNoneActive();
 		}
 	}

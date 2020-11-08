@@ -610,6 +610,24 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_04, L"Texture\\Bullet\\Heart1\\Heart (4).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_HEART1_05, L"Texture\\Bullet\\Heart1\\Heart (5).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_01, L"Texture\\Player\\Effect\\Synthesis\\Effect (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_02, L"Texture\\Player\\Effect\\Synthesis\\Effect (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_03, L"Texture\\Player\\Effect\\Synthesis\\Effect (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_04, L"Texture\\Player\\Effect\\Synthesis\\Effect (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_05, L"Texture\\Player\\Effect\\Synthesis\\Effect (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_06, L"Texture\\Player\\Effect\\Synthesis\\Effect (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_07, L"Texture\\Player\\Effect\\Synthesis\\Effect (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_08, L"Texture\\Player\\Effect\\Synthesis\\Effect (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_09, L"Texture\\Player\\Effect\\Synthesis\\Effect (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_10, L"Texture\\Player\\Effect\\Synthesis\\Effect (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_11, L"Texture\\Player\\Effect\\Synthesis\\Effect (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::EFFECT_SYNTHESIS_12, L"Texture\\Player\\Effect\\Synthesis\\Effect (12).png");
+																			 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_01, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_02, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_03, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_04, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (4).png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_INVISIBLE_01, L"Texture\\Bullet\\Invisible\\Invisible (1).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL2_01, L"Texture\\Bullet\\FireWall2\\FireWall2 (1).png");

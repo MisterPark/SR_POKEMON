@@ -32,4 +32,6 @@ enum class SkillName
 	ShellAttack,
 	LeechSeed,
 	PetalBlizzard,
+	ClawBlast,
+	Synthesis,
 };

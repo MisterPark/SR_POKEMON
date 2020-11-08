@@ -43,8 +43,7 @@ void Bulbasaur::Initialize()
 	skillSet.reserve(3);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeechSeed));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::PetalBlizzard));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Synthesis));
 
 	UpdateAnimation();
 }

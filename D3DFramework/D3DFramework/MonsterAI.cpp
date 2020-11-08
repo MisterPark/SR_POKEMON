@@ -331,12 +331,12 @@ void MonsterAI::SetType(MonsterType _type)
 	case MonsterType::GROUDON:
 		SetPatternRange(1, 1);
 		searchRange[0] = 8.f;
-		searchRange[1] = 4.f;
-		searchRange[2] = 4.f;//Quake 사거리
+		searchRange[1] = 3.0f;//걸어오는 거리
+		searchRange[2] = 3.6f;
 		searchRange[3] = 30.f;
-		Time[1] = 5.f;
-		Time[2] = 25.f;
-		Time[5] = 3.f;
+		Time[1] = 5.f;//초기쿨타임
+		Time[2] = 0.f;//초기쿨타임
+		Time[5] = 3.f;//초기쿨타임
 		break;
 	case MonsterType::END:
 		break;

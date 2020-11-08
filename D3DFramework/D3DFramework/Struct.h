@@ -9,4 +9,6 @@ typedef struct _objectStat
 	float exp = 0.f;
 	float moveSpeed = 5.f;
 	int level = 1;
+	int money = 0;
+
 }STAT;
