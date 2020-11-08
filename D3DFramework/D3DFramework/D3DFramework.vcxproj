@@ -212,6 +212,7 @@
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="SelectScene.h" />
+    <ClInclude Include="Skill_ClawBlast.h" />
     <ClInclude Include="Skill_FireBlast.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Functions.h" />
@@ -377,6 +378,7 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="SelectScene.cpp" />
+    <ClCompile Include="Skill_ClawBlast.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gloom.cpp" />

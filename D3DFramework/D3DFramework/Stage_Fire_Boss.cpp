@@ -14,8 +14,8 @@ void Stage_Fire_Boss::OnLoaded()
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	Player::GetInstance()->SetRadianY(D3DXToRadian(45));
 	playerCharacter->direction = { 1.f,0.f,1.f };
-	playerCharacter->transform->position.x = 1.f;
-	playerCharacter->transform->position.z = 48.f - 47.f;
+	playerCharacter->transform->position.x = 25.f;
+	playerCharacter->transform->position.z = 48.f - 25.f;
 	Camera::GetInstance()->SetTarget(playerCharacter);
 
 	Set_Stage_Fire_Boss_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\FireBoss.bmp", 0.1f);

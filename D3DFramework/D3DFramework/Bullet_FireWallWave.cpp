@@ -7,7 +7,8 @@
 
 Bullet_FireWallWave::Bullet_FireWallWave()
 {
-	anim->SetSprite(TextureKey::BULLET_FIRE4_03, TextureKey::BULLET_FIRE4_10);
+	/*anim->SetSprite(TextureKey::BULLET_FIRE4_03, TextureKey::BULLET_FIRE4_10);*/
+	anim->SetSprite(TextureKey::BULLET_FIREWALL2_01, TextureKey::BULLET_FIREWALL2_01);
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 
