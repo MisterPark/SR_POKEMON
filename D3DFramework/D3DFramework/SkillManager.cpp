@@ -177,6 +177,12 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::ShellAttack:
 		newSkill = Skill_ShellAttack::Create();
 		break;
+	case SkillName::LeechSeed:
+		newSkill = Skill_LeechSeed::Create();
+		break;
+	case SkillName::PetalBlizzard:
+		newSkill = Skill_PetalBlizzard::Create();
+		break;
 	}
 
 	return newSkill;
