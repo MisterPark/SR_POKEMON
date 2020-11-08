@@ -620,6 +620,8 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_03, L"Texture\\UI\\HP_BAR_03.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_04, L"Texture\\UI\\HP_BAR_04.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_05, L"Texture\\UI\\HP_BAR_05.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_HP_BAR_06, L"Texture\\UI\\HP_BAR_06.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_EXP_BAR_01, L"Texture\\UI\\EXP_BAR_01.png");
 
 	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_00, L"Texture\\UI\\Damage\\NoRed0.0.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_NUM_RED_01, L"Texture\\UI\\Damage\\NoRed0.1.png");
@@ -647,6 +649,10 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_LEFT, L"Texture\\UI\\leftArrow.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_RIGHT, L"Texture\\UI\\rightArrow.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ARROW_REFRESH, L"Texture\\UI\\refreshArrow.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_STAT_HEART, L"Texture\\UI\\StatIcon_01.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_STAT_ATTACK, L"Texture\\UI\\StatIcon_02.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_STAT_SPEED, L"Texture\\UI\\StatIcon_03.png");
 
 }
 

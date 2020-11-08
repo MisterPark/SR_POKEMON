@@ -12,11 +12,15 @@ void Stage_Grass_02::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
-	Player::GetInstance()->SetRadianY(D3DXToRadian(60));
-	playerCharacter->direction = { 1.f,0.f,1.f };
-	playerCharacter->transform->position.x = 7.f;
-	playerCharacter->transform->position.z = 48.f - 24.f;
-	Camera::GetInstance()->SetTarget(playerCharacter);
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(60));
+		playerCharacter->direction = { 1.f,0.f,1.f };
+		playerCharacter->transform->position.x = 7.f;
+		playerCharacter->transform->position.z = 48.f - 24.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
+	
 
 	//Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
 	//monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
