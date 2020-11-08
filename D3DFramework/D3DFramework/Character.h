@@ -66,7 +66,7 @@ public:
 	bool isInvincible = false;
 protected:
 	vector<Skill*> skillSet;
-
+	float healEffectStack;
 	float moveStopTime;
 	bool canMove;
 	State oldState = State::IDLE;

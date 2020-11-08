@@ -352,6 +352,12 @@
     <Filter Include="GameObject\Bullet\31. ShortWaterFlow">
       <UniqueIdentifier>{155a97fb-5437-40af-a15e-83d6f6231338}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\32. Synthesis">
+      <UniqueIdentifier>{64a231de-af14-477c-a071-918c67d91b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\32.Synthesis">
+      <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -872,6 +878,12 @@
     </ClInclude>
     <ClInclude Include="Bullet_ShortWaterFlow.h">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Synthesis.h">
+      <Filter>Skill\32. Synthesis</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Synthesis.h">
+      <Filter>GameObject\Bullet\32.Synthesis</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1485,6 +1497,12 @@
     </ClCompile>
     <ClCompile Include="Bullet_ShortWaterFlow.cpp">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Synthesis.cpp">
+      <Filter>Skill\32. Synthesis</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Synthesis.cpp">
+      <Filter>GameObject\Bullet\32.Synthesis</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

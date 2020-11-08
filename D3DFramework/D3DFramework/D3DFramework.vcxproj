@@ -177,6 +177,7 @@
     <ClInclude Include="Bullet_Quake.h" />
     <ClInclude Include="Bullet_ReverseHealBubble.h" />
     <ClInclude Include="Bullet_ShortWaterFlow.h" />
+    <ClInclude Include="Bullet_Synthesis.h" />
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Tsunami.h" />
     <ClInclude Include="Bullet_Water.h" />
@@ -280,6 +281,7 @@
     <ClInclude Include="Skill_SnowCrystal.h" />
     <ClInclude Include="Skill_LeafShot.h" />
     <ClInclude Include="Skill_Rush.h" />
+    <ClInclude Include="Skill_Synthesis.h" />
     <ClInclude Include="Skill_TearsShot.h" />
     <ClInclude Include="Skill_Tornado.h" />
     <ClInclude Include="Skill_Tsunami.h" />
@@ -346,6 +348,7 @@
     <ClCompile Include="Bullet_Quake.cpp" />
     <ClCompile Include="Bullet_ReverseHealBubble.cpp" />
     <ClCompile Include="Bullet_ShortWaterFlow.cpp" />
+    <ClCompile Include="Bullet_Synthesis.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Tsunami.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
@@ -441,6 +444,7 @@
     <ClCompile Include="Skill_SnowCrystal.cpp" />
     <ClCompile Include="Skill_LeafShot.cpp" />
     <ClCompile Include="Skill_Rush.cpp" />
+    <ClCompile Include="Skill_Synthesis.cpp" />
     <ClCompile Include="Skill_TearsShot.cpp" />
     <ClCompile Include="Skill_Tornado.cpp" />
     <ClCompile Include="Skill_Tsunami.cpp" />

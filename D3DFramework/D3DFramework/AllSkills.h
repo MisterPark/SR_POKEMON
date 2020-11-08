@@ -36,3 +36,4 @@
 #include "Skill_PetalBlizzard.h"
 
 #include "Skill_ClawBlast.h"
+#include "Skill_Synthesis.h"

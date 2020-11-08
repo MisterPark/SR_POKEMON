@@ -33,6 +33,7 @@ void Character::Update()
 	CalcMoveTime();
 
 	oldState = state;
+	healEffectStack += TimeManager::DeltaTime();
 }
 
 void Character::Render()
@@ -95,6 +96,8 @@ void Character::Release()
 
 void Character::OnCollision(GameObject* target)
 {
+	
+
 	if (isInvincible == false)
 	{
 		if (this->team == target->team) return;
@@ -102,6 +105,10 @@ void Character::OnCollision(GameObject* target)
 		Character* playerCharacter = Player::GetInstance()->GetCharacter();
 
 		// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
+		if (stat.hp > stat.maxHp)
+		{
+			stat.hp = stat.maxHp;
+		}
 
 		float error = target->stat.attack * 0.4f;
 		float errorHalf = error * 0.5f;
@@ -113,18 +120,21 @@ void Character::OnCollision(GameObject* target)
 
 		if (damageSum < 0)
 		{
-			DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
-			skin->transform->position = this->transform->position;
-			skin->SetDamage(-damageSum);
-			skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
-
-			if (stat.hp > stat.maxHp)
+			if (damageSum < -1)
 			{
-				stat.hp = stat.maxHp;
+				DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
+				skin->transform->position = this->transform->position;
+				skin->SetDamage(-damageSum);
+				skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
 			}
-			Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
-			/*fx->transform->position.y += 1.f;*/
-			ObjectManager::AddObject(fx);
+
+			if (healEffectStack > 1.f)
+			{
+				Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
+				/*fx->transform->position.y += 1.f;*/
+				ObjectManager::AddObject(fx);
+				healEffectStack = 0.f;
+			}
 		}
 
 		// 데미지 스킨

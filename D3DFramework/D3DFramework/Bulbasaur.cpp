@@ -43,7 +43,7 @@ void Bulbasaur::Initialize()
 	skillSet.reserve(2);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::LeafShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Synthesis));
 
 	UpdateAnimation();
 }
