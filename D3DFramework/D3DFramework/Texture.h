@@ -94,6 +94,8 @@ namespace PKH
 		UI_HP_BAR_03,
 		UI_HP_BAR_04,
 		UI_HP_BAR_05,
+		UI_HP_BAR_06,
+		UI_EXP_BAR_01,
 
 		UI_NUM_RED_00,
 		UI_NUM_RED_01,
@@ -120,6 +122,9 @@ namespace PKH
 		UI_ICON_ARROW_RIGHT,
 		UI_ICON_ARROW_LEFT,
 		UI_ICON_ARROW_REFRESH,
+		UI_ICON_STAT_HEART,
+		UI_ICON_STAT_ATTACK,
+		UI_ICON_STAT_SPEED,
 		//============================================================
 
 		// PG 01

@@ -10,14 +10,19 @@ void Stage_Grass_01::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
+	Cursor::Hide();
 
 	CollisionManager* col = CollisionManager::GetInstance();
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
-	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
-	playerCharacter->direction = { 1.f,0.f,1.f };
-	playerCharacter->transform->position.x = 7.f;
-	playerCharacter->transform->position.z = 48.f - 35.f;
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(30));
+		playerCharacter->direction = { 1.f,0.f,1.f };
+		playerCharacter->transform->position.x = 7.f;
+		playerCharacter->transform->position.z = 48.f - 35.f;
+	}
+	
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->transform->position = { 18.f,0.f,48.f-21.f };

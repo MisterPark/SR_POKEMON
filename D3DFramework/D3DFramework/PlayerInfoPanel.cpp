@@ -109,14 +109,26 @@ void PlayerInfoPanel::Render()
     
     // HP 바, 아이콘
     Vector3 barPos = { 0,0,0 };
-    barPos.x = 30;
+    barPos.x = 100;
     barPos.y = 0;
-    D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_01, barPos, 0);
+    D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_06, barPos, 0);
     barPos.x += 80;
     barPos.y += 8;
     D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, barPos, Vector3(1, 1, 1), 0, float(target->stat.hp) / target->stat.maxHp);
-    barPos.x -= 100;
-    D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, barPos, int(target->number) - 1);
+    D2DRenderManager::DrawUI(TextureKey::UI_EXP_BAR_01, Vector3(barPos.x,barPos.y+20,1), Vector3(1, 1, 1), 0, float(target->stat.hp) / target->stat.maxHp);
+    
+    //공격력
+    D2DRenderManager::DrawUI(TextureKey::UI_ICON_STAT_ATTACK, Vector3(barPos.x,barPos.y +42,1), 0);
+    WCHAR wstr[16] = {};
+    wsprintf(wstr, L"%d", (int)target->stat.attack);
+    D2DRenderManager::DrawFont(wstr, barPos.x + 30, barPos.y + 40, D3DCOLOR_ARGB(255, 0, 0, 0));
+    //스피드
+    D2DRenderManager::DrawUI(TextureKey::UI_ICON_STAT_SPEED, Vector3(barPos.x+ 100, barPos.y + 42, 1), 0);
+    WCHAR wstr2[16] = {};
+    wsprintf(wstr2, L"%d", (int)target->stat.moveSpeed);
+    D2DRenderManager::DrawFont(wstr2, barPos.x + 130, barPos.y + 42, D3DCOLOR_ARGB(255, 0, 0, 0));
+    // 얼굴 아이콘
+    D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, Vector3(barPos.x-180,barPos.y-25,1), int(target->number) - 1);
 
     // 스킬 표시
     vector<Skill*> skillSet = target->GetSkillSet();
