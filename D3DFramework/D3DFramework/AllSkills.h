@@ -29,7 +29,9 @@
 #include "Skill_MiniRush.h"
 #include "Skill_WaterBomb.h"
 #include "Skill_WaterFlow.h"
-
 #include "Skill_Tsunami.h"
-
+#include "Skill_ShellAttack.h"
 #include "Skill_LeechSeed.h"
+#include "Skill_PetalBlizzard.h"
+
+#include "Skill_ClawBlast.h"

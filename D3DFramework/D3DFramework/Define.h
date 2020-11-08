@@ -162,6 +162,13 @@ enum class Pokemon
 	Mew,
 	// 2nd
 	Chikorita,
+	Slugma = 218,
+	Magcargo = 219,
+	Suicune = 245,
+	Celebi = 251,
 
+	//3nd
+	Groudon = 383,
+	
 
 };

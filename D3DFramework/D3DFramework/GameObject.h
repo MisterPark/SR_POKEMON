@@ -5,7 +5,7 @@ using namespace PKH;
 
 enum class State
 {
-	IDLE, WALK, ATTACK, SKILL, SKILL2, HURT, READY, END
+	IDLE, WALK, ATTACK, SKILL, SKILL2, SKILL3, HURT, READY, END
 };
 enum class Direction
 {

@@ -176,6 +176,7 @@
     <ClInclude Include="Bullet_Poision.h" />
     <ClInclude Include="Bullet_Quake.h" />
     <ClInclude Include="Bullet_ReverseHealBubble.h" />
+    <ClInclude Include="Bullet_ShortWaterFlow.h" />
     <ClInclude Include="Bullet_Tornado.h" />
     <ClInclude Include="Bullet_Tsunami.h" />
     <ClInclude Include="Bullet_Water.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="SelectScene.h" />
+    <ClInclude Include="Skill_ClawBlast.h" />
     <ClInclude Include="Skill_FireBlast.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Functions.h" />
@@ -271,6 +273,7 @@
     <ClInclude Include="Skill_Quake.h" />
     <ClInclude Include="Skill_Meteor.h" />
     <ClInclude Include="Skill_ReverseHealBubble.h" />
+    <ClInclude Include="Skill_ShellAttack.h" />
     <ClInclude Include="Skill_SnowRain.h" />
     <ClInclude Include="Skill_SnowVulcan.h" />
     <ClInclude Include="Skill_SnowFall.h" />
@@ -342,6 +345,7 @@
     <ClCompile Include="Bullet_Poision.cpp" />
     <ClCompile Include="Bullet_Quake.cpp" />
     <ClCompile Include="Bullet_ReverseHealBubble.cpp" />
+    <ClCompile Include="Bullet_ShortWaterFlow.cpp" />
     <ClCompile Include="Bullet_Tornado.cpp" />
     <ClCompile Include="Bullet_Tsunami.cpp" />
     <ClCompile Include="Bullet_Water.cpp" />
@@ -376,6 +380,7 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="SelectScene.cpp" />
+    <ClCompile Include="Skill_ClawBlast.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Gloom.cpp" />
@@ -429,6 +434,7 @@
     <ClCompile Include="Skill_Quake.cpp" />
     <ClCompile Include="Skill_Meteor.cpp" />
     <ClCompile Include="Skill_ReverseHealBubble.cpp" />
+    <ClCompile Include="Skill_ShellAttack.cpp" />
     <ClCompile Include="Skill_SnowRain.cpp" />
     <ClCompile Include="Skill_SnowVulcan.cpp" />
     <ClCompile Include="Skill_SnowFall.cpp" />

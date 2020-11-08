@@ -337,6 +337,15 @@
     <Filter Include="GameObject\Bullet\27. Tsunami">
       <UniqueIdentifier>{9c26223c-213f-4834-9203-c9e81fb8e49c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\28. ShellAttack">
+      <UniqueIdentifier>{42f25280-a000-420a-b57c-6bd5095661c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\30. ShortWaterFlow">
+      <UniqueIdentifier>{155a97fb-5437-40af-a15e-83d6f6231338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\31. ClawBlast">
+      <UniqueIdentifier>{63818515-97db-4f8e-ae31-0cd6283daef9}</UniqueIdentifier>
+    </Filter>
     <Filter Include="GameObject\Bullet\29. LeechSeed">
       <UniqueIdentifier>{7443025d-fb6a-4e25-ae17-77ad6f8ace65}</UniqueIdentifier>
     </Filter>
@@ -374,9 +383,6 @@
     </ClInclude>
     <ClInclude Include="MemoryPool.h">
       <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Texture</Filter>
     </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>Lib\MainGame</Filter>
@@ -849,11 +855,23 @@
     <ClInclude Include="Stage_Fire_Boss.h">
       <Filter>Scene\Fire</Filter>
     </ClInclude>
-    <ClInclude Include="Skill_LeechSeed.h">
+    <ClInclude Include="Skill_ShellAttack.h">
+      <Filter>Skill\28. ShellAttack</Filter>
+    </ClInclude>
+	 <ClInclude Include="Skill_LeechSeed.h">
       <Filter>Skill\29. LeechSeed</Filter>
     </ClInclude>
     <ClInclude Include="Skill_PetalBlizzard.h">
       <Filter>Skill\30. PetalBlizzard</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_ShortWaterFlow.h">
+      <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_ClawBlast.h">
+      <Filter>Skill\32. ClawBlast</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1453,11 +1471,20 @@
     <ClCompile Include="Stage_Fire_Boss.cpp">
       <Filter>Scene\Fire</Filter>
     </ClCompile>
-    <ClCompile Include="Skill_LeechSeed.cpp">
+    <ClCompile Include="Skill_ShellAttack.cpp">
+      <Filter>Skill\28. ShellAttack</Filter>
+    </ClCompile>
+	<ClCompile Include="Skill_LeechSeed.cpp">
       <Filter>Skill\29. LeechSeed</Filter>
     </ClCompile>
     <ClCompile Include="Skill_PetalBlizzard.cpp">
       <Filter>Skill\30. PetalBlizzard</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_ShortWaterFlow.cpp">
+      <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_ClawBlast.cpp">
+      <Filter>Skill\32. ClawBlast</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

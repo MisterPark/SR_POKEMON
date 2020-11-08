@@ -10,12 +10,12 @@ Bullet_Quake::Bullet_Quake()
 	anim->SetSprite(TextureKey::BULLET_INVISIBLE_01, TextureKey::BULLET_INVISIBLE_01);
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
-
+	isOnTerrain = true;
 	transform->scale = { 0.6f, 0.6f, 0.6f };
 
 	stat.attack = initAttack;
-	lifeTime = 4.f;
-	stat.moveSpeed = 3.f;
+	lifeTime = 1.5f;
+	stat.moveSpeed = 0.f;
 
 }
 
@@ -27,13 +27,7 @@ void Bullet_Quake::Update()
 {
 	Bullet::Update();
 	stat.attack = TimeManager::DeltaTime() * initAttack;
-	if (lifeTime > 3.f) {
-		stat.moveSpeed = 0.f;
-	}
-	else {
-		anim->SetSprite(TextureKey::BULLET_INVISIBLE_01, TextureKey::BULLET_INVISIBLE_01);
-		stat.moveSpeed = 8.f;
-	}
+	lifeTime -= TimeManager::DeltaTime();
 
 }
 
@@ -44,8 +38,8 @@ void Bullet_Quake::Render()
 
 void Bullet_Quake::OnCollision(GameObject* target)
 {
-	stack++;
-	if (stack > 50)
+	
+	if (lifeTime < 0)
 	{
 		Die();
 	}

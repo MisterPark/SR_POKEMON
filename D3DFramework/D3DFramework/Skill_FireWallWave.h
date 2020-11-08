@@ -17,7 +17,6 @@ public:
 	static Skill* Create();
 private:
 	float delay = 0.f;
-	bool create = false;
 	int Frame[5];
 	float patternTime;
 

@@ -43,7 +43,8 @@ void Squirtle::Initialize()
 	skillSet.reserve(2);
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterFlow));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBomb));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ShellAttack));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBomb));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tsunami));
 
 	UpdateAnimation();
@@ -113,7 +114,7 @@ bool Squirtle::Attack(const Vector3& dir, const int& attackType)
 			anim->SetTick(0.f);
 			break;
 		case 1:
-			ChangeState(State::ATTACK);
+			ChangeState(State::SKILL);
 			anim->SetTick(0.f);
 			break;
 		}

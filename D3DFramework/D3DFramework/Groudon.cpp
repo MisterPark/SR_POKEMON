@@ -23,12 +23,15 @@ Groudon::~Groudon()
 void Groudon::Initialize()
 {
 	name = L"±×¶õµ·";
+	
+
 	SetTexture(State::WALK, TextureKey::GROU_WALK_D_02, 3, 2);
 	SetTexture(State::IDLE, TextureKey::GROU_WALK_D_01, 3, 1);
 	SetTexture(State::READY, TextureKey::GROU_WALK_D_01, 3, 1);
 	SetTexture(State::ATTACK, TextureKey::GROU_ATTACK_D_01, 2);
 	SetTexture(State::SKILL, TextureKey::GROU_ATTACK_D_01, 2);
 	SetTexture(State::SKILL2, TextureKey::GROU_ATTACK_D_01, 2);
+	SetTexture(State::SKILL3, TextureKey::GROU_ATTACK_D_01, 2);
 
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
@@ -45,7 +48,7 @@ void Groudon::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBlast));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireWallWave));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
-
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 	UpdateAnimation();
 
 }
