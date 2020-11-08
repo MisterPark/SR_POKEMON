@@ -36,7 +36,7 @@ void TestScene::OnLoaded()
 	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 36.f));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
 	// TestUI
-	Groudon* playerCharacter = Groudon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3{0.f,0.f,1.f});
+	Squirtle* playerCharacter = Squirtle::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f));
 	playerCharacter->offsetY = 0.23f;
 	/*Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f));*/
 	/*Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));*/

@@ -30,3 +30,4 @@
 #include "Skill_WaterBomb.h"
 #include "Skill_WaterFlow.h"
 #include "Skill_Tsunami.h"
+#include "Skill_ShellAttack.h"

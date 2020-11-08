@@ -1,19 +1,19 @@
 #include "stdafx.h"
-#include "Bullet_WaterFlow.h"
+#include "Bullet_ShortWaterFlow.h"
 #include "Rectangle.h"
 #include "Player.h"
 #include "Bullet.h"
 #include "Effect.h"
 
-Bullet_WaterFlow::Bullet_WaterFlow()
+Bullet_ShortWaterFlow::Bullet_ShortWaterFlow()
 {
-	anim->SetSprite(TextureKey::BULLET_WATER1_01, TextureKey::BULLET_WATER1_04);
-	anim->SetLoop(true);
+	anim->SetSprite(TextureKey::BULLET_WATER1_01, TextureKey::BULLET_WATER1_01);
+	anim->SetLoop(false);
 	anim->SetDelay(0.1f);
 
-	transform->scale = { 0.5f, 0.5f, 0.5f };
+	transform->scale = { 0.3f, 0.3f, 0.3f };
 
-	lifeTime = 2.6f;
+	lifeTime = 0.5f;
 	stat.moveSpeed = 5.f;
 	isOnTerrain = true;
 	isBillboard = false;
@@ -24,11 +24,11 @@ Bullet_WaterFlow::Bullet_WaterFlow()
 	offsetY = 0.1f;
 }
 
-Bullet_WaterFlow::~Bullet_WaterFlow()
+Bullet_ShortWaterFlow::~Bullet_ShortWaterFlow()
 {
 }
 
-void Bullet_WaterFlow::Update()
+void Bullet_ShortWaterFlow::Update()
 {
 	Bullet::Update();
 	if (isDead) {
@@ -37,12 +37,12 @@ void Bullet_WaterFlow::Update()
 	}
 }
 
-void Bullet_WaterFlow::Render()
+void Bullet_ShortWaterFlow::Render()
 {
 	Bullet::Render();
 }
 
-void Bullet_WaterFlow::OnCollision(GameObject* target)
+void Bullet_ShortWaterFlow::OnCollision(GameObject* target)
 {
 	isDead = true;
 	Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_27, TextureKey::BULLET_ICE1_33, 0.05f);
