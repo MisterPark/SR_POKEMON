@@ -858,20 +858,20 @@
     <ClInclude Include="Skill_ShellAttack.h">
       <Filter>Skill\28. ShellAttack</Filter>
     </ClInclude>
-	 <ClInclude Include="Skill_LeechSeed.h">
+    <ClInclude Include="Skill_LeechSeed.h">
       <Filter>Skill\29. LeechSeed</Filter>
     </ClInclude>
     <ClInclude Include="Skill_PetalBlizzard.h">
       <Filter>Skill\30. PetalBlizzard</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet_ShortWaterFlow.h">
-      <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
-    </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Texture</Filter>
     </ClInclude>
     <ClInclude Include="Skill_ClawBlast.h">
-      <Filter>Skill\32. ClawBlast</Filter>
+      <Filter>Skill\31. ClawBlast</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_ShortWaterFlow.h">
+      <Filter>GameObject\Bullet\30. ShortWaterFlow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1474,17 +1474,17 @@
     <ClCompile Include="Skill_ShellAttack.cpp">
       <Filter>Skill\28. ShellAttack</Filter>
     </ClCompile>
-	<ClCompile Include="Skill_LeechSeed.cpp">
+    <ClCompile Include="Skill_LeechSeed.cpp">
       <Filter>Skill\29. LeechSeed</Filter>
     </ClCompile>
     <ClCompile Include="Skill_PetalBlizzard.cpp">
       <Filter>Skill\30. PetalBlizzard</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet_ShortWaterFlow.cpp">
-      <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
-    </ClCompile>
     <ClCompile Include="Skill_ClawBlast.cpp">
-      <Filter>Skill\32. ClawBlast</Filter>
+      <Filter>Skill\31. ClawBlast</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_ShortWaterFlow.cpp">
+      <Filter>GameObject\Bullet\30. ShortWaterFlow</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
