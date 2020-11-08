@@ -51,6 +51,7 @@ public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);
 public:
 	Spawner* spawner = nullptr;
+
 	//Stat
 	wstring name;
 	Pokemon number = Pokemon::None;
@@ -62,7 +63,7 @@ public:
 	TextureKey startArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	bool infoVisible = true;
-
+	bool isInvincible = false;
 protected:
 	vector<Skill*> skillSet;
 
