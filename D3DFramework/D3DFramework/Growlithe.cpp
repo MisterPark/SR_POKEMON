@@ -8,10 +8,10 @@ Growlithe::Growlithe()
 	Initialize();
 }
 
-Growlithe::Growlithe(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Growlithe::Growlithe(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
+
 	direction = dir;
 
 	Initialize();
@@ -38,9 +38,9 @@ void Growlithe::Initialize()
 	offsetY = 0.5f;
 
 	state = State::READY;
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::RedBall));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 
 	stat.attack = 30;
 
@@ -81,8 +81,8 @@ bool Growlithe::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Growlithe* Growlithe::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Growlithe* Growlithe::Create(const Vector3& pos, const Vector3& dir)
 {
-	Growlithe* newPokemon = new Growlithe(pos, scale, dir);
+	Growlithe* newPokemon = new Growlithe(pos, dir);
 	return newPokemon;
 }

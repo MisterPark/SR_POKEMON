@@ -375,25 +375,25 @@ void Player::SetCharacterByNumber(MonsterType type)
 		pokemon = Venusaur::Create(pos, dir);
 		break;
 	case MonsterType::CATERPIE:
-		//pokemon = Caterpie::Create(pos, dir);
+		pokemon = Caterpie::Create(pos, dir);
 		break;
 	case MonsterType::METAPOD:
-		//pokemon = Metapod::Create(pos, dir);
+		pokemon = Metapod::Create(pos, dir);
 		break;
 	case MonsterType::ODDISH:
-		//pokemon = Oddish::Create(pos, dir);
+		pokemon = Oddish::Create(pos, dir);
 		break;
 	case MonsterType::GLOOM:
-		//pokemon = Bulbasaur::Create(pos, dir);
+		pokemon = Bulbasaur::Create(pos, dir);
 		break;
 	case MonsterType::VILEPLUME:
-		//pokemon = Vileplume::Create(pos, dir);
+		pokemon = Vileplume::Create(pos, dir);
 		break;
 	case MonsterType::SCYTHER:
-		//pokemon = Scyther::Create(pos, dir);
+		pokemon = Scyther::Create(pos, dir);
 		break;
 	case MonsterType::BUTTERFREE:
-		//pokemon = Butterfree::Create(pos, dir);
+		pokemon = Butterfree::Create(pos, dir);
 		break;
 	case MonsterType::SQUIRTLE:
 		pokemon = Squirtle::Create(pos, dir);
@@ -405,25 +405,25 @@ void Player::SetCharacterByNumber(MonsterType type)
 		pokemon = Blastoise::Create(pos, dir);
 		break;
 	case MonsterType::PSYDUCK:
-		//pokemon = Psyduck::Create(pos, dir);
+		pokemon = Psyduck::Create(pos, dir);
 		break;
 	case MonsterType::GOLDUCK:
-		//pokemon = Golduck::Create(pos, dir);
+		pokemon = Golduck::Create(pos, dir);
 		break;
 	case MonsterType::POLIWAG:
-		//pokemon = Poliwag::Create(pos, dir);
+		pokemon = Poliwag::Create(pos, dir);
 		break;
 	case MonsterType::POLIWHIRL:
-		//pokemon = Poliwhirl::Create(pos, dir);
+		pokemon = Poliwhirl::Create(pos, dir);
 		break;
 	case MonsterType::POLIWRATH:
-		//pokemon = Poliwrath::Create(pos, dir);
+		pokemon = Poliwrath::Create(pos, dir);
 		break;
 	case MonsterType::JYNX:
-		//pokemon = Jynx::Create(pos, dir);
+		pokemon = Jynx::Create(pos, dir);
 		break;
 	case MonsterType::SUICUNE:
-		//pokemon = Suicune::Create(pos, dir);
+		pokemon = Suicune::Create(pos, dir);
 		break;
 	case MonsterType::CHARMANDER:
 		pokemon = Charmander::Create(pos, dir);
@@ -435,25 +435,25 @@ void Player::SetCharacterByNumber(MonsterType type)
 		pokemon = Charizard::Create(pos, dir);
 		break;
 	case MonsterType::GROWLITHE:
-		//pokemon = Growlithe::Create(pos, dir);
+		pokemon = Growlithe::Create(pos, dir);
 		break;
 	case MonsterType::ARCANINE:
-		//pokemon = Arcanine::Create(pos, dir);
+		pokemon = Arcanine::Create(pos, dir);
 		break;
 	case MonsterType::PONYTA:
-		//pokemon = Ponyta::Create(pos, dir);
+		pokemon = Ponyta::Create(pos, dir);
 		break;
 	case MonsterType::RAPIDASH:
-		//pokemon = Rapidash::Create(pos, dir);
+		pokemon = Rapidash::Create(pos, dir);
 		break;
 	case MonsterType::SLUGMA:
-		//pokemon = Slugma::Create(pos, dir);
+		pokemon = Slugma::Create(pos, dir);
 		break;
 	case MonsterType::MAGCARGO:
-		//pokemon = Magcargo::Create(pos, dir);
+		pokemon = Magcargo::Create(pos, dir);
 		break;
 	case MonsterType::GROUDON:
-		//pokemon = Groudon::Create(pos, dir);
+		pokemon = Groudon::Create(pos, dir);
 		break;
 	}
 

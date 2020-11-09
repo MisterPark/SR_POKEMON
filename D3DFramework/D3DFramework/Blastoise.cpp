@@ -35,10 +35,13 @@ void Blastoise::Initialize()
 	state = State::IDLE;
 	AnimSet();
 
-	stat.attack = 100;
+	increaseAttack = 5.f;
+	increaseMaxHp = 30.f;
 
-	stat.hp = 600;
-	stat.maxHp = 600;
+	defaultAttack = 100.f;
+	defaultMaxHp = 600;
+
+	SetStatByLevel();
 
 	skillSet.reserve(4);
 

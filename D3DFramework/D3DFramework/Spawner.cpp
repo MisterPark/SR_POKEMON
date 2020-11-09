@@ -250,7 +250,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				break;
 			case MonsterType::GROWLITHE:
 			{
-				Growlithe* monsterCharacter = Growlithe::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				Growlithe* monsterCharacter = Growlithe::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::GROWLITHE);
 				monsterCharacter->spawner = this;
@@ -261,7 +261,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::ARCANINE:
 			{
-				Arcanine* monsterCharacter = Arcanine::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				Arcanine* monsterCharacter = Arcanine::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::ARCANINE);
 				monsterCharacter->spawner = this;
