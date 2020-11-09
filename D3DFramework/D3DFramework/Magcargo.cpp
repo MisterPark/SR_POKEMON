@@ -162,8 +162,8 @@ void Magcargo::OnCollision(GameObject* target)
 		// ªÁ∏¡√≥∏Æ
 		if (!IsDead() && stat.hp <= 0)
 		{
-			DeadAction();
 			if (this->team == Team::MONSTERTEAM) {
+				DeadAction();
 				Player::GetInstance()->ChangeNextPokemon(type, number);
 				Coin* coin = Coin::Create(this->transform->position, this->stat.money);
 				ObjectManager::AddObject(coin);
