@@ -42,6 +42,7 @@ void Stage_Town::OnLoaded()
 
 	Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
 	tomato->transform->position = { 20.f,0.f,48.f - 21.f };
+	
 
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 

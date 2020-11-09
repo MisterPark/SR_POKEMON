@@ -6,5 +6,7 @@ class Item_Tomato :
 public:
     Item_Tomato();
     virtual ~Item_Tomato();
+
+    virtual void Use() override;
 };
 

@@ -948,8 +948,6 @@
     <ClInclude Include="Item.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Slot.h" />
-    <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Stage_Town.h">
       <Filter>Scene\Town</Filter>
     </ClInclude>
@@ -959,6 +957,13 @@
     <ClInclude Include="Bullet_RedBall.h">
       <Filter>GameObject\Bullet\35. RedBall</Filter>
     </ClInclude>
+    <ClInclude Include="Item_Tomato.h">
+      <Filter>GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Slot.h">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemInfoPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1608,8 +1613,6 @@
     <ClCompile Include="Item.cpp">
       <Filter>GameObject\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Slot.cpp" />
-    <ClCompile Include="Item_Tomato.cpp" />
     <ClCompile Include="Stage_Town.cpp">
       <Filter>Scene\Town</Filter>
     </ClCompile>
@@ -1619,6 +1622,13 @@
     <ClCompile Include="Bullet_RedBall.cpp">
       <Filter>GameObject\Bullet\35. RedBall</Filter>
     </ClCompile>
+    <ClCompile Include="Item_Tomato.cpp">
+      <Filter>GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Slot.cpp">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemInfoPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

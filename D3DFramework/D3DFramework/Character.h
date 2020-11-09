@@ -45,7 +45,7 @@ public:
 	vector<Skill*> GetSkillSet() { return skillSet; }
 
 	virtual bool Attack(const Vector3& dir, const int& attackType);
-	
+	void HealMyself(float _recovery);
 
 public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);

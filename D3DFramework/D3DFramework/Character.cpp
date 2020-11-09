@@ -327,6 +327,15 @@ bool Character::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
+void Character::HealMyself(float _recovery)
+{
+	stat.hp += _recovery;
+	if (stat.hp > stat.maxHp)
+	{
+		stat.hp = stat.maxHp;
+	}
+}
+
 bool Character::IsNotAlliance(GameObject * a, GameObject * b)
 {
 	Character* cb = dynamic_cast<Character*>(b);

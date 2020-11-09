@@ -215,6 +215,7 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="ItemInfoPanel.h" />
     <ClInclude Include="LeechSeed.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
@@ -402,6 +403,7 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemInfoPanel.cpp" />
     <ClCompile Include="Item_Tomato.cpp" />
     <ClCompile Include="LeechSeed.cpp" />
     <ClCompile Include="Meteor.cpp" />
