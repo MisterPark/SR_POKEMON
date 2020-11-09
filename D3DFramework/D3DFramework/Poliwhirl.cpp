@@ -10,10 +10,9 @@ Poliwhirl::Poliwhirl()
 	Initialize();
 }
 
-Poliwhirl::Poliwhirl(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Poliwhirl::Poliwhirl(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -41,6 +40,7 @@ void Poliwhirl::Initialize()
 
 	state = State::READY;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 40;
 	stat.hp = 300;
 	stat.maxHp = 300;
@@ -81,8 +81,8 @@ bool Poliwhirl::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Poliwhirl* Poliwhirl::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Poliwhirl* Poliwhirl::Create(const Vector3& pos, const Vector3& dir)
 {
-	Poliwhirl* newPokemon = new Poliwhirl(pos, scale, dir);
+	Poliwhirl* newPokemon = new Poliwhirl(pos, dir);
 	return newPokemon;
 }

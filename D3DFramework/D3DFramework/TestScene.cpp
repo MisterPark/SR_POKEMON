@@ -40,7 +40,7 @@ void TestScene::OnLoaded()
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
 	//Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Squirtle* playerCharacter = Squirtle::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
-	Bulbasaur* playerCharacter = Bulbasaur::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
+	Psyduck* playerCharacter = Psyduck::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã

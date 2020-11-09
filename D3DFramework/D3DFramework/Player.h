@@ -29,6 +29,7 @@ public:
 	float GetRadianX() { return radianX; }
 	float GetRadianY() { return radianY; }
 	int GetCurrentSkillIndex() { return skillNum; }
+	void SetCatchMonster(Pokemon pokemon) { catchMonster = pokemon; }
 
 private:
 	void Initialize();
@@ -45,6 +46,7 @@ private:
 	static Player* instance;
 
 	Character* character = nullptr;
+	Pokemon catchMonster = Pokemon::None; 
 	float radianX;
 	float radianY;
 	bool isFix;

@@ -5,7 +5,7 @@ class Gloom :
 {
 public:
     Gloom();
-    Gloom(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    Gloom(const Vector3& pos ,const Vector3& dir);
     virtual ~Gloom();
 
 public:
@@ -16,7 +16,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Gloom* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    static Gloom* Create(const Vector3& pos, const Vector3& dir);
 
 
 public:

@@ -8,10 +8,9 @@ Slugma::Slugma()
 	Initialize();
 }
 
-Slugma::Slugma(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Slugma::Slugma(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -39,8 +38,8 @@ void Slugma::Initialize()
 
 	state = State::READY;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 40;
-
 	stat.hp = 350;
 	stat.maxHp = 350;
 
@@ -80,8 +79,8 @@ bool Slugma::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Slugma* Slugma::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Slugma* Slugma::Create(const Vector3& pos, const Vector3& dir)
 {
-	Slugma* newPokemon = new Slugma(pos, scale, dir);
+	Slugma* newPokemon = new Slugma(pos, dir);
 	return newPokemon;
 }

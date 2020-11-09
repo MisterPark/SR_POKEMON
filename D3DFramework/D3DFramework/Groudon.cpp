@@ -7,10 +7,9 @@ Groudon::Groudon()
 	Initialize();
 }
 
-Groudon::Groudon(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Groudon::Groudon(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -38,8 +37,8 @@ void Groudon::Initialize()
 	stat.moveSpeed = 1.5f;
 	offsetY = 1.f;
 
+	transform->scale = { 2.f, 2.f, 2.f };
 	state = State::READY;
-
 	stat.hp = 1600;
 	stat.maxHp = 1600;
 	stat.attack = 50.f;
@@ -88,8 +87,8 @@ bool Groudon::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Groudon* Groudon::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Groudon* Groudon::Create(const Vector3& pos, const Vector3& dir)
 {
-	Groudon* newPokemon = new Groudon(pos, scale, dir);
+	Groudon* newPokemon = new Groudon(pos, dir);
 	return newPokemon;
 }

@@ -5,7 +5,7 @@ class Butterfree :
 {
 public:
     Butterfree();
-    Butterfree(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    Butterfree(const Vector3& pos, const Vector3& dir);
     virtual ~Butterfree();
 
 public:
@@ -21,7 +21,7 @@ private:
     //void Attack();
 
 public:
-    static Butterfree* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    static Butterfree* Create(const Vector3& pos, const Vector3& dir);
 
 
 public:

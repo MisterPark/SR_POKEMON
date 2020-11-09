@@ -10,10 +10,9 @@ Psyduck::Psyduck()
 	Initialize();
 }
 
-Psyduck::Psyduck(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Psyduck::Psyduck(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -48,7 +47,7 @@ void Psyduck::Initialize()
 	
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::MiniRush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-
+	transform->scale = {0.5f, 0.5f, 0.5f};
 	UpdateAnimation();
 
 }
@@ -82,8 +81,8 @@ bool Psyduck::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Psyduck* Psyduck::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Psyduck* Psyduck::Create(const Vector3& pos, const Vector3& dir)
 {
-	Psyduck* newPokemon = new Psyduck(pos, scale, dir);
+	Psyduck* newPokemon = new Psyduck(pos, dir);
 	return newPokemon;
 }

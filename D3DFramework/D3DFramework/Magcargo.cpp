@@ -13,10 +13,9 @@ Magcargo::Magcargo()
 	Initialize();
 }
 
-Magcargo::Magcargo(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Magcargo::Magcargo(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -44,8 +43,8 @@ void Magcargo::Initialize()
 
 	state = State::READY;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 50;
-
 	stat.hp = 450;
 	stat.maxHp = 450;
 
@@ -86,9 +85,9 @@ bool Magcargo::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Magcargo* Magcargo::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Magcargo* Magcargo::Create(const Vector3& pos, const Vector3& dir)
 {
-	Magcargo* newPokemon = new Magcargo(pos, scale, dir);
+	Magcargo* newPokemon = new Magcargo(pos, dir);
 	return newPokemon;
 }
 

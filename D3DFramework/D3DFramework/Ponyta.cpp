@@ -8,10 +8,9 @@ Ponyta::Ponyta()
 	Initialize();
 }
 
-Ponyta::Ponyta(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Ponyta::Ponyta(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -39,8 +38,8 @@ void Ponyta::Initialize()
 
 	state = State::READY;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 40;
-
 	stat.hp = 350;
 	stat.maxHp = 350;
 
@@ -80,8 +79,8 @@ bool Ponyta::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Ponyta* Ponyta::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Ponyta* Ponyta::Create(const Vector3& pos, const Vector3& dir)
 {
-	Ponyta* newPokemon = new Ponyta(pos, scale, dir);
+	Ponyta* newPokemon = new Ponyta(pos, dir);
 	return newPokemon;
 }

@@ -10,10 +10,9 @@ Jynx::Jynx()
 	Initialize();
 }
 
-Jynx::Jynx(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Jynx::Jynx(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -40,6 +39,7 @@ void Jynx::Initialize()
 
 	state = State::READY;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 30;
 	stat.hp = 450;
 	stat.maxHp = 450;
@@ -83,8 +83,8 @@ bool Jynx::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Jynx* Jynx::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Jynx* Jynx::Create(const Vector3& pos, const Vector3& dir)
 {
-	Jynx* newPokemon = new Jynx(pos, scale, dir);
+	Jynx* newPokemon = new Jynx(pos, dir);
 	return newPokemon;
 }

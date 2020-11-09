@@ -10,10 +10,9 @@ Gloom::Gloom()
 	Initialize();
 }
 
-Gloom::Gloom(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Gloom::Gloom(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -44,8 +43,8 @@ void Gloom::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XShot));
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 30;
-
 	stat.hp = 120;
 	stat.maxHp = 120;
 
@@ -83,8 +82,8 @@ bool Gloom::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Gloom* Gloom::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Gloom* Gloom::Create(const Vector3& pos, const Vector3& dir)
 {
-	Gloom* newPokemon = new Gloom(pos, scale, dir);
+	Gloom* newPokemon = new Gloom(pos, dir);
 	return newPokemon;
 }
