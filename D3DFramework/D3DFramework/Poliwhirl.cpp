@@ -51,6 +51,7 @@ void Poliwhirl::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
 
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

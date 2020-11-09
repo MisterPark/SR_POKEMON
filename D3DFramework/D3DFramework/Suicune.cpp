@@ -57,6 +57,7 @@ void Suicune::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowFall));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowCrystal));
 
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

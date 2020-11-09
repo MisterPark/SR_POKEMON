@@ -54,6 +54,7 @@ void Magcargo::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBomb));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireXCrossBomb));
 
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

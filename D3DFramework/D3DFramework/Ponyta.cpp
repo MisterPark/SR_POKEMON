@@ -49,6 +49,7 @@ void Ponyta::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::MiniRush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireShot));
 
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

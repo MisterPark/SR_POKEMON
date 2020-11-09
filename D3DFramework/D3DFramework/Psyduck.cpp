@@ -41,6 +41,8 @@ void Psyduck::Initialize()
 
 	state = State::READY;
 
+	transform->scale = {0.5f, 0.5f, 0.5f};
+
 	defaultAttack = 25;
 	defaultMaxHp = 150;
 	
@@ -49,7 +51,8 @@ void Psyduck::Initialize()
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::MiniRush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-	transform->scale = {0.5f, 0.5f, 0.5f};
+
+	SetStatByLevel();
 	UpdateAnimation();
 
 }
