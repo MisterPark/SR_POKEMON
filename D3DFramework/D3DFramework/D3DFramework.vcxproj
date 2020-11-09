@@ -175,6 +175,7 @@
     <ClInclude Include="Bullet_Ice3.h" />
     <ClInclude Include="Bullet_Poision.h" />
     <ClInclude Include="Bullet_Quake.h" />
+    <ClInclude Include="Bullet_RedBall.h" />
     <ClInclude Include="Bullet_ReverseHealBubble.h" />
     <ClInclude Include="Bullet_ShortWaterFlow.h" />
     <ClInclude Include="Bullet_Synthesis.h" />
@@ -273,6 +274,7 @@
     <ClInclude Include="Skill_PetalBlizzard.h" />
     <ClInclude Include="Skill_Quake.h" />
     <ClInclude Include="Skill_Meteor.h" />
+    <ClInclude Include="Skill_RedBall.h" />
     <ClInclude Include="Skill_ReverseHealBubble.h" />
     <ClInclude Include="Skill_ShellAttack.h" />
     <ClInclude Include="Skill_SnowRain.h" />
@@ -346,6 +348,7 @@
     <ClCompile Include="Bullet_Ice3.cpp" />
     <ClCompile Include="Bullet_Poision.cpp" />
     <ClCompile Include="Bullet_Quake.cpp" />
+    <ClCompile Include="Bullet_RedBall.cpp" />
     <ClCompile Include="Bullet_ReverseHealBubble.cpp" />
     <ClCompile Include="Bullet_ShortWaterFlow.cpp" />
     <ClCompile Include="Bullet_Synthesis.cpp" />
@@ -436,6 +439,7 @@
     <ClCompile Include="Skill_PetalBlizzard.cpp" />
     <ClCompile Include="Skill_Quake.cpp" />
     <ClCompile Include="Skill_Meteor.cpp" />
+    <ClCompile Include="Skill_RedBall.cpp" />
     <ClCompile Include="Skill_ReverseHealBubble.cpp" />
     <ClCompile Include="Skill_ShellAttack.cpp" />
     <ClCompile Include="Skill_SnowRain.cpp" />

@@ -34,4 +34,5 @@ enum class SkillName
 	PetalBlizzard,
 	ClawBlast,
 	Synthesis,
+	RedBall,
 };

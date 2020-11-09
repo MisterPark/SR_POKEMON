@@ -9,7 +9,7 @@
 void Stage_Fire_Boss::OnLoaded()
 {
 	SkyBox::Show();
-	SkyBox::SetTexture(TextureKey::SKYNIGHT_U);
+	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	Player::GetInstance()->SetRadianY(D3DXToRadian(45));
@@ -57,8 +57,6 @@ void Stage_Fire_Boss::Set_Stage_Fire_Boss_Map(TextureKey _key, const std::string
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-
-
 }
 
 void Stage_Fire_Boss::Stage_Fire_Boss_Wave()

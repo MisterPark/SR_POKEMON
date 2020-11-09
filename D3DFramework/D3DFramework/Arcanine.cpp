@@ -1,12 +1,88 @@
 #include "stdafx.h"
 #include "Arcanine.h"
-
+#include "Rectangle.h"
+#include "Bullet.h"
 
 Arcanine::Arcanine()
 {
+	Initialize();
 }
 
+Arcanine::Arcanine(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	transform->position = pos;
+	transform->scale = scale;
+	direction = dir;
+
+	Initialize();
+}
 
 Arcanine::~Arcanine()
 {
+}
+
+void Arcanine::Initialize()
+{
+	name = L"À©µð";
+	number = Pokemon::Arcanine;
+
+	SetTexture(State::WALK, TextureKey::ARCA_WALK_D_02, 3, 2);
+	SetTexture(State::IDLE, TextureKey::ARCA_WALK_D_01, 3, 1);
+	SetTexture(State::READY, TextureKey::ARCA_WALK_D_01, 3, 1);
+	SetTexture(State::ATTACK, TextureKey::ARCA_ATTACK_D_01, 2, 1);
+	SetTexture(State::SKILL, TextureKey::ARCA_ATTACK_D_01, 2, 1);
+
+	anim->SetLoop(true);
+	anim->SetDelay(0.1f);
+	stat.moveSpeed = 0.7f;
+	offsetY = 0.5f;
+
+	state = State::READY;
+
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::RedBall));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
+
+	stat.attack = 30;
+
+	stat.hp = 110;
+	stat.maxHp = 110;
+
+	UpdateAnimation();
+}
+
+void Arcanine::Update()
+{
+	Character::Update();
+	if (monsterAI != nullptr) monsterAI->Update();
+}
+
+void Arcanine::Render()
+{
+	Character::Render();
+}
+
+void Arcanine::Release()
+{
+}
+
+bool Arcanine::Attack(const Vector3& dir, const int& attackType)
+{
+	if (Character::Attack(dir, attackType))
+	{
+		if (team == Team::PLAYERTEAM) {
+			switch (attackType)
+			{
+			case 0: ChangeState(State::ATTACK); break;
+			case 1: ChangeState(State::ATTACK); break;
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+Arcanine* Arcanine::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+{
+	Arcanine* newPokemon = new Arcanine(pos, scale, dir);
+	return newPokemon;
 }

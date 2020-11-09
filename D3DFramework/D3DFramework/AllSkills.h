@@ -37,3 +37,4 @@
 
 #include "Skill_ClawBlast.h"
 #include "Skill_Synthesis.h"
+#include "Skill_RedBall.h"

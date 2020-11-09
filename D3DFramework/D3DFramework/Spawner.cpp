@@ -249,9 +249,27 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			case MonsterType::CHARIZARD:
 				break;
 			case MonsterType::GROWLITHE:
+			{
+				Growlithe* monsterCharacter = Growlithe::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::GROWLITHE);
+				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
+			}
 			case MonsterType::ARCANINE:
+			{
+				Arcanine* monsterCharacter = Arcanine::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::ARCANINE);
+				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
+			}
 			case MonsterType::PONYTA:
 				break;
 			case MonsterType::RAPIDISH:

@@ -189,6 +189,10 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Synthesis:
 		newSkill = Skill_Synthesis::Create();
 		break;
+	case SkillName::RedBall:
+		newSkill = Skill_RedBall::Create();
+		break;
+
 	}
 
 	return newSkill;

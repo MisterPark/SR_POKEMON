@@ -617,6 +617,14 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_03, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (3).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_SYNTHESIS_04, L"Texture\\Player\\Effect\\Synthesis\\Synthesis (4).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_REDBALL1_01, L"Texture\\Bullet\\FireBall1\\FireBall1 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_REDBALL1_02, L"Texture\\Bullet\\FireBall1\\FireBall1 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_REDBALL1_03, L"Texture\\Bullet\\FireBall1\\FireBall1 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_REDBALL1_04, L"Texture\\Bullet\\FireBall1\\FireBall1 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_REDBALL1_05, L"Texture\\Bullet\\FireBall1\\FireBall1 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_REDBALL1_06, L"Texture\\Bullet\\FireBall1\\FireBall1 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_REDBALL1_07, L"Texture\\Bullet\\FireBall1\\FireBall1 (7).png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_INVISIBLE_01, L"Texture\\Bullet\\Invisible\\Invisible (1).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_FIREWALL2_01, L"Texture\\Bullet\\FireWall2\\FireWall2 (1).png");

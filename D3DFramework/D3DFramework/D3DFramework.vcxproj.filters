@@ -184,9 +184,6 @@
     <Filter Include="GameObject\Decoration">
       <UniqueIdentifier>{bbef4f73-09be-45f5-b416-9aec63c17d97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Spawner">
-      <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\TriggerBox">
       <UniqueIdentifier>{99faca5d-c3cc-4633-b888-2e9e507f37f9}</UniqueIdentifier>
     </Filter>
@@ -357,6 +354,15 @@
     </Filter>
     <Filter Include="GameObject\Bullet\32.Synthesis">
       <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Spawner">
+      <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\35. RedBall">
+      <UniqueIdentifier>{4b941a07-20dd-4d00-95bd-b79a65e48c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\35. RedBall">
+      <UniqueIdentifier>{5a138a24-2621-4399-aaeb-5016ce076ef2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -884,6 +890,12 @@
     </ClInclude>
     <ClInclude Include="Bullet_Synthesis.h">
       <Filter>GameObject\Bullet\32.Synthesis</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_RedBall.h">
+      <Filter>Skill\35. RedBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_RedBall.h">
+      <Filter>GameObject\Bullet\35. RedBall</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1503,6 +1515,12 @@
     </ClCompile>
     <ClCompile Include="Bullet_Synthesis.cpp">
       <Filter>GameObject\Bullet\32.Synthesis</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_RedBall.cpp">
+      <Filter>Skill\35. RedBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_RedBall.cpp">
+      <Filter>GameObject\Bullet\35. RedBall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
