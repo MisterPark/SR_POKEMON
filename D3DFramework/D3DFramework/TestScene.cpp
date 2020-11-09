@@ -23,7 +23,7 @@ void TestScene::OnLoaded()
 	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
 	//Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	//Squirtle* playerCharacter = Squirtle::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
-	Psyduck* playerCharacter = Psyduck::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
+	Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
 	ObjectManager::AddObject(playerCharacter);
 
 	//7½Ã
@@ -36,7 +36,7 @@ void TestScene::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 10.f;
 
 	
-	Spawner* spawner = Spawner::Create(MonsterType::MAGCARGO, 10.f, 0.5f, 5);
+	Spawner* spawner = Spawner::Create(MonsterType::ARCANINE, 10.f, 0.5f, 5);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 
@@ -46,12 +46,8 @@ void TestScene::OnLoaded()
 	trigerBox->transform->position = { 40.f,0.f,40.f };
 	trigerBox->Portal();
 
-	//SetTestSceneMap(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 3.5f);
-	/*SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);*/
-	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp",-0.1f);
-	//SetTestSceneMap(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 4.05f);
-	//SetTestSceneMap(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp",3.5f);
 
+	SetTestSceneMap(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp",-0.1f);
 }
 void TestScene::OnUnloaded()
 {

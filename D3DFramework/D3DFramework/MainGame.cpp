@@ -608,6 +608,17 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_09, L"Texture\\Bullet\\Tornado1\\Tornado1 (9).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO1_10, L"Texture\\Bullet\\Tornado1\\Tornado1 (10).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_01, L"Texture\\Bullet\\Explosion\\Explosion (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_02, L"Texture\\Bullet\\Explosion\\Explosion (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_03, L"Texture\\Bullet\\Explosion\\Explosion (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_04, L"Texture\\Bullet\\Explosion\\Explosion (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_05, L"Texture\\Bullet\\Explosion\\Explosion (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_06, L"Texture\\Bullet\\Explosion\\Explosion (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_07, L"Texture\\Bullet\\Explosion\\Explosion (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_08, L"Texture\\Bullet\\Explosion\\Explosion (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_09, L"Texture\\Bullet\\Explosion\\Explosion (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_EXPLOSION_10, L"Texture\\Bullet\\Explosion\\Explosion (10).png");
+
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_01, L"Texture\\Bullet\\Tornado2\\Tornado2 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_02, L"Texture\\Bullet\\Tornado2\\Tornado2 (2).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TORNADO2_03, L"Texture\\Bullet\\Tornado2\\Tornado2 (3).png");

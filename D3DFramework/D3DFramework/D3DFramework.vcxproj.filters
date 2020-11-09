@@ -391,6 +391,12 @@
     <Filter Include="GameObject\Bullet\35. RedBall">
       <UniqueIdentifier>{5a138a24-2621-4399-aaeb-5016ce076ef2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Skill\37. Explosion">
+      <UniqueIdentifier>{5c40e4bc-d283-4022-b94a-474f4deaa842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\37. Explosion">
+      <UniqueIdentifier>{82747b9e-7fd5-47d8-a52f-4a7b577958f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -958,6 +964,12 @@
     </ClInclude>
     <ClInclude Include="Bullet_RedBall.h">
       <Filter>GameObject\Bullet\35. RedBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Explosion.h">
+      <Filter>Skill\37. Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Explosion.h">
+      <Filter>GameObject\Bullet\37. Explosion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1618,6 +1630,12 @@
     </ClCompile>
     <ClCompile Include="Bullet_RedBall.cpp">
       <Filter>GameObject\Bullet\35. RedBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Explosion.cpp">
+      <Filter>Skill\37. Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Explosion.cpp">
+      <Filter>GameObject\Bullet\37. Explosion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

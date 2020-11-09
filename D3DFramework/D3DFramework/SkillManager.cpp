@@ -204,7 +204,9 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::RedBall:
 		newSkill = Skill_RedBall::Create();
 		break;
-
+	case SkillName::Explosion:
+		newSkill = Skill_Explosion::Create();
+		break;
 	}
 
 	return newSkill;

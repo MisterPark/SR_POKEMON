@@ -167,6 +167,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Bullet_Bubble.h" />
     <ClInclude Include="Bullet_Bubble2.h" />
+    <ClInclude Include="Bullet_Explosion.h" />
     <ClInclude Include="Bullet_FireBlast.h" />
     <ClInclude Include="Bullet_FireBomb.h" />
     <ClInclude Include="Bullet_FireMiniBomb.h" />
@@ -223,6 +224,7 @@
     <ClInclude Include="PetalBlizzard.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_ClawBlast.h" />
+    <ClInclude Include="Skill_Explosion.h" />
     <ClInclude Include="Skill_FireBomb.h" />
     <ClInclude Include="Skill_FireBlast.h" />
     <ClInclude Include="framework.h" />
@@ -353,6 +355,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Bullet_Bubble.cpp" />
     <ClCompile Include="Bullet_Bubble2.cpp" />
+    <ClCompile Include="Bullet_Explosion.cpp" />
     <ClCompile Include="Bullet_FireBlast.cpp" />
     <ClCompile Include="Bullet_FireBomb.cpp" />
     <ClCompile Include="Bullet_FireMiniBomb.cpp" />
@@ -408,6 +411,7 @@
     <ClCompile Include="PetalBlizzard.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_ClawBlast.cpp" />
+    <ClCompile Include="Skill_Explosion.cpp" />
     <ClCompile Include="Skill_FireBomb.cpp" />
     <ClCompile Include="Skill_FireBlast.cpp" />
     <ClCompile Include="GameObject.cpp" />

@@ -5,7 +5,7 @@ class Growlithe :
 {
 public:
 	Growlithe();
-	Growlithe(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	Growlithe(const Vector3& pos, const Vector3& dir);
 	virtual ~Growlithe();
 
 public:
@@ -16,7 +16,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Growlithe* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	static Growlithe* Create(const Vector3& pos, const Vector3& dir);
 
 
 public:

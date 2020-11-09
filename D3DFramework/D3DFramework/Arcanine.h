@@ -5,7 +5,7 @@ class Arcanine :
 {
 public:
 	Arcanine();
-	Arcanine(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	Arcanine(const Vector3& pos, const Vector3& dir);
 	virtual ~Arcanine();
 
 public:
@@ -16,7 +16,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Arcanine* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	static Arcanine* Create(const Vector3& pos, const Vector3& dir);
 
 
 public:

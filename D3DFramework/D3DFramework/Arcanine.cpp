@@ -8,10 +8,10 @@ Arcanine::Arcanine()
 	Initialize();
 }
 
-Arcanine::Arcanine(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Arcanine::Arcanine(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
+
 	direction = dir;
 
 	Initialize();
@@ -38,8 +38,9 @@ void Arcanine::Initialize()
 	offsetY = 0.5f;
 
 	state = State::READY;
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::RedBall));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Explosion));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 
 	stat.attack = 30;
@@ -81,8 +82,8 @@ bool Arcanine::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Arcanine* Arcanine::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Arcanine* Arcanine::Create(const Vector3& pos, const Vector3& dir)
 {
-	Arcanine* newPokemon = new Arcanine(pos, scale, dir);
+	Arcanine* newPokemon = new Arcanine(pos, dir);
 	return newPokemon;
 }
