@@ -40,8 +40,10 @@ private:
 	void CalcMouse();
 	void KeyInput();
 	void ChangeState(State state);
-	void Metamorphosis();
 	void SetCharacterByNumber(MonsterType type);
+	
+public:
+	void Metamorphosis();
 	void ChangeNextPokemon(MonsterType pokemon);
 
 private:

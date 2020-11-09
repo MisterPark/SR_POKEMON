@@ -161,7 +161,7 @@ void Character::OnCollision(GameObject* target)
 		if (!IsDead() && stat.hp <= 0)
 		{
 			if (target->team == Team::PLAYERTEAM && this->team == Team::MONSTERTEAM) {
-				//Player::GetInstance()->SetCatchMonster(this->number);
+				Player::GetInstance()->ChangeNextPokemon(this->monsterAI->type);
 			}
 			//
 			stat.hp = 0;
