@@ -391,11 +391,15 @@
     <Filter Include="GameObject\Bullet\35. RedBall">
       <UniqueIdentifier>{5a138a24-2621-4399-aaeb-5016ce076ef2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Bullet\37. Explosion">
+      <UniqueIdentifier>{82747b9e-7fd5-47d8-a52f-4a7b577958f7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Skill\37. Explosion">
       <UniqueIdentifier>{5c40e4bc-d283-4022-b94a-474f4deaa842}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet\37. Explosion">
-      <UniqueIdentifier>{82747b9e-7fd5-47d8-a52f-4a7b577958f7}</UniqueIdentifier>
+
+    <Filter Include="GameObject\Character\Ditto">
+      <UniqueIdentifier>{6180d2cf-b356-4130-a263-73d47bda2e17}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Coin">
       <UniqueIdentifier>{171594f3-c03f-46bf-8207-4864a611f35f}</UniqueIdentifier>
@@ -957,8 +961,6 @@
     <ClInclude Include="Item.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Slot.h" />
-    <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Stage_Town.h">
       <Filter>Scene\Town</Filter>
     </ClInclude>
@@ -974,6 +976,16 @@
     <ClInclude Include="Bullet_Explosion.h">
       <Filter>GameObject\Bullet\37. Explosion</Filter>
     </ClInclude>
+    <ClInclude Include="Ditto.h">
+      <Filter>GameObject\Character\Ditto</Filter>
+    </ClInclude>
+    <ClInclude Include="Item_Tomato.h">
+      <Filter>GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Slot.h">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemInfoPanel.h" />
     <ClInclude Include="Coin.h">
       <Filter>GameObject\Coin</Filter>
     </ClInclude>
@@ -1626,8 +1638,6 @@
     <ClCompile Include="Item.cpp">
       <Filter>GameObject\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Slot.cpp" />
-    <ClCompile Include="Item_Tomato.cpp" />
     <ClCompile Include="Stage_Town.cpp">
       <Filter>Scene\Town</Filter>
     </ClCompile>
@@ -1643,6 +1653,16 @@
     <ClCompile Include="Bullet_Explosion.cpp">
       <Filter>GameObject\Bullet\37. Explosion</Filter>
     </ClCompile>
+    <ClCompile Include="Ditto.cpp">
+      <Filter>GameObject\Character\Ditto</Filter>
+    </ClCompile>
+    <ClCompile Include="Item_Tomato.cpp">
+      <Filter>GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Slot.cpp">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemInfoPanel.cpp" />
     <ClCompile Include="Coin.cpp">
       <Filter>GameObject\Coin</Filter>
     </ClCompile>

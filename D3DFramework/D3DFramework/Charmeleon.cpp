@@ -34,10 +34,13 @@ void Charmeleon::Initialize()
 	state = State::IDLE;
 	AnimSet();
 
-	stat.attack = 50;
+	increaseAttack = 2.5f;
+	increaseMaxHp = 22.5f;
 
-	stat.hp = 450;
-	stat.maxHp = 450;
+	defaultAttack = 50.f;
+	defaultMaxHp = 450;
+
+	SetStatByLevel();
 
 	skillSet.reserve(3);
 

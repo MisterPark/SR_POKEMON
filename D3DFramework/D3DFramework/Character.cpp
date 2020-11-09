@@ -32,6 +32,7 @@ void Character::Update()
 	Billboard();
 	UpdateAnimation();
 	CalcMoveTime();
+	CalcExp();
 
 	oldState = state;
 	healEffectStack += TimeManager::DeltaTime();
@@ -205,6 +206,15 @@ void Character::CalcMoveTime()
 	}
 }
 
+void Character::CalcExp()
+{
+	while (stat.exp >= stat.totalExp)
+	{
+		stat.exp -= stat.totalExp;
+		LevelUp();
+	}
+}
+
 void Character::OnTerrain()
 {
 	GameObject* obj = ObjectManager::GetInstance()->FindObject<Environment>();
@@ -296,6 +306,29 @@ void Character::SetDir(const Vector3 & dir)
 		D3DXVec3Normalize(&direction, &dir);
 }
 
+void Character::SetLV(const int & lv)
+{
+	stat.level = lv;
+
+	SetStatByLevel();
+}
+
+void Character::LevelUp()
+{
+	++stat.level;
+
+	SetStatByLevel();
+}
+
+void Character::SetStatByLevel()
+{
+	int lv = stat.level;
+	stat.attack = (increaseAttack * lv) + defaultAttack;
+	stat.maxHp = (increaseMaxHp * lv) + defaultMaxHp;
+	stat.hp = stat.maxHp;
+	stat.totalExp = (increaseTotalExp * lv) + defaultTotalExp;
+}
+
 void Character::MoveForward()
 {
 	if(canMove) Move(direction);
@@ -330,6 +363,15 @@ bool Character::Attack(const Vector3 & dir, const int & attackType)
 	}
 
 	return false;
+}
+
+void Character::HealMyself(float _recovery)
+{
+	stat.hp += _recovery;
+	if (stat.hp > stat.maxHp)
+	{
+		stat.hp = stat.maxHp;
+	}
 }
 
 bool Character::IsNotAlliance(GameObject * a, GameObject * b)

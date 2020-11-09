@@ -45,8 +45,8 @@ void Arcanine::Initialize()
 
 	stat.attack = 30;
 
-	stat.hp = 110;
-	stat.maxHp = 110;
+	stat.hp = 250;
+	stat.maxHp = 250;
 
 	UpdateAnimation();
 }

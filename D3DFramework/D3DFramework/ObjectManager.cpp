@@ -6,6 +6,7 @@
 #include "TargetInfoPanel.h"
 #include "PlayerInfoPanel.h"
 #include "Inventory.h"
+#include "ItemInfoPanel.h"
 
 using namespace PKH;
 
@@ -20,6 +21,7 @@ PKH::ObjectManager::ObjectManager()
 	TargetInfoPanel::GetInstance();
 	PlayerInfoPanel::GetInstance();
 	Inventory::GetInstance();
+	ItemInfoPanel::GetInstance();
 }
 
 PKH::ObjectManager::~ObjectManager()
@@ -30,6 +32,7 @@ PKH::ObjectManager::~ObjectManager()
 	TargetInfoPanel::Destroy();
 	PlayerInfoPanel::Destroy();
 	Inventory::Destroy();
+	ItemInfoPanel::Destroy();
 	Release();
 }
 
@@ -115,6 +118,7 @@ void PKH::ObjectManager::Update()
 	TargetInfoPanel::GetInstance()->Update();
 	Cursor::GetInstance()->Update();
 	Inventory::Update();
+	ItemInfoPanel::GetInstance()->Update();
 }
 
 void PKH::ObjectManager::PostUpdate()
@@ -206,6 +210,7 @@ void PKH::ObjectManager::PostRender()
 	TargetInfoPanel::GetInstance()->Render();
 	Inventory::Render();
 	Cursor::GetInstance()->Render();
+	ItemInfoPanel::GetInstance()->Render();
 }
 
 bool PKH::ObjectManager::CompareY(GameObject* a, GameObject* b)

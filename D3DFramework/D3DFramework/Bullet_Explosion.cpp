@@ -23,31 +23,7 @@ Bullet_Explosion::Bullet_Explosion()
 
 Bullet_Explosion::~Bullet_Explosion()
 {
-	for (int i = -4; i < 4; i++)
-	{
-		Bullet_RedBall* bullet = dynamic_cast<Bullet_RedBall*>(ObjectManager::GetInstance()->CreateObject<Bullet_RedBall>());
-		bullet->transform->position = transform->position;
 
-		Vector3 rDir = direction;
-
-		rDir.x = i * 0.2;
-
-
-		bullet->stat.attack = stat.attack * 1000.f;
-
-		Vector3::Normalize(&rDir);
-		bullet->SetDir(rDir);
-		float size = 0.1f;
-		bullet->transform->scale = { size,size,size };
-		if (team == Team::MONSTERTEAM) {
-			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-			bullet->SetInitAttack(stat.attack);
-		}
-		else if (team == Team::PLAYERTEAM) {
-			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-			bullet->SetInitAttack(stat.attack);
-		}
-	}
 }
 
 void Bullet_Explosion::Update()
@@ -55,8 +31,34 @@ void Bullet_Explosion::Update()
 	Bullet::Update();
 
 	
-	
+	if (lifeTime < 0)
+	{
+		for (int i = -4; i < 4; i++)
+		{
+			Bullet_RedBall* bullet = dynamic_cast<Bullet_RedBall*>(ObjectManager::GetInstance()->CreateObject<Bullet_RedBall>());
+			bullet->transform->position = transform->position;
+			Vector3 rDir = direction;
 
+			rDir.x = i * 0.2;
+
+
+			bullet->stat.attack = stat.attack * 1000.f;
+
+			Vector3::Normalize(&rDir);
+			bullet->SetDir(rDir);
+			float size = 0.2f;
+			bullet->transform->scale = { size,size,size };
+			if (team == Team::MONSTERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+				bullet->SetInitAttack(stat.attack);
+			}
+			else if (team == Team::PLAYERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+				bullet->SetInitAttack(stat.attack);
+			}
+		}
+		Die();
+	}
 
 
 }
