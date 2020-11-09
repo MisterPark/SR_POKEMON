@@ -40,7 +40,7 @@ void Skill_Explosion::Update()
 	bullet->transform->scale = { size,size,size };
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * 0.005f);
+		bullet->SetInitAttack(character->stat.attack * 0.25);
 		bullet->team = Team::MONSTERTEAM;
 	}
 	else if (character->team == Team::PLAYERTEAM) {

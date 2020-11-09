@@ -50,6 +50,7 @@ void Charmander::Initialize()
 void Charmander::Update()
 {
 	Character::Update();
+	if (monsterAI != nullptr) monsterAI->Update();
 }
 
 void Charmander::Render()
