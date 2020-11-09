@@ -10,15 +10,20 @@ void Stage_Water_Boss::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBLUE1_U);
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
+	
+	
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(90));
-	playerCharacter->direction = { 1.f,0.f,0.f };
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(90));
+		playerCharacter->direction = { 1.f,0.f,0.f };
+		playerCharacter->transform->position.x = 5.f;
+		playerCharacter->transform->position.z = 48.f - 44.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 5.f;
-	playerCharacter->transform->position.z = 48.f - 44.f;
+
 	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\WaterBoss.bmp", 0.f);
 	
 
@@ -30,7 +35,7 @@ void Stage_Water_Boss::OnLoaded()
 void Stage_Water_Boss::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 

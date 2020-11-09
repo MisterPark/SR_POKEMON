@@ -10,28 +10,17 @@ void Stage_Water_02::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBEACH2_U);
-	Charmeleon* playerCharacter = Charmeleon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
-	playerCharacter->direction = { 1.f,0.f,1.f };
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 7.f;
-	playerCharacter->transform->position.z = 48.f - 35.f;
-
-	//Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
-	//ObjectManager::AddObject(monsterCharacter4);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter4);
-
-	//Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
-	//ObjectManager::AddObject(monsterCharacter5);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter5);
-
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(30));
+		playerCharacter->direction = { 1.f,0.f,1.f };
+		playerCharacter->transform->position.x = 7.f;
+		playerCharacter->transform->position.z = 48.f - 35.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
@@ -47,7 +36,7 @@ void Stage_Water_02::OnLoaded()
 void Stage_Water_02::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 

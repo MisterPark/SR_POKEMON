@@ -10,16 +10,20 @@ void Stage_Fire_02::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(90));
-	playerCharacter->direction = { 1.f,0.f,0.f };
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(90));
+		playerCharacter->direction = { 1.f,0.f,0.f };
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 5.f;
-	playerCharacter->transform->position.z = 48.f - 44.f;
-	Set_Stage_Fire_02_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);
+		playerCharacter->transform->position.x = 5.f;
+		playerCharacter->transform->position.z = 48.f - 44.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
+
+	waterHeight = -0.1f;
+	Set_Stage_Fire_02_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", waterHeight);
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	/*trigerBox->OnTriggered = CreateSpawner;*/
@@ -32,7 +36,7 @@ void Stage_Fire_02::OnLoaded()
 void Stage_Fire_02::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 
@@ -44,9 +48,10 @@ void Stage_Fire_02::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Fire_01>();
+		SceneManager::LoadScene<Stage_Fire_Boss>();
 	}
 	Stage_Fire_02_Wave();
+	soHot(waterHeight);
 }
 
 
@@ -153,4 +158,12 @@ void Stage_Fire_02::Portal()
 void Stage_Fire_02::TownPortal()
 {
 	SceneManager::LoadScene<Stage_Town>();
+}
+
+void Stage_Fire_02::soHot(float _waterheight)
+{
+	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight)
+	{
+		Player::GetInstance()->GetCharacter()->MinusHp(dfSOHOT_DAMAGE);
+	}
 }

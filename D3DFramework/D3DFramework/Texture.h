@@ -84,7 +84,7 @@ namespace PKH
 
 
 		//=========================== UI =============================
-		UI_CURSOR_TARGET,
+		UI_CURSOR,
 		UI_LOCK_ON,
 		UI_TITLE_SCREEN,
 		UI_BLUE_FILTER,

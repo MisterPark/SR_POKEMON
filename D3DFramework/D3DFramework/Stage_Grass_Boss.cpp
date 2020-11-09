@@ -12,17 +12,20 @@ void Stage_Grass_Boss::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYNIGHT_U);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
-	Player::GetInstance()->SetRadianY(D3DXToRadian(45));
-	playerCharacter->direction = { 1.f,0.f,1.f };
-	playerCharacter->transform->position.x = 1.f;
-	playerCharacter->transform->position.z = 48.f - 47.f;
-	Camera::GetInstance()->SetTarget(playerCharacter);
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(45));
+		playerCharacter->direction = { 1.f,0.f,1.f };
+		playerCharacter->transform->position.x = 1.f;
+		playerCharacter->transform->position.z = 48.f - 47.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
+
 
 	Set_Stage_Grass_Boss_Map(TextureKey::GRASS_MAP2, "Texture\\Map\\HeightMap\\Lake3.bmp", 8.5f);
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	/*trigerBox->OnTriggered = CreateSpawner;*/
 	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
 
 }
@@ -30,7 +33,7 @@ void Stage_Grass_Boss::OnLoaded()
 void Stage_Grass_Boss::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 

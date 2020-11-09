@@ -70,7 +70,7 @@ public:
 	Spawner* spawner = nullptr;
 
 	//Stat
-	wstring name;
+	
 	Pokemon number = Pokemon::None;
 	TYPE type = TYPE::END;
     // 지형과 간격

@@ -13,8 +13,6 @@ void Stage_Grass_01::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
-	CollisionManager* col = CollisionManager::GetInstance();
-
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
