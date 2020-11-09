@@ -15,26 +15,27 @@ void TitleScene::OnLoaded()
 	// UI
 	ObjectManager::GetInstance()->CreateObject<UI_Title>();
 	Button* btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
-	btn->text = L"싱글 플레이";
+	btn->text = L"플레이";
 	btn->SetSize(250, 40);
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
 	btn->transform->position.y = 600;
 	
 	btn->Click = SceneManager::LoadScene<SelectScene>;
 
-	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
-	btn->text = L"멀티 플레이";
-	btn->SetSize(250, 40);
-	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
-	btn->transform->position.y = 650;
-	btn->Click = SceneManager::LoadScene<TestMultiScene>;
+	//btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
+	//btn->text = L"옵션";
+	//btn->SetSize(250, 40);
+	//btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
+	//btn->transform->position.y = 650;
+	//btn->Click = MainGame::Shutdown;
 
 	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"종료";
 	btn->SetSize(250, 40);
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
-	btn->transform->position.y = 700;
+	btn->transform->position.y = 650;
 	btn->Click = MainGame::Shutdown;
+
 
 	// 테스트 씬 용
 	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
