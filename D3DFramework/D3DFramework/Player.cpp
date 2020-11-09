@@ -78,6 +78,7 @@ void Player::SetCharacter(Character * object)
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
 		PlayerInfoPanel::SetTarget(character);
 		Camera::GetInstance()->SetTarget(character);
+		character->infoVisible = false;
 
 		++pokemonIndex;
 		metamorphosisList.emplace_back(make_pair(character->type, character->number));
@@ -100,6 +101,7 @@ void Player::SetCharacter(Character * object)
 		character->transform->position = pos;
 		character->direction = dir;
 		character->stat = oldStat;
+		character->infoVisible = false;
 
 		skillSetSize = character->GetSkillSetSize();
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
@@ -450,7 +452,10 @@ void Player::SetCharacterByNumber(TYPE type)
 		break;
 	}
 
-	if (nullptr != pokemon) ObjectManager::AddObject(pokemon);
+	if (nullptr != pokemon)
+	{
+		ObjectManager::AddObject(pokemon);
+	}
 
 	SetCharacter(pokemon);
 }
