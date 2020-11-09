@@ -9,37 +9,26 @@
 void Stage_Water_02::OnLoaded()
 {
 	SkyBox::Show();
-	SkyBox::SetTexture(TextureKey::SKYDAY_U);
-	Charmeleon* playerCharacter = Charmeleon::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
+	SkyBox::SetTexture(TextureKey::SKYBEACH2_U);
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(30));
-	playerCharacter->direction = { 1.f,0.f,1.f };
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 7.f;
-	playerCharacter->transform->position.z = 48.f - 35.f;
-
-	//Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
-	//ObjectManager::AddObject(monsterCharacter4);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter4);
-
-	//Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
-	//ObjectManager::AddObject(monsterCharacter5);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter5);
-
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(30));
+		playerCharacter->direction = { 1.f,0.f,1.f };
+		playerCharacter->transform->position.x = 7.f;
+		playerCharacter->transform->position.z = 48.f - 35.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	/*trigerBox->OnTriggered = CreateSpawner;*/
 	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_WATER, TextureKey::PROPERTY_WATER, 10.f, false);
 
-
-	Set_Stage_Water_02_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Lake.bmp", 3.f);
+	Set_Stage_Water_02_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Lake.bmp", 9.9f);
 
 
 }
@@ -47,7 +36,7 @@ void Stage_Water_02::OnLoaded()
 void Stage_Water_02::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 
@@ -61,7 +50,7 @@ void Stage_Water_02::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Grass_Boss>();
+		SceneManager::LoadScene<Stage_Water_Boss>();
 	}
 	Stage_Water_02_Wave();
 
@@ -80,36 +69,7 @@ void Stage_Water_02::Set_Stage_Water_02_Map(TextureKey _key, const std::string& 
 	water->transform->position.y = _waterHeight;
 	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
 
-	//나무
-	for (int i = 0; i < 5; i++)
-	{
-		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 15.f + 4 * i;
-		tree->transform->position.z += 41.f;
-		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE06);
-	}
-	for (int i = 0; i < 5; i++)
-	{
-		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 26.f + 4 * i;
-		tree->transform->position.z += 6.f;
-		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE06);
-	}
-	for (int i = 0; i < 7; i++)
-	{
-		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 6.f;
-		tree->transform->position.z += 26.f + 2 * i;
-		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
-	}
-	for (int i = 0; i < 6; i++)
-	{
-		GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-		tree->transform->position.x += 43.f;
-		tree->transform->position.z += 10.f + 2 * i;
-		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
-	}
-	//산호
+
 	for (float i = 0; i < 3; i += 0.7)
 	{
 		for (float j = 0; j < 3; j += 0.7)
@@ -170,7 +130,7 @@ void Stage_Water_02::Stage_Water_02_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::ODDISH, 10.f, 0.5f, 10);
+		Spawner* spawner = Spawner::Create(MonsterType::GOLDUCK, 10.f, 0.5f, 10);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 		triggerOn = true;
@@ -180,25 +140,25 @@ void Stage_Water_02::Stage_Water_02_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::GLOOM, 10.f, 0.5f, 7);
-			spawner->transform->position = { 24.f,0.f,24.f };
-			ObjectManager::AddObject(spawner);
-			spawnerCount++;
-		}
-		else if (spawnerCount == 2)
-		{
-			Spawner* spawner = Spawner::Create(MonsterType::VILEPLUME, 10.f, 0.5f, 5);
+			Spawner* spawner = Spawner::Create(MonsterType::POLIWHIRL, 10.f, 0.5f, 7);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
 			triggerOn = false;
 		}
-		else if (spawnerCount == 3 && triggerOn == false)
+
+		else if (spawnerCount == 2 && triggerOn == false)
 		{
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
+			trigerBox->AnimChange(TextureKey::PROPERTY_WATER, TextureKey::PROPERTY_WATER, 10.f, false);
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = TownPortal;
+			trigerBox->transform->position = { 8.f,0.f,8.f };
 			trigerBox->Portal();
+
 			spawnerCount++;
 		}
 	}

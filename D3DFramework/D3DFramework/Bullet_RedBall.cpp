@@ -33,5 +33,5 @@ void Bullet_RedBall::Render()
 
 void Bullet_RedBall::OnCollision(GameObject* target)
 {
-	Die();
+	
 }

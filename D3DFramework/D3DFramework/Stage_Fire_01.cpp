@@ -11,21 +11,25 @@ void Stage_Fire_01::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(90));
-	playerCharacter->direction = { 1.f,0.f,0.f };
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(90));
+		playerCharacter->direction = { 1.f,0.f,0.f };
+		playerCharacter->transform->position.x = 1.f;
+		playerCharacter->transform->position.z = 48.f - 24.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 1.f;
-	playerCharacter->transform->position.z = 48.f - 24.f;
+	waterHeight = 10.15f;
 
+	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Fire1.bmp", waterHeight);
 
-
-	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Fire1.bmp", 10.15f);
-
-
+	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	/*trigerBox->OnTriggered = CreateSpawner;*/
+	trigerBox->transform->position = { 24.f,0.f,48.f - 22.f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
 
 }
 
@@ -43,8 +47,10 @@ void Stage_Fire_01::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Fire_Boss>();
+		SceneManager::LoadScene<Stage_Fire_02>();
 	}
+	Stage_Fire_01_Wave();
+	soHot(waterHeight);
 }
 
 
@@ -59,30 +65,7 @@ void Stage_Fire_01::Set_Stage_Fire_01_Map(TextureKey _key, const std::string& _f
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
 	dynamic_cast<Water*>(water)->Lava();
-	//³ª¹«
 
-	//for (int i = 0; i < 8; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 45.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-	//}
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 2.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-
-	//}
-	//for (int i = 0; i < 9; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 46.f;
-	//	tree->transform->position.z += 20.f + 2 * i;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
-	//}
 }
 
 void Stage_Fire_01::Stage_Fire_01_Wave()
@@ -144,4 +127,12 @@ void Stage_Fire_01::Portal()
 void Stage_Fire_01::TownPortal()
 {
 	SceneManager::LoadScene<Stage_Town>();
+}
+
+void Stage_Fire_01::soHot(float _waterheight)
+{
+	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight)
+	{
+		Player::GetInstance()->GetCharacter()->MinusHp(dfSOHOT_DAMAGE);
+	}
 }

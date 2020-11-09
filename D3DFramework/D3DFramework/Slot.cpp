@@ -5,6 +5,7 @@
 
 Slot::Slot()
 {
+	textureKey = TextureKey::UI_SLOT;
 }
 
 Slot::~Slot()
@@ -32,7 +33,7 @@ void Slot::Update()
 
 void Slot::Render()
 {
-    D2DRenderManager::DrawUI(TextureKey::UI_SLOT, transform->position, 0);
+    D2DRenderManager::DrawUI(textureKey, transform->position, 0);
 
     if (item)
     {
@@ -50,13 +51,19 @@ void Slot::OnHover()
 {
 	UI::OnHover();
 
-	ItemInfoPanel::Show();
+	if (item)
+	{
+		ItemInfoPanel::SetTarget(item);
+		ItemInfoPanel::Show();
+	}
+	
 }
 
 void Slot::OnLeave()
 {
 	UI::OnLeave();
 
+	ItemInfoPanel::SetTarget(nullptr);
 	ItemInfoPanel::Hide();
 }
 
@@ -81,8 +88,13 @@ void Slot::Use()
 		item->Use();
 		if (item->count < 1)
 		{
+			if (ItemInfoPanel::GetTarget() == item)
+			{
+				ItemInfoPanel::SetTarget(nullptr);
+			}
 			delete item;
 			item = nullptr;
+
 		}
 	}
 }
@@ -105,7 +117,7 @@ void Slot::UpdateUI()
 	}
 	else
 	{
-		width = transform->scale.x * 88;
-		height = transform->scale.y * 88;
+		width = transform->scale.x * 32;
+		height = transform->scale.y * 32;
 	}
 }

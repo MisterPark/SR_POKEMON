@@ -88,9 +88,23 @@ void PKH::Mesh::Render()
 
 		device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 		device->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
-		device->SetRenderState(D3DRS_LIGHTING, false);
 
+		switch (lightMode)
+		{
+		case LightMode::ON:
+			device->SetRenderState(D3DRS_LIGHTING, true);
+			break;
+		case LightMode::OFF:
+			device->SetRenderState(D3DRS_LIGHTING, false);
+			break;
+		default:
+			break;
+		}
+		
+		// ·»´õ
 		device->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, vertexCount, 0, triangleCount);
+
+		device->SetRenderState(D3DRS_LIGHTING, false);
 	
 		device->SetTexture(0, NULL);
 

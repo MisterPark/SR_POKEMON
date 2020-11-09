@@ -13,7 +13,7 @@ Skill_RedBall::Skill_RedBall()
 Skill_RedBall::~Skill_RedBall()
 {
 }
-
+	
 void Skill_RedBall::InitCoolTime()
 {
 	coolTime = 1.f;
@@ -40,11 +40,11 @@ void Skill_RedBall::Update()
 	bullet->transform->scale = { size,size,size };
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * 0.005f);
+		bullet->SetInitAttack(character->stat.attack * 0.01f);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * 0.02f);
+		bullet->SetInitAttack(character->stat.attack * 0.04f);
 	}
 
 	

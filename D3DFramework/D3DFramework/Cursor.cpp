@@ -5,11 +5,13 @@ PKH::Cursor* pCursor = nullptr;
 
 PKH::Cursor::Cursor()
 {
-    
+   
+    ShowCursor(FALSE);
 }
 
 PKH::Cursor::~Cursor()
 {
+    ShowCursor(TRUE);
 }
 
 Cursor* PKH::Cursor::GetInstance()
@@ -46,7 +48,7 @@ void PKH::Cursor::Show()
     if (pCursor->isVisible) return;
 
     pCursor->isVisible = true;
-    ShowCursor(TRUE);
+    
 }
 
 void PKH::Cursor::Show(bool on)
@@ -59,7 +61,7 @@ void PKH::Cursor::Hide()
     if (pCursor->isVisible == false) return;
 
     pCursor->isVisible = false;
-    ShowCursor(FALSE);
+    
 }
 
 void PKH::Cursor::Update()
@@ -71,7 +73,7 @@ void PKH::Cursor::Update()
 void PKH::Cursor::Render()
 {
     if (isVisible == false)return;
-    D2DRenderManager::DrawSprite(TextureKey::UI_CURSOR_TARGET, *transform, 0);
+    D2DRenderManager::DrawUI(TextureKey::UI_CURSOR, *transform, 0);
 }
 
 void PKH::Cursor::Initialize()
