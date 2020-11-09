@@ -142,9 +142,12 @@ void MonsterAI::PlayerSearch(float _range, float _rangeOut)
 	Character* c = dynamic_cast<Character*>(gameObject);
 	if (c == nullptr) return;
 
-	//GameObject* g = ObjectManager::GetInstance()->GetNearestObject<Character>((GameObject*)this, Character::IsNotAlliance);
-	GameObject* g = ObjectManager::GetInstance()->FindObject<Character>();
-	if (g == nullptr) return;
+	Player* player = Player::GetInstance();
+	if (nullptr == player) return;
+
+	GameObject* g = player->GetCharacter();
+	if (nullptr == g) return;
+
 	Transform* PlayerT = g->transform;
 
 	float distX = PlayerT->position.x - c->transform->position.x;

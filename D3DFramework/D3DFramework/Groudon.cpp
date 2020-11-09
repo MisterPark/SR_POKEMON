@@ -22,6 +22,8 @@ Groudon::~Groudon()
 void Groudon::Initialize()
 {
 	name = L"±×¶õµ·";
+	type = TYPE::GROUDON;
+	number = Pokemon::Groudon;
 	
 
 	SetTexture(State::WALK, TextureKey::GROU_WALK_D_02, 3, 2);

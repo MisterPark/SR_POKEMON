@@ -25,6 +25,7 @@ Oddish::~Oddish()
 void Oddish::Initialize()
 {
 	name = L"¶Ñ¹÷ÃÊ";
+	type = TYPE::ODDISH;
 	number = Pokemon::Oddish;
 
 	SetTexture(State::WALK, TextureKey::ODDI_WALK_D_02, 3,2);

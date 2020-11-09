@@ -163,7 +163,7 @@ void Character::OnCollision(GameObject* target)
 		if (!IsDead() && stat.hp <= 0)
 		{
 			if (this->team == Team::MONSTERTEAM) {
-				Player::GetInstance()->ChangeNextPokemon(this->monsterAI->type, this->number);				
+				Player::GetInstance()->ChangeNextPokemon(type, number);				
 				Coin* coin = Coin::Create(this->transform->position, this->stat.money);
 				ObjectManager::AddObject(coin);
 				CollisionManager::RegisterObject(COLTYPE::COIN, coin);

@@ -23,6 +23,7 @@ Ivysaur::~Ivysaur()
 void Ivysaur::Initialize()
 {
 	name = L"이상해풀";
+	type = TYPE::IVYSAUR;
 	number = Pokemon::Ivysaur;
 
 	SetTexture(State::IDLE, TextureKey::PG02_WALK_D_01, 3, 1);

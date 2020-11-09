@@ -24,6 +24,7 @@ Vileplume::~Vileplume()
 void Vileplume::Initialize()
 {
 	name = L"라플레시아";
+	type = TYPE::VILEPLUME;
 	number = Pokemon::Vileplume;
 
 	SetTexture(State::WALK, TextureKey::VILE_WALK_D_02, 3,2);

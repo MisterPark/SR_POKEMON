@@ -41,19 +41,19 @@ private:
 	void CalcMouse();
 	void KeyInput();
 	void ChangeState(State state);
-	void SetCharacterByNumber(MonsterType type);
+	void SetCharacterByNumber(TYPE type);
 	void CalcMetamorphosisTime();
 	void ComeBackFromMetamorpho();
 
 public:
 	void Metamorphosis();
-	void ChangeNextPokemon(MonsterType pokemon, Pokemon number);
+	void ChangeNextPokemon(TYPE pokemon, Pokemon number);
 
 private:
 	static Player* instance;
 	Character* character = nullptr;
-	vector<pair<MonsterType, Pokemon>> metamorphosisList;
-	pair<MonsterType, Pokemon> nextPokemon;
+	vector<pair<TYPE, Pokemon>> metamorphosisList;
+	pair<TYPE, Pokemon> nextPokemon;
 	float radianX;
 	float radianY;
 	float metamorphosisTime;

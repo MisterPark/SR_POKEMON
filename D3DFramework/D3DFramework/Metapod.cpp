@@ -23,6 +23,7 @@ Metapod::~Metapod()
 void Metapod::Initialize()
 {
 	name = L"´Üµ¥±â";
+	type = TYPE::METAPOD;
 	number = Pokemon::Metapod;
 
 	SetTexture(State::WALK, TextureKey::META_WALK_D_02, 3,2);

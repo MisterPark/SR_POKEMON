@@ -25,6 +25,7 @@ Poliwrath::~Poliwrath()
 void Poliwrath::Initialize()
 {
 	name = L"∞≠√¨¿Ã";
+	type = TYPE::POLIWRATH;
 	number = Pokemon::Poliwrath;
 
 	SetTexture(State::WALK, TextureKey::WRATH_WALK_D_02, 3,2);

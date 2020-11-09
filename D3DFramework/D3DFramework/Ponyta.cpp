@@ -23,6 +23,7 @@ Ponyta::~Ponyta()
 void Ponyta::Initialize()
 {
 	name = L"Æ÷´ÏÅ¸";
+	type = TYPE::PONYTA;
 	number = Pokemon::Ponyta;
 
 	SetTexture(State::WALK, TextureKey::PONY_WALK_D_02, 3, 2);

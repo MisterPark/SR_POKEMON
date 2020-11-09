@@ -48,8 +48,6 @@ void Player::Update()
 		CalcMouse();
 		ResetMousePoint();
 	}
-
-	cout << character->stat.exp << endl;
 }
 
 void Player::PostUpdate()
@@ -80,6 +78,9 @@ void Player::SetCharacter(Character * object)
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
 		PlayerInfoPanel::SetTarget(character);
 		Camera::GetInstance()->SetTarget(character);
+
+		++pokemonIndex;
+		metamorphosisList.emplace_back(make_pair(character->type, character->number));
 	}
 	// 처음 세팅이 아닐 때
 	else
@@ -133,7 +134,7 @@ void Player::Initialize()
 {
 	metamorphosisList.reserve(3);
 	pokemonIndex = -1;
-	nextPokemon.first = MonsterType::VENUSAUR;
+	nextPokemon.first = TYPE::VENUSAUR;
 	nextPokemon.second = Pokemon::Venusaur;
 	canMetamorphosis = true;
 }
@@ -333,13 +334,13 @@ void Player::Metamorphosis()
 {
 	if (canMetamorphosis)
 	{
-		if (MonsterType::END != nextPokemon.first)
+		if (TYPE::END != nextPokemon.first)
 		{
 			metamorphosisList.emplace_back(nextPokemon);
 			SetCharacterByNumber(nextPokemon.first);
 
 			++pokemonIndex;
-			nextPokemon.first = MonsterType::END;
+			nextPokemon.first = TYPE::END;
 			nextPokemon.second = Pokemon::None;
 
 			metamorphosisTime = 5.f;
@@ -348,7 +349,7 @@ void Player::Metamorphosis()
 	}
 }
 
-void Player::SetCharacterByNumber(MonsterType type)
+void Player::SetCharacterByNumber(TYPE type)
 {
 	Character* pokemon = nullptr;
 
@@ -357,94 +358,94 @@ void Player::SetCharacterByNumber(MonsterType type)
 
 	switch (type)
 	{
-	case MonsterType::BULBASAUR:
+	case TYPE::BULBASAUR:
 		pokemon = Bulbasaur::Create(pos, dir);
 		break;
-	case MonsterType::IVYSAUR:
+	case TYPE::IVYSAUR:
 		pokemon = Ivysaur::Create(pos, dir);
 		break;
-	case MonsterType::VENUSAUR:
+	case TYPE::VENUSAUR:
 		pokemon = Venusaur::Create(pos, dir);
 		break;
-	case MonsterType::CATERPIE:
+	case TYPE::CATERPIE:
 		pokemon = Caterpie::Create(pos, dir);
 		break;
-	case MonsterType::METAPOD:
+	case TYPE::METAPOD:
 		pokemon = Metapod::Create(pos, dir);
 		break;
-	case MonsterType::ODDISH:
+	case TYPE::ODDISH:
 		pokemon = Oddish::Create(pos, dir);
 		break;
-	case MonsterType::GLOOM:
+	case TYPE::GLOOM:
 		pokemon = Bulbasaur::Create(pos, dir);
 		break;
-	case MonsterType::VILEPLUME:
+	case TYPE::VILEPLUME:
 		pokemon = Vileplume::Create(pos, dir);
 		break;
-	case MonsterType::SCYTHER:
+	case TYPE::SCYTHER:
 		pokemon = Scyther::Create(pos, dir);
 		break;
-	case MonsterType::BUTTERFREE:
+	case TYPE::BUTTERFREE:
 		pokemon = Butterfree::Create(pos, dir);
 		break;
-	case MonsterType::SQUIRTLE:
+	case TYPE::SQUIRTLE:
 		pokemon = Squirtle::Create(pos, dir);
 		break;
-	case MonsterType::WARTORTLE:
+	case TYPE::WARTORTLE:
 		pokemon = Wartortle::Create(pos, dir);
 		break;
-	case MonsterType::BLASTOISE:
+	case TYPE::BLASTOISE:
 		pokemon = Blastoise::Create(pos, dir);
 		break;
-	case MonsterType::PSYDUCK:
+	case TYPE::PSYDUCK:
 		pokemon = Psyduck::Create(pos, dir);
 		break;
-	case MonsterType::GOLDUCK:
+	case TYPE::GOLDUCK:
 		pokemon = Golduck::Create(pos, dir);
 		break;
-	case MonsterType::POLIWAG:
+	case TYPE::POLIWAG:
 		pokemon = Poliwag::Create(pos, dir);
 		break;
-	case MonsterType::POLIWHIRL:
+	case TYPE::POLIWHIRL:
 		pokemon = Poliwhirl::Create(pos, dir);
 		break;
-	case MonsterType::POLIWRATH:
+	case TYPE::POLIWRATH:
 		pokemon = Poliwrath::Create(pos, dir);
 		break;
-	case MonsterType::JYNX:
+	case TYPE::JYNX:
 		pokemon = Jynx::Create(pos, dir);
 		break;
-	case MonsterType::SUICUNE:
+	case TYPE::SUICUNE:
 		pokemon = Suicune::Create(pos, dir);
 		break;
-	case MonsterType::CHARMANDER:
+	case TYPE::CHARMANDER:
 		pokemon = Charmander::Create(pos, dir);
 		break;
-	case MonsterType::CHARMELEON:
+	case TYPE::CHARMELEON:
 		pokemon = Charmeleon::Create(pos, dir);
 		break;
-	case MonsterType::CHARIZARD:
+	case TYPE::CHARIZARD:
 		pokemon = Charizard::Create(pos, dir);
 		break;
-	case MonsterType::GROWLITHE:
+	case TYPE::GROWLITHE:
 		pokemon = Growlithe::Create(pos, dir);
 		break;
-	case MonsterType::ARCANINE:
+	case TYPE::ARCANINE:
 		pokemon = Arcanine::Create(pos, dir);
 		break;
-	case MonsterType::PONYTA:
+	case TYPE::PONYTA:
 		pokemon = Ponyta::Create(pos, dir);
 		break;
-	case MonsterType::RAPIDASH:
+	case TYPE::RAPIDASH:
 		pokemon = Rapidash::Create(pos, dir);
 		break;
-	case MonsterType::SLUGMA:
+	case TYPE::SLUGMA:
 		pokemon = Slugma::Create(pos, dir);
 		break;
-	case MonsterType::MAGCARGO:
+	case TYPE::MAGCARGO:
 		pokemon = Magcargo::Create(pos, dir);
 		break;
-	case MonsterType::GROUDON:
+	case TYPE::GROUDON:
 		pokemon = Groudon::Create(pos, dir);
 		break;
 	}
@@ -483,9 +484,9 @@ void Player::ComeBackFromMetamorpho()
 	SetCharacterByNumber(metamorphosisList[pokemonIndex].first);
 }
 
-void Player::ChangeNextPokemon(MonsterType pokemon, Pokemon number)
+void Player::ChangeNextPokemon(TYPE pokemon, Pokemon number)
 {
-	if (MonsterType::END != pokemon)
+	if (TYPE::END != pokemon)
 	{
 		nextPokemon.first = pokemon;
 		nextPokemon.second = number;

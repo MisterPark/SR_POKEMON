@@ -23,6 +23,7 @@ Wartortle::~Wartortle()
 void Wartortle::Initialize()
 {
 	name = L"어니부기";
+	type = TYPE::WARTORTLE;
 	number = Pokemon::Wartortle;
 
 	SetTexture(State::IDLE, TextureKey::PW02_WALK_D_01, 3, 1);

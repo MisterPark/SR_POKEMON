@@ -28,6 +28,7 @@ Magcargo::~Magcargo()
 void Magcargo::Initialize()
 {
 	name = L"마그카르고";
+	type = TYPE::MAGCARGO;
 	number = Pokemon::Magcargo;
 
 	SetTexture(State::WALK, TextureKey::MAGCA_WALK_D_02, 3, 2);

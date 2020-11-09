@@ -5,6 +5,17 @@
 
 class Skill;
 
+enum class TYPE {
+	BULBASAUR, IVYSAUR, VENUSAUR,
+	CATERPIE, METAPOD, ODDISH, GLOOM, VILEPLUME, SCYTHER, BUTTERFREE,
+	SQUIRTLE, WARTORTLE, BLASTOISE,
+	PSYDUCK, GOLDUCK, POLIWAG, POLIWHIRL, POLIWRATH, JYNX, SUICUNE,
+	CHARMANDER, CHARMELEON, CHARIZARD,
+	GROWLITHE, ARCANINE, PONYTA, RAPIDASH, SLUGMA, MAGCARGO, GROUDON,
+	DITTO,
+	END
+};
+
 class Character :
     public GameObject
 {
@@ -61,6 +72,7 @@ public:
 	//Stat
 	wstring name;
 	Pokemon number = Pokemon::None;
+	TYPE type = TYPE::END;
     // 지형과 간격
     float offsetY;
 	Vector3 direction = { 0,0,1 };

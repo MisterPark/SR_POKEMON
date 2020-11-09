@@ -22,6 +22,7 @@ Charmeleon::~Charmeleon()
 void Charmeleon::Initialize()
 {
 	name = L"¸®ÀÚµå";
+	type = TYPE::CHARMELEON;
 	number = Pokemon::Charmeleon;
 
 	SetTexture(State::IDLE, TextureKey::PF02_WALK_D_01, 3, 1);

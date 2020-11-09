@@ -22,6 +22,7 @@ Charizard::~Charizard()
 void Charizard::Initialize()
 {
 	name = L"¸®ÀÚ¸ù";
+	type = TYPE::CHARIZARD;
 	number = Pokemon::Charizard;
 
 	SetTexture(State::IDLE, TextureKey::PF03_WALK_D_01, 3, 1);

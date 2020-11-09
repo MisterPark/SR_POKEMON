@@ -25,6 +25,7 @@ Poliwhirl::~Poliwhirl()
 void Poliwhirl::Initialize()
 {
 	name = L"¼ö·úÃ¬ÀÌ";
+	type = TYPE::POLIWHIRL;
 	number = Pokemon::Poliwhirl;
 
 	SetTexture(State::WALK, TextureKey::WHIRL_WALK_D_02, 3,2);

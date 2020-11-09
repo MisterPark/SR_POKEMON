@@ -23,6 +23,7 @@ Slugma::~Slugma()
 void Slugma::Initialize()
 {
 	name = L"마그마그";
+	type = TYPE::SLUGMA;
 	number = Pokemon::Slugma;
 
 	SetTexture(State::WALK, TextureKey::SLUG_WALK_D_02, 3, 2);

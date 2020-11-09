@@ -21,6 +21,7 @@ Caterpie::Caterpie(const Vector3& pos, const Vector3& dir)
 void Caterpie::Initialize()
 {
 	name = L"Ä³ÅÍÇÇ";
+	type = TYPE::CATERPIE;
 	number = Pokemon::Caterpie;
 
 	SetTexture(State::WALK, TextureKey::CATER_WALK_D_02, 3,2);
@@ -32,14 +33,14 @@ void Caterpie::Initialize()
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 	stat.moveSpeed = 1.f;
-	offsetY = 0.5f;
+	offsetY = 0.3f;
 
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
-	transform->scale = { 0.5f, 0.5f, 0.5f };
+	transform->scale = { 0.3f, 0.3f, 0.3f };
 	stat.attack = 15;
 	stat.hp = 60;
 	stat.maxHp = 60;
