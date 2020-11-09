@@ -379,7 +379,7 @@ void Player::SetCharacterByNumber(TYPE type)
 		pokemon = Oddish::Create(pos, dir);
 		break;
 	case TYPE::GLOOM:
-		pokemon = Bulbasaur::Create(pos, dir);
+		pokemon = Gloom::Create(pos, dir);
 		break;
 	case TYPE::VILEPLUME:
 		pokemon = Vileplume::Create(pos, dir);
