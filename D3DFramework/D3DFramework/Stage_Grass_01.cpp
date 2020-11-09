@@ -28,6 +28,7 @@ void Stage_Grass_01::OnLoaded()
 	trigerBox->transform->position = { 18.f,0.f,48.f-21.f };
 	trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
 
+
 	Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
 	tomato->transform->position = { 20.f,0.f,48.f - 21.f };
 
@@ -143,6 +144,7 @@ void Stage_Grass_01::Stage_Grass_01_Wave()
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
 			trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
+			trigerBox->offsetY = 2.f;
 
 			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = TownPortal;

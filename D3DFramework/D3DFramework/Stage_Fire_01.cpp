@@ -102,7 +102,7 @@ void Stage_Fire_01::Stage_Fire_01_Wave()
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
-			trigerBox->Portal();
+			trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
 
 			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = TownPortal;
