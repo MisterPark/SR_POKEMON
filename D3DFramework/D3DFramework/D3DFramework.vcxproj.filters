@@ -397,6 +397,9 @@
     <Filter Include="GameObject\Bullet\37. Explosion">
       <UniqueIdentifier>{82747b9e-7fd5-47d8-a52f-4a7b577958f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Coin">
+      <UniqueIdentifier>{171594f3-c03f-46bf-8207-4864a611f35f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -970,6 +973,9 @@
     </ClInclude>
     <ClInclude Include="Bullet_Explosion.h">
       <Filter>GameObject\Bullet\37. Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>GameObject\Coin</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1636,6 +1642,9 @@
     </ClCompile>
     <ClCompile Include="Bullet_Explosion.cpp">
       <Filter>GameObject\Bullet\37. Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>GameObject\Coin</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@
 #include "DamageSkin.h"
 #include "Effect.h"
 #include "PlayerInfoPanel.h"
+#include "Coin.h"
 
 Character::Character() :
 	canMove(true)
@@ -160,9 +161,13 @@ void Character::OnCollision(GameObject* target)
 		// ªÁ∏¡√≥∏Æ
 		if (!IsDead() && stat.hp <= 0)
 		{
-			if (target->team == Team::PLAYERTEAM && this->team == Team::MONSTERTEAM) {
-				Player::GetInstance()->ChangeNextPokemon(this->monsterAI->type);
+			if (this->team == Team::MONSTERTEAM) {
+				Player::GetInstance()->ChangeNextPokemon(this->monsterAI->type/*, this->number*/);				
+				Coin* coin = Coin::Create(this->transform->position, this->stat.money);
+				ObjectManager::AddObject(coin);
+				CollisionManager::RegisterObject(COLTYPE::COIN, coin);
 			}
+			
 			//
 			stat.hp = 0;
 			if (dontDestroy == true) return;

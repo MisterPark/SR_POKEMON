@@ -36,7 +36,7 @@ void TestScene::OnLoaded()
 	playerCharacter->transform->position.z = 48.f - 10.f;
 
 	
-	Spawner* spawner = Spawner::Create(MonsterType::ARCANINE, 10.f, 0.5f, 5);
+	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 5);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 

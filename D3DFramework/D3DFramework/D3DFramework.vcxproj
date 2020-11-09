@@ -198,6 +198,7 @@
     <ClInclude Include="Charizard.h" />
     <ClInclude Include="Charmander.h" />
     <ClInclude Include="Charmeleon.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Coral.h" />
@@ -386,6 +387,7 @@
     <ClCompile Include="Charizard.cpp" />
     <ClCompile Include="Charmander.cpp" />
     <ClCompile Include="Charmeleon.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Coral.cpp" />
