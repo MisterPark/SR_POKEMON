@@ -25,7 +25,10 @@ void Stage_Fire_01::OnLoaded()
 
 	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Fire1.bmp", 10.15f);
 
-
+	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	/*trigerBox->OnTriggered = CreateSpawner;*/
+	trigerBox->transform->position = { 24.f,0.f,48.f - 22.f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
 
 }
 
@@ -43,8 +46,9 @@ void Stage_Fire_01::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Fire_Boss>();
+		SceneManager::LoadScene<Stage_Fire_02>();
 	}
+	Stage_Fire_01_Wave();
 }
 
 
@@ -59,30 +63,7 @@ void Stage_Fire_01::Set_Stage_Fire_01_Map(TextureKey _key, const std::string& _f
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
 	dynamic_cast<Water*>(water)->Lava();
-	//³ª¹«
 
-	//for (int i = 0; i < 8; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 45.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-	//}
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 2.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-
-	//}
-	//for (int i = 0; i < 9; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 46.f;
-	//	tree->transform->position.z += 20.f + 2 * i;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
-	//}
 }
 
 void Stage_Fire_01::Stage_Fire_01_Wave()

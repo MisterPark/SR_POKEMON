@@ -9,7 +9,7 @@
 void Stage_Fire_02::OnLoaded()
 {
 	SkyBox::Show();
-	SkyBox::SetTexture(TextureKey::SPACE1_U);
+	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(playerCharacter);
 
@@ -19,21 +19,14 @@ void Stage_Fire_02::OnLoaded()
 	Player::GetInstance()->SetCharacter(playerCharacter);
 	playerCharacter->transform->position.x = 5.f;
 	playerCharacter->transform->position.z = 48.f - 44.f;
-	Set_Stage_Fire_02_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);
+	Set_Stage_Fire_02_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Brook.bmp", 0.f);
 
-	float size = 1.f;
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = Create_Monster_A_Spawner;
-	trigerBox->transform->position = { 17.f,0.f,48.f - 4.f };
-	trigerBox->transform->scale += {size, size, size};
-	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = Create_Monster_B_Spawner;
-	trigerBox->transform->position = { 44.f,0.f,48.f - 18.f };
-	trigerBox->transform->scale += {size, size, size};
-	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->OnTriggered = Create_Monster_C_Spawner;
-	trigerBox->transform->position = { 43.f,0.f,48.f - 32.f };
-	trigerBox->transform->scale += {size, size, size};
+	/*trigerBox->OnTriggered = CreateSpawner;*/
+	trigerBox->transform->position = { 24.f,0.f,48.f - 22.f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
+
+
 }
 
 void Stage_Fire_02::OnUnloaded()
@@ -53,6 +46,7 @@ void Stage_Fire_02::Update()
 	{
 		SceneManager::LoadScene<Stage_Fire_01>();
 	}
+	Stage_Fire_02_Wave();
 }
 
 
@@ -66,31 +60,7 @@ void Stage_Fire_02::Set_Stage_Fire_02_Map(TextureKey _key, const std::string& _f
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
-	dynamic_cast<Water*>(water)->Normal();
-	//³ª¹«
-
-	//for (int i = 0; i < 8; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 45.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-	//}
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 3.f + 2 * i;
-	//	tree->transform->position.z += 2.f;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE02);
-
-	//}
-	//for (int i = 0; i < 9; i++)
-	//{
-	//	GameObject* tree = ObjectManager::GetInstance()->CreateObject<Tree>();
-	//	tree->transform->position.x += 46.f;
-	//	tree->transform->position.z += 20.f + 2 * i;
-	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
-	//}
+	dynamic_cast<Water*>(water)->WaterTextureChange(TextureKey::VOLCANO_MAP, TextureKey::VOLCANO_MAP, false);
 
 
 
@@ -98,7 +68,7 @@ void Stage_Fire_02::Set_Stage_Fire_02_Map(TextureKey _key, const std::string& _f
 
 void Stage_Fire_02::Create_Monster_A_Spawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWAG, 7.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::ARCANINE, 3.f, 0.5f, 10);
 	poliwagSpawner->transform->position = { 6.f,0.f,48.f - 13.f };
 	ObjectManager::AddObject(poliwagSpawner);
 
@@ -106,20 +76,69 @@ void Stage_Fire_02::Create_Monster_A_Spawner()
 
 void Stage_Fire_02::Create_Monster_B_Spawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::POLIWRATH, 10.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::MAGCARGO, 5.f, 0.5f, 10);
 	poliwagSpawner->transform->position = { 41.f,0.f,48.f - 8.f };
 	ObjectManager::AddObject(poliwagSpawner);
 }
 
 void Stage_Fire_02::Create_Monster_C_Spawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::GOLDUCK, 6.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::RAPIDASH, 3.f, 0.5f, 10);
 	poliwagSpawner->transform->position = { 36.f,0.f,48.f - 42.f };
 	ObjectManager::AddObject(poliwagSpawner);
 }
 
 void Stage_Fire_02::Stage_Fire_02_Wave()
 {
+	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
+	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
+
+	if (nullptr == isTriger && spawnerCount == 0)
+	{
+		float size = 0.3f;
+		TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+		trigerBox->OnTriggered = Create_Monster_A_Spawner;
+		trigerBox->transform->position = { 17.f,0.f,48.f - 4.f };
+		trigerBox->transform->scale += {size, size, size};
+		trigerBox->AnimChange(TextureKey::PORTRAIT_059, TextureKey::PORTRAIT_059, 10.f, false);
+
+		trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+		trigerBox->OnTriggered = Create_Monster_B_Spawner;
+		trigerBox->transform->position = { 44.f,0.f,48.f - 14.f };
+		trigerBox->transform->scale += {size, size, size};
+		trigerBox->AnimChange(TextureKey::PORTRAIT_219, TextureKey::PORTRAIT_219, 10.f, false);
+
+		trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+		trigerBox->OnTriggered = Create_Monster_C_Spawner;
+		trigerBox->transform->position = { 43.f,0.f,48.f - 32.f };
+		trigerBox->transform->scale += {size, size, size};
+		trigerBox->AnimChange(TextureKey::PORTRAIT_078, TextureKey::PORTRAIT_078, 10.f, false);
+
+		spawnerCount++;
+	}
+	else if (isTriger == nullptr&&isSpawner==nullptr)
+	{
+		
+		if (spawnerCount == 1)
+		{
+			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			/*trigerBox->OnTriggered = CreateSpawner;*/
+			trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = Portal;
+			trigerBox->transform->position = { 25.f,0.f,48-26.f };
+			trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = TownPortal;
+			trigerBox->transform->position = { 28.f,0.f,48-21.f };
+			trigerBox->Portal();
+			spawnerCount++;
+		}
+
+
+	}
 }
 
 void Stage_Fire_02::CreateSpawner()

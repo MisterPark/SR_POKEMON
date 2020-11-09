@@ -13,7 +13,7 @@ Bullet_Explosion::Bullet_Explosion()
 
 	transform->scale = { 0.4f, 0.4f, 0.4f };
 
-	lifeTime = 2.f;
+	lifeTime = 1.f;
 	stat.moveSpeed = 2.5f;
 	
 

@@ -39,7 +39,7 @@ void Stage_Grass_02::OnLoaded()
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	/*trigerBox->OnTriggered = CreateSpawner;*/
 	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
-
+	trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
 
 	Set_Stage_Grass_02_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Grass2.bmp", 0.1f);
 
@@ -199,7 +199,7 @@ void Stage_Grass_02::Stage_Grass_02_Wave()
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
-			trigerBox->Portal();
+			trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
 
 			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = TownPortal;

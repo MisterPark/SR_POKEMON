@@ -22,7 +22,9 @@ void Stage_Water_01::OnLoaded()
 	}
 
 
-
+	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_WATER, TextureKey::PROPERTY_WATER, 10.f, false);
 
 	Set_Stage_Water_01_Map(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 9.5f);
 
@@ -47,8 +49,9 @@ void Stage_Water_01::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Water_Boss>();
+		SceneManager::LoadScene<Stage_Water_02>();
 	}
+	Stage_Water_01_Wave();
 }
 
 
@@ -91,6 +94,42 @@ void Stage_Water_01::Set_Stage_Water_01_Map(TextureKey _key, const std::string& 
 
 void Stage_Water_01::Stage_Water_01_Wave()
 {
+	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
+	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
+
+	if (nullptr == isTriger && spawnerCount == 0)
+	{
+		Spawner* spawner = Spawner::Create(MonsterType::PSYDUCK, 10.f, 0.5f, 10);
+		spawner->transform->position = { 24.f,0.f,24.f };
+		ObjectManager::AddObject(spawner);
+		triggerOn = true;
+		spawnerCount++;
+	}
+	else if (isSpawner == nullptr)
+	{
+		if (spawnerCount == 1)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::POLIWAG, 10.f, 0.5f, 7);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawnerCount++;
+			triggerOn = false;
+		}
+		else if (spawnerCount == 2 && triggerOn == false)
+		{
+			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = Portal;
+			trigerBox->transform->position = { 40.f,0.f,40.f };
+			trigerBox->AnimChange(TextureKey::PROPERTY_WATER, TextureKey::PROPERTY_WATER, 10.f, false);
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = TownPortal;
+			trigerBox->transform->position = { 8.f,0.f,8.f };
+			trigerBox->Portal();
+
+			spawnerCount++;
+		}
+	}
 }
 
 void Stage_Water_01::CreateSpawner()

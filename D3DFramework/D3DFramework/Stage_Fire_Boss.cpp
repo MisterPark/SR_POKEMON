@@ -57,6 +57,7 @@ void Stage_Fire_Boss::Set_Stage_Fire_Boss_Map(TextureKey _key, const std::string
 	//¹°
 	GameObject* water = ObjectManager::GetInstance()->CreateObject<Water>();
 	water->transform->position.y = _waterHeight;
+	dynamic_cast<Water*>(water)->Lava();
 }
 
 void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
