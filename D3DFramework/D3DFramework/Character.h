@@ -21,6 +21,7 @@ public:
     virtual void Release() override;
 
 	virtual void OnCollision(GameObject* target) override;
+	virtual void Die() override;
 
 	void CalcMoveTime();
 	void CalcExp();
@@ -38,6 +39,7 @@ public:
 	void SetDir(const Vector3& dir);
 	void SetMoveSpeed(const float& speed) { stat.moveSpeed = speed; }
 	void SetLV(const int& lv);
+	void IncreaseEXP(const float& _exp) { stat.exp += _exp; }
 	void LevelUp();
 	void SetStatByLevel();
 	void MoveForward();
@@ -79,10 +81,10 @@ protected:
 
 	float increaseAttack = 0.f;
 	float increaseMaxHp = 0.f;
-	float increaseTotalExp = 10.f;
+	float increaseTotalExp = 30.f;
 
 	float defaultAttack = 0.f;
 	float defaultMaxHp = 0.f;
-	float defaultTotalExp= 0.f;
+	float defaultTotalExp = 50.f;
 };
 

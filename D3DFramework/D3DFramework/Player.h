@@ -14,7 +14,6 @@ public:
 public:
 	void Update();
 	void PostUpdate();
-	void Evolution();
 
 public:
 	// Setter
@@ -28,7 +27,9 @@ public:
 	Character* GetCharacter() { return character; }
 	float GetRadianX() { return radianX; }
 	float GetRadianY() { return radianY; }
+	float GetMetaMorphoTime() { return metamorphosisTime; }
 	int GetCurrentSkillIndex() { return skillNum; }
+	Pokemon GetMetamorphoPokemonNumber() { return nextPokemon.second; }
 
 private:
 	void Initialize();
@@ -41,19 +42,25 @@ private:
 	void KeyInput();
 	void ChangeState(State state);
 	void SetCharacterByNumber(MonsterType type);
-	
+	void CalcMetamorphosisTime();
+	void ComeBackFromMetamorpho();
+
 public:
 	void Metamorphosis();
-	void ChangeNextPokemon(MonsterType pokemon);
+	void ChangeNextPokemon(MonsterType pokemon, Pokemon number);
 
 private:
 	static Player* instance;
 	Character* character = nullptr;
-	vector<MonsterType> metamorphosisList;
-	MonsterType nextPokemon;
+	vector<pair<MonsterType, Pokemon>> metamorphosisList;
+	pair<MonsterType, Pokemon> nextPokemon;
 	float radianX;
 	float radianY;
+	float metamorphosisTime;
+
 	bool isFix;
+	bool canMetamorphosis;
+	
 	int skillNum;
 	int skillSetSize;
 	int pokemonIndex;

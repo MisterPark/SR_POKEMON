@@ -40,6 +40,7 @@ void Player::Update()
 	if (nullptr == character) return;
 
 	KeyInput();
+	CalcMetamorphosisTime();
 
 	if (isFix)
 	{
@@ -47,6 +48,8 @@ void Player::Update()
 		CalcMouse();
 		ResetMousePoint();
 	}
+
+	cout << character->stat.exp << endl;
 }
 
 void Player::PostUpdate()
@@ -62,27 +65,6 @@ void Player::PostUpdate()
 	if (dfTERRAIN_HEIGHT - (limitedZ +1) < pos->z) pos->z = dfTERRAIN_HEIGHT - (limitedZ + 1);
 
 	character->OnTerrain();
-}
-
-void Player::Evolution()
-{
-	//TODO: 진화 구조 바꾸기
-	switch (character->number)
-	{
-	case Pokemon::Charmander:
-	{
-		Character* oldCharacter = character;
-		Character* newCharacter = Charmeleon::Create(character->transform->position, character->direction);
-		ObjectManager::AddObject(newCharacter);
-		CollisionManager::RegisterObject(COLTYPE::PLAYER, newCharacter);
-		SetCharacter(newCharacter);
-		oldCharacter->Die();
-	}
-	break;
-
-	case Pokemon::Charmeleon:
-		break;
-	}
 }
 
 void Player::SetCharacter(Character * object)
@@ -150,12 +132,15 @@ void Player::SetCharacter(Character * object)
 void Player::Initialize()
 {
 	metamorphosisList.reserve(3);
-	pokemonIndex = 0;
-	nextPokemon = MonsterType::VENUSAUR;
+	pokemonIndex = -1;
+	nextPokemon.first = MonsterType::VENUSAUR;
+	nextPokemon.second = Pokemon::Venusaur;
+	canMetamorphosis = true;
 }
 
 void Player::Release()
 {
+	metamorphosisList.clear();
 }
 
 void Player::ResetMousePoint()
@@ -346,13 +331,20 @@ void Player::ChangeState(State state)
 
 void Player::Metamorphosis()
 {
-	if (MonsterType::END != nextPokemon)
+	if (canMetamorphosis)
 	{
-		metamorphosisList.emplace_back(nextPokemon);
-		SetCharacterByNumber(nextPokemon);
+		if (MonsterType::END != nextPokemon.first)
+		{
+			metamorphosisList.emplace_back(nextPokemon);
+			SetCharacterByNumber(nextPokemon.first);
 
-		++pokemonIndex;
-		nextPokemon = MonsterType::END;
+			++pokemonIndex;
+			nextPokemon.first = MonsterType::END;
+			nextPokemon.second = Pokemon::None;
+
+			metamorphosisTime = 5.f;
+			canMetamorphosis = false;
+		}
 	}
 }
 
@@ -462,10 +454,40 @@ void Player::SetCharacterByNumber(MonsterType type)
 	SetCharacter(pokemon);
 }
 
-void Player::ChangeNextPokemon(MonsterType pokemon)
+void Player::CalcMetamorphosisTime()
+{
+	if (!canMetamorphosis)
+	{
+		metamorphosisTime -= TimeManager::DeltaTime();
+
+		if (0.f > metamorphosisTime)
+		{
+			canMetamorphosis = true;
+			metamorphosisTime = 0.f;
+			ComeBackFromMetamorpho();
+		}
+	}
+}
+
+void Player::ComeBackFromMetamorpho()
+{
+	if (0 >= pokemonIndex) return;
+
+	auto iter = metamorphosisList.begin();
+	iter += pokemonIndex;
+
+	metamorphosisList.erase(iter);
+
+	--pokemonIndex;
+
+	SetCharacterByNumber(metamorphosisList[pokemonIndex].first);
+}
+
+void Player::ChangeNextPokemon(MonsterType pokemon, Pokemon number)
 {
 	if (MonsterType::END != pokemon)
 	{
-		nextPokemon = pokemon;
+		nextPokemon.first = pokemon;
+		nextPokemon.second = number;
 	}
 }

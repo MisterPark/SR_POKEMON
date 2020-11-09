@@ -36,10 +36,10 @@ void Bullet::Initialize()
 
 void Bullet::Update()
 {
-	GameObject::Update();
 	Move(direction);
 	OnTerrain();
 	CollideOnTerrain();
+	GameObject::Update();
 
 	if (isBillboard) Billboard();
 	CalcLifeTime();
