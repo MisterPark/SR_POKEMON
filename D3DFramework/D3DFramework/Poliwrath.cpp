@@ -51,6 +51,7 @@ void Poliwrath::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ReverseHealBubble));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

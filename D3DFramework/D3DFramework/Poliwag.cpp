@@ -55,6 +55,7 @@ void Poliwag::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

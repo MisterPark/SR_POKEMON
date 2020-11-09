@@ -51,6 +51,7 @@ void Butterfree::Initialize()
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
 
+	SetStatByLevel();
 	UpdateAnimation();
 }
 

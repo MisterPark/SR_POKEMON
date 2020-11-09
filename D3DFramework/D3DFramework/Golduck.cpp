@@ -53,6 +53,7 @@ void Golduck::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::AccelWater));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
+	SetStatByLevel();
 	UpdateAnimation();
 }
 

@@ -52,6 +52,8 @@ void Groudon::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireWallWave));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Quake));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ClawBlast));
+
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

@@ -50,6 +50,7 @@ void Jynx::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowVulcan));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
+	SetStatByLevel();
 	UpdateAnimation();
 
 }

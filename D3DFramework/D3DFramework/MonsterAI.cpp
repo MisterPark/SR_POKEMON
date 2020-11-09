@@ -150,6 +150,9 @@ void MonsterAI::PlayerSearch(float _range, float _rangeOut)
 
 	Transform* PlayerT = g->transform;
 
+	if (PlayerT != playerTrans)
+		playerTrans = PlayerT;
+
 	float distX = PlayerT->position.x - c->transform->position.x;
 	float distZ = PlayerT->position.z - c->transform->position.z;
 
