@@ -18,7 +18,7 @@ void Stage_Grass_Boss::OnLoaded()
 		playerCharacter->direction = { 1.f,0.f,1.f };
 		playerCharacter->transform->position.x = 1.f;
 		playerCharacter->transform->position.z = 48.f - 47.f;
-		Camera::GetInstance()->SetTarget(playerCharacter);
+
 	}
 
 
@@ -32,7 +32,7 @@ void Stage_Grass_Boss::OnLoaded()
 
 void Stage_Grass_Boss::OnUnloaded()
 {
-	Camera::GetInstance()->SetTarget(nullptr);
+
 
 	ObjectManager::DestroyAll();
 }

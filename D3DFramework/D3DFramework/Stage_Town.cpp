@@ -13,7 +13,7 @@ void Stage_Town::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
-	CollisionManager* col = CollisionManager::GetInstance();
+	/*CollisionManager* col = CollisionManager::GetInstance();*/
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
@@ -22,6 +22,7 @@ void Stage_Town::OnLoaded()
 		playerCharacter->direction = { 1.f,0.f,1.f };
 		playerCharacter->transform->position.x = 24.f;
 		playerCharacter->transform->position.z = 48.f - 24.f;
+
 	}
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
@@ -51,7 +52,7 @@ void Stage_Town::OnLoaded()
 
 void Stage_Town::OnUnloaded()
 {
-	Camera::GetInstance()->SetTarget(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 
@@ -65,7 +66,7 @@ void Stage_Town::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Water_01>();
+		SceneManager::LoadScene<Stage_Grass_01>();
 	}
 
 }

@@ -19,7 +19,7 @@ void Stage_Fire_02::OnLoaded()
 
 		playerCharacter->transform->position.x = 5.f;
 		playerCharacter->transform->position.z = 48.f - 44.f;
-		Camera::GetInstance()->SetTarget(playerCharacter);
+
 	}
 
 	waterHeight = -0.1f;
@@ -35,7 +35,7 @@ void Stage_Fire_02::OnLoaded()
 
 void Stage_Fire_02::OnUnloaded()
 {
-	Camera::GetInstance()->SetTarget(nullptr);
+
 
 	ObjectManager::DestroyAll();
 }

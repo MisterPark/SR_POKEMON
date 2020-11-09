@@ -20,7 +20,7 @@ void Stage_Water_Boss::OnLoaded()
 		playerCharacter->direction = { 1.f,0.f,0.f };
 		playerCharacter->transform->position.x = 5.f;
 		playerCharacter->transform->position.z = 48.f - 44.f;
-		Camera::GetInstance()->SetTarget(playerCharacter);
+
 	}
 
 
@@ -34,7 +34,7 @@ void Stage_Water_Boss::OnLoaded()
 
 void Stage_Water_Boss::OnUnloaded()
 {
-	Camera::GetInstance()->SetTarget(nullptr);
+
 
 	ObjectManager::DestroyAll();
 }

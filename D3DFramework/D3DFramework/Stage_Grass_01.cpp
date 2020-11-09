@@ -20,7 +20,7 @@ void Stage_Grass_01::OnLoaded()
 		playerCharacter->direction = { 1.f,0.f,1.f };
 		playerCharacter->transform->position.x = 7.f;
 		playerCharacter->transform->position.z = 48.f - 24.f;
-		Camera::GetInstance()->SetTarget(playerCharacter);
+
 	}
 	
 
@@ -38,7 +38,7 @@ void Stage_Grass_01::OnLoaded()
 
 void Stage_Grass_01::OnUnloaded()
 {
-	Camera::GetInstance()->SetTarget(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 
@@ -53,6 +53,10 @@ void Stage_Grass_01::Update()
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Grass_02>();
+	}
+	if (InputManager::GetKeyDown(VK_F4))
+	{
+		SceneManager::LoadScene<Stage_Town>();
 	}
 	Stage_Grass_01_Wave();
 	
