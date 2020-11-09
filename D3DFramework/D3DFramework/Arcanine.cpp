@@ -44,10 +44,11 @@ void Arcanine::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Explosion));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
 
-	stat.attack = 30;
+	defaultAttack = 30;
+	defaultMaxHp = 250;
 
-	stat.hp = 250;
-	stat.maxHp = 250;
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	UpdateAnimation();
 }

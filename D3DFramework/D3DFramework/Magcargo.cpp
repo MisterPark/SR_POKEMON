@@ -45,9 +45,11 @@ void Magcargo::Initialize()
 	state = State::READY;
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 50;
-	stat.hp = 450;
-	stat.maxHp = 450;
+	defaultAttack = 50;
+	defaultMaxHp = 450;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBomb));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireXCrossBomb));

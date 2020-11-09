@@ -40,9 +40,11 @@ void Slugma::Initialize()
 	state = State::READY;
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 40;
-	stat.hp = 350;
-	stat.maxHp = 350;
+	defaultAttack = 40;
+	defaultMaxHp = 350;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBomb));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireShot));

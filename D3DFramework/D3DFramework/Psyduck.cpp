@@ -41,11 +41,12 @@ void Psyduck::Initialize()
 
 	state = State::READY;
 
-	stat.attack = 25;
-
-	stat.hp = 150;
-	stat.maxHp = 150;
+	defaultAttack = 25;
+	defaultMaxHp = 150;
 	
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
+
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::MiniRush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 	transform->scale = {0.5f, 0.5f, 0.5f};

@@ -44,9 +44,11 @@ void Vileplume::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossShot));
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 30;
-	stat.hp = 160;
-	stat.maxHp = 160;
+	defaultAttack = 30;
+	defaultMaxHp = 160;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	UpdateAnimation();
 }

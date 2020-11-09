@@ -43,9 +43,12 @@ void Suicune::Initialize()
 	state = State::READY;
 
 	transform->scale = { 1.5f, 1.5f, 1.5f };
-	stat.hp = 2000;
-	stat.maxHp = 2000;
-	stat.attack = 50.f;
+
+	defaultMaxHp = 2000;
+	defaultAttack = 50.f;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::AccelWater));

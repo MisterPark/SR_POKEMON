@@ -41,9 +41,11 @@ void Caterpie::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
 	transform->scale = { 0.3f, 0.3f, 0.3f };
-	stat.attack = 15;
-	stat.hp = 60;
-	stat.maxHp = 60;
+	defaultAttack = 15;
+	defaultMaxHp = 60;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	UpdateAnimation();
 }

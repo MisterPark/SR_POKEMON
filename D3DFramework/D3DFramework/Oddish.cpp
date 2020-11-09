@@ -45,9 +45,11 @@ void Oddish::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 30;
-	stat.hp = 100;
-	stat.maxHp = 100;
+	defaultAttack = 30;
+	defaultMaxHp = 100;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	UpdateAnimation();
 }

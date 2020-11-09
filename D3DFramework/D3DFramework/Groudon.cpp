@@ -41,10 +41,12 @@ void Groudon::Initialize()
 
 	transform->scale = { 2.f, 2.f, 2.f };
 	state = State::READY;
-	stat.hp = 1600;
-	stat.maxHp = 1600;
-	stat.attack = 50.f;
 
+	defaultMaxHp = 1600;
+	defaultAttack = 50.f;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBlast));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireWallWave));

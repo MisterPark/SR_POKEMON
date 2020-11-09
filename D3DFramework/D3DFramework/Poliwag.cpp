@@ -43,9 +43,12 @@ void Poliwag::Initialize()
 	offsetY = 0.5f;
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 30;
-	stat.hp = 200;
-	stat.maxHp = 200;
+	defaultAttack = 30;
+
+	defaultMaxHp = 200;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	state = State::READY;
 

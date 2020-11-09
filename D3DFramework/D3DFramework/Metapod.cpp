@@ -43,9 +43,11 @@ void Metapod::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 30;
-	stat.hp = 110;
-	stat.maxHp = 110;
+	defaultAttack = 30;
+	defaultMaxHp = 110;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	UpdateAnimation();
 }
