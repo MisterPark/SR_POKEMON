@@ -23,6 +23,7 @@ public:
 	virtual void OnCollision(GameObject* target) override;
 
 	void CalcMoveTime();
+	void CalcExp();
 
 	// 지형 타기
     void OnTerrain();
@@ -36,6 +37,9 @@ public:
 public:
 	void SetDir(const Vector3& dir);
 	void SetMoveSpeed(const float& speed) { stat.moveSpeed = speed; }
+	void SetLV(const int& lv);
+	void LevelUp();
+	void SetStatByLevel();
 	void MoveForward();
 	virtual void ChangeState(State nextState);
 	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
@@ -64,12 +68,21 @@ public:
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	bool infoVisible = true;
 	bool isInvincible = false;
-	MonsterAI* monsterAI=nullptr;
+	MonsterAI* monsterAI;
+
 protected:
 	vector<Skill*> skillSet;
 	float healEffectStack;
 	float moveStopTime;
 	bool canMove;
 	State oldState = State::IDLE;
+
+	float increaseAttack = 0.f;
+	float increaseMaxHp = 0.f;
+	float increaseTotalExp = 10.f;
+
+	float defaultAttack = 0.f;
+	float defaultMaxHp = 0.f;
+	float defaultTotalExp= 0.f;
 };
 

@@ -35,10 +35,13 @@ void Bulbasaur::Initialize()
 	state = State::IDLE;
 	AnimSet();
 
-	stat.attack = 30;
+	increaseAttack = 1.5f;
+	increaseMaxHp = 12.5f;
 
-	stat.hp = 250;
-	stat.maxHp = 250;
+	defaultAttack = 30.f;
+	defaultMaxHp = 250;
+
+	SetStatByLevel();
 
 	skillSet.reserve(2);
 
