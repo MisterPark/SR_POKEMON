@@ -385,6 +385,9 @@
     <Filter Include="Scene\Town">
       <UniqueIdentifier>{d9a58f50-b148-4bf6-b72c-d158905237b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\Ditto">
+      <UniqueIdentifier>{6180d2cf-b356-4130-a263-73d47bda2e17}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -946,6 +949,9 @@
     <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Stage_Town.h">
       <Filter>Scene\Town</Filter>
+    </ClInclude>
+    <ClInclude Include="Ditto.h">
+      <Filter>GameObject\Character\Ditto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1600,6 +1606,9 @@
     <ClCompile Include="Item_Tomato.cpp" />
     <ClCompile Include="Stage_Town.cpp">
       <Filter>Scene\Town</Filter>
+    </ClCompile>
+    <ClCompile Include="Ditto.cpp">
+      <Filter>GameObject\Character\Ditto</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
