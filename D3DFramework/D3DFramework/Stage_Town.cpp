@@ -26,22 +26,23 @@ void Stage_Town::OnLoaded()
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = GrassPortal;
-	trigerBox->transform->position = { 3.f,0.f,24.f };
-	trigerBox->Portal();
+	trigerBox->transform->position = { 3.f,0.f,24.9f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS,10.f,false);
 
 	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = WaterPortal;
-	trigerBox->transform->position = { 45.f,0.f,24.f };
-	trigerBox->Portal();
+	trigerBox->transform->position = { 45.f,0.f,24.9f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_WATER, TextureKey::PROPERTY_WATER, 10.f, false);
 
 	trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = FirePortal;
-	trigerBox->transform->position = { 24.f,0.f,45.f };
-	trigerBox->Portal();
+	trigerBox->transform->position = { 21.9f,0.f,45.f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
 
 
 	Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
 	tomato->transform->position = { 20.f,0.f,48.f - 21.f };
+	
 
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 
@@ -64,7 +65,7 @@ void Stage_Town::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Grass_02>();
+		SceneManager::LoadScene<Stage_Water_01>();
 	}
 
 }

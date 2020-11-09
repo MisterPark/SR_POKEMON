@@ -198,6 +198,7 @@
     <ClInclude Include="Charizard.h" />
     <ClInclude Include="Charmander.h" />
     <ClInclude Include="Charmeleon.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Coral.h" />
@@ -217,6 +218,7 @@
     <ClInclude Include="Environment.h" />
     <ClInclude Include="Blaze.h" />
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="ItemInfoPanel.h" />
     <ClInclude Include="LeechSeed.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
@@ -387,6 +389,7 @@
     <ClCompile Include="Charizard.cpp" />
     <ClCompile Include="Charmander.cpp" />
     <ClCompile Include="Charmeleon.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Coral.cpp" />
@@ -407,6 +410,7 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemInfoPanel.cpp" />
     <ClCompile Include="Item_Tomato.cpp" />
     <ClCompile Include="LeechSeed.cpp" />
     <ClCompile Include="Meteor.cpp" />

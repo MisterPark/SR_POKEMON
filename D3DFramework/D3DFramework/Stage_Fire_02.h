@@ -28,5 +28,5 @@ public:
 public:
 	bool triggerOn = false;
 	int spawnerCount = 0;
-
+    float portalDelay = 0.f;
 };

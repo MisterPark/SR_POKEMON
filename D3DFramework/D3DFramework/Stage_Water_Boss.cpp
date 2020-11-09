@@ -70,22 +70,36 @@ void Stage_Water_Boss::Stage_Water_Boss_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::SUICUNE, 20.f, 0.5f, 1);
+		Spawner* spawner = Spawner::Create(MonsterType::POLIWRATH, 10.f, 0.5f, 10);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
-
-
-		triggerOn = false;
+		triggerOn = true;
 		spawnerCount++;
 	}
 	else if (isSpawner == nullptr)
 	{
-		if (spawnerCount ==1 && triggerOn == false)
+		if (spawnerCount == 1)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::JYNX, 10.f, 0.5f, 7);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawnerCount++;
+		}
+		else if (spawnerCount == 2)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::SUICUNE, 10.f, 0.5f, 1);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawnerCount++;
+			triggerOn = false;
+		}
+		else if (spawnerCount == 3 && triggerOn == false)
 		{
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = TownPortal;
-			trigerBox->transform->position = { 40.f,0.f,40.f };
+			trigerBox->transform->position = { 8.f,0.f,8.f };
 			trigerBox->Portal();
+
 			spawnerCount++;
 		}
 	}

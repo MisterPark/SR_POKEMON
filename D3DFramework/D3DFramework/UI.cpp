@@ -78,6 +78,22 @@ void UI::UpdateEvent()
 		}
 		isLButtonDown = false;
 	}
+	if (InputManager::GetMouseRButtonDown())
+	{
+		if (isHover)
+		{
+			isRButtonDown = true;
+			OnRButtonDown();
+		}
+	}
+	if (InputManager::GetMouseRButtonUp())
+	{
+		if (isHover)
+		{
+			OnRButtonUp();
+		}
+		isRButtonDown = false;
+	}
 
 	if (text.compare(oldText) != 0)
 	{
@@ -91,7 +107,7 @@ void UI::ClearEvent()
 	isHover = false;
 	isLeave = false;
 	isLButtonDown = false;
-	
+	isRButtonDown = false;
 }
 
 void UI::OnHover()
@@ -123,6 +139,22 @@ void UI::OnLButtonUp()
 	if (LButtonUp != nullptr)
 	{
 		LButtonUp();
+	}
+}
+
+void UI::OnRButtonDown()
+{
+	if (RButtonDown != nullptr)
+	{
+		RButtonDown();
+	}
+}
+
+void UI::OnRButtonUp()
+{
+	if (RButtonUp != nullptr)
+	{
+		RButtonUp();
 	}
 }
 

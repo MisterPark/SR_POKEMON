@@ -17,7 +17,7 @@ public:
 	void OnTerrain();
 
 	void Portal();
-
+	void AnimChange(TextureKey _startKey , TextureKey _endKey, float _delay = 0.f , bool _isLoop = false);
 	Animation2D* anim = nullptr;
 	
 public:
