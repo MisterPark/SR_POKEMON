@@ -30,7 +30,6 @@ void TriggerBox::Initialize()
 	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
 	anim->SetSprite(TextureKey::MONSTERBALL, TextureKey::MONSTERBALL);
 	anim->SetLoop(false);
-
 }
 
 void TriggerBox::Release()
@@ -81,7 +80,16 @@ void TriggerBox::OnTerrain()
 
 void TriggerBox::Portal()
 {
-	anim->SetSprite(TextureKey::BULLET_WATER2_01, TextureKey::BULLET_WATER2_03);
-	anim->SetDelay(0.1f);
+	/*anim->SetSprite(TextureKey::PORTAL_01, TextureKey::PORTAL_21);*/
+	anim->SetSprite(TextureKey::PORTAL_01, TextureKey::PORTAL_21);
+	
+	anim->SetDelay(0.05f);
 	anim->SetLoop(true);
+}
+
+void TriggerBox::AnimChange(TextureKey _startKey, TextureKey _endKey, float _delay, bool _isLoop)
+{
+	anim->SetSprite(_startKey, _endKey);
+	anim->SetDelay(_delay);
+	anim->SetLoop(_isLoop);
 }

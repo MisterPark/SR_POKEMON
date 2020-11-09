@@ -218,7 +218,83 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH2_F, L"Texture\\ETC\\Skybox\\SkyBeach2\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH2_B, L"Texture\\ETC\\Skybox\\SkyBeach2\\SKYBOX_B.png");
 	
+	//内牢
+	D2DRenderManager::LoadSprite(TextureKey::RING_01, L"Texture\\UI\\Coin\\Ring_01.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_02, L"Texture\\UI\\Coin\\Ring_02.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_03, L"Texture\\UI\\Coin\\Ring_03.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_04, L"Texture\\UI\\Coin\\Ring_04.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_05, L"Texture\\UI\\Coin\\Ring_05.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_06, L"Texture\\UI\\Coin\\Ring_06.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_07, L"Texture\\UI\\Coin\\Ring_07.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_08, L"Texture\\UI\\Coin\\Ring_08.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_09, L"Texture\\UI\\Coin\\Ring_09.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_10, L"Texture\\UI\\Coin\\Ring_10.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_11, L"Texture\\UI\\Coin\\Ring_11.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_12, L"Texture\\UI\\Coin\\Ring_12.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_13, L"Texture\\UI\\Coin\\Ring_13.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_14, L"Texture\\UI\\Coin\\Ring_14.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_15, L"Texture\\UI\\Coin\\Ring_15.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_1, L"Texture\\UI\\Coin\\coinpoke1.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_2, L"Texture\\UI\\Coin\\coinpoke2.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_3, L"Texture\\UI\\Coin\\coinpoke3.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_4, L"Texture\\UI\\Coin\\coinpoke4.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_5, L"Texture\\UI\\Coin\\coinpoke5.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_6, L"Texture\\UI\\Coin\\coinpoke6.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_7, L"Texture\\UI\\Coin\\coinpoke7.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_8, L"Texture\\UI\\Coin\\coinpoke8.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_9, L"Texture\\UI\\Coin\\coinpoke9.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_10, L"Texture\\UI\\Coin\\coinpoke10.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_11, L"Texture\\UI\\Coin\\coinpoke11.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_12, L"Texture\\UI\\Coin\\coinpoke12.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_13, L"Texture\\UI\\Coin\\coinpoke13.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_14, L"Texture\\UI\\Coin\\coinpoke14.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_15, L"Texture\\UI\\Coin\\coinpoke13.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_16, L"Texture\\UI\\Coin\\coinpoke12.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_17, L"Texture\\UI\\Coin\\coinpoke11.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_18, L"Texture\\UI\\Coin\\coinpoke10.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_19, L"Texture\\UI\\Coin\\coinpoke9.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_20, L"Texture\\UI\\Coin\\coinpoke8.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_21, L"Texture\\UI\\Coin\\coinpoke7.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_22, L"Texture\\UI\\Coin\\coinpoke6.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_23, L"Texture\\UI\\Coin\\coinpoke5.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_24, L"Texture\\UI\\Coin\\coinpoke4.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_25, L"Texture\\UI\\Coin\\coinpoke3.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_26, L"Texture\\UI\\Coin\\coinpoke2.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_27, L"Texture\\UI\\Coin\\coinpoke1.png");
+
 	
+	//加己
+	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_FIRE, L"Texture\\ETC\\Property\\Fire (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_ICE, L"Texture\\ETC\\Property\\Ice (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_BUG, L"Texture\\ETC\\Property\\Bug (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_DARK, L"Texture\\ETC\\Property\\Dark (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_GRASS, L"Texture\\ETC\\Property\\Grass (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_WATER, L"Texture\\ETC\\Property\\Water (1).png");
+	//器呕
+
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_01, L"Texture\\ETC\\Portal\\Portal (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_02, L"Texture\\ETC\\Portal\\Portal (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_03, L"Texture\\ETC\\Portal\\Portal (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_04, L"Texture\\ETC\\Portal\\Portal (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_05, L"Texture\\ETC\\Portal\\Portal (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_06, L"Texture\\ETC\\Portal\\Portal (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_07, L"Texture\\ETC\\Portal\\Portal (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_08, L"Texture\\ETC\\Portal\\Portal (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_09, L"Texture\\ETC\\Portal\\Portal (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_10, L"Texture\\ETC\\Portal\\Portal (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_11, L"Texture\\ETC\\Portal\\Portal (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_12, L"Texture\\ETC\\Portal\\Portal (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_13, L"Texture\\ETC\\Portal\\Portal (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_14, L"Texture\\ETC\\Portal\\Portal (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_15, L"Texture\\ETC\\Portal\\Portal (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_16, L"Texture\\ETC\\Portal\\Portal (16).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_17, L"Texture\\ETC\\Portal\\Portal (17).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_18, L"Texture\\ETC\\Portal\\Portal (18).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_19, L"Texture\\ETC\\Portal\\Portal (19).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_20, L"Texture\\ETC\\Portal\\Portal (20).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTAL_21, L"Texture\\ETC\\Portal\\Portal (21).png");
+
+
 	//传拱醚舅
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_01, L"Texture\\Bullet\\Bullet_Tears01.png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_TEARS_02, L"Texture\\Bullet\\Bullet_Tears02.png");
@@ -666,6 +742,39 @@ void PKH::MainGame::LoadETCSprite()
 
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATERDROP1_01, L"Texture\\Bullet\\WaterDrop1\\WaterDrop (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATERDROP1_02, L"Texture\\Bullet\\WaterDrop1\\WaterDrop (2).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_001, L"Texture\\ETC\\Portrait\\Portrait (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_002,L"Texture\\ETC\\Portrait\\Portrait (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_003,L"Texture\\ETC\\Portrait\\Portrait (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_004,L"Texture\\ETC\\Portrait\\Portrait (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_005,L"Texture\\ETC\\Portrait\\Portrait (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_006,L"Texture\\ETC\\Portrait\\Portrait (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_007,L"Texture\\ETC\\Portrait\\Portrait (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_008,L"Texture\\ETC\\Portrait\\Portrait (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_009,L"Texture\\ETC\\Portrait\\Portrait (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_010,L"Texture\\ETC\\Portrait\\Portrait (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_011,L"Texture\\ETC\\Portrait\\Portrait (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_012,L"Texture\\ETC\\Portrait\\Portrait (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_043,L"Texture\\ETC\\Portrait\\Portrait (43).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_044,L"Texture\\ETC\\Portrait\\Portrait (44).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_045,L"Texture\\ETC\\Portrait\\Portrait (45).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_054,L"Texture\\ETC\\Portrait\\Portrait (54).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_055,L"Texture\\ETC\\Portrait\\Portrait (55).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_058,L"Texture\\ETC\\Portrait\\Portrait (58).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_059,L"Texture\\ETC\\Portrait\\Portrait (59).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_060,L"Texture\\ETC\\Portrait\\Portrait (60).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_061,L"Texture\\ETC\\Portrait\\Portrait (61).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_062,L"Texture\\ETC\\Portrait\\Portrait (62).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_077,L"Texture\\ETC\\Portrait\\Portrait (77).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_078,L"Texture\\ETC\\Portrait\\Portrait (78).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_123,L"Texture\\ETC\\Portrait\\Portrait (123).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_124,L"Texture\\ETC\\Portrait\\Portrait (124).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_132,L"Texture\\ETC\\Portrait\\Portrait (132).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_218,L"Texture\\ETC\\Portrait\\Portrait (218).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_219,L"Texture\\ETC\\Portrait\\Portrait (219).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_245,L"Texture\\ETC\\Portrait\\Portrait (245).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_251,L"Texture\\ETC\\Portrait\\Portrait (251).png");
+	D2DRenderManager::LoadSprite(TextureKey::PORTRAIT_383,L"Texture\\ETC\\Portrait\\Portrait (383).png");
 
 	D2DRenderManager::LoadSprite(TextureKey::TREE01, L"Texture\\ETC\\Tree\\Tree (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::TREE02, L"Texture\\ETC\\Tree\\Tree (2).png");

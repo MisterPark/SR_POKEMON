@@ -213,3 +213,8 @@ bool PKH::GameObject::IsDead()
 	return isDead;
 }
 
+void PKH::GameObject::MinusHp(float _damage)
+{
+	 stat.hp -= _damage * TimeManager::DeltaTime();
+}
+

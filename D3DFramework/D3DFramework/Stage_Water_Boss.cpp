@@ -10,15 +10,20 @@ void Stage_Water_Boss::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBLUE1_U);
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
+	
+	
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(90));
-	playerCharacter->direction = { 1.f,0.f,0.f };
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(90));
+		playerCharacter->direction = { 1.f,0.f,0.f };
+		playerCharacter->transform->position.x = 5.f;
+		playerCharacter->transform->position.z = 48.f - 44.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 5.f;
-	playerCharacter->transform->position.z = 48.f - 44.f;
+
 	Set_Stage_Water_Boss_Map(TextureKey::BROOK_MAP, "Texture\\Map\\HeightMap\\WaterBoss.bmp", 0.f);
 	
 
@@ -30,7 +35,7 @@ void Stage_Water_Boss::OnLoaded()
 void Stage_Water_Boss::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 
@@ -70,22 +75,36 @@ void Stage_Water_Boss::Stage_Water_Boss_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::SUICUNE, 20.f, 0.5f, 1);
+		Spawner* spawner = Spawner::Create(MonsterType::POLIWRATH, 10.f, 0.5f, 10);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
-
-
-		triggerOn = false;
+		triggerOn = true;
 		spawnerCount++;
 	}
 	else if (isSpawner == nullptr)
 	{
-		if (spawnerCount ==1 && triggerOn == false)
+		if (spawnerCount == 1)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::JYNX, 10.f, 0.5f, 7);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawnerCount++;
+		}
+		else if (spawnerCount == 2)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::SUICUNE, 10.f, 0.5f, 1);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawnerCount++;
+			triggerOn = false;
+		}
+		else if (spawnerCount == 3 && triggerOn == false)
 		{
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = TownPortal;
-			trigerBox->transform->position = { 40.f,0.f,40.f };
+			trigerBox->transform->position = { 8.f,0.f,8.f };
 			trigerBox->Portal();
+
 			spawnerCount++;
 		}
 	}
