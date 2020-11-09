@@ -5,7 +5,7 @@ class Poliwrath :
 {
 public:
     Poliwrath();
-    Poliwrath(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    Poliwrath(const Vector3& pos, const Vector3& dir);
     virtual ~Poliwrath();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Poliwrath* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    static Poliwrath* Create(const Vector3& pos, const Vector3& dir);
 
 public:
     MonsterAI* monsterAI;

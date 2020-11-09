@@ -4,6 +4,7 @@
 #include "Charmander.h"
 #include "Charmeleon.h"
 #include "Inventory.h"
+#include "AllCharacters.h"
 
 Player* Player::instance = nullptr;
 
@@ -86,10 +87,49 @@ void Player::Evolution()
 
 void Player::SetCharacter(Character * object)
 {
+	if (nullptr == object) return;
+	// 처음 세팅할 때
+	if (nullptr == character)
+	{
+		character = object;
+		character->dontDestroy = true;
+		character->team = Team::PLAYERTEAM;
+		skillSetSize = character->GetSkillSetSize();
+		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
+		PlayerInfoPanel::SetTarget(character);
+		Camera::GetInstance()->SetTarget(character);
+	}
+	// 처음 세팅이 아닐 때
+	else
+	{
+		// 변신 전 필요한 데이터 저장
+		Vector3 pos = character->transform->position;
+		Vector3 dir = character->direction;
+		STAT oldStat = character->GetStat();
+
+		character->dontDestroy = false;
+		character->Die();
+
+		// 변신 후 세팅
+		character = object;
+		character->dontDestroy = true;
+		character->team = Team::PLAYERTEAM;
+		character->transform->position = pos;
+		character->direction = dir;
+		character->stat = oldStat;
+
+		skillSetSize = character->GetSkillSetSize();
+		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
+		PlayerInfoPanel::SetTarget(character);
+		Camera::GetInstance()->SetTarget(character);
+	}
+
+	/*
 	if (character != nullptr)
 	{
 		if (character == object) return;
 
+		saveStat = character->GetStat();
 		character->dontDestroy = false;
 		character->Die();
 	}
@@ -104,12 +144,14 @@ void Player::SetCharacter(Character * object)
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
 		PlayerInfoPanel::SetTarget(object);
 	}
-
-
+	*/
 }
 
 void Player::Initialize()
 {
+	metamorphosisList.reserve(3);
+	pokemonIndex = 0;
+	nextPokemon = MonsterType::VENUSAUR;
 }
 
 void Player::Release()
@@ -184,6 +226,7 @@ void Player::KeyInput()
 
 	if (InputManager::GetKeyDown(VK_SPACE))
 	{
+		Metamorphosis();
 		//Evolution();
 		//Camera::Shake();
 	}
@@ -298,5 +341,131 @@ void Player::ChangeState(State state)
 	if (character->GetCanMove())
 	{
 		character->ChangeState(state);
+	}
+}
+
+void Player::Metamorphosis()
+{
+	if (MonsterType::END != nextPokemon)
+	{
+		metamorphosisList.emplace_back(nextPokemon);
+		SetCharacterByNumber(nextPokemon);
+
+		++pokemonIndex;
+		nextPokemon = MonsterType::END;
+	}
+}
+
+void Player::SetCharacterByNumber(MonsterType type)
+{
+	Character* pokemon = nullptr;
+
+	Vector3 pos = character->transform->position;
+	Vector3 dir = character->direction;
+
+	switch (type)
+	{
+	case MonsterType::BULBASAUR:
+		pokemon = Bulbasaur::Create(pos, dir);
+		break;
+	case MonsterType::IVYSAUR:
+		pokemon = Ivysaur::Create(pos, dir);
+		break;
+	case MonsterType::VENUSAUR:
+		pokemon = Venusaur::Create(pos, dir);
+		break;
+	case MonsterType::CATERPIE:
+		//pokemon = Caterpie::Create(pos, dir);
+		break;
+	case MonsterType::METAPOD:
+		//pokemon = Metapod::Create(pos, dir);
+		break;
+	case MonsterType::ODDISH:
+		//pokemon = Oddish::Create(pos, dir);
+		break;
+	case MonsterType::GLOOM:
+		//pokemon = Bulbasaur::Create(pos, dir);
+		break;
+	case MonsterType::VILEPLUME:
+		//pokemon = Vileplume::Create(pos, dir);
+		break;
+	case MonsterType::SCYTHER:
+		//pokemon = Scyther::Create(pos, dir);
+		break;
+	case MonsterType::BUTTERFREE:
+		//pokemon = Butterfree::Create(pos, dir);
+		break;
+	case MonsterType::SQUIRTLE:
+		pokemon = Squirtle::Create(pos, dir);
+		break;
+	case MonsterType::WARTORTLE:
+		pokemon = Wartortle::Create(pos, dir);
+		break;
+	case MonsterType::BLASTOISE:
+		pokemon = Blastoise::Create(pos, dir);
+		break;
+	case MonsterType::PSYDUCK:
+		//pokemon = Psyduck::Create(pos, dir);
+		break;
+	case MonsterType::GOLDUCK:
+		//pokemon = Golduck::Create(pos, dir);
+		break;
+	case MonsterType::POLIWAG:
+		//pokemon = Poliwag::Create(pos, dir);
+		break;
+	case MonsterType::POLIWHIRL:
+		//pokemon = Poliwhirl::Create(pos, dir);
+		break;
+	case MonsterType::POLIWRATH:
+		//pokemon = Poliwrath::Create(pos, dir);
+		break;
+	case MonsterType::JYNX:
+		//pokemon = Jynx::Create(pos, dir);
+		break;
+	case MonsterType::SUICUNE:
+		//pokemon = Suicune::Create(pos, dir);
+		break;
+	case MonsterType::CHARMANDER:
+		pokemon = Charmander::Create(pos, dir);
+		break;
+	case MonsterType::CHARMELEON:
+		pokemon = Charmeleon::Create(pos, dir);
+		break;
+	case MonsterType::CHARIZARD:
+		pokemon = Charizard::Create(pos, dir);
+		break;
+	case MonsterType::GROWLITHE:
+		//pokemon = Growlithe::Create(pos, dir);
+		break;
+	case MonsterType::ARCANINE:
+		//pokemon = Arcanine::Create(pos, dir);
+		break;
+	case MonsterType::PONYTA:
+		//pokemon = Ponyta::Create(pos, dir);
+		break;
+	case MonsterType::RAPIDASH:
+		//pokemon = Rapidash::Create(pos, dir);
+		break;
+	case MonsterType::SLUGMA:
+		//pokemon = Slugma::Create(pos, dir);
+		break;
+	case MonsterType::MAGCARGO:
+		//pokemon = Magcargo::Create(pos, dir);
+		break;
+	case MonsterType::GROUDON:
+		//pokemon = Groudon::Create(pos, dir);
+		break;
+	}
+
+	if (nullptr != pokemon) ObjectManager::AddObject(pokemon);
+
+	SetCharacter(pokemon);
+}
+
+void Player::ChangeNextPokemon(MonsterType pokemon)
+{
+	if (MonsterType::END != pokemon)
+	{
+		nextPokemon = pokemon;
 	}
 }

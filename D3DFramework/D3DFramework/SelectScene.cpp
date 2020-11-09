@@ -30,7 +30,7 @@ void SelectScene::OnLoaded()
 	pokeA->SetDir(Vector3(1, 0, 0));
 	pokeA->infoVisible = false;
 
-	pokeB = (Character*)Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
+	pokeB = (Character*)Squirtle::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(pokeB);
 	pokeB->transform->position = { 0,0,2 };
 	pokeB->SetDir(Vector3(0, 0, -1));

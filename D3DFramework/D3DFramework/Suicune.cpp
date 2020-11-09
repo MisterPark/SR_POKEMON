@@ -10,10 +10,9 @@ Suicune::Suicune()
 	Initialize();
 }
 
-Suicune::Suicune(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Suicune::Suicune(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -36,12 +35,13 @@ void Suicune::Initialize()
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 	stat.moveSpeed = 3.5f;
-	offsetY = 1.f;
+	offsetY = 1.5f;
 
 	state = State::READY;
 
-	stat.hp = 1600;
-	stat.maxHp = 1600;
+	transform->scale = { 1.5f, 1.5f, 1.5f };
+	stat.hp = 2000;
+	stat.maxHp = 2000;
 	stat.attack = 50.f;
 
 	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
@@ -90,8 +90,8 @@ bool Suicune::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Suicune* Suicune::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Suicune* Suicune::Create(const Vector3& pos, const Vector3& dir)
 {
-	Suicune* newPokemon = new Suicune(pos, scale, dir);
+	Suicune* newPokemon = new Suicune(pos, dir);
 	return newPokemon;
 }

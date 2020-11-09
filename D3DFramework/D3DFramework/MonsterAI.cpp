@@ -212,7 +212,7 @@ void MonsterAI::SetType(MonsterType _type)
 		searchRange[1] = 3.f;
 		searchRange[3] = 10.f;
 		break;
-	case MonsterType::LVYSAUR:
+	case MonsterType::IVYSAUR:
 		break;
 	case MonsterType::VENUSAUR:
 		break;
@@ -326,7 +326,7 @@ void MonsterAI::SetType(MonsterType _type)
 		searchRange[1] = 4.f;
 		searchRange[3] = 14.f;
 		break;
-	case MonsterType::RAPIDISH:
+	case MonsterType::RAPIDASH:
 		SetPatternRange(1, 1);
 		searchRange[0] = 8.f;
 		searchRange[1] = 4.f;
@@ -447,7 +447,7 @@ void MonsterAI::MonsterIdle() {
 		{
 		case MonsterType::BULBASAUR:
 			break;
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			break;
 		case MonsterType::VENUSAUR:
 			break;
@@ -636,7 +636,7 @@ void MonsterAI::MonsterIdle() {
 				c->state = State::WALK; //WALK 와 다른점
 			}
 			break;
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
@@ -735,7 +735,7 @@ void MonsterAI::MonsterIdle() {
 		{
 		case MonsterType::BULBASAUR:
 			break;
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			break;
 		case MonsterType::VENUSAUR:
 			break;
@@ -785,7 +785,7 @@ void MonsterAI::MonsterIdle() {
 			break;
 		case MonsterType::PONYTA:
 			break;
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			break;
 		case MonsterType::SLUGMA:
 			break;
@@ -831,7 +831,7 @@ void MonsterAI::MonsterWalk() {
 			}
 
 			break;
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -1198,7 +1198,7 @@ void MonsterAI::MonsterWalk() {
 				MovePlayerFollow();
 			}
 			break;
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
 				readyPattern = false;
@@ -1323,7 +1323,7 @@ void MonsterAI::MonsterWalk() {
 			MoveRandomPattern();
 			break;
 
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				SpawnInRandomPos();
 				readyPattern = false;
@@ -1524,7 +1524,7 @@ void MonsterAI::MonsterWalk() {
 			MoveRandomPattern();
 
 			break;
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 				SpawnInRandomPos();
 				readyPattern = false;
@@ -1579,7 +1579,7 @@ void MonsterAI::MonsterAttack() {
 			}
 			break;
 
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -1891,7 +1891,7 @@ void MonsterAI::MonsterAttack() {
 			}
 			break;
 
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 				readyPattern = false;
 				c->direction = DirFromPlayer();
@@ -1971,7 +1971,7 @@ void MonsterAI::MonsterAttack() {
 			}
 			break;
 
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -2126,7 +2126,7 @@ void MonsterAI::MonsterAttack() {
 			}
 			break;
 
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -2173,7 +2173,7 @@ void MonsterAI::MonsterSkill() {
 			}
 			break;
 
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -2360,7 +2360,7 @@ void MonsterAI::MonsterSkill() {
 			}
 			break;
 
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -2410,7 +2410,7 @@ void MonsterAI::MonsterSkill() {
 			}
 			break;
 
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -2557,7 +2557,7 @@ void MonsterAI::MonsterSkill() {
 			}
 			break;
 
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -2601,7 +2601,7 @@ void MonsterAI::MonsterSkill2() {
 			}
 			break;
 
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -2757,7 +2757,7 @@ void MonsterAI::MonsterSkill2() {
 		case MonsterType::PONYTA:
 			break;
 
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			break;
 
 		case MonsterType::SLUGMA:
@@ -2796,7 +2796,7 @@ void MonsterAI::MonsterSkill2() {
 			if (readyPattern) {
 			}
 			break;
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 			}
 			break;
@@ -2897,7 +2897,7 @@ void MonsterAI::MonsterSkill2() {
 			if (readyPattern) {
 			}
 			break;
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 			}
 			break;
@@ -2937,7 +2937,7 @@ void MonsterAI::MonsterSkill3()
 			}
 			break;
 
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 				readyPattern = false;
 			}
@@ -3093,7 +3093,7 @@ void MonsterAI::MonsterSkill3()
 		case MonsterType::PONYTA:
 			break;
 
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			break;
 
 		case MonsterType::SLUGMA:
@@ -3132,7 +3132,7 @@ void MonsterAI::MonsterSkill3()
 			if (readyPattern) {
 			}
 			break;
-		case MonsterType::LVYSAUR:
+		case MonsterType::IVYSAUR:
 			if (readyPattern) {
 			}
 			break;
@@ -3233,7 +3233,7 @@ void MonsterAI::MonsterSkill3()
 			if (readyPattern) {
 			}
 			break;
-		case MonsterType::RAPIDISH:
+		case MonsterType::RAPIDASH:
 			if (readyPattern) {
 			}
 			break;

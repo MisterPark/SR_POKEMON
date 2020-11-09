@@ -10,10 +10,9 @@ Poliwrath::Poliwrath()
 	Initialize();
 }
 
-Poliwrath::Poliwrath(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Poliwrath::Poliwrath(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -41,6 +40,7 @@ void Poliwrath::Initialize()
 
 	state = State::READY;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 35;
 	stat.hp = 450;
 	stat.maxHp = 450;
@@ -81,8 +81,8 @@ bool Poliwrath::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Poliwrath* Poliwrath::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Poliwrath* Poliwrath::Create(const Vector3& pos, const Vector3& dir)
 {
-	Poliwrath* newPokemon = new Poliwrath(pos, scale, dir);
+	Poliwrath* newPokemon = new Poliwrath(pos, dir);
 	return newPokemon;
 }

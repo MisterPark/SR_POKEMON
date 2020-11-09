@@ -8,10 +8,9 @@ Rapidash::Rapidash()
 	Initialize();
 }
 
-Rapidash::Rapidash(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Rapidash::Rapidash(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -39,8 +38,8 @@ void Rapidash::Initialize()
 
 	state = State::READY;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 50;
-
 	stat.hp = 450;
 	stat.maxHp = 450;
 
@@ -80,8 +79,8 @@ bool Rapidash::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Rapidash* Rapidash::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Rapidash* Rapidash::Create(const Vector3& pos, const Vector3& dir)
 {
-	Rapidash* newPokemon = new Rapidash(pos, scale, dir);
+	Rapidash* newPokemon = new Rapidash(pos, dir);
 	return newPokemon;
 }

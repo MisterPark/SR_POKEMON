@@ -40,15 +40,22 @@ private:
 	void CalcMouse();
 	void KeyInput();
 	void ChangeState(State state);
+	void SetCharacterByNumber(MonsterType type);
+	
+public:
+	void Metamorphosis();
+	void ChangeNextPokemon(MonsterType pokemon);
 
 private:
 	static Player* instance;
-
 	Character* character = nullptr;
+	vector<MonsterType> metamorphosisList;
+	MonsterType nextPokemon;
 	float radianX;
 	float radianY;
 	bool isFix;
 	int skillNum;
 	int skillSetSize;
+	int pokemonIndex;
 };
 

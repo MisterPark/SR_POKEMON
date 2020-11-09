@@ -5,7 +5,7 @@ class Oddish :
 {
 public:
     Oddish();
-    Oddish(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    Oddish(const Vector3& pos, const Vector3& dir);
     virtual ~Oddish();
     
 public:
@@ -16,7 +16,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Oddish* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    static Oddish* Create(const Vector3& pos, const Vector3& dir);
 
 
 public:

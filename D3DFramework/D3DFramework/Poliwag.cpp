@@ -10,10 +10,9 @@ Poliwag::Poliwag()
 	Initialize();
 }
 
-Poliwag::Poliwag(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Poliwag::Poliwag(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	
@@ -42,6 +41,7 @@ void Poliwag::Initialize()
 	stat.moveSpeed = 1.f;
 	offsetY = 0.5f;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 30;
 	stat.hp = 200;
 	stat.maxHp = 200;
@@ -84,9 +84,9 @@ bool Poliwag::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& dir)
 {
-	Poliwag* newPokemon = new Poliwag(pos, scale, dir);
+	Poliwag* newPokemon = new Poliwag(pos, dir);
 	return newPokemon;
 }
 
