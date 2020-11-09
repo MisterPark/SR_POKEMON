@@ -3,6 +3,8 @@
 
 Item_Tomato::Item_Tomato()
 {
+	name = L"Åä¸¶Åä";
+	type = ItemType::TOMATO;
 	anim->SetSprite(TextureKey::UI_ICON_ITEM_TOMATO, TextureKey::UI_ICON_ITEM_TOMATO);
 	stat.hp = 10.f;
 

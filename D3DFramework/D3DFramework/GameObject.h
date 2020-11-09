@@ -71,6 +71,7 @@ namespace PKH
 		bool IsDead();
 
 	public:
+		wstring name;
 		Transform* transform = nullptr;
 		STAT stat;
 		Team team = Team::NEUTRAL;

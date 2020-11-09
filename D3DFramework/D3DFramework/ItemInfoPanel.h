@@ -16,6 +16,7 @@ public:
 	static void Show();
 	static void Hide();
 
+	static Item* GetTarget();
 	static void SetTarget(Item* _item);
 
 	virtual void Initialize() override;

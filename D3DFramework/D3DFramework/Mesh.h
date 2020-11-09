@@ -20,6 +20,13 @@ namespace PKH
 		ON,
 		OFF
 	};
+
+	enum class LightMode
+	{
+		ON,
+		OFF
+	};
+
 	class Mesh : public PKH::IComponent
 	{
 	public:
@@ -52,6 +59,7 @@ namespace PKH
 		BlendMode blendMode = BlendMode::NONE;
 		ZReadMode zReadMode = ZReadMode::ON;
 		ZWriteMode zWriteMode = ZWriteMode::ON;
+		LightMode lightMode = LightMode::OFF;
 	public:
 		TextureKey textureKey = TextureKey::NONE;
 

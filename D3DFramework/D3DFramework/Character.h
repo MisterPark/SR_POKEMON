@@ -57,7 +57,7 @@ public:
 	Spawner* spawner = nullptr;
 
 	//Stat
-	wstring name;
+	
 	Pokemon number = Pokemon::None;
     // 지형과 간격
     float offsetY;

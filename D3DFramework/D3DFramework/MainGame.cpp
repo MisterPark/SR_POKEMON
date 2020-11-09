@@ -728,6 +728,7 @@ void PKH::MainGame::LoadUISprite()
 {
 	// 리소스 로드
 	D2DRenderManager::LoadSprite(TextureKey::UI_TITLE_SCREEN, L"Texture\\UI\\pokeTitle2.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_CURSOR, L"Texture\\UI\\Cursor.png");
 	// 블루필터
 	D2DRenderManager::LoadSprite(TextureKey::UI_BLUE_FILTER, L"Texture\\UI\\BlueFilter.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_BUTTON, L"Texture\\UI\\PokemonButton.png");
