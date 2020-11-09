@@ -50,8 +50,6 @@ void Item::OnCollision(GameObject* target)
 	if (player == nullptr) return;
 	if (player != target)return;
 	if (inSlot) return;
-	// TODO : 경훈/ 인벤토리에 아이템 삽입
-	// 인벤꽉쳤으면 노다이
 
 	if (Inventory::Push(this))
 	{

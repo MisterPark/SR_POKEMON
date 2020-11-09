@@ -50,7 +50,7 @@ void RenderFilter::Update()
 void RenderFilter::Render()
 {
 
-    // 워터 필터
+    // 워터필터,블루필터,렌더필터
     GameObject* water = ObjectManager::GetInstance()->FindObject<Water>();
     if (water == nullptr) return;
     GameObject* playerChar = Player::GetInstance()->GetCharacter();
@@ -63,8 +63,13 @@ void RenderFilter::Render()
     Vector3 screenPos = Camera::WorldToScreenPoint(pos);
     float yPos = screenPos.y;
 
-    if (Camera::GetInstance()->transform->position.y - 0.7f > water->transform->position.y) return;
+    float camY = Camera::GetInstance()->transform->position.y;
+    if (camY - 0.7f > water->transform->position.y) return;
 
+    if (yPos > dfCLIENT_HEIGHT)
+    {
+        yPos = 0;
+    }
     D2DRenderManager::DrawImage(TextureKey::UI_BLUE_FILTER, 0, yPos, 100);
     //GameObject::Render();
 }

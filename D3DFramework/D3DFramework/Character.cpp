@@ -106,7 +106,6 @@ void Character::OnCollision(GameObject* target)
 
 		Character* playerCharacter = Player::GetInstance()->GetCharacter();
 
-		// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
 		if (stat.hp > stat.maxHp)
 		{
 			stat.hp = stat.maxHp;
