@@ -12,6 +12,7 @@ Item_Tomato::Item_Tomato()
 
 Item_Tomato::~Item_Tomato()
 {
+	int a = 10;
 }
 
 void Item_Tomato::Use()
