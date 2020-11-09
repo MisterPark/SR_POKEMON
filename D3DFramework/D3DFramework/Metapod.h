@@ -5,7 +5,7 @@ class Metapod :
 {
 public:
 	Metapod();
-	Metapod(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	Metapod(const Vector3& pos, const Vector3& dir);
 	virtual ~Metapod();
 
 public:
@@ -16,7 +16,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Metapod* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+	static Metapod* Create(const Vector3& pos, const Vector3& dir);
 
 
 public:

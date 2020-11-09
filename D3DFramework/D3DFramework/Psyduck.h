@@ -5,7 +5,7 @@
     {
     public:
         Psyduck();
-        Psyduck(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+        Psyduck(const Vector3& pos, const Vector3& dir);
         virtual ~Psyduck();
 
         virtual void Initialize() override;
@@ -15,7 +15,7 @@
         virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
     public:
-        static Psyduck* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+		static Psyduck* Create(const Vector3& pos, const Vector3& dir);
 
     public:
         MonsterAI* monsterAI;

@@ -117,3 +117,21 @@ void Stage_Fire_02::Create_Monster_C_Spawner()
 	poliwagSpawner->transform->position = { 36.f,0.f,48.f - 42.f };
 	ObjectManager::AddObject(poliwagSpawner);
 }
+
+void Stage_Fire_02::Stage_Fire_02_Wave()
+{
+}
+
+void Stage_Fire_02::CreateSpawner()
+{
+}
+
+void Stage_Fire_02::Portal()
+{
+	SceneManager::LoadScene<Stage_Fire_Boss>();
+}
+
+void Stage_Fire_02::TownPortal()
+{
+	SceneManager::LoadScene<Stage_Town>();
+}

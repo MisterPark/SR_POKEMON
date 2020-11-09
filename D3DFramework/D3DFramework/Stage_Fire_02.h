@@ -19,4 +19,14 @@ public:
     static void Create_Monster_A_Spawner();
     static void Create_Monster_B_Spawner();
     static void Create_Monster_C_Spawner();
+
+	void Stage_Fire_02_Wave();
+	static void CreateSpawner();
+
+	static void Portal();
+	static void TownPortal();
+public:
+	bool triggerOn = false;
+	int spawnerCount = 0;
+
 };

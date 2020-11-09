@@ -5,7 +5,7 @@ PKH::Cursor* pCursor = nullptr;
 
 PKH::Cursor::Cursor()
 {
-    isVisible = false;
+    
 }
 
 PKH::Cursor::~Cursor()
@@ -43,15 +43,22 @@ Vector3 PKH::Cursor::GetMousePos()
 
 void PKH::Cursor::Show()
 {
-    if (pCursor->isShow) return;
+    if (pCursor->isVisible) return;
 
+    pCursor->isVisible = true;
     ShowCursor(TRUE);
+}
+
+void PKH::Cursor::Show(bool on)
+{
+    pCursor->isVisible = on;
 }
 
 void PKH::Cursor::Hide()
 {
-    if (pCursor->isShow == false) return;
+    if (pCursor->isVisible == false) return;
 
+    pCursor->isVisible = false;
     ShowCursor(FALSE);
 }
 
@@ -73,4 +80,9 @@ void PKH::Cursor::Initialize()
 
 void PKH::Cursor::Release()
 {
+}
+
+bool PKH::Cursor::IsVisible()
+{
+    return pCursor->isVisible;
 }

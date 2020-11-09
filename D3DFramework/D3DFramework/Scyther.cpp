@@ -11,10 +11,9 @@ Scyther::Scyther()
 	Initialize();
 }
 
-Scyther::Scyther(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Scyther::Scyther(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -42,14 +41,13 @@ void Scyther::Initialize()
 	offsetY = 1.f;
 
 	
-
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tornado));
 
+	transform->scale = { 1.f, 1.f, 1.f };
 	stat.attack = 30;
-
 	stat.hp = 700;
 	stat.maxHp = 700;
 
@@ -130,9 +128,9 @@ void Scyther::AnimSet()
 	}
 }
 
-Scyther* Scyther::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Scyther* Scyther::Create(const Vector3& pos, const Vector3& dir)
 {
-	Scyther* newPokemon = new Scyther(pos, scale, dir);
+	Scyther* newPokemon = new Scyther(pos, dir);
 	return newPokemon;
 }
 

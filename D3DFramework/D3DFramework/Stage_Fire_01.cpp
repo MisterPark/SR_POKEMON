@@ -92,7 +92,7 @@ void Stage_Fire_01::Stage_Fire_01_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10);
+		Spawner* spawner = Spawner::Create(MonsterType::GROWLITHE, 10.f, 0.5f, 10);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 		triggerOn = true;
@@ -102,14 +102,14 @@ void Stage_Fire_01::Stage_Fire_01_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::METAPOD, 10.f, 0.5f, 7);
+			Spawner* spawner = Spawner::Create(MonsterType::PONYTA, 10.f, 0.5f, 7);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
 		}
 		else if (spawnerCount == 2)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f, 5);
+			Spawner* spawner = Spawner::Create(MonsterType::SLUGMA, 10.f, 0.5f, 5);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
@@ -117,11 +117,16 @@ void Stage_Fire_01::Stage_Fire_01_Wave()
 		}
 		else if (spawnerCount == 3 && triggerOn == false)
 		{
-			Player::GetInstance()->Evolution();
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
 			trigerBox->Portal();
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = TownPortal;
+			trigerBox->transform->position = { 8.f,0.f,8.f };
+			trigerBox->Portal();
+
 			spawnerCount++;
 		}
 	}
@@ -129,12 +134,14 @@ void Stage_Fire_01::Stage_Fire_01_Wave()
 
 void Stage_Fire_01::CreateSpawner()
 {
-	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10);
-	spawner->transform->position = { 24.f,0.f,24.f };
-	ObjectManager::AddObject(spawner);
 }
 
 void Stage_Fire_01::Portal()
 {
-	SceneManager::LoadScene<Stage_Fire_Boss>();
+	SceneManager::LoadScene<Stage_Fire_02>();
+}
+
+void Stage_Fire_01::TownPortal()
+{
+	SceneManager::LoadScene<Stage_Town>();
 }

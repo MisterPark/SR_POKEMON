@@ -5,6 +5,7 @@
 #include "AllDecorations.h"
 #include "AllEnvironments.h"
 #include "SkyBox.h"
+#include "Item_Tomato.h"
 
 void Stage_Grass_01::OnLoaded()
 {
@@ -17,16 +18,19 @@ void Stage_Grass_01::OnLoaded()
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
-		Player::GetInstance()->SetRadianY(D3DXToRadian(30));
+		Player::GetInstance()->SetRadianY(D3DXToRadian(60));
 		playerCharacter->direction = { 1.f,0.f,1.f };
 		playerCharacter->transform->position.x = 7.f;
-		playerCharacter->transform->position.z = 48.f - 35.f;
+		playerCharacter->transform->position.z = 48.f - 24.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
 	}
 	
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->transform->position = { 18.f,0.f,48.f-21.f };
 
+	Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
+	tomato->transform->position = { 20.f,0.f,48.f - 21.f };
 
 	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Grass1.bmp", 0.1f);
 
@@ -132,11 +136,16 @@ void Stage_Grass_01::Stage_Grass_01_Wave()
 		}
 		else if (spawnerCount == 3 && triggerOn == false)
 		{
-			Player::GetInstance()->Evolution();
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
 			trigerBox->Portal();
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = TownPortal;
+			trigerBox->transform->position = { 8.f,0.f,8.f };
+			trigerBox->Portal();
+
 			spawnerCount++;
 		}
 	}
@@ -152,4 +161,9 @@ void Stage_Grass_01::CreateSpawner()
 void Stage_Grass_01::Portal()
 {
 	SceneManager::LoadScene<Stage_Grass_02>();
+}
+
+void Stage_Grass_01::TownPortal()
+{
+	SceneManager::LoadScene<Stage_Town>();
 }

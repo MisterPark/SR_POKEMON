@@ -78,7 +78,7 @@ void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 		if (spawnerCount == 1)
 		{
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-			trigerBox->OnTriggered = Portal;
+			trigerBox->OnTriggered = TownPortal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
 			trigerBox->Portal();
 			spawnerCount++;
@@ -95,7 +95,9 @@ void Stage_Fire_Boss::CreateSpawner()
 	ObjectManager::AddObject(spawner);
 }
 
-void Stage_Fire_Boss::Portal()
+
+
+void Stage_Fire_Boss::TownPortal()
 {
-	SceneManager::LoadScene<Stage_Water_01>();
+	SceneManager::LoadScene<Stage_Town>();
 }

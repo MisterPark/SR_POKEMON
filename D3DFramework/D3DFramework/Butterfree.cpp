@@ -8,10 +8,9 @@ Butterfree::Butterfree()
 	Initialize();
 }
 
-Butterfree::Butterfree(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Butterfree::Butterfree(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -44,8 +43,8 @@ void Butterfree::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsShot));
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 20;
-
 	stat.hp = 120;
 	stat.maxHp = 120;
 
@@ -83,8 +82,8 @@ bool Butterfree::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& dir)
 {
-	Butterfree* newPokemon = new Butterfree(pos, scale, dir);
+	Butterfree* newPokemon = new Butterfree(pos, dir);
 	return newPokemon;
 }

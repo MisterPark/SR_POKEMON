@@ -5,7 +5,7 @@ class Scyther :
 {
 public:
     Scyther();
-    Scyther(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    Scyther(const Vector3& pos, const Vector3& dir);
     virtual ~Scyther();
 
 public:
@@ -20,7 +20,7 @@ public:
 	void AnimSet();
 
 public:
-    static Scyther* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    static Scyther* Create(const Vector3& pos, const Vector3& dir);
 
 
 public:

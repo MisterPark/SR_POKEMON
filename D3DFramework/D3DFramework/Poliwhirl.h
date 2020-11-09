@@ -5,7 +5,7 @@ class Poliwhirl :
 {
 public:
     Poliwhirl();
-    Poliwhirl(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    Poliwhirl(const Vector3& pos, const Vector3& dir);
     virtual ~Poliwhirl();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Poliwhirl* Create(const Vector3& pos, const Vector3& scale, const Vector3& dir);
+    static Poliwhirl* Create(const Vector3& pos, const Vector3& dir);
 
 public:
     MonsterAI* monsterAI;

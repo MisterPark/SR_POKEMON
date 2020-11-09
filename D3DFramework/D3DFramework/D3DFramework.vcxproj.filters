@@ -349,11 +349,38 @@
     <Filter Include="GameObject\Bullet\31. ShortWaterFlow">
       <UniqueIdentifier>{155a97fb-5437-40af-a15e-83d6f6231338}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Bullet\33. FireBomb">
+      <UniqueIdentifier>{571fbd82-ef58-4dc0-88bd-794e03940429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\34. FireShot">
+      <UniqueIdentifier>{538e38d6-2b1e-465c-b793-ea5135c4e630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\34. FireShot">
+      <UniqueIdentifier>{f13e72d7-90d5-4e8e-ab98-2d32c8d2cc1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\33. FireBomb">
+      <UniqueIdentifier>{fbd275ec-48e5-4bd3-a6f3-8aca58e6df87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\36. FireXCrossBomb">
+      <UniqueIdentifier>{09ed3d4f-f40e-4d70-ac31-235ccd74c949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\36. FireMiniBomb">
+      <UniqueIdentifier>{6721b102-67c3-4b66-8554-62b34eae55d9}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Skill\32. Synthesis">
       <UniqueIdentifier>{64a231de-af14-477c-a071-918c67d91b34}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Bullet\32.Synthesis">
       <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Item">
+      <UniqueIdentifier>{58f3ad62-8bb2-456a-b47f-4de7029f0af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\UI\Inventory">
+      <UniqueIdentifier>{3c5e9bdc-0eba-4712-912a-e5e5f9c2101e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Town">
+      <UniqueIdentifier>{d9a58f50-b148-4bf6-b72c-d158905237b6}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Spawner">
       <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
@@ -885,11 +912,46 @@
     <ClInclude Include="Bullet_ShortWaterFlow.h">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet_FireShot.h">
+      <Filter>GameObject\Bullet\34. FireShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireShot.h">
+      <Filter>Skill\34. FireShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireBomb.h">
+      <Filter>Skill\33. FireBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireBomb.h">
+      <Filter>GameObject\Bullet\33. FireBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireXCrossBomb.h">
+      <Filter>Skill\36. FireXCrossBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireMiniBomb.h">
+      <Filter>GameObject\Bullet\36. FireMiniBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="LeechSeed.h">
+      <Filter>GameObject\Bullet\29. LeechSeed</Filter>
+    </ClInclude>
+    <ClInclude Include="PetalBlizzard.h">
+      <Filter>GameObject\Bullet\30. PetalBlizzard</Filter>
+    </ClInclude>
     <ClInclude Include="Skill_Synthesis.h">
       <Filter>Skill\32. Synthesis</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Synthesis.h">
       <Filter>GameObject\Bullet\32.Synthesis</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Slot.h" />
+    <ClInclude Include="Item_Tomato.h" />
+    <ClInclude Include="Stage_Town.h">
+      <Filter>Scene\Town</Filter>
     </ClInclude>
     <ClInclude Include="Skill_RedBall.h">
       <Filter>Skill\35. RedBall</Filter>
@@ -1510,11 +1572,46 @@
     <ClCompile Include="Bullet_ShortWaterFlow.cpp">
       <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet_FireShot.cpp">
+      <Filter>GameObject\Bullet\34. FireShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireShot.cpp">
+      <Filter>Skill\34. FireShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireBomb.cpp">
+      <Filter>Skill\33. FireBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireBomb.cpp">
+      <Filter>GameObject\Bullet\33. FireBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireXCrossBomb.cpp">
+      <Filter>Skill\36. FireXCrossBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireMiniBomb.cpp">
+      <Filter>GameObject\Bullet\36. FireMiniBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="LeechSeed.cpp">
+      <Filter>GameObject\Bullet\29. LeechSeed</Filter>
+    </ClCompile>
+    <ClCompile Include="PetalBlizzard.cpp">
+      <Filter>GameObject\Bullet\30. PetalBlizzard</Filter>
+    </ClCompile>
     <ClCompile Include="Skill_Synthesis.cpp">
       <Filter>Skill\32. Synthesis</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Synthesis.cpp">
       <Filter>GameObject\Bullet\32.Synthesis</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>GameObject\UI\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Slot.cpp" />
+    <ClCompile Include="Item_Tomato.cpp" />
+    <ClCompile Include="Stage_Town.cpp">
+      <Filter>Scene\Town</Filter>
     </ClCompile>
     <ClCompile Include="Skill_RedBall.cpp">
       <Filter>Skill\35. RedBall</Filter>

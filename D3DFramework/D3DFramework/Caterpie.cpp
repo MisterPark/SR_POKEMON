@@ -10,10 +10,9 @@ Caterpie::Caterpie()
 	Initialize();
 }
 
-Caterpie::Caterpie(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Caterpie::Caterpie(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -40,8 +39,8 @@ void Caterpie::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.attack = 15;
-
 	stat.hp = 60;
 	stat.maxHp = 60;
 
@@ -83,8 +82,8 @@ bool Caterpie::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Caterpie* Caterpie::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Caterpie* Caterpie::Create(const Vector3& pos, const Vector3& dir)
 {
-	Caterpie* newPokemon = new Caterpie(pos, scale, dir);
+	Caterpie* newPokemon = new Caterpie(pos, dir);
 	return newPokemon;
 }

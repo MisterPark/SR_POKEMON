@@ -5,6 +5,7 @@
 #include "RenderFilter.h"
 #include "TargetInfoPanel.h"
 #include "PlayerInfoPanel.h"
+#include "Inventory.h"
 
 using namespace PKH;
 
@@ -18,6 +19,7 @@ PKH::ObjectManager::ObjectManager()
 	RenderFilter::GetInstance();
 	TargetInfoPanel::GetInstance();
 	PlayerInfoPanel::GetInstance();
+	Inventory::GetInstance();
 }
 
 PKH::ObjectManager::~ObjectManager()
@@ -27,6 +29,7 @@ PKH::ObjectManager::~ObjectManager()
 	RenderFilter::Destroy();
 	TargetInfoPanel::Destroy();
 	PlayerInfoPanel::Destroy();
+	Inventory::Destroy();
 	Release();
 }
 
@@ -88,6 +91,11 @@ void PKH::ObjectManager::AddObject(GameObject* _obj)
 	pObjectManager->objectList.push_back(_obj);
 }
 
+void PKH::ObjectManager::RemoveObject(GameObject* _obj)
+{
+	pObjectManager->objectList.remove(_obj);
+}
+
 
 
 void PKH::ObjectManager::Update()
@@ -106,6 +114,7 @@ void PKH::ObjectManager::Update()
 	PlayerInfoPanel::GetInstance()->Update();
 	TargetInfoPanel::GetInstance()->Update();
 	Cursor::GetInstance()->Update();
+	Inventory::Update();
 }
 
 void PKH::ObjectManager::PostUpdate()
@@ -195,6 +204,7 @@ void PKH::ObjectManager::PostRender()
 	RenderFilter::GetInstance()->Render();
 	PlayerInfoPanel::GetInstance()->Render();
 	TargetInfoPanel::GetInstance()->Render();
+	Inventory::Render();
 	Cursor::GetInstance()->Render();
 }
 

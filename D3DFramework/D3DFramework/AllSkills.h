@@ -36,5 +36,9 @@
 #include "Skill_PetalBlizzard.h"
 
 #include "Skill_ClawBlast.h"
+#include "Skill_FireShot.h"
+#include "Skill_FireBomb.h"
+#include "Skill_FireXCrossBomb.h"
+#include "Skill_ClawBlast.h"
 #include "Skill_Synthesis.h"
 #include "Skill_RedBall.h"

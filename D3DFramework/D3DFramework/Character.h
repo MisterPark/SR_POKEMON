@@ -64,6 +64,7 @@ public:
 	TextureKey endArray[MaxOfEnum<State>()][MaxOfEnum<Direction>()];
 	bool infoVisible = true;
 	bool isInvincible = false;
+	MonsterAI* monsterAI;
 protected:
 	vector<Skill*> skillSet;
 	float healEffectStack;

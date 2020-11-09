@@ -9,10 +9,9 @@ Golduck::Golduck()
 	Initialize();
 }
 
-Golduck::Golduck(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Golduck::Golduck(const Vector3& pos, const Vector3& dir)
 {
 	transform->position = pos;
-	transform->scale = scale;
 	direction = dir;
 
 	Initialize();
@@ -42,6 +41,7 @@ void Golduck::Initialize()
 
 	stat.attack = 35;
 
+	transform->scale = { 0.5f, 0.5f, 0.5f };
 	stat.hp = 200;
 	stat.maxHp = 200;
 
@@ -81,8 +81,8 @@ bool Golduck::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Golduck* Golduck::Create(const Vector3& pos, const Vector3& scale, const Vector3& dir)
+Golduck* Golduck::Create(const Vector3& pos, const Vector3& dir)
 {
-	Golduck* newPokemon = new Golduck(pos, scale, dir);
+	Golduck* newPokemon = new Golduck(pos, dir);
 	return newPokemon;
 }
