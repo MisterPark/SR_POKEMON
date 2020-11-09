@@ -99,6 +99,7 @@ bool Inventory::Push(Item* item)
         {
             if (iter->type != item->type) continue;
             
+            item->Die();
             //타입이 같으면 수량 증가
             iter->count++;
             return true;
@@ -106,6 +107,9 @@ bool Inventory::Push(Item* item)
 
         // 슬롯에 아이템이 존재하지 않으면 셋
         pInventory->slots[i].SetItem(item);
+        ObjectManager::RemoveObject(item);
+
+        
         return true;
     }
 

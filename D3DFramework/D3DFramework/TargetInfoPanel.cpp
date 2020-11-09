@@ -87,4 +87,8 @@ void TargetInfoPanel::Render()
     D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, barPos,Vector3(1,1,1), 0,float(target->stat.hp)/target->stat.maxHp);
     barPos.x -= 100;
     D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, barPos, int(target->number)-1);
+    // 레벨 표시
+    WCHAR wstr3[8] = {};
+    wsprintf(wstr3, L"Lv.%d", (int)target->stat.level);
+    D2DRenderManager::DrawFont(wstr3, barPos.x + 150, barPos.y + 90, D3DCOLOR_ARGB(255, 255, 255, 255));
 }

@@ -55,7 +55,6 @@ void Item::OnCollision(GameObject* target)
 
 	if (Inventory::Push(this))
 	{
-		ObjectManager::RemoveObject(this);
 		this->inSlot = true;
 	}
 
