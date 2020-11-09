@@ -22,8 +22,8 @@ public:
 	
 public:
 	void(*OnTriggered)() = nullptr;
-
-private:
 	float offsetY;
+private:
+
 };
 
