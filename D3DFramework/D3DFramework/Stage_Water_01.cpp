@@ -10,17 +10,17 @@ void Stage_Water_01::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBEACH1_U);
-	Suicune* playerCharacter = Suicune::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f), Vector3(0.f, 0.f, 1.f));
-	playerCharacter->offsetY = 0.35f;
-	//Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	ObjectManager::AddObject(playerCharacter);
 
-	Player::GetInstance()->SetRadianY(D3DXToRadian(90));
-	playerCharacter->direction = { 1.f,0.f,0.f };
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(60));
+		playerCharacter->direction = { 1.f,0.f,1.f };
+		playerCharacter->transform->position.x = 7.f;
+		playerCharacter->transform->position.z = 48.f - 24.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
 
-	Player::GetInstance()->SetCharacter(playerCharacter);
-	playerCharacter->transform->position.x = 1.f;
-	playerCharacter->transform->position.z = 48.f - 24.f;
 
 
 
@@ -87,4 +87,22 @@ void Stage_Water_01::Set_Stage_Water_01_Map(TextureKey _key, const std::string& 
 		tree->transform->position.z += 20.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
 	}
+}
+
+void Stage_Water_01::Stage_Water_01_Wave()
+{
+}
+
+void Stage_Water_01::CreateSpawner()
+{
+}
+
+void Stage_Water_01::Portal()
+{
+	SceneManager::LoadScene<Stage_Water_02>();
+}
+
+void Stage_Water_01::TownPortal()
+{
+	SceneManager::LoadScene<Stage_Town>();
 }

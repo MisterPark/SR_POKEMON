@@ -84,3 +84,64 @@ void Stage_Fire_01::Set_Stage_Fire_01_Map(TextureKey _key, const std::string& _f
 	//	dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::PALMTREE03);
 	//}
 }
+
+void Stage_Fire_01::Stage_Fire_01_Wave()
+{
+	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
+	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
+
+	if (nullptr == isTriger && spawnerCount == 0)
+	{
+		Spawner* spawner = Spawner::Create(MonsterType::GROWLITHE, 10.f, 0.5f, 10);
+		spawner->transform->position = { 24.f,0.f,24.f };
+		ObjectManager::AddObject(spawner);
+		triggerOn = true;
+		spawnerCount++;
+	}
+	else if (isSpawner == nullptr)
+	{
+		if (spawnerCount == 1)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::PONYTA, 10.f, 0.5f, 7);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawnerCount++;
+		}
+		else if (spawnerCount == 2)
+		{
+			Spawner* spawner = Spawner::Create(MonsterType::SLUGMA, 10.f, 0.5f, 5);
+			spawner->transform->position = { 24.f,0.f,24.f };
+			ObjectManager::AddObject(spawner);
+			spawnerCount++;
+			triggerOn = false;
+		}
+		else if (spawnerCount == 3 && triggerOn == false)
+		{
+			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = Portal;
+			trigerBox->transform->position = { 40.f,0.f,40.f };
+			trigerBox->Portal();
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = TownPortal;
+			trigerBox->transform->position = { 8.f,0.f,8.f };
+			trigerBox->Portal();
+
+			spawnerCount++;
+		}
+	}
+}
+
+void Stage_Fire_01::CreateSpawner()
+{
+}
+
+void Stage_Fire_01::Portal()
+{
+	SceneManager::LoadScene<Stage_Fire_02>();
+}
+
+void Stage_Fire_01::TownPortal()
+{
+	SceneManager::LoadScene<Stage_Town>();
+}

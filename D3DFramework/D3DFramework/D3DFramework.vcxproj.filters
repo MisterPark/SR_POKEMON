@@ -382,6 +382,9 @@
     <Filter Include="GameObject\UI\Inventory">
       <UniqueIdentifier>{3c5e9bdc-0eba-4712-912a-e5e5f9c2101e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Town">
+      <UniqueIdentifier>{d9a58f50-b148-4bf6-b72c-d158905237b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -941,6 +944,9 @@
     </ClInclude>
     <ClInclude Include="Slot.h" />
     <ClInclude Include="Item_Tomato.h" />
+    <ClInclude Include="Stage_Town.h">
+      <Filter>Scene\Town</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1592,6 +1598,9 @@
     </ClCompile>
     <ClCompile Include="Slot.cpp" />
     <ClCompile Include="Item_Tomato.cpp" />
+    <ClCompile Include="Stage_Town.cpp">
+      <Filter>Scene\Town</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

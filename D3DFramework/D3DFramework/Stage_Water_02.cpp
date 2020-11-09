@@ -213,5 +213,10 @@ void Stage_Water_02::CreateSpawner()
 
 void Stage_Water_02::Portal()
 {
-	SceneManager::LoadScene<Stage_Grass_Boss>();
+	SceneManager::LoadScene<Stage_Water_Boss>();
+}
+
+void Stage_Water_02::TownPortal()
+{
+	SceneManager::LoadScene<Stage_Town>();
 }

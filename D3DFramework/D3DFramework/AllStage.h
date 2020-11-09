@@ -4,6 +4,8 @@
 #include "TestMultiScene.h"
 #include "TitleScene.h"
 
+#include "Stage_Town.h"
+
 #include "Stage_Grass_01.h"
 #include "Stage_Grass_02.h"
 #include "Stage_Grass_Boss.h"

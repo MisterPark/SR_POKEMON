@@ -157,7 +157,7 @@ void Stage_Grass_Boss::Stage_Grass_Boss_Wave()
 		else if (spawnerCount == 4 && triggerOn == false)
 		{
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-			trigerBox->OnTriggered = Portal;
+			trigerBox->OnTriggered = TownPortal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
 			trigerBox->Portal();
 			spawnerCount++;
@@ -172,7 +172,8 @@ void Stage_Grass_Boss::CreateSpawner()
 	ObjectManager::AddObject(spawner);
 }
 
-void Stage_Grass_Boss::Portal()
+
+void Stage_Grass_Boss::TownPortal()
 {
-	SceneManager::LoadScene<Stage_Water_01>();
+	SceneManager::LoadScene<Stage_Town>();
 }

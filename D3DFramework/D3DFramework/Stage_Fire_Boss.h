@@ -18,8 +18,7 @@ public:
 
     void Stage_Fire_Boss_Wave();
     static void CreateSpawner();
-    static void Portal();
-
+	static void TownPortal();
 public:
     bool triggerOn = false;
     int spawnerCount = 0;
