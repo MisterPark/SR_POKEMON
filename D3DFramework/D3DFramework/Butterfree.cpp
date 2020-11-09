@@ -44,9 +44,11 @@ void Butterfree::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsShot));
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 20;
-	stat.hp = 120;
-	stat.maxHp = 120;
+	defaultAttack = 20;
+	defaultMaxHp = 120;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	UpdateAnimation();
 }

@@ -39,11 +39,15 @@ void Golduck::Initialize()
 
 	state = State::READY;
 
-	stat.attack = 35;
+
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.hp = 200;
-	stat.maxHp = 200;
+
+	defaultAttack = 35;
+	defaultMaxHp = 200;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::AccelWater));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));

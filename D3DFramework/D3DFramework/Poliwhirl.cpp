@@ -41,9 +41,11 @@ void Poliwhirl::Initialize()
 	state = State::READY;
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
-	stat.attack = 40;
-	stat.hp = 300;
-	stat.maxHp = 300;
+	defaultAttack = 40;
+	defaultMaxHp = 300;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));

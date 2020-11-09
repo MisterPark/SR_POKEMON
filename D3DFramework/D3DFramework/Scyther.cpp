@@ -47,9 +47,11 @@ void Scyther::Initialize()
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tornado));
 
 	transform->scale = { 1.f, 1.f, 1.f };
-	stat.attack = 30;
-	stat.hp = 700;
-	stat.maxHp = 700;
+	defaultAttack = 30;
+	defaultMaxHp = 700;
+
+	increaseAttack = defaultAttack * 0.05;
+	increaseMaxHp = defaultMaxHp * 0.05;
 
 	UpdateAnimation();
 }
