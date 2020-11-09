@@ -28,5 +28,13 @@ enum class SkillName
 	MiniRush,
 	WaterFlow,
 	WaterBomb,
-	Tsunami
+	Tsunami,
+	ShellAttack,
+	LeechSeed,
+	PetalBlizzard,
+	ClawBlast,
+	FireShot,
+	FireBomb,
+	FireXCrossBomb,
+	Synthesis
 };

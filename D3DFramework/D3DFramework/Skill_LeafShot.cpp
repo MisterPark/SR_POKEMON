@@ -4,7 +4,7 @@
 
 Skill_LeafShot::Skill_LeafShot()
 {
-	skillIcon = TextureKey::BULLET_LEAF_09;
+	skillIcon = TextureKey::BULLET_LEAF_01;
 	moveStopTime = 0.4f;
 }
 

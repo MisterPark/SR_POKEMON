@@ -33,6 +33,7 @@ void Character::Update()
 	CalcMoveTime();
 
 	oldState = state;
+	healEffectStack += TimeManager::DeltaTime();
 }
 
 void Character::Render()
@@ -95,77 +96,90 @@ void Character::Release()
 
 void Character::OnCollision(GameObject* target)
 {
-	if (this->team == target->team) return;
-
-	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	
-	// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
-	
-	float error = target->stat.attack * 0.4f;
-	float errorHalf = error * 0.5f;
-	error = Random::Range(0.f, error);
-	error -= errorHalf;
-	float damageSum = target->stat.attack + error;
-	stat.hp -= damageSum;
 
-
-	if (damageSum < 0)
+	if (isInvincible == false)
 	{
-		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
-		skin->transform->position = this->transform->position;
-		skin->SetDamage(-damageSum);
-		skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
+		if (this->team == target->team) return;
 
+		Character* playerCharacter = Player::GetInstance()->GetCharacter();
+
+		// TODO : 경훈 / 임시 :  데미지 오차 처리 ( 나중에 Stat만들고 없애셈)
 		if (stat.hp > stat.maxHp)
 		{
 			stat.hp = stat.maxHp;
 		}
-		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
-		/*fx->transform->position.y += 1.f;*/
-		ObjectManager::AddObject(fx);
-	}
 
-	// 데미지 스킨
-	else if (damageSum >= 1)
-	{
-		DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
-		skin->transform->position = this->transform->position;
-		skin->SetDamage(damageSum);
-		if (this == playerCharacter)
+		float error = target->stat.attack * 0.4f;
+		float errorHalf = error * 0.5f;
+		error = Random::Range(0.f, error);
+		error -= errorHalf;
+		float damageSum = target->stat.attack + error;
+		stat.hp -= damageSum;
+
+
+		if (damageSum < 0)
 		{
-			skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
+			if (damageSum < -1)
+			{
+				DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
+				skin->transform->position = this->transform->position;
+				skin->SetDamage(-damageSum);
+				skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
+			}
+
+			if (healEffectStack > 1.f)
+			{
+				Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
+				/*fx->transform->position.y += 1.f;*/
+				ObjectManager::AddObject(fx);
+				healEffectStack = 0.f;
+			}
+		}
+
+		// 데미지 스킨
+		else if (damageSum >= 1)
+		{
+			DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
+			skin->transform->position = this->transform->position;
+			skin->SetDamage(damageSum);
+			if (this == playerCharacter)
+			{
+				skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
+				PlayerInfoPanel::ActiveRedFilter();
+			}
+
+		}
+
+		if (damageSum > 0.f && this == playerCharacter)
+		{
 			PlayerInfoPanel::ActiveRedFilter();
 		}
 
-	}
-	// 피격이펙트
-	if (damageSum > 0.f && this == playerCharacter)
-	{
-		PlayerInfoPanel::ActiveRedFilter();
-	}
 
+		// 사망처리
+		if (!IsDead() && stat.hp <= 0)
+		{
+			stat.hp = 0;
+			if (dontDestroy == true) return;
 
-	// 사망처리
-	if (!IsDead() && stat.hp <= 0)
-	{
-		stat.hp = 0;
-		if (dontDestroy == true) return;
-
-		Die();
-		if (nullptr == spawner)
+			Die();
+			if (nullptr == spawner)
+				return;
+			spawner->monsterCount--;
 			return;
-		spawner->monsterCount--;
-		return;
-		
-	}
 
-	// 상대가 플레이어면서 몬스터일때 해당
-	if (damageSum < 0)return;
-	
-	if (playerCharacter == this) return;
-	TargetInfoPanel::SetTarget(this);
-	TargetInfoPanel::Show();
-	
+		}
+
+		// 상대가 플레이어면서 몬스터일때 해당
+		if (damageSum < 0)return;
+
+		if (playerCharacter == this) return;
+		TargetInfoPanel::SetTarget(this);
+		TargetInfoPanel::Show();
+	}
+	else
+		return;
 }
 
 void Character::CalcMoveTime()

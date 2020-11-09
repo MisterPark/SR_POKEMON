@@ -47,10 +47,10 @@ void Bullet_Tsunami::Update()
 	transform->eulerAngles.x = D3DXToRadian(angleX);
 
 	Bullet::Update();
-	//if (isDead) {
-	//	Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_01, TextureKey::BULLET_WEB1_03, 0.05f);
-	//	ObjectManager::AddObject(fx);
-	//}
+	if (isDead) {
+		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_27, TextureKey::BULLET_ICE1_33, 0.05f);
+		ObjectManager::AddObject(fx);
+	}
 }
 
 void Bullet_Tsunami::Render()
@@ -61,6 +61,6 @@ void Bullet_Tsunami::Render()
 void Bullet_Tsunami::OnCollision(GameObject* target)
 {
 	isDead = true;
-	//Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_WEB1_02, TextureKey::BULLET_WEB1_03, 0.05f);
-	//ObjectManager::AddObject(fx);
+	Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_27, TextureKey::BULLET_ICE1_33, 0.05f);
+	ObjectManager::AddObject(fx);
 }

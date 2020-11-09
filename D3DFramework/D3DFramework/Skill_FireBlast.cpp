@@ -29,7 +29,7 @@ void Skill_FireBlast::Update()
 	if (delay <= 0.f) {
 		Bullet_FireBlast* bullet = dynamic_cast<Bullet_FireBlast*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireBlast>());
 		bullet->transform->position = character->transform->position;
-		bullet->transform->position.y = 0.3f;
+		bullet->transform->position.y = character->transform->position.y-character->offsetY/2;
 		Vector3 rDir = character->direction;
 		rDir.x += -0.1f + Random::Value(10) * 0.02f;
 		rDir.y += -0.1f + Random::Value(10) * 0.02f;

@@ -310,14 +310,8 @@
     <Filter Include="GameObject\Bullet\22. FireBlast">
       <UniqueIdentifier>{8ca0c28c-6130-4fc2-a0dc-a350104771f8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet\27. WaterFlow">
-      <UniqueIdentifier>{b226fdad-4917-4503-8c05-959a6671a04f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Bullet\23. ReverseHealBubble">
       <UniqueIdentifier>{8146c74c-f813-40a6-95b0-ff205c8a1e04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\Bullet\28. WaterBomb">
-      <UniqueIdentifier>{9a5868b9-4951-4520-8830-ed876a07586e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Skill\26. WaterBomb">
       <UniqueIdentifier>{1613d427-78a2-40b5-9825-4efe8c2ccb11}</UniqueIdentifier>
@@ -328,8 +322,59 @@
     <Filter Include="Skill\27. Tsunami">
       <UniqueIdentifier>{9072ccb6-f0e7-405c-93f0-7c4176401096}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet\29. Tsunami">
+    <Filter Include="Skill\29. LeechSeed">
+      <UniqueIdentifier>{c4e64acd-8a87-4e30-8a74-f959eee17b78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\30. PetalBlizzard">
+      <UniqueIdentifier>{7dcf1191-a3a3-4bc2-9944-870a08beae95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\25. WaterFlow">
+      <UniqueIdentifier>{b226fdad-4917-4503-8c05-959a6671a04f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\26. WaterBomb">
+      <UniqueIdentifier>{9a5868b9-4951-4520-8830-ed876a07586e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\27. Tsunami">
       <UniqueIdentifier>{9c26223c-213f-4834-9203-c9e81fb8e49c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\28. ShellAttack">
+      <UniqueIdentifier>{42f25280-a000-420a-b57c-6bd5095661c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\31. ClawBlast">
+      <UniqueIdentifier>{63818515-97db-4f8e-ae31-0cd6283daef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\29. LeechSeed">
+      <UniqueIdentifier>{7443025d-fb6a-4e25-ae17-77ad6f8ace65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\30. PetalBlizzard">
+      <UniqueIdentifier>{5b432562-dfac-4ecd-a511-a5dcde9fdd3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\31. ShortWaterFlow">
+      <UniqueIdentifier>{155a97fb-5437-40af-a15e-83d6f6231338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\33. FireBomb">
+      <UniqueIdentifier>{571fbd82-ef58-4dc0-88bd-794e03940429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\34. FireShot">
+      <UniqueIdentifier>{538e38d6-2b1e-465c-b793-ea5135c4e630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\34. FireShot">
+      <UniqueIdentifier>{f13e72d7-90d5-4e8e-ab98-2d32c8d2cc1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\33. FireBomb">
+      <UniqueIdentifier>{fbd275ec-48e5-4bd3-a6f3-8aca58e6df87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\36. FireXCrossBomb">
+      <UniqueIdentifier>{09ed3d4f-f40e-4d70-ac31-235ccd74c949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\36. FireMiniBomb">
+      <UniqueIdentifier>{6721b102-67c3-4b66-8554-62b34eae55d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\32. Synthesis">
+      <UniqueIdentifier>{64a231de-af14-477c-a071-918c67d91b34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\32.Synthesis">
+      <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Item">
       <UniqueIdentifier>{58f3ad62-8bb2-456a-b47f-4de7029f0af7}</UniqueIdentifier>
@@ -368,9 +413,6 @@
     </ClInclude>
     <ClInclude Include="MemoryPool.h">
       <Filter>Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Texture</Filter>
     </ClInclude>
     <ClInclude Include="MainGame.h">
       <Filter>Lib\MainGame</Filter>
@@ -823,10 +865,10 @@
       <Filter>GameObject\Character\Water\008. Wartortle</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_WaterFlow.h">
-      <Filter>GameObject\Bullet\27. WaterFlow</Filter>
+      <Filter>GameObject\Bullet\25. WaterFlow</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_WaterBomb.h">
-      <Filter>GameObject\Bullet\28. WaterBomb</Filter>
+      <Filter>GameObject\Bullet\26. WaterBomb</Filter>
     </ClInclude>
     <ClInclude Include="Skill_WaterFlow.h">
       <Filter>Skill\25. WaterFlow</Filter>
@@ -838,10 +880,58 @@
       <Filter>Skill\27. Tsunami</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Tsunami.h">
-      <Filter>GameObject\Bullet\29. Tsunami</Filter>
+      <Filter>GameObject\Bullet\27. Tsunami</Filter>
     </ClInclude>
     <ClInclude Include="Stage_Fire_Boss.h">
       <Filter>Scene\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_ShellAttack.h">
+      <Filter>Skill\28. ShellAttack</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_LeechSeed.h">
+      <Filter>Skill\29. LeechSeed</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_PetalBlizzard.h">
+      <Filter>Skill\30. PetalBlizzard</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_ClawBlast.h">
+      <Filter>Skill\31. ClawBlast</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_ShortWaterFlow.h">
+      <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireShot.h">
+      <Filter>GameObject\Bullet\34. FireShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireShot.h">
+      <Filter>Skill\34. FireShot</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireBomb.h">
+      <Filter>Skill\33. FireBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireBomb.h">
+      <Filter>GameObject\Bullet\33. FireBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_FireXCrossBomb.h">
+      <Filter>Skill\36. FireXCrossBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_FireMiniBomb.h">
+      <Filter>GameObject\Bullet\36. FireMiniBomb</Filter>
+    </ClInclude>
+    <ClInclude Include="LeechSeed.h">
+      <Filter>GameObject\Bullet\29. LeechSeed</Filter>
+    </ClInclude>
+    <ClInclude Include="PetalBlizzard.h">
+      <Filter>GameObject\Bullet\30. PetalBlizzard</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Synthesis.h">
+      <Filter>Skill\32. Synthesis</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Synthesis.h">
+      <Filter>GameObject\Bullet\32.Synthesis</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>GameObject\UI\Inventory</Filter>
@@ -1429,10 +1519,10 @@
       <Filter>GameObject\Character\Water\008. Wartortle</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_WaterFlow.cpp">
-      <Filter>GameObject\Bullet\27. WaterFlow</Filter>
+      <Filter>GameObject\Bullet\25. WaterFlow</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_WaterBomb.cpp">
-      <Filter>GameObject\Bullet\28. WaterBomb</Filter>
+      <Filter>GameObject\Bullet\26. WaterBomb</Filter>
     </ClCompile>
     <ClCompile Include="Skill_WaterFlow.cpp">
       <Filter>Skill\25. WaterFlow</Filter>
@@ -1444,10 +1534,55 @@
       <Filter>Skill\27. Tsunami</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Tsunami.cpp">
-      <Filter>GameObject\Bullet\29. Tsunami</Filter>
+      <Filter>GameObject\Bullet\27. Tsunami</Filter>
     </ClCompile>
     <ClCompile Include="Stage_Fire_Boss.cpp">
       <Filter>Scene\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_ShellAttack.cpp">
+      <Filter>Skill\28. ShellAttack</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_LeechSeed.cpp">
+      <Filter>Skill\29. LeechSeed</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_PetalBlizzard.cpp">
+      <Filter>Skill\30. PetalBlizzard</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_ClawBlast.cpp">
+      <Filter>Skill\31. ClawBlast</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_ShortWaterFlow.cpp">
+      <Filter>GameObject\Bullet\31. ShortWaterFlow</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireShot.cpp">
+      <Filter>GameObject\Bullet\34. FireShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireShot.cpp">
+      <Filter>Skill\34. FireShot</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireBomb.cpp">
+      <Filter>Skill\33. FireBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireBomb.cpp">
+      <Filter>GameObject\Bullet\33. FireBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_FireXCrossBomb.cpp">
+      <Filter>Skill\36. FireXCrossBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_FireMiniBomb.cpp">
+      <Filter>GameObject\Bullet\36. FireMiniBomb</Filter>
+    </ClCompile>
+    <ClCompile Include="LeechSeed.cpp">
+      <Filter>GameObject\Bullet\29. LeechSeed</Filter>
+    </ClCompile>
+    <ClCompile Include="PetalBlizzard.cpp">
+      <Filter>GameObject\Bullet\30. PetalBlizzard</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Synthesis.cpp">
+      <Filter>Skill\32. Synthesis</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Synthesis.cpp">
+      <Filter>GameObject\Bullet\32.Synthesis</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>GameObject\UI\Inventory</Filter>

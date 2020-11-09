@@ -27,7 +27,6 @@ void Skill_WaterFlow::Update()
 {
 	Bullet_WaterFlow* bullet = dynamic_cast<Bullet_WaterFlow*>(ObjectManager::GetInstance()->CreateObject<Bullet_WaterFlow>());
 	bullet->transform->position = character->transform->position;
-	Vector3 Dir2 = { character->direction.x, 0.f, character->direction.z };
 	bullet->SetDir(character->direction);
 	bullet->SetInitAttack(character->stat.attack);
 

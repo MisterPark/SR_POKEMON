@@ -22,14 +22,15 @@ void Skill_FireWallWave::InitCoolTime()
 
 void Skill_FireWallWave::InitActiveTime()
 {
-	activeTime = 10.f;
+	activeTime = 25.f;
 }
 
 void Skill_FireWallWave::Update()
 {
 	patternTime += TimeManager::DeltaTime();
-	character->transform->position.x = 24.f;
-	character->transform->position.z = 48.f-4.f;
+	character->transform->position.x = 23.5f;
+	character->transform->position.z = 48.f-5.0f;
+	character->direction = { 0.f,0.f,-1.f };
 	
 
 	if (Frame[0] == 0)
@@ -41,7 +42,7 @@ void Skill_FireWallWave::Update()
 				bullet->transform->position.y = 0.f;
 				bullet->transform->position.z = 45.f;
 				bullet->transform->position.y += 0.23f;
-				create = true;
+
 				bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
 				float size = 0.5f;
 				bullet->transform->scale = { size,size,size };
@@ -65,7 +66,7 @@ void Skill_FireWallWave::Update()
 			bullet->transform->position.y = 0.f;
 			bullet->transform->position.z = 45.f;
 			bullet->transform->position.y += 0.23f;
-			create = true;
+ 
 			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
 			float size = 0.5f;
 			bullet->transform->scale = { size,size,size };
@@ -89,7 +90,7 @@ void Skill_FireWallWave::Update()
 			bullet->transform->position.y = 0.f;
 			bullet->transform->position.z = 45.f;
 			bullet->transform->position.y += 0.23f;
-			create = true;
+ 
 			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
 			float size = 0.5f;
 			bullet->transform->scale = { size,size,size };
@@ -113,7 +114,7 @@ void Skill_FireWallWave::Update()
 			bullet->transform->position.y = 0.f;
 			bullet->transform->position.z = 45.f;
 			bullet->transform->position.y += 0.23f;
-			create = true;
+ 
 			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
 			float size = 0.5f;
 			bullet->transform->scale = { size,size,size };
@@ -134,7 +135,7 @@ void Skill_FireWallWave::Update()
 			bullet->transform->position.y = 0.f;
 			bullet->transform->position.z = 45.f;
 			bullet->transform->position.y += 0.23f;
-			create = true;
+ 
 			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
 			float size = 0.5f;
 			bullet->transform->scale = { size,size,size };
@@ -160,7 +161,7 @@ void Skill_FireWallWave::Update()
 		bullet->transform->position.y = 0.f;
 		bullet->transform->position.z = 45.f;
 		bullet->transform->position.y += 0.23f;
-		create = true;
+ 
 		bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
 		float size = 0.5f;
 		bullet->transform->scale = { size,size,size };
@@ -180,35 +181,60 @@ void Skill_FireWallWave::Update()
 
 	else if (Frame[0] == 5 && patternTime > 5.5f)
 	{
-	for (int i = 2; i < 20; i++)
-	{
-		Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
-		bullet->transform->position.x = i;
-		bullet->transform->position.y = 0.f;
-		bullet->transform->position.z = 45.f;
-		bullet->transform->position.y += 0.23f;
-		create = true;
-		bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
-		float size = 0.5f;
-		bullet->transform->scale = { size,size,size };
-		if (character->team == Team::MONSTERTEAM) {
-			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-			bullet->SetInitAttack(character->stat.attack * 2.f);
+		for (int i = 2; i < 20; i++)
+		{
+			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
+			bullet->transform->position.x = i;
+			bullet->transform->position.y = 0.f;
+			bullet->transform->position.z = 45.f;
+			bullet->transform->position.y += 0.23f;
+ 
+			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
+			float size = 0.5f;
+			bullet->transform->scale = { size,size,size };
+			if (character->team == Team::MONSTERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack * 2.f);
+			}
+			else if (character->team == Team::PLAYERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack);
+			}
 		}
-		else if (character->team == Team::PLAYERTEAM) {
-			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-			bullet->SetInitAttack(character->stat.attack);
-		}
-	}
 
-	for (int i = 26; i < 46; i++)
+		for (int i = 26; i < 46; i++)
+		{
+			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
+			bullet->transform->position.x = i;
+			bullet->transform->position.y = 0.f;
+			bullet->transform->position.z = 45.f;
+			bullet->transform->position.y += 0.23f;
+ 
+			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
+			float size = 0.5f;
+			bullet->transform->scale = { size,size,size };
+			if (character->team == Team::MONSTERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack * 2.f);
+			}
+			else if (character->team == Team::PLAYERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack);
+			}
+		}
+
+	Frame[0]++;
+	}
+	else if (Frame[0] == 6 && patternTime > 5.5f)
+	{
+	for (int i = 40; i > 5; --i)
 	{
 		Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 		bullet->transform->position.x = i;
 		bullet->transform->position.y = 0.f;
-		bullet->transform->position.z = 45.f;
+		bullet->transform->position.z = 45.f + i*0.3;
 		bullet->transform->position.y += 0.23f;
-		create = true;
+ 
 		bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
 		float size = 0.5f;
 		bullet->transform->scale = { size,size,size };
@@ -224,7 +250,54 @@ void Skill_FireWallWave::Update()
 
 	Frame[0]++;
 	}
-	if (patternTime > 10.f)
+
+	else if (Frame[0] == 7 && patternTime > 9.8f)
+	{
+		for (int i = 2; i < 20; ++i)
+		{
+			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
+			bullet->transform->position.x = 46-i;
+			bullet->transform->position.y = 0.f;
+			bullet->transform->position.z = 45.f+i*0.3;
+			bullet->transform->position.y += 0.23f;
+ 
+			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
+			float size = 0.5f;
+			bullet->transform->scale = { size,size,size };
+			if (character->team == Team::MONSTERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack * 2.f);
+			}
+			else if (character->team == Team::PLAYERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack);
+			}
+		}
+		for (int i = 23; i < 43; ++i)
+		{
+			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
+			bullet->transform->position.x = 46 - i;
+			bullet->transform->position.y = 0.f;
+			bullet->transform->position.z = 45.f + i * 0.3;
+			bullet->transform->position.y += 0.23f;
+ 
+			bullet->SetDir(Vector3{ 0.f, 0.f, -1.f });
+			float size = 0.5f;
+			bullet->transform->scale = { size,size,size };
+			if (character->team == Team::MONSTERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack * 2.f);
+			}
+			else if (character->team == Team::PLAYERTEAM) {
+				CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
+				bullet->SetInitAttack(character->stat.attack);
+			}
+		}
+	Frame[0]++;
+	}
+
+
+	if (patternTime > 25.f)
 	{
 		Frame[0] = 0;
 		patternTime = 0;
