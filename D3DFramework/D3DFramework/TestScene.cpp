@@ -51,7 +51,7 @@ void TestScene::OnLoaded()
 }
 void TestScene::OnUnloaded()
 {
-	Camera::GetInstance()->SetTarget(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 void TestScene::Update()

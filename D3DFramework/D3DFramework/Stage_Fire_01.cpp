@@ -19,7 +19,6 @@ void Stage_Fire_01::OnLoaded()
 		playerCharacter->direction = { 1.f,0.f,0.f };
 		playerCharacter->transform->position.x = 1.f;
 		playerCharacter->transform->position.z = 48.f - 24.f;
-		Camera::GetInstance()->SetTarget(playerCharacter);
 	}
 
 	waterHeight = 10.15f;
@@ -27,15 +26,15 @@ void Stage_Fire_01::OnLoaded()
 	Set_Stage_Fire_01_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\Fire1.bmp", waterHeight);
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	/*trigerBox->OnTriggered = CreateSpawner;*/
-	trigerBox->transform->position = { 24.f,0.f,48.f - 22.f };
+
+	trigerBox->transform->position = { 17.f,0.f,48.f - 25.f };
 	trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
 
 }
 
 void Stage_Fire_01::OnUnloaded()
 {
-	Camera::GetInstance()->SetTarget(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 
