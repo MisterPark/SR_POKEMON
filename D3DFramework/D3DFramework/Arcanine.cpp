@@ -24,6 +24,7 @@ Arcanine::~Arcanine()
 void Arcanine::Initialize()
 {
 	name = L"À©µð";
+	type = TYPE::ARCANINE;
 	number = Pokemon::Arcanine;
 
 	SetTexture(State::WALK, TextureKey::ARCA_WALK_D_02, 3, 2);

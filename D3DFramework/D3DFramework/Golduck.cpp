@@ -24,6 +24,7 @@ Golduck::~Golduck()
 void Golduck::Initialize()
 {
 	name = L"°ñ´ö";
+	type = TYPE::GOLDUCK;
 	number = Pokemon::Golduck;
 
 	SetTexture(State::WALK, TextureKey::GOLD_WALK_D_02, 3, 2);

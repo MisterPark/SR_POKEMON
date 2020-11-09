@@ -29,18 +29,21 @@ void SelectScene::OnLoaded()
 	pokeA->transform->position = { -2,0,0 };
 	pokeA->SetDir(Vector3(1, 0, 0));
 	pokeA->infoVisible = false;
+	pokeA->team = Team::NEUTRAL;
 
 	pokeB = (Character*)Squirtle::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(pokeB);
 	pokeB->transform->position = { 0,0,2 };
 	pokeB->SetDir(Vector3(0, 0, -1));
 	pokeB->infoVisible = false;
+	pokeB->team = Team::NEUTRAL;
 
 	pokeC = (Character*)Bulbasaur::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
 	ObjectManager::AddObject(pokeC);
 	pokeC->transform->position = { 2,0,0 };
 	pokeC->SetDir(Vector3(-1, 0, 0));
 	pokeC->infoVisible = false;
+	pokeC->team = Team::NEUTRAL;
 
 	Button* btnRotate = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btnRotate->text = L"";

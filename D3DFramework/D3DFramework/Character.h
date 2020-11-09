@@ -5,6 +5,17 @@
 
 class Skill;
 
+enum class TYPE {
+	BULBASAUR, IVYSAUR, VENUSAUR,
+	CATERPIE, METAPOD, ODDISH, GLOOM, VILEPLUME, SCYTHER, BUTTERFREE,
+	SQUIRTLE, WARTORTLE, BLASTOISE,
+	PSYDUCK, GOLDUCK, POLIWAG, POLIWHIRL, POLIWRATH, JYNX, SUICUNE,
+	CHARMANDER, CHARMELEON, CHARIZARD,
+	GROWLITHE, ARCANINE, PONYTA, RAPIDASH, SLUGMA, MAGCARGO, GROUDON,
+	DITTO,
+	END
+};
+
 class Character :
     public GameObject
 {
@@ -21,6 +32,7 @@ public:
     virtual void Release() override;
 
 	virtual void OnCollision(GameObject* target) override;
+	virtual void Die() override;
 
 	void CalcMoveTime();
 	void CalcExp();
@@ -38,6 +50,7 @@ public:
 	void SetDir(const Vector3& dir);
 	void SetMoveSpeed(const float& speed) { stat.moveSpeed = speed; }
 	void SetLV(const int& lv);
+	void IncreaseEXP(const float& _exp) { stat.exp += _exp; }
 	void LevelUp();
 	void SetStatByLevel();
 	void MoveForward();
@@ -59,6 +72,7 @@ public:
 	//Stat
 	
 	Pokemon number = Pokemon::None;
+	TYPE type = TYPE::END;
     // 지형과 간격
     float offsetY;
 	Vector3 direction = { 0,0,1 };
@@ -79,10 +93,10 @@ protected:
 
 	float increaseAttack = 0.f;
 	float increaseMaxHp = 0.f;
-	float increaseTotalExp = 10.f;
+	float increaseTotalExp = 30.f;
 
 	float defaultAttack = 0.f;
 	float defaultMaxHp = 0.f;
-	float defaultTotalExp= 0.f;
+	float defaultTotalExp = 50.f;
 };
 

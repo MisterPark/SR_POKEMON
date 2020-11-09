@@ -163,7 +163,7 @@ void Character::OnCollision(GameObject* target)
 		if (!IsDead() && stat.hp <= 0)
 		{
 			if (this->team == Team::MONSTERTEAM) {
-				Player::GetInstance()->ChangeNextPokemon(this->monsterAI->type/*, this->number*/);				
+				Player::GetInstance()->ChangeNextPokemon(type, number);				
 				Coin* coin = Coin::Create(this->transform->position, this->stat.money);
 				ObjectManager::AddObject(coin);
 				CollisionManager::RegisterObject(COLTYPE::COIN, coin);
@@ -190,6 +190,26 @@ void Character::OnCollision(GameObject* target)
 	}
 	else
 		return;
+}
+
+void Character::Die()
+{
+	if (Team::MONSTERTEAM == team)
+	{
+		Player* player = Player::GetInstance();
+		if (nullptr != player)
+		{
+			Character* character = player->GetCharacter();
+			if (nullptr != character)
+			{
+				float exp = stat.totalExp * 0.05f;
+				character->IncreaseEXP(exp);
+			}
+		}
+	}
+
+	if (dontDestroy) return;
+	isDead = true;
 }
 
 void Character::CalcMoveTime()
@@ -323,10 +343,10 @@ void Character::LevelUp()
 void Character::SetStatByLevel()
 {
 	int lv = stat.level;
-	stat.attack = (increaseAttack * lv) + defaultAttack;
-	stat.maxHp = (increaseMaxHp * lv) + defaultMaxHp;
+	stat.attack = (increaseAttack * (lv - 1)) + defaultAttack;
+	stat.maxHp = (increaseMaxHp * (lv - 1)) + defaultMaxHp;
 	stat.hp = stat.maxHp;
-	stat.totalExp = (increaseTotalExp * lv) + defaultTotalExp;
+	stat.totalExp = (increaseTotalExp * (lv - 1)) + defaultTotalExp;
 }
 
 void Character::MoveForward()

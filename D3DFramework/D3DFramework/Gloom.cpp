@@ -25,6 +25,7 @@ Gloom::~Gloom()
 void Gloom::Initialize()
 {
 	name = L"³¿»õ²¿";
+	type = TYPE::GLOOM;
 	number = Pokemon::Gloom;
 
 	SetTexture(State::WALK, TextureKey::GLOOM_WALK_D_02, 3,2);

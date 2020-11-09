@@ -25,6 +25,7 @@ Psyduck::~Psyduck()
 void Psyduck::Initialize()
 {
 	name = L"°í¶óÆÄ´ö";
+	type = TYPE::PSYDUCK;
 	number = Pokemon::Psyduck;
 
 	SetTexture(State::WALK, TextureKey::PSY_WALK_D_02, 3,2);

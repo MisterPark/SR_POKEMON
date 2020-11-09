@@ -23,6 +23,7 @@ Rapidash::~Rapidash()
 void Rapidash::Initialize()
 {
 	name = L"³¯½ß¸¶";
+	type = TYPE::RAPIDASH;
 	number = Pokemon::Rapidash;
 
 	SetTexture(State::WALK, TextureKey::RAPID_WALK_D_02, 3, 2);

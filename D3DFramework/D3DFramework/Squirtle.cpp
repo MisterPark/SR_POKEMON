@@ -23,6 +23,7 @@ Squirtle::~Squirtle()
 void Squirtle::Initialize()
 {
 	name = L"²¿ºÎ±â";
+	type = TYPE::SQUIRTLE;
 	number = Pokemon::Squirtle;
 
 	SetTexture(State::IDLE, TextureKey::PW01_WALK_D_01, 3, 1);

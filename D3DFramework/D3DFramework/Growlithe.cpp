@@ -24,6 +24,7 @@ Growlithe::~Growlithe()
 void Growlithe::Initialize()
 {
 	name = L"°¡µð";
+	type = TYPE::GROWLITHE;
 	number = Pokemon::Growlithe;
 
 	SetTexture(State::WALK, TextureKey::GROW_WALK_D_02, 3, 2);

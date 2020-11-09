@@ -23,6 +23,7 @@ Venusaur::~Venusaur()
 void Venusaur::Initialize()
 {
 	name = L"¿ÃªÛ«ÿ≤…";
+	type = TYPE::VENUSAUR;
 	number = Pokemon::Venusaur;
 
 	SetTexture(State::IDLE, TextureKey::PG03_WALK_D_01, 3, 1);

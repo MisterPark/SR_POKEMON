@@ -23,6 +23,7 @@ Blastoise::~Blastoise()
 void Blastoise::Initialize()
 {
 	name = L"°ÅºÏ¿Õ";
+	type = TYPE::BLASTOISE;
 	number = Pokemon::Blastoise;
 
 	SetTexture(State::IDLE, TextureKey::PW03_WALK_D_01, 3, 1);

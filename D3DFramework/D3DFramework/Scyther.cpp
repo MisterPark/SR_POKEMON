@@ -26,6 +26,7 @@ Scyther::~Scyther()
 void Scyther::Initialize()
 {
 	name = L"Ω∫∂Û≈©";
+	type = TYPE::SCYTHER;
 	number = Pokemon::Scyther;
 
 	SetTexture(State::WALK, TextureKey::SCY_WALK_D_02, 3, 2);

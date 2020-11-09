@@ -44,13 +44,13 @@ void PetalBlizzard::Initialize()
 
 void PetalBlizzard::Update()
 {
+	Bullet::Update();
+
 	if (!isDeadAnimation)
 	{
 		stat.moveSpeed = TimeManager::DeltaTime() * 30.f;
 		stat.attack = TimeManager::DeltaTime() * initAttack;
 	}
-
-	Bullet::Update();
 
 	if (TextureKey::PETAL_EXPLOSION_03 == anim->GetCurrentSprite() && !isReadyToDie)
 	{
@@ -80,13 +80,13 @@ void PetalBlizzard::CollideOnTerrain()
 		stat.attack = 0.f;
 		stat.moveSpeed = 0.f;
 
-		transform->position.y += 0.1f;
-		transform->scale *= 8.f;
-
 		anim->SetSprite(TextureKey::PETAL_EXPLOSION_01, TextureKey::PETAL_EXPLOSION_03);
 		anim->SetDelay(0.1f);
 		anim->SetTick(0);
 		anim->SetLoop(false);
+
+		transform->position.y += 0.1f;
+		transform->scale *= 8.f;
 
 		isDeadAnimation = true;
 	}

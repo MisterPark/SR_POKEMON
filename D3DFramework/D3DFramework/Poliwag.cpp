@@ -26,7 +26,8 @@ Poliwag::~Poliwag()
 void Poliwag::Initialize()
 {
 	// stat
-	name = L"πﬂ√¨¿Ã";	
+	name = L"πﬂ√¨¿Ã";
+	type = TYPE::POLIWAG;
 	number = Pokemon::Poliwag;
 
 	// anim

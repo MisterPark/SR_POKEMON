@@ -22,6 +22,7 @@ Ditto::~Ditto()
 void Ditto::Initialize()
 {
 	name = L"¸ÞÅ¸¸ù";
+	type = TYPE::DITTO;
 	number = Pokemon::Ditto;
 
 	SetTexture(State::IDLE, TextureKey::DITTO_WALK_D_01, 3, 1);

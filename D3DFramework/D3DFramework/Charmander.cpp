@@ -22,6 +22,7 @@ Charmander::~Charmander()
 void Charmander::Initialize()
 {
 	name = L"ÆÄÀÌ¸®";
+	type = TYPE::CHARMANDER;
 	number = Pokemon::Charmander;
 
 	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
