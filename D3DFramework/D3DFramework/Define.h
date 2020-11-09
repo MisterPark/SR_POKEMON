@@ -6,6 +6,8 @@
 #define dfTERRAIN_WIDTH 48
 #define dfTERRAIN_HEIGHT 48
 
+#define dfSOHOT_DAMAGE 50
+
 enum class Pokemon
 {
 	None,

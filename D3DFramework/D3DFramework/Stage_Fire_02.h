@@ -25,7 +25,11 @@ public:
 
 	static void Portal();
 	static void TownPortal();
+
+    static void soHot(float _waterheight);
+
 public:
+    float waterHeight = 0.f;
 	bool triggerOn = false;
 	int spawnerCount = 0;
     float portalDelay = 0.f;

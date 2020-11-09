@@ -20,7 +20,10 @@ public:
 	static void CreateSpawner();
 	static void Portal();
 	static void TownPortal();
+    static void soHot(float _waterheight);
+
 public:
+    float waterHeight = 0.f;
 	bool triggerOn = false;
 	int spawnerCount = 0;
 };

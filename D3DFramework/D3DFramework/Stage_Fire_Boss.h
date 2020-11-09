@@ -19,7 +19,9 @@ public:
     void Stage_Fire_Boss_Wave();
     static void CreateSpawner();
 	static void TownPortal();
+    static void soHot(float _waterheight);
 public:
+    float waterHeight = 0.f;
     bool triggerOn = false;
     int spawnerCount = 0;
 };

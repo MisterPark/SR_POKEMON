@@ -28,8 +28,6 @@ void Stage_Water_01::OnLoaded()
 
 	Set_Stage_Water_01_Map(TextureKey::WATER_MAP, "Texture\\Map\\HeightMap\\Beach.bmp", 9.5f);
 
-	
-
 
 
 }
@@ -37,7 +35,7 @@ void Stage_Water_01::OnLoaded()
 void Stage_Water_01::OnUnloaded()
 {
 	Camera::GetInstance()->SetTarget(nullptr);
-	Player::GetInstance()->SetCharacter(nullptr);
+
 	ObjectManager::DestroyAll();
 }
 

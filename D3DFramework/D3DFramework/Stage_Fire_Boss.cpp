@@ -11,14 +11,19 @@ void Stage_Fire_Boss::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
-	Character* playerCharacter = Player::GetInstance()->GetCharacter();
-	Player::GetInstance()->SetRadianY(D3DXToRadian(45));
-	playerCharacter->direction = { 1.f,0.f,1.f };
-	playerCharacter->transform->position.x = 25.f;
-	playerCharacter->transform->position.z = 48.f - 25.f;
-	Camera::GetInstance()->SetTarget(playerCharacter);
 
-	Set_Stage_Fire_Boss_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\FireBoss.bmp", 0.1f);
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
+	if (playerCharacter != nullptr)
+	{
+		Player::GetInstance()->SetRadianY(D3DXToRadian(45));
+		playerCharacter->direction = { 1.f,0.f,1.f };
+		playerCharacter->transform->position.x = 25.f;
+		playerCharacter->transform->position.z = 48.f - 25.f;
+		Camera::GetInstance()->SetTarget(playerCharacter);
+	}
+	waterHeight = 0.5f;
+
+	Set_Stage_Fire_Boss_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\FireBoss.bmp", waterHeight);
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
@@ -44,6 +49,7 @@ void Stage_Fire_Boss::Update()
 		SceneManager::LoadScene<TestScene>();
 	}
 	Stage_Fire_Boss_Wave();
+	soHot(waterHeight);
 }
 
 
@@ -101,4 +107,12 @@ void Stage_Fire_Boss::CreateSpawner()
 void Stage_Fire_Boss::TownPortal()
 {
 	SceneManager::LoadScene<Stage_Town>();
+}
+
+void Stage_Fire_Boss::soHot(float _waterheight)
+{
+	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight)
+	{
+		Player::GetInstance()->GetCharacter()->MinusHp(dfSOHOT_DAMAGE);
+	}
 }

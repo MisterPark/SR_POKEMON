@@ -20,24 +20,9 @@ void Stage_Grass_02::OnLoaded()
 		playerCharacter->transform->position.z = 48.f - 24.f;
 		Camera::GetInstance()->SetTarget(playerCharacter);
 	}
-	
-
-	//Vileplume* monsterCharacter4 = Vileplume::Create(Vector3(35.f, 0.f, 8.f), Vector3(0.5f, 0.5f, 0.5f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter4->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter4->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter4->monsterAI->SetType(MonsterType::VILEPLUME);
-	//ObjectManager::AddObject(monsterCharacter4);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter4);
-
-	//Scyther* monsterCharacter5 = Scyther::Create(Vector3(42.f, 0.f, 42.f), Vector3(1.f, 1.f, 1.f), Vector3(0.f, 0.f, 1.f));
-	//monsterCharacter5->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter5->AddComponent<MonsterAI>(L"MonsterAI"));
-	//monsterCharacter5->monsterAI->SetType(MonsterType::SCYTHER);
-	//ObjectManager::AddObject(monsterCharacter5);
-	//CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter5);
-
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	/*trigerBox->OnTriggered = CreateSpawner;*/
 	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
 	trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
 
