@@ -184,9 +184,6 @@
     <Filter Include="GameObject\Decoration">
       <UniqueIdentifier>{bbef4f73-09be-45f5-b416-9aec63c17d97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Spawner">
-      <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\TriggerBox">
       <UniqueIdentifier>{99faca5d-c3cc-4633-b888-2e9e507f37f9}</UniqueIdentifier>
     </Filter>
@@ -384,6 +381,21 @@
     </Filter>
     <Filter Include="Scene\Town">
       <UniqueIdentifier>{d9a58f50-b148-4bf6-b72c-d158905237b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Spawner">
+      <UniqueIdentifier>{fbff778b-b05e-473c-8cea-783ded935b12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\35. RedBall">
+      <UniqueIdentifier>{4b941a07-20dd-4d00-95bd-b79a65e48c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\35. RedBall">
+      <UniqueIdentifier>{5a138a24-2621-4399-aaeb-5016ce076ef2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\37. Explosion">
+      <UniqueIdentifier>{5c40e4bc-d283-4022-b94a-474f4deaa842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\37. Explosion">
+      <UniqueIdentifier>{82747b9e-7fd5-47d8-a52f-4a7b577958f7}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\Character\Ditto">
       <UniqueIdentifier>{6180d2cf-b356-4130-a263-73d47bda2e17}</UniqueIdentifier>
@@ -949,6 +961,18 @@
     <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Stage_Town.h">
       <Filter>Scene\Town</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_RedBall.h">
+      <Filter>Skill\35. RedBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_RedBall.h">
+      <Filter>GameObject\Bullet\35. RedBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_Explosion.h">
+      <Filter>Skill\37. Explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_Explosion.h">
+      <Filter>GameObject\Bullet\37. Explosion</Filter>
     </ClInclude>
     <ClInclude Include="Ditto.h">
       <Filter>GameObject\Character\Ditto</Filter>
@@ -1606,6 +1630,18 @@
     <ClCompile Include="Item_Tomato.cpp" />
     <ClCompile Include="Stage_Town.cpp">
       <Filter>Scene\Town</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_RedBall.cpp">
+      <Filter>Skill\35. RedBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_RedBall.cpp">
+      <Filter>GameObject\Bullet\35. RedBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_Explosion.cpp">
+      <Filter>Skill\37. Explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_Explosion.cpp">
+      <Filter>GameObject\Bullet\37. Explosion</Filter>
     </ClCompile>
     <ClCompile Include="Ditto.cpp">
       <Filter>GameObject\Character\Ditto</Filter>

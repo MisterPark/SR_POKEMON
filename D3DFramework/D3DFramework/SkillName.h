@@ -33,8 +33,10 @@ enum class SkillName
 	LeechSeed,
 	PetalBlizzard,
 	ClawBlast,
+	RedBall,
 	FireShot,
 	FireBomb,
 	FireXCrossBomb,
-	Synthesis
+	Synthesis,
+	Explosion,
 };

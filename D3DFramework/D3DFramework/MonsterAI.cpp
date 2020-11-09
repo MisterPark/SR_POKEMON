@@ -317,8 +317,16 @@ void MonsterAI::SetType(MonsterType _type)
 		searchRange[3] = 30.f;
 		break;
 	case MonsterType::GROWLITHE:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::ARCANINE:
+		SetPatternRange(1, 1);
+		searchRange[0] = 6.f;
+		searchRange[1] = 3.f;
+		searchRange[3] = 10.f;
 		break;
 	case MonsterType::PONYTA:
 		SetPatternRange(1, 1);
@@ -613,8 +621,44 @@ void MonsterAI::MonsterIdle() {
 			}
 			break;
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK;
+			}
 			break;
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
+				readyPattern = false;
+			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+				c->state = State::WALK;
+			}
 			break;
 		case MonsterType::PONYTA:
 			if (readyPattern) {
@@ -1168,16 +1212,44 @@ void MonsterAI::MonsterWalk() {
 
 		case MonsterType::GROWLITHE:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
+					c->state = State::IDLE;  //IDLE 와 다른점
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
-
 		case MonsterType::ARCANINE:
 			if (readyPattern) {
+				c->anim->SetDelay(0.2f);
 				readyPattern = false;
 			}
+			if (disPlayer < searchRange[1]) {
+				if (Time[1] > 0.f) {
+					Time[1] -= TimeManager::DeltaTime();
+					c->state = State::IDLE;  //IDLE 와 다른점
+				}
+				else {
+					Time[1] = 0.f;
+					c->state = State::ATTACK;
+					readyPattern = true;
+				}
+			}
+			else {				//if (disPlayer > 10.f)
+				MovePlayerFollow();
+			}
 			break;
-
 		case MonsterType::PONYTA:
 			if (readyPattern) {
 				c->anim->SetDelay(0.2f);
@@ -1865,16 +1937,34 @@ void MonsterAI::MonsterAttack() {
 
 		case MonsterType::GROWLITHE:
 			if (readyPattern) {
+				c->Attack(c->direction, 0);
+				c->direction = DirFromPlayer();
+				Time[4] = 2.f;
+				c->anim->SetDelay(0.3f);
 				readyPattern = false;
 			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 1.f; //Attack쿨타임
+			}
 			break;
-
 		case MonsterType::ARCANINE:
 			if (readyPattern) {
+				c->Attack(c->direction, 0);
+				c->direction = DirFromPlayer();
+				Time[4] = 2.f;
+				c->anim->SetDelay(0.3f);
 				readyPattern = false;
 			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+				Time[4] = 0.f;
+				Time[1] = 1.f; //Attack쿨타임
+			}
 			break;
-
 		case MonsterType::PONYTA:
 			if (readyPattern) {
 				readyPattern = false;
@@ -2749,9 +2839,15 @@ void MonsterAI::MonsterSkill2() {
 			break;
 
 		case MonsterType::GROWLITHE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
 
 		case MonsterType::ARCANINE:
+			if (readyPattern) {
+				readyPattern = false;
+			}
 			break;
 
 		case MonsterType::PONYTA:
