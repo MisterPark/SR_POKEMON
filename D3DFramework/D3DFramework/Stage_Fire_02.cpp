@@ -127,10 +127,6 @@ void Stage_Fire_02::Stage_Fire_02_Wave()
 		if (spawnerCount == 1)
 		{
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-			/*trigerBox->OnTriggered = CreateSpawner;*/
-			trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
-
-			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 25.f,0.f,48-26.f };
 			trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
