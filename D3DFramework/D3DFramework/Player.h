@@ -29,7 +29,6 @@ public:
 	float GetRadianX() { return radianX; }
 	float GetRadianY() { return radianY; }
 	int GetCurrentSkillIndex() { return skillNum; }
-	void SetCatchMonster(Pokemon pokemon) { catchMonster = pokemon; }
 
 private:
 	void Initialize();
@@ -41,16 +40,20 @@ private:
 	void CalcMouse();
 	void KeyInput();
 	void ChangeState(State state);
+	void Metamorphosis();
+	void SetCharacterByNumber(MonsterType type);
+	void ChangeNextPokemon(MonsterType pokemon);
 
 private:
 	static Player* instance;
-
 	Character* character = nullptr;
-	Pokemon catchMonster = Pokemon::None; 
+	vector<MonsterType> metamorphosisList;
+	MonsterType nextPokemon;
 	float radianX;
 	float radianY;
 	bool isFix;
 	int skillNum;
 	int skillSetSize;
+	int pokemonIndex;
 };
 

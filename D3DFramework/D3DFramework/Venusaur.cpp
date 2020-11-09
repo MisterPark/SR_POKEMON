@@ -22,7 +22,7 @@ Venusaur::~Venusaur()
 
 void Venusaur::Initialize()
 {
-	name = L"이상해풀";
+	name = L"이상해꽃";
 	number = Pokemon::Venusaur;
 
 	SetTexture(State::IDLE, TextureKey::PG03_WALK_D_01, 3, 1);
