@@ -17,8 +17,5 @@ public:
 public:
     static Poliwag* Create(const Vector3& pos, const Vector3& dir);
 
-public:
-    MonsterAI* monsterAI;
-
 };
 

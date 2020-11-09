@@ -18,7 +18,5 @@ public:
 public:
 	static Arcanine* Create(const Vector3& pos, const Vector3& dir);
 
-	
-
 };
 

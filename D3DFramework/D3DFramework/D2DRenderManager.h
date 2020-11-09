@@ -32,6 +32,7 @@ namespace PKH
 		static void DrawSprite(TextureKey spriteKey, Transform transform, int index);
 		static void DrawUI(TextureKey spriteKey, Transform transform, int index);
 		static void DrawUI(TextureKey spriteKey, Vector3 pos, int index);
+		static void DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index);
 		static void DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index, float verticalPer);
 		static void DrawUIHorizontal(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index, float horizontalPer);
 		static void DrawCharacter(TextureKey spriteKey, Transform transform, DWORD row = 0, DWORD col = 0);

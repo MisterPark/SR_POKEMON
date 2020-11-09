@@ -21,13 +21,6 @@ namespace PKH
 {
 	class IComponent;
 
-	enum class ObjectType
-	{
-		NONE,
-
-
-		END
-	};
 
 	class GameObject
 	{
@@ -80,7 +73,6 @@ namespace PKH
 	public:
 		Transform* transform = nullptr;
 		STAT stat;
-		ObjectType type = ObjectType::NONE;
 		Team team = Team::NEUTRAL;
 		
 		bool isVisible = true;

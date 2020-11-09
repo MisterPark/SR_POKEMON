@@ -94,8 +94,17 @@ bool Inventory::Push(Item* item)
     Item* out = nullptr;
     for (int i = 0; i < dfMAX_SLOT_COUNT; i++)
     {
-        if (pInventory->slots[i].GetItem() != nullptr) continue;
+        Item* iter = pInventory->slots[i].GetItem();
+        if (iter != nullptr) // 슬롯에 아이템이 존재할 때
+        {
+            if (iter->type != item->type) continue;
+            
+            //타입이 같으면 수량 증가
+            iter->count++;
+            return true;
+        }
 
+        // 슬롯에 아이템이 존재하지 않으면 셋
         pInventory->slots[i].SetItem(item);
         return true;
     }
@@ -118,7 +127,7 @@ void Inventory::UpdateUI()
         {
             slotOffset.x = slotPosition.x + j * 40;
 
-            slots[iter].position = slotOffset;
+            slots[iter].transform->position = slotOffset;
             iter++;
         }
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
-class UI :
-    public GameObject
+
+class UI : public GameObject
 {
 public:
     UI();
@@ -22,6 +22,8 @@ public:
     virtual void OnLeave();
     virtual void OnLButtonDown();
     virtual void OnLButtonUp();
+    virtual void OnRButtonDown();
+    virtual void OnRButtonUp();
     virtual void OnClick();
     virtual void OnChangedText();
 
@@ -46,6 +48,8 @@ public:
     void (*Click)() = nullptr;
     void (*LButtonDown)() = nullptr;
     void (*LButtonUp)() = nullptr;
+    void (*RButtonDown)() = nullptr;
+    void (*RButtonUp)() = nullptr;
     void (*Hover)() = nullptr;
     void (*Leave)() = nullptr;
     void (*ChangedText)() = nullptr;
@@ -55,6 +59,7 @@ private:
     bool isHover = false;
     bool isLeave = false;
     bool isLButtonDown = false;
+    bool isRButtonDown = false;
 
     wstring oldText;
 

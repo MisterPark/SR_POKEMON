@@ -18,6 +18,5 @@ public:
 public:
 	static Growlithe* Create(const Vector3& pos, const Vector3& dir);
 
-
 };
 

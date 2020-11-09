@@ -218,6 +218,50 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH2_F, L"Texture\\ETC\\Skybox\\SkyBeach2\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH2_B, L"Texture\\ETC\\Skybox\\SkyBeach2\\SKYBOX_B.png");
 	
+	//코인
+	D2DRenderManager::LoadSprite(TextureKey::RING_01, L"Texture\\UI\\Coin\\Ring_01.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_02, L"Texture\\UI\\Coin\\Ring_02.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_03, L"Texture\\UI\\Coin\\Ring_03.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_04, L"Texture\\UI\\Coin\\Ring_04.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_05, L"Texture\\UI\\Coin\\Ring_05.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_06, L"Texture\\UI\\Coin\\Ring_06.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_07, L"Texture\\UI\\Coin\\Ring_07.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_08, L"Texture\\UI\\Coin\\Ring_08.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_09, L"Texture\\UI\\Coin\\Ring_09.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_10, L"Texture\\UI\\Coin\\Ring_10.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_11, L"Texture\\UI\\Coin\\Ring_11.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_12, L"Texture\\UI\\Coin\\Ring_12.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_13, L"Texture\\UI\\Coin\\Ring_13.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_14, L"Texture\\UI\\Coin\\Ring_14.png");
+	D2DRenderManager::LoadSprite(TextureKey::RING_15, L"Texture\\UI\\Coin\\Ring_15.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_1, L"Texture\\UI\\Coin\\coinpoke1.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_2, L"Texture\\UI\\Coin\\coinpoke2.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_3, L"Texture\\UI\\Coin\\coinpoke3.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_4, L"Texture\\UI\\Coin\\coinpoke4.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_5, L"Texture\\UI\\Coin\\coinpoke5.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_6, L"Texture\\UI\\Coin\\coinpoke6.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_7, L"Texture\\UI\\Coin\\coinpoke7.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_8, L"Texture\\UI\\Coin\\coinpoke8.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_9, L"Texture\\UI\\Coin\\coinpoke9.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_10, L"Texture\\UI\\Coin\\coinpoke10.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_11, L"Texture\\UI\\Coin\\coinpoke11.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_12, L"Texture\\UI\\Coin\\coinpoke12.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_13, L"Texture\\UI\\Coin\\coinpoke13.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_14, L"Texture\\UI\\Coin\\coinpoke14.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_15, L"Texture\\UI\\Coin\\coinpoke13.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_16, L"Texture\\UI\\Coin\\coinpoke12.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_17, L"Texture\\UI\\Coin\\coinpoke11.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_18, L"Texture\\UI\\Coin\\coinpoke10.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_19, L"Texture\\UI\\Coin\\coinpoke9.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_20, L"Texture\\UI\\Coin\\coinpoke8.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_21, L"Texture\\UI\\Coin\\coinpoke7.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_22, L"Texture\\UI\\Coin\\coinpoke6.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_23, L"Texture\\UI\\Coin\\coinpoke5.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_24, L"Texture\\UI\\Coin\\coinpoke4.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_25, L"Texture\\UI\\Coin\\coinpoke3.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_26, L"Texture\\UI\\Coin\\coinpoke2.png");
+	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_27, L"Texture\\UI\\Coin\\coinpoke1.png");
+
 	
 	//속성
 	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_FIRE, L"Texture\\ETC\\Property\\Fire (1).png");

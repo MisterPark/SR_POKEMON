@@ -16,7 +16,7 @@ namespace PKH
 		static void Release();
 
 		template<class T>
-		GameObject* CreateObject(ObjectType _type = ObjectType::NONE);
+		GameObject* CreateObject();
 
 		static bool DeleteObject(GameObject* _target);
 		static void DestroyAll();
@@ -57,7 +57,7 @@ namespace PKH
 
 
 	template<class T>
-	inline GameObject * ObjectManager::CreateObject(ObjectType _type)
+	inline GameObject * ObjectManager::CreateObject()
 	{
 		T* pObj = new T();
 		GameObject* obj = dynamic_cast<GameObject*>(pObj);
@@ -65,7 +65,6 @@ namespace PKH
 		{
 			return nullptr;
 		}
-		obj->type = _type;
 		objectList.push_back(obj);
 
 		return obj;
