@@ -161,9 +161,11 @@ void SelectScene::ChangePrev()
 
 void SelectScene::SelectCharacter()
 {
-	selectedPoke->dontDestroy = true;
-	Player::GetInstance()->SetCharacter(selectedPoke);
+	Player::GetInstance()->Initialize();
+	Player::GetInstance()->ChangeNextPokemon(selectedPoke->type, selectedPoke->number);
+	Player::GetInstance()->PermanentMetamorphosis();
 
+	selectedPoke->Die();
 
-	SceneManager::LoadScene<Stage_Town>();
+	SceneManager::LoadScene<Stage_Tutorial>();
 }

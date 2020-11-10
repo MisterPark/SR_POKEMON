@@ -5,7 +5,7 @@ class Venusaur : public Character
 {
 public:
 	Venusaur();
-	Venusaur(const Vector3& pos, const Vector3& dir);
+	Venusaur(const Vector3& pos, const Vector3& dir,int lv = 1);
 	virtual ~Venusaur();
 
 public:
@@ -22,6 +22,6 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Venusaur* Create(const Vector3& pos, const Vector3& dir);
+	static Venusaur* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };

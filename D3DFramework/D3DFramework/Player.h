@@ -12,6 +12,7 @@ public:
 	static void Destroy();
 
 public:
+	void Initialize();
 	void Update();
 	void PostUpdate();
 
@@ -32,7 +33,6 @@ public:
 	Pokemon GetMetamorphoPokemonNumber() { return nextPokemon.second; }
 
 private:
-	void Initialize();
 	void Release();
 
 private:
@@ -41,12 +41,15 @@ private:
 	void CalcMouse();
 	void KeyInput();
 	void ChangeState(State state);
-	void SetCharacterByNumber(TYPE type);
+	void SetCharacterByType(TYPE type);
 	void CalcMetamorphosisTime();
 	void ComeBackFromMetamorpho();
 
 public:
 	void Metamorphosis();
+	void PermanentMetamorphosis();
+	void MetamorphosisToDitto();
+
 	void ChangeNextPokemon(TYPE pokemon, Pokemon number);
 
 private:
@@ -64,5 +67,6 @@ private:
 	int skillNum;
 	int skillSetSize;
 	int pokemonIndex;
+	int permanentIndex;
 };
 

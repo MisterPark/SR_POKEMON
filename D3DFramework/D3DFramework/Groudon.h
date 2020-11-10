@@ -5,7 +5,7 @@ class Groudon :
 {
 public:
 	Groudon();
-	Groudon(const Vector3& pos, const Vector3& dir);
+	Groudon(const Vector3& pos, const Vector3& dir,int lv = 1);
 	virtual ~Groudon();
 
 	virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Groudon* Create(const Vector3& pos, const Vector3& dir);
+	static Groudon* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };
 

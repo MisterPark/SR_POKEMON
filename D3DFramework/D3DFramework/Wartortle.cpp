@@ -6,12 +6,12 @@ Wartortle::Wartortle()
 	Initialize();
 }
 
-Wartortle::Wartortle(const Vector3& pos, const Vector3& dir)
+Wartortle::Wartortle(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 
 }
@@ -127,8 +127,8 @@ bool Wartortle::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Wartortle* Wartortle::Create(const Vector3& pos, const Vector3& dir)
+Wartortle* Wartortle::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Wartortle* newPokemon = new Wartortle(pos, dir);
+	Wartortle* newPokemon = new Wartortle(pos, dir, lv);
 	return newPokemon;
 }

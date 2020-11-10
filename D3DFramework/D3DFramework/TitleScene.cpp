@@ -5,6 +5,7 @@
 #include "Button.h"
 #include "TestScene.h"
 #include "SelectScene.h"
+#include "Dialog.h"
 
 void TitleScene::OnLoaded()
 {
@@ -48,6 +49,8 @@ void TitleScene::OnLoaded()
 	
 	//lobby = LobbyWindow::GetInstance();
 	//lobby->Create();
+
+	Dialog::EnqueueText(L"안녕하세요.");
 }
 
 void TitleScene::OnUnloaded()

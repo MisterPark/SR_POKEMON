@@ -7,6 +7,7 @@
 #include "PlayerInfoPanel.h"
 #include "Inventory.h"
 #include "ItemInfoPanel.h"
+#include "Dialog.h"
 
 using namespace PKH;
 
@@ -22,6 +23,7 @@ PKH::ObjectManager::ObjectManager()
 	PlayerInfoPanel::GetInstance();
 	Inventory::GetInstance();
 	ItemInfoPanel::GetInstance();
+	Dialog::GetInstance();
 }
 
 PKH::ObjectManager::~ObjectManager()
@@ -33,6 +35,7 @@ PKH::ObjectManager::~ObjectManager()
 	PlayerInfoPanel::Destroy();
 	Inventory::Destroy();
 	ItemInfoPanel::Destroy();
+	Dialog::Destroy();
 	Release();
 }
 
@@ -119,6 +122,7 @@ void PKH::ObjectManager::Update()
 	Cursor::GetInstance()->Update();
 	Inventory::Update();
 	ItemInfoPanel::GetInstance()->Update();
+	Dialog::GetInstance()->Update();
 }
 
 void PKH::ObjectManager::PostUpdate()
@@ -209,6 +213,7 @@ void PKH::ObjectManager::PostRender()
 	PlayerInfoPanel::GetInstance()->Render();
 	TargetInfoPanel::GetInstance()->Render();
 	Inventory::Render();
+	Dialog::GetInstance()->Render();
 	Cursor::GetInstance()->Render();
 	ItemInfoPanel::GetInstance()->Render();
 }

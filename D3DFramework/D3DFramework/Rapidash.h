@@ -5,7 +5,7 @@ class Rapidash :
 {
 public:
     Rapidash();
-    Rapidash(const Vector3& pos, const Vector3& dir);
+    Rapidash(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Rapidash();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Rapidash* Create(const Vector3& pos, const Vector3& dir);
+    static Rapidash* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 
 };

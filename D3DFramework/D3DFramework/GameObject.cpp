@@ -218,3 +218,8 @@ void PKH::GameObject::MinusHp(float _damage)
 	 stat.hp -= _damage * TimeManager::DeltaTime();
 }
 
+void PKH::GameObject::SetHp(float _hp)
+{
+	stat.hp = _hp;
+}
+

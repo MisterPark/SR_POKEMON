@@ -403,6 +403,12 @@
     <Filter Include="GameObject\Coin">
       <UniqueIdentifier>{171594f3-c03f-46bf-8207-4864a611f35f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Tutorial">
+      <UniqueIdentifier>{e269b504-dc5f-428e-a595-a97fad94177f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quest">
+      <UniqueIdentifier>{f5730c3c-e9f2-445b-a3a3-24b080ef8f9b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="GameObject\NPC">
       <UniqueIdentifier>{e53f4130-c552-4c4f-9f0f-c1029b9f541e}</UniqueIdentifier>
     </Filter>
@@ -1054,6 +1060,13 @@
     <ClInclude Include="Item_StoneOfWater.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Tutorial.h">
+      <Filter>Scene\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="QuestManager.h">
+      <Filter>Quest</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog.h" />
     <ClInclude Include="NPC.h">
       <Filter>GameObject\NPC</Filter>
     </ClInclude>
@@ -1797,6 +1810,13 @@
     <ClCompile Include="Item_UltraBall.cpp">
       <Filter>GameObject\Item</Filter>
     </ClCompile>
+    <ClCompile Include="Stage_Tutorial.cpp">
+      <Filter>Scene\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestManager.cpp">
+      <Filter>Quest</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog.cpp" />
     <ClCompile Include="NPC.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>

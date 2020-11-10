@@ -6,12 +6,12 @@ Charmeleon::Charmeleon()
 	Initialize();
 }
 
-Charmeleon::Charmeleon(const Vector3 & pos, const Vector3 & dir)
+Charmeleon::Charmeleon(const Vector3 & pos, const Vector3 & dir, int lv)
 {
 	transform->position = pos;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -121,8 +121,8 @@ bool Charmeleon::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
-Charmeleon * Charmeleon::Create(const Vector3 & pos, const Vector3 & dir)
+Charmeleon * Charmeleon::Create(const Vector3 & pos, const Vector3 & dir, int lv)
 {
-	Charmeleon* newPokemon = new Charmeleon(pos, dir);
+	Charmeleon* newPokemon = new Charmeleon(pos, dir, lv);
 	return newPokemon;
 }

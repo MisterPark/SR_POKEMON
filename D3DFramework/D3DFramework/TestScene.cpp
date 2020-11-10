@@ -8,6 +8,7 @@
 #include "CubeMan.h"
 #include "Environment.h"
 #include "TitleScene.h"
+#include "Celebi.h"
 
 void TestScene::OnLoaded()
 {
@@ -15,16 +16,13 @@ void TestScene::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKY_U);
 	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 36.f));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 0);
+	Player::GetInstance()->Initialize();
+
 	// TestUI
-	/*Golduck* playerCharacter = Golduck::Create(Vector3(0.f, 0.f, 0.f), Vector3{0.f,0.f,1.f});*/
-	//playerCharacter->offsetY = 0.23f;
-	Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.2f, 0.2f, 0.2f));
-	/*Charmander* playerCharacter = Charmander::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));*/
-	//Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });
-	//Character* playerCharacter = Charizard::Create(Vector3(0.f, 0.f, 0.f), Vector3(0.f, 0.f, 1.f));
-	/*Squirtle* playerCharacter = Squirtle::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });*/
-	/*Charmeleon* playerCharacter = Charmeleon::Create({ 0.f, 0.f, 0.f }, { 0.f, 0.f, 1.f });*/
-	ObjectManager::AddObject(playerCharacter);
+	Player::GetInstance()->ChangeNextPokemon(TYPE::CHARMANDER, Pokemon::Charmander);
+	Player::GetInstance()->PermanentMetamorphosis();
+
+	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 
 	//7½Ã
 	Player::GetInstance()->SetRadianY(D3DXToRadian(180));
@@ -40,6 +38,9 @@ void TestScene::OnLoaded()
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 
+	Celebi* npc = Celebi::Create({20.f, 20.f, 20.f});
+	ObjectManager::AddObject(npc);
+	CollisionManager::RegisterObject(COLTYPE::COIN, npc);
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = Portal;

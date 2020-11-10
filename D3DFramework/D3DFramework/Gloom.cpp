@@ -10,11 +10,11 @@ Gloom::Gloom()
 	Initialize();
 }
 
-Gloom::Gloom(const Vector3& pos, const Vector3& dir)
+Gloom::Gloom(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -42,7 +42,7 @@ void Gloom::Initialize()
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XShot));
+	
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 	defaultAttack = 30;
@@ -50,6 +50,7 @@ void Gloom::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -86,8 +87,8 @@ bool Gloom::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Gloom* Gloom::Create(const Vector3& pos, const Vector3& dir)
+Gloom* Gloom::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Gloom* newPokemon = new Gloom(pos, dir);
+	Gloom* newPokemon = new Gloom(pos, dir, lv);
 	return newPokemon;
 }
