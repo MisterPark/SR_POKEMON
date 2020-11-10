@@ -87,6 +87,7 @@ namespace PKH
 		UI_CURSOR,
 		UI_LOCK_ON,
 		UI_TITLE_SCREEN,
+		UI_DROH_SCREEN,
 		UI_BLUE_FILTER,
 		UI_BUTTON,
 		UI_HP_BAR_01,
@@ -156,6 +157,18 @@ namespace PKH
 			UI_ICON_ITEM_MASTER_BALL,
 
 			UI_DIALOG,
+
+			//Æ©Åä¸®¾ó
+			UI_ARROW,
+			UI_LBUTTON,
+			UI_MBUTTON,
+			UI_RBUTTON,
+			UI_MOUSE,
+			UI_RETURN,
+			UI_SPACE,
+			UI_I,
+			UI_F,
+
 		//========================== NPC ==========================
 			NPC_DOCTOR_OH,
 		//=====================================================

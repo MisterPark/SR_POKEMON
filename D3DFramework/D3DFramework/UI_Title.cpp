@@ -47,6 +47,12 @@ void UI_Title::OnClick()
 	UI::OnClick();
 }
 
+void UI_Title::SetTexture(TextureKey _key)
+{
+	textureKey = _key;
+}
+
+
 void UI_Title::UpdateUI()
 {
 }

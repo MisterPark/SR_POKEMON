@@ -21,7 +21,10 @@ public:
 	static void CreateSpawner();
 	static void Portal();
 
+	static void UI_SHOW();
+	static void UI_SHOW2();
 public:
 	bool triggerOn = false;
 	int spawnerCount = 0;
+
 };

@@ -412,6 +412,9 @@
     <Filter Include="GameObject\NPC">
       <UniqueIdentifier>{e53f4130-c552-4c4f-9f0f-c1029b9f541e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Opening">
+      <UniqueIdentifier>{0e88b12c-e762-4d1c-bb88-e137a6b864bd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1076,6 +1079,9 @@
     </ClInclude>
     <ClInclude Include="NPC_Celebi.h">
       <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Opening.h">
+      <Filter>Scene\Opening</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1819,9 +1825,6 @@
     <ClCompile Include="NPC.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
-    <ClCompile Include="Stage_Tutorial.cpp">
-      <Filter>GameObject\UI</Filter>
-    </ClCompile>
     <ClCompile Include="ItemInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
     </ClCompile>
@@ -1833,6 +1836,12 @@
     </ClCompile>
     <ClCompile Include="NPC_Celebi.cpp">
       <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Opening.cpp">
+      <Filter>Scene\Opening</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Tutorial.cpp">
+      <Filter>Scene\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
