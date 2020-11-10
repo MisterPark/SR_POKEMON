@@ -5,6 +5,7 @@
 #include "TitleScene.h"
 
 #include "Stage_Town.h"
+#include "Stage_Tutorial.h"
 
 #include "Stage_Grass_01.h"
 #include "Stage_Grass_02.h"
