@@ -130,7 +130,7 @@ void Stage_Water_02::Stage_Water_02_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::GOLDUCK, 10.f, 0.5f, 10);
+		Spawner* spawner = Spawner::Create(MonsterType::GOLDUCK, 10.f, 0.5f, 5 , 26);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 		triggerOn = true;
@@ -140,7 +140,7 @@ void Stage_Water_02::Stage_Water_02_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::POLIWHIRL, 10.f, 0.5f, 7);
+			Spawner* spawner = Spawner::Create(MonsterType::POLIWHIRL, 10.f, 0.5f, 4, 30);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;

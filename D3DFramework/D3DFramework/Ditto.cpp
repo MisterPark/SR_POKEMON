@@ -6,12 +6,12 @@ Ditto::Ditto()
 	Initialize();
 }
 
-Ditto::Ditto(const Vector3 & pos, const Vector3 & dir)
+Ditto::Ditto(const Vector3 & pos, const Vector3 & dir, int lv)
 {
 	transform->position = pos;
 	transform->scale = { 0.3f, 0.3f, 0.3f };
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -93,8 +93,8 @@ bool Ditto::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
-Ditto * Ditto::Create(const Vector3 & pos, const Vector3 & dir)
+Ditto * Ditto::Create(const Vector3 & pos, const Vector3 & dir, int lv)
 {
-	Ditto* newPokemon = new Ditto(pos, dir);
+	Ditto* newPokemon = new Ditto(pos, dir, lv);
 	return newPokemon;
 }

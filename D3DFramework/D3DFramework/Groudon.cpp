@@ -7,11 +7,11 @@ Groudon::Groudon()
 	Initialize();
 }
 
-Groudon::Groudon(const Vector3& pos, const Vector3& dir)
+Groudon::Groudon(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -47,6 +47,7 @@ void Groudon::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBlast));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireWallWave));
@@ -93,8 +94,8 @@ bool Groudon::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Groudon* Groudon::Create(const Vector3& pos, const Vector3& dir)
+Groudon* Groudon::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Groudon* newPokemon = new Groudon(pos, dir);
+	Groudon* newPokemon = new Groudon(pos, dir, lv);
 	return newPokemon;
 }

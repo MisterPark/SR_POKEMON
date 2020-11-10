@@ -71,6 +71,7 @@ namespace PKH
 		bool IsDead();
 
 		void MinusHp(float _damage);
+		void SetHp(float _hp);
 	public:
 		wstring name;
 		Transform* transform = nullptr;

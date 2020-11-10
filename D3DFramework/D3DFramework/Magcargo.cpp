@@ -14,11 +14,11 @@ Magcargo::Magcargo()
 	Initialize();
 }
 
-Magcargo::Magcargo(const Vector3& pos, const Vector3& dir)
+Magcargo::Magcargo(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -51,6 +51,7 @@ void Magcargo::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBomb));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireXCrossBomb));
@@ -90,9 +91,9 @@ bool Magcargo::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Magcargo* Magcargo::Create(const Vector3& pos, const Vector3& dir)
+Magcargo* Magcargo::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Magcargo* newPokemon = new Magcargo(pos, dir);
+	Magcargo* newPokemon = new Magcargo(pos, dir, lv);
 	return newPokemon;
 }
 

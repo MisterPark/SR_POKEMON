@@ -10,11 +10,11 @@ Jynx::Jynx()
 	Initialize();
 }
 
-Jynx::Jynx(const Vector3& pos, const Vector3& dir)
+Jynx::Jynx(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -46,9 +46,9 @@ void Jynx::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::SnowVulcan));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -87,8 +87,8 @@ bool Jynx::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Jynx* Jynx::Create(const Vector3& pos, const Vector3& dir)
+Jynx* Jynx::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Jynx* newPokemon = new Jynx(pos, dir);
+	Jynx* newPokemon = new Jynx(pos, dir, lv);
 	return newPokemon;
 }

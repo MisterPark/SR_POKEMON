@@ -7,43 +7,39 @@
 #include "SkyBox.h"
 #include "Item_Tomato.h"
 
-void Stage_Grass_01::OnLoaded()
+void Stage_Tutorial::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
+	/*CollisionManager* col = CollisionManager::GetInstance();*/
+
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
-		Player::GetInstance()->SetRadianY(D3DXToRadian(60));
+		Player::GetInstance()->SetRadianY(D3DXToRadian(30));
 		playerCharacter->direction = { 1.f,0.f,1.f };
-		playerCharacter->transform->position.x = 7.f;
+		playerCharacter->transform->position.x = 24.f;
 		playerCharacter->transform->position.z = 48.f - 24.f;
 
 	}
-	
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->transform->position = { 18.f,0.f,48.f-21.f };
-	trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
+	trigerBox->transform->position = { 24.f,0.f,30.f };
+	trigerBox->AnimChange(TextureKey::POP_01, TextureKey::POP_34,0.05f, true);
 
-
-	Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
-	tomato->transform->position = { 20.f,0.f,48.f - 21.f };
-
-	Set_Stage_Grass_01_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Grass1.bmp", 0.1f);
-
+	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 
 }
 
-void Stage_Grass_01::OnUnloaded()
+void Stage_Tutorial::OnUnloaded()
 {
 
 	ObjectManager::DestroyAll();
 }
 
-void Stage_Grass_01::Update()
+void Stage_Tutorial::Update()
 {
 
 
@@ -53,18 +49,14 @@ void Stage_Grass_01::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<Stage_Grass_02>();
-	}
-	if (InputManager::GetKeyDown(VK_F4))
-	{
 		SceneManager::LoadScene<Stage_Town>();
 	}
-	Stage_Grass_01_Wave();
+	Stage_Tutorial_Wave();
 	
 }
 
 
-void Stage_Grass_01::Set_Stage_Grass_01_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
+void Stage_Tutorial::Set_Stage_Tutorial_Map(TextureKey _key, const std::string& _filePath, float _waterHeight)
 {
 	//ÁöÇü
 	GameObject* environment = ObjectManager::GetInstance()->CreateObject<Environment>();
@@ -108,67 +100,53 @@ void Stage_Grass_01::Set_Stage_Grass_01_Map(TextureKey _key, const std::string& 
 
 }
 
-void Stage_Grass_01::Stage_Grass_01_Wave()
+void Stage_Tutorial::Stage_Tutorial_Wave()
 {
 	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
 	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10,2);
+		TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+		trigerBox->transform->position = { 24.f,0.f,20.f };
+		trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
+		spawnerCount++;
+		
+		
+	}
+	else if (nullptr == isTriger&&spawnerCount == 1)
+	{
+		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 3,2);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
-		triggerOn = true;
+		triggerOn = false;
 		spawnerCount++;
 	}
 	else if (isSpawner == nullptr)
 	{
-		if (spawnerCount == 1)
-		{
-			Spawner* spawner = Spawner::Create(MonsterType::METAPOD, 10.f, 0.5f, 7,3);
-			spawner->transform->position = { 24.f,0.f,24.f };
-			ObjectManager::AddObject(spawner);
-			spawnerCount++;
-		}
-		else if (spawnerCount == 2)
-		{
-			Spawner* spawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f, 5,5);
-			spawner->transform->position = { 24.f,0.f,24.f };
-			ObjectManager::AddObject(spawner);
-			spawnerCount++;
-			triggerOn = false;
-		}
-		else if (spawnerCount == 3 && triggerOn == false)
+		if (spawnerCount == 2)
 		{
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
-			trigerBox->transform->position = { 40.f,0.f,40.f };
-			trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
-			trigerBox->offsetY = 2.f;
-
-			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-			trigerBox->OnTriggered = TownPortal;
-			trigerBox->transform->position = { 8.f,0.f,8.f };
+			trigerBox->transform->position = { 24.f,0.f,10.f };
 			trigerBox->Portal();
 
 			spawnerCount++;
+
 		}
+
 	}
 }
 
-void Stage_Grass_01::CreateSpawner()
+
+void Stage_Tutorial::CreateSpawner()
 {
 	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 }
 
-void Stage_Grass_01::Portal()
-{
-	SceneManager::LoadScene<Stage_Grass_02>();
-}
-
-void Stage_Grass_01::TownPortal()
+void Stage_Tutorial::Portal()
 {
 	SceneManager::LoadScene<Stage_Town>();
 }

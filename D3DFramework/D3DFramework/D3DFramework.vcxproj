@@ -246,6 +246,7 @@
     <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="PetalBlizzard.h" />
+    <ClInclude Include="QuestManager.h" />
     <ClInclude Include="SelectScene.h" />
     <ClInclude Include="Skill_ClawBlast.h" />
     <ClInclude Include="Skill_Explosion.h" />
@@ -339,6 +340,7 @@
     <ClInclude Include="Stage_Fire_02.h" />
     <ClInclude Include="Stage_Fire_Boss.h" />
     <ClInclude Include="Stage_Town.h" />
+    <ClInclude Include="Stage_Tutorial.h" />
     <ClInclude Include="Stage_Water_02.h" />
     <ClInclude Include="Stage_Fire_01.h" />
     <ClInclude Include="Stage_Grass_01.h" />
@@ -457,6 +459,7 @@
     <ClCompile Include="LeechSeed.cpp" />
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="PetalBlizzard.cpp" />
+    <ClCompile Include="QuestManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />
     <ClCompile Include="Skill_ClawBlast.cpp" />
     <ClCompile Include="Skill_Explosion.cpp" />
@@ -543,6 +546,7 @@
     <ClCompile Include="Stage_Fire_02.cpp" />
     <ClCompile Include="Stage_Fire_Boss.cpp" />
     <ClCompile Include="Stage_Town.cpp" />
+    <ClCompile Include="Stage_Tutorial.cpp" />
     <ClCompile Include="Stage_Water_02.cpp" />
     <ClCompile Include="Stage_Fire_01.cpp" />
     <ClCompile Include="Stage_Grass_01.cpp" />

@@ -10,11 +10,11 @@ Oddish::Oddish()
 	Initialize();
 }
 
-Oddish::Oddish(const Vector3& pos, const Vector3& dir)
+Oddish::Oddish(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -41,8 +41,6 @@ void Oddish::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 	defaultAttack = 30;
@@ -50,6 +48,7 @@ void Oddish::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 	
 	SetStatByLevel();
 	UpdateAnimation();
@@ -86,8 +85,8 @@ bool Oddish::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Oddish* Oddish::Create(const Vector3& pos, const Vector3& dir)
+Oddish* Oddish::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Oddish* newPokemon = new Oddish(pos, dir);
+	Oddish* newPokemon = new Oddish(pos, dir, lv);
 	return newPokemon;
 }

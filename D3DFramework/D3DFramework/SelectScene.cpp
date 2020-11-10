@@ -167,5 +167,5 @@ void SelectScene::SelectCharacter()
 
 	selectedPoke->Die();
 
-	SceneManager::LoadScene<Stage_Town>();
+	SceneManager::LoadScene<Stage_Tutorial>();
 }

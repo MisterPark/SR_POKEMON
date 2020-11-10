@@ -8,11 +8,11 @@ Slugma::Slugma()
 	Initialize();
 }
 
-Slugma::Slugma(const Vector3& pos, const Vector3& dir)
+Slugma::Slugma(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -45,9 +45,10 @@ void Slugma::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBomb));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireShot));
+	
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -83,8 +84,8 @@ bool Slugma::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Slugma* Slugma::Create(const Vector3& pos, const Vector3& dir)
+Slugma* Slugma::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Slugma* newPokemon = new Slugma(pos, dir);
+	Slugma* newPokemon = new Slugma(pos, dir, lv);
 	return newPokemon;
 }

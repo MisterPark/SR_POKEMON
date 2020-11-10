@@ -5,7 +5,7 @@ class Bulbasaur : public Character
 {
 public:
 	Bulbasaur();
-	Bulbasaur(const Vector3& pos, const Vector3& dir);
+	Bulbasaur(const Vector3& pos, const Vector3& dir,int lv = 1);
 	virtual ~Bulbasaur();
 
 public:
@@ -22,6 +22,6 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Bulbasaur* Create(const Vector3& pos, const Vector3& dir);
+	static Bulbasaur* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };
