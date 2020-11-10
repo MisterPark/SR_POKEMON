@@ -48,8 +48,8 @@ void PKH::MainGame::Initialize()
 	D2DRenderManager::GetInstance();
 	CollisionManager::GetInstance();
 	InputManager::GetInstance();
-	Player::GetInstance();
 	SkyBox::GetInstance();
+	Player::GetInstance();
 
 	//RenderManager::GetInstance();
 
@@ -67,7 +67,6 @@ void PKH::MainGame::Initialize()
 
 	ObjectManager::GetInstance();
 	SkillManager::GetInstance();
-	
 
 	// ¾À·Îµå
 	SceneManager::LoadScene<TitleScene>();

@@ -5,7 +5,7 @@ class Ditto : public Character
 {
 public:
 	Ditto();
-	Ditto(const Vector3& pos, const Vector3& dir);
+	Ditto(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Ditto();
 
 public:
@@ -22,7 +22,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Ditto* Create(const Vector3& pos, const Vector3& dir);
+	static Ditto* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 public:
 	MonsterAI* monsterAI;
 };

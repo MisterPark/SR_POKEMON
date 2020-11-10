@@ -10,12 +10,12 @@ Poliwag::Poliwag()
 	Initialize();
 }
 
-Poliwag::Poliwag(const Vector3& pos, const Vector3& dir)
+Poliwag::Poliwag(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
 
-	
+	stat.level = lv;
 	Initialize();
 }
 
@@ -89,9 +89,9 @@ bool Poliwag::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& dir)
+Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Poliwag* newPokemon = new Poliwag(pos, dir);
+	Poliwag* newPokemon = new Poliwag(pos, dir, lv);
 	return newPokemon;
 }
 

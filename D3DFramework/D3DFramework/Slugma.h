@@ -5,7 +5,7 @@ class Slugma :
 {
 public:
     Slugma();
-    Slugma(const Vector3& pos, const Vector3& dir);
+    Slugma(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Slugma();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Slugma* Create(const Vector3& pos, const Vector3& dir);
+    static Slugma* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 
 };

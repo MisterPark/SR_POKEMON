@@ -5,7 +5,7 @@ class Charmeleon : public Character
 {
 public:
 	Charmeleon();
-	Charmeleon(const Vector3& pos, const Vector3& dir);
+	Charmeleon(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Charmeleon();
 
 public:
@@ -22,6 +22,6 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Charmeleon* Create(const Vector3& pos, const Vector3& dir);
+	static Charmeleon* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 };
 

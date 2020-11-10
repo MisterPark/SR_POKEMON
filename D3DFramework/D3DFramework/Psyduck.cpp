@@ -10,11 +10,11 @@ Psyduck::Psyduck()
 	Initialize();
 }
 
-Psyduck::Psyduck(const Vector3& pos, const Vector3& dir)
+Psyduck::Psyduck(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -87,8 +87,8 @@ bool Psyduck::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Psyduck* Psyduck::Create(const Vector3& pos, const Vector3& dir)
+Psyduck* Psyduck::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Psyduck* newPokemon = new Psyduck(pos, dir);
+	Psyduck* newPokemon = new Psyduck(pos, dir, lv);
 	return newPokemon;
 }

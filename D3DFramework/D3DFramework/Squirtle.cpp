@@ -6,12 +6,12 @@ Squirtle::Squirtle()
     Initialize();
 }
 
-Squirtle::Squirtle(const Vector3& pos, const Vector3& dir)
+Squirtle::Squirtle(const Vector3& pos, const Vector3& dir,int lv)
 {
     transform->position = pos;
     transform->scale = { 0.2f, 0.2f, 0.2f };
     direction = dir;
-
+	stat.level = lv;
     Initialize();
 
 }
@@ -137,8 +137,8 @@ bool Squirtle::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Squirtle* Squirtle::Create(const Vector3& pos, const Vector3& dir)
+Squirtle* Squirtle::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Squirtle* newPokemon = new Squirtle(pos, dir);
+	Squirtle* newPokemon = new Squirtle(pos, dir, lv);
 	return newPokemon;
 }

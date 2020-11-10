@@ -8,11 +8,11 @@ Metapod::Metapod()
 	Initialize();
 }
 
-Metapod::Metapod(const Vector3& pos, const Vector3& dir)
+Metapod::Metapod(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -83,8 +83,8 @@ bool Metapod::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Metapod* Metapod::Create(const Vector3& pos, const Vector3& dir)
+Metapod* Metapod::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Metapod* newPokemon = new Metapod(pos, dir);
+	Metapod* newPokemon = new Metapod(pos, dir, lv);
 	return newPokemon;
 }

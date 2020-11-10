@@ -6,12 +6,12 @@ Charizard::Charizard()
 	Initialize();
 }
 
-Charizard::Charizard(const Vector3 & pos, const Vector3 & dir)
+Charizard::Charizard(const Vector3 & pos, const Vector3 & dir, int lv)
 {
 	transform->position = pos;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -122,8 +122,8 @@ bool Charizard::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
-Charizard * Charizard::Create(const Vector3 & pos, const Vector3 & dir)
+Charizard * Charizard::Create(const Vector3 & pos, const Vector3 & dir, int lv)
 {
-	Charizard* newPokemon = new Charizard(pos, dir);
+	Charizard* newPokemon = new Charizard(pos, dir, lv);
 	return newPokemon;
 }

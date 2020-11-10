@@ -5,7 +5,7 @@ class Golduck :
 {
 public:
     Golduck();
-    Golduck(const Vector3& pos, const Vector3& dir);
+    Golduck(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Golduck();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Golduck* Create(const Vector3& pos, const Vector3& dir);
+    static Golduck* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 
 };

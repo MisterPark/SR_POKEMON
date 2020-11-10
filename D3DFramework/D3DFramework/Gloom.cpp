@@ -10,11 +10,11 @@ Gloom::Gloom()
 	Initialize();
 }
 
-Gloom::Gloom(const Vector3& pos, const Vector3& dir)
+Gloom::Gloom(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -87,8 +87,8 @@ bool Gloom::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Gloom* Gloom::Create(const Vector3& pos, const Vector3& dir)
+Gloom* Gloom::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Gloom* newPokemon = new Gloom(pos, dir);
+	Gloom* newPokemon = new Gloom(pos, dir, lv);
 	return newPokemon;
 }

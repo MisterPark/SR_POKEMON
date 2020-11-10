@@ -73,7 +73,7 @@ void Stage_Fire_02::Set_Stage_Fire_02_Map(TextureKey _key, const std::string& _f
 
 void Stage_Fire_02::Create_Monster_A_Spawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::ARCANINE, 3.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::ARCANINE, 3.f, 0.5f, 6,54);
 	poliwagSpawner->transform->position = { 6.f,0.f,48.f - 13.f };
 	ObjectManager::AddObject(poliwagSpawner);
 
@@ -81,14 +81,14 @@ void Stage_Fire_02::Create_Monster_A_Spawner()
 
 void Stage_Fire_02::Create_Monster_B_Spawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::MAGCARGO, 5.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::MAGCARGO, 5.f, 0.5f, 6,57);
 	poliwagSpawner->transform->position = { 41.f,0.f,48.f - 8.f };
 	ObjectManager::AddObject(poliwagSpawner);
 }
 
 void Stage_Fire_02::Create_Monster_C_Spawner()
 {
-	Spawner* poliwagSpawner = Spawner::Create(MonsterType::RAPIDASH, 3.f, 0.5f, 10);
+	Spawner* poliwagSpawner = Spawner::Create(MonsterType::RAPIDASH, 3.f, 0.5f, 6,51);
 	poliwagSpawner->transform->position = { 36.f,0.f,48.f - 42.f };
 	ObjectManager::AddObject(poliwagSpawner);
 }

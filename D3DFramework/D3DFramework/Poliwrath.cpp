@@ -10,11 +10,11 @@ Poliwrath::Poliwrath()
 	Initialize();
 }
 
-Poliwrath::Poliwrath(const Vector3& pos, const Vector3& dir)
+Poliwrath::Poliwrath(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -86,8 +86,8 @@ bool Poliwrath::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Poliwrath* Poliwrath::Create(const Vector3& pos, const Vector3& dir)
+Poliwrath* Poliwrath::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Poliwrath* newPokemon = new Poliwrath(pos, dir);
+	Poliwrath* newPokemon = new Poliwrath(pos, dir, lv);
 	return newPokemon;
 }

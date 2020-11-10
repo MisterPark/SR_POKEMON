@@ -12,7 +12,6 @@ Player::Player() :
 	character(nullptr), radianX(0.f), radianY(0.f),
 	isFix(true), skillNum(1)
 {
-	Initialize();
 }
 
 Player::~Player()
@@ -33,6 +32,15 @@ void Player::Destroy()
 		delete instance;
 		instance = nullptr;
 	}
+}
+
+void Player::Initialize()
+{
+	metamorphosisList.reserve(3);
+
+	MetamorphosisToDitto();
+
+	nextPokemon = make_pair(TYPE::END, Pokemon::None);
 }
 
 void Player::Update()
@@ -75,6 +83,8 @@ void Player::SetCharacter(Character * object)
 		character->dontDestroy = true;
 		character->team = Team::PLAYERTEAM;
 		skillSetSize = character->GetSkillSetSize();
+		if (skillSetSize >= 1) skillNum = 1;
+		else skillNum = 0;
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
 		PlayerInfoPanel::SetTarget(character);
 		Camera::GetInstance()->SetTarget(character);
@@ -104,6 +114,8 @@ void Player::SetCharacter(Character * object)
 		character->infoVisible = false;
 
 		skillSetSize = character->GetSkillSetSize();
+		if (skillSetSize >= 1) skillNum = 1;
+		else skillNum = 0;
 		CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER, character);
 		PlayerInfoPanel::SetTarget(character);
 		Camera::GetInstance()->SetTarget(character);
@@ -130,15 +142,6 @@ void Player::SetCharacter(Character * object)
 		PlayerInfoPanel::SetTarget(object);
 	}
 	*/
-}
-
-void Player::Initialize()
-{
-	metamorphosisList.reserve(3);
-	pokemonIndex = -1;
-	nextPokemon.first = TYPE::VENUSAUR;
-	nextPokemon.second = Pokemon::Venusaur;
-	canMetamorphosis = true;
 }
 
 void Player::Release()
@@ -233,21 +236,27 @@ void Player::KeyInput()
 
 	if (InputManager::GetMouseWheelUp())
 	{
-		--skillNum;
-		if (skillNum < 1)
+		if (0 < skillSetSize)
 		{
-			skillNum += (skillSetSize - 1);
+			--skillNum;
+			if (skillNum < 1)
+			{
+				skillNum += (skillSetSize - 1);
+			}
 		}
 	}
 
 	if (InputManager::GetMouseWheelDown())
 	{
-		++skillNum;
-
-		if (skillNum >= skillSetSize)
+		if (0 < skillSetSize)
 		{
-			skillNum %= skillSetSize;
 			++skillNum;
+
+			if (skillNum >= skillSetSize)
+			{
+				skillNum %= skillSetSize;
+				++skillNum;
+			}
 		}
 	}
 	
@@ -339,7 +348,7 @@ void Player::Metamorphosis()
 		if (TYPE::END != nextPokemon.first)
 		{
 			metamorphosisList.emplace_back(nextPokemon);
-			SetCharacterByNumber(nextPokemon.first);
+			SetCharacterByType(nextPokemon.first);
 
 			++pokemonIndex;
 			nextPokemon.first = TYPE::END;
@@ -351,12 +360,44 @@ void Player::Metamorphosis()
 	}
 }
 
-void Player::SetCharacterByNumber(TYPE type)
+void Player::PermanentMetamorphosis()
+{
+	if (TYPE::END != nextPokemon.first)
+	{
+		metamorphosisList.emplace_back(nextPokemon);
+		SetCharacterByType(nextPokemon.first);
+
+		++pokemonIndex;
+		permanentIndex = pokemonIndex;
+		nextPokemon.first = TYPE::END;
+		nextPokemon.second = Pokemon::None;
+
+		canMetamorphosis = true;
+	}
+}
+
+void Player::MetamorphosisToDitto()
+{
+	metamorphosisList.clear();
+
+	pokemonIndex = -1;
+	SetCharacterByType(TYPE::DITTO);
+	permanentIndex = 0;
+	canMetamorphosis = true;
+}
+
+void Player::SetCharacterByType(TYPE type)
 {
 	Character* pokemon = nullptr;
 
-	Vector3 pos = character->transform->position;
-	Vector3 dir = character->direction;
+	Vector3 pos = { 0.f, 0.f, 0.f };
+	Vector3 dir = { 0.f, 0.f, 1.f };
+
+	if (nullptr != character)
+	{
+		pos = character->transform->position;
+		dir = character->direction;
+	}
 
 	switch (type)
 	{
@@ -450,11 +491,15 @@ void Player::SetCharacterByNumber(TYPE type)
 	case TYPE::GROUDON:
 		pokemon = Groudon::Create(pos, dir);
 		break;
+	case TYPE::DITTO:
+		pokemon = Ditto::Create(pos, dir);
+		break;
 	}
 
 	if (nullptr != pokemon)
 	{
 		ObjectManager::AddObject(pokemon);
+		pokemon->dontDestroy = true;
 	}
 
 	SetCharacter(pokemon);
@@ -477,16 +522,17 @@ void Player::CalcMetamorphosisTime()
 
 void Player::ComeBackFromMetamorpho()
 {
-	if (0 >= pokemonIndex) return;
+	if (permanentIndex < pokemonIndex)
+	{
+		auto iter = metamorphosisList.begin();
+		iter += pokemonIndex;
 
-	auto iter = metamorphosisList.begin();
-	iter += pokemonIndex;
+		metamorphosisList.erase(iter);
 
-	metamorphosisList.erase(iter);
+		--pokemonIndex;
 
-	--pokemonIndex;
-
-	SetCharacterByNumber(metamorphosisList[pokemonIndex].first);
+		SetCharacterByType(metamorphosisList[pokemonIndex].first);
+	}
 }
 
 void Player::ChangeNextPokemon(TYPE pokemon, Pokemon number)

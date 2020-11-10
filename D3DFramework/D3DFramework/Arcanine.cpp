@@ -8,12 +8,12 @@ Arcanine::Arcanine()
 	Initialize();
 }
 
-Arcanine::Arcanine(const Vector3& pos, const Vector3& dir)
+Arcanine::Arcanine(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -86,8 +86,8 @@ bool Arcanine::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Arcanine* Arcanine::Create(const Vector3& pos, const Vector3& dir)
+Arcanine* Arcanine::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Arcanine* newPokemon = new Arcanine(pos, dir);
+	Arcanine* newPokemon = new Arcanine(pos, dir, lv);
 	return newPokemon;
 }
