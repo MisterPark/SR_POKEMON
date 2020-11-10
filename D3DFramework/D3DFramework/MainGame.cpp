@@ -457,6 +457,42 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::PETAL_EXPLOSION_02, L"Texture\\Player\\Effect\\PetalExplosion\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::PETAL_EXPLOSION_03, L"Texture\\Player\\Effect\\PetalExplosion\\2.png");
 
+	D2DRenderManager::LoadSprite(TextureKey::POP_01, L"Texture\\ETC\\3Pop\\Pop (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_02, L"Texture\\ETC\\3Pop\\Pop (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_03, L"Texture\\ETC\\3Pop\\Pop (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_04, L"Texture\\ETC\\3Pop\\Pop (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_05, L"Texture\\ETC\\3Pop\\Pop (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_06, L"Texture\\ETC\\3Pop\\Pop (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_07, L"Texture\\ETC\\3Pop\\Pop (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_08, L"Texture\\ETC\\3Pop\\Pop (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_09, L"Texture\\ETC\\3Pop\\Pop (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_10, L"Texture\\ETC\\3Pop\\Pop (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_11, L"Texture\\ETC\\3Pop\\Pop (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_12, L"Texture\\ETC\\3Pop\\Pop (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_13, L"Texture\\ETC\\3Pop\\Pop (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_14, L"Texture\\ETC\\3Pop\\Pop (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_15, L"Texture\\ETC\\3Pop\\Pop (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_16, L"Texture\\ETC\\3Pop\\Pop (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_17, L"Texture\\ETC\\3Pop\\Pop (16).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_18, L"Texture\\ETC\\3Pop\\Pop (18).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_19, L"Texture\\ETC\\3Pop\\Pop (19).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_20, L"Texture\\ETC\\3Pop\\Pop (20).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_21, L"Texture\\ETC\\3Pop\\Pop (21).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_22, L"Texture\\ETC\\3Pop\\Pop (22).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_23, L"Texture\\ETC\\3Pop\\Pop (23).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_24, L"Texture\\ETC\\3Pop\\Pop (24).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_25, L"Texture\\ETC\\3Pop\\Pop (25).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_26, L"Texture\\ETC\\3Pop\\Pop (25).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_27, L"Texture\\ETC\\3Pop\\Pop (26).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_28, L"Texture\\ETC\\3Pop\\Pop (28).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_29, L"Texture\\ETC\\3Pop\\Pop (29).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_30, L"Texture\\ETC\\3Pop\\Pop (30).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_31, L"Texture\\ETC\\3Pop\\Pop (31).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_32, L"Texture\\ETC\\3Pop\\Pop (32).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_33, L"Texture\\ETC\\3Pop\\Pop (33).png");
+	D2DRenderManager::LoadSprite(TextureKey::POP_34, L"Texture\\ETC\\3Pop\\Pop (34).png");
+
+
 	//¸ó½ºÅÍ ÃÑ¾Ë
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_01, L"Texture\\Bullet\\Bubble1\\Bubble1 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_BUBBLE1_02, L"Texture\\Bullet\\Bubble1\\Bubble1 (2).png");

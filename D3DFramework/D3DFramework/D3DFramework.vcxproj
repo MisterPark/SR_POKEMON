@@ -339,6 +339,7 @@
     <ClInclude Include="Stage_Fire_02.h" />
     <ClInclude Include="Stage_Fire_Boss.h" />
     <ClInclude Include="Stage_Town.h" />
+    <ClInclude Include="Stage_Tutorial.h" />
     <ClInclude Include="Stage_Water_02.h" />
     <ClInclude Include="Stage_Fire_01.h" />
     <ClInclude Include="Stage_Grass_01.h" />
@@ -543,6 +544,7 @@
     <ClCompile Include="Stage_Fire_02.cpp" />
     <ClCompile Include="Stage_Fire_Boss.cpp" />
     <ClCompile Include="Stage_Town.cpp" />
+    <ClCompile Include="Stage_Tutorial.cpp" />
     <ClCompile Include="Stage_Water_02.cpp" />
     <ClCompile Include="Stage_Fire_01.cpp" />
     <ClCompile Include="Stage_Grass_01.cpp" />

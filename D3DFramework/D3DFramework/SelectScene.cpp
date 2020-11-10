@@ -165,5 +165,5 @@ void SelectScene::SelectCharacter()
 	Player::GetInstance()->SetCharacter(selectedPoke);
 
 
-	SceneManager::LoadScene<Stage_Town>();
+	SceneManager::LoadScene<Stage_Tutorial>();
 }

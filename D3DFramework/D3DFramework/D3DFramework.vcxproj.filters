@@ -403,6 +403,9 @@
     <Filter Include="GameObject\Coin">
       <UniqueIdentifier>{171594f3-c03f-46bf-8207-4864a611f35f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Tutorial">
+      <UniqueIdentifier>{e269b504-dc5f-428e-a595-a97fad94177f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1050,6 +1053,9 @@
     </ClInclude>
     <ClInclude Include="Item_StoneOfWater.h">
       <Filter>GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Tutorial.h">
+      <Filter>Scene\Tutorial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1790,6 +1796,9 @@
     </ClCompile>
     <ClCompile Include="Item_UltraBall.cpp">
       <Filter>GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Tutorial.cpp">
+      <Filter>Scene\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
