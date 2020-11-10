@@ -8,6 +8,7 @@
 #include "CubeMan.h"
 #include "Environment.h"
 #include "TitleScene.h"
+#include "Celebi.h"
 
 void TestScene::OnLoaded()
 {
@@ -40,6 +41,9 @@ void TestScene::OnLoaded()
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 
+	Celebi* npc = Celebi::Create({20.f, 20.f, 20.f});
+	ObjectManager::AddObject(npc);
+	CollisionManager::RegisterObject(COLTYPE::COIN, npc);
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = Portal;

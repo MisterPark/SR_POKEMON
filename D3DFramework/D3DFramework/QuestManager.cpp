@@ -5,6 +5,10 @@ QuestManager* QuestManager::instance = nullptr;
 
 QuestManager::QuestManager()
 {
+	for (int i = 0; i < NpcName::NPC_END; i++)
+	{
+		progress[i] = 0;
+	}
 }
 
 
