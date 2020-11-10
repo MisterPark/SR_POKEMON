@@ -34,6 +34,12 @@ void Stage_Tutorial::OnLoaded()
 	doctor->transform->position = { 20.f,0.f,25.f };
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
+	Dialog::GetInstance();
+	Dialog::Show();
+	Dialog::EnqueueText(L"이쪽으로 와보거라!");
+	Dialog::EnqueueText(L"(오박사를 향해 이동하세요.)");
+	Dialog::EnqueueText(L"(마우스를 이용하여 회전하고 WASD키를 이용하여 이동할 수 있습니다.)");
+
 
 }
 
@@ -111,6 +117,7 @@ void Stage_Tutorial::Stage_Tutorial_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
+		Dialog::EnqueueText(L"대따대따");
 		TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 		trigerBox->transform->position = { 24.f,0.f,20.f };
 		trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
