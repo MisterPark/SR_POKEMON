@@ -996,7 +996,6 @@
     <ClInclude Include="Slot.h">
       <Filter>GameObject\UI\Inventory</Filter>
     </ClInclude>
-    <ClInclude Include="ItemInfoPanel.h" />
     <ClInclude Include="Coin.h">
       <Filter>GameObject\Coin</Filter>
     </ClInclude>
@@ -1069,8 +1068,16 @@
     <ClInclude Include="QuestManager.h">
       <Filter>Quest</Filter>
     </ClInclude>
-    <ClInclude Include="Dialog.h" />
     <ClInclude Include="NPC.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemInfoPanel.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_DoctorOh.h">
       <Filter>GameObject\NPC</Filter>
     </ClInclude>
     <ClInclude Include="Stage_Opening.h">
@@ -1749,7 +1756,6 @@
     <ClCompile Include="Slot.cpp">
       <Filter>GameObject\UI\Inventory</Filter>
     </ClCompile>
-    <ClCompile Include="ItemInfoPanel.cpp" />
     <ClCompile Include="Coin.cpp">
       <Filter>GameObject\Coin</Filter>
     </ClCompile>
@@ -1816,14 +1822,22 @@
     <ClCompile Include="Item_UltraBall.cpp">
       <Filter>GameObject\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Stage_Tutorial.cpp">
-      <Filter>Scene\Tutorial</Filter>
-    </ClCompile>
     <ClCompile Include="QuestManager.cpp">
       <Filter>Quest</Filter>
     </ClCompile>
-    <ClCompile Include="Dialog.cpp" />
     <ClCompile Include="NPC.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Tutorial.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemInfoPanel.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_DoctorOh.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
     <ClCompile Include="Stage_Opening.cpp">

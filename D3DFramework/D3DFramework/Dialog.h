@@ -23,7 +23,7 @@ public:
 	// 대화 내용 대기열에 삽입
 	static void EnqueueText(const wstring& _text);
 	
-
+	static void SetEndEvent(void(*Func)());
 private:
 	wstring readyText;
 	wstring currText;
@@ -32,6 +32,7 @@ private:
 
 	float tick = 0.f;
 	float delay = 0.1f;
+	void (*End)() = nullptr;
 
 };
 

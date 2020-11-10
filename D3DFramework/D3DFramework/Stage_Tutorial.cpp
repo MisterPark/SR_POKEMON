@@ -6,6 +6,7 @@
 #include "AllEnvironments.h"
 #include "SkyBox.h"
 #include "Item_Tomato.h"
+#include "NPC_DoctorOh.h"
 
 void Stage_Tutorial::OnLoaded()
 {
@@ -29,9 +30,10 @@ void Stage_Tutorial::OnLoaded()
 	trigerBox->transform->position = { 24.f,0.f,30.f };
 	trigerBox->AnimChange(TextureKey::POP_01, TextureKey::POP_34,0.05f, true);
 
+	GameObject* doctor = ObjectManager::GetInstance()->CreateObject<NPC_DoctorOh>();
+	doctor->transform->position = { 20.f,0.f,25.f };
 
-	
-
+	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 
 }
 

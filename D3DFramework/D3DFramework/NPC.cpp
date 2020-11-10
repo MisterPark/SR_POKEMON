@@ -2,6 +2,7 @@
 #include "NPC.h"
 #include "Environment.h"
 #include "Terrain.h"
+#include "Rectangle.h"
 
 NPC::NPC()
 {
@@ -15,24 +16,41 @@ NPC::~NPC()
 
 void NPC::Initialize()
 {
-	
+	stat.attack = 0.f;
+	offsetY = 1.f;
+	team = Team::MONSTERTEAM;
+	CollisionManager::RegisterObject(COLTYPE::NPC, this);
+
+	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
+	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
+
+	anim = (Animation2D*)AddComponent<Animation2D>(L"Animation2D");
+	anim->SetLoop(false);
 }
 
 void NPC::Release()
 {
-	
+	CollisionManager::DisregisterObject(COLTYPE::NPC, this);
 }
 
 void NPC::Update()
 {
-}
-
-void NPC::Render()
-{
+	GameObject::Update();
+	OnTerrain();
+	Billboard();
 }
 
 void NPC::OnCollision(GameObject* target)
 {
+	Character* pc = Player::GetInstance()->GetCharacter();
+	if (pc == nullptr) return;
+	if (pc != target)return;
+
+	if (InputManager::GetKeyDown('F'))
+	{
+		OnEvent();
+	}
+	
 }
 
 void NPC::OnTerrain()

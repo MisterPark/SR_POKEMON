@@ -64,6 +64,7 @@ void PKH::MainGame::Initialize()
 	LoadPlayerSprite();
 	LoadETCSprite();
 	LoadUISprite();
+	LoadNPCSprite();
 
 	ObjectManager::GetInstance();
 	SkillManager::GetInstance();
@@ -2504,4 +2505,9 @@ void PKH::MainGame::LoadPlayerSprite()
 	D2DRenderManager::LoadSprite(TextureKey::DITTO_WALK_RD_01, L"Texture\\Player\\Ditto\\RD\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::DITTO_WALK_RD_02, L"Texture\\Player\\Ditto\\RD\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::DITTO_WALK_RD_03, L"Texture\\Player\\Ditto\\RD\\2.png");
+}
+
+void PKH::MainGame::LoadNPCSprite()
+{
+	D2DRenderManager::LoadSprite(TextureKey::NPC_DOCTOR_OH, L"Texture\\NPC\\doctorO.png");
 }
