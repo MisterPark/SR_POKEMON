@@ -10,11 +10,11 @@ Caterpie::Caterpie()
 	Initialize();
 }
 
-Caterpie::Caterpie(const Vector3& pos, const Vector3& dir)
+Caterpie::Caterpie(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -87,8 +87,8 @@ bool Caterpie::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Caterpie* Caterpie::Create(const Vector3& pos, const Vector3& dir)
+Caterpie* Caterpie::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Caterpie* newPokemon = new Caterpie(pos, dir);
+	Caterpie* newPokemon = new Caterpie(pos, dir, lv);
 	return newPokemon;
 }

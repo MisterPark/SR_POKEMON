@@ -10,11 +10,11 @@ Suicune::Suicune()
 	Initialize();
 }
 
-Suicune::Suicune(const Vector3& pos, const Vector3& dir)
+Suicune::Suicune(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -98,8 +98,8 @@ bool Suicune::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Suicune* Suicune::Create(const Vector3& pos, const Vector3& dir)
+Suicune* Suicune::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Suicune* newPokemon = new Suicune(pos, dir);
+	Suicune* newPokemon = new Suicune(pos, dir, lv);
 	return newPokemon;
 }

@@ -72,7 +72,7 @@ void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1);
+		Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1,65);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 

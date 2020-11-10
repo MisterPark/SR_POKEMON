@@ -5,7 +5,7 @@ class Squirtle : public Character
 {
 public:
 	Squirtle();
-	Squirtle(const Vector3& pos, const Vector3& dir);
+	Squirtle(const Vector3& pos, const Vector3& dir,int lv = 1);
 	virtual ~Squirtle();
 
 public:
@@ -22,7 +22,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Squirtle* Create(const Vector3& pos, const Vector3& dir);
+	static Squirtle* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 };
 
 

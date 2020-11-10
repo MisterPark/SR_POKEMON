@@ -8,11 +8,11 @@ Butterfree::Butterfree()
 	Initialize();
 }
 
-Butterfree::Butterfree(const Vector3& pos, const Vector3& dir)
+Butterfree::Butterfree(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -87,8 +87,8 @@ bool Butterfree::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& dir)
+Butterfree* Butterfree::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Butterfree* newPokemon = new Butterfree(pos, dir);
+	Butterfree* newPokemon = new Butterfree(pos, dir, lv);
 	return newPokemon;
 }

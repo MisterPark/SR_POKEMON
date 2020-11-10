@@ -5,7 +5,7 @@ class Ponyta :
 {
 public:
     Ponyta();
-    Ponyta(const Vector3& pos, const Vector3& dir);
+    Ponyta(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Ponyta();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Ponyta* Create(const Vector3& pos, const Vector3& dir);
+    static Ponyta* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
     
 };
 

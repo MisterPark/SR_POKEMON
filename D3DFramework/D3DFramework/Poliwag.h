@@ -5,7 +5,7 @@ class Poliwag :
 {
 public:
     Poliwag();
-    Poliwag(const Vector3& pos, const Vector3& dir);
+    Poliwag(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Poliwag();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Poliwag* Create(const Vector3& pos, const Vector3& dir);
+    static Poliwag* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };
 

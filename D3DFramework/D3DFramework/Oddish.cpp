@@ -10,11 +10,11 @@ Oddish::Oddish()
 	Initialize();
 }
 
-Oddish::Oddish(const Vector3& pos, const Vector3& dir)
+Oddish::Oddish(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -85,8 +85,8 @@ bool Oddish::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Oddish* Oddish::Create(const Vector3& pos, const Vector3& dir)
+Oddish* Oddish::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Oddish* newPokemon = new Oddish(pos, dir);
+	Oddish* newPokemon = new Oddish(pos, dir, lv);
 	return newPokemon;
 }

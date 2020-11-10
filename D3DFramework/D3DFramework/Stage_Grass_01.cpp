@@ -115,7 +115,7 @@ void Stage_Grass_01::Stage_Grass_01_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10);
+		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 10,2);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 		triggerOn = true;
@@ -125,14 +125,14 @@ void Stage_Grass_01::Stage_Grass_01_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::METAPOD, 10.f, 0.5f, 7);
+			Spawner* spawner = Spawner::Create(MonsterType::METAPOD, 10.f, 0.5f, 7,3);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
 		}
 		else if (spawnerCount == 2)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f, 5);
+			Spawner* spawner = Spawner::Create(MonsterType::BUTTERFREE, 10.f, 0.5f, 5,5);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;

@@ -6,12 +6,12 @@ Charmander::Charmander()
 	Initialize();
 }
 
-Charmander::Charmander(const Vector3 & pos, const Vector3 & dir)
+Charmander::Charmander(const Vector3 & pos, const Vector3 & dir, int lv)
 {
 	transform->position = pos;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -126,8 +126,8 @@ bool Charmander::Attack(const Vector3 & dir, const int & attackType)
 	return false;
 }
 
-Charmander * Charmander::Create(const Vector3 & pos, const Vector3 & dir)
+Charmander * Charmander::Create(const Vector3 & pos, const Vector3 & dir, int lv)
 {
-	Charmander* newPokemon = new Charmander(pos, dir);
+	Charmander* newPokemon = new Charmander(pos, dir, lv);
 	return newPokemon;
 }

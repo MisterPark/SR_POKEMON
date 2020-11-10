@@ -74,7 +74,7 @@ void Stage_Fire_01::Stage_Fire_01_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::GROWLITHE, 10.f, 0.5f, 10);
+		Spawner* spawner = Spawner::Create(MonsterType::GROWLITHE, 10.f, 0.5f, 6,42);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 		triggerOn = true;
@@ -84,14 +84,14 @@ void Stage_Fire_01::Stage_Fire_01_Wave()
 	{
 		if (spawnerCount == 1)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::PONYTA, 10.f, 0.5f, 7);
+			Spawner* spawner = Spawner::Create(MonsterType::PONYTA, 10.f, 0.5f, 5,45);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;
 		}
 		else if (spawnerCount == 2)
 		{
-			Spawner* spawner = Spawner::Create(MonsterType::SLUGMA, 10.f, 0.5f, 5);
+			Spawner* spawner = Spawner::Create(MonsterType::SLUGMA, 10.f, 0.5f, 5,48);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
 			spawnerCount++;

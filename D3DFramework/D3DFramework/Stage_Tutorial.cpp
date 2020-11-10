@@ -116,7 +116,7 @@ void Stage_Tutorial::Stage_Tutorial_Wave()
 	}
 	else if (nullptr == isTriger&&spawnerCount == 1)
 	{
-		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 3);
+		Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 10.f, 0.5f, 3,2);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 		triggerOn = false;

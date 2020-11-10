@@ -5,7 +5,7 @@ class Ivysaur : public Character
 {
 public:
 	Ivysaur();
-	Ivysaur(const Vector3& pos, const Vector3& dir);
+	Ivysaur(const Vector3& pos, const Vector3& dir,int lv=1);
 	virtual ~Ivysaur();
 
 public:
@@ -22,6 +22,6 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Ivysaur* Create(const Vector3& pos, const Vector3& dir);
+	static Ivysaur* Create(const Vector3& pos, const Vector3& dir,int lv=1);
 
 };
