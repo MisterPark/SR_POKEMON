@@ -154,6 +154,8 @@ namespace PKH
 			UI_ICON_ITEM_GREAT_BALL,
 			UI_ICON_ITEM_ULTRA_BALL,
 			UI_ICON_ITEM_MASTER_BALL,
+
+			UI_DIALOG,
 		//============================================================
 
 		// PG 01

@@ -1051,6 +1051,7 @@
     <ClInclude Include="Item_StoneOfWater.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Dialog.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1791,6 +1792,7 @@
     <ClCompile Include="Item_UltraBall.cpp">
       <Filter>GameObject\Item</Filter>
     </ClCompile>
+    <ClCompile Include="Dialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

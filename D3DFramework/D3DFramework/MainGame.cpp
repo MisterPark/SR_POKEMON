@@ -912,6 +912,8 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_GREAT_BALL, L"Texture\\UI\\item_20.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_ULTRA_BALL, L"Texture\\UI\\item_21.png");
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_MASTER_BALL, L"Texture\\UI\\item_22.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::UI_DIALOG, L"Texture\\UI\\dialog.png");
 }										
 
 void PKH::MainGame::LoadMonsterSprite()
