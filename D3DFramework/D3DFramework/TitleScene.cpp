@@ -50,8 +50,8 @@ void TitleScene::OnLoaded()
 	//lobby = LobbyWindow::GetInstance();
 	//lobby->Create();
 
-	Dialog::EnqueueText(L"æ»≥Á«œººø‰.");
-	Dialog::EnqueueText(L"π›∞©Ω¿¥œ¥Ÿ.");
+	//Dialog::EnqueueText(L"æ»≥Á«œººø‰.");
+	//Dialog::EnqueueText(L"π›∞©Ω¿¥œ¥Ÿ.");
 }
 
 void TitleScene::OnUnloaded()

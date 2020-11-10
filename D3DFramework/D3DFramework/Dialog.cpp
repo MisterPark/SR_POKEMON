@@ -5,7 +5,7 @@ Dialog* pDialog = nullptr;
 
 Dialog::Dialog()
 {
-	isVisible = true;
+	isVisible = false;
 }
 
 Dialog::~Dialog()
@@ -68,7 +68,17 @@ void Dialog::Update()
 			}
 			else
 			{
+				currText = L"";
+				readyText = L"";
+				copyCount = 0;
 				Hide();
+				if (End != nullptr)
+				{
+					End();
+					End = nullptr;
+				}
+					
+
 			}
 		}
 		
@@ -106,6 +116,19 @@ void Dialog::Render()
 
 void Dialog::EnqueueText(const wstring & _text)
 {
-	pDialog->textQ.push(_text);
+	if (pDialog->readyText == pDialog->currText)
+	{
+		pDialog->readyText = _text;
+	}
+	else
+	{
+		pDialog->textQ.push(_text);
+	}
+	
+}
+
+void Dialog::SetEndEvent(void(*Func)())
+{
+	pDialog->End = Func;
 }
 

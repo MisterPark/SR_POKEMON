@@ -10,14 +10,16 @@ public:
     virtual void Initialize() override;
     virtual void Release() override;
     virtual void Update() override;
-    virtual void Render() override;
 
     virtual void OnCollision(GameObject* target) override;
+    virtual void OnEvent() = 0;
 
     void OnTerrain();
 
 
 public:
     float offsetY = 0.f;
+    Animation2D* anim = nullptr;
+
 };
 
