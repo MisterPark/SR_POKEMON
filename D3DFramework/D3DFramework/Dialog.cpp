@@ -60,9 +60,15 @@ void Dialog::Update()
 			int count = textQ.size();
 			if (count > 0) // 대기열에 있으면
 			{
+				currText = L"";
 				readyText = textQ.front(); // 하나 뽑고
 				textQ.pop();
 				copyCount = 0;
+				
+			}
+			else
+			{
+				Hide();
 			}
 		}
 		
@@ -77,6 +83,11 @@ void Dialog::Update()
 			int len = readyText.length();
 			currText += readyText[copyCount];
 			copyCount++;
+		}
+
+		if (InputManager::GetKeyDown(VK_RETURN))
+		{
+			currText = readyText;
 		}
 		
 	}

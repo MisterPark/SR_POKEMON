@@ -51,6 +51,7 @@ void TitleScene::OnLoaded()
 	//lobby->Create();
 
 	Dialog::EnqueueText(L"æ»≥Á«œººø‰.");
+	Dialog::EnqueueText(L"π›∞©Ω¿¥œ¥Ÿ.");
 }
 
 void TitleScene::OnUnloaded()
