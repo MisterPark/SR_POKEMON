@@ -45,9 +45,10 @@ void Slugma::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBomb));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireShot));
+	
 
 	SetStatByLevel();
 	UpdateAnimation();

@@ -1992,12 +1992,12 @@ void MonsterAI::MonsterAttack() {
 				readyPattern = false;
 				c->direction = DirFromPlayer();
 				c->Attack(c->direction, 0);
+				//c->Attack(c->direction, 1);
 				Time[4] = 2.4f;
 				c->anim->SetDelay(0.9f);
 			}
 			Time[4] -= TimeManager::DeltaTime();
 			if (Time[4] < 0.f) {
-				c->Attack(c->direction, 1);
 				c->state = State::READY;
 				Time[4] = 0.f;
 				Time[1] = 2.2f;

@@ -49,10 +49,10 @@ void Poliwag::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 
 	SetStatByLevel();

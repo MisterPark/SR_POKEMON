@@ -403,6 +403,9 @@
     <Filter Include="GameObject\Coin">
       <UniqueIdentifier>{171594f3-c03f-46bf-8207-4864a611f35f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Quest">
+      <UniqueIdentifier>{f5730c3c-e9f2-445b-a3a3-24b080ef8f9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1051,6 +1054,7 @@
     <ClInclude Include="Item_StoneOfWater.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
+    <ClInclude Include="QuestManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1791,6 +1795,7 @@
     <ClCompile Include="Item_UltraBall.cpp">
       <Filter>GameObject\Item</Filter>
     </ClCompile>
+    <ClCompile Include="QuestManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

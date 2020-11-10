@@ -42,7 +42,7 @@ void Butterfree::Initialize()
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::TearsShot));
+	
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 	defaultAttack = 20;
@@ -50,6 +50,7 @@ void Butterfree::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();

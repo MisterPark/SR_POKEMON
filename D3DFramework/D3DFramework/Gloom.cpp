@@ -42,7 +42,7 @@ void Gloom::Initialize()
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::CrossShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XShot));
+	
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 	defaultAttack = 30;
@@ -50,6 +50,7 @@ void Gloom::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();

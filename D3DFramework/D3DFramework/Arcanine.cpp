@@ -42,13 +42,14 @@ void Arcanine::Initialize()
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Explosion));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::RedBall));
 
 	defaultAttack = 30;
 	defaultMaxHp = 250;
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();

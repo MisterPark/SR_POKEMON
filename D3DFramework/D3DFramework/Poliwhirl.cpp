@@ -47,8 +47,8 @@ void Poliwhirl::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::HealBubble));
 
 	SetStatByLevel();

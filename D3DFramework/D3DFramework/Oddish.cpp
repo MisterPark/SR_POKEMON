@@ -41,8 +41,6 @@ void Oddish::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 	defaultAttack = 30;
@@ -50,6 +48,7 @@ void Oddish::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 	
 	SetStatByLevel();
 	UpdateAnimation();

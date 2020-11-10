@@ -38,7 +38,7 @@ void Caterpie::Initialize()
 	state = State::READY;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WebShot));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Rush));
+
 
 	transform->scale = { 0.3f, 0.3f, 0.3f };
 	defaultAttack = 15;
@@ -46,6 +46,7 @@ void Caterpie::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();
