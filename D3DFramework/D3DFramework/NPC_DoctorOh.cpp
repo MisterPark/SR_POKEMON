@@ -29,14 +29,18 @@ void NPC_DoctorOh::OnEvent()
 
 void NPC_DoctorOh::HelloWorld()
 {
-	Dialog::EnqueueText(L"난 오박사란다.");
-	Dialog::EnqueueText(L"세레비를 잡아오거라.");
+	Dialog::EnqueueText(L"잘했구나!");
+	Dialog::EnqueueText(L"저기 저 캐터피를 사냥해보겠니?");
+	Dialog::EnqueueText(L"(속성박스로 이동하세요.)");
+	Dialog::EnqueueText(L"(속성박스로 이동하면 몬스터가 생성됩니다.)");
+	Dialog::EnqueueText(L"(좌클릭으로 공격, 우클릭으로 스킬이 사용가능합니다.)");
 	Dialog::Show();
 }
 
 void NPC_DoctorOh::Event2()
 {
-	Dialog::EnqueueText(L"아직도 세레비를 잡지 못한것이냐.");
+	Dialog::EnqueueText(L"꺼져 이년아");
+	/*Dialog::EnqueueText(L"아직 사냥하지 못했나보구나.");*/
 	Dialog::Show();
-	SceneManager::LoadScene<Stage_Grass_01>();
+	/*SceneManager::LoadScene<Stage_Grass_01>();*/
 }

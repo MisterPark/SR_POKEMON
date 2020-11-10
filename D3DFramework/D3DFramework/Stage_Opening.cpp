@@ -50,27 +50,10 @@ void Stage_Opening::OnUnloaded()
 
 void Stage_Opening::Update()
 {
-	if (lobby == nullptr) return;
-
-	LobbyResult res = lobby->result;
-	switch (res)
+	if (InputManager::GetKeyDown(VK_F3))
 	{
-	case LobbyResult::NONE:
-		// 아무행동 안함
-		break;
-	case LobbyResult::OK:
-		// 닉네임 체크 한다음 겹치면 다시 띄우기
-		lobby->result = LobbyResult::NONE;
-
-
-		SceneManager::LoadScene<TestMultiScene>();
-		LobbyWindow::Hide();
-		break;
-	case LobbyResult::CANCEL:
-		// 이전 씬으로
-		break;
-	default:
-		break;
+		NextScene();
+		Dialog::GetInstance()->Destroy();
 	}
 }
 

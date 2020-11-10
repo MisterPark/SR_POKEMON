@@ -157,6 +157,18 @@ namespace PKH
 			UI_ICON_ITEM_MASTER_BALL,
 
 			UI_DIALOG,
+
+			//Æ©Åä¸®¾ó
+			UI_ARROW,
+			UI_LBUTTON,
+			UI_MBUTTON,
+			UI_RBUTTON,
+			UI_MOUSE,
+			UI_RETURN,
+			UI_SPACE,
+			UI_I,
+			UI_F,
+
 		//========================== NPC ==========================
 			NPC_DOCTOR_OH,
 		//=====================================================
