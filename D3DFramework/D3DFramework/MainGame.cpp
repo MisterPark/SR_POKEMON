@@ -901,6 +901,7 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_2ND, L"Texture\\UI\\pokemon_icon_2nd.png", 13, 12);
 	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_3RD, L"Texture\\UI\\pokemon_icon_3rd.png", 13, 12);
 
+	D2DRenderManager::LoadSprite(TextureKey::UI_DROH_SCREEN, L"Texture\\UI\\doctorOUI.png");
 
 	// ICON
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_BORDER, L"Texture\\UI\\iconBorder.png");

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "TitleScene.h"
+#include "AllStage.h"
 #include "UI_Title.h"
 #include "TestMultiScene.h"
 #include "Button.h"
@@ -21,7 +21,7 @@ void TitleScene::OnLoaded()
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
 	btn->transform->position.y = 600;
 	
-	btn->Click = SceneManager::LoadScene<SelectScene>;
+	btn->Click = SceneManager::LoadScene<Stage_Opening>;
 
 	//btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	//btn->text = L"¿É¼Ç";
@@ -50,7 +50,7 @@ void TitleScene::OnLoaded()
 	//lobby = LobbyWindow::GetInstance();
 	//lobby->Create();
 
-	Dialog::GetInstance()->isVisible = false;
+	Dialog::GetInstance()->Hide();
 }
 
 void TitleScene::OnUnloaded()

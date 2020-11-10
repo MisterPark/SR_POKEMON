@@ -29,10 +29,10 @@ void Stage_Tutorial::OnLoaded()
 	trigerBox->transform->position = { 24.f,0.f,30.f };
 	trigerBox->AnimChange(TextureKey::POP_01, TextureKey::POP_34,0.05f, true);
 
-	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
-	Dialog::GetInstance()->isVisible = true;
-	Dialog::EnqueueText(L"æ»≥Á«œººø‰.");
-	Dialog::EnqueueText(L"π›∞©Ω¿¥œ¥Ÿ.");
+
+	
+
+
 }
 
 void Stage_Tutorial::OnUnloaded()

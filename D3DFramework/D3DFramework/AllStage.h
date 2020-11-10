@@ -2,6 +2,7 @@
 
 #include "TestScene.h"
 #include "TestMultiScene.h"
+#include "Stage_Opening.h"
 #include "TitleScene.h"
 
 #include "Stage_Town.h"
