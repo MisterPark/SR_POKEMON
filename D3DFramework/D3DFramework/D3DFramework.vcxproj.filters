@@ -1054,7 +1054,9 @@
     <ClInclude Include="Item_StoneOfWater.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
-    <ClInclude Include="QuestManager.h" />
+    <ClInclude Include="QuestManager.h">
+      <Filter>Quest</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1795,7 +1797,9 @@
     <ClCompile Include="Item_UltraBall.cpp">
       <Filter>GameObject\Item</Filter>
     </ClCompile>
-    <ClCompile Include="QuestManager.cpp" />
+    <ClCompile Include="QuestManager.cpp">
+      <Filter>Quest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">
