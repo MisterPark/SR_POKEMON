@@ -50,7 +50,7 @@ void TitleScene::OnLoaded()
 	//lobby = LobbyWindow::GetInstance();
 	//lobby->Create();
 
-	Dialog::EnqueueText(L"¾È³çÇÏ¼¼¿ä.");
+	Dialog::GetInstance()->isVisible = false;
 }
 
 void TitleScene::OnUnloaded()
