@@ -218,6 +218,15 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH2_F, L"Texture\\ETC\\Skybox\\SkyBeach2\\SKYBOX_F.png");
 	D2DRenderManager::LoadSprite(TextureKey::SKYBEACH2_B, L"Texture\\ETC\\Skybox\\SkyBeach2\\SKYBOX_B.png");
 	
+	D2DRenderManager::LoadSprite(TextureKey::UI_ARROW,	 L"Texture\\UI\\KeyUI\\Arrow.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_LBUTTON, L"Texture\\UI\\KeyUI\\LButton.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_MBUTTON, L"Texture\\UI\\KeyUI\\MButton.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_RBUTTON, L"Texture\\UI\\KeyUI\\RButton.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_MOUSE,	 L"Texture\\UI\\KeyUI\\Mouse.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_RETURN,	 L"Texture\\UI\\KeyUI\\Return.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SPACE,	 L"Texture\\UI\\KeyUI\\Space.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_I, L"Texture\\UI\\KeyUI\\I.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_F, L"Texture\\UI\\KeyUI\\F.png");
 	//ÄÚÀÎ
 	D2DRenderManager::LoadSprite(TextureKey::RING_01, L"Texture\\UI\\Coin\\Ring_01.png");
 	D2DRenderManager::LoadSprite(TextureKey::RING_02, L"Texture\\UI\\Coin\\Ring_02.png");
@@ -902,6 +911,7 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_2ND, L"Texture\\UI\\pokemon_icon_2nd.png", 11, 12);
 	D2DRenderManager::LoadSprite(TextureKey::UI_FACE_POKEMON_3RD, L"Texture\\UI\\pokemon_icon_3rd.png", 12, 12);
 
+	D2DRenderManager::LoadSprite(TextureKey::UI_DROH_SCREEN, L"Texture\\UI\\doctorOUI.png");
 
 	// ICON
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_BORDER, L"Texture\\UI\\iconBorder.png");

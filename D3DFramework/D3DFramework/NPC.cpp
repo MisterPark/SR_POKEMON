@@ -39,6 +39,7 @@ void NPC::Update()
 	GameObject::Update();
 	OnTerrain();
 	Billboard();
+	if(animation) UpdateAnimation();
 }
 
 void NPC::OnCollision(GameObject* target)
@@ -80,5 +81,77 @@ void NPC::OnTerrain()
 	else
 	{
 		transform->position.y = offsetY;
+	}
+}
+
+float NPC::GetAngleFromCamera()
+{
+	Vector3 camPos = Camera::GetPosition();
+
+	Vector3 toRealCam = camPos - transform->position;
+	Vector3 toCam = toRealCam;
+	toCam.y = 0;
+	Vector3 myDir = direction;
+
+	D3DXVec3Normalize(&toCam, &toCam);
+	D3DXVec3Normalize(&toRealCam, &toRealCam);
+	D3DXVec3Normalize(&myDir, &myDir);
+
+	float radian = acos(D3DXVec3Dot(&toCam, &myDir));
+	float degree = D3DXToDegree(radian);
+
+	Vector3 cross;
+	D3DXVec3Cross(&cross, &toRealCam, &myDir);
+
+	Vector3 empty = { 0, 0, 0 };
+
+	if (cross == empty)
+		int i = 0;
+
+	Vector3 up = transform->up;
+
+	float upDot = D3DXVec3Dot(&cross, &up);
+
+	if (0 > upDot)
+	{
+		degree = 360 - degree;
+	}
+
+	return degree;
+}
+
+void NPC::UpdateAnimation()
+{
+	float angle = GetAngleFromCamera();
+
+	angle += 22.5f;
+
+	int index = angle / 45.f;
+
+	index %= 8;
+
+	if (oldState != state)
+	{
+		anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+	}
+	else
+	{
+		int curIndex = ((int)anim->GetEndSprite() - (int)anim->GetCurrentSprite());
+
+		anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+		curIndex = (int)endArray[(int)state][index] - curIndex;
+		anim->SetCurrentSprite((TextureKey)curIndex);
+	}
+}
+
+void NPC::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame)
+{
+	for (int i = 0; i < 8; i++)
+	{
+		startArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame));
+		if (-1 == _endFrame)
+			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_aniFrame - 1));
+		else
+			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_endFrame - 1));
 	}
 }

@@ -7,6 +7,7 @@
 #include "SkyBox.h"
 #include "Item_Tomato.h"
 #include "NPC_DoctorOh.h"
+#include "NPC_Celebi.h"
 
 void Stage_Town::OnLoaded()
 {
