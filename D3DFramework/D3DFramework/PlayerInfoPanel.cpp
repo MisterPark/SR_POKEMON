@@ -127,8 +127,25 @@ void PlayerInfoPanel::Render()
     WCHAR wstr2[16] = {};
     wsprintf(wstr2, L"%d", (int)target->stat.moveSpeed);
     D2DRenderManager::DrawFont(wstr2, barPos.x + 130, barPos.y + 42, D3DCOLOR_ARGB(255, 0, 0, 0));
-    // ¾ó±¼ ¾ÆÀÌÄÜ
-    D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, Vector3(barPos.x-180,barPos.y-25,1), int(target->number) - 1);
+    // ¾ó±¼
+    int pokeNumber = (int)target->number;
+    int generation = GetPokemonGeneration(target->number);
+    if (generation == 1)
+    {
+        D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, Vector3(barPos.x - 180, barPos.y - 25, 1), pokeNumber - 1);
+    }
+    else if (generation == 2)
+    {
+        pokeNumber -= (int)Pokemon::Mew;
+        pokeNumber += 27;//¾È³ó °¹¼ö
+        D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_2ND, Vector3(barPos.x - 180, barPos.y - 25, 1), pokeNumber - 1);
+    }
+    else
+    {
+        pokeNumber -= (int)Pokemon::Celebi;
+        D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, Vector3(barPos.x - 180, barPos.y - 25, 1), pokeNumber - 1);
+    }
+    
     // ·¹º§ Ç¥½Ã
     WCHAR wstr3[8] = {};
     wsprintf(wstr3, L"Lv.%d", (int)target->stat.level);
