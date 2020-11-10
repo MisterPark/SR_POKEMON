@@ -12,5 +12,7 @@ public:
     virtual void Update() override;
 
     LobbyWindow* lobby = nullptr;
+
+    static void NextScene();
 };
 
