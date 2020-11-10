@@ -9,7 +9,7 @@ Ditto::Ditto()
 Ditto::Ditto(const Vector3 & pos, const Vector3 & dir)
 {
 	transform->position = pos;
-	transform->scale = { 0.5f, 0.5f, 0.5f };
+	transform->scale = { 0.3f, 0.3f, 0.3f };
 	direction = dir;
 
 	Initialize();
@@ -28,10 +28,11 @@ void Ditto::Initialize()
 	SetTexture(State::IDLE, TextureKey::DITTO_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::DITTO_WALK_D_02, 3, 2);
 
-	offsetY = 0.5f;
+	offsetY = 0.3f;
 
 	state = State::IDLE;
 	AnimSet();
+	UpdateAnimation();
 
 	increaseAttack = 1.5f;
 	increaseMaxHp = 12.5f;

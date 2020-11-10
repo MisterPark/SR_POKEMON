@@ -39,3 +39,5 @@
 #include "MonsterAI.h"
 #include "Spawner.h"
 #include "TriggerBox.h"
+
+#include "Ditto.h"

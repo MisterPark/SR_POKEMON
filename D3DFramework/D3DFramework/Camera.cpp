@@ -83,6 +83,7 @@ void PKH::Camera::Update()
 		else
 		{
 			transform->position = target->GetTransform()->position - (target->GetTransform()->look * target->GetTransform()->scale.y * 6.f);
+			//transform->position.y += 1.f;
 			transform->position.y += target->GetTransform()->scale.y * 5.f;
 
 			transform->look = target->GetTransform()->position + (target->GetTransform()->look * 10.f);
