@@ -160,6 +160,8 @@ void Stage_Fire_02::soHot(float _waterheight)
 {
 	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight)
 	{
+		if (Player::GetInstance()->GetCharacter()->GetStat().hp <= 0)
+			Player::GetInstance()->GetCharacter()->SetHp(0);
 		Player::GetInstance()->GetCharacter()->MinusHp(dfSOHOT_DAMAGE);
 	}
 }

@@ -21,15 +21,14 @@ void Stage_Fire_Boss::OnLoaded()
 		playerCharacter->transform->position.z = 48.f - 25.f;
 
 	}
-	waterHeight = 0.5f;
+	waterHeight = 0.15f;
 
 	Set_Stage_Fire_Boss_Map(TextureKey::VOLCANO_MAP, "Texture\\Map\\HeightMap\\FireBoss.bmp", waterHeight);
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	
 	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
-
+	trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
 }
 
 void Stage_Fire_Boss::OnUnloaded()
@@ -46,7 +45,7 @@ void Stage_Fire_Boss::Update()
 	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
-		SceneManager::LoadScene<TestScene>();
+		SceneManager::LoadScene<Stage_Town>();
 	}
 	Stage_Fire_Boss_Wave();
 	soHot(waterHeight);
@@ -113,6 +112,9 @@ void Stage_Fire_Boss::soHot(float _waterheight)
 {
 	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight)
 	{
+		if (Player::GetInstance()->GetCharacter()->GetStat().hp <= 0)
+			Player::GetInstance()->GetCharacter()->SetHp(0);
+
 		Player::GetInstance()->GetCharacter()->MinusHp(dfSOHOT_DAMAGE);
 	}
 }
