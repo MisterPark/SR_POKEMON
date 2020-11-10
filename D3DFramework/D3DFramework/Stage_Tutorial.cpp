@@ -7,6 +7,7 @@
 #include "SkyBox.h"
 #include "Item_Tomato.h"
 #include "NPC_DoctorOh.h"
+#include "NPC_Celebi.h"
 
 void Stage_Tutorial::OnLoaded()
 {
@@ -32,6 +33,9 @@ void Stage_Tutorial::OnLoaded()
 
 	GameObject* doctor = ObjectManager::GetInstance()->CreateObject<NPC_DoctorOh>();
 	doctor->transform->position = { 20.f,0.f,25.f };
+
+	GameObject* celebi = ObjectManager::GetInstance()->CreateObject<NPC_Celebi>();
+	celebi->transform->position = { 30.f,0.f,26.f };
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 

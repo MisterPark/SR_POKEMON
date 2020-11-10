@@ -651,9 +651,6 @@
     <ClInclude Include="Stage_Grass_Boss.h">
       <Filter>Scene\Grass</Filter>
     </ClInclude>
-    <ClInclude Include="Celebi.h">
-      <Filter>GameObject\Character\Grass\251. Celebi</Filter>
-    </ClInclude>
     <ClInclude Include="Stage_Water_01.h">
       <Filter>Scene\Water</Filter>
     </ClInclude>
@@ -1077,6 +1074,9 @@
     <ClInclude Include="NPC_DoctorOh.h">
       <Filter>GameObject\NPC</Filter>
     </ClInclude>
+    <ClInclude Include="NPC_Celebi.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1425,9 +1425,6 @@
     </ClCompile>
     <ClCompile Include="Stage_Grass_Boss.cpp">
       <Filter>Scene\Grass</Filter>
-    </ClCompile>
-    <ClCompile Include="Celebi.cpp">
-      <Filter>GameObject\Character\Grass\251. Celebi</Filter>
     </ClCompile>
     <ClCompile Include="Stage_Water_01.cpp">
       <Filter>Scene\Water</Filter>
@@ -1832,6 +1829,9 @@
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
     <ClCompile Include="NPC_DoctorOh.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_Celebi.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
   </ItemGroup>

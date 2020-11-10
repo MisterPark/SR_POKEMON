@@ -193,7 +193,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
-    <ClInclude Include="Celebi.h" />
+    <ClInclude Include="NPC_Celebi.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Charizard.h" />
     <ClInclude Include="Charmander.h" />
@@ -410,7 +410,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
-    <ClCompile Include="Celebi.cpp" />
+    <ClCompile Include="NPC_Celebi.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Charizard.cpp" />
     <ClCompile Include="Charmander.cpp" />

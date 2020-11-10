@@ -9,6 +9,7 @@
 #include "Effect.h"
 #include "PlayerInfoPanel.h"
 #include "Coin.h"
+#include "QuestManager.h"
 
 Character::Character() :
 	canMove(true)
@@ -167,6 +168,9 @@ void Character::OnCollision(GameObject* target)
 				Coin* coin = Coin::Create(this->transform->position, this->stat.money);
 				ObjectManager::AddObject(coin);
 				CollisionManager::RegisterObject(COLTYPE::COIN, coin);
+				if (this->monsterAI != nullptr) {
+					QuestManager::GetInstance()->AddMonsterKill(monsterAI->type);
+				}
 			}
 			
 			//

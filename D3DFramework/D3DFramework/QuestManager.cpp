@@ -9,6 +9,10 @@ QuestManager::QuestManager()
 	{
 		progress[i] = 0;
 	}
+	for (int i = 0; i < (int)MonsterType::END; i++)
+	{
+		killCount[i] = 0;
+	}
 }
 
 
@@ -18,6 +22,7 @@ QuestManager::~QuestManager()
 QuestManager* QuestManager::GetInstance()
 {
 	if (nullptr == instance) instance = new QuestManager;
+	instance->killCount[(int)MonsterType::END];
 	return instance;
 }
 
