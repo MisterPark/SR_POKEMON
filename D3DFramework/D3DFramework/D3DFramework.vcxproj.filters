@@ -409,6 +409,9 @@
     <Filter Include="Quest">
       <UniqueIdentifier>{f5730c3c-e9f2-445b-a3a3-24b080ef8f9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\NPC">
+      <UniqueIdentifier>{e53f4130-c552-4c4f-9f0f-c1029b9f541e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1064,6 +1067,9 @@
       <Filter>Quest</Filter>
     </ClInclude>
     <ClInclude Include="Dialog.h" />
+    <ClInclude Include="NPC.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1811,6 +1817,9 @@
       <Filter>Quest</Filter>
     </ClCompile>
     <ClCompile Include="Dialog.cpp" />
+    <ClCompile Include="NPC.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

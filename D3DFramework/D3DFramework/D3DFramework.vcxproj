@@ -246,6 +246,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Meteor.h" />
+    <ClInclude Include="NPC.h" />
     <ClInclude Include="PetalBlizzard.h" />
     <ClInclude Include="QuestManager.h" />
     <ClInclude Include="SelectScene.h" />
@@ -460,6 +461,7 @@
     <ClCompile Include="Item_UltraBall.cpp" />
     <ClCompile Include="LeechSeed.cpp" />
     <ClCompile Include="Meteor.cpp" />
+    <ClCompile Include="NPC.cpp" />
     <ClCompile Include="PetalBlizzard.cpp" />
     <ClCompile Include="QuestManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />
