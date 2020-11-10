@@ -3,6 +3,7 @@
 #include "Environment.h"
 #include "Terrain.h"
 #include "Rectangle.h"
+#include "Dialog.h"
 
 NPC::NPC()
 {
@@ -47,10 +48,14 @@ void NPC::OnCollision(GameObject* target)
 	if (pc == nullptr) return;
 	if (pc != target)return;
 
-	if (InputManager::GetKeyDown('F'))
+	if (Dialog::GetInstance()->isVisible == false)
 	{
-		OnEvent();
+		if (InputManager::GetKeyDown('F'))
+		{
+			OnEvent();
+		}
 	}
+	
 	
 }
 
