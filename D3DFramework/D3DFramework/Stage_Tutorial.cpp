@@ -33,18 +33,18 @@ void Stage_Tutorial::OnLoaded()
 	trigerBox->AnimChange(TextureKey::POP_01, TextureKey::POP_34,0.05f, true);
 
 	GameObject* doctor = ObjectManager::GetInstance()->CreateObject<NPC_DoctorOh>();
-	doctor->transform->position = { 24.f,0.f,31.f };
+	doctor->transform->position = { 20.f,0.f,25.f };
 
 	GameObject* celebi = ObjectManager::GetInstance()->CreateObject<NPC_Celebi>();
-	celebi->transform->position = { 30.f,0.f,26.f };
+	celebi->transform->position = { 24.f,0.f,31.f };
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 	Dialog::GetInstance();
 	Dialog::Show();
-	Dialog::EnqueueText(L"이쪽으로 와보거라!");
-	Dialog::EnqueueText(L"(오박사를 향해 이동하세요.)");
+	Dialog::EnqueueText(L"이쪽으로 와봐!");
+	Dialog::EnqueueText(L"(세레비를 향해 이동하세요.)");
 	Dialog::EnqueueText(L"(마우스를 이용하여 회전하고 WASD키를 이용하여 이동할 수 있습니다.)");
-	Dialog::EnqueueText(L"(오박사에게 다가가 F키를 눌러 상호작용을 시도해보세요.)");
+	Dialog::EnqueueText(L"(세레비에게 다가가 F키를 눌러 상호작용을 시도해보세요.)");
 	Dialog::SetEndEvent(UI_SHOW);
 }
 
@@ -148,7 +148,7 @@ void Stage_Tutorial::Stage_Tutorial_Wave()
 		if (spawnerCount == 2)
 		{
 			Dialog::Show();
-			Dialog::EnqueueText(L"(오박사에게 돌아가세요!)");
+			Dialog::EnqueueText(L"(세레비에게 돌아가세요!)");
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
 			trigerBox->transform->position = { 24.f,0.f,10.f };
