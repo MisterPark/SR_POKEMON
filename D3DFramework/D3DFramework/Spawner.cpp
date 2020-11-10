@@ -6,12 +6,13 @@ Spawner::Spawner()
 	Initialize();
 }
 
-Spawner::Spawner(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount)
+Spawner::Spawner(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount, int _monsterLv)
 {
 	monsterType = _monsterType;
 	radius = _radius;
 	createDelay = _createDelay;
 	monsterCreateCount = _monsterCreateCount;
+	monsterLv = _monsterLv;
 	Initialize();
 }
 
@@ -34,11 +35,11 @@ void Spawner::Release()
 
 void Spawner::Update()
 {
-	CreateMonster(monsterType);
+	CreateMonster(monsterType,monsterLv);
 	GameObject::Update();
 }
 
-void Spawner::CreateMonster(MonsterType _monsterType)
+void Spawner::CreateMonster(MonsterType _monsterType,int _monsterLv)
 {
 	if (monsterCreateCount > 0)
 	{
@@ -61,7 +62,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			{
 			case MonsterType::BULBASAUR:
 			{
-				Bulbasaur* monsterCharacter = Bulbasaur::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Bulbasaur* monsterCharacter = Bulbasaur::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::BULBASAUR);
 				monsterCharacter->spawner = this;
@@ -76,7 +77,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				break;
 			case MonsterType::CATERPIE:
 			{
-				Caterpie* monsterCharacter = Caterpie::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Caterpie* monsterCharacter = Caterpie::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::CATERPIE);
 				monsterCharacter->spawner = this;
@@ -87,7 +88,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::METAPOD:
 			{
-				Metapod* monsterCharacter = Metapod::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Metapod* monsterCharacter = Metapod::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::METAPOD);
 				monsterCharacter->spawner = this;
@@ -98,7 +99,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::ODDISH:
 			{
-				Oddish* monsterCharacter = Oddish::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Oddish* monsterCharacter = Oddish::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::ODDISH);
 				monsterCharacter->spawner = this;
@@ -109,7 +110,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::GLOOM:
 			{
-				Gloom* monsterCharacter = Gloom::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Gloom* monsterCharacter = Gloom::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::GLOOM);
 				monsterCharacter->spawner = this;
@@ -120,7 +121,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::VILEPLUME:
 			{
-				Vileplume* monsterCharacter = Vileplume::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Vileplume* monsterCharacter = Vileplume::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::VILEPLUME);
 				monsterCharacter->spawner = this;
@@ -131,7 +132,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::SCYTHER:
 			{
-				Scyther* monsterCharacter = Scyther::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Scyther* monsterCharacter = Scyther::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::SCYTHER);
 				monsterCharacter->spawner = this;
@@ -142,7 +143,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::BUTTERFREE:
 			{
-				Butterfree* monsterCharacter = Butterfree::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Butterfree* monsterCharacter = Butterfree::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::BUTTERFREE);
 				monsterCharacter->spawner = this;
@@ -159,7 +160,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				break;
 			case MonsterType::PSYDUCK:
 			{
-				Psyduck* monsterCharacter = Psyduck::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Psyduck* monsterCharacter = Psyduck::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::PSYDUCK);
 				monsterCharacter->spawner = this;
@@ -170,7 +171,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::GOLDUCK:
 			{
-				Golduck* monsterCharacter = Golduck::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Golduck* monsterCharacter = Golduck::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::GOLDUCK);
 				monsterCharacter->spawner = this;
@@ -181,7 +182,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::POLIWAG:
 			{
-				Poliwag* monsterCharacter = Poliwag::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Poliwag* monsterCharacter = Poliwag::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::POLIWAG);
 				monsterCharacter->spawner = this;
@@ -192,7 +193,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::POLIWHIRL:
 			{
-				Poliwhirl* monsterCharacter = Poliwhirl::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Poliwhirl* monsterCharacter = Poliwhirl::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::POLIWHIRL);
 				monsterCharacter->spawner = this;
@@ -203,7 +204,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::POLIWRATH:
 			{
-				Poliwrath* monsterCharacter = Poliwrath::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Poliwrath* monsterCharacter = Poliwrath::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::POLIWRATH);
 				monsterCharacter->spawner = this;
@@ -214,7 +215,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::JYNX:
 			{
-				Jynx* monsterCharacter = Jynx::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Jynx* monsterCharacter = Jynx::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::JYNX);
 				monsterCharacter->spawner = this;
@@ -224,7 +225,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::SUICUNE:
 			{
-				Suicune* monsterCharacter = Suicune::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Suicune* monsterCharacter = Suicune::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::SUICUNE);
 				monsterCharacter->spawner = this;
@@ -235,7 +236,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::CHARMANDER:
 			{
-				Charmander* monsterCharacter = Charmander::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Charmander* monsterCharacter = Charmander::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::CHARMANDER);
 				monsterCharacter->spawner = this;
@@ -250,7 +251,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 				break;
 			case MonsterType::GROWLITHE:
 			{
-				Growlithe* monsterCharacter = Growlithe::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Growlithe* monsterCharacter = Growlithe::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::GROWLITHE);
 				monsterCharacter->spawner = this;
@@ -261,7 +262,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::ARCANINE:
 			{
-				Arcanine* monsterCharacter = Arcanine::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Arcanine* monsterCharacter = Arcanine::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::ARCANINE);
 				monsterCharacter->spawner = this;
@@ -272,7 +273,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::PONYTA:
 			{
-				Ponyta* monsterCharacter = Ponyta::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Ponyta* monsterCharacter = Ponyta::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::PONYTA);
 				monsterCharacter->spawner = this;
@@ -282,7 +283,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::RAPIDASH:
 			{
-				Rapidash* monsterCharacter = Rapidash::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Rapidash* monsterCharacter = Rapidash::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::RAPIDASH);
 				monsterCharacter->spawner = this;
@@ -292,7 +293,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::SLUGMA:
 			{
-				Slugma* monsterCharacter = Slugma::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Slugma* monsterCharacter = Slugma::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::SLUGMA);
 				monsterCharacter->spawner = this;
@@ -302,7 +303,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			}
 			case MonsterType::MAGCARGO:
 			{
-				Magcargo* monsterCharacter = Magcargo::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Magcargo* monsterCharacter = Magcargo::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::MAGCARGO);
 				monsterCharacter->spawner = this;
@@ -313,7 +314,7 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 			case MonsterType::GROUDON:
 			{
 
-				Groudon* monsterCharacter = Groudon::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f));
+				Groudon* monsterCharacter = Groudon::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ),  Vector3(0.f, 0.f, 1.f),_monsterLv);
 				monsterCharacter->offsetY=2.f;
 				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
 				monsterCharacter->monsterAI->SetType(MonsterType::GROUDON);
@@ -340,8 +341,8 @@ void Spawner::CreateMonster(MonsterType _monsterType)
 	}
 }
 
-Spawner* Spawner::Create(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount)
+Spawner* Spawner::Create(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount, int _monsterLv)
 {
-	Spawner* newSpawner = new Spawner(_monsterType, _radius, _createDelay, _monsterCreateCount);
+	Spawner* newSpawner = new Spawner(_monsterType, _radius, _createDelay, _monsterCreateCount, _monsterLv);
 	return newSpawner;
 }

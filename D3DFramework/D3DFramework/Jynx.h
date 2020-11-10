@@ -5,7 +5,7 @@ class Jynx :
 {
 public:
     Jynx();
-    Jynx(const Vector3& pos, const Vector3& dir);
+    Jynx(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Jynx();
 
     virtual void Initialize() override;
@@ -15,6 +15,6 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Jynx* Create(const Vector3& pos, const Vector3& dir);
+    static Jynx* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 };
 

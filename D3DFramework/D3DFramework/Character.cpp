@@ -106,10 +106,7 @@ void Character::OnCollision(GameObject* target)
 
 		Character* playerCharacter = Player::GetInstance()->GetCharacter();
 
-		if (stat.hp > stat.maxHp)
-		{
-			stat.hp = stat.maxHp;
-		}
+
 
 		float error = target->stat.attack * 0.4f;
 		float errorHalf = error * 0.5f;
@@ -118,6 +115,10 @@ void Character::OnCollision(GameObject* target)
 		float damageSum = target->stat.attack + error;
 		stat.hp -= damageSum;
 
+		if (stat.hp > stat.maxHp)
+		{
+			stat.hp = stat.maxHp;
+		}
 
 		if (damageSum < 0)
 		{

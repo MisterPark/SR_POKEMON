@@ -170,7 +170,7 @@ void Stage_Grass_Boss::Stage_Grass_Boss_Wave()
 
 void Stage_Grass_Boss::CreateSpawner()
 {
-	Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1);
+	Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1, 15);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 }

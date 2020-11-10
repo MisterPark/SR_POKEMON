@@ -5,7 +5,7 @@ class Charizard : public Character
 {
 public:
 	Charizard();
-	Charizard(const Vector3& pos, const Vector3& dir);
+	Charizard(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Charizard();
 
 public:
@@ -22,6 +22,6 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Charizard* Create(const Vector3& pos, const Vector3& dir);
+	static Charizard* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 };
 

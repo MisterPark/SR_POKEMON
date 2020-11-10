@@ -6,12 +6,12 @@ Blastoise::Blastoise()
 	Initialize();
 }
 
-Blastoise::Blastoise(const Vector3& pos, const Vector3& dir)
+Blastoise::Blastoise(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 
 }
@@ -128,8 +128,8 @@ bool Blastoise::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Blastoise* Blastoise::Create(const Vector3& pos, const Vector3& dir)
+Blastoise* Blastoise::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Blastoise* newPokemon = new Blastoise(pos, dir);
+	Blastoise* newPokemon = new Blastoise(pos, dir, lv);
 	return newPokemon;
 }

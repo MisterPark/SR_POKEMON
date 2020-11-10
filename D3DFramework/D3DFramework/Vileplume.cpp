@@ -9,11 +9,11 @@ Vileplume::Vileplume()
 	Initialize();
 }
 
-Vileplume::Vileplume(const Vector3& pos, const Vector3& dir)
+Vileplume::Vileplume(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -49,6 +49,7 @@ void Vileplume::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -85,8 +86,8 @@ bool Vileplume::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Vileplume* Vileplume::Create(const Vector3& pos, const Vector3& dir)
+Vileplume* Vileplume::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Vileplume* newPokemon = new Vileplume(pos, dir);
+	Vileplume* newPokemon = new Vileplume(pos, dir, lv);
 	return newPokemon;
 }

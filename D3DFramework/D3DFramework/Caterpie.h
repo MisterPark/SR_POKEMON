@@ -5,7 +5,7 @@ class Caterpie :
 {
 public:
 	Caterpie();
-	Caterpie(const Vector3& pos, const Vector3& dir);
+	Caterpie(const Vector3& pos, const Vector3& dir,int lv = 1);
 	virtual ~Caterpie();
 
 public:
@@ -16,7 +16,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Caterpie* Create(const Vector3& pos, const Vector3& dir);
+	static Caterpie* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };
 

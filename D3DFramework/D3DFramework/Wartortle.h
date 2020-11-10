@@ -5,7 +5,7 @@ class Wartortle : public Character
 {
 public:
 	Wartortle();
-	Wartortle(const Vector3& pos, const Vector3& dir);
+	Wartortle(const Vector3& pos, const Vector3& dir,int lv = 1);
 	virtual ~Wartortle();
 
 public:
@@ -22,7 +22,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Wartortle* Create(const Vector3& pos, const Vector3& dir);
+	static Wartortle* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };
 

@@ -10,12 +10,12 @@ Poliwag::Poliwag()
 	Initialize();
 }
 
-Poliwag::Poliwag(const Vector3& pos, const Vector3& dir)
+Poliwag::Poliwag(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
 
-	
+	stat.level = lv;
 	Initialize();
 }
 
@@ -49,10 +49,10 @@ void Poliwag::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::BubbleShot));
 
 	SetStatByLevel();
@@ -89,9 +89,9 @@ bool Poliwag::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& dir)
+Poliwag* Poliwag::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Poliwag* newPokemon = new Poliwag(pos, dir);
+	Poliwag* newPokemon = new Poliwag(pos, dir, lv);
 	return newPokemon;
 }
 

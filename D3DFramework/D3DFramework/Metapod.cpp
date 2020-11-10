@@ -8,11 +8,11 @@ Metapod::Metapod()
 	Initialize();
 }
 
-Metapod::Metapod(const Vector3& pos, const Vector3& dir)
+Metapod::Metapod(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -39,8 +39,6 @@ void Metapod::Initialize()
 
 	state = State::READY;
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 	defaultAttack = 30;
@@ -48,6 +46,7 @@ void Metapod::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -84,8 +83,8 @@ bool Metapod::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Metapod* Metapod::Create(const Vector3& pos, const Vector3& dir)
+Metapod* Metapod::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Metapod* newPokemon = new Metapod(pos, dir);
+	Metapod* newPokemon = new Metapod(pos, dir, lv);
 	return newPokemon;
 }

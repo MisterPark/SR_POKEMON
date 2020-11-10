@@ -9,11 +9,11 @@ Golduck::Golduck()
 	Initialize();
 }
 
-Golduck::Golduck(const Vector3& pos, const Vector3& dir)
+Golduck::Golduck(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -49,9 +49,9 @@ void Golduck::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::AccelWater));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -87,8 +87,8 @@ bool Golduck::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Golduck* Golduck::Create(const Vector3& pos, const Vector3& dir)
+Golduck* Golduck::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Golduck* newPokemon = new Golduck(pos, dir);
+	Golduck* newPokemon = new Golduck(pos, dir, lv);
 	return newPokemon;
 }

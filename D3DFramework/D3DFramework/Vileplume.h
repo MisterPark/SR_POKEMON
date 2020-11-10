@@ -5,7 +5,7 @@ class Vileplume :
 {
 public:
     Vileplume();
-    Vileplume(const Vector3& pos, const Vector3& dir);
+    Vileplume(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Vileplume();
 
 public:
@@ -16,7 +16,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Vileplume* Create(const Vector3& pos, const Vector3& dir);
+    static Vileplume* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 
 };

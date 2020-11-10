@@ -11,11 +11,11 @@ Scyther::Scyther()
 	Initialize();
 }
 
-Scyther::Scyther(const Vector3& pos, const Vector3& dir)
+Scyther::Scyther(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -53,6 +53,7 @@ void Scyther::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -132,9 +133,9 @@ void Scyther::AnimSet()
 	}
 }
 
-Scyther* Scyther::Create(const Vector3& pos, const Vector3& dir)
+Scyther* Scyther::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Scyther* newPokemon = new Scyther(pos, dir);
+	Scyther* newPokemon = new Scyther(pos, dir, lv);
 	return newPokemon;
 }
 

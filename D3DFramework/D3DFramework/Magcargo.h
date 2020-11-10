@@ -5,7 +5,7 @@ class Magcargo :
 {
 public:
     Magcargo();
-    Magcargo(const Vector3& pos, const Vector3& dir);
+    Magcargo(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Magcargo();
 
     virtual void Initialize() override;
@@ -18,7 +18,7 @@ public:
     void DeadAction();
 
 public:
-    static Magcargo* Create(const Vector3& pos, const Vector3& dir);
+    static Magcargo* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 
 };

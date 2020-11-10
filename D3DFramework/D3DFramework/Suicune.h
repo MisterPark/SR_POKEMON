@@ -5,7 +5,7 @@ class Suicune :
 {
 public:
     Suicune();
-    Suicune(const Vector3& pos, const Vector3& dir);
+    Suicune(const Vector3& pos, const Vector3& dir,int lv = 1);
     virtual ~Suicune();
 
     virtual void Initialize() override;
@@ -15,7 +15,7 @@ public:
     virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-    static Suicune* Create(const Vector3& pos, const Vector3& dir);
+    static Suicune* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };
 

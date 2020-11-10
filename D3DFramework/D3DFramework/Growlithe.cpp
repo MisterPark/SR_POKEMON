@@ -8,12 +8,12 @@ Growlithe::Growlithe()
 	Initialize();
 }
 
-Growlithe::Growlithe(const Vector3& pos, const Vector3& dir)
+Growlithe::Growlithe(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -48,6 +48,7 @@ void Growlithe::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -84,8 +85,8 @@ bool Growlithe::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Growlithe* Growlithe::Create(const Vector3& pos, const Vector3& dir)
+Growlithe* Growlithe::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Growlithe* newPokemon = new Growlithe(pos, dir);
+	Growlithe* newPokemon = new Growlithe(pos, dir, lv);
 	return newPokemon;
 }

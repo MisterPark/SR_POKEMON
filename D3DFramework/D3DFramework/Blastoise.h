@@ -5,7 +5,7 @@ class Blastoise : public Character
 {
 public:
 	Blastoise();
-	Blastoise(const Vector3& pos, const Vector3& dir);
+	Blastoise(const Vector3& pos, const Vector3& dir,int lv = 1);
 	virtual ~Blastoise();
 
 public:
@@ -22,7 +22,7 @@ public:
 	virtual bool Attack(const Vector3& dir, const int& attackType) override;
 
 public:
-	static Blastoise* Create(const Vector3& pos, const Vector3& dir);
+	static Blastoise* Create(const Vector3& pos, const Vector3& dir,int lv = 1);
 
 };
 

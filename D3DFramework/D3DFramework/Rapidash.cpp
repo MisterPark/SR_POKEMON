@@ -8,11 +8,11 @@ Rapidash::Rapidash()
 	Initialize();
 }
 
-Rapidash::Rapidash(const Vector3& pos, const Vector3& dir)
+Rapidash::Rapidash(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -45,9 +45,10 @@ void Rapidash::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::MiniRush));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireShot));
+	//skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireShot));
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -83,8 +84,8 @@ bool Rapidash::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Rapidash* Rapidash::Create(const Vector3& pos, const Vector3& dir)
+Rapidash* Rapidash::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Rapidash* newPokemon = new Rapidash(pos, dir);
+	Rapidash* newPokemon = new Rapidash(pos, dir, lv);
 	return newPokemon;
 }

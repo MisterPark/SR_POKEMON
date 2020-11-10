@@ -8,11 +8,11 @@ Ponyta::Ponyta()
 	Initialize();
 }
 
-Ponyta::Ponyta(const Vector3& pos, const Vector3& dir)
+Ponyta::Ponyta(const Vector3& pos, const Vector3& dir,int lv)
 {
 	transform->position = pos;
 	direction = dir;
-
+	stat.level = lv;
 	Initialize();
 }
 
@@ -45,9 +45,10 @@ void Ponyta::Initialize()
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
+	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::MiniRush));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireShot));
+	
 
 	SetStatByLevel();
 	UpdateAnimation();
@@ -83,8 +84,8 @@ bool Ponyta::Attack(const Vector3& dir, const int& attackType)
 	return false;
 }
 
-Ponyta* Ponyta::Create(const Vector3& pos, const Vector3& dir)
+Ponyta* Ponyta::Create(const Vector3& pos, const Vector3& dir,int lv)
 {
-	Ponyta* newPokemon = new Ponyta(pos, dir);
+	Ponyta* newPokemon = new Ponyta(pos, dir, lv);
 	return newPokemon;
 }
