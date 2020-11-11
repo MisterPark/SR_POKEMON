@@ -13,6 +13,7 @@ void Stage_Town::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
+	SoundManager::StopAll();
 	SoundManager::PlayBGM(L"Town.mp3");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 	
@@ -27,6 +28,9 @@ void Stage_Town::OnLoaded()
 		playerCharacter->transform->position.z = 48.f - 24.f;
 
 	}
+
+	// TODO: 타운에 오면 조건에 따라 메타몽으로 변신
+	if (true) Player::GetInstance()->MetamorphosisToDitto();
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = GrassPortal;
