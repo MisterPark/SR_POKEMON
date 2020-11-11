@@ -41,7 +41,7 @@ private:
 	queue<DialogElement> textQ;
 
 	float tick = 0.f;
-	float delay = 0.1f;
+	float delay = 0.05f;
 	void (*End)() = nullptr;
 
 };

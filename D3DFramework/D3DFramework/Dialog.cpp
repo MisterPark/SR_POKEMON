@@ -114,13 +114,16 @@ void Dialog::Render()
 {
 	if (pDialog->isVisible == false) return;
 
+	// 대화창
 	D2DRenderManager::DrawUI(TextureKey::UI_DIALOG, transform->position, 0);
+	
 
+	// 텍스트
 	Vector3 textPos = transform->position;
-	textPos.x += 400;
-	textPos.y += 100;
+	textPos.x += 128;
+	textPos.y += 50;
 	int len = element.text.length() * 10;
-	D2DRenderManager::DrawFont(currText, textPos.x - len, textPos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
+	D2DRenderManager::DrawFont(currText, textPos.x , textPos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
 
 	// 얼굴 계산
 	Vector3 imgPos = transform->position;
@@ -133,6 +136,7 @@ void Dialog::Render()
 		imgPos.x += 800 - 128;
 	}
 
+	// 얼굴
 	if (generation == 1)
 	{
 		D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, imgPos, pokeNumber - 1);
@@ -149,7 +153,12 @@ void Dialog::Render()
 		D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, imgPos, pokeNumber - 1);
 	}
 
-	
+	// 이름
+	int nameLen = element.name.length() * 10;
+	Vector3 namePos = imgPos;
+	namePos.x += nameLen;
+	namePos.y += 150;
+	D2DRenderManager::DrawFont(element.name, namePos.x, namePos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
 }
 
 void Dialog::EnqueueText(const wstring& _text, bool isLeft)
