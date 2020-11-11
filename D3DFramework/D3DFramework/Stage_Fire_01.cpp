@@ -13,7 +13,7 @@ void Stage_Fire_01::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
-	SoundManager::PlayBGM(L"FireStage.mp3");
+	SoundManager::PlayBGM(L"FireStage.wav");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
@@ -130,8 +130,9 @@ void Stage_Fire_01::TownPortal()
 
 void Stage_Fire_01::soHot(float _waterheight)
 {
-	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight)
+	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight&& Player::GetInstance()->GetCharacter()->isInvincible==false)
 	{
+		
 		if (Player::GetInstance()->GetCharacter()->GetStat().hp <= 0)
 			Player::GetInstance()->GetCharacter()->SetHp(0);
 		

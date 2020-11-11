@@ -23,7 +23,7 @@ void Skill_MiniRush::InitCoolTime()
 
 void Skill_MiniRush::InitActiveTime()
 {
-	activeTime = 1.2f;
+	activeTime = 1.3f;
 }
 
 void Skill_MiniRush::Update()
@@ -37,7 +37,12 @@ void Skill_MiniRush::Update()
 		Camera::GetInstance()->Shake(1.f);
 	}
 
-	if (0.4f >= activeTime)
+	if (0.5f < activeTime) {
+		activeTime = 0.4f;
+		SoundManager::PlayOverlapSound(L"MiniRush.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+	}
+	else if (0.4f >= activeTime)
 	{
 		float speed = 10.f;
 		character->transform->position.x += character->direction.x * speed * TimeManager::DeltaTime();

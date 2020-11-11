@@ -7,8 +7,8 @@
 Skill_Synthesis::Skill_Synthesis()
 {
 	skillIcon = TextureKey::ICON_SYNTHESIS;
-	coolTime = 1.f;
-	moveStopTime = 1.f;
+	coolTime = maxCoolTime = 5.f;
+	moveStopTime = 1.5f;
 }
 
 Skill_Synthesis::~Skill_Synthesis()
@@ -17,7 +17,7 @@ Skill_Synthesis::~Skill_Synthesis()
 
 void Skill_Synthesis::InitCoolTime()
 {
-	coolTime = 1.f;
+	coolTime = 5.f;
 }
 
 void Skill_Synthesis::InitActiveTime()
@@ -27,6 +27,7 @@ void Skill_Synthesis::InitActiveTime()
 
 void Skill_Synthesis::Update()
 {
+	SoundManager::PlayOverlapSound(L"Synthesis.wav", SoundChannel::EFFECT);
 
 	Bullet_Synthesis* bullet = dynamic_cast<Bullet_Synthesis*>(ObjectManager::GetInstance()->CreateObject<Bullet_Synthesis>());
 	bullet->transform->position = character->transform->position;

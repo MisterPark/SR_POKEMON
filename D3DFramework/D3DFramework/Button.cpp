@@ -111,6 +111,8 @@ void Button::OnLButtonUp()
 void Button::OnClick()
 {
 	UI::OnClick();
+
+	SoundManager::PlayOverlapSound(L"Select.wav", SoundChannel::EFFECT);
 }
 
 void Button::SetSize(int w, int h)

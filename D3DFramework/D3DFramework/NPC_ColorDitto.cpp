@@ -73,26 +73,38 @@ void NPC_ColorDitto::OnEvent()
 	if (eventNPC == Event::EVENT_END)
 		return;
 	int myProgress = QuestManager::GetInstance()->GetProgress(eventNPC, myName);
-	if (eventNPC == Event::EVENT_TOWN)
+	if (eventNPC == Event::EVENT_TOWN || eventNPC == Event::EVENT_GAME)
 	{
 		switch (myProgress)
 		{
 		case 0: {
-			Dialog::Show();
-			Dialog::EnqueueText(L"어이! 촌놈.", name, Pokemon::Ditto);
-			Dialog::EnqueueText(L"그런 촌스러운 색으로 돌아다니다니 !", name, Pokemon::Ditto);
-			Dialog::EnqueueText(L"나한테 말을 걸면 색을 바꿔주지 !", name, Pokemon::Ditto);
-			
-			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+			if (Player::GetInstance()->GetCharacter()->type == TYPE::DITTO) {
+				Dialog::Show();
+				Dialog::EnqueueText(L"어이! 촌놈.", name, Pokemon::Ditto);
+				Dialog::EnqueueText(L"그런 촌스러운 색으로 돌아다니다니 !", name, Pokemon::Ditto);
+				Dialog::EnqueueText(L"나한테 말을 걸면 색을 바꿔주지 !", name, Pokemon::Ditto);
+
+				QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+			}
+			else {
+				Dialog::Show();
+				Dialog::EnqueueText(L"메타몽이 아니면 저리 가라고 !", name, Pokemon::Ditto);
+			}
 			break;
 		}
 		case 1: {
-			Player::GetInstance()->MetamorphosisToDitto();
-			Dialog::Show();
-			Dialog::EnqueueText(L"어때, 마음에 들어?", name, Pokemon::Ditto);
-			Player::GetInstance()->AddDittoColor();
-			Player::GetInstance()->GetCharacter()->Initialize();
-			Player::GetInstance()->MetamorphoEffect();
+			if (Player::GetInstance()->GetCharacter()->type == TYPE::DITTO) {
+				Player::GetInstance()->MetamorphosisToDitto();
+				Dialog::Show();
+				Dialog::EnqueueText(L"어때, 마음에 들어?", name, Pokemon::Ditto);
+				Player::GetInstance()->AddDittoColor();
+				Player::GetInstance()->GetCharacter()->Initialize();
+				Player::GetInstance()->MetamorphoEffect();
+			}
+			else {
+				Dialog::Show();
+				Dialog::EnqueueText(L"메타몽 인채로 오라고 ! 이 구닥다리야", name, Pokemon::Ditto);
+			}
 			break;
 		}
 		default:

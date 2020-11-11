@@ -25,6 +25,11 @@ void Skill_SnowRain::InitActiveTime()
 
 void Skill_SnowRain::Update()
 {
+	if (activeTime > 0)
+	{
+		SoundManager::PlayOverlapSound(L"SnowRain.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+	}
 	if (delay <= 0.f) {
 		Bullet_Ice* bullet = dynamic_cast<Bullet_Ice*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice>());
 		Vector3 Dir = { 0.f, 0.f, 0.f };

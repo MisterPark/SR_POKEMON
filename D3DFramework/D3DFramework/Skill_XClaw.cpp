@@ -6,7 +6,7 @@
 Skill_XClaw::Skill_XClaw()
 {
 	skillIcon = TextureKey::ICON_XCLAW;
-	moveStopTime = 1.4f;
+	moveStopTime = 1.15f;
 	isSpawn = false;
 }
 
@@ -19,15 +19,24 @@ void Skill_XClaw::InitCoolTime()
 	maxCoolTime = coolTime = 6.f;
 	isSpawn = false;
 	isDetachCamera = false;
+	isFirstFrame = true;
 }
 
 void Skill_XClaw::InitActiveTime()
 {
-	activeTime = 1.4f;
+	activeTime = 1.15f;
 }
 
 void Skill_XClaw::Update()
 {
+	if (isFirstFrame)
+	{
+		SoundManager::PlayOverlapSound(L"XClaw.wav", SoundChannel::PLAYER_EFFECT);
+		SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
+
+		isFirstFrame = false;
+	}
+
 	if (!isDetachCamera && Team::PLAYERTEAM == character->team)
 	{
 		Camera::GetInstance()->SetTarget(nullptr);

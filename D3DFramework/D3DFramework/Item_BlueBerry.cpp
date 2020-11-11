@@ -21,10 +21,11 @@ Item_BlueBerry::~Item_BlueBerry()
 
 void Item_BlueBerry::Use()
 {
-
 	Character* player = Player::GetInstance()->GetCharacter();
 	if (player == nullptr) return;
 
 	player->HealMyself(stat.hp);
 	count--;
+
+	Item::Use();
 }

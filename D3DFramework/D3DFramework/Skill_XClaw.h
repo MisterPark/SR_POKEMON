@@ -20,6 +20,7 @@ public:
 	static Skill* Create();
 
 private:
+	bool isFirstFrame;
 	bool isDetachCamera;
 	bool isSpawn;
 };

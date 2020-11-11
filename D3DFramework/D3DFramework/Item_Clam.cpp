@@ -27,4 +27,6 @@ void Item_Clam::Use()
 
 	player->HealMyself(stat.hp);
 	count--;
+
+	Item::Use();
 }

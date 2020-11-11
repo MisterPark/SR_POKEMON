@@ -27,7 +27,17 @@ void Skill_SnowVulcan::InitActiveTime()
 
 void Skill_SnowVulcan::Update()
 {
+
+
+	if (activeTime>1.8f)
+	{
+		SoundManager::PlayOverlapSound(L"JynxAttack.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+	
+	}
+	
 	if (delay <= 0.f) {
+		
 		Bullet_Ice* bullet = dynamic_cast<Bullet_Ice*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice>());
 		bullet->transform->position = character->transform->position;
 		Vector3 rDir = character->direction;
@@ -49,6 +59,7 @@ void Skill_SnowVulcan::Update()
 		delay = 0.2f;
 	}
 	else {
+		
 		delay -= TimeManager::DeltaTime();
 	}
 

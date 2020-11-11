@@ -26,4 +26,6 @@ void Item_Grape::Use()
 
 	player->HealMyself(stat.hp);
 	count--;
+
+	Item::Use();
 }

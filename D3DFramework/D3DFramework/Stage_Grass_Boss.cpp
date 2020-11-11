@@ -145,7 +145,7 @@ void Stage_Grass_Boss::Stage_Grass_Boss_Wave()
 		else if (spawnerCount == 3)
 		{
 			SoundManager::StopSound(SoundChannel::BGM);
-			SoundManager::PlayBGM(L"Boss.mp3");
+			SoundManager::PlayBGM(L"Boss.wav");
 			SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 			Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1);

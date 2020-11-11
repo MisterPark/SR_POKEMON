@@ -15,7 +15,7 @@ Skill_Meteor::~Skill_Meteor()
 
 void Skill_Meteor::InitCoolTime()
 {
-	maxCoolTime = coolTime = 0.4f;
+	maxCoolTime = coolTime = 30.f;
 }
 
 void Skill_Meteor::InitActiveTime()
@@ -25,6 +25,9 @@ void Skill_Meteor::InitActiveTime()
 
 void Skill_Meteor::Update()
 {
+	SoundManager::PlayOverlapSound(L"Meteor.wav", SoundChannel::EFFECT);
+	SoundManager::SetVolume(SoundChannel::EFFECT, 0.1f);
+
 	for (int i = 0; i < 10; ++i)
 	{
 		float randX = Random::Range(-1.f, 1.f);

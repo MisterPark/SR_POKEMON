@@ -25,6 +25,8 @@ void Skill_CrossShot::InitActiveTime()
 
 void Skill_CrossShot::Update()
 {
+	SoundManager::PlayOverlapSound(L"GloomAttack.wav", SoundChannel::MONSTER);
+	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	Bullet_Poision* bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());
 	Vector3 Dir2 = { character->direction.x,0.f,character->direction.z };
 	Dir2.Normalized();
