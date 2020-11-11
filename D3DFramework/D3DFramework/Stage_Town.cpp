@@ -197,29 +197,26 @@ void Stage_Town::Event_Town(Event _event)
 	{
 		Dialog::Show();
 		Dialog::EnqueueText(L"(또 뵙네요!)");
-		Dialog::EnqueueText(L"(몬스터들을 사냥했을때 Lv의 하단에 초상화가 보이시나요?)");
+		Dialog::EnqueueText(L"(파이리 초상화의 하단에 캐터피 초상화가 보이시나요?)");
 		Dialog::EnqueueText(L"(저 초상화가 바로 당신이 변신할 수 있는 몬스터입니다!)");
 		Dialog::EnqueueText(L"('Space' 키를 눌러 변신해보세요!)");
 		PlayerInfoPanel::SetQuestMessage(L"꼬부기와 다시 대화");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
 	}
-
+	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
+		Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
+		Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
+		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+		QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
+	}
 }
 
 void Stage_Town::Event_Game(Event _event)
 {
-
-	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
-	{
-	Dialog::Show();
-	Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
-	Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
-	Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
-	PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
-	QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
-	QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
-
-	}
 	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::BULBASAUR) == 4 &&
 		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CHARMANDER) == 4 &&
 		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE) == 4 &&

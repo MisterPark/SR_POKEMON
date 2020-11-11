@@ -6,7 +6,7 @@
 #include "Effect.h"
 #include "QuestManager.h"
 #include "Dialog.h"
-#include "Item_Tomato.h"
+#include "AllItems.h"
 #include "AllStage.h"
 NPC_Celebi::NPC_Celebi()
 {
@@ -196,12 +196,16 @@ void NPC_Celebi::OnEvent()
 		case 0: {
 			Dialog::Show();
 			Dialog::EnqueueText(L"이제 모험을 시작해보자!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"스테이지의 난이도는 풀 1~20, 물20~40, 불40~60 레벨이 적당해!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"죽으면 마을로 돌아오게 되니 조심하길 바래!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"그럼 선물을 줄테니 가져간 후 나한테 다시 와 줘!", L"세레비", Pokemon::Celebi);
+			Dialog::SetEndEvent(ExpPotion);
 			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
 			break;
 		}
 		case 1: {
 			Dialog::Show();
-			Dialog::EnqueueText(L"우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"그럼 우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
 			PlayerInfoPanel::SetQuestMessage(L"모두의 진화를 도와주고 세레비와 대화.");
 			break;
 		}
@@ -245,4 +249,14 @@ void NPC_Celebi::ToDitto()
 void NPC_Celebi::Ending()
 {
 	SceneManager::LoadScene<EndingScene>();
+}
+
+void NPC_Celebi::ExpPotion()
+{
+	Item_ExpPotion* expPotion = (Item_ExpPotion*)ObjectManager::GetInstance()->CreateObject<Item_ExpPotion>();
+	expPotion->transform->position = { 24.f,0.f,32.f };
+	expPotion = (Item_ExpPotion*)ObjectManager::GetInstance()->CreateObject<Item_ExpPotion>();
+	expPotion->transform->position = { 24.f,0.f,32.f };
+	expPotion = (Item_ExpPotion*)ObjectManager::GetInstance()->CreateObject<Item_ExpPotion>();
+	expPotion->transform->position = { 24.f,0.f,32.f };
 }

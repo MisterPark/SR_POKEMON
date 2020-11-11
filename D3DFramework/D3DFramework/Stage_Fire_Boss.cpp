@@ -11,7 +11,7 @@ void Stage_Fire_Boss::OnLoaded()
 	ObjectManager::GetInstance()->CreateObject<Light>();
 
 	SkyBox::Show();
-	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
+	SkyBox::SetTexture(TextureKey::SPACE1_U);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
@@ -111,7 +111,7 @@ void Stage_Fire_Boss::TownPortal()
 
 void Stage_Fire_Boss::soHot(float _waterheight)
 {
-	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight)
+	if (Player::GetInstance()->GetCharacter()->transform->position.y <= _waterheight && Player::GetInstance()->GetCharacter()->isInvincible == false)
 	{
 		if (Player::GetInstance()->GetCharacter()->GetStat().hp <= 0)
 			Player::GetInstance()->GetCharacter()->SetHp(0);

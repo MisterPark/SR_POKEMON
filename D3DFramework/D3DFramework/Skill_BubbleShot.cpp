@@ -26,6 +26,8 @@ void Skill_BubbleShot::InitActiveTime()
 
 void Skill_BubbleShot::Update()
 {
+	SoundManager::PlayOverlapSound(L"PoliwagAttack.wav", SoundChannel::MONSTER);
+	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	Bullet_Bubble* bullet = dynamic_cast<Bullet_Bubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_Bubble>());
 	bullet->transform->position = character->transform->position;
 	bullet->SetDir(character->direction);

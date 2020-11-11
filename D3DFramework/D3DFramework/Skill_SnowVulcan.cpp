@@ -27,19 +27,15 @@ void Skill_SnowVulcan::InitActiveTime()
 
 void Skill_SnowVulcan::Update()
 {
-	soundtime += TimeManager::DeltaTime();
 
-	if (soundtime > 0.2&&activeTime<1.8f&&sound==false)
+
+	if (activeTime>1.8f)
 	{
 		SoundManager::PlayOverlapSound(L"JynxAttack.wav", SoundChannel::MONSTER);
 		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
-		soundtime = 0;
-		sound = true;
+	
 	}
-	if (activeTime < 0)
-	{
-		sound = false;
-	}
+	
 	if (delay <= 0.f) {
 		
 		Bullet_Ice* bullet = dynamic_cast<Bullet_Ice*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice>());
