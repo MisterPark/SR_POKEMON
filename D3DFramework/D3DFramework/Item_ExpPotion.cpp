@@ -28,4 +28,7 @@ void Item_ExpPotion::Use()
 	
 	player->IncreaseEXP(stat.exp);
 	count--;
+
+	SoundManager::PlayOverlapSound(L"Drink.wav", SoundChannel::EFFECT);
+	SoundManager::SetVolume(SoundChannel::EFFECT, 0.1f);
 }

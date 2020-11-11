@@ -9,7 +9,7 @@
 
 void TitleScene::OnLoaded()
 {
-	SoundManager::PlayBGM(L"Title.mp3");
+	SoundManager::PlayBGM(L"Title.wav");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Camera::GetInstance()->SetPosition(Vector3(0, 0, 0));

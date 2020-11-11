@@ -25,6 +25,8 @@ void Skill_LeechSeed::InitActiveTime()
 
 void Skill_LeechSeed::Update()
 {
+	SoundManager::PlayOverlapSound(L"LeechSeed.wav", SoundChannel::EFFECT);
+
 	Vector3 pos = character->transform->position;
 
 	for (int i = 0; i < 3; ++i)

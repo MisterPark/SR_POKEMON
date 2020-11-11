@@ -21,10 +21,11 @@ Item_Pear::~Item_Pear()
 
 void Item_Pear::Use()
 {
-
 	Character* player = Player::GetInstance()->GetCharacter();
 	if (player == nullptr) return;
 
 	player->HealMyself(stat.hp);
 	count--;
+
+	Item::Use();
 }

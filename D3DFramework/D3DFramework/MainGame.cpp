@@ -98,6 +98,7 @@ void PKH::MainGame::Update()
 	SkillManager::GetInstance()->PostUpdate();
 	CollisionManager::GetInstance()->Update();
 	ObjectManager::PostUpdate();
+	SoundManager::Update();
 
 	if (!TimeManager::SkipFrame())
 	{

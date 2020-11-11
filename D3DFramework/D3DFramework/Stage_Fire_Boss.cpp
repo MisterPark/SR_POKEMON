@@ -70,7 +70,7 @@ void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
 		SoundManager::StopSound(SoundChannel::BGM);
-		SoundManager::PlayBGM(L"Boss.mp3");
+		SoundManager::PlayBGM(L"Boss.wav");
 		SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 		Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1,65);

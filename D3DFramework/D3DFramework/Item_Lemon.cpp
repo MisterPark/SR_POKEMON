@@ -27,4 +27,6 @@ void Item_Lemon::Use()
 
 	player->HealMyself(stat.hp);
 	count--;
+
+	Item::Use();
 }

@@ -26,4 +26,7 @@ void Item_HpPotion::Use()
 
 	player->HealMyself(stat.hp);
 	count--;
+
+	SoundManager::PlayOverlapSound(L"Drink.wav", SoundChannel::EFFECT);
+	SoundManager::SetVolume(SoundChannel::EFFECT, 0.1f);
 }

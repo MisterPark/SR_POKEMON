@@ -88,6 +88,8 @@ void LeechSeed::CollideOnTerrain()
 		anim->SetSprite(startKey, endKey);
 		anim->SetDelay(0.1f);
 		anim->SetLoop(false);
+
+		SoundManager::PlayOverlapSound(L"SeedGrow.wav", SoundChannel::EFFECT);
 	}
 }
 
