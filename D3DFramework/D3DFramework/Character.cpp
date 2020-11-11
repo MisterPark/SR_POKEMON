@@ -177,7 +177,7 @@ void Character::OnCollision(GameObject* target)
 			if (this->team == Team::MONSTERTEAM) {
 				// 다음 변신할 몬스터 등록
 				Player::GetInstance()->ChangeNextPokemon(type, number);
-				float exp = stat.totalExp * 0.05f;
+				float exp = stat.totalExp * 0.25f;
 				Player::GetInstance()->GetCharacter()->IncreaseEXP(exp);
 				// 코인 생성
 				Coin* coin = Coin::Create(this->transform->position, this->stat.money);

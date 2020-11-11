@@ -28,7 +28,7 @@ void EndingScene::OnLoaded()
 	Dialog* dia = Dialog::GetInstance();
 	dia->Show();
 	dia->EnqueueText(L"Jusin 110C", L"2조", Pokemon::Celebi);
-	dia->EnqueueText(L" 박경훈 팀장, UI, 프레임워크, 아이템&인벤토리,충돌,조명 \n 강희재 플레이어,스킬,사운드,이펙트,응원 \n 길문호 몬스터,스킬,맵,리소스,스토리,퀘스트,스포너,트리거박스, \n 차승현 몬스터,스킬,몬스터AI,NPC, 퀘스트,리소스, 메이플, DJ", L"2조", Pokemon::Celebi);
+	dia->EnqueueText(L" 박경훈 팀장, UI, 프레임워크, 아이템&인벤토리,충돌,조명 \n 강희재 플레이어,스킬,사운드,이펙트,응원 \n 길문호 몬스터,스킬,맵,리소스,스토리,퀘스트,스포너,트리거박스 \n 차승현 몬스터,스킬,몬스터AI,NPC, 퀘스트,리소스, 메이플, DJ", L"2조", Pokemon::Celebi);
 	dia->EnqueueText(L" 감사합니다", L"2조", Pokemon::Celebi);
 	dia->SetEndEvent(NextScene);
 

@@ -64,6 +64,13 @@ void Stage_Fire_Boss::Set_Stage_Fire_Boss_Map(TextureKey _key, const std::string
 
 void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 {
+	if (QuestManager::GetInstance()->GetMonsterKill(MonsterType::GROUDON) >= 1)
+	{
+		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 4);
+		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
+	}
+
+
 	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
 	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
 
