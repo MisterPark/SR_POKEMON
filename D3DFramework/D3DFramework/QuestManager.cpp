@@ -20,7 +20,7 @@ QuestManager::QuestManager()
 	{
 		evolution[i] = 0;
 	}
-
+	
 }
 
 

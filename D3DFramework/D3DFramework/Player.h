@@ -31,6 +31,7 @@ public:
 	float GetMetaMorphoTime() { return metamorphosisTime; }
 	int GetCurrentSkillIndex() { return skillNum; }
 	Pokemon GetMetamorphoPokemonNumber() { return nextPokemon.second; }
+	
 
 private:
 	void Release();

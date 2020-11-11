@@ -7,6 +7,7 @@
 #include "QuestManager.h"
 #include "Dialog.h"
 #include "Item_Tomato.h"
+#include "AllStage.h"
 NPC_Celebi::NPC_Celebi()
 {
 	Initialize();
@@ -108,6 +109,7 @@ void NPC_Celebi::OnEvent()
 			Dialog::EnqueueText(L"적 포켓몬을 사냥하면 경험치를 획득하고 레벨업도 할 수 있어!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"이제 마을로 가보자!", L"세레비", Pokemon::Celebi);
 			Dialog::SetEndEvent(ProgressTutorialEvent);
+			
 			break;
 		}
 		case 3: {
@@ -155,6 +157,7 @@ void NPC_Celebi::OnEvent()
 				Dialog::EnqueueText(L"(아이템은 커서를 올리면 정보가 나오게 되며……)");
 				Dialog::EnqueueText(L"(소모성 아이템은 우클릭으로 사용이 가능합니다!)");
 				QuestManager::GetInstance()->AddProgress(eventNPC,myName);
+
 			}
 			break;
 		}
@@ -211,6 +214,7 @@ void NPC_Celebi::OnEvent()
 		case 4: {
 			Dialog::Show();
 			Dialog::EnqueueText(L"그란돈을 물리쳤구나! 정말 잘했어! 고마워!", L"세레비", Pokemon::Celebi);
+			Dialog::SetEndEvent(Ending);
 			break;
 		}
 		default:
@@ -223,9 +227,16 @@ void NPC_Celebi::ProgressTutorialEvent()
 {
 	Dialog::Hide();
 	QuestManager::GetInstance()->AddProgress(Event::EVENT_TUTORIAL, NpcName::CELEBI);
+	
+		
 }
 
 void NPC_Celebi::ToDitto()
 {
 	Player::GetInstance()->MetamorphosisToDitto();
+}
+
+void NPC_Celebi::Ending()
+{
+	SceneManager::LoadScene<EndingScene>();
 }

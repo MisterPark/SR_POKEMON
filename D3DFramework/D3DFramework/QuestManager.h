@@ -38,5 +38,6 @@ private:
 	//자동으로 쌓임
 	int killCount[(int)MonsterType::END];
 	int evolution[NpcName::NPC_END];
+	
 };
 
