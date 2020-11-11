@@ -98,7 +98,10 @@ void Stage_Town::Update()
 	{
 		Event_Town(Event::EVENT_TOWN);
 	}
-
+	if (QuestManager::GetInstance()->GetEvent() == Event::EVENT_GAME)
+	{
+		Event_Game(Event::EVENT_GAME);
+	}
 
 }
 
@@ -187,17 +190,36 @@ void Stage_Town::Event_Town(Event _event)
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
 	}
 
-	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
+}
+
+void Stage_Town::Event_Game(Event _event)
+{
+
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
+	{
+	Dialog::Show();
+	Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
+	Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
+	Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
+	QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+	QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
+
+	}
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::BULBASAUR) == 4 &&
+		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CHARMANDER) == 4 &&
+		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE) == 4 &&
+		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI) == 1
+		)
 	{
 		Dialog::Show();
-		Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
-		Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
-		Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
-		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
-		QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
-		
+		Dialog::EnqueueText(L"(모두의 진화가 끝났습니다!)");
+		QuestManager::GetInstance()->AddProgress(Event::EVENT_GAME, NpcName::CELEBI);
 	}
 
+	if (QuestManager::GetInstance()->GetMonsterKill(MonsterType::GROUDON) >= 1)
+	{
+		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 4);
+	}
 }
 
 

@@ -195,6 +195,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
+    <ClInclude Include="EndingScene.h" />
     <ClInclude Include="NPC_Bulbasaur.h" />
     <ClInclude Include="NPC_Celebi.h" />
     <ClInclude Include="Character.h" />
@@ -416,6 +417,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
+    <ClCompile Include="EndingScene.cpp" />
     <ClCompile Include="NPC_Bulbasaur.cpp" />
     <ClCompile Include="NPC_Celebi.cpp" />
     <ClCompile Include="Character.cpp" />

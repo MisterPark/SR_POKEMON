@@ -188,7 +188,29 @@ void NPC_Celebi::OnEvent()
 		{
 		case 0: {
 			Dialog::Show();
-			Dialog::EnqueueText(L"모험을 시작해보자!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"이제 모험을 시작해보자!", L"세레비", Pokemon::Celebi);
+			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+			break;
+		}
+		case 1: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
+			break;
+		}
+		case 2: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"자…! 가자! 마지막 보스를 무찌르자!", L"세레비", Pokemon::Celebi);
+			break;
+		}
+		case 3: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"이런! 다시 도전해보자!", L"세레비", Pokemon::Celebi);
+			QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 2);
+			break;
+		}
+		case 4: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"그란돈을 물리쳤구나! 정말 잘했어! 고마워!", L"세레비", Pokemon::Celebi);
 			break;
 		}
 		default:

@@ -415,6 +415,9 @@
     <Filter Include="Scene\Opening">
       <UniqueIdentifier>{0e88b12c-e762-4d1c-bb88-e137a6b864bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Ending">
+      <UniqueIdentifier>{b7a7f521-214c-4d67-bd32-9f842a1edc27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1097,6 +1100,9 @@
     </ClInclude>
     <ClInclude Include="AllItems.h">
       <Filter>GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingScene.h">
+      <Filter>Scene\Ending</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1866,6 +1872,9 @@
     </ClCompile>
     <ClCompile Include="NPC_Squirtle.cpp">
       <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingScene.cpp">
+      <Filter>Scene\Ending</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
