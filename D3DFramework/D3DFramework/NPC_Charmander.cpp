@@ -6,6 +6,7 @@
 #include "Effect.h"
 #include "QuestManager.h"
 #include "Dialog.h"
+#include "AllItems.h"
 
 NPC_Charmander::NPC_Charmander()
 {
@@ -85,31 +86,56 @@ void NPC_Charmander::OnEvent()
 		}
 		case 1: {
 			Dialog::Show();
-			Dialog::EnqueueText(L"", name, Pokemon::Charmander);
+			Dialog::EnqueueText(L"일단 이거부터 받아!", name, Pokemon::Charmander);
+			
+			Item_StoneOfAwake* stoneOfAwake = (Item_StoneOfAwake*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfAwake>();
+			stoneOfAwake->transform->position = { 24.f,0.f,23.f };
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
 			break;
+		}
+		case 2: {
+			GameObject* isAwake = ObjectManager::GetInstance()->FindObject<Item_StoneOfAwake>();
+			if (isAwake != nullptr)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"빨리빨리 주워 와!", name, Pokemon::Charmander);
+			}
+			else if (isAwake == nullptr)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"이 돌을 가지고 우리한테 온다면\n우리의 동의를 통해 장시간 우리중 하나로 변신할 수 있지!", name, Pokemon::Charmander);
+				Dialog::EnqueueText(L"바로 변신시켜주지!", name, Pokemon::Charmander);
+				Dialog::SetEndEvent(MetatoCharmander);
+			}
+			break;
+		}
+		case 3: {
+			if (Inventory::GetItemCount(ItemType::STONE_OF_FIRE) >= 1)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"진화의돌 찾았구나!", name, Pokemon::Charmander);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type == TYPE::CHARMANDER)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"진화의돌 못 찾았어?", name, Pokemon::Charmander);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::CHARMANDER)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"다시 변신시켜줄게!", name, Pokemon::Charmander);
+				Dialog::SetEndEvent(MetatoCharmander);
+			}
 		}
 		default:
 			break;
 		}
 	}
 
+}
 
-	//switch (myProgress)
-	//{
-	//case 0: {
-	//	Dialog::EnqueueText(L"뭐");
-	//	Dialog::Show();
-	//	QuestManager::GetInstance()->AddProgress(myName);
-	//	break;
-	//}
-	//case 1: {
-	//	Dialog::EnqueueText(L"좋은말로 할때 가라");
-	//	Dialog::Show();
-	//	break;
-	//}
-
-	//default:
-	//	break;
-	//}
+void NPC_Charmander::MetatoCharmander()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::CHARMANDER,Pokemon::Charmander);
+	Player::GetInstance()->PermanentMetamorphosis();
 }

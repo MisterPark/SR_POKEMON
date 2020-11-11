@@ -83,9 +83,21 @@ void NPC_Bulbasaur::OnEvent()
 			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
 			break;
 		}
-
+		case 1: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"내 힘은 쓸모 없을거야……", name, Pokemon::Bulbasaur);
+			Dialog::EnqueueText(L"미안해…… 힘을 빌려줄 수 없을거야……", name, Pokemon::Bulbasaur);
+			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			break;
+		}
 		default:
 			break;
 		}
 	}
+}
+
+void NPC_Bulbasaur::MetatoBulbasaur()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::BULBASAUR, Pokemon::Bulbasaur);
+	Player::GetInstance()->PermanentMetamorphosis();
 }

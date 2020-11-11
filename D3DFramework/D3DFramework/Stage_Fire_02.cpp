@@ -11,6 +11,9 @@ void Stage_Fire_02::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
+	SoundManager::PlayBGM(L"FireStage2.mp3");
+	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
+
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
@@ -35,17 +38,11 @@ void Stage_Fire_02::OnLoaded()
 
 void Stage_Fire_02::OnUnloaded()
 {
-
-
 	ObjectManager::DestroyAll();
 }
 
 void Stage_Fire_02::Update()
 {
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Fire_Boss>();
@@ -153,6 +150,7 @@ void Stage_Fire_02::Portal()
 
 void Stage_Fire_02::TownPortal()
 {
+	SoundManager::StopSound(SoundChannel::BGM);
 	SceneManager::LoadScene<Stage_Town>();
 }
 

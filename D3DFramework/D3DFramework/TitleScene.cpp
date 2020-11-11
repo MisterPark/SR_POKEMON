@@ -9,6 +9,8 @@
 
 void TitleScene::OnLoaded()
 {
+	SoundManager::PlayBGM(L"Title.mp3");
+	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Camera::GetInstance()->SetPosition(Vector3(0, 0, 0));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 1);

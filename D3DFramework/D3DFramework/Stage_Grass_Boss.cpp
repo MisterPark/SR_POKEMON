@@ -32,17 +32,12 @@ void Stage_Grass_Boss::OnLoaded()
 
 void Stage_Grass_Boss::OnUnloaded()
 {
-
-
+	SoundManager::StopSound(SoundChannel::BGM);
 	ObjectManager::DestroyAll();
 }
 
 void Stage_Grass_Boss::Update()
 {
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Water_01>();
@@ -147,6 +142,9 @@ void Stage_Grass_Boss::Stage_Grass_Boss_Wave()
 		}
 		else if (spawnerCount == 3)
 		{
+			SoundManager::StopSound(SoundChannel::BGM);
+			SoundManager::PlayBGM(L"Boss.mp3");
+			SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 			Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1);
 			spawner->transform->position = { 24.f,0.f,24.f };

@@ -42,12 +42,6 @@ void Stage_Water_02::OnUnloaded()
 
 void Stage_Water_02::Update()
 {
-
-
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Water_Boss>();
@@ -178,5 +172,6 @@ void Stage_Water_02::Portal()
 
 void Stage_Water_02::TownPortal()
 {
+	SoundManager::StopSound(SoundChannel::BGM);
 	SceneManager::LoadScene<Stage_Town>();
 }
