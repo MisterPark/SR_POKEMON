@@ -5,6 +5,7 @@
 #include "Stage_Opening.h"
 #include "SelectScene.h"
 #include "TitleScene.h"
+#include "EndingScene.h"
 
 #include "Stage_Town.h"
 #include "Stage_Tutorial.h"

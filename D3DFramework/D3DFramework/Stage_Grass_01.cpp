@@ -27,7 +27,10 @@ void Stage_Grass_01::OnLoaded()
 		playerCharacter->transform->position.z = 48.f - 24.f;
 
 	}
-	
+	if (QuestManager::GetInstance()->GetEvent() == Event::EVENT_TOWN)
+	{
+		QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
+	}
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->transform->position = { 18.f,0.f,48.f-21.f };

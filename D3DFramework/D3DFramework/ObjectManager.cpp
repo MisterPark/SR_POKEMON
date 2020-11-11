@@ -8,6 +8,7 @@
 #include "Inventory.h"
 #include "ItemInfoPanel.h"
 #include "Dialog.h"
+#include "QuestManager.h"
 
 using namespace PKH;
 
@@ -16,7 +17,6 @@ int lastUid = 0;
 
 PKH::ObjectManager::ObjectManager()
 {
-	
 	Cursor::GetInstance();
 	RenderFilter::GetInstance();
 	TargetInfoPanel::GetInstance();
@@ -24,6 +24,7 @@ PKH::ObjectManager::ObjectManager()
 	Inventory::GetInstance();
 	ItemInfoPanel::GetInstance();
 	Dialog::GetInstance();
+	QuestManager::GetInstance();
 }
 
 PKH::ObjectManager::~ObjectManager()
@@ -36,6 +37,7 @@ PKH::ObjectManager::~ObjectManager()
 	Inventory::Destroy();
 	ItemInfoPanel::Destroy();
 	Dialog::Destroy();
+	QuestManager::Destroy();
 	Release();
 }
 

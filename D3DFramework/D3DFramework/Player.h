@@ -34,11 +34,14 @@ public:
 	float GetMetaMorphoTime() { return metamorphosisTime; }
 	int GetCurrentSkillIndex() { return skillNum; }
 	Pokemon GetMetamorphoPokemonNumber() { return nextPokemon.second; }
+	
 
 private:
 	void Release();
 
 private:
+	void CharacterCheck();
+	void AttackCheat();
 	void ResetMousePoint();
 	void Attack();
 	void CalcMouse();
@@ -47,6 +50,7 @@ private:
 	void SetCharacterByType(TYPE type);
 	void CalcMetamorphosisTime();
 	void ComeBackFromMetamorpho();
+	void MetamorphoEffect();
 
 public:
 	void Metamorphosis();
@@ -54,6 +58,7 @@ public:
 	void MetamorphosisToDitto();
 
 	void ChangeNextPokemon(TYPE pokemon, Pokemon number);
+
 
 private:
 	static Player* instance;
@@ -63,9 +68,12 @@ private:
 	float radianX;
 	float radianY;
 	float metamorphosisTime;
+	float originIncreaseAttack;
+	float originDefaultAttack;
 
 	bool isFix;
 	bool canMetamorphosis;
+	bool isAttackCheat;
 	
 	int skillNum;
 	int skillSetSize;

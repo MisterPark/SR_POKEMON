@@ -4,6 +4,7 @@
 #include "AllMeshs.h"
 #include "AllDecorations.h"
 #include "AllEnvironments.h"
+#include "AllNPC.h"
 #include "SkyBox.h"
 
 void Stage_Fire_02::OnLoaded()
@@ -125,16 +126,32 @@ void Stage_Fire_02::Stage_Fire_02_Wave()
 		
 		if (spawnerCount == 1)
 		{
-			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-			trigerBox->OnTriggered = Portal;
-			trigerBox->transform->position = { 25.f,0.f,48-26.f };
-			trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
+			if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI)==2)
+			{
+				TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+				trigerBox->OnTriggered = Portal;
+				trigerBox->transform->position = { 25.f,0.f,48 - 26.f };
+				trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
+				
+				trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+				trigerBox->OnTriggered = TownPortal;
+				trigerBox->transform->position = { 28.f,0.f,48 - 21.f };
+				trigerBox->Portal();
 
-			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-			trigerBox->OnTriggered = TownPortal;
-			trigerBox->transform->position = { 28.f,0.f,48-21.f };
-			trigerBox->Portal();
-			spawnerCount++;
+				Dialog::Show();
+				Dialog::EnqueueText(L"(최종 보스로 가는 포탈이 열렸습니다!)");
+				Dialog::EnqueueText(L"(단단히 준비하고 가주세요!)");
+				QuestManager::GetInstance()->AddProgress(Event::EVENT_GAME, NpcName::CELEBI);
+				spawnerCount++;
+			}
+			else
+			{
+				TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+				trigerBox->OnTriggered = TownPortal;
+				trigerBox->transform->position = { 28.f,0.f,48 - 21.f };
+				trigerBox->Portal();
+				spawnerCount++;
+			}
 		}
 
 

@@ -3,7 +3,7 @@ enum NpcName{
 	CELEBI, DOCTOR_OH, CHARMANDER, BULBASAUR, SQUIRTLE, NPC_END
 };
 enum Event {
-	EVENT_TUTORIAL, EVENT_TOWN, EVENT_END
+	EVENT_TUTORIAL, EVENT_TOWN, EVENT_GAME, EVENT_END
 };
 
 
@@ -23,6 +23,10 @@ public:
 	void SetMonsterKill(MonsterType monster, int count) { killCount[(int)monster] = count; }
 	void AddMonsterKill(MonsterType monster) { killCount[(int)monster]++; }
 
+	int GetEvolution(NpcName npc) { return evolution[npc]; }
+	void SetEvolution(NpcName npc, int count) { evolution[npc] = count; }
+	void AddEvolution(NpcName npc) { evolution[npc]++; }
+
 	Event GetEvent() { return eventProgress; }
 	void SetEvent(Event _event) { eventProgress = _event; }
 
@@ -33,5 +37,7 @@ private:
 	int progress[Event::EVENT_END][NpcName::NPC_END];
 	//자동으로 쌓임
 	int killCount[(int)MonsterType::END];
+	int evolution[NpcName::NPC_END];
+	
 };
 

@@ -55,6 +55,8 @@ public:
 	void SetStatByLevel();
 	void MoveForward();
 	virtual void ChangeState(State nextState);
+
+public:
 	// 인자로 넣어준 숫자 번째의 스킬을 반환합니다.
 	float GetSkillCoolTime(int num);
 	bool GetCanMove() { return canMove; }
@@ -63,6 +65,14 @@ public:
 
 	virtual bool Attack(const Vector3& dir, const int& attackType);
 	void HealMyself(float _recovery);
+
+public:
+	void SetIncreaseAttack(const float& atk) { increaseAttack = atk; }
+	void SetDefaultAttack(const float& atk) { defaultAttack = atk; }
+
+public:
+	float GetIncreaseAttack() const { return increaseAttack; }
+	float GetDefaultAttack() const { return defaultAttack; }
 
 public:
 	static bool IsNotAlliance(GameObject* a, GameObject* b);

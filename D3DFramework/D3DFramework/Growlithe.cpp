@@ -43,8 +43,8 @@ void Growlithe::Initialize()
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::RedBall));
 
-	defaultAttack = 30;
-	defaultMaxHp = 110;
+	defaultAttack = 40;
+	defaultMaxHp = 350;
 
 	increaseAttack = defaultAttack * 0.05;
 	increaseMaxHp = defaultMaxHp * 0.05;
