@@ -4,8 +4,15 @@
 Item_Pear::Item_Pear()
 {
 	anim->SetSprite(TextureKey::UI_ICON_ITEM_PEAR, TextureKey::UI_ICON_ITEM_PEAR);
-	stat.hp = 10.f;
+	stat.hp = 30.f;
 	type = ItemType::PEAR;
+
+	name = L"배";
+	description = L"체력을 \'";
+	WCHAR wstr[8] = {};
+	wsprintf(wstr, L"%d", (int)stat.hp);
+	description += wstr;
+	description += L"\' 회복";
 }
 
 Item_Pear::~Item_Pear()

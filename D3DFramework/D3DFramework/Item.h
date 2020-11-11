@@ -46,11 +46,14 @@ public:
 	void OnTerrain();
 	void UpDown();
 
+	static Item* CreateRandom();
+
 public:
 	Animation2D* anim = nullptr;
 	bool inSlot = false;
 	int count = 1;
 	ItemType type = ItemType::NONE;
+	wstring description;
 private:
 	float offsetY;
 	float downTick = 0.f;

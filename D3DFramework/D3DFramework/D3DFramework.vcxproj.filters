@@ -1095,6 +1095,9 @@
     <ClInclude Include="NPC_Squirtle.h">
       <Filter>GameObject\NPC</Filter>
     </ClInclude>
+    <ClInclude Include="AllItems.h">
+      <Filter>GameObject\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">

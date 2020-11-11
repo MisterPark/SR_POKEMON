@@ -4,6 +4,7 @@
 #include "Rectangle.h"
 #include "Terrain.h"
 #include "Environment.h"
+#include "AllItems.h"
 
 Item::Item()
 {
@@ -100,4 +101,86 @@ void Item::UpDown()
 	{
 		offsetY += TimeManager::DeltaTime() * 0.2f;
 	}
+}
+
+Item* Item::CreateRandom()
+{
+	int random = Random::Range(0, 50);
+
+	Item* item = nullptr;
+
+	ItemType t = (ItemType)random;
+	switch (t)
+	{
+	case ItemType::NONE:
+		break;
+	case ItemType::TOMATO:
+		item = new Item_Tomato;
+		break;
+	case ItemType::CLAM:
+		item = new Item_Clam;
+		break;
+	case ItemType::GRAPE:
+		item = new Item_Grape;
+		break;
+	case ItemType::PEAR:
+		item = new Item_Pear;
+		break;
+	case ItemType::GAJI:
+		item = new Item_Gaji;
+		break;
+	case ItemType::LEMON:
+		item = new Item_Lemon;
+		break;
+	case ItemType::BLUEBERRY:
+		item = new Item_BlueBerry;
+		break;
+	case ItemType::HP_POTION:
+		item = new Item_HpPotion;
+		break;
+	case ItemType::EXP_POTION:
+		item = new Item_ExpPotion;
+		break;
+	case ItemType::STONE_OF_FIRE:
+		item = new Item_StoneOfFire;
+		break;
+	case ItemType::STONE_OF_WATER:
+		item = new Item_StoneOfWater;
+		break;
+	case ItemType::STONE_OF_LEAF:
+		item = new Item_StoneOfLeaf;
+		break;
+	case ItemType::STONE_OF_THUNDER:
+		item = new Item_StoneOfThunder;
+		break;
+	case ItemType::STONE_OF_MOON:
+		item = new Item_StoneOfMoon;
+		break;
+	case ItemType::STONE_OF_SUN:
+		item = new Item_StoneOfSun;
+		break;
+	case ItemType::STONE_OF_LIGHT:
+		item = new Item_StoneOfLight;
+		break;
+	case ItemType::STONE_OF_AWAKE:
+		item = new Item_StoneOfAwake;
+		break;
+	case ItemType::STONE_OF_DARK:
+		item = new Item_StoneOfDark;
+		break;
+	case ItemType::POKE_BALL:
+
+		break;
+	case ItemType::GREAT_BALL:
+		break;
+	case ItemType::ULTRA_BALL:
+		break;
+	case ItemType::MASTER_BALL:
+		break;
+	default:
+		break;
+	}
+
+
+	return item;
 }

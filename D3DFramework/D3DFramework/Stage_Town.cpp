@@ -139,9 +139,15 @@ void Stage_Town::Set_Stage_Town_Map(TextureKey _key, const std::string& _filePat
 
 void Stage_Town::Event_Town(Event _event)
 {
-	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
-	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
-
+	if (Player::GetInstance()->GetCharacter()->type == TYPE::DITTO&&QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN,NpcName::CELEBI)==0)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"뭐야! 메타몽이었잖아?", L"세레비", Pokemon::Celebi);
+		Dialog::EnqueueText(L"그럼 할 수 있는 일이 더 많아지겠는데?", L"세레비", Pokemon::Celebi);
+		Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
+		Dialog::EnqueueText(L"(아이템은 다가가는 것으로 습득할 수 있습니다.)");
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CELEBI);
+	}
 }
 
 
