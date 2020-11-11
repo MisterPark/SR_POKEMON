@@ -18,3 +18,5 @@
 #include "Item_StoneOfThunder.h"
 #include "Item_StoneOfWater.h"
 #include "Item_Tomato.h"
+
+#include "Inventory.h"

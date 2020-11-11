@@ -39,12 +39,6 @@ void Stage_Grass_02::OnUnloaded()
 
 void Stage_Grass_02::Update()
 {
-
-
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Grass_Boss>();
@@ -159,5 +153,6 @@ void Stage_Grass_02::Portal()
 
 void Stage_Grass_02::TownPortal()
 {
+	SoundManager::StopSound(SoundChannel::BGM);
 	SceneManager::LoadScene<Stage_Town>();
 }

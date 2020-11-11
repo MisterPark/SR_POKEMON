@@ -6,12 +6,16 @@
 #include "AllEnvironments.h"
 #include "AllNPC.h"
 #include "SkyBox.h"
+#include "Inventory.h"
 
 void Stage_Town::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
+
+	SoundManager::PlayBGM(L"Town.mp3");
+	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 	
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
 
@@ -44,6 +48,7 @@ void Stage_Town::OnLoaded()
 
 	GameObject* celebi = NPC_Celebi::Create(Vector3{ 24.f, 0.f, 31.f }, false, Vector3{ 0.f, 0.f, -1.f });
 	ObjectManager::AddObject(celebi);
+
 	GameObject* npc = NPC_Charmander::Create(Vector3{ 23.f, 0.f, 22.f });
 	ObjectManager::AddObject(npc);
 	//
@@ -66,18 +71,12 @@ void Stage_Town::OnLoaded()
 
 void Stage_Town::OnUnloaded()
 {
-
+	SoundManager::StopAll();
 	ObjectManager::DestroyAll();
 }
 
 void Stage_Town::Update()
 {
-
-
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Grass_01>();
@@ -147,6 +146,24 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
 		Dialog::EnqueueText(L"(아이템은 다가가는 것으로 습득할 수 있습니다.)");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CELEBI);
+	}
+	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::CELEBI) == 2&&Inventory::GetItemCount(ItemType::TOMATO)==0)
+	{
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CELEBI);
+	}
+	else if (Player::GetInstance()->GetCharacter()->type == TYPE::CHARMANDER && QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::CHARMANDER) == 2)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"어때! 괜찮지?", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"다른 애들도 이제 모두 변신하게 해줄거야!", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"이제 내 부탁을 들어줘! 난 항상 진화가 하고 싶었는데…", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"숲 근처에서 진화의 돌을 본 포켓몬이 있어!", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"그 진화의돌을 내게 가져와 줘!", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"뭐 겸사겸사 다른 애들 것도 가져와도 되고!", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"아! 가기 전에 꼬부기한테 한번 가봐!", L"파이리", Pokemon::Charmander);
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CHARMANDER);
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::BULBASAUR);
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
 	}
 }
 

@@ -13,6 +13,9 @@ void Stage_Grass_01::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
+	SoundManager::PlayBGM(L"GrassStage.mp3");
+	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
+
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
@@ -45,12 +48,6 @@ void Stage_Grass_01::OnUnloaded()
 
 void Stage_Grass_01::Update()
 {
-
-
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Grass_02>();
@@ -170,5 +167,6 @@ void Stage_Grass_01::Portal()
 
 void Stage_Grass_01::TownPortal()
 {
+	SoundManager::StopSound(SoundChannel::BGM);
 	SceneManager::LoadScene<Stage_Town>();
 }

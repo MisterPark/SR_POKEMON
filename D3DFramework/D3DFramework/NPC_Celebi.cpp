@@ -161,7 +161,8 @@ void NPC_Celebi::OnEvent()
 		case 2: {
 				Dialog::Show();
 				Dialog::EnqueueText(L"얼른 먹어봐!", L"세레비", Pokemon::Celebi);
-				QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+
+				
 			break;
 		}
 		case 3: {
@@ -169,6 +170,11 @@ void NPC_Celebi::OnEvent()
 			Dialog::EnqueueText(L"잘했어! 뒤에 있는 파이리한테 먼저 가봐!\n너의 능력을 유용하게 쓸수 있게 도와줄거야!", L"세레비", Pokemon::Celebi);
 			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
+			break;
+		}
+		case 4: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"파이리한테 먼저 가봐!", L"세레비", Pokemon::Celebi);
 			break;
 		}
 		default:

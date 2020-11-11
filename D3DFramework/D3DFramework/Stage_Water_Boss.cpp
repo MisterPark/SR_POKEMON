@@ -34,17 +34,12 @@ void Stage_Water_Boss::OnLoaded()
 
 void Stage_Water_Boss::OnUnloaded()
 {
-
-
+	SoundManager::StopSound(SoundChannel::BGM);
 	ObjectManager::DestroyAll();
 }
 
 void Stage_Water_Boss::Update()
 {
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Fire_01>();
@@ -92,6 +87,10 @@ void Stage_Water_Boss::Stage_Water_Boss_Wave()
 		}
 		else if (spawnerCount == 2)
 		{
+			SoundManager::StopSound(SoundChannel::BGM);
+			SoundManager::PlayBGM(L"Boss.mp3");
+			SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
+
 			Spawner* spawner = Spawner::Create(MonsterType::SUICUNE, 10.f, 0.5f, 1.40);
 			spawner->transform->position = { 24.f,0.f,24.f };
 			ObjectManager::AddObject(spawner);
