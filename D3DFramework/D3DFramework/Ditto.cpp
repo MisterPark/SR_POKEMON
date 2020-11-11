@@ -28,7 +28,7 @@ void Ditto::Initialize()
 	SetTexture(State::IDLE, TextureKey::DITTO_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::DITTO_WALK_D_02, 3, 2);
 
-	offsetY = 0.3f;
+	offsetY = 0.2f;
 
 	state = State::IDLE;
 	AnimSet();
