@@ -8,7 +8,7 @@
 #include "Item_Tomato.h"
 #include "NPC_DoctorOh.h"
 #include "NPC_Celebi.h"
-
+#include "NPC.h"
 #include "UI_Title.h"
 void Stage_Tutorial::OnLoaded()
 {
@@ -37,6 +37,7 @@ void Stage_Tutorial::OnLoaded()
 
 	GameObject* celebi = ObjectManager::GetInstance()->CreateObject<NPC_Celebi>();
 	celebi->transform->position = { 24.f,0.f,31.f };
+	dynamic_cast<NPC*>(celebi)->direction = { 0.f,0.f,-1.f };
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 	Dialog::GetInstance();
@@ -64,6 +65,7 @@ void Stage_Tutorial::Update()
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Town>();
+		Dialog::GetInstance()->Destroy();
 	}
 	Stage_Tutorial_Wave();
 	

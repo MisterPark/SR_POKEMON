@@ -75,6 +75,7 @@ void Stage_Town::Update()
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Grass_01>();
+		Dialog::GetInstance()->Destroy();
 	}
 
 }

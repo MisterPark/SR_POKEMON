@@ -18,13 +18,13 @@ void Stage_Opening::OnLoaded()
 	UI_Title* ui = (UI_Title*)ObjectManager::GetInstance()->CreateObject<UI_Title>();
 	ui->SetTexture(TextureKey::UI_CELEBI_SCREEN);
 	ui->transform->position.x = 500.f;
-	ui->transform->position.y = 300.f;
+	ui->transform->position.y = 150.f;
 	float size = 2.f;
 	ui->transform->scale = { size,size,size };
 	
 	Dialog* dia = Dialog::GetInstance();
 	dia->Show();
-	dia->EnqueueText(L"이야- 오래 기다리게 했구나!");
+	dia->EnqueueText(L"이야- 오래 기다리게 했네!");
 	dia->EnqueueText(L"포켓몬스터의 세계에 잘 왔어!");
 	dia->EnqueueText(L"나의 이름은 세레비", L"세레비", Pokemon::Celebi);
 	dia->EnqueueText(L"모두로부터는 전설의포켓몬이라고 불리고 있어.", L"세레비", Pokemon::Celebi);
