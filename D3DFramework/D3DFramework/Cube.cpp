@@ -12,7 +12,7 @@ PKH::Cube::Cube()
 		D3DUSAGE_WRITEONLY,
 		Vertex::FVF,
 		D3DPOOL_MANAGED,
-		&vb,
+		&vertexBuffer,
 		0);
 
 	D2DRenderManager::GetDevice()->CreateIndexBuffer(
@@ -24,20 +24,20 @@ PKH::Cube::Cube()
 		0);
 
 	Vertex* vertices;
-	vb->Lock(0, 0, (void**)&vertices, 0);
+	vertexBuffer->Lock(0, 0, (void**)&vertices, 0);
 
 	// 전면
-	vertices[0] = Vertex(-1.0f, -1.0f, -1.0f, D3DCOLOR_XRGB(255, 0, 0),0,1);
-	vertices[1] = Vertex(-1.0f, 1.0f, -1.0f, D3DCOLOR_XRGB(0, 255, 0),0,0);
-	vertices[2] = Vertex(1.0f, 1.0f, -1.0f, D3DCOLOR_XRGB(0, 0, 255),1,0);
-	vertices[3] = Vertex(1.0f, -1.0f, -1.0f, D3DCOLOR_XRGB(255, 0, 255),1,1);
+	vertices[0] = Vertex(Vector3(-1.0f, -1.0f, -1.0f), D3DCOLOR_XRGB(255, 0, 0),0,1);
+	vertices[1] = Vertex(Vector3(-1.0f, 1.0f, -1.0f), D3DCOLOR_XRGB(0, 255, 0),0,0);
+	vertices[2] = Vertex(Vector3(1.0f, 1.0f, -1.0f), D3DCOLOR_XRGB(0, 0, 255),1,0);
+	vertices[3] = Vertex(Vector3(1.0f, -1.0f, -1.0f), D3DCOLOR_XRGB(255, 0, 255),1,1);
 
 	// 후면
-	vertices[4] = Vertex(-1.0f, -1.0f, 1.0f, D3DCOLOR_XRGB(255, 0, 0),1,1);
-	vertices[5] = Vertex(-1.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(0, 255, 0),1,0);
-	vertices[6] = Vertex(1.0f, 1.0f, 1.0f, D3DCOLOR_XRGB(0, 0, 255),0,0);
-	vertices[7] = Vertex(1.0f, -1.0f, 1.0f, D3DCOLOR_XRGB(255, 0, 255),0,1);
-	vb->Unlock();
+	vertices[4] = Vertex(Vector3(-1.0f, -1.0f, 1.0f), D3DCOLOR_XRGB(255, 0, 0),1,1);
+	vertices[5] = Vertex(Vector3(-1.0f, 1.0f, 1.0f), D3DCOLOR_XRGB(0, 255, 0),1,0);
+	vertices[6] = Vertex(Vector3(1.0f, 1.0f, 1.0f), D3DCOLOR_XRGB(0, 0, 255),0,0);
+	vertices[7] = Vertex(Vector3(1.0f, -1.0f, 1.0f), D3DCOLOR_XRGB(255, 0, 255),0,1);
+	vertexBuffer->Unlock();
 
 	WORD* indices = nullptr;
 	triangles->Lock(0, 0, (void**)&indices, 0);

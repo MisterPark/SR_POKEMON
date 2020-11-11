@@ -8,6 +8,8 @@
 
 void Stage_Grass_02::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 

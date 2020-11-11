@@ -185,7 +185,7 @@ void PlayerInfoPanel::Render()
 		}
     }
     
-    
+    // 변신가능 포켓몬 얼굴
     Vector3 facePos;
     facePos.x = 0;
     facePos.y = 150;
@@ -209,6 +209,12 @@ void PlayerInfoPanel::Render()
         D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, facePos, Vector3(0.5f, 0.5f, 0.5f), metaNumber - 1);
     }
     
+    // 코인 점수
+
+    Vector3 coinPos = { 0,0,0 };
+    coinPos.x = 420;
+
+    D2DRenderManager::DrawUI(TextureKey::COINPOKE_1, coinPos,Vector3(0.5f, 0.5f, 0.5f), 0);
     
 }
 

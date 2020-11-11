@@ -7,6 +7,7 @@ Skill_FireBlast::Skill_FireBlast()
 {
 	coolTime = 2.f;
 	moveStopTime = 2.f;
+
 }
 
 Skill_FireBlast::~Skill_FireBlast()
@@ -27,6 +28,9 @@ void Skill_FireBlast::InitActiveTime()
 void Skill_FireBlast::Update()
 {
 	if (delay <= 0.f) {
+		SoundManager::PlaySoundW(L"GroudonBreath.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+		Camera::GetInstance()->Shake(0.05f);
 		Bullet_FireBlast* bullet = dynamic_cast<Bullet_FireBlast*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireBlast>());
 		bullet->transform->position = character->transform->position;
 		bullet->transform->position.y = character->transform->position.y-character->offsetY/2;

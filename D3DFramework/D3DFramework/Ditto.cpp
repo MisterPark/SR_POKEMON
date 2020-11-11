@@ -57,8 +57,8 @@ void Ditto::Initialize()
 	AnimSet();
 	UpdateAnimation();
 
-	increaseAttack = 1.5f;
-	increaseMaxHp = 12.5f;
+	increaseAttack = 10.f;
+	increaseMaxHp = 20.f;
 
 	defaultAttack = 30.f;
 	defaultMaxHp = 250;

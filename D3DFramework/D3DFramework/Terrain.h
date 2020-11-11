@@ -19,6 +19,12 @@ namespace PKH
         void LoadHeightMap(const string& filePath);
         bool GetYFromPoint(float* _outY, float _x, float _z);
 
+
+    private:
+        // ¹ý¼±º¤ÅÍ
+        void SetNormalVector();
+
+    private:
         int width = dfTERRAIN_WIDTH;
         int height = dfTERRAIN_WIDTH;
 

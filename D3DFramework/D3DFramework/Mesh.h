@@ -50,9 +50,10 @@ namespace PKH
 		void SetBlendMode(BlendMode _mode);
 		void SetZReadMode(ZReadMode _mode);
 		void SetZWriteMode(ZWriteMode _mode);
+		void SetLightMode(LightMode _mode);
 
 	protected:
-		IDirect3DVertexBuffer9* vb = nullptr;
+		IDirect3DVertexBuffer9* vertexBuffer = nullptr;
 		IDirect3DIndexBuffer9* triangles = nullptr;
 		UINT vertexCount;
 		UINT triangleCount;
@@ -60,6 +61,7 @@ namespace PKH
 		ZReadMode zReadMode = ZReadMode::ON;
 		ZWriteMode zWriteMode = ZWriteMode::ON;
 		LightMode lightMode = LightMode::OFF;
+		D3DMATERIAL9 material;
 	public:
 		TextureKey textureKey = TextureKey::NONE;
 

@@ -45,8 +45,11 @@ void PKH::MainGame::Initialize()
 	// 다른 모든 매니저 초기화
 	TimeManager::GetInstance();
 	TimeManager::SetFPS(60.f);
+	
 	D2DRenderManager::GetInstance();
+	ObjectManager::GetInstance();
 	CollisionManager::GetInstance();
+	LightManager::GetInstance();
 	InputManager::GetInstance();
 	SkyBox::GetInstance();
 	Player::GetInstance();
@@ -66,7 +69,7 @@ void PKH::MainGame::Initialize()
 	LoadUISprite();
 	LoadNPCSprite();
 
-	ObjectManager::GetInstance();
+	
 	SkillManager::GetInstance();
 
 	// 씬로드
@@ -123,7 +126,7 @@ void PKH::MainGame::Release()
 	InputManager::Destroy();
 	Camera::Destroy();
 	FileManager::Destroy();
-
+	LightManager::Destroy();
 	SoundManager::Destroy();
 	Cursor::Destroy();
 	Player::Destroy();

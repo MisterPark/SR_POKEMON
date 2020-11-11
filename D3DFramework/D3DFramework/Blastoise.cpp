@@ -48,8 +48,8 @@ void Blastoise::Initialize()
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterFlow));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBomb));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ShellAttack));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tsunami));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ShellAttack));
 
 	UpdateAnimation();
 }
@@ -119,6 +119,14 @@ bool Blastoise::Attack(const Vector3& dir, const int& attackType)
 			break;
 		case 1:
 			ChangeState(State::ATTACK);
+			anim->SetTick(0.f);
+			break;
+		case 2:
+			ChangeState(State::ATTACK);
+			anim->SetTick(0.f);
+			break;
+		case 3:
+			ChangeState(State::SKILL);
 			anim->SetTick(0.f);
 			break;
 		}

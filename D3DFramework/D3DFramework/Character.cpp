@@ -152,6 +152,8 @@ void Character::OnCollision(GameObject* target)
 			{
 				skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
 				PlayerInfoPanel::ActiveRedFilter();
+				SoundManager::PlaySoundW(L"Hit2.mp3", SoundChannel::PLAYER);
+				SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 			}
 
 		}
@@ -159,6 +161,8 @@ void Character::OnCollision(GameObject* target)
 		if (damageSum > 0.f && this == playerCharacter)
 		{
 			PlayerInfoPanel::ActiveRedFilter();
+			SoundManager::PlaySoundW(L"Hit2.mp3", SoundChannel::PLAYER);
+			SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 		}
 
 
@@ -354,6 +358,9 @@ void Character::SetLV(const int & lv)
 void Character::LevelUp()
 {
 	++stat.level;
+
+	SoundManager::PlayOverlapSound(L"LevelUp.mp3", SoundChannel::PLAYER_EFFECT);
+	SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
 
 	SetStatByLevel();
 }

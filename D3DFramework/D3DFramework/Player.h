@@ -11,6 +11,9 @@ public:
 	static Player* GetInstance();
 	static void Destroy();
 
+	static void Show();
+	static void Hide();
+
 public:
 	void Initialize();
 	void Update();
@@ -35,10 +38,14 @@ public:
 	void AddDittoColor() { dittoColor++; if (dittoColor == 5) dittoColor = 0; return; }
 	void MetamorphoEffect();
 
+	
+
 private:
 	void Release();
 
 private:
+	void CharacterCheck();
+	void AttackCheat();
 	void ResetMousePoint();
 	void Attack();
 	void CalcMouse();
@@ -64,9 +71,12 @@ private:
 	float radianX;
 	float radianY;
 	float metamorphosisTime;
+	float originIncreaseAttack;
+	float originDefaultAttack;
 
 	bool isFix;
 	bool canMetamorphosis;
+	bool isAttackCheat;
 	
 	int skillNum;
 	int skillSetSize;

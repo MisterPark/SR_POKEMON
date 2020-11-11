@@ -12,6 +12,8 @@
 
 void Stage_Tutorial::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();

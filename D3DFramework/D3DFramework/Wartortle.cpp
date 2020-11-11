@@ -48,7 +48,7 @@ void Wartortle::Initialize()
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterFlow));
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBomb));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ShellAttack));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tsunami));
 
 	UpdateAnimation();
 }
@@ -117,6 +117,10 @@ bool Wartortle::Attack(const Vector3& dir, const int& attackType)
 			anim->SetTick(0.f);
 			break;
 		case 1:
+			ChangeState(State::ATTACK);
+			anim->SetTick(0.f);
+			break;
+		case 2:
 			ChangeState(State::ATTACK);
 			anim->SetTick(0.f);
 			break;

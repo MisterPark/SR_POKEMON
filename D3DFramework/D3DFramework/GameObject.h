@@ -69,7 +69,7 @@ namespace PKH
 		STAT GetStat() const { return stat; }
 
 		bool IsDead();
-
+		
 		void MinusHp(float _damage);
 		void SetHp(float _hp);
 	public:

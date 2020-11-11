@@ -2,7 +2,7 @@
 
 namespace PKH
 {
-	enum SoundChannel { BGM, PLAYER, MONSTER, EFFECT, MAXCHANNEL };
+	enum SoundChannel { BGM, PLAYER, PLAYER_EFFECT, MONSTER, EFFECT, MAXCHANNEL };
 
 	class SoundManager
 	{
