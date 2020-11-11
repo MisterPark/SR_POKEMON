@@ -21,12 +21,18 @@ void Skill_Tsunami::InitCoolTime()
 
 void Skill_Tsunami::InitActiveTime()
 {
-	activeTime = 10.f;
+	activeTime = 8.f;
 }
 
 void Skill_Tsunami::Update()
 {
+	if (activeTime > 7.5f) {
+		activeTime = 7.5f;
+		SoundManager::PlayOverlapSound(L"Tsunami.wav", SoundChannel::PLAYER_EFFECT);
+		SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
+	}
 	delay -= TimeManager::DeltaTime();
+	
 	if (delay < 0.f) {
 		Vector3 pos = Camera::ScreenToWorldPoint(Vector3(dfCLIENT_WIDTH / 2, dfCLIENT_HEIGHT / 2, 1.f));
 		Vector3 characterPos = character->transform->position;
@@ -47,11 +53,11 @@ void Skill_Tsunami::Update()
 
 		if (character->team == Team::MONSTERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-			bullet->SetInitAttack(character->stat.attack * 0.0625f);
+			bullet->SetInitAttack(character->stat.attack * 0.125f);
 		}
 		else if (character->team == Team::PLAYERTEAM) {
 			CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-			bullet->SetInitAttack(character->stat.attack * 0.25f);
+			bullet->SetInitAttack(character->stat.attack * 0.5f);
 		}
 
 		Dir2 = character->transform->position;

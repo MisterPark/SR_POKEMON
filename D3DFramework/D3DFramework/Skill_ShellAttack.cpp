@@ -6,7 +6,7 @@ Skill_ShellAttack::Skill_ShellAttack()
 {
 	skillIcon = TextureKey::UI_SKILL_ICON_SHELL;
 	coolTime = 8.f;
-	moveStopTime = 4.f;
+	moveStopTime = 5.f;
 }
 
 Skill_ShellAttack::~Skill_ShellAttack()
@@ -28,13 +28,9 @@ void Skill_ShellAttack::Update()
 	//Ready 何盒苞 场唱绰 何盒 贸府
 	if (activeTime > 5.f) {
 		activeTime = 5.f;
-		character->stat.moveSpeed *= 4.f;
+		SoundManager::PlayOverlapSound(L"Hydro_Pump.mp3", SoundChannel::PLAYER);
+		SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 	}
-	else if (activeTime < 1.f) {
-		activeTime = 0.f;
-		character->stat.moveSpeed *= 0.25f;
-	}
-
 
 	if (rocateXAdd) {
 		rocateX += 0.02f;
