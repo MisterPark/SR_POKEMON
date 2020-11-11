@@ -3,16 +3,20 @@
 
 Item_Tomato::Item_Tomato()
 {
-	name = L"토마토";
 	type = ItemType::TOMATO;
 	anim->SetSprite(TextureKey::UI_ICON_ITEM_TOMATO, TextureKey::UI_ICON_ITEM_TOMATO);
 	stat.hp = 10.f;
 
+	name = L"토마토";
+	description = L"체력을 \'";
+	WCHAR wstr[8] = {};
+	wsprintf(wstr, L"%d", (int)stat.hp);
+	description += wstr;
+	description += L"\' 회복";
 }
 
 Item_Tomato::~Item_Tomato()
 {
-	int a = 10;
 }
 
 void Item_Tomato::Use()

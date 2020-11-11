@@ -116,6 +116,39 @@ bool Inventory::Push(Item* item)
     return false;
 }
 
+int Inventory::GetItemCount(ItemType _type)
+{
+    int count = 0;
+    for (int i = 0; i < dfMAX_SLOT_COUNT; i++)
+    {
+        Item* item = pInventory->slots[i].GetItem();
+        if (item == nullptr) continue;
+
+        if (item->type != _type) continue;
+
+        return item->count;
+    }
+    return count;
+}
+
+void Inventory::RemoveItem(ItemType _type, int count)
+{
+    for (int i = 0; i < dfMAX_SLOT_COUNT; i++)
+    {
+        Item* item = pInventory->slots[i].GetItem();
+        if (item == nullptr) continue;
+
+        if (item->type != _type) continue;
+
+        int result = item->count -count;
+        if (result < 0)
+        {
+            result = 0;
+        }
+        item->count = result;
+    }
+}
+
 void Inventory::UpdateUI()
 {
     Vector3 slotPosition = { position.x + 50, position.y + 100,0 };

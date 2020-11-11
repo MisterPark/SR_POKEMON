@@ -54,7 +54,7 @@ void ItemInfoPanel::SetTarget(Item* _item)
 
 void ItemInfoPanel::Initialize()
 {
-    transform->scale = { 3,3,3 };
+    transform->scale = { 4,3,3 };
 }
 
 void ItemInfoPanel::Release()
@@ -83,5 +83,9 @@ void ItemInfoPanel::Render()
     D2DRenderManager::DrawFont(target->name, renderPos.x+nameOffsetX, renderPos.y + 10, D3DCOLOR_ARGB(255, 255, 255, 255));
 
     D2DRenderManager::DrawUI(target->anim->GetCurrentSprite(), renderPos, Vector3(2, 2, 2), 0);
+
+    D2DRenderManager::DrawFont(target->description, renderPos.x +10, renderPos.y + 70, D3DCOLOR_ARGB(255, 255, 255, 255));
+
+
     
 }
