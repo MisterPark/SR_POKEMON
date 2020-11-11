@@ -150,3 +150,15 @@ void NPC::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, i
 			endArray[(int)_state][(int)Direction::D + i] = (TextureKey)((int)_beginTextureKey + (i * _aniFrame) + (_endFrame - 1));
 	}
 }
+
+Vector3 NPC::DirFromPlayer(bool _posY /*= false*/)
+{
+	Character* player = Player::GetInstance()->GetCharacter();
+	if (player == nullptr) return Vector3{ 0.f, 0.f, 0.f };
+
+	Vector3 Dir = player->transform->position - transform->position;
+	if (!_posY)
+		Dir.y = 0.f;
+	Vector3::Normalize(&Dir);
+	return Dir;
+}

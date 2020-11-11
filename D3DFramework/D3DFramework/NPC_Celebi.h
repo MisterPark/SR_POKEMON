@@ -16,6 +16,7 @@ public:
 	// NPC을(를) 통해 상속됨
 	virtual void OnEvent() override;
 
+
 public:
 	static NPC_Celebi* Create(const Vector3& pos);
 
