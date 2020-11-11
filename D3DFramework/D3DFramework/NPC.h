@@ -28,7 +28,7 @@ public:
     
 
 public:
-    
+
     float offsetY = 0.f;
     Animation2D* anim = nullptr;
     bool animation = true;

@@ -6,7 +6,7 @@
 #include "Effect.h"
 #include "QuestManager.h"
 #include "Dialog.h"
-
+#include "AllItems.h"
 NPC_Squirtle::NPC_Squirtle()
 {
 	Initialize();
@@ -86,9 +86,33 @@ void NPC_Squirtle::OnEvent()
 			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			break;
 		}
-
+		case 1: {
+			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 1)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"진화의돌을 찾았구나!", name, Pokemon::Squirtle);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type == TYPE::SQUIRTLE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"건투를 빌어!", name, Pokemon::Squirtle);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::SQUIRTLE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"내 힘을 빌려줄게!", name, Pokemon::Squirtle);
+				Dialog::SetEndEvent(MetatoSquirtle);
+			}
+			break;
+		}
 		default:
 			break;
 		}
 	}
+}
+
+void NPC_Squirtle::MetatoSquirtle()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::SQUIRTLE, Pokemon::Squirtle);
+	Player::GetInstance()->PermanentMetamorphosis();
 }
