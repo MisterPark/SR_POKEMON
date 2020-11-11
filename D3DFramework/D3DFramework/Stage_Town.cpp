@@ -228,10 +228,7 @@ void Stage_Town::Event_Game(Event _event)
 		QuestManager::GetInstance()->AddProgress(Event::EVENT_GAME, NpcName::CELEBI);
 	}
 
-	if (QuestManager::GetInstance()->GetMonsterKill(MonsterType::GROUDON) >= 1)
-	{
-		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 4);
-	}
+
 }
 
 
