@@ -37,5 +37,7 @@ public:
     State oldState = State::IDLE;
     State state = State::IDLE;
     Vector3 direction = { 0,0,1 };
+
+    NpcName myName = NpcName::NPC_END;
 };
 

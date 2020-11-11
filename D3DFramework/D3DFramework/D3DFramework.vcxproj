@@ -194,6 +194,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
+    <ClInclude Include="NPC_Bulbasaur.h" />
     <ClInclude Include="NPC_Celebi.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Charizard.h" />
@@ -248,7 +249,9 @@
     <ClInclude Include="Item_Tomato.h" />
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="NPC.h" />
+    <ClInclude Include="NPC_Charmander.h" />
     <ClInclude Include="NPC_DoctorOh.h" />
+    <ClInclude Include="NPC_Squirtle.h" />
     <ClInclude Include="PetalBlizzard.h" />
     <ClInclude Include="QuestManager.h" />
     <ClInclude Include="SelectScene.h" />
@@ -412,6 +415,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
+    <ClCompile Include="NPC_Bulbasaur.cpp" />
     <ClCompile Include="NPC_Celebi.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Charizard.cpp" />
@@ -465,7 +469,9 @@
     <ClCompile Include="LeechSeed.cpp" />
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="NPC_Charmander.cpp" />
     <ClCompile Include="NPC_DoctorOh.cpp" />
+    <ClCompile Include="NPC_Squirtle.cpp" />
     <ClCompile Include="PetalBlizzard.cpp" />
     <ClCompile Include="QuestManager.cpp" />
     <ClCompile Include="SelectScene.cpp" />
