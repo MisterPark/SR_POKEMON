@@ -198,6 +198,8 @@
     <ClInclude Include="EndingScene.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightManager.h" />
+    <ClInclude Include="LoadingScene.h" />
+    <ClInclude Include="LoadManager.h" />
     <ClInclude Include="NPC_Bulbasaur.h" />
     <ClInclude Include="NPC_Celebi.h" />
     <ClInclude Include="Character.h" />
@@ -423,6 +425,8 @@
     <ClCompile Include="EndingScene.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightManager.cpp" />
+    <ClCompile Include="LoadingScene.cpp" />
+    <ClCompile Include="LoadManager.cpp" />
     <ClCompile Include="NPC_Bulbasaur.cpp" />
     <ClCompile Include="NPC_Celebi.cpp" />
     <ClCompile Include="Character.cpp" />

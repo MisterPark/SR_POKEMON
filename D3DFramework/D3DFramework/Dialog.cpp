@@ -163,7 +163,7 @@ void Dialog::Render()
 
 void Dialog::EnqueueText(const wstring& _text, bool isLeft)
 {
-	if (pDialog->textQ.empty() == false && pDialog->element.text == pDialog->currText)
+	if (pDialog->textQ.empty() && pDialog->element.text == pDialog->currText)
 	{
 		pDialog->element.text = _text;
 		pDialog->element.isLeft = isLeft;
