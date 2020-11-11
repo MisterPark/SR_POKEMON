@@ -33,7 +33,7 @@ NPC_Bulbasaur::~NPC_Bulbasaur()
 
 void NPC_Bulbasaur::Initialize()
 {
-
+	name = L"이상해씨";
 	myName = NpcName::BULBASAUR;
 	SetTexture(State::IDLE, TextureKey::PG01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PG01_WALK_D_02, 3, 2);
@@ -66,20 +66,26 @@ NPC_Bulbasaur* NPC_Bulbasaur::Create(const Vector3& pos, bool onCenterDir, const
 void NPC_Bulbasaur::OnEvent()
 {
 	direction = DirFromPlayer(false);
-	int myProgress = QuestManager::GetInstance()->GetProgress(myName);
+	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	Character* player = Player::GetInstance()->GetCharacter();
 
-
-	switch (myProgress)
+	if (eventNPC == Event::EVENT_END)
+		return;
+	int myProgress = QuestManager::GetInstance()->GetProgress(eventNPC, myName);
+	if (eventNPC == Event::EVENT_TOWN)
 	{
-	case 0: {
-		Dialog::EnqueueText(L"아 롤하고싶다");
-		Dialog::Show();
-		//QuestManager::GetInstance()->AddProgress(myName);
-		break;
-	}
-	default:
-		break;
+		switch (myProgress)
+		{
+		case 0: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"안녕……",name, Pokemon::Bulbasaur);
+			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			break;
+		}
+
+		default:
+			break;
+		}
 	}
 }

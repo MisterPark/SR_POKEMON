@@ -64,14 +64,14 @@ NPC_Celebi* NPC_Celebi::Create(const Vector3& pos, bool onCenterDir, const Vecto
 void NPC_Celebi::OnEvent()
 {
 	direction = DirFromPlayer(false);
-	int myProgress = QuestManager::GetInstance()->GetProgress(myName);
+	
 
 	Character* player = Player::GetInstance()->GetCharacter();
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	if (eventNPC == Event::EVENT_END)
 		return;
-	int myProgress = QuestManager::GetInstance()->GetProgress(eventNPC,NpcName::CELEBI);
+	int myProgress = QuestManager::GetInstance()->GetProgress(eventNPC, myName);
 	if (eventNPC == Event::EVENT_TUTORIAL)
 	{
 		switch (myProgress)
@@ -91,7 +91,7 @@ void NPC_Celebi::OnEvent()
 			Dialog::EnqueueText(L"(속성박스로 이동하면 몬스터가 생성됩니다.)");
 			Dialog::EnqueueText(L"(좌클릭으로 공격, 우클릭으로 스킬이 사용가능합니다.)");
 
-			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CELEBI);
+			QuestManager::GetInstance()->AddProgress(eventNPC,myName);
 			break;
 		}
 		case 1: {
@@ -133,16 +133,44 @@ void NPC_Celebi::OnEvent()
 			Dialog::EnqueueText(L"뭐야! 메타몽이었잖아?", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"그럼 할 수 있는 일이 더 많아지겠는데?", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"(아이템은 다가가는 것으로 습득할 수 있습니다.)");
 
 			Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
 			tomato->transform->position = { 20.f,0.f,48.f - 21.f };
 
-			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CELEBI);
+			QuestManager::GetInstance()->AddProgress(eventNPC,myName);
 			break;
 		}
 		case 1: {
+			GameObject* isTomato = ObjectManager::GetInstance()->FindObject<Item_Tomato>();
+			if (isTomato != nullptr)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
+			}
+			else if (isTomato == nullptr)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"고마워!", L"세레비", Pokemon::Celebi);
+				Dialog::EnqueueText(L"음… 한번 먹어볼래?", L"세레비", Pokemon::Celebi);
+				Dialog::EnqueueText(L"(습득한 아이템은 I(i) 키를 눌러 확인할 수 있습니다.)");
+				Dialog::EnqueueText(L"(아이템은 커서를 올리면 정보가 나오게 되며……)");
+				Dialog::EnqueueText(L"(소모성 아이템은 우클릭으로 사용이 가능합니다!)");
+				QuestManager::GetInstance()->AddProgress(eventNPC,myName);
+			}
+			break;
+		}
+		case 2: {
+				Dialog::Show();
+				Dialog::EnqueueText(L"얼른 먹어봐!", L"세레비", Pokemon::Celebi);
+				QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+			break;
+		}
+		case 3: {
 			Dialog::Show();
-			Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"잘했어! 뒤에 있는 파이리한테 먼저 가봐!\n너의 능력을 유용하게 쓸수 있게 도와줄거야!", L"세레비", Pokemon::Celebi);
+			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
 			break;
 		}
 		default:

@@ -42,14 +42,22 @@ void Stage_Town::OnLoaded()
 
 
 
-
-	GameObject* celebi = ObjectManager::GetInstance()->CreateObject<NPC_Celebi>();
-	celebi->transform->position = { 20.f,0.f,25.f };
+	GameObject* celebi = NPC_Celebi::Create(Vector3{ 24.f, 0.f, 31.f }, false, Vector3{ 0.f, 0.f, -1.f });
+	ObjectManager::AddObject(celebi);
+	GameObject* npc = NPC_Charmander::Create(Vector3{ 23.f, 0.f, 22.f });
+	ObjectManager::AddObject(npc);
+	//
+	npc = NPC_Bulbasaur::Create(Vector3{ 24.f, 0.f, 22.f });
+	ObjectManager::AddObject(npc);
+	//
+	npc = NPC_Squirtle::Create(Vector3{ 25.f, 0.f, 22.f });
+	ObjectManager::AddObject(npc);
 	
-
-	Dialog::Show();
-	Dialog::EnqueueText(L"(세레비에게 가보세요!)");
-
+	if (QuestManager::GetInstance()->GetEvent() == EVENT_TOWN)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"(세레비에게 가보세요!)");
+	}
 
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 	

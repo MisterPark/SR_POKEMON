@@ -33,7 +33,7 @@ NPC_Squirtle::~NPC_Squirtle()
 
 void NPC_Squirtle::Initialize()
 {
-
+	name = L"部何扁";
 	myName = NpcName::SQUIRTLE;
 	SetTexture(State::IDLE, TextureKey::PW01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PW01_WALK_D_02, 3, 2);
@@ -67,21 +67,28 @@ NPC_Squirtle* NPC_Squirtle::Create(const Vector3& pos, bool onCenterDir, const V
 
 void NPC_Squirtle::OnEvent()
 {
+	
 	direction = DirFromPlayer(false);
-	int myProgress = QuestManager::GetInstance()->GetProgress(myName);
+	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	Character* player = Player::GetInstance()->GetCharacter();
 
-
-	switch (myProgress)
+	if (eventNPC == Event::EVENT_END)
+		return;
+	int myProgress = QuestManager::GetInstance()->GetProgress(eventNPC, myName);
+	if (eventNPC == Event::EVENT_TOWN)
 	{
-	case 0: {
-		Dialog::EnqueueText(L"芭合捞绰 加捞 芭合せせ");
-		Dialog::Show();
-		break;
-	}
+		switch (myProgress)
+		{
+		case 0: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"公郊 老捞具?",name, Pokemon::Squirtle);
+			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
+			break;
+		}
 
-	default:
-		break;
+		default:
+			break;
+		}
 	}
 }

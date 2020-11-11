@@ -4,16 +4,12 @@
 #include "AllMeshs.h"
 #include "AllDecorations.h"
 #include "AllEnvironments.h"
+#include "AllNPC.h"
 #include "SkyBox.h"
 #include "Item_Tomato.h"
-#include "NPC_DoctorOh.h"
-#include "NPC_Celebi.h"
-#include "NPC_Charmander.h"
-#include "NPC_Bulbasaur.h"
-#include "NPC_Squirtle.h"
-#include "NPC.h"
+
 #include "UI_Title.h"
-#include "QuestManager.h"
+
 void Stage_Tutorial::OnLoaded()
 {
 	SkyBox::Show();
@@ -36,26 +32,11 @@ void Stage_Tutorial::OnLoaded()
 	trigerBox->transform->position = { 24.f,0.f,30.f };
 	trigerBox->AnimChange(TextureKey::POP_01, TextureKey::POP_34,0.05f, true);
 
-	GameObject* celebi = ObjectManager::GetInstance()->CreateObject<NPC_Celebi>();
-	celebi->transform->position = { 24.f,0.f,31.f };
-	dynamic_cast<NPC*>(celebi)->direction = { 0.f,0.f,-1.f };
-	
-
-	//GameObject* doctor = ObjectManager::GetInstance()->CreateObject<NPC_DoctorOh>();
-	//doctor->transform->position = { 20.f,0.f,25.f };
-
-	//GameObject* celebi = NPC_Celebi::Create(Vector3{ 24.f, 0.f, 31.f }, false, Vector3{ 0.f, 0.f, -1.f });
-	//ObjectManager::AddObject(celebi);
+	GameObject* celebi = NPC_Celebi::Create(Vector3{ 24.f, 0.f, 31.f }, false, Vector3{ 0.f, 0.f, -1.f });
+	ObjectManager::AddObject(celebi);
 
 
-	//GameObject* npc = NPC_Charmander::Create(Vector3{ 23.f, 0.f, 22.f });
-	//ObjectManager::AddObject(npc);
-	////
-	//npc = NPC_Bulbasaur::Create(Vector3{ 24.f, 0.f, 22.f });
-	//ObjectManager::AddObject(npc);
-	////
-	//npc = NPC_Squirtle::Create(Vector3{ 25.f, 0.f, 22.f });
-	//ObjectManager::AddObject(npc);
+
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 	Dialog::GetInstance();

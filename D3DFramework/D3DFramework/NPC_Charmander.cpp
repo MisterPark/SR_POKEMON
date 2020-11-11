@@ -33,7 +33,7 @@ NPC_Charmander::~NPC_Charmander()
 
 void NPC_Charmander::Initialize()
 {
-	//name = L"파이리";
+	name = L"파이리";
 	myName = NpcName::CHARMANDER;
 	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PF01_WALK_D_02, 3, 2);
@@ -66,26 +66,50 @@ NPC_Charmander* NPC_Charmander::Create(const Vector3& pos, bool onCenterDir, con
 void NPC_Charmander::OnEvent()
 {
 	direction = DirFromPlayer(false);
-	int myProgress = QuestManager::GetInstance()->GetProgress(myName);
+
+	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	Character* player = Player::GetInstance()->GetCharacter();
 
-
-	switch (myProgress)
+	if (eventNPC == Event::EVENT_END)
+		return;
+	int myProgress = QuestManager::GetInstance()->GetProgress(eventNPC, myName);
+	if (eventNPC == Event::EVENT_TOWN)
 	{
-	case 0: {
-		Dialog::EnqueueText(L"뭐");
-		Dialog::Show();
-		QuestManager::GetInstance()->AddProgress(myName);
-		break;
-	}
-	case 1: {
-		Dialog::EnqueueText(L"좋은말로 할때 가라");
-		Dialog::Show();
-		break;
+		switch (myProgress)
+		{
+		case 0: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"세레비 일이나 마저 돕고 와!", name, Pokemon::Charmander);
+			break;
+		}
+		case 1: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"", name, Pokemon::Charmander);
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
+			break;
+		}
+		default:
+			break;
+		}
 	}
 
-	default:
-		break;
-	}
+
+	//switch (myProgress)
+	//{
+	//case 0: {
+	//	Dialog::EnqueueText(L"뭐");
+	//	Dialog::Show();
+	//	QuestManager::GetInstance()->AddProgress(myName);
+	//	break;
+	//}
+	//case 1: {
+	//	Dialog::EnqueueText(L"좋은말로 할때 가라");
+	//	Dialog::Show();
+	//	break;
+	//}
+
+	//default:
+	//	break;
+	//}
 }
