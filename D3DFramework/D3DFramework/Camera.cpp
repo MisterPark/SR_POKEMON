@@ -14,7 +14,8 @@ PKH::Camera::Camera()
 	//GetViewMatrix(&view);
 	D3DXMatrixLookAtLH(&view, &transform->position, &transform->look, &transform->up);
 
-	D2DRenderManager::GetDevice()->SetTransform(D3DTS_VIEW, &view);
+
+	RenderManager::SetTransform(D3DTS_VIEW, &view);
 
 	// 투영
 	Matrix proj;
@@ -23,7 +24,7 @@ PKH::Camera::Camera()
 		nearClipPlane,
 		farClipPlane);
 
-	D2DRenderManager::GetDevice()->SetTransform(D3DTS_PROJECTION, &proj);
+	RenderManager::SetTransform(D3DTS_PROJECTION, &proj);
 	isProjection3D = true;
 }
 
@@ -95,7 +96,7 @@ void PKH::Camera::Update()
 
 	viewMatrix = Matrix::LookAtLH(transform->position, transform->look, transform->up);
 	//D3DXMatrixLookAtLH(&viewMatrix, &transform->position, &transform->look, &transform->up);
-	D2DRenderManager::GetDevice()->SetTransform(D3DTS_VIEW, &viewMatrix);
+	RenderManager::SetTransform(D3DTS_VIEW, &viewMatrix);
 
 	// 투영
 	if (isProjection3D)
@@ -230,7 +231,7 @@ void PKH::Camera::PerspectiveProjection()
 	//	(float)dfCLIENT_WIDTH / dfCLIENT_HEIGHT,
 	//	nearClipPlane,
 	//	farClipPlane);
-	D2DRenderManager::GetDevice()->SetTransform(D3DTS_PROJECTION, &pCamera->projectionMatrix);
+	RenderManager::SetTransform(D3DTS_PROJECTION, &pCamera->projectionMatrix);
 }
 
 void PKH::Camera::OrthogonalProjection() 
@@ -239,7 +240,7 @@ void PKH::Camera::OrthogonalProjection()
 	//D3DXMatrixOrthoLH(&proj, (float)7.6f, (float)5.7f, 0.0f, 10.f);
 	D3DXMatrixOrthoLH(&pCamera->projectionMatrix, (float)dfCLIENT_WIDTH * 0.01f - dfCLIENT_WIDTH * 0.0005f,
 		(float)dfCLIENT_HEIGHT * 0.01f - dfCLIENT_HEIGHT * 0.0005f, 0.0f, 10.f);
-	D2DRenderManager::GetDevice()->SetTransform(D3DTS_PROJECTION, &pCamera->projectionMatrix);
+	RenderManager::SetTransform(D3DTS_PROJECTION, &pCamera->projectionMatrix);
 }
 
 void PKH::Camera::Initialize()

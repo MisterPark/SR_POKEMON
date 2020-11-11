@@ -74,17 +74,17 @@ void ItemInfoPanel::Render()
     Vector3 renderPos;
     renderPos.x = transform->position.x - (transform->scale.x * 64);
     renderPos.y = transform->position.y - (transform->scale.y * 64);
-    D2DRenderManager::DrawUI(TextureKey::UI_BLACK_FILTER, renderPos, transform->scale, 0);
+    RenderManager::DrawUI(TextureKey::UI_BLACK_FILTER, renderPos, transform->scale, 0);
 
     int nameLen = target->name.length();
     int nameW = 20;
     // 패널 길이의 반 - 이름 길이의 반
     float nameOffsetX = (transform->scale.x * 32) - (nameLen * nameW *0.5f);
-    D2DRenderManager::DrawFont(target->name, renderPos.x+nameOffsetX, renderPos.y + 10, D3DCOLOR_ARGB(255, 255, 255, 255));
+    RenderManager::DrawFont(target->name, renderPos.x+nameOffsetX, renderPos.y + 10, D3DCOLOR_ARGB(255, 255, 255, 255));
 
-    D2DRenderManager::DrawUI(target->anim->GetCurrentSprite(), renderPos, Vector3(2, 2, 2), 0);
+    RenderManager::DrawUI(target->anim->GetCurrentSprite(), renderPos, Vector3(2, 2, 2), 0);
 
-    D2DRenderManager::DrawFont(target->description, renderPos.x +10, renderPos.y + 70, D3DCOLOR_ARGB(255, 255, 255, 255));
+    RenderManager::DrawFont(target->description, renderPos.x +10, renderPos.y + 70, D3DCOLOR_ARGB(255, 255, 255, 255));
 
 
     

@@ -429,9 +429,6 @@
     <ClInclude Include="CollisionManager.h">
       <Filter>Lib\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="D2DRenderManager.h">
-      <Filter>Lib\Manager</Filter>
-    </ClInclude>
     <ClInclude Include="FileManager.h">
       <Filter>Lib\Manager</Filter>
     </ClInclude>
@@ -1126,12 +1123,12 @@
       <Filter>Lib\Manager</Filter>
     </ClInclude>
     <ClInclude Include="Label.h" />
+    <ClInclude Include="RenderManager.h">
+      <Filter>Lib\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DRenderManager.cpp">
       <Filter>Lib\Manager</Filter>
     </ClCompile>
     <ClCompile Include="FileManager.cpp">
@@ -1914,6 +1911,9 @@
       <Filter>Lib\Manager</Filter>
     </ClCompile>
     <ClCompile Include="Label.cpp" />
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>Lib\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

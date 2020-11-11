@@ -70,7 +70,7 @@ void RenderFilter::Render()
     {
         yPos = 0;
     }
-    D2DRenderManager::DrawImage(TextureKey::UI_BLUE_FILTER, 0, yPos, 100);
+    RenderManager::DrawImage(TextureKey::UI_BLUE_FILTER, 0, yPos, 100);
     //GameObject::Render();
 }
 

@@ -64,15 +64,15 @@ void Character::RenderInfomation()
 		Vector3 namePos = Camera::WorldToScreenPoint(transform->position);
 		namePos.x -= (len / 2.f) * strW;
 		namePos.y -= transform->scale.y + 70 - camDist;
-		D2DRenderManager::DrawFont(name, namePos.x, namePos.y, D3DCOLOR_XRGB(255, 255, 255));
+		RenderManager::DrawFont(name, namePos.x, namePos.y, D3DCOLOR_XRGB(255, 255, 255));
 
 		// HP¹Ù
-		Texture* hpBarTex = D2DRenderManager::GetTexture(TextureKey::UI_HP_BAR_05);
+		Texture* hpBarTex = RenderManager::GetTexture(TextureKey::UI_HP_BAR_05);
 		float hpW = (float)hpBarTex->imageInfo.Width;
 		Vector3 hpPos = Camera::WorldToScreenPoint(transform->position);
 		hpPos.x -= (float(hpBarTex->imageInfo.Width) / hpBarTex->colCount) * 0.5f;
 		hpPos.y -= transform->scale.y + 50 - camDist;
-		D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, hpPos, Vector3(1, 1, 1), 0, float(stat.hp)/ stat.maxHp);
+		RenderManager::DrawUI(TextureKey::UI_HP_BAR_05, hpPos, Vector3(1, 1, 1), 0, float(stat.hp)/ stat.maxHp);
 		
 	}
 

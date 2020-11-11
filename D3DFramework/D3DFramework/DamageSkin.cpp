@@ -52,7 +52,7 @@ void DamageSkin::Render()
 	if (pos.z < 0.f) return;
 	WCHAR wstr[20] = {};
 	wsprintf(wstr, L"%d", damage);
-	D2DRenderManager::DrawFont(wstr, pos.x, pos.y, color);
+	RenderManager::DrawFont(wstr, pos.x, pos.y, color);
 
 }
 

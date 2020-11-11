@@ -4,14 +4,14 @@
 namespace PKH
 {
 
-	class D2DRenderManager
+	class RenderManager
 	{
 	private:
-		D2DRenderManager();
-		~D2DRenderManager();
+		RenderManager();
+		~RenderManager();
 
 	public:
-		static D2DRenderManager* GetInstance();
+		static RenderManager* GetInstance();
 		static void Destroy();
 
 		static HRESULT Initialize();
@@ -62,9 +62,10 @@ namespace PKH
 
 		//=================== Device ฐüทร ==================
 		static void LockDevice();
-		static void UnLockDevice();
+		static void UnlockDevice();
 
-
+		static HRESULT SetTransform(D3DTRANSFORMSTATETYPE State, const D3DMATRIX* pMatrix);
+		//static CreateVertexBuffer()
 
 		//==================================================
 

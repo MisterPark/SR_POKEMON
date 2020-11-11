@@ -36,7 +36,7 @@ private:
 	bool isFinish = false;
 	float percent = 0.f;
 	wstring text;
-	D2DRenderManager* pRenderMgr;
+	RenderManager* pRenderMgr;
 
 };
 

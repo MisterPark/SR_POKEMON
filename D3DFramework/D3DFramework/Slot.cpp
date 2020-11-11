@@ -33,14 +33,14 @@ void Slot::Update()
 
 void Slot::Render()
 {
-    D2DRenderManager::DrawUI(textureKey, transform->position, 0);
+    RenderManager::DrawUI(textureKey, transform->position, 0);
 
     if (item)
     {
-        D2DRenderManager::DrawUI(item->anim->GetCurrentSprite(), Vector3(transform->position.x + 3, transform->position.y + 3, 0), 0);
+        RenderManager::DrawUI(item->anim->GetCurrentSprite(), Vector3(transform->position.x + 3, transform->position.y + 3, 0), 0);
 		WCHAR wstr[8] = {};
 		wsprintf(wstr, L"%d", item->count);
-		D2DRenderManager::DrawFont(wstr,
+		RenderManager::DrawFont(wstr,
 			Vector3(transform->position.x + 3, transform->position.y + 3, 0),
 			Vector3(0.5f, 0.5f, 0.5f),
 			D3DCOLOR_ARGB(255, 0, 0, 0));
@@ -109,7 +109,7 @@ void Slot::Release()
 
 void Slot::UpdateUI()
 {
-	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	Texture* texture = RenderManager::GetTexture(textureKey);
 	if (texture != nullptr)
 	{
 		width = transform->scale.x * texture->GetSpriteWidth();

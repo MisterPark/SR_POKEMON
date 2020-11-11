@@ -79,7 +79,7 @@ void Inventory::Update()
 void Inventory::Render()
 {
     if (pInventory->isVisible == false)return;
-    D2DRenderManager::DrawUI(TextureKey::UI_BAG, pInventory->position, 0);
+    RenderManager::DrawUI(TextureKey::UI_BAG, pInventory->position, 0);
 
     for (int i = 0; i < dfMAX_SLOT_COUNT; i++)
     {

@@ -29,15 +29,19 @@ void Light::Initialize()
 	index = uniqueLightIndex;
 	uniqueLightIndex++;
 
-	D2DRenderManager::GetDevice()->SetLight(index, &lightInfo);
-	D2DRenderManager::GetDevice()->LightEnable(index, TRUE);
+	RenderManager::LockDevice();
+	RenderManager::GetDevice()->SetLight(index, &lightInfo);
+	RenderManager::GetDevice()->LightEnable(index, TRUE);
+	RenderManager::UnlockDevice();
 
 	LightManager::RegisterObject(this);
 }
 
 void Light::Release()
 {
-	D2DRenderManager::GetDevice()->LightEnable(index, FALSE);
+	RenderManager::LockDevice();
+	RenderManager::GetDevice()->LightEnable(index, FALSE);
+	RenderManager::UnlockDevice();
 	LightManager::DisregisterObject(this);
 }
 

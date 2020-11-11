@@ -37,7 +37,7 @@ void Button::Update()
 
 void Button::UpdateUI()
 {
-	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	Texture* texture = RenderManager::GetTexture(textureKey);
 	if (texture != nullptr)
 	{
 		width = transform->scale.x * texture->GetSpriteWidth();
@@ -125,7 +125,7 @@ void Button::SetSize(int w, int h)
 	originScale.x = scaleX;
 	originScale.y = scaleY;
 
-	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	Texture* texture = RenderManager::GetTexture(textureKey);
 	if (texture != nullptr)
 	{
 		width = transform->scale.x * texture->GetSpriteWidth();

@@ -129,7 +129,7 @@ void PKH::GameObject::Billboard()
 	memcpy(&matView._41, &BillPos, sizeof(D3DXVECTOR3));
 	//이동부분을 반영해줍니다. 다시 좌표의 위치로 이동시켜주는 처리입니다.
 
-	//D2DRenderManager::GetDevice()->SetTransform(D3DTS_WORLD, &matView);
+	//RenderManager::SetTransform(D3DTS_WORLD, &matView);
 	transform->world = matScale*matView;
 }
 

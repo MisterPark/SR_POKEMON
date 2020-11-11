@@ -29,5 +29,5 @@ void Label::Update()
 
 void Label::Render()
 {
-	D2DRenderManager::DrawFont(text, transform->position, transform->scale, foreColor);
+	RenderManager::DrawFont(text, transform->position, transform->scale, foreColor);
 }

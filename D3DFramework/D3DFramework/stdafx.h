@@ -79,7 +79,7 @@ using namespace std;
 #include "SoundManager.h"
 #include "MainGame.h"
 #include "ObjectManager.h"
-#include "D2DRenderManager.h"
+#include "RenderManager.h"
 #include "FileManager.h"
 
 #include "CollisionManager.h"

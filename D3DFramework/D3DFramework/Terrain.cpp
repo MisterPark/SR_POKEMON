@@ -7,7 +7,8 @@ PKH::Terrain::Terrain()
 	this->vertexCount = width * height;
 	this->triangleCount = (width-1) * (height-1) * 2;
 
-	D2DRenderManager::GetDevice()->CreateVertexBuffer(
+	RenderManager::LockDevice();
+	RenderManager::GetDevice()->CreateVertexBuffer(
 		vertexCount * sizeof(Vertex),
 		D3DUSAGE_WRITEONLY,
 		Vertex::FVF,
@@ -15,14 +16,14 @@ PKH::Terrain::Terrain()
 		&vertexBuffer,
 		0);
 
-	D2DRenderManager::GetDevice()->CreateIndexBuffer(
+	RenderManager::GetDevice()->CreateIndexBuffer(
 		triangleCount * 3 * sizeof(INDEX16),
 		D3DUSAGE_WRITEONLY,
 		D3DFMT_INDEX16,
 		D3DPOOL_MANAGED,
 		&triangles,
 		0);
-
+	RenderManager::UnlockDevice();
 
 	// ≥Ù¿Ã∏  ∑ŒµÂ
 	vertexInfo = new Vector3[width * height];

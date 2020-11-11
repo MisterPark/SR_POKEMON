@@ -115,7 +115,7 @@ void Dialog::Render()
 	if (pDialog->isVisible == false) return;
 
 	// ´ëÈ­Ã¢
-	D2DRenderManager::DrawUI(TextureKey::UI_DIALOG, transform->position, 0);
+	RenderManager::DrawUI(TextureKey::UI_DIALOG, transform->position, 0);
 	
 
 	// ÅØ½ºÆ®
@@ -123,7 +123,7 @@ void Dialog::Render()
 	textPos.x += 128;
 	textPos.y += 50;
 	int len = element.text.length() * 10;
-	D2DRenderManager::DrawFont(currText, textPos.x , textPos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
+	RenderManager::DrawFont(currText, textPos.x , textPos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
 
 	// ¾ó±¼ °è»ê
 	Vector3 imgPos = transform->position;
@@ -139,18 +139,18 @@ void Dialog::Render()
 	// ¾ó±¼
 	if (generation == 1)
 	{
-		D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, imgPos, pokeNumber - 1);
+		RenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, imgPos, pokeNumber - 1);
 	}
 	else if (generation == 2)
 	{
 		pokeNumber -= (int)Pokemon::Mew;
 		pokeNumber += 27;//¾È³ó °¹¼ö
-		D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_2ND, imgPos, pokeNumber - 1);
+		RenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_2ND, imgPos, pokeNumber - 1);
 	}
 	else
 	{
 		pokeNumber -= (int)Pokemon::Celebi;
-		D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, imgPos, pokeNumber - 1);
+		RenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, imgPos, pokeNumber - 1);
 	}
 
 	// ÀÌ¸§
@@ -158,7 +158,7 @@ void Dialog::Render()
 	Vector3 namePos = imgPos;
 	namePos.x += nameLen;
 	namePos.y += 150;
-	D2DRenderManager::DrawFont(element.name, namePos.x, namePos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
+	RenderManager::DrawFont(element.name, namePos.x, namePos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
 }
 
 void Dialog::EnqueueText(const wstring& _text, bool isLeft)

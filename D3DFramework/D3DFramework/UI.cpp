@@ -19,12 +19,12 @@ void UI::Update()
 
 void UI::Render()
 {
-	D2DRenderManager::DrawUI(textureKey, *transform, 0);
+	RenderManager::DrawUI(textureKey, *transform, 0);
 
 	if (textRenderFlag)
 	{
 		Vector3 pos = transform->position + textOffsetPosition;
-		D2DRenderManager::DrawFont(text, pos.x, pos.y, D3DCOLOR_XRGB(0, 0, 0));
+		RenderManager::DrawFont(text, pos.x, pos.y, D3DCOLOR_XRGB(0, 0, 0));
 	}
 }
 
@@ -186,7 +186,7 @@ void UI::SetTexture(TextureKey _key)
 	textureKey = _key;
 
 
-	Texture* texture = D2DRenderManager::GetTexture(textureKey);
+	Texture* texture = RenderManager::GetTexture(textureKey);
 	if (texture != nullptr)
 	{
 		width = transform->scale.x * texture->GetSpriteWidth();

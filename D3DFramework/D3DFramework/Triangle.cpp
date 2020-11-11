@@ -6,7 +6,8 @@ Triangle::Triangle()
 	this->vertexCount = 3;
 	this->triangleCount = 2;
 
-	D2DRenderManager::GetDevice()->CreateVertexBuffer(
+	RenderManager::LockDevice();
+	RenderManager::GetDevice()->CreateVertexBuffer(
 		vertexCount * sizeof(VertexColor),
 		D3DUSAGE_WRITEONLY,
 		VertexColor::FVF,
@@ -14,13 +15,14 @@ Triangle::Triangle()
 		&vertexBuffer,
 		0);
 
-	D2DRenderManager::GetDevice()->CreateIndexBuffer(
+	RenderManager::GetDevice()->CreateIndexBuffer(
 		triangleCount * 3 * sizeof(WORD),
 		D3DUSAGE_WRITEONLY,
 		D3DFMT_INDEX16,
 		D3DPOOL_MANAGED,
 		&triangles,
 		0);
+	RenderManager::UnlockDevice();
 
 	VertexColor* vertices;
 	vertexBuffer->Lock(0, 0, (void**)&vertices, 0);

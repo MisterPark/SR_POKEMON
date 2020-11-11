@@ -28,10 +28,11 @@ void PKH::Mesh::Render()
 	
 	Transform* transform = (Transform*)gameObject->GetComponent(L"Transform");
 
-	LPDIRECT3DDEVICE9 device = D2DRenderManager::GetDevice();
+	LPDIRECT3DDEVICE9 device = RenderManager::GetDevice();
+	RenderManager::LockDevice();
 	if (device)
 	{
-		Texture* texture = D2DRenderManager::GetTexture(textureKey);
+		Texture* texture = RenderManager::GetTexture(textureKey);
 		if (texture != nullptr)
 		{
 			device->SetTexture(0, texture->pTexture);
@@ -138,6 +139,7 @@ void PKH::Mesh::Render()
 		
 	
 	}
+	RenderManager::UnlockDevice();
 }
 
 PKH::IComponent * PKH::Mesh::Clone()
