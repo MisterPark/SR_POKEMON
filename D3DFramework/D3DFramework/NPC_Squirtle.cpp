@@ -87,6 +87,13 @@ void NPC_Squirtle::OnEvent()
 			break;
 		}
 		case 1: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"어서와!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"너의 변신 능력은 적에게도 사용할 수 있어!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"너의 변신 능력은 적에게도 사용할 수 있어!", name, Pokemon::Squirtle);
+			break;
+		}
+		case 2: {
 			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 1)
 			{
 				Dialog::Show();

@@ -163,7 +163,7 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"숲 근처에서 진화의 돌을 본 포켓몬이 있어!", L"파이리", Pokemon::Charmander);
 		Dialog::EnqueueText(L"그 진화의돌을 내게 가져와 줘!", L"파이리", Pokemon::Charmander);
 		Dialog::EnqueueText(L"뭐 겸사겸사 다른 애들 것도 가져와도 되고!", L"파이리", Pokemon::Charmander);
-		Dialog::EnqueueText(L"어서 다녀오라고!", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"아! 가기 전에 꼬부기한테 한번 가봐!", L"파이리", Pokemon::Charmander);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CHARMANDER);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::BULBASAUR);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
