@@ -223,3 +223,5 @@ void PKH::GameObject::SetHp(float _hp)
 	stat.hp = _hp;
 }
 
+
+

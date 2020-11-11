@@ -20,7 +20,7 @@ void NPC::Initialize()
 	stat.attack = 0.f;
 	offsetY = 1.f;
 	team = Team::MONSTERTEAM;
-	CollisionManager::RegisterObject(COLTYPE::NPC, this);
+	CollisionManager::RegisterObject(COLTYPE::COL_NPC, this);
 
 	Mesh* mesh = (Mesh*)AddComponent<PKH::Rectangle>(L"Mesh");
 	mesh->SetBlendMode(BlendMode::ALPHA_TEST);
@@ -31,7 +31,7 @@ void NPC::Initialize()
 
 void NPC::Release()
 {
-	CollisionManager::DisregisterObject(COLTYPE::NPC, this);
+	CollisionManager::DisregisterObject(COLTYPE::COL_NPC, this);
 }
 
 void NPC::Update()
