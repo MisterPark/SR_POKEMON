@@ -33,13 +33,30 @@ NPC_Squirtle::~NPC_Squirtle()
 
 void NPC_Squirtle::Initialize()
 {
-	name = L"部何扁";
-	myName = NpcName::SQUIRTLE;
-	SetTexture(State::IDLE, TextureKey::PW01_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PW01_WALK_D_02, 3, 2);
-
-	SetTexture(State::ATTACK, TextureKey::PW01_ATTACK_D_01, 3);
-	SetTexture(State::SKILL, TextureKey::PW01_SKILL_D_01, 1);
+	if (0 == QuestManager::GetInstance()->GetEvolution(NpcName::SQUIRTLE)) {
+		name = L"部何扁";
+		myName = NpcName::SQUIRTLE;
+		SetTexture(State::IDLE, TextureKey::PW01_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PW01_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PW01_ATTACK_D_01, 3);
+		SetTexture(State::SKILL, TextureKey::PW01_SKILL_D_01, 1);
+	}
+	else if (1 == QuestManager::GetInstance()->GetEvolution(NpcName::SQUIRTLE)) {
+		name = L"绢聪何扁";
+		myName = NpcName::SQUIRTLE;
+		SetTexture(State::IDLE, TextureKey::PW02_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PW02_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PW02_ATTACK_D_01, 2);
+		SetTexture(State::SKILL, TextureKey::PW02_SKILL_D_01, 1);
+	}
+	else {
+		name = L"芭合空";
+		myName = NpcName::SQUIRTLE;
+		SetTexture(State::IDLE, TextureKey::PW03_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PW03_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PW03_ATTACK_D_01, 1);
+		SetTexture(State::SKILL, TextureKey::PW03_SKILL_D_01, 1);
+	}
 	anim->SetLoop(true);
 	anim->SetDelay(0.35f);
 	state = State::IDLE;

@@ -33,12 +33,30 @@ NPC_Charmander::~NPC_Charmander()
 
 void NPC_Charmander::Initialize()
 {
-	name = L"파이리";
-	myName = NpcName::CHARMANDER;
-	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PF01_WALK_D_02, 3, 2);
-	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
-	SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 2);
+	if (0 == QuestManager::GetInstance()->GetEvolution(NpcName::CHARMANDER)) {
+		name = L"파이리";
+		myName = NpcName::CHARMANDER;
+		SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PF01_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
+		SetTexture(State::SKILL, TextureKey::PF01_SKILL_D_01, 2);
+	}
+	else if (1 == QuestManager::GetInstance()->GetEvolution(NpcName::CHARMANDER)) {
+		name = L"리자드";
+		myName = NpcName::CHARMANDER;
+		SetTexture(State::IDLE, TextureKey::PF02_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PF02_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PF02_ATTACK_D_01, 2);
+		SetTexture(State::SKILL, TextureKey::PF02_SKILL_D_01, 2);
+	}
+	else {
+		name = L"리자몽";
+		myName = NpcName::CHARMANDER;
+		SetTexture(State::IDLE, TextureKey::PF03_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PF03_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PF03_ATTACK_D_01, 2);
+		SetTexture(State::SKILL, TextureKey::PF03_SKILL_D_01, 2);
+	}
 	anim->SetLoop(true);
 	anim->SetDelay(0.35f);
 	state = State::IDLE;

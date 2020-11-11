@@ -2272,6 +2272,22 @@ namespace PKH
 		COINPOKE_25,
 		COINPOKE_26,
 		COINPOKE_27,
+
+		SMOKE_01,
+		SMOKE_02,
+		SMOKE_03,
+		SMOKE_04,
+		SMOKE_05,
+		SMOKE_06,
+		SMOKE_07,
+		SMOKE_08,
+		SMOKE_09,
+		SMOKE_10,
+		SMOKE_11,
+		SMOKE_12,
+		SMOKE_13,
+		SMOKE_14,
+		SMOKE_15,
 	};
 
 	enum class TextureType

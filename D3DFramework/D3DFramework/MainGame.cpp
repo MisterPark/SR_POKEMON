@@ -271,6 +271,22 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_26, L"Texture\\UI\\Coin\\coinpoke2.png");
 	D2DRenderManager::LoadSprite(TextureKey::COINPOKE_27, L"Texture\\UI\\Coin\\coinpoke1.png");
 
+	//연기 (변신)
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_01, L"Texture\\Effect\\Smoke\\Smoke_01.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_02, L"Texture\\Effect\\Smoke\\Smoke_02.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_03, L"Texture\\Effect\\Smoke\\Smoke_03.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_04, L"Texture\\Effect\\Smoke\\Smoke_04.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_05, L"Texture\\Effect\\Smoke\\Smoke_05.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_06, L"Texture\\Effect\\Smoke\\Smoke_06.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_07, L"Texture\\Effect\\Smoke\\Smoke_07.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_08, L"Texture\\Effect\\Smoke\\Smoke_08.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_09, L"Texture\\Effect\\Smoke\\Smoke_09.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_10, L"Texture\\Effect\\Smoke\\Smoke_10.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_11, L"Texture\\Effect\\Smoke\\Smoke_11.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_12, L"Texture\\Effect\\Smoke\\Smoke_12.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_13, L"Texture\\Effect\\Smoke\\Smoke_13.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_14, L"Texture\\Effect\\Smoke\\Smoke_14.png");
+	D2DRenderManager::LoadSprite(TextureKey::SMOKE_15, L"Texture\\Effect\\Smoke\\Smoke_15.png");
 	
 	//속성
 	D2DRenderManager::LoadSprite(TextureKey::PROPERTY_FIRE, L"Texture\\ETC\\Property\\Fire (1).png");
