@@ -13,6 +13,7 @@ PKH::Camera::Camera()
 	Matrix view;
 	//GetViewMatrix(&view);
 	D3DXMatrixLookAtLH(&view, &transform->position, &transform->look, &transform->up);
+
 	D2DRenderManager::GetDevice()->SetTransform(D3DTS_VIEW, &view);
 
 	// Åõ¿µ

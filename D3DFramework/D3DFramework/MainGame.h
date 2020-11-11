@@ -22,11 +22,8 @@ namespace PKH
 		static void Resume();
 		static void Shutdown();
 
-		static void LoadETCSprite();
+		
 		static void LoadUISprite();
-		static void LoadMonsterSprite();
-		static void LoadPlayerSprite();
-		static void LoadNPCSprite();
 
 		Triangle* tri = nullptr;
 	};

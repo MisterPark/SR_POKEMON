@@ -42,7 +42,6 @@ void Stage_Opening::OnLoaded()
 
 void Stage_Opening::OnUnloaded()
 {
-	LobbyWindow::Hide();
 	ObjectManager::DestroyAll();
 }
 

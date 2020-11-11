@@ -8,10 +8,12 @@ PKH::D2DRenderManager* pD2DRenderManager = nullptr;
 
 PKH::D2DRenderManager::D2DRenderManager()
 {
+	InitializeCriticalSection(&csDevice);
 }
 
 PKH::D2DRenderManager::~D2DRenderManager()
 {
+	DeleteCriticalSection(&csDevice);
 	Release();
 }
 
@@ -141,14 +143,18 @@ void PKH::D2DRenderManager::Release()
 
 void PKH::D2DRenderManager::Clear()
 {
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
 	pD2DRenderManager->pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, Color::Gray.value, 1.f, 0);
 	pD2DRenderManager->pDevice->BeginScene();
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
 }
 
 void PKH::D2DRenderManager::Present(HWND renderTarget)
 {
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
 	pD2DRenderManager->pDevice->EndScene();
 	pD2DRenderManager->pDevice->Present(nullptr, nullptr, renderTarget, nullptr);
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
 }
 
 LPDIRECT3DDEVICE9 PKH::D2DRenderManager::GetDevice()
@@ -178,11 +184,17 @@ LPD3DXLINE PKH::D2DRenderManager::GetLine()
 	return pD2DRenderManager->pLine;
 }
 
+
 HRESULT PKH::D2DRenderManager::LoadSprite(TextureKey spriteKey, const wstring& filePath, DWORD row, DWORD col)
 {
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
 	auto find = pD2DRenderManager->textureMap.find(spriteKey);
 
-	if (find != pD2DRenderManager->textureMap.end()) return S_OK;
+	if (find != pD2DRenderManager->textureMap.end())
+	{
+		LeaveCriticalSection(&pD2DRenderManager->csDevice);
+		return S_OK;
+	}
 
 	Texture* tex = new Texture;
 
@@ -190,6 +202,7 @@ HRESULT PKH::D2DRenderManager::LoadSprite(TextureKey spriteKey, const wstring& f
 	{
 		MessageBox(g_hwnd, L"이미지 정보 불러오기 실패", nullptr, MB_OK);
 		delete tex;
+		LeaveCriticalSection(&pD2DRenderManager->csDevice);
 		return E_FAIL;
 	}
 
@@ -212,6 +225,7 @@ HRESULT PKH::D2DRenderManager::LoadSprite(TextureKey spriteKey, const wstring& f
 		wstring errMsg = filePath + L"Create Texture Failed";
 		MessageBox(g_hwnd, errMsg.c_str(), nullptr, MB_OK);
 		delete tex;
+		LeaveCriticalSection(&pD2DRenderManager->csDevice);
 		return E_FAIL;
 	}
 
@@ -219,7 +233,7 @@ HRESULT PKH::D2DRenderManager::LoadSprite(TextureKey spriteKey, const wstring& f
 	tex->colCount = col;
 
 	pD2DRenderManager->textureMap[spriteKey] = tex;
-
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
 	return S_OK;
 }
 
@@ -622,6 +636,7 @@ void PKH::D2DRenderManager::DrawFont(const wstring& text, float x, float y, D3DX
 
 void PKH::D2DRenderManager::DrawFont(const wstring& text, Vector3 pos, Vector3 scale, D3DXCOLOR color)
 {
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
 	Matrix matWorld, matPos, matScale;
 	D3DXMatrixScaling(&matScale, scale.x, scale.y, 1.f);
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
@@ -630,6 +645,7 @@ void PKH::D2DRenderManager::DrawFont(const wstring& text, Vector3 pos, Vector3 s
 	pD2DRenderManager->pSprite->SetTransform(&matWorld);
 	pD2DRenderManager->pFont->DrawTextW(pD2DRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), nullptr, 0, color);
 	pD2DRenderManager->pSprite->End();
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
 }
 
 void PKH::D2DRenderManager::DrawFont(LPD3DXFONT font, const wstring& text, float x, float y, D3DXCOLOR color)
@@ -695,10 +711,13 @@ HRESULT PKH::D2DRenderManager::LoadTexture(TextureKey key, const wstring& filePa
 		delete tex;
 		return E_FAIL;
 	}
-
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
 	if (FAILED(D3DXCreateTextureFromFileW(pD2DRenderManager->pDevice, filePath.c_str(), &tex->pTexture)))
+	{
+		LeaveCriticalSection(&pD2DRenderManager->csDevice);
 		return E_FAIL;
-
+	}
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
 	return S_OK;
 }
 
@@ -718,9 +737,13 @@ HRESULT PKH::D2DRenderManager::LoadCubeTexture(TextureKey key, const wstring& fi
 	}
 
 	// TODO : 큐브텍스쳐 로드하는거 마지막인자 수정해야할수도있음.
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
 	if (FAILED(D3DXCreateCubeTextureFromFileW(pD2DRenderManager->pDevice, filePath.c_str(), (LPDIRECT3DCUBETEXTURE9*)&tex->pTexture)))
+	{
+		LeaveCriticalSection(&pD2DRenderManager->csDevice);
 		return E_FAIL;
-
+	}
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
 	return S_OK;
 }
 
@@ -729,6 +752,17 @@ void PKH::D2DRenderManager::DrawTexture(TextureKey key)
 	auto find = pD2DRenderManager->textureMap.find(key);
 
 	if (find == pD2DRenderManager->textureMap.end()) return;
-
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
 	pD2DRenderManager->pDevice->SetTexture(0, find->second->pTexture);
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
+}
+
+void PKH::D2DRenderManager::LockDevice()
+{
+	EnterCriticalSection(&pD2DRenderManager->csDevice);
+}
+
+void PKH::D2DRenderManager::UnLockDevice()
+{
+	LeaveCriticalSection(&pD2DRenderManager->csDevice);
 }

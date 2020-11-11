@@ -1125,6 +1125,7 @@
     <ClInclude Include="LoadManager.h">
       <Filter>Lib\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Label.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1912,6 +1913,7 @@
     <ClCompile Include="LoadManager.cpp">
       <Filter>Lib\Manager</Filter>
     </ClCompile>
+    <ClCompile Include="Label.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

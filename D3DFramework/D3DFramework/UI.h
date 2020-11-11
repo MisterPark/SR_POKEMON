@@ -34,6 +34,7 @@ public:
 public:
     // 출력할 텍스트 (RW)
     wstring text;
+    D3DCOLOR foreColor;
     // 텍스트를 출력할 local(offset)위치 (RW) 
     Vector3 textOffsetPosition;
     // 텍스트를 출력할 UI인가? (RW)

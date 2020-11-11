@@ -60,6 +60,13 @@ namespace PKH
 
 		//=========================================
 
+		//=================== Device 관련 ==================
+		static void LockDevice();
+		static void UnLockDevice();
+
+
+
+		//==================================================
 
 	private:
 		// 실질적으로 장치를 다룰 객체. 
@@ -72,6 +79,8 @@ namespace PKH
 
 
 		map<TextureKey, Texture*> textureMap;
+
+		CRITICAL_SECTION csDevice;
 	};
 
 

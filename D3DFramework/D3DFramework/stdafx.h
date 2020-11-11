@@ -87,6 +87,7 @@ using namespace std;
 #include "TimeManager.h"
 #include "SceneManager.h"
 #include "LightManager.h"
+#include "LoadManager.h"
 
 #include "Cursor.h"
 #include "Camera.h"

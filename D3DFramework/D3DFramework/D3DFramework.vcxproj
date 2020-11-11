@@ -196,6 +196,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
     <ClInclude Include="EndingScene.h" />
+    <ClInclude Include="Label.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="LightManager.h" />
     <ClInclude Include="LoadingScene.h" />
@@ -423,6 +424,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
     <ClCompile Include="EndingScene.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LightManager.cpp" />
     <ClCompile Include="LoadingScene.cpp" />

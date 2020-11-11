@@ -6,6 +6,7 @@
 #include "TestScene.h"
 #include "SelectScene.h"
 #include "Dialog.h"
+#include "LoadingScene.h"
 
 void TitleScene::OnLoaded()
 {
@@ -23,7 +24,7 @@ void TitleScene::OnLoaded()
 	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
 	btn->transform->position.y = 600;
 	
-	btn->Click = SceneManager::LoadScene<Stage_Opening>;
+	btn->Click = SceneManager::LoadScene<LoadingScene>;
 
 	//btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	//btn->text = L"¿É¼Ç";
@@ -60,5 +61,4 @@ void TitleScene::OnUnloaded()
 
 void TitleScene::Update()
 {
-
 }
