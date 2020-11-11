@@ -10,6 +10,7 @@
 #include "NPC_Celebi.h"
 #include "NPC.h"
 #include "UI_Title.h"
+#include "QuestManager.h"
 void Stage_Tutorial::OnLoaded()
 {
 	SkyBox::Show();
@@ -149,6 +150,7 @@ void Stage_Tutorial::Stage_Tutorial_Wave()
 	{
 		if (spawnerCount == 2)
 		{
+			QuestManager::GetInstance()->AddProgress(NpcName::CELEBI);
 			Dialog::Show();
 			Dialog::EnqueueText(L"(세레비에게 돌아가세요!)");
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();

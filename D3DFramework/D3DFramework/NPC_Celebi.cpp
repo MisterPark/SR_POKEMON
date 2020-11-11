@@ -74,9 +74,10 @@ void NPC_Celebi::OnEvent()
 		break;
 	}
 	case 1: {
-		Dialog::EnqueueText(L"저기 저 캐터피를 5마리 잡아주겠어?");
+		Dialog::EnqueueText(L"(속성박스로 이동하세요.)");
+		Dialog::EnqueueText(L"(속성박스로 이동하면 몬스터가 생성됩니다.)");
+		Dialog::EnqueueText(L"(좌클릭으로 공격, 우클릭으로 스킬이 사용가능합니다.)");
 		Dialog::Show();
-		QuestManager::GetInstance()->AddProgress(NpcName::CELEBI);
 		break;
 	}
 	case 2: {

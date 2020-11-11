@@ -1083,6 +1083,9 @@
     <ClInclude Include="Stage_Opening.h">
       <Filter>Scene\Opening</Filter>
     </ClInclude>
+    <ClInclude Include="AllNPC.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">

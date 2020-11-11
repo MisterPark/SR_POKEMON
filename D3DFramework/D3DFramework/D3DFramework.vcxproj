@@ -158,6 +158,7 @@
     <ClInclude Include="AllDecorations.h" />
     <ClInclude Include="AllEnvironments.h" />
     <ClInclude Include="AllMeshs.h" />
+    <ClInclude Include="AllNPC.h" />
     <ClInclude Include="AllSkills.h" />
     <ClInclude Include="AllStage.h" />
     <ClInclude Include="Animation2D.h" />
