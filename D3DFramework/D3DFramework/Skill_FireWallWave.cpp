@@ -31,7 +31,7 @@ void Skill_FireWallWave::Update()
 	character->transform->position.x = 23.5f;
 	character->transform->position.z = 48.f-5.0f;
 	character->direction = { 0.f,0.f,-1.f };
-	float shakesize = 0.5f;
+	float shakesize = 1.0f;
 
 	if (Frame[0] == 0)
 	{
