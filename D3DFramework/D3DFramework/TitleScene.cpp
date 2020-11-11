@@ -9,7 +9,7 @@
 
 void TitleScene::OnLoaded()
 {
-	//Network::Connect();
+
 	Camera::GetInstance()->SetPosition(Vector3(0, 0, 0));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 1);
 
@@ -47,40 +47,16 @@ void TitleScene::OnLoaded()
 
 	btn->Click = SceneManager::LoadScene<TestScene>;
 	
-	//lobby = LobbyWindow::GetInstance();
-	//lobby->Create();
 
 	Dialog::GetInstance()->Hide();
 }
 
 void TitleScene::OnUnloaded()
 {
-	LobbyWindow::Hide();
 	ObjectManager::DestroyAll();
 }
 
 void TitleScene::Update()
 {
-	if (lobby == nullptr) return;
 
-	LobbyResult res = lobby->result;
-	switch (res)
-	{
-	case LobbyResult::NONE:
-		// 아무행동 안함
-		break;
-	case LobbyResult::OK:
-		// 닉네임 체크 한다음 겹치면 다시 띄우기
-		lobby->result = LobbyResult::NONE;
-
-
-		SceneManager::LoadScene<TestMultiScene>();
-		LobbyWindow::Hide();
-		break;
-	case LobbyResult::CANCEL:
-		// 이전 씬으로
-		break;
-	default:
-		break;
-	}
 }
