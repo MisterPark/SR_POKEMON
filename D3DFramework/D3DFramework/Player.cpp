@@ -454,6 +454,8 @@ void Player::PermanentMetamorphosis()
 		nextPokemon.second = Pokemon::None;
 
 		canMetamorphosis = true;
+
+		MetamorphoEffect();
 	}
 }
 
@@ -465,6 +467,8 @@ void Player::MetamorphosisToDitto()
 	SetCharacterByType(TYPE::DITTO);
 	permanentIndex = 0;
 	canMetamorphosis = true;
+
+	MetamorphoEffect();
 }
 
 void Player::SetCharacterByType(TYPE type)

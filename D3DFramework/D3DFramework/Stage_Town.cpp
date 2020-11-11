@@ -29,6 +29,9 @@ void Stage_Town::OnLoaded()
 
 	}
 
+	// TODO: 타운에 오면 조건에 따라 메타몽으로 변신
+	if (true) Player::GetInstance()->MetamorphosisToDitto();
+
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = GrassPortal;
 	trigerBox->transform->position = { 3.f,0.f,24.9f };
