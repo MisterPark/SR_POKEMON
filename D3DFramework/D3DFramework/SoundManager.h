@@ -20,6 +20,7 @@ namespace PKH
 		static void Release();
 	public:
 		static void PlaySound(TCHAR* pSoundKey, SoundChannel eID);
+		static void PlayOverlapSound(TCHAR* pSoundKey, SoundChannel eID);
 		static void PlayBGM(TCHAR* pSoundKey);
 		static void StopSound(SoundChannel eID);
 		static void StopAll();
