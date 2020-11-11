@@ -170,7 +170,9 @@ enum class Pokemon
 	Celebi = 251,
 
 	//3nd
+	Treecko = 252,
 	Groudon = 383,
 	
 
 };
+

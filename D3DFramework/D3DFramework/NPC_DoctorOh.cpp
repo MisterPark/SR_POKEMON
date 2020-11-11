@@ -5,6 +5,7 @@
 
 NPC_DoctorOh::NPC_DoctorOh()
 {
+	name = L"¼¼·¹ºñ";
 	transform->scale = { 0.5f,0.5f, 0.5f };
 	offsetY = 0.5f;
 	anim->SetSprite(TextureKey::NPC_DOCTOR_OH, TextureKey::NPC_DOCTOR_OH);

@@ -5,7 +5,7 @@
 #include "Charmeleon.h"
 #include "Inventory.h"
 #include "AllCharacters.h"
-
+#include "Dialog.h"
 Player* Player::instance = nullptr;
 
 Player::Player() :
@@ -47,7 +47,10 @@ void Player::Update()
 {
 	if (nullptr == character) return;
 
-	KeyInput();
+	if (Dialog::GetInstance()->isVisible==false)
+	{
+		KeyInput();
+	}
 	CalcMetamorphosisTime();
 
 	if (isFix)

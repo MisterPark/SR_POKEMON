@@ -49,9 +49,12 @@ void Stage_Town::OnLoaded()
 	GameObject* doctor = ObjectManager::GetInstance()->CreateObject<NPC_DoctorOh>();
 	doctor->transform->position = { 20.f,0.f,25.f };
 	
+	Dialog::Show();
+	Dialog::EnqueueText(L"(오박사에게 가보세요!)");
+
 
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
-
+	
 
 }
 
