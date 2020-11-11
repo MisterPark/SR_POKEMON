@@ -13,7 +13,8 @@ Player* Player::instance = nullptr;
 Player::Player() :
 	character(nullptr), radianX(0.f), radianY(0.f),
 	isFix(true), skillNum(1), isAttackCheat(false),
-	originDefaultAttack(0.f), originIncreaseAttack(0.f)
+	originDefaultAttack(0.f), originIncreaseAttack(0.f),
+	dittoColor(0)
 {
 }
 
@@ -649,7 +650,9 @@ void Player::ChangeNextPokemon(TYPE pokemon, Pokemon number)
 
 void Player::MetamorphoEffect() {
 	Vector3 fPos = character->transform->position;
+	fPos.x -= character->direction.x * 0.01f;
 	fPos.y += 0.3f;
+	fPos.z -= character->direction.z * 0.01f;
 	Effect* fx = Effect::Create(fPos, Vector3{ 0.5f, 0.5f, 0.5f }, TextureKey::SMOKE_01, TextureKey::SMOKE_15, 0.05f);
 	ObjectManager::AddObject(fx);
 }

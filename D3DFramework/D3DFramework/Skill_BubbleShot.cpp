@@ -5,6 +5,7 @@
 
 Skill_BubbleShot::Skill_BubbleShot()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_BUBBLE;
 	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }

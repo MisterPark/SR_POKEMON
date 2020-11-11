@@ -5,7 +5,7 @@
 
 Skill_MiniRush::Skill_MiniRush()
 {
-	skillIcon = TextureKey::ICON_XCLAW;
+	skillIcon = TextureKey::UI_SKILL_ICON_MINIRUSH;
 	moveStopTime = 1.2f;
 	isSpawn = false;
 }

@@ -5,6 +5,7 @@
 
 Skill_AccelWater::Skill_AccelWater()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_ACCELWATER;
 	coolTime = 0.5f;
 	moveStopTime = 0.5f;
 }

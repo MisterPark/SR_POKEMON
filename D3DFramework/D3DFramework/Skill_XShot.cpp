@@ -5,6 +5,7 @@
 
 Skill_XShot::Skill_XShot()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_XPOISON;
 	moveStopTime = 0.5f;
 }
 

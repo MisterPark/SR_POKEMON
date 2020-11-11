@@ -5,6 +5,7 @@
 
 Skill_FireShot::Skill_FireShot()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_FIREXCROSSBOMB;
 	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }

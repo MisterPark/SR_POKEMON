@@ -6,6 +6,7 @@
 
 Skill_Explosion::Skill_Explosion()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_EXPLOSION;
 	coolTime = 1.f;
 	moveStopTime = 1.f;
 }

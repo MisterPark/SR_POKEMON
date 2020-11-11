@@ -3,12 +3,17 @@
 
 #include "UI_Title.h"
 #include "Button.h"
+#include "SkyBox.h"
 #include "Dialog.h"
 #include "SceneManager.h"
-
+#include "PlayerInfoPanel.h"
 void EndingScene::OnLoaded()
 {
 	//Network::Connect();
+	SkyBox::Hide();
+	PlayerInfoPanel::Hide();
+	Player::Hide();
+
 	Camera::GetInstance()->SetPosition(Vector3(0, 0, 0));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 1);
 

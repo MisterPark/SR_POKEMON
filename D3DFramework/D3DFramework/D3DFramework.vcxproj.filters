@@ -1104,6 +1104,9 @@
     <ClInclude Include="AllItems.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
+    <ClInclude Include="NPC_ColorDitto.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
     <ClInclude Include="EndingScene.h">
       <Filter>Scene\Ending</Filter>
     </ClInclude>
@@ -1880,6 +1883,9 @@
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
     <ClCompile Include="NPC_Squirtle.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_ColorDitto.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
     <ClCompile Include="EndingScene.cpp">
