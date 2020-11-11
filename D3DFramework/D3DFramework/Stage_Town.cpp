@@ -138,6 +138,7 @@ void Stage_Town::Set_Stage_Town_Map(TextureKey _key, const std::string& _filePat
 
 void Stage_Town::Event_Town(Event _event)
 {
+	
 	if (Player::GetInstance()->GetCharacter()->type == TYPE::DITTO&&QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN,NpcName::CELEBI)==0)
 	{
 		Dialog::Show();
@@ -164,6 +165,25 @@ void Stage_Town::Event_Town(Event _event)
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CHARMANDER);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::BULBASAUR);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+	}
+	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 2&& QuestManager::GetInstance()->GetMonsterKill(MonsterType::CATERPIE)==1)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"(또 뵙네요!)");
+		Dialog::EnqueueText(L"(몬스터들을 사냥했을때 Lv의 하단에 초상화가 보이시나요?)");
+		Dialog::EnqueueText(L"(저 초상화가 바로 당신이 변신할 수 있는 몬스터입니다!)");
+		Dialog::EnqueueText(L"('Space' 키를 눌러 변신해보세요!)");
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+	}
+
+	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
+		Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
+		Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+		QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
 	}
 }
 

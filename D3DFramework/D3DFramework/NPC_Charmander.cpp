@@ -131,11 +131,50 @@ void NPC_Charmander::OnEvent()
 			break;
 		}
 	}
+	else if (eventNPC == Event::EVENT_GAME)
+	{
+		switch (myProgress)
+		{
+		case 0: {
+			if (Inventory::GetItemCount(ItemType::STONE_OF_FIRE) >= 1)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"진화의돌 찾았구나!", name, Pokemon::Charmander);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type == TYPE::CHARMANDER)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"진화의돌 못 찾았어?", name, Pokemon::Charmander);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::CHARMANDER)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"다시 변신시켜줄게!", name, Pokemon::Charmander);
+				Dialog::SetEndEvent(MetatoCharmander);
+			}
+		}
+		default:
+			break;
+		}
+	}
+	
 
 }
 
 void NPC_Charmander::MetatoCharmander()
 {
 	Player::GetInstance()->ChangeNextPokemon(TYPE::CHARMANDER,Pokemon::Charmander);
+	Player::GetInstance()->PermanentMetamorphosis();
+}
+
+void NPC_Charmander::MetatoCharmeleon()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::CHARMELEON, Pokemon::Charmeleon);
+	Player::GetInstance()->PermanentMetamorphosis();
+}
+
+void NPC_Charmander::MetatoCharizard()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::CHARIZARD, Pokemon::Charizard);
 	Player::GetInstance()->PermanentMetamorphosis();
 }

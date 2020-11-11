@@ -16,6 +16,8 @@ public:
 	virtual void OnEvent() override;
 
 	static void MetatoCharmander();
+	static void MetatoCharmeleon();
+	static void MetatoCharizard();
 
 public:
 	//Create(위치벡터, 중앙을 바라보게 할것인가, False였으면 여기서 방향벡터);

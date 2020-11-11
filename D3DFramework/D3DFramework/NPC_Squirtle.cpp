@@ -90,10 +90,33 @@ void NPC_Squirtle::OnEvent()
 			Dialog::Show();
 			Dialog::EnqueueText(L"어서와!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"너의 변신 능력은 적에게도 사용할 수 있어!", name, Pokemon::Squirtle);
-			Dialog::EnqueueText(L"너의 변신 능력은 적에게도 사용할 수 있어!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"바로 사냥을 통해서 말이지……!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"시험삼아…… 저기 저 캐터피를 잡아봐!", name, Pokemon::Squirtle);
+			Dialog::SetEndEvent(SummonCaterpie);
+			QuestManager::GetInstance()->SetMonsterKill(MonsterType::CATERPIE, 0);
+			QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+			
 			break;
 		}
 		case 2: {
+			//의도적 공백 텍스트 넣으면 터집니다.
+			break;
+		}
+		case 3: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"대단해…!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"하지만 동의가 없는 몬스터로의 변신은\n제한시간이 '5초' 라는 것을 명심해!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"그리고 한번 변신을 하게 되면 저장된 변신몬스터가 사라지지…!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"이제 널 숲으로 보내도 될 것 같아……!", name, Pokemon::Squirtle);
+			Dialog::EnqueueText(L"건투를 빌어!", name, Pokemon::Squirtle);
+			QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+			break;
+		}
+		case 4: {
+			//의도적 공백 텍스트 넣으면 터집니다.
+			break;
+		}
+		case 5: {
 			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 1)
 			{
 				Dialog::Show();
@@ -116,10 +139,54 @@ void NPC_Squirtle::OnEvent()
 			break;
 		}
 	}
+	else if (eventNPC == Event::EVENT_GAME)
+	{
+		switch (myProgress)
+		{
+		case 0: {
+			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 1)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"진화의돌을 찾았구나!", name, Pokemon::Squirtle);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type == TYPE::SQUIRTLE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"건투를 빌어!", name, Pokemon::Squirtle);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::SQUIRTLE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"내 힘을 빌려줄게!", name, Pokemon::Squirtle);
+				Dialog::SetEndEvent(MetatoSquirtle);
+			}
+			break;
+		}
+		}
+	}
 }
 
 void NPC_Squirtle::MetatoSquirtle()
 {
 	Player::GetInstance()->ChangeNextPokemon(TYPE::SQUIRTLE, Pokemon::Squirtle);
 	Player::GetInstance()->PermanentMetamorphosis();
+}
+
+void NPC_Squirtle::MetatoWartortle()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::WARTORTLE, Pokemon::Wartortle);
+	Player::GetInstance()->PermanentMetamorphosis();
+}
+
+void NPC_Squirtle::MetatoBlastoise()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::BLASTOISE, Pokemon::Blastoise);
+	Player::GetInstance()->PermanentMetamorphosis();
+}
+
+void NPC_Squirtle::SummonCaterpie()
+{
+	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 5.f, 0.5f, 1, 2);
+	spawner->transform->position = { 25.f,0.f,22.f };
+	ObjectManager::AddObject(spawner);
 }

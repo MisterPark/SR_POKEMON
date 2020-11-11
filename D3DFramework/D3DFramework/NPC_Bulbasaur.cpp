@@ -101,3 +101,15 @@ void NPC_Bulbasaur::MetatoBulbasaur()
 	Player::GetInstance()->ChangeNextPokemon(TYPE::BULBASAUR, Pokemon::Bulbasaur);
 	Player::GetInstance()->PermanentMetamorphosis();
 }
+
+void NPC_Bulbasaur::MetatoIvysaur()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::IVYSAUR, Pokemon::Ivysaur);
+	Player::GetInstance()->PermanentMetamorphosis();
+}
+
+void NPC_Bulbasaur::MetatoVenusaur()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::VENUSAUR, Pokemon::Venusaur);
+	Player::GetInstance()->PermanentMetamorphosis();
+}
