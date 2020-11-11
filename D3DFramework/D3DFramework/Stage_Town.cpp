@@ -12,6 +12,9 @@ void Stage_Town::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
+
+	SoundManager::PlayBGM(L"Town.mp3");
+	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 	
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
 
@@ -66,18 +69,12 @@ void Stage_Town::OnLoaded()
 
 void Stage_Town::OnUnloaded()
 {
-
+	SoundManager::StopAll();
 	ObjectManager::DestroyAll();
 }
 
 void Stage_Town::Update()
 {
-
-
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Grass_01>();

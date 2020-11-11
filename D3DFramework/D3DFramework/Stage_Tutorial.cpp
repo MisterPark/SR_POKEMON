@@ -16,6 +16,9 @@ void Stage_Tutorial::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
+	SoundManager::PlayBGM(L"Tutorial.mp3");
+	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
+
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
 	QuestManager::GetInstance()->SetEvent(Event::EVENT_TUTORIAL);
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
@@ -50,17 +53,12 @@ void Stage_Tutorial::OnLoaded()
 
 void Stage_Tutorial::OnUnloaded()
 {
+	SoundManager::StopSound(SoundChannel::BGM);
 	ObjectManager::DestroyAll();
 }
 
 void Stage_Tutorial::Update()
 {
-
-
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Town>();
