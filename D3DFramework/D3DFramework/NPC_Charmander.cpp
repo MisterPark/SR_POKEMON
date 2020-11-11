@@ -6,7 +6,7 @@
 #include "Effect.h"
 #include "QuestManager.h"
 #include "Dialog.h"
-
+#include "Item_StoneOfAwake.h"
 NPC_Charmander::NPC_Charmander()
 {
 	Initialize();
@@ -85,10 +85,28 @@ void NPC_Charmander::OnEvent()
 		}
 		case 1: {
 			Dialog::Show();
-			Dialog::EnqueueText(L"", name, Pokemon::Charmander);
+			Dialog::EnqueueText(L"일단 이거부터 받아!", name, Pokemon::Charmander);
+			
+			Item_StoneOfAwake* stoneOfAwake = (Item_StoneOfAwake*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfAwake>();
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
 			break;
 		}
+		case 2: {
+			GameObject* isAwake = ObjectManager::GetInstance()->FindObject<Item_StoneOfAwake>();
+			if (isAwake != nullptr)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"빨리빨리 주워 와!", name, Pokemon::Charmander);
+			}
+			else if (isAwake == nullptr)
+			{
+				Dialog::Show();
+				
+				QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+			}
+			break;
+		}
+
 		default:
 			break;
 		}

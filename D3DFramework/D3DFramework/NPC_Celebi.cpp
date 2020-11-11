@@ -129,16 +129,14 @@ void NPC_Celebi::OnEvent()
 			Dialog::Show();
 			Dialog::EnqueueText(L"포켓몬 마을에 잘 왔어!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"어라? 너 모습이?", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"(메타몽으로 변했다.)");
-			Dialog::EnqueueText(L"뭐야! 메타몽이었잖아?", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"그럼 할 수 있는 일이 더 많아지겠는데?", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"(아이템은 다가가는 것으로 습득할 수 있습니다.)");
+			Dialog::SetEndEvent(ToDitto);
+			
+
 
 			Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
 			tomato->transform->position = { 20.f,0.f,48.f - 21.f };
 
-			QuestManager::GetInstance()->AddProgress(eventNPC,myName);
+			
 			break;
 		}
 		case 1: {
@@ -184,4 +182,9 @@ void NPC_Celebi::ProgressTutorialEvent()
 {
 	Dialog::Hide();
 	QuestManager::GetInstance()->AddProgress(Event::EVENT_TUTORIAL, NpcName::CELEBI);
+}
+
+void NPC_Celebi::ToDitto()
+{
+	Player::GetInstance()->MetamorphosisToDitto();
 }
