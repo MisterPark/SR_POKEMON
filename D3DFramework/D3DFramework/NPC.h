@@ -21,7 +21,8 @@ public:
     void UpdateAnimation();
     // 애니메이션 텍스쳐 설정
     void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame = -1);
-
+    // 플레이어를 향하는 방향벡터 반환
+    Vector3 DirFromPlayer(bool _posY = false);
 public:
     float offsetY = 0.f;
     Animation2D* anim = nullptr;
