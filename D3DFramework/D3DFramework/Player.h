@@ -11,6 +11,9 @@ public:
 	static Player* GetInstance();
 	static void Destroy();
 
+	static void Show();
+	static void Hide();
+
 public:
 	void Initialize();
 	void Update();

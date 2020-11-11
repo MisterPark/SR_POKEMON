@@ -8,6 +8,8 @@
 
 void Stage_Fire_02::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 

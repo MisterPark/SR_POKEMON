@@ -34,6 +34,22 @@ void Player::Destroy()
 	}
 }
 
+void Player::Show()
+{
+	if (instance == nullptr)return;
+	if (instance->character == nullptr)return;
+
+	instance->character->isVisible = true;
+}
+
+void Player::Hide()
+{
+	if (instance == nullptr)return;
+	if (instance->character == nullptr)return;
+
+	instance->character->isVisible = false;
+}
+
 void Player::Initialize()
 {
 	metamorphosisList.reserve(3);

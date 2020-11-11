@@ -415,6 +415,9 @@
     <Filter Include="Scene\Opening">
       <UniqueIdentifier>{0e88b12c-e762-4d1c-bb88-e137a6b864bd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Light">
+      <UniqueIdentifier>{e5a5d110-ce28-4e07-8a85-b29492dc268f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1098,6 +1101,10 @@
     <ClInclude Include="AllItems.h">
       <Filter>GameObject\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>GameObject\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="LightManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1867,6 +1874,10 @@
     <ClCompile Include="NPC_Squirtle.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>GameObject\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="LightManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">
