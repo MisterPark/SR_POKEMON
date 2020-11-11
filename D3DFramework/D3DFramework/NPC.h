@@ -26,7 +26,7 @@ public:
     Vector3 DirFromPlayer(bool _posY = false);
     //NPC 이벤트 설정
     
-
+    void MetamorphoEffect();
 public:
 
     float offsetY = 0.f;

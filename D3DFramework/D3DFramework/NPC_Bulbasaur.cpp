@@ -33,12 +33,30 @@ NPC_Bulbasaur::~NPC_Bulbasaur()
 
 void NPC_Bulbasaur::Initialize()
 {
-	name = L"ÀÌ»óÇØ¾¾";
-	myName = NpcName::BULBASAUR;
-	SetTexture(State::IDLE, TextureKey::PG01_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::PG01_WALK_D_02, 3, 2);
-	SetTexture(State::ATTACK, TextureKey::PG01_ATTACK_D_01, 2);
-	SetTexture(State::SKILL, TextureKey::PG01_SKILL_D_01, 2);
+	if (0 == QuestManager::GetInstance()->GetEvolution(NpcName::BULBASAUR)) {
+		name = L"ÀÌ»óÇØ¾¾";
+		myName = NpcName::BULBASAUR;
+		SetTexture(State::IDLE, TextureKey::PG01_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PG01_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PG01_ATTACK_D_01, 2);
+		SetTexture(State::SKILL, TextureKey::PG01_SKILL_D_01, 2);
+	}
+	else if (1 == QuestManager::GetInstance()->GetEvolution(NpcName::BULBASAUR)) {
+		name = L"ÀÌ»óÇØÇ®";
+		myName = NpcName::BULBASAUR;
+		SetTexture(State::IDLE, TextureKey::PG02_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PG02_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PG02_ATTACK_D_01, 2);
+		SetTexture(State::SKILL, TextureKey::PG02_SKILL_D_01, 2);
+	}
+	else {
+		name = L"ÀÌ»óÇØ²É";
+		myName = NpcName::BULBASAUR;
+		SetTexture(State::IDLE, TextureKey::PG03_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::PG03_WALK_D_02, 3, 2);
+		SetTexture(State::ATTACK, TextureKey::PG03_ATTACK_D_01, 2);
+		SetTexture(State::SKILL, TextureKey::PG03_SKILL_D_01, 2);
+	}
 	anim->SetLoop(true);
 	anim->SetDelay(0.35f);
 	state = State::IDLE;
@@ -80,6 +98,12 @@ void NPC_Bulbasaur::OnEvent()
 		case 0: {
 			Dialog::Show();
 			Dialog::EnqueueText(L"¾È³ç¡¦¡¦",name, Pokemon::Bulbasaur);
+
+			//
+			QuestManager::GetInstance()->AddEvolution(NpcName::BULBASAUR);
+			Initialize();
+			MetamorphoEffect();
+			//
 			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
 			break;
 		}

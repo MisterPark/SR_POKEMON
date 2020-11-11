@@ -44,6 +44,7 @@ private:
 	void SetCharacterByType(TYPE type);
 	void CalcMetamorphosisTime();
 	void ComeBackFromMetamorpho();
+	void MetamorphoEffect();
 
 public:
 	void Metamorphosis();
@@ -51,6 +52,7 @@ public:
 	void MetamorphosisToDitto();
 
 	void ChangeNextPokemon(TYPE pokemon, Pokemon number);
+
 
 private:
 	static Player* instance;
