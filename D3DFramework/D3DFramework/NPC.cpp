@@ -4,6 +4,7 @@
 #include "Terrain.h"
 #include "Rectangle.h"
 #include "Dialog.h"
+#include "Effect.h"
 
 NPC::NPC()
 {
@@ -166,4 +167,11 @@ Vector3 NPC::DirFromPlayer(bool _posY /*= false*/)
 		Dir.y = 0.f;
 	Vector3::Normalize(&Dir);
 	return Dir;
+}
+
+void NPC::MetamorphoEffect() {
+	Vector3 fPos = transform->position;
+	fPos.y += 0.3f;
+	Effect* fx = Effect::Create(fPos, Vector3{ 0.5f, 0.5f, 0.5f }, TextureKey::SMOKE_01, TextureKey::SMOKE_15, 0.05f);
+	ObjectManager::AddObject(fx);
 }

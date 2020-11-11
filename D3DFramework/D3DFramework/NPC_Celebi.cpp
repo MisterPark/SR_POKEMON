@@ -182,6 +182,19 @@ void NPC_Celebi::OnEvent()
 		}
 		
 	}
+	else if (eventNPC == Event::EVENT_GAME)
+	{
+		switch (myProgress)
+		{
+		case 0: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"모험을 시작해보자!", L"세레비", Pokemon::Celebi);
+			break;
+		}
+		default:
+			break;
+		}
+	}
 }
 
 void NPC_Celebi::ProgressTutorialEvent()

@@ -6,8 +6,7 @@
 #include "AllEnvironments.h"
 #include "AllNPC.h"
 #include "SkyBox.h"
-#include "Inventory.h"
-
+#include "AllItems.h"
 void Stage_Town::OnLoaded()
 {
 	SkyBox::Show();
@@ -84,6 +83,18 @@ void Stage_Town::Update()
 		Dialog::GetInstance()->Destroy();
 	}
 
+	if (InputManager::GetKeyDown(VK_F4))
+	{
+		Item_StoneOfFire* fire = (Item_StoneOfFire*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfFire>();
+		fire->transform->position = { 20.f,0.f,48.f - 21.f };
+
+		Item_StoneOfWater* water = (Item_StoneOfWater*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfWater>();
+		water->transform->position = { 20.f,0.f,48.f - 20.f };
+
+		Item_StoneOfLeaf* leaf = (Item_StoneOfLeaf*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfLeaf>();
+		leaf->transform->position = { 20.f,0.f,48.f - 19.f };
+	
+	}
 	if (QuestManager::GetInstance()->GetEvent() == Event::EVENT_TOWN)
 	{
 		Event_Town(Event::EVENT_TOWN);
@@ -139,6 +150,7 @@ void Stage_Town::Set_Stage_Town_Map(TextureKey _key, const std::string& _filePat
 
 void Stage_Town::Event_Town(Event _event)
 {
+	
 	if (Player::GetInstance()->GetCharacter()->type == TYPE::DITTO&&QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN,NpcName::CELEBI)==0)
 	{
 		Dialog::Show();
@@ -161,11 +173,32 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"숲 근처에서 진화의 돌을 본 포켓몬이 있어!", L"파이리", Pokemon::Charmander);
 		Dialog::EnqueueText(L"그 진화의돌을 내게 가져와 줘!", L"파이리", Pokemon::Charmander);
 		Dialog::EnqueueText(L"뭐 겸사겸사 다른 애들 것도 가져와도 되고!", L"파이리", Pokemon::Charmander);
-		Dialog::EnqueueText(L"어서 다녀오라고!", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"아! 가기 전에 꼬부기한테 한번 가봐!", L"파이리", Pokemon::Charmander);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CHARMANDER);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::BULBASAUR);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
 	}
+	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 2&& QuestManager::GetInstance()->GetMonsterKill(MonsterType::CATERPIE)==1)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"(또 뵙네요!)");
+		Dialog::EnqueueText(L"(몬스터들을 사냥했을때 Lv의 하단에 초상화가 보이시나요?)");
+		Dialog::EnqueueText(L"(저 초상화가 바로 당신이 변신할 수 있는 몬스터입니다!)");
+		Dialog::EnqueueText(L"('Space' 키를 눌러 변신해보세요!)");
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+	}
+
+	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
+		Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
+		Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+		QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
+		
+	}
+
 }
 
 

@@ -7,7 +7,7 @@
 #include "AllCharacters.h"
 #include "Dialog.h"
 #include "Stage_Town.h"
-
+#include "Effect.h"
 Player* Player::instance = nullptr;
 
 Player::Player() :
@@ -435,6 +435,8 @@ void Player::Metamorphosis()
 
 			metamorphosisTime = 5.f;
 			canMetamorphosis = false;
+
+			MetamorphoEffect();
 		}
 	}
 }
@@ -611,6 +613,8 @@ void Player::ComeBackFromMetamorpho()
 		--pokemonIndex;
 
 		SetCharacterByType(metamorphosisList[pokemonIndex].first);
+
+		MetamorphoEffect();
 	}
 }
 
@@ -621,4 +625,11 @@ void Player::ChangeNextPokemon(TYPE pokemon, Pokemon number)
 		nextPokemon.first = pokemon;
 		nextPokemon.second = number;
 	}
+}
+
+void Player::MetamorphoEffect() {
+	Vector3 fPos = character->transform->position;
+	fPos.y += 0.3f;
+	Effect* fx = Effect::Create(fPos, Vector3{ 0.5f, 0.5f, 0.5f }, TextureKey::SMOKE_01, TextureKey::SMOKE_15, 0.05f);
+	ObjectManager::AddObject(fx);
 }

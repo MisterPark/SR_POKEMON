@@ -185,7 +185,29 @@ void PlayerInfoPanel::Render()
 		}
     }
     
-   
+    
+    Vector3 facePos;
+    facePos.x = 0;
+    facePos.y = 150;
+
+    Pokemon metaNum = Player::GetInstance()->GetMetamorphoPokemonNumber();
+    int metaNumber = (int)metaNum;
+     generation = GetPokemonGeneration(metaNum);
+    if (generation == 1)
+    {
+        D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_1ST, facePos,Vector3(0.5f, 0.5f, 0.5f), metaNumber - 1);
+    }
+    else if (generation == 2)
+    {
+        pokeNumber -= (int)Pokemon::Mew;
+        pokeNumber += 27;//¾È³ó °¹¼ö
+        D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_2ND, facePos, Vector3(0.5f, 0.5f, 0.5f), metaNumber - 1);
+    }
+    else
+    {
+        pokeNumber -= (int)Pokemon::Celebi;
+        D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, facePos, Vector3(0.5f, 0.5f, 0.5f), metaNumber - 1);
+    }
     
     
 }

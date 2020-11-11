@@ -16,6 +16,11 @@ QuestManager::QuestManager()
 	{
 		killCount[i] = 0;
 	}
+	for (int i = 0; i < NpcName::NPC_END; i++)
+	{
+		evolution[i] = 0;
+	}
+
 }
 
 
