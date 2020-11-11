@@ -1,10 +1,8 @@
 #include "stdafx.h"
-#include "Stage_Opening.h"
+#include "AllStage.h"
+
 #include "UI_Title.h"
-#include "TestMultiScene.h"
 #include "Button.h"
-#include "TestScene.h"
-#include "SelectScene.h"
 #include "Dialog.h"
 #include "SceneManager.h"
 
@@ -24,8 +22,8 @@ void Stage_Opening::OnLoaded()
 	
 	Dialog* dia = Dialog::GetInstance();
 	dia->Show();
-	dia->EnqueueText(L"이야- 오래 기다리게 했네!");
-	dia->EnqueueText(L"포켓몬스터의 세계에 잘 왔어!");
+	dia->EnqueueText(L"이야- 오래 기다리게 했네!", L"세레비", Pokemon::Celebi);
+	dia->EnqueueText(L"포켓몬스터의 세계에 잘 왔어!", L"세레비", Pokemon::Celebi);
 	dia->EnqueueText(L"나의 이름은 세레비", L"세레비", Pokemon::Celebi);
 	dia->EnqueueText(L"모두로부터는 전설의포켓몬이라고 불리고 있어.", L"세레비", Pokemon::Celebi);
 	dia->EnqueueText(L"포켓몬스터……포켓몬", L"세레비", Pokemon::Celebi);

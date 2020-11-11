@@ -5,9 +5,12 @@ QuestManager* QuestManager::instance = nullptr;
 
 QuestManager::QuestManager()
 {
-	for (int i = 0; i < NpcName::NPC_END; i++)
+	for (int i = 0; i < Event::EVENT_END; i++)
 	{
-		progress[i] = 0;
+		for (int j = 0; j < NpcName::NPC_END; j++)
+		{
+			progress[i][j] = 0;
+		}
 	}
 	for (int i = 0; i < (int)MonsterType::END; i++)
 	{

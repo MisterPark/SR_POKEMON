@@ -4,13 +4,12 @@
 #include "AllMeshs.h"
 #include "AllDecorations.h"
 #include "AllEnvironments.h"
+#include "AllNPC.h"
 #include "SkyBox.h"
 #include "Item_Tomato.h"
-#include "NPC_DoctorOh.h"
-#include "NPC_Celebi.h"
-#include "NPC.h"
+
 #include "UI_Title.h"
-#include "QuestManager.h"
+
 void Stage_Tutorial::OnLoaded()
 {
 	SkyBox::Show();
@@ -18,7 +17,7 @@ void Stage_Tutorial::OnLoaded()
 	Cursor::Hide();
 
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
-
+	QuestManager::GetInstance()->SetEvent(Event::EVENT_TUTORIAL);
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
@@ -33,12 +32,11 @@ void Stage_Tutorial::OnLoaded()
 	trigerBox->transform->position = { 24.f,0.f,30.f };
 	trigerBox->AnimChange(TextureKey::POP_01, TextureKey::POP_34,0.05f, true);
 
-	GameObject* doctor = ObjectManager::GetInstance()->CreateObject<NPC_DoctorOh>();
-	doctor->transform->position = { 20.f,0.f,25.f };
+	GameObject* celebi = NPC_Celebi::Create(Vector3{ 24.f, 0.f, 31.f }, false, Vector3{ 0.f, 0.f, -1.f });
+	ObjectManager::AddObject(celebi);
 
-	GameObject* celebi = ObjectManager::GetInstance()->CreateObject<NPC_Celebi>();
-	celebi->transform->position = { 24.f,0.f,31.f };
-	dynamic_cast<NPC*>(celebi)->direction = { 0.f,0.f,-1.f };
+
+
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 	Dialog::GetInstance();
@@ -67,6 +65,7 @@ void Stage_Tutorial::Update()
 	{
 		SceneManager::LoadScene<Stage_Town>();
 		Dialog::GetInstance()->Destroy();
+		QuestManager::GetInstance()->SetEvent(Event::EVENT_TOWN);
 	}
 	Stage_Tutorial_Wave();
 	
@@ -150,16 +149,26 @@ void Stage_Tutorial::Stage_Tutorial_Wave()
 	{
 		if (spawnerCount == 2)
 		{
-			QuestManager::GetInstance()->AddProgress(NpcName::CELEBI);
+			QuestManager::GetInstance()->AddProgress(Event::EVENT_TUTORIAL,NpcName::CELEBI);
 			Dialog::Show();
+			Dialog::EnqueueText(L"(몬스터를 잡으면 피카츄 코인을 획득할 수 있습니다.)");
+			Dialog::EnqueueText(L"(피카츄 코인은 게임 플레이 점수를 올려줍니다!)");
+			Dialog::EnqueueText(L"(높은 점수를 기록하며 클리어해보세요!)");
 			Dialog::EnqueueText(L"(세레비에게 돌아가세요!)");
+
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
-			trigerBox->transform->position = { 24.f,0.f,10.f };
+			trigerBox->transform->position = { 24.f,0.f,35.f };
 			trigerBox->Portal();
-
 			spawnerCount++;
 
+		}
+		if (spawnerCount == 3 && QuestManager::GetInstance()->GetProgress(Event::EVENT_TUTORIAL, NpcName::CELEBI) == 3)
+		{
+			Dialog::Show();
+			Dialog::EnqueueText(L"(마을로 이동하세요!)");
+			Dialog::EnqueueText(L"(마을은 파란색 포탈을 통해 이동할 수 있습니다.)");
+			QuestManager::GetInstance()->AddProgress(Event::EVENT_TUTORIAL, NpcName::CELEBI);
 		}
 	}
 }
@@ -175,6 +184,8 @@ void Stage_Tutorial::CreateSpawner()
 void Stage_Tutorial::Portal()
 {
 	SceneManager::LoadScene<Stage_Town>();
+	QuestManager::GetInstance()->SetEvent(Event::EVENT_TOWN);
+	
 }
 
 void Stage_Tutorial::UI_SHOW()
