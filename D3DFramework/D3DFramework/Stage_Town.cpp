@@ -4,17 +4,15 @@
 #include "AllMeshs.h"
 #include "AllDecorations.h"
 #include "AllEnvironments.h"
+#include "AllNPC.h"
 #include "SkyBox.h"
-#include "Item_Tomato.h"
-#include "NPC_DoctorOh.h"
-#include "NPC_Celebi.h"
 
 void Stage_Town::OnLoaded()
 {
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
-
+	
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
@@ -43,14 +41,14 @@ void Stage_Town::OnLoaded()
 	trigerBox->AnimChange(TextureKey::PROPERTY_FIRE, TextureKey::PROPERTY_FIRE, 10.f, false);
 
 
-	Item_Tomato* tomato = (Item_Tomato*)ObjectManager::GetInstance()->CreateObject<Item_Tomato>();
-	tomato->transform->position = { 20.f,0.f,48.f - 21.f };
 
-	GameObject* doctor = ObjectManager::GetInstance()->CreateObject<NPC_DoctorOh>();
-	doctor->transform->position = { 20.f,0.f,25.f };
+
+	GameObject* celebi = ObjectManager::GetInstance()->CreateObject<NPC_Celebi>();
+	celebi->transform->position = { 20.f,0.f,25.f };
 	
+
 	Dialog::Show();
-	Dialog::EnqueueText(L"(오박사에게 가보세요!)");
+	Dialog::EnqueueText(L"(세레비에게 가보세요!)");
 
 
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
@@ -77,6 +75,12 @@ void Stage_Town::Update()
 		SceneManager::LoadScene<Stage_Grass_01>();
 		Dialog::GetInstance()->Destroy();
 	}
+
+	if (QuestManager::GetInstance()->GetEvent() == Event::EVENT_TOWN)
+	{
+		Event_Town(Event::EVENT_TOWN);
+	}
+
 
 }
 
@@ -122,6 +126,13 @@ void Stage_Town::Set_Stage_Town_Map(TextureKey _key, const std::string& _filePat
 		tree->transform->position.z += 10.f + 2 * i;
 		dynamic_cast<Tree*>(tree)->setTreeSprite(TextureKey::TREE05);
 	}
+
+}
+
+void Stage_Town::Event_Town(Event _event)
+{
+	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
+	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
 
 }
 

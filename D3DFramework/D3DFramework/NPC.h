@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "QuestManager.h"
 class NPC :
     public GameObject
 {
@@ -23,7 +24,11 @@ public:
     void SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame = -1);
     // 플레이어를 향하는 방향벡터 반환
     Vector3 DirFromPlayer(bool _posY = false);
+    //NPC 이벤트 설정
+    
+
 public:
+    
     float offsetY = 0.f;
     Animation2D* anim = nullptr;
     bool animation = true;
