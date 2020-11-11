@@ -3,8 +3,8 @@
 #define dfSLOT_ROW_COUNT 3
 #define dfMAX_SLOT_COUNT (dfSLOT_COL_COUNT * dfSLOT_ROW_COUNT)
 
+#include "Item.h"
 #include"Slot.h"
-class Item;
 
 class Inventory
 {
@@ -24,6 +24,9 @@ public:
 	static void Render();
 
 	static bool Push(Item* item);
+
+	static int GetItemCount(ItemType _type);
+	static void RemoveItem(ItemType _type, int count);
 
 private:
 	void UpdateUI();

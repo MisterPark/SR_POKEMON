@@ -157,6 +157,7 @@
     <ClInclude Include="AllCharacters.h" />
     <ClInclude Include="AllDecorations.h" />
     <ClInclude Include="AllEnvironments.h" />
+    <ClInclude Include="AllItems.h" />
     <ClInclude Include="AllMeshs.h" />
     <ClInclude Include="AllNPC.h" />
     <ClInclude Include="AllSkills.h" />

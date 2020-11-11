@@ -4,8 +4,15 @@
 Item_BlueBerry::Item_BlueBerry()
 {
 	anim->SetSprite(TextureKey::UI_ICON_ITEM_BLUEBERRY, TextureKey::UI_ICON_ITEM_BLUEBERRY);
-	stat.hp = 10.f;
-	type = ItemType::GRAPE;
+	stat.hp = 15.f;
+	type = ItemType::BLUEBERRY;
+
+	name = L"블루베리";
+	description = L"체력을 \'";
+	WCHAR wstr[8] = {};
+	wsprintf(wstr, L"%d", (int)stat.hp);
+	description += wstr;
+	description += L"\' 회복";
 }
 
 Item_BlueBerry::~Item_BlueBerry()

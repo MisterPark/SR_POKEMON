@@ -10,6 +10,8 @@
 #include "PlayerInfoPanel.h"
 #include "Coin.h"
 #include "QuestManager.h"
+#include "Item.h"
+#include "AllItems.h"
 
 Character::Character() :
 	canMove(true)
@@ -163,11 +165,23 @@ void Character::OnCollision(GameObject* target)
 		// 사망처리
 		if (!IsDead() && stat.hp <= 0)
 		{
+			// 몬스터의 경우
 			if (this->team == Team::MONSTERTEAM) {
-				Player::GetInstance()->ChangeNextPokemon(type, number);				
+				// 다음 변신할 몬스터 등록
+				Player::GetInstance()->ChangeNextPokemon(type, number);	
+				// 코인 생성
 				Coin* coin = Coin::Create(this->transform->position, this->stat.money);
 				ObjectManager::AddObject(coin);
 				CollisionManager::RegisterObject(COLTYPE::COIN, coin);
+				// 아이템 드랍
+				Item* item = Item::CreateRandom();
+				if (item != nullptr)
+				{
+					item->transform->position = this->transform->position;
+					ObjectManager::AddObject(item);
+				}
+
+				// 퀘스트 몬스터 킬수
 				if (this->monsterAI != nullptr) {
 					QuestManager::GetInstance()->AddMonsterKill(monsterAI->type);
 				}
