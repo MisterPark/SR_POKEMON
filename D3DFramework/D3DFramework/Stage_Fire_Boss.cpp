@@ -11,7 +11,6 @@ void Stage_Fire_Boss::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
-
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
@@ -33,16 +32,12 @@ void Stage_Fire_Boss::OnLoaded()
 
 void Stage_Fire_Boss::OnUnloaded()
 {
-
+	SoundManager::StopSound(SoundChannel::BGM);
 	ObjectManager::DestroyAll();
 }
 
 void Stage_Fire_Boss::Update()
 {
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Town>();
@@ -72,6 +67,10 @@ void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
+		SoundManager::StopSound(SoundChannel::BGM);
+		SoundManager::PlayBGM(L"Boss.mp3");
+		SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
+
 		Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1,65);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);

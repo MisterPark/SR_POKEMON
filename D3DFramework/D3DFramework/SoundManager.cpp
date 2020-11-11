@@ -81,6 +81,23 @@ void PKH::SoundManager::PlaySound(TCHAR * pSoundKey, SoundChannel eID)
 	FMOD_System_Update(pSoundManager->pSystem);
 }
 
+void PKH::SoundManager::PlayOverlapSound(TCHAR * pSoundKey, SoundChannel eID)
+{
+	map<TCHAR*, FMOD_SOUND*>::iterator iter;
+
+	iter = find_if(pSoundManager->soundMap.begin(), pSoundManager->soundMap.end(), [&](auto& iter)
+	{
+		return !lstrcmp(pSoundKey, iter.first);
+	});
+
+	if (iter == pSoundManager->soundMap.end())
+		return;
+
+	FMOD_System_PlaySound(pSoundManager->pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &pSoundManager->channels[eID]);
+
+	FMOD_System_Update(pSoundManager->pSystem);
+}
+
 void PKH::SoundManager::PlayBGM(TCHAR * pSoundKey)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter;

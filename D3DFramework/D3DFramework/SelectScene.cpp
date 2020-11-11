@@ -81,6 +81,7 @@ void SelectScene::OnLoaded()
 
 void SelectScene::OnUnloaded()
 {
+	SoundManager::StopSound(SoundChannel::BGM);
 	ObjectManager::DestroyAll();
 }
 

@@ -11,6 +11,9 @@ void Stage_Water_01::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBEACH1_U);
 
+	SoundManager::PlayBGM(L"WaterStage.mp3");
+	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
+
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
@@ -41,10 +44,6 @@ void Stage_Water_01::OnUnloaded()
 
 void Stage_Water_01::Update()
 {
-	if (InputManager::GetKey(VK_F2))
-	{
-		SceneManager::LoadScene<TitleScene>();
-	}
 	if (InputManager::GetKeyDown(VK_F3))
 	{
 		SceneManager::LoadScene<Stage_Water_02>();
@@ -141,5 +140,6 @@ void Stage_Water_01::Portal()
 
 void Stage_Water_01::TownPortal()
 {
+	SoundManager::StopSound(SoundChannel::BGM);
 	SceneManager::LoadScene<Stage_Town>();
 }
