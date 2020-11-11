@@ -148,6 +148,15 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"(아이템은 다가가는 것으로 습득할 수 있습니다.)");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CELEBI);
 	}
+	else if (Player::GetInstance()->GetCharacter()->type == TYPE::CHARMANDER && QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::CHARMANDER) == 2)
+	{
+		Dialog::Show();
+		Dialog::EnqueueText(L"어때! 괜찮지?", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"이제 내 부탁을 들어줘! 난 항상 진화가 하고 싶었는데…", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"숲 근처에서 진화의 돌을 본 포켓몬이 있어!", L"파이리", Pokemon::Charmander);
+		Dialog::EnqueueText(L"그 진화의돌을 내게 가져와 줘!", L"파이리", Pokemon::Charmander);
+		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CHARMANDER);
+	}
 }
 
 

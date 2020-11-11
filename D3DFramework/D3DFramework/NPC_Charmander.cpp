@@ -35,6 +35,8 @@ void NPC_Charmander::Initialize()
 {
 	name = L"파이리";
 	myName = NpcName::CHARMANDER;
+	npcType = TYPE::CHARMANDER;
+	pokemon = Pokemon::Charmander;
 	SetTexture(State::IDLE, TextureKey::PF01_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PF01_WALK_D_02, 3, 2);
 	SetTexture(State::ATTACK, TextureKey::PF01_ATTACK_D_01, 1);
@@ -101,33 +103,26 @@ void NPC_Charmander::OnEvent()
 			else if (isAwake == nullptr)
 			{
 				Dialog::Show();
+				Dialog::EnqueueText(L"이 돌을 가지고 우리한테 온다면\n우리의 동의를 통해 장시간 우리중 하나로 변신할 수 있지!", name, Pokemon::Charmander);
+				Dialog::EnqueueText(L"바로 변신시켜주지!", name, Pokemon::Charmander);
+				Dialog::SetEndEvent(MetatoCharmander);
 				
-				QuestManager::GetInstance()->AddProgress(eventNPC, myName);
 			}
 			break;
 		}
-
+		case 3: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"진화의돌 못 찾았어?", name, Pokemon::Charmander);
+		}
 		default:
 			break;
 		}
 	}
 
+}
 
-	//switch (myProgress)
-	//{
-	//case 0: {
-	//	Dialog::EnqueueText(L"뭐");
-	//	Dialog::Show();
-	//	QuestManager::GetInstance()->AddProgress(myName);
-	//	break;
-	//}
-	//case 1: {
-	//	Dialog::EnqueueText(L"좋은말로 할때 가라");
-	//	Dialog::Show();
-	//	break;
-	//}
-
-	//default:
-	//	break;
-	//}
+void NPC_Charmander::MetatoCharmander()
+{
+	Player::GetInstance()->ChangeNextPokemon(TYPE::CHARMANDER,Pokemon::Charmander);
+	Player::GetInstance()->PermanentMetamorphosis();
 }
