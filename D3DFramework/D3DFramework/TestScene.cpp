@@ -12,6 +12,8 @@
 
 void TestScene::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKY_U);
 	Camera::GetInstance()->SetPosition(Vector3(24.f, 0,48.f - 36.f));

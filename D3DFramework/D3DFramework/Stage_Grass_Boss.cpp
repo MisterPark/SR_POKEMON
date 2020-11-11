@@ -8,6 +8,8 @@
 
 void Stage_Grass_Boss::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYNIGHT_U);
 

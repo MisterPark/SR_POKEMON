@@ -8,6 +8,8 @@
 
 void Stage_Water_Boss::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBLUE1_U);
 	

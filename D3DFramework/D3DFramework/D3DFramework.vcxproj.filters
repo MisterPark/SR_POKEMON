@@ -418,6 +418,9 @@
     <Filter Include="Scene\Ending">
       <UniqueIdentifier>{b7a7f521-214c-4d67-bd32-9f842a1edc27}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Light">
+      <UniqueIdentifier>{e5a5d110-ce28-4e07-8a85-b29492dc268f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1104,6 +1107,10 @@
     <ClInclude Include="EndingScene.h">
       <Filter>Scene\Ending</Filter>
     </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>GameObject\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="LightManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1876,6 +1883,10 @@
     <ClCompile Include="EndingScene.cpp">
       <Filter>Scene\Ending</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>GameObject\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="LightManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">
