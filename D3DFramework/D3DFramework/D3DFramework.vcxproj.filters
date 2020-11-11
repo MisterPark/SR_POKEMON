@@ -1110,7 +1110,9 @@
     <ClInclude Include="Light.h">
       <Filter>GameObject\Light</Filter>
     </ClInclude>
-    <ClInclude Include="LightManager.h" />
+    <ClInclude Include="LightManager.h">
+      <Filter>Lib\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1886,7 +1888,9 @@
     <ClCompile Include="Light.cpp">
       <Filter>GameObject\Light</Filter>
     </ClCompile>
-    <ClCompile Include="LightManager.cpp" />
+    <ClCompile Include="LightManager.cpp">
+      <Filter>Lib\Manager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="D3DFramework.ico">

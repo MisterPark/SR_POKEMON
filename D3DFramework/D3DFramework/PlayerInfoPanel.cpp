@@ -117,16 +117,19 @@ void PlayerInfoPanel::Render()
     D2DRenderManager::DrawUI(TextureKey::UI_HP_BAR_05, barPos, Vector3(1, 1, 1), 0, float(target->stat.hp) / target->stat.maxHp);
     D2DRenderManager::DrawUI(TextureKey::UI_EXP_BAR_01, Vector3(barPos.x,barPos.y+20,1), Vector3(1, 1, 1), 0, float(target->stat.exp) / target->stat.totalExp);
     
+    // 레벨 표시
+    WCHAR wstr3[8] = {};
+    wsprintf(wstr3, L"Lv.%d", (int)target->stat.level);
+    D2DRenderManager::DrawFont(wstr3, barPos.x-60 , barPos.y + 40, D3DCOLOR_ARGB(255, 0, 0, 0));
     //공격력
-    D2DRenderManager::DrawUI(TextureKey::UI_ICON_STAT_ATTACK, Vector3(barPos.x,barPos.y +42,1), 0);
+    D2DRenderManager::DrawUI(TextureKey::UI_ICON_STAT_ATTACK, Vector3(barPos.x+20 ,barPos.y +42,1), 0);
     WCHAR wstr[16] = {};
     wsprintf(wstr, L"%d", (int)target->stat.attack);
-    D2DRenderManager::DrawFont(wstr, barPos.x + 30, barPos.y + 40, D3DCOLOR_ARGB(255, 0, 0, 0));
+    D2DRenderManager::DrawFont(wstr, barPos.x + 50, barPos.y + 40, D3DCOLOR_ARGB(255, 0, 0, 0));
     //스피드
-    D2DRenderManager::DrawUI(TextureKey::UI_ICON_STAT_SPEED, Vector3(barPos.x+ 100, barPos.y + 42, 1), 0);
-    WCHAR wstr2[16] = {};
-    wsprintf(wstr2, L"%d", (int)target->stat.moveSpeed);
-    D2DRenderManager::DrawFont(wstr2, barPos.x + 130, barPos.y + 42, D3DCOLOR_ARGB(255, 0, 0, 0));
+    D2DRenderManager::DrawUI(TextureKey::UI_ICON_STAT_SPEED, Vector3(barPos.x+ 120, barPos.y + 42, 1), 0);
+
+    D2DRenderManager::DrawFont(L"5", barPos.x + 150, barPos.y + 42, D3DCOLOR_ARGB(255, 0, 0, 0));
     // 얼굴
     int pokeNumber = (int)target->number;
     int generation = GetPokemonGeneration(target->number);
@@ -146,10 +149,7 @@ void PlayerInfoPanel::Render()
         D2DRenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, Vector3(barPos.x - 180, barPos.y - 25, 1), pokeNumber - 1);
     }
     
-    // 레벨 표시
-    WCHAR wstr3[8] = {};
-    wsprintf(wstr3, L"Lv.%d", (int)target->stat.level);
-    D2DRenderManager::DrawFont(wstr3, barPos.x-150, barPos.y+90, D3DCOLOR_ARGB(255, 255, 255, 255));
+    
     // 스킬 표시
     vector<Skill*> skillSet = target->GetSkillSet();
     int currentSkill = Player::GetInstance()->GetCurrentSkillIndex();
@@ -212,9 +212,29 @@ void PlayerInfoPanel::Render()
     // 코인 점수
 
     Vector3 coinPos = { 0,0,0 };
-    coinPos.x = 420;
+    coinPos.x = 480;
+    
 
     D2DRenderManager::DrawUI(TextureKey::COINPOKE_1, coinPos,Vector3(0.5f, 0.5f, 0.5f), 0);
+
+    coinPos.y = 25;
+    WCHAR wstr4[8] = {};
+    wsprintf(wstr4, L"%d", target->stat.money);
+    D2DRenderManager::DrawFont(wstr4, coinPos.x + 70, coinPos.y, D3DCOLOR_ARGB(255, 0, 0, 0));
     
+
+    // 퀘스트 메세지
+    int msgLen = questMessage.length() * 20;
+    Vector3 msgPos;
+    msgPos.x = dfCLIENT_WIDTH - 160;
+    msgPos.y = 150;
+    D2DRenderManager::DrawFont(L"퀘스트 메세지", msgPos.x, msgPos.y, D3DCOLOR_ARGB(255, 0, 0, 200));
+    msgPos.x = dfCLIENT_WIDTH - msgLen;
+    D2DRenderManager::DrawFont(questMessage, msgPos.x, msgPos.y+25, D3DCOLOR_ARGB(255, 0, 0, 100));
+}
+
+void PlayerInfoPanel::SetQuestMessage(const wstring& msg)
+{
+    pPlayerInfoPanel->questMessage = msg;
 }
 
