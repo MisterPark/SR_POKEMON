@@ -12,21 +12,29 @@ NPC_Celebi::NPC_Celebi()
 	Initialize();
 }
 
-NPC_Celebi::NPC_Celebi(const Vector3& pos)
+NPC_Celebi::NPC_Celebi(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	if (onCenterDir) {
+		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
+		Vector3::Normalize(&Dir);
+		direction = Dir;
+	}
+	else {
+		direction = dir;
+	}
 	Initialize();
 }
 
 NPC_Celebi::~NPC_Celebi()
 {
-	CollisionManager::GetInstance()->DisregisterObject(this);
+	
 }
 
 void NPC_Celebi::Initialize()
 {
-	//SetTexture(State::IDLE, TextureKey::COINPOKE_1, 27);
 	
+	myName = NpcName::CELEBI;
 	SetTexture(State::WALK, TextureKey::CELE_WALK_D_02, 3, 2);
 	SetTexture(State::IDLE, TextureKey::CELE_WALK_D_01, 3, 1);
 	anim->SetLoop(true);
@@ -47,16 +55,16 @@ void NPC_Celebi::Update()
 }
 
 
-NPC_Celebi* NPC_Celebi::Create(const Vector3& pos)
+NPC_Celebi* NPC_Celebi::Create(const Vector3& pos, bool onCenterDir, const Vector3& dir/* = Vector3{ 24.f, 0.f, 24.f }*/)
 {
-	NPC_Celebi* newNpc = new NPC_Celebi(pos);
+	NPC_Celebi* newNpc = new NPC_Celebi(pos, onCenterDir, dir);
 	return newNpc;
 }
 
 void NPC_Celebi::OnEvent()
 {
 	direction = DirFromPlayer(false);
-	int myProgress = QuestManager::GetInstance()->GetProgress(NpcName::CELEBI);
+	int myProgress = QuestManager::GetInstance()->GetProgress(myName);
 
 	Character* player = Player::GetInstance()->GetCharacter();
 
@@ -70,7 +78,7 @@ void NPC_Celebi::OnEvent()
 		Dialog::EnqueueText(L"(속성박스로 이동하면 몬스터가 생성됩니다.)");
 		Dialog::EnqueueText(L"(좌클릭으로 공격, 우클릭으로 스킬이 사용가능합니다.)");
 		Dialog::Show();
-		QuestManager::GetInstance()->AddProgress(NpcName::CELEBI);
+		QuestManager::GetInstance()->AddProgress(myName);
 		break;
 	}
 	case 1: {
@@ -83,7 +91,7 @@ void NPC_Celebi::OnEvent()
 	case 2: {
 		Dialog::EnqueueText(L"캐터피를 빨리 잡아와 !");
 		Dialog::Show();
-		QuestManager::GetInstance()->AddProgress(NpcName::CELEBI);
+		QuestManager::GetInstance()->AddProgress(myName);
 		break;
 	}
 	case 3: {
@@ -94,7 +102,7 @@ void NPC_Celebi::OnEvent()
 		else {
 			Dialog::EnqueueText(L"고마워 !");
 			Dialog::Show();
-			QuestManager::GetInstance()->AddProgress(NpcName::CELEBI);
+			QuestManager::GetInstance()->AddProgress(myName);
 		}
 		break;
 	}

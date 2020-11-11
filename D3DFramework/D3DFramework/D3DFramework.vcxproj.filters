@@ -1086,6 +1086,15 @@
     <ClInclude Include="AllNPC.h">
       <Filter>GameObject\NPC</Filter>
     </ClInclude>
+    <ClInclude Include="NPC_Bulbasaur.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_Charmander.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_Squirtle.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1845,6 +1854,15 @@
     </ClCompile>
     <ClCompile Include="Stage_Tutorial.cpp">
       <Filter>Scene\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_Bulbasaur.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_Charmander.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_Squirtle.cpp">
+      <Filter>GameObject\NPC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
