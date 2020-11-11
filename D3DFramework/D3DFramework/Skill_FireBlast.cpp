@@ -27,6 +27,7 @@ void Skill_FireBlast::InitActiveTime()
 void Skill_FireBlast::Update()
 {
 	if (delay <= 0.f) {
+		Camera::GetInstance()->Shake(0.05f);
 		Bullet_FireBlast* bullet = dynamic_cast<Bullet_FireBlast*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireBlast>());
 		bullet->transform->position = character->transform->position;
 		bullet->transform->position.y = character->transform->position.y-character->offsetY/2;

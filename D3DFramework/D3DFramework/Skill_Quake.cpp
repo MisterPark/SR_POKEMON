@@ -38,6 +38,7 @@ void Skill_Quake::Update()
 		{
 			for (int j = -1; j < 2; j++)
 			{
+				Camera::GetInstance()->Shake(0.5f);
 				Bullet_Quake* bullet = dynamic_cast<Bullet_Quake*>(ObjectManager::GetInstance()->CreateObject<Bullet_Quake>());
 				bullet->transform->position.x = character->transform->position.x + i;
 				bullet->transform->position.y =0.f;
@@ -72,6 +73,7 @@ void Skill_Quake::Update()
 		{
 			for (int j = 2; j < 4; j++)
 			{
+				Camera::GetInstance()->Shake(0.5f);
 				Bullet_Quake* bullet = dynamic_cast<Bullet_Quake*>(ObjectManager::GetInstance()->CreateObject<Bullet_Quake>());
 				bullet->transform->position.x = character->transform->position.x + i;
 				bullet->transform->position.y = 0.f;
@@ -103,6 +105,7 @@ void Skill_Quake::Update()
 		{
 			for (int j = -3; j < -1; j++)
 			{
+				Camera::GetInstance()->Shake(0.5f);
 				Bullet_Quake* bullet = dynamic_cast<Bullet_Quake*>(ObjectManager::GetInstance()->CreateObject<Bullet_Quake>());
 				bullet->transform->position.x = character->transform->position.x + i;
 				bullet->transform->position.y = 0.f;
@@ -134,6 +137,7 @@ void Skill_Quake::Update()
 		{
 			for (int j = -3; j < -1; j++)
 			{
+				Camera::GetInstance()->Shake(0.5f);
 				Bullet_Quake* bullet = dynamic_cast<Bullet_Quake*>(ObjectManager::GetInstance()->CreateObject<Bullet_Quake>());
 				bullet->transform->position.x = character->transform->position.x + j;
 				bullet->transform->position.y = 0.f;
@@ -163,6 +167,7 @@ void Skill_Quake::Update()
 		{
 			for (int j = 2; j < 4; j++)
 			{
+				Camera::GetInstance()->Shake(0.5f);
 				Bullet_Quake* bullet = dynamic_cast<Bullet_Quake*>(ObjectManager::GetInstance()->CreateObject<Bullet_Quake>());
 				bullet->transform->position.x = character->transform->position.x + j;
 				bullet->transform->position.y = 0.f;
@@ -196,6 +201,7 @@ void Skill_Quake::Update()
 		{
 			for (int j = -1; j < 2; j++)
 			{
+				Camera::GetInstance()->Shake(0.5f);
 				Bullet_Quake* bullet = dynamic_cast<Bullet_Quake*>(ObjectManager::GetInstance()->CreateObject<Bullet_Quake>());
 				bullet->transform->position.x = character->transform->position.x + i;
 				bullet->transform->position.y = 0.f;

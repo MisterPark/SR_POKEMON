@@ -39,6 +39,7 @@ void Skill_ClawBlast::Update()
 
 	if (0.4f >= activeTime)
 	{
+		Camera::GetInstance()->Shake(0.05f);
 		float speed = 20.f;
 		character->transform->position.x += character->direction.x * speed * TimeManager::DeltaTime();
 		character->transform->position.z += character->direction.z * speed * TimeManager::DeltaTime();

@@ -31,12 +31,13 @@ void Skill_FireWallWave::Update()
 	character->transform->position.x = 23.5f;
 	character->transform->position.z = 48.f-5.0f;
 	character->direction = { 0.f,0.f,-1.f };
-	
+	float shakesize = 0.5f;
 
 	if (Frame[0] == 0)
 	{
 		for (int i = 2; i < 46; i+=2)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 				Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 				bullet->transform->position.x = i;
 				bullet->transform->position.y = 0.f;
@@ -61,6 +62,7 @@ void Skill_FireWallWave::Update()
 	{
 		for (int i = 3; i < 46; i += 2)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -85,6 +87,7 @@ void Skill_FireWallWave::Update()
 	{
 		for (int i = 2; i < 46; i += 2)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -109,6 +112,7 @@ void Skill_FireWallWave::Update()
 	{
 		for (int i = 2; i <20; i++)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -130,6 +134,7 @@ void Skill_FireWallWave::Update()
 
 		for (int i = 26; i < 46; i++)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -156,6 +161,7 @@ void Skill_FireWallWave::Update()
 	{
 	for (int i = 15; i < 35; i++)
 	{
+		Camera::GetInstance()->Shake(shakesize);
 		Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 		bullet->transform->position.x = i;
 		bullet->transform->position.y = 0.f;
@@ -183,6 +189,7 @@ void Skill_FireWallWave::Update()
 	{
 		for (int i = 2; i < 20; i++)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -204,6 +211,7 @@ void Skill_FireWallWave::Update()
 
 		for (int i = 26; i < 46; i++)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -229,6 +237,7 @@ void Skill_FireWallWave::Update()
 	{
 	for (int i = 40; i > 5; --i)
 	{
+		Camera::GetInstance()->Shake(shakesize);
 		Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 		bullet->transform->position.x = i;
 		bullet->transform->position.y = 0.f;
@@ -255,6 +264,7 @@ void Skill_FireWallWave::Update()
 	{
 		for (int i = 2; i < 20; ++i)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = 46-i;
 			bullet->transform->position.y = 0.f;
@@ -275,6 +285,7 @@ void Skill_FireWallWave::Update()
 		}
 		for (int i = 23; i < 43; ++i)
 		{
+			Camera::GetInstance()->Shake(shakesize);
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = 46 - i;
 			bullet->transform->position.y = 0.f;
