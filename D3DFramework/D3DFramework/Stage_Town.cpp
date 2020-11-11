@@ -57,6 +57,9 @@ void Stage_Town::OnLoaded()
 	//
 	npc = NPC_Squirtle::Create(Vector3{ 25.f, 0.f, 22.f });
 	ObjectManager::AddObject(npc);
+
+	npc = NPC_ColorDitto::Create(Vector3{ 30.f, 0.f, 30.f });
+	ObjectManager::AddObject(npc);
 	
 	if (QuestManager::GetInstance()->GetEvent() == EVENT_TOWN)
 	{

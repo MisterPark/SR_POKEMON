@@ -251,6 +251,7 @@
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="NPC_Charmander.h" />
+    <ClInclude Include="NPC_ColorDitto.h" />
     <ClInclude Include="NPC_DoctorOh.h" />
     <ClInclude Include="NPC_Squirtle.h" />
     <ClInclude Include="PetalBlizzard.h" />
@@ -471,6 +472,7 @@
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="NPC_Charmander.cpp" />
+    <ClCompile Include="NPC_ColorDitto.cpp" />
     <ClCompile Include="NPC_DoctorOh.cpp" />
     <ClCompile Include="NPC_Squirtle.cpp" />
     <ClCompile Include="PetalBlizzard.cpp" />

@@ -46,9 +46,9 @@ void Wartortle::Initialize()
 
 	skillSet.reserve(3);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterFlow));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBomb));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ShellAttack));
 
 	UpdateAnimation();
 }

@@ -6,6 +6,7 @@
 
 Skill_RedBall::Skill_RedBall()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_REDBALL;
 	coolTime = 1.f;
 	moveStopTime = 1.f;
 }

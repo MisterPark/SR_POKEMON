@@ -46,10 +46,10 @@ void Blastoise::Initialize()
 
 	skillSet.reserve(4);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterCannon));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::XClaw));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Meteor));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterFlow));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::WaterBomb));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ShellAttack));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Tsunami));
 
 	UpdateAnimation();
 }

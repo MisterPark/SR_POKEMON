@@ -6,6 +6,7 @@
 
 Skill_ReverseHealBubble::Skill_ReverseHealBubble()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_REVERSEHEALBULLET;
 	coolTime = 1.f;
 	moveStopTime = 1.f;
 	bulletDir = { 0.f,0.f,0.f };

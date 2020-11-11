@@ -5,6 +5,7 @@
 
 Skill_TearsShot::Skill_TearsShot()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_TEARS;
 	coolTime = 0.4f;
 }
 

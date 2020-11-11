@@ -31,6 +31,9 @@ public:
 	float GetMetaMorphoTime() { return metamorphosisTime; }
 	int GetCurrentSkillIndex() { return skillNum; }
 	Pokemon GetMetamorphoPokemonNumber() { return nextPokemon.second; }
+	int GetDittoColor() { return dittoColor; }
+	void AddDittoColor() { dittoColor++; if (dittoColor == 5) dittoColor = 0; return; }
+	void MetamorphoEffect();
 
 private:
 	void Release();
@@ -44,7 +47,6 @@ private:
 	void SetCharacterByType(TYPE type);
 	void CalcMetamorphosisTime();
 	void ComeBackFromMetamorpho();
-	void MetamorphoEffect();
 
 public:
 	void Metamorphosis();
@@ -70,5 +72,7 @@ private:
 	int skillSetSize;
 	int pokemonIndex;
 	int permanentIndex;
+
+	int dittoColor;
 };
 

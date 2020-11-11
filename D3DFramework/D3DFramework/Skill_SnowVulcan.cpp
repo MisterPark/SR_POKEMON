@@ -5,6 +5,7 @@
 
 Skill_SnowVulcan::Skill_SnowVulcan()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_SNOWVULCAN;
 	coolTime = 2.f;
 	moveStopTime = 2.f;
 }

@@ -5,6 +5,7 @@
 
 Skill_WaterBomb::Skill_WaterBomb()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_WATERBOMB;
 	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }

@@ -713,6 +713,25 @@ void PKH::MainGame::LoadETCSprite()
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_14, L"Texture\\Bullet\\Water2\\Water2 (14).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER2_15, L"Texture\\Bullet\\Water2\\Water2 (15).png");
 
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_01, L"Texture\\Bullet\\Water1\\01.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_02, L"Texture\\Bullet\\Water1\\02.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_03, L"Texture\\Bullet\\Water1\\03.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_04, L"Texture\\Bullet\\Water1\\04.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_05, L"Texture\\Bullet\\Water1\\05.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_06, L"Texture\\Bullet\\Water1\\06.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_07, L"Texture\\Bullet\\Water1\\07.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_08, L"Texture\\Bullet\\Water1\\08.png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER3_09, L"Texture\\Bullet\\Water1\\09.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_01, L"Texture\\Bullet\\Water1\\Water_04 (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_02, L"Texture\\Bullet\\Water1\\Water_04 (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_03, L"Texture\\Bullet\\Water1\\Water_04 (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_04, L"Texture\\Bullet\\Water1\\Water_04 (4).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_05, L"Texture\\Bullet\\Water1\\Water_04 (5).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_06, L"Texture\\Bullet\\Water1\\Water_04 (6).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_07, L"Texture\\Bullet\\Water1\\Water_04 (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::BULLET_WATER4_08, L"Texture\\Bullet\\Water1\\Water_04 (8).png");
+
 	//WEB
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WEB1_01, L"Texture\\Bullet\\Web1\\Web1 (1).png");
 	D2DRenderManager::LoadSprite(TextureKey::BULLET_WEB1_02, L"Texture\\Bullet\\Web1\\Web1 (2).png");
@@ -976,6 +995,26 @@ void PKH::MainGame::LoadUISprite()
 	D2DRenderManager::LoadSprite(TextureKey::UI_ICON_ITEM_MASTER_BALL, L"Texture\\UI\\item_22.png");
 
 	D2DRenderManager::LoadSprite(TextureKey::UI_DIALOG, L"Texture\\UI\\dialog.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_TEARS, L"Texture\\UI\\SkillIcon\\skillicon_01.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_WATER, L"Texture\\UI\\SkillIcon\\skillicon_02.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_WATERBOMB, L"Texture\\UI\\SkillIcon\\skillicon_03.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_SHELL, L"Texture\\UI\\SkillIcon\\skillicon_04.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_TSUNAMI, L"Texture\\UI\\SkillIcon\\skillicon_05.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_BUBBLE, L"Texture\\UI\\SkillIcon\\skillicon_06.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_REDBALL, L"Texture\\UI\\SkillIcon\\skillicon_07.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_EXPLOSION, L"Texture\\UI\\SkillIcon\\skillicon_08.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_FIREBOMB, L"Texture\\UI\\SkillIcon\\skillicon_09.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_FIREXCROSSBOMB, L"Texture\\UI\\SkillIcon\\skillicon_10.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_SNOWVULCAN, L"Texture\\UI\\SkillIcon\\skillicon_11.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_MINIRUSH, L"Texture\\UI\\SkillIcon\\skillicon_12.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_CROSSPOISON, L"Texture\\UI\\SkillIcon\\skillicon_13.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_XPOISON, L"Texture\\UI\\SkillIcon\\skillicon_14.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_HEALBULLET, L"Texture\\UI\\SkillIcon\\skillicon_15.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_REVERSEHEALBULLET, L"Texture\\UI\\SkillIcon\\skillicon_16.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_WEB, L"Texture\\UI\\SkillIcon\\skillicon_17.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_WATERFLOW, L"Texture\\UI\\SkillIcon\\skillicon_18.png");
+	D2DRenderManager::LoadSprite(TextureKey::UI_SKILL_ICON_ACCELWATER, L"Texture\\UI\\SkillIcon\\skillicon_19.png");
 }										
 
 void PKH::MainGame::LoadMonsterSprite()
@@ -2530,6 +2569,107 @@ void PKH::MainGame::LoadPlayerSprite()
 	D2DRenderManager::LoadSprite(TextureKey::DITTO_WALK_RD_01, L"Texture\\Player\\Ditto\\RD\\0.png");
 	D2DRenderManager::LoadSprite(TextureKey::DITTO_WALK_RD_02, L"Texture\\Player\\Ditto\\RD\\1.png");
 	D2DRenderManager::LoadSprite(TextureKey::DITTO_WALK_RD_03, L"Texture\\Player\\Ditto\\RD\\2.png");
+
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_D_01, L"Texture\\Player\\Ditto\\D\\Color_D (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_D_02, L"Texture\\Player\\Ditto\\D\\Color_D (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_D_03, L"Texture\\Player\\Ditto\\D\\Color_D (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_LD_01, L"Texture\\Player\\Ditto\\LD\\Color_LD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_LD_02, L"Texture\\Player\\Ditto\\LD\\Color_LD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_LD_03, L"Texture\\Player\\Ditto\\LD\\Color_LD (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_L_01, L"Texture\\Player\\Ditto\\L\\Color_L (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_L_02, L"Texture\\Player\\Ditto\\L\\Color_L (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_L_03, L"Texture\\Player\\Ditto\\L\\Color_L (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_LU_01, L"Texture\\Player\\Ditto\\LU\\Color_LU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_LU_02, L"Texture\\Player\\Ditto\\LU\\Color_LU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_LU_03, L"Texture\\Player\\Ditto\\LU\\Color_LU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_U_01, L"Texture\\Player\\Ditto\\U\\Color_U (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_U_02, L"Texture\\Player\\Ditto\\U\\Color_U (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_U_03, L"Texture\\Player\\Ditto\\U\\Color_U (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_RU_01, L"Texture\\Player\\Ditto\\RU\\Color_RU (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_RU_02, L"Texture\\Player\\Ditto\\RU\\Color_RU (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_RU_03, L"Texture\\Player\\Ditto\\RU\\Color_RU (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_R_01, L"Texture\\Player\\Ditto\\R\\Color_R (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_R_02, L"Texture\\Player\\Ditto\\R\\Color_R (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_R_03, L"Texture\\Player\\Ditto\\R\\Color_R (3).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_RD_01, L"Texture\\Player\\Ditto\\RD\\Color_RD (1).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_RD_02, L"Texture\\Player\\Ditto\\RD\\Color_RD (2).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOR_WALK_RD_03, L"Texture\\Player\\Ditto\\RD\\Color_RD (3).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_D_01, L"Texture\\Player\\Ditto\\D\\Color_D (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_D_02, L"Texture\\Player\\Ditto\\D\\Color_D (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_D_03, L"Texture\\Player\\Ditto\\D\\Color_D (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_LD_01, L"Texture\\Player\\Ditto\\LD\\Color_LD (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_LD_02, L"Texture\\Player\\Ditto\\LD\\Color_LD (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_LD_03, L"Texture\\Player\\Ditto\\LD\\Color_LD (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_L_01, L"Texture\\Player\\Ditto\\L\\Color_L (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_L_02, L"Texture\\Player\\Ditto\\L\\Color_L (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_L_03, L"Texture\\Player\\Ditto\\L\\Color_L (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_LU_01, L"Texture\\Player\\Ditto\\LU\\Color_LU (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_LU_02, L"Texture\\Player\\Ditto\\LU\\Color_LU (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_LU_03, L"Texture\\Player\\Ditto\\LU\\Color_LU (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_U_01, L"Texture\\Player\\Ditto\\U\\Color_U (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_U_02, L"Texture\\Player\\Ditto\\U\\Color_U (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_U_03, L"Texture\\Player\\Ditto\\U\\Color_U (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_RU_01, L"Texture\\Player\\Ditto\\RU\\Color_RU (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_RU_02, L"Texture\\Player\\Ditto\\RU\\Color_RU (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_RU_03, L"Texture\\Player\\Ditto\\RU\\Color_RU (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_R_01, L"Texture\\Player\\Ditto\\R\\Color_R (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_R_02, L"Texture\\Player\\Ditto\\R\\Color_R (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_R_03, L"Texture\\Player\\Ditto\\R\\Color_R (9).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_RD_01, L"Texture\\Player\\Ditto\\RD\\Color_RD (7).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_RD_02, L"Texture\\Player\\Ditto\\RD\\Color_RD (8).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOY_WALK_RD_03, L"Texture\\Player\\Ditto\\RD\\Color_RD (9).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_D_01, L"Texture\\Player\\Ditto\\D\\Color_D (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_D_02, L"Texture\\Player\\Ditto\\D\\Color_D (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_D_03, L"Texture\\Player\\Ditto\\D\\Color_D (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_LD_01, L"Texture\\Player\\Ditto\\LD\\Color_LD (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_LD_02, L"Texture\\Player\\Ditto\\LD\\Color_LD (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_LD_03, L"Texture\\Player\\Ditto\\LD\\Color_LD (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_L_01, L"Texture\\Player\\Ditto\\L\\Color_L (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_L_02, L"Texture\\Player\\Ditto\\L\\Color_L (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_L_03, L"Texture\\Player\\Ditto\\L\\Color_L (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_LU_01, L"Texture\\Player\\Ditto\\LU\\Color_LU (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_LU_02, L"Texture\\Player\\Ditto\\LU\\Color_LU (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_LU_03, L"Texture\\Player\\Ditto\\LU\\Color_LU (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_U_01, L"Texture\\Player\\Ditto\\U\\Color_U (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_U_02, L"Texture\\Player\\Ditto\\U\\Color_U (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_U_03, L"Texture\\Player\\Ditto\\U\\Color_U (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_RU_01, L"Texture\\Player\\Ditto\\RU\\Color_RU (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_RU_02, L"Texture\\Player\\Ditto\\RU\\Color_RU (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_RU_03, L"Texture\\Player\\Ditto\\RU\\Color_RU (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_R_01, L"Texture\\Player\\Ditto\\R\\Color_R (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_R_02, L"Texture\\Player\\Ditto\\R\\Color_R (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_R_03, L"Texture\\Player\\Ditto\\R\\Color_R (12).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_RD_01, L"Texture\\Player\\Ditto\\RD\\Color_RD (10).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_RD_02, L"Texture\\Player\\Ditto\\RD\\Color_RD (11).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOG_WALK_RD_03, L"Texture\\Player\\Ditto\\RD\\Color_RD (12).png");
+
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_D_01, L"Texture\\Player\\Ditto\\D\\Color_D (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_D_02, L"Texture\\Player\\Ditto\\D\\Color_D (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_D_03, L"Texture\\Player\\Ditto\\D\\Color_D (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_LD_01, L"Texture\\Player\\Ditto\\LD\\Color_LD (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_LD_02, L"Texture\\Player\\Ditto\\LD\\Color_LD (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_LD_03, L"Texture\\Player\\Ditto\\LD\\Color_LD (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_L_01, L"Texture\\Player\\Ditto\\L\\Color_L (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_L_02, L"Texture\\Player\\Ditto\\L\\Color_L (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_L_03, L"Texture\\Player\\Ditto\\L\\Color_L (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_LU_01, L"Texture\\Player\\Ditto\\LU\\Color_LU (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_LU_02, L"Texture\\Player\\Ditto\\LU\\Color_LU (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_LU_03, L"Texture\\Player\\Ditto\\LU\\Color_LU (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_U_01, L"Texture\\Player\\Ditto\\U\\Color_U (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_U_02, L"Texture\\Player\\Ditto\\U\\Color_U (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_U_03, L"Texture\\Player\\Ditto\\U\\Color_U (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_RU_01, L"Texture\\Player\\Ditto\\RU\\Color_RU (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_RU_02, L"Texture\\Player\\Ditto\\RU\\Color_RU (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_RU_03, L"Texture\\Player\\Ditto\\RU\\Color_RU (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_R_01, L"Texture\\Player\\Ditto\\R\\Color_R (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_R_02, L"Texture\\Player\\Ditto\\R\\Color_R (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_R_03, L"Texture\\Player\\Ditto\\R\\Color_R (15).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_RD_01, L"Texture\\Player\\Ditto\\RD\\Color_RD (13).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_RD_02, L"Texture\\Player\\Ditto\\RD\\Color_RD (14).png");
+	D2DRenderManager::LoadSprite(TextureKey::DITTOB_WALK_RD_03, L"Texture\\Player\\Ditto\\RD\\Color_RD (15).png");
+
 }
 
 void PKH::MainGame::LoadNPCSprite()

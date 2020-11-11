@@ -24,9 +24,32 @@ void Ditto::Initialize()
 	name = L"¸ÞÅ¸¸ù";
 	type = TYPE::DITTO;
 	number = Pokemon::Ditto;
-
-	SetTexture(State::IDLE, TextureKey::DITTO_WALK_D_01, 3, 1);
-	SetTexture(State::WALK, TextureKey::DITTO_WALK_D_02, 3, 2);
+	
+	switch (Player::GetInstance()->GetDittoColor())
+	{
+	case 0:
+		SetTexture(State::IDLE, TextureKey::DITTO_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::DITTO_WALK_D_02, 3, 2);
+		break;
+	case 1:
+		SetTexture(State::IDLE, TextureKey::DITTOR_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::DITTOR_WALK_D_02, 3, 2);
+		break;
+	case 2:
+		SetTexture(State::IDLE, TextureKey::DITTOY_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::DITTOY_WALK_D_02, 3, 2);
+		break;
+	case 3:
+		SetTexture(State::IDLE, TextureKey::DITTOG_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::DITTOG_WALK_D_02, 3, 2);
+		break;
+	case 4:
+		SetTexture(State::IDLE, TextureKey::DITTOB_WALK_D_01, 3, 1);
+		SetTexture(State::WALK, TextureKey::DITTOB_WALK_D_02, 3, 2);
+		break;
+	default:
+		break;
+	}
 
 	offsetY = 0.2f;
 

@@ -5,6 +5,7 @@
 
 Skill_WaterFlow::Skill_WaterFlow()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_WATERFLOW;
 	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }

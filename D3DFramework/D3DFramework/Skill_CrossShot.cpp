@@ -5,6 +5,7 @@
 
 Skill_CrossShot::Skill_CrossShot()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_CROSSPOISON;
 	moveStopTime = 0.5f;
 }
 
