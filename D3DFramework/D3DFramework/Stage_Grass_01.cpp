@@ -13,7 +13,7 @@ void Stage_Grass_01::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
-	SoundManager::PlayBGM(L"GrassStage.mp3");
+	SoundManager::PlayBGM(L"GrassStage.wav");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();

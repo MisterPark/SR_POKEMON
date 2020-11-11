@@ -16,7 +16,7 @@ void Stage_Tutorial::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
-	SoundManager::PlayBGM(L"Tutorial.mp3");
+	SoundManager::PlayBGM(L"Tutorial.wav");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	/*CollisionManager* col = CollisionManager::GetInstance();*/

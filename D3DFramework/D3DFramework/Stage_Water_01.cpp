@@ -11,7 +11,7 @@ void Stage_Water_01::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBEACH1_U);
 
-	SoundManager::PlayBGM(L"WaterStage.mp3");
+	SoundManager::PlayBGM(L"WaterStage.wav");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();

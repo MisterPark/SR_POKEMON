@@ -37,6 +37,8 @@ void PlayerBullet::InitByType()
 	case FIRE:
 		transform->scale = { 0.2f, 0.2f, 0.2f };
 		anim->SetSprite(TextureKey::BULLET_FIRE_01, TextureKey::BULLET_FIRE_06);
+		SoundManager::PlayOverlapSound(L"FireBall.wav", SoundChannel::EFFECT);
+		SoundManager::SetVolume(SoundChannel::EFFECT, 0.3f);
 		break;
 
 	case WATER:
@@ -76,9 +78,11 @@ void PlayerBullet::CollSetByType()
 	switch (bulletType)
 	{
 	case PlayerBullet::LEAF:
+		SoundManager::PlayOverlapSound(L"LeafShotHit.wav", SoundChannel::EFFECT);
 		break;
 	case PlayerBullet::FIRE:
 	{
+		SoundManager::PlayOverlapSound(L"FireExplosion.wav", SoundChannel::EFFECT);
 		Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_EXPLOSION_01, TextureKey::FIRE_EXPLOSION_08, 0.03f);
 		ObjectManager::AddObject(fx);
 		break;
@@ -86,6 +90,9 @@ void PlayerBullet::CollSetByType()
 	case PlayerBullet::WATER:
 		break;
 	}
+
+	SoundManager::PlayOverlapSound(L"Hit.wav", SoundChannel::EFFECT);
+	SoundManager::SetVolume(SoundChannel::EFFECT, 0.05f);
 }
 
 void PlayerBullet::CalcLifeTime()

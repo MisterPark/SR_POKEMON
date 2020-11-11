@@ -135,7 +135,11 @@ void Character::OnCollision(GameObject* target)
 
 			if (healEffectStack > 1.f)
 			{
-				Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
+				Vector3 pos = transform->position;
+
+				pos.y += 0.3f;
+
+				Effect* fx = Effect::Create(pos, transform->scale, TextureKey::BULLET_HEART1_01, TextureKey::BULLET_HEART1_05, 0.2f);
 				/*fx->transform->position.y += 1.f;*/
 				ObjectManager::AddObject(fx);
 				healEffectStack = 0.f;
@@ -152,7 +156,7 @@ void Character::OnCollision(GameObject* target)
 			{
 				skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
 				PlayerInfoPanel::ActiveRedFilter();
-				SoundManager::PlaySoundW(L"Hit2.mp3", SoundChannel::PLAYER);
+				SoundManager::PlayOverlapSound(L"Hit2.wav", SoundChannel::PLAYER);
 				SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 			}
 
@@ -161,7 +165,7 @@ void Character::OnCollision(GameObject* target)
 		if (damageSum > 0.f && this == playerCharacter)
 		{
 			PlayerInfoPanel::ActiveRedFilter();
-			SoundManager::PlaySoundW(L"Hit2.mp3", SoundChannel::PLAYER);
+			SoundManager::PlayOverlapSound(L"Hit2.wav", SoundChannel::PLAYER);
 			SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 		}
 
@@ -172,7 +176,9 @@ void Character::OnCollision(GameObject* target)
 			// 몬스터의 경우
 			if (this->team == Team::MONSTERTEAM) {
 				// 다음 변신할 몬스터 등록
-				Player::GetInstance()->ChangeNextPokemon(type, number);	
+				Player::GetInstance()->ChangeNextPokemon(type, number);
+				float exp = stat.totalExp * 0.05f;
+				Player::GetInstance()->GetCharacter()->IncreaseEXP(exp);
 				// 코인 생성
 				Coin* coin = Coin::Create(this->transform->position, this->stat.money);
 				ObjectManager::AddObject(coin);
@@ -224,8 +230,7 @@ void Character::Die()
 			Character* character = player->GetCharacter();
 			if (nullptr != character)
 			{
-				float exp = stat.totalExp * 0.05f;
-				character->IncreaseEXP(exp);
+				
 			}
 		}
 	}
@@ -359,7 +364,7 @@ void Character::LevelUp()
 {
 	++stat.level;
 
-	SoundManager::PlayOverlapSound(L"LevelUp.mp3", SoundChannel::PLAYER_EFFECT);
+	SoundManager::PlayOverlapSound(L"LevelUp.wav", SoundChannel::PLAYER_EFFECT);
 	SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
 
 	SetStatByLevel();

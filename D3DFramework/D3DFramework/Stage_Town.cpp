@@ -14,7 +14,7 @@ void Stage_Town::OnLoaded()
 	Cursor::Hide();
 
 	SoundManager::StopAll();
-	SoundManager::PlayBGM(L"Town.mp3");
+	SoundManager::PlayBGM(L"Town.wav");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 	
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
