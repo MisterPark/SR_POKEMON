@@ -6,8 +6,7 @@
 #include "AllEnvironments.h"
 #include "AllNPC.h"
 #include "SkyBox.h"
-#include "Inventory.h"
-
+#include "AllItems.h"
 void Stage_Town::OnLoaded()
 {
 	SkyBox::Show();
@@ -83,6 +82,18 @@ void Stage_Town::Update()
 		Dialog::GetInstance()->Destroy();
 	}
 
+	if (InputManager::GetKeyDown(VK_F4))
+	{
+		Item_StoneOfFire* fire = (Item_StoneOfFire*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfFire>();
+		fire->transform->position = { 20.f,0.f,48.f - 21.f };
+
+		Item_StoneOfWater* water = (Item_StoneOfWater*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfWater>();
+		water->transform->position = { 20.f,0.f,48.f - 20.f };
+
+		Item_StoneOfLeaf* leaf = (Item_StoneOfLeaf*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfLeaf>();
+		leaf->transform->position = { 20.f,0.f,48.f - 19.f };
+	
+	}
 	if (QuestManager::GetInstance()->GetEvent() == Event::EVENT_TOWN)
 	{
 		Event_Town(Event::EVENT_TOWN);
@@ -184,7 +195,9 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
 		QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
+		
 	}
+
 }
 
 

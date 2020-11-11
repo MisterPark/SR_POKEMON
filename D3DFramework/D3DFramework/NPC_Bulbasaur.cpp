@@ -6,6 +6,7 @@
 #include "Effect.h"
 #include "QuestManager.h"
 #include "Dialog.h"
+#include "AllItems.h"
 
 NPC_Bulbasaur::NPC_Bulbasaur()
 {
@@ -95,29 +96,99 @@ void NPC_Bulbasaur::OnEvent()
 	{
 		switch (myProgress)
 		{
+			case 0: {
+				Dialog::Show();
+				Dialog::EnqueueText(L"안녕……", name, Pokemon::Bulbasaur);
+				break;
+			}
+			case 1: {
+				Dialog::Show();
+				Dialog::EnqueueText(L"내 힘은 쓸모 없을거야……", name, Pokemon::Bulbasaur);
+				Dialog::EnqueueText(L"미안해…… 힘을 빌려줄 수 없어……", name, Pokemon::Bulbasaur);
+				break;
+			}
+		}
+	}
+	else if (eventNPC == Event::EVENT_GAME)
+	{
+		switch (myProgress)
+		{
 		case 0: {
-			Dialog::Show();
-			Dialog::EnqueueText(L"안녕……",name, Pokemon::Bulbasaur);
-
-			//
-			QuestManager::GetInstance()->AddEvolution(NpcName::BULBASAUR);
-			Initialize();
-			MetamorphoEffect();
-			//
-			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			if (Inventory::GetItemCount(ItemType::STONE_OF_LEAF) >= 1)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"그거 진화의돌……?", name, Pokemon::Bulbasaur);
+				Dialog::EnqueueText(L"나 주는거야…?", name, Pokemon::Bulbasaur);
+				Dialog::EnqueueText(L"정말…… 고마워!!", name, Pokemon::Bulbasaur);
+				Dialog::SetEndEvent(Evolution);
+				Inventory::RemoveItem(ItemType::STONE_OF_LEAF, 1);
+				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			}
+			else
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"내 힘은 쓸모 없을거야……", name, Pokemon::Bulbasaur);
+				Dialog::EnqueueText(L"미안해…… 힘을 빌려줄 수 없어……", name, Pokemon::Bulbasaur);
+				//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			}
 			break;
 		}
 		case 1: {
 			Dialog::Show();
-			Dialog::EnqueueText(L"내 힘은 쓸모 없을거야……", name, Pokemon::Bulbasaur);
-			Dialog::EnqueueText(L"미안해…… 힘을 빌려줄 수 없을거야……", name, Pokemon::Bulbasaur);
-			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			Dialog::EnqueueText(L"나를 도와준… 친구….", name, Pokemon::Ivysaur);
+			Dialog::EnqueueText(L"나도 이제 도와줄게…….", name, Pokemon::Ivysaur);
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			break;
+		}
+		case 2: {
+			if (Inventory::GetItemCount(ItemType::STONE_OF_LEAF) >= 5)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"진화의돌을 5개나……?", name, Pokemon::Ivysaur);
+				Dialog::EnqueueText(L"정말 고마워…. 친구야….", name, Pokemon::Ivysaur);
+				Dialog::SetEndEvent(Evolution);
+				Inventory::RemoveItem(ItemType::STONE_OF_LEAF, 5);
+				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type == TYPE::IVYSAUR)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"몸 조심해…….", name, Pokemon::Ivysaur);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::IVYSAUR)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"변신….", name, Pokemon::Ivysaur);
+				Dialog::SetEndEvent(MetatoIvysaur);
+			}
+			break;
+		}
+		case 3: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"이제 도망치지 않을거야…….", name, Pokemon::Venusaur);
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
+			break;
+		}
+		case 4: {
+			if (Player::GetInstance()->GetCharacter()->type == TYPE::VENUSAUR)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"다치지 않길 바랄게…….", name, Pokemon::Venusaur);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::VENUSAUR)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"내 힘이야….", name, Pokemon::Venusaur);
+				Dialog::SetEndEvent(MetatoVenusaur);
+			}
 			break;
 		}
 		default:
 			break;
 		}
+	
 	}
+
 }
 
 void NPC_Bulbasaur::MetatoBulbasaur()
@@ -136,4 +207,11 @@ void NPC_Bulbasaur::MetatoVenusaur()
 {
 	Player::GetInstance()->ChangeNextPokemon(TYPE::VENUSAUR, Pokemon::Venusaur);
 	Player::GetInstance()->PermanentMetamorphosis();
+}
+
+void NPC_Bulbasaur::Evolution()
+{
+	QuestManager::GetInstance()->AddEvolution(NpcName::BULBASAUR);
+	dynamic_cast<NPC_Bulbasaur*>(ObjectManager::GetInstance()->FindObject<NPC_Bulbasaur>())->Initialize();
+	dynamic_cast<NPC_Bulbasaur*>(ObjectManager::GetInstance()->FindObject<NPC_Bulbasaur>())->MetamorphoEffect();
 }

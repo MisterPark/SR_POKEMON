@@ -133,25 +133,6 @@ void NPC_Squirtle::OnEvent()
 			//의도적 공백 텍스트 넣으면 터집니다.
 			break;
 		}
-		case 5: {
-			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 1)
-			{
-				Dialog::Show();
-				Dialog::EnqueueText(L"진화의돌을 찾았구나!", name, Pokemon::Squirtle);
-			}
-			else if (Player::GetInstance()->GetCharacter()->type == TYPE::SQUIRTLE)
-			{
-				Dialog::Show();
-				Dialog::EnqueueText(L"건투를 빌어!", name, Pokemon::Squirtle);
-			}
-			else if (Player::GetInstance()->GetCharacter()->type != TYPE::SQUIRTLE)
-			{
-				Dialog::Show();
-				Dialog::EnqueueText(L"내 힘을 빌려줄게!", name, Pokemon::Squirtle);
-				Dialog::SetEndEvent(MetatoSquirtle);
-			}
-			break;
-		}
 		default:
 			break;
 		}
@@ -164,7 +145,10 @@ void NPC_Squirtle::OnEvent()
 			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 1)
 			{
 				Dialog::Show();
-				Dialog::EnqueueText(L"진화의돌을 찾았구나!", name, Pokemon::Squirtle);
+				Dialog::EnqueueText(L"진화의 돌을 찾았구나!", name, Pokemon::Squirtle);
+				Dialog::SetEndEvent(Evolution);
+				Inventory::RemoveItem(ItemType::STONE_OF_WATER, 1);
+				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::SQUIRTLE)
 			{
@@ -179,6 +163,59 @@ void NPC_Squirtle::OnEvent()
 			}
 			break;
 		}
+		case 1: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"좋았어!", name, Pokemon::Wartortle);
+			Dialog::EnqueueText(L"어니부기 나가신다!", name, Pokemon::Wartortle);
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
+			break;
+		}
+		case 2:{
+			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 5)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"오우! 진화의돌 5개!", name, Pokemon::Wartortle);
+				Dialog::EnqueueText(L"땡큐! 땡큐!", name, Pokemon::Wartortle);
+				Dialog::SetEndEvent(Evolution);
+				Inventory::RemoveItem(ItemType::STONE_OF_WATER, 5);
+				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type == TYPE::WARTORTLE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"화이팅하자고!.", name, Pokemon::Wartortle);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::WARTORTLE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"변! 신!.", name, Pokemon::Wartortle);
+				Dialog::SetEndEvent(MetatoWartortle);
+			}
+			break;
+		}
+		case 3: {
+			Dialog::Show();
+			Dialog::EnqueueText(L"나를…….", name, Pokemon::Blastoise);
+			Dialog::EnqueueText(L"거북들의 왕이라 불러다오!", name, Pokemon::Blastoise);
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
+			break;
+		}
+		case 4: {
+			if (Player::GetInstance()->GetCharacter()->type == TYPE::BLASTOISE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"어서 가자고!", name, Pokemon::Blastoise);
+			}
+			else if (Player::GetInstance()->GetCharacter()->type != TYPE::BLASTOISE)
+			{
+				Dialog::Show();
+				Dialog::EnqueueText(L"변신이다!", name, Pokemon::Blastoise);
+				Dialog::SetEndEvent(MetatoBlastoise);
+			}
+			break;
+		}
+		default:
+			break;
 		}
 	}
 }
@@ -206,4 +243,11 @@ void NPC_Squirtle::SummonCaterpie()
 	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 5.f, 0.5f, 1, 2);
 	spawner->transform->position = { 25.f,0.f,22.f };
 	ObjectManager::AddObject(spawner);
+}
+
+void NPC_Squirtle::Evolution()
+{
+	QuestManager::GetInstance()->AddEvolution(NpcName::SQUIRTLE);
+	dynamic_cast<NPC_Squirtle*>(ObjectManager::GetInstance()->FindObject<NPC_Squirtle>())->Initialize();
+	dynamic_cast<NPC_Squirtle*>(ObjectManager::GetInstance()->FindObject<NPC_Squirtle>())->MetamorphoEffect();
 }
