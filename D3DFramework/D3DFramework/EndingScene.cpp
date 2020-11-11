@@ -12,7 +12,8 @@ void EndingScene::OnLoaded()
 	//Network::Connect();
 	SkyBox::Hide();
 	PlayerInfoPanel::Hide();
-	
+	Player::Hide();
+
 	Camera::GetInstance()->SetPosition(Vector3(0, 0, 0));
 	Camera::GetInstance()->transform->look = Vector3(0, 0, 1);
 

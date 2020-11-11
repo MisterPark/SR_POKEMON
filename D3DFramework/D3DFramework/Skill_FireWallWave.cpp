@@ -28,11 +28,19 @@ void Skill_FireWallWave::InitActiveTime()
 void Skill_FireWallWave::Update()
 {
 	patternTime += TimeManager::DeltaTime();
+	soundTime += TimeManager::DeltaTime();
+	if (soundTime > 0.8f&&patternTime<25.f)
+	{
+		SoundManager::PlayOverlapSound(L"GroudonFireWall.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+		soundTime = 0;
+	}
 	character->transform->position.x = 23.5f;
 	character->transform->position.z = 48.f-5.0f;
 	character->direction = { 0.f,0.f,-1.f };
 	float shakesize = 1.0f;
 
+	
 	if (Frame[0] == 0)
 	{
 		for (int i = 2; i < 46; i+=2)
@@ -56,6 +64,7 @@ void Skill_FireWallWave::Update()
 					bullet->SetInitAttack(character->stat.attack);
 				}
 		}
+
 		Frame[0]++;
 	}
 	else if (Frame[0] == 1 && patternTime > 1.f)

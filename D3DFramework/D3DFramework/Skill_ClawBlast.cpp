@@ -5,6 +5,7 @@
 #include "Bullet_FireBlast.h"
 Skill_ClawBlast::Skill_ClawBlast()
 {
+
 	skillIcon = TextureKey::BULLET_INVISIBLE_01;
 	moveStopTime = 1.4f;
 	isSpawn = false;
@@ -39,6 +40,10 @@ void Skill_ClawBlast::Update()
 
 	if (0.4f >= activeTime)
 	{
+		SoundManager::PlaySoundW(L"GroudonBreath.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+		SoundManager::PlaySoundW(L"GroudonClaw.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		Camera::GetInstance()->Shake(0.05f);
 		float speed = 20.f;
 		character->transform->position.x += character->direction.x * speed * TimeManager::DeltaTime();

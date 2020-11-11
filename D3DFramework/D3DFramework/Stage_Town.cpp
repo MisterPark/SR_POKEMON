@@ -32,7 +32,10 @@ void Stage_Town::OnLoaded()
 	}
 
 	// TODO: 타운에 오면 조건에 따라 메타몽으로 변신
-	if (true) Player::GetInstance()->MetamorphosisToDitto();
+	if (QuestManager::GetInstance()->GetEvent() != Event::EVENT_TOWN)
+	{
+		if (true) Player::GetInstance()->MetamorphosisToDitto();
+	}
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = GrassPortal;
@@ -68,10 +71,7 @@ void Stage_Town::OnLoaded()
 		Dialog::Show();
 		Dialog::EnqueueText(L"(세레비에게 가보세요!)");
 	}
-
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
-	
-
 }
 
 void Stage_Town::OnUnloaded()
