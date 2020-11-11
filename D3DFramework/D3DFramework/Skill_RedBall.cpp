@@ -6,6 +6,7 @@
 
 Skill_RedBall::Skill_RedBall()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_REDBALL;
 	coolTime = 1.f;
 	moveStopTime = 1.f;
 }
@@ -40,11 +41,11 @@ void Skill_RedBall::Update()
 	bullet->transform->scale = { size,size,size };
 	if (character->team == Team::MONSTERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::ENEMY_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * 0.01f);
+		bullet->SetInitAttack(character->stat.attack * 0.1f);
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * 0.04f);
+		bullet->SetInitAttack(character->stat.attack * 0.4f);
 	}
 
 	

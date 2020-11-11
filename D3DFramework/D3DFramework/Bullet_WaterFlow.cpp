@@ -7,21 +7,20 @@
 
 Bullet_WaterFlow::Bullet_WaterFlow()
 {
-	anim->SetSprite(TextureKey::BULLET_WATER1_01, TextureKey::BULLET_WATER1_04);
+	anim->SetSprite(TextureKey::BULLET_WATER3_01, TextureKey::BULLET_WATER3_09);
 	anim->SetLoop(true);
 	anim->SetDelay(0.1f);
 
-	transform->scale = { 0.5f, 0.5f, 0.5f };
+	transform->scale = { 0.25f, 0.25f, 0.25f };
 
 	lifeTime = 2.6f;
 	stat.moveSpeed = 5.f;
 	isOnTerrain = true;
-	isBillboard = false;
-	//transform->eulerAngles.x = D3DXToRadian(90.f);
-	//transform->eulerAngles.x = D3DXToRadian(180.f);
-	transform->eulerAngles.y = D3DXToRadian(0.f) + Player::GetInstance()->GetRadianY();
-	transform->eulerAngles.x = D3DXToRadian(80.f);
-	offsetY = 0.1f;
+	isBillboard = true;
+	
+	//transform->eulerAngles.y = D3DXToRadian(0.f) + Player::GetInstance()->GetRadianY();
+	//transform->eulerAngles.x = D3DXToRadian(80.f);
+	offsetY = 0.25f;
 }
 
 Bullet_WaterFlow::~Bullet_WaterFlow()

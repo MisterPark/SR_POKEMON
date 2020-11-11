@@ -6,6 +6,7 @@
 
 Skill_Explosion::Skill_Explosion()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_EXPLOSION;
 	coolTime = 1.f;
 	moveStopTime = 1.f;
 }
@@ -45,7 +46,7 @@ void Skill_Explosion::Update()
 	}
 	else if (character->team == Team::PLAYERTEAM) {
 		CollisionManager::RegisterObject(COLTYPE::PLAYER_ATTACK, bullet);
-		bullet->SetInitAttack(character->stat.attack * 0.02f);
+		bullet->SetInitAttack(character->stat.attack * 1.f);
 		bullet->team = Team::PLAYERTEAM;
 	}
 

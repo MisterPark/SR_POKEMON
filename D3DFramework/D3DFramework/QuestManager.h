@@ -1,6 +1,6 @@
 #pragma once
 enum NpcName{
-	CELEBI, DOCTOR_OH, CHARMANDER, BULBASAUR, SQUIRTLE, NPC_END
+	CELEBI, DOCTOR_OH, CHARMANDER, BULBASAUR, SQUIRTLE, COLOR_DITTO, NPC_END
 };
 enum Event {
 	EVENT_TUTORIAL, EVENT_TOWN, EVENT_GAME, EVENT_END
@@ -38,5 +38,6 @@ private:
 	//자동으로 쌓임
 	int killCount[(int)MonsterType::END];
 	int evolution[NpcName::NPC_END];
+	
 };
 

@@ -8,6 +8,8 @@
 
 void Stage_Water_02::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYBEACH2_U);
 

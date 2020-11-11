@@ -5,19 +5,27 @@ using namespace PKH;
 
 Mesh::Mesh()
 {
-	
+	// 머테리얼
+	ZeroMemory(&material, sizeof(D3DMATERIAL9));
+
+
+	material.Diffuse = D3DXCOLOR(1.f, 1.f, 1.f, 1.f);
+	material.Specular = D3DXCOLOR(1.f, 1.f, 1.f, 1.f);
+	material.Ambient = D3DXCOLOR(0.5f, 0.5f, 0.5f, 0.5f);
+	material.Emissive = D3DXCOLOR(0.f, 0.f, 0.f, 1.f);
+	material.Power = 0.f;
 }
 
 Mesh::~Mesh()
 {
-	vb->Release();
+	vertexBuffer->Release();
 	triangles->Release();
 }
 
 void PKH::Mesh::Render()
 {
 	if (gameObject == nullptr)return;
-
+	
 	Transform* transform = (Transform*)gameObject->GetComponent(L"Transform");
 
 	LPDIRECT3DDEVICE9 device = D2DRenderManager::GetDevice();
@@ -29,7 +37,7 @@ void PKH::Mesh::Render()
 			device->SetTexture(0, texture->pTexture);
 		}
 
-		device->SetStreamSource(0, vb, 0, sizeof(Vertex));
+		device->SetStreamSource(0, vertexBuffer, 0, sizeof(Vertex));
 		device->SetFVF(Vertex::FVF);
 		device->SetIndices(triangles);
 
@@ -93,6 +101,8 @@ void PKH::Mesh::Render()
 		{
 		case LightMode::ON:
 			device->SetRenderState(D3DRS_LIGHTING, true);
+			device->SetRenderState(D3DRS_NORMALIZENORMALS, TRUE);
+			device->SetMaterial(&material);
 			break;
 		case LightMode::OFF:
 			device->SetRenderState(D3DRS_LIGHTING, false);
@@ -142,19 +152,19 @@ UINT PKH::Mesh::GetVertexCount()
 
 IDirect3DVertexBuffer9 * PKH::Mesh::GetVertexBuffer()
 {
-	return vb;
+	return vertexBuffer;
 }
 
 void PKH::Mesh::SetColor(D3DCOLOR color)
 {
 	Vertex* vertices;
-	vb->Lock(0, 0, (void**)&vertices, 0);
+	vertexBuffer->Lock(0, 0, (void**)&vertices, 0);
 	for (int i = 0; i < vertexCount; i++)
 	{
 		vertices[i].color = color;
 	}
 	
-	vb->Unlock();
+	vertexBuffer->Unlock();
 }
 
 void PKH::Mesh::SetTexture(PKH::TextureKey key)
@@ -165,20 +175,20 @@ void PKH::Mesh::SetTexture(PKH::TextureKey key)
 void PKH::Mesh::SetVertexPos(UINT index, const Vector3& pos)
 {
 	Vertex* vertices;
-	vb->Lock(0, 0, (void**)&vertices, 0);
-	vertices[index].x = pos.x;
-	vertices[index].y = pos.y;
-	vertices[index].z = pos.z;
-	vb->Unlock();
+	vertexBuffer->Lock(0, 0, (void**)&vertices, 0);
+	vertices[index].pos.x = pos.x;
+	vertices[index].pos.y = pos.y;
+	vertices[index].pos.z = pos.z;
+	vertexBuffer->Unlock();
 }
 
 void PKH::Mesh::SetUV(UINT index, float u, float v)
 {
 	Vertex* vertices;
-	vb->Lock(0, 0, (void**)&vertices, 0);
+	vertexBuffer->Lock(0, 0, (void**)&vertices, 0);
 	vertices[index].u = u;
 	vertices[index].v = v;
-	vb->Unlock();
+	vertexBuffer->Unlock();
 }
 
 void PKH::Mesh::SetBlendMode(BlendMode _mode)
@@ -194,4 +204,9 @@ void PKH::Mesh::SetZReadMode(ZReadMode _mode)
 void PKH::Mesh::SetZWriteMode(ZWriteMode _mode)
 {
 	zWriteMode = _mode;
+}
+
+void PKH::Mesh::SetLightMode(LightMode _mode)
+{
+	lightMode = _mode;
 }

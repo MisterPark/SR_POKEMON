@@ -12,7 +12,7 @@ PKH::Rectangle::Rectangle()
 		D3DUSAGE_WRITEONLY,
 		Vertex::FVF,
 		D3DPOOL_MANAGED,
-		&vb,
+		&vertexBuffer,
 		0);
 
 	D2DRenderManager::GetDevice()->CreateIndexBuffer(
@@ -24,13 +24,13 @@ PKH::Rectangle::Rectangle()
 		0);
 
 	Vertex* vertices;
-	vb->Lock(0, 0, (void**)&vertices, 0);
+	vertexBuffer->Lock(0, 0, (void**)&vertices, 0);
 
-	vertices[0] = Vertex(-1.f, -1.f, 0.f, 0xFFFFFFFF, 0, 1);
-	vertices[1] = Vertex(-1.f, 1.f, 0.f, 0xFFFFFFFF, 0, 0);
-	vertices[2] = Vertex(1.f, 1.f, 0.f, 0xFFFFFFFF, 1, 0);
-	vertices[3] = Vertex(1.f, -1.f, 0.f, 0xFFFFFFFF, 1, 1);
-	vb->Unlock();
+	vertices[0] = Vertex(Vector3(-1.f, -1.f, 0.f), 0xFFFFFFFF, 0, 1);
+	vertices[1] = Vertex(Vector3(-1.f, 1.f, 0.f), 0xFFFFFFFF, 0, 0);
+	vertices[2] = Vertex(Vector3(1.f, 1.f, 0.f), 0xFFFFFFFF, 1, 0);
+	vertices[3] = Vertex(Vector3(1.f, -1.f, 0.f), 0xFFFFFFFF, 1, 1);
+	vertexBuffer->Unlock();
 
 	WORD* indices = nullptr;
 	triangles->Lock(0, 0, (void**)&indices, 0);

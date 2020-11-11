@@ -23,7 +23,7 @@ public:
     virtual void Update() override;
     virtual void Render() override;
 
-
+    static void SetQuestMessage(const wstring& msg);
 
 private:
     Character* target = nullptr;
@@ -35,5 +35,8 @@ private:
     bool flashFlag = false;
     float flashTick = 0.f;
     float flashDelay = 0.1f;
+
+    // 퀘스트 전용
+    wstring questMessage;
 };
 

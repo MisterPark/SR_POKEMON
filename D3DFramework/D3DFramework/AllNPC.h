@@ -6,6 +6,7 @@
 #include "NPC_Bulbasaur.h"
 #include "NPC_Charmander.h"
 #include "NPC_Squirtle.h"
-
+#include "NPC_ColorDitto.h"
 
 #include "QuestManager.h"
+#include "PlayerInfoPanel.h"

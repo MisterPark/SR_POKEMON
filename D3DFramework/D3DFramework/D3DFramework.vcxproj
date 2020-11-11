@@ -195,6 +195,11 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterpie.h" />
+    <ClInclude Include="EndingScene.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="LightManager.h" />
+    <ClInclude Include="LoadingScene.h" />
+    <ClInclude Include="LoadManager.h" />
     <ClInclude Include="NPC_Bulbasaur.h" />
     <ClInclude Include="NPC_Celebi.h" />
     <ClInclude Include="Character.h" />
@@ -251,6 +256,7 @@
     <ClInclude Include="Meteor.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="NPC_Charmander.h" />
+    <ClInclude Include="NPC_ColorDitto.h" />
     <ClInclude Include="NPC_DoctorOh.h" />
     <ClInclude Include="NPC_Squirtle.h" />
     <ClInclude Include="PetalBlizzard.h" />
@@ -416,6 +422,11 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterpie.cpp" />
+    <ClCompile Include="EndingScene.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightManager.cpp" />
+    <ClCompile Include="LoadingScene.cpp" />
+    <ClCompile Include="LoadManager.cpp" />
     <ClCompile Include="NPC_Bulbasaur.cpp" />
     <ClCompile Include="NPC_Celebi.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -471,6 +482,7 @@
     <ClCompile Include="Meteor.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="NPC_Charmander.cpp" />
+    <ClCompile Include="NPC_ColorDitto.cpp" />
     <ClCompile Include="NPC_DoctorOh.cpp" />
     <ClCompile Include="NPC_Squirtle.cpp" />
     <ClCompile Include="PetalBlizzard.cpp" />

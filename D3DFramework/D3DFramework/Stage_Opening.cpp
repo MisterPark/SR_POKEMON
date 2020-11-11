@@ -53,6 +53,11 @@ void Stage_Opening::Update()
 		NextScene();
 		Dialog::GetInstance()->Destroy();
 	}
+	else if (InputManager::GetKeyDown(VK_F4))
+	{
+		SceneManager::LoadScene<EndingScene>();
+		Dialog::GetInstance()->Destroy();
+	}
 }
 
 void Stage_Opening::NextScene()

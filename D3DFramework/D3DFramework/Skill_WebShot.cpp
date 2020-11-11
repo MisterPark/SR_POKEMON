@@ -5,6 +5,7 @@
 
 Skill_WebShot::Skill_WebShot()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_WEB;
 	coolTime = 0.4f;
 	moveStopTime = 0.4f;
 }

@@ -9,6 +9,8 @@
 #include "AllItems.h"
 void Stage_Town::OnLoaded()
 {
+	ObjectManager::GetInstance()->CreateObject<Light>();
+
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
@@ -30,7 +32,10 @@ void Stage_Town::OnLoaded()
 	}
 
 	// TODO: 타운에 오면 조건에 따라 메타몽으로 변신
-	if (true) Player::GetInstance()->MetamorphosisToDitto();
+	if (QuestManager::GetInstance()->GetEvent() != Event::EVENT_TOWN)
+	{
+		if (true) Player::GetInstance()->MetamorphosisToDitto();
+	}
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	trigerBox->OnTriggered = GrassPortal;
@@ -60,16 +65,18 @@ void Stage_Town::OnLoaded()
 	//
 	npc = NPC_Squirtle::Create(Vector3{ 25.f, 0.f, 22.f });
 	ObjectManager::AddObject(npc);
+
+	npc = NPC_ColorDitto::Create(Vector3{ 30.f, 0.f, 30.f });
+	ObjectManager::AddObject(npc);
 	
 	if (QuestManager::GetInstance()->GetEvent() == EVENT_TOWN)
 	{
 		Dialog::Show();
 		Dialog::EnqueueText(L"(세레비에게 가보세요!)");
+		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화");
+
 	}
-
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
-	
-
 }
 
 void Stage_Town::OnUnloaded()
@@ -102,7 +109,10 @@ void Stage_Town::Update()
 	{
 		Event_Town(Event::EVENT_TOWN);
 	}
-
+	if (QuestManager::GetInstance()->GetEvent() == Event::EVENT_GAME)
+	{
+		Event_Game(Event::EVENT_GAME);
+	}
 
 }
 
@@ -161,6 +171,7 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"그럼 할 수 있는 일이 더 많아지겠는데?", L"세레비", Pokemon::Celebi);
 		Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
 		Dialog::EnqueueText(L"(아이템은 다가가는 것으로 습득할 수 있습니다.)");
+		PlayerInfoPanel::SetQuestMessage(L"과일 줍고 세레비와 대화");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CELEBI);
 	}
 	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::CELEBI) == 2&&Inventory::GetItemCount(ItemType::TOMATO)==0)
@@ -177,6 +188,7 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"그 진화의돌을 내게 가져와 줘!", L"파이리", Pokemon::Charmander);
 		Dialog::EnqueueText(L"뭐 겸사겸사 다른 애들 것도 가져와도 되고!", L"파이리", Pokemon::Charmander);
 		Dialog::EnqueueText(L"아! 가기 전에 꼬부기한테 한번 가봐!", L"파이리", Pokemon::Charmander);
+		PlayerInfoPanel::SetQuestMessage(L"꼬부기와 대화");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::CHARMANDER);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::BULBASAUR);
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
@@ -188,20 +200,41 @@ void Stage_Town::Event_Town(Event _event)
 		Dialog::EnqueueText(L"(몬스터들을 사냥했을때 Lv의 하단에 초상화가 보이시나요?)");
 		Dialog::EnqueueText(L"(저 초상화가 바로 당신이 변신할 수 있는 몬스터입니다!)");
 		Dialog::EnqueueText(L"('Space' 키를 눌러 변신해보세요!)");
+		PlayerInfoPanel::SetQuestMessage(L"꼬부기와 다시 대화");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
 	}
 
-	else if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
+}
+
+void Stage_Town::Event_Game(Event _event)
+{
+
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_TOWN, NpcName::SQUIRTLE) == 4)
+	{
+	Dialog::Show();
+	Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
+	Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
+	Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
+	PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
+	QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
+	QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
+
+	}
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::BULBASAUR) == 4 &&
+		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CHARMANDER) == 4 &&
+		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE) == 4 &&
+		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI) == 1
+		)
 	{
 		Dialog::Show();
-		Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
-		Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
-		Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
-		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
-		QuestManager::GetInstance()->SetEvent(Event::EVENT_GAME);
-		
+		Dialog::EnqueueText(L"(모두의 진화가 끝났습니다!)");
+		QuestManager::GetInstance()->AddProgress(Event::EVENT_GAME, NpcName::CELEBI);
 	}
 
+	if (QuestManager::GetInstance()->GetMonsterKill(MonsterType::GROUDON) >= 1)
+	{
+		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 4);
+	}
 }
 
 

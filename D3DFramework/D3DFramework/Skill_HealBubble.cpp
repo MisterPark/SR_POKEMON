@@ -6,6 +6,7 @@
 
 Skill_HealBubble::Skill_HealBubble()
 {
+	skillIcon = TextureKey::UI_SKILL_ICON_HEALBULLET;
 	coolTime = 1.f;
 	moveStopTime = 1.f;
 }
