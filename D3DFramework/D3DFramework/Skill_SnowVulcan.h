@@ -17,5 +17,7 @@ public:
 	static Skill* Create();
 private:
 	float delay = 0.f;
+	float soundtime = 0.f;
+	bool sound = false;
 };
 

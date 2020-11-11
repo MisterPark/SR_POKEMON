@@ -9,3 +9,4 @@
 #include "NPC_ColorDitto.h"
 
 #include "QuestManager.h"
+#include "PlayerInfoPanel.h"

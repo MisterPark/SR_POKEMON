@@ -91,7 +91,7 @@ void NPC_Celebi::OnEvent()
 			Dialog::EnqueueText(L"(속성박스로 이동하세요!)");
 			Dialog::EnqueueText(L"(속성박스로 이동하면 몬스터가 생성됩니다.)");
 			Dialog::EnqueueText(L"(좌클릭으로 공격, 우클릭으로 스킬이 사용가능합니다.)");
-
+			PlayerInfoPanel::SetQuestMessage(L"캐터피 3마리 처치.");
 			QuestManager::GetInstance()->AddProgress(eventNPC,myName);
 			break;
 		}
@@ -108,6 +108,7 @@ void NPC_Celebi::OnEvent()
 			Dialog::EnqueueText(L"잘했어!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"적 포켓몬을 사냥하면 경험치를 획득하고 레벨업도 할 수 있어!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"이제 마을로 가보자!", L"세레비", Pokemon::Celebi);
+			PlayerInfoPanel::SetQuestMessage(L"마을로 이동");
 			Dialog::SetEndEvent(ProgressTutorialEvent);
 			
 			break;
@@ -147,6 +148,7 @@ void NPC_Celebi::OnEvent()
 			{
 				Dialog::Show();
 				Dialog::EnqueueText(L"좋아! 일단 저기 보이는 과일 좀 주워 올래?", L"세레비", Pokemon::Celebi);
+				
 			}
 			else if (isTomato == nullptr)
 			{
@@ -156,6 +158,7 @@ void NPC_Celebi::OnEvent()
 				Dialog::EnqueueText(L"(습득한 아이템은 I(i) 키를 눌러 확인할 수 있습니다.)");
 				Dialog::EnqueueText(L"(아이템은 커서를 올리면 정보가 나오게 되며……)");
 				Dialog::EnqueueText(L"(소모성 아이템은 우클릭으로 사용이 가능합니다!)");
+				PlayerInfoPanel::SetQuestMessage(L"i키 눌러 토마토 먹기");
 				QuestManager::GetInstance()->AddProgress(eventNPC,myName);
 
 			}
@@ -171,6 +174,7 @@ void NPC_Celebi::OnEvent()
 		case 3: {
 			Dialog::Show();
 			Dialog::EnqueueText(L"잘했어! 뒤에 있는 파이리한테 먼저 가봐!\n너의 능력을 유용하게 쓸수 있게 도와줄거야!", L"세레비", Pokemon::Celebi);
+			PlayerInfoPanel::SetQuestMessage(L"파이리로 변신");
 			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
 			break;
@@ -198,11 +202,13 @@ void NPC_Celebi::OnEvent()
 		case 1: {
 			Dialog::Show();
 			Dialog::EnqueueText(L"우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
+			PlayerInfoPanel::SetQuestMessage(L"모두의 진화를 도와주고 세레비와 대화.");
 			break;
 		}
 		case 2: {
 			Dialog::Show();
 			Dialog::EnqueueText(L"자…! 가자! 마지막 보스를 무찌르자!", L"세레비", Pokemon::Celebi);
+			PlayerInfoPanel::SetQuestMessage(L"불꽃 2스테이지 입장.");
 			break;
 		}
 		case 3: {

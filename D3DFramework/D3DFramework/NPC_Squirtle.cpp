@@ -7,6 +7,7 @@
 #include "QuestManager.h"
 #include "Dialog.h"
 #include "AllItems.h"
+#include "AllNPC.h"
 NPC_Squirtle::NPC_Squirtle()
 {
 	Initialize();
@@ -109,6 +110,7 @@ void NPC_Squirtle::OnEvent()
 			Dialog::EnqueueText(L"너의 변신 능력은 적에게도 사용할 수 있어!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"바로 사냥을 통해서 말이지……!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"시험삼아…… 저기 저 캐터피를 잡아봐!", name, Pokemon::Squirtle);
+			PlayerInfoPanel::SetQuestMessage(L"캐터피 처치");
 			Dialog::SetEndEvent(SummonCaterpie);
 			QuestManager::GetInstance()->SetMonsterKill(MonsterType::CATERPIE, 0);
 			QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
