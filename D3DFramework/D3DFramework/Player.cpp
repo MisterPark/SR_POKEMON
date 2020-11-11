@@ -6,11 +6,14 @@
 #include "Inventory.h"
 #include "AllCharacters.h"
 #include "Dialog.h"
+#include "Stage_Town.h"
+
 Player* Player::instance = nullptr;
 
 Player::Player() :
 	character(nullptr), radianX(0.f), radianY(0.f),
-	isFix(true), skillNum(1)
+	isFix(true), skillNum(1), isAttackCheat(false),
+	originDefaultAttack(0.f), originIncreaseAttack(0.f)
 {
 }
 
@@ -40,6 +43,9 @@ void Player::Initialize()
 
 	MetamorphosisToDitto();
 
+	originDefaultAttack = character->GetDefaultAttack();
+	originIncreaseAttack = character->GetIncreaseAttack();
+
 	nextPokemon = make_pair(TYPE::END, Pokemon::None);
 }
 
@@ -47,10 +53,12 @@ void Player::Update()
 {
 	if (nullptr == character) return;
 
-
 	KeyInput();
+	AttackCheat();
 	
 	CalcMetamorphosisTime();
+
+	CharacterCheck();
 
 	if (isFix)
 	{
@@ -102,6 +110,8 @@ void Player::SetCharacter(Character * object)
 		Vector3 pos = character->transform->position;
 		Vector3 dir = character->direction;
 		STAT oldStat = character->GetStat();
+		float incATK = character->GetIncreaseAttack();
+		float defATK = character->GetDefaultAttack();
 
 		character->dontDestroy = false;
 		character->Die();
@@ -114,6 +124,9 @@ void Player::SetCharacter(Character * object)
 		character->direction = dir;
 		character->stat = oldStat;
 		character->infoVisible = false;
+
+		character->SetIncreaseAttack(incATK);
+		character->SetDefaultAttack(defATK);
 
 		skillSetSize = character->GetSkillSetSize();
 		if (skillSetSize >= 1) skillNum = 1;
@@ -149,6 +162,39 @@ void Player::SetCharacter(Character * object)
 void Player::Release()
 {
 	metamorphosisList.clear();
+}
+
+void Player::CharacterCheck()
+{
+	if (nullptr != character)
+	{
+		if (0.f >= character->stat.hp)
+		{
+			Metamorphosis();
+			character->SetStatByLevel();
+
+			character->transform->position = { 0.f, 0.f, 0.f };
+			character->direction = { 0.f, 0.f, 1.f };
+
+			SceneManager::LoadScene<Stage_Town>();
+		}
+	}
+}
+
+void Player::AttackCheat()
+{
+	if (isAttackCheat)
+	{
+		int level = character->stat.level;
+
+		character->stat.attack = 100.f + (50.f * (level - 1));
+	}
+	else
+	{
+		int level = character->stat.level;
+
+		character->stat.attack = originDefaultAttack + (originIncreaseAttack * (level - 1));
+	}
 }
 
 void Player::ResetMousePoint()
@@ -325,6 +371,7 @@ void Player::KeyInput()
 			ChangeState(State::WALK);
 		}
 	}
+
 	if (!isKeyDown && character->GetCanMove())
 	{
 		ChangeState(State::IDLE);
@@ -333,6 +380,35 @@ void Player::KeyInput()
 	if (InputManager::GetKeyDown('Q'))
 	{
 		isFix ^= true;
+	}
+
+	if (InputManager::GetKeyDown('Z'))
+	{
+		if (nullptr != character)
+		{
+			character->isInvincible ^= true;
+		}
+	}
+
+	if (InputManager::GetKeyDown('X'))
+	{
+		isAttackCheat ^= true;
+
+		if (isAttackCheat)
+		{
+			originIncreaseAttack = character->GetIncreaseAttack();
+			originDefaultAttack = character->GetDefaultAttack();
+		}
+		else
+		{
+			character->SetIncreaseAttack(originIncreaseAttack);
+			character->SetDefaultAttack(originDefaultAttack);
+		}
+	}
+
+	if (InputManager::GetKeyDown('C'))
+	{
+		character->stat.exp += 200;
 	}
 }
 

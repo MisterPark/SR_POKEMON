@@ -14,6 +14,7 @@ void Stage_Town::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYDAY_U);
 	Cursor::Hide();
 
+	SoundManager::StopAll();
 	SoundManager::PlayBGM(L"Town.mp3");
 	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 	

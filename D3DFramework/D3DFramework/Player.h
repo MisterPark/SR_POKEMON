@@ -36,6 +36,8 @@ private:
 	void Release();
 
 private:
+	void CharacterCheck();
+	void AttackCheat();
 	void ResetMousePoint();
 	void Attack();
 	void CalcMouse();
@@ -60,9 +62,12 @@ private:
 	float radianX;
 	float radianY;
 	float metamorphosisTime;
+	float originIncreaseAttack;
+	float originDefaultAttack;
 
 	bool isFix;
 	bool canMetamorphosis;
+	bool isAttackCheat;
 	
 	int skillNum;
 	int skillSetSize;
