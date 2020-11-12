@@ -19,4 +19,5 @@ public:
 	float spawnTimeGap;
 	float damageTime;
 	int Frame[2];
+	float soundDelay = 0.f;
 };
