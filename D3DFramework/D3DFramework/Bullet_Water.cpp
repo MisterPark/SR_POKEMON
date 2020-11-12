@@ -28,6 +28,8 @@ void Bullet_Water::Update()
 	if (IsDead()) {
 		Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_02, TextureKey::BULLET_TEARS_15, 0.05f);
 		ObjectManager::AddObject(effect);
+		SoundManager::PlayOverlapSound(L"TearsDead.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 }
 
@@ -41,4 +43,6 @@ void Bullet_Water::OnCollision(GameObject* target)
 	Die();
 	Effect* effect = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_TEARS_02, TextureKey::BULLET_TEARS_15, 0.02f);
 	ObjectManager::AddObject(effect);
+	SoundManager::PlayOverlapSound(L"TearsDead.wav", SoundChannel::MONSTER);
+	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 }
