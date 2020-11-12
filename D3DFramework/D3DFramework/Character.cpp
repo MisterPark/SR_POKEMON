@@ -102,8 +102,7 @@ void Character::Release()
 void Character::OnCollision(GameObject* target)
 {
 	
-
-	if (isInvincible == false)
+	if (isInvincible == false) // 무적이 아닐떄
 	{
 		if (this->team == target->team) return;
 
@@ -125,7 +124,7 @@ void Character::OnCollision(GameObject* target)
 
 		if (damageSum < 0)
 		{
-			if (damageSum < -1)
+			if (damageSum < -1) // 힐
 			{
 				DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 				skin->transform->position = this->transform->position;
@@ -147,11 +146,14 @@ void Character::OnCollision(GameObject* target)
 		}
 
 		// 데미지 스킨
-		else if (damageSum >= 1)
+		else if (damageSum >= 1) // 맞았을떄
 		{
+
+			//몬스터
 			DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 			skin->transform->position = this->transform->position;
 			skin->SetDamage(int(damageSum));
+			//플레이어
 			if (this == playerCharacter)
 			{
 				skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
@@ -159,6 +161,13 @@ void Character::OnCollision(GameObject* target)
 				SoundManager::PlayOverlapSound(L"Hit2.wav", SoundChannel::PLAYER);
 				SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 			}
+			else
+			{
+				//몬스터일떄
+				TargetInfoPanel::SetTarget(this);
+				TargetInfoPanel::Show();
+			}
+
 
 		}
 
@@ -195,9 +204,13 @@ void Character::OnCollision(GameObject* target)
 				if (this->monsterAI != nullptr) {
 					QuestManager::GetInstance()->AddMonsterKill(monsterAI->type);
 				}
+
+				TargetInfoPanel::SetTarget(nullptr);
+				TargetInfoPanel::Hide();
+
 			}
 			
-			//
+			//공통 사망
 			stat.hp = 0;
 			if (dontDestroy == true) return;
 
@@ -213,11 +226,13 @@ void Character::OnCollision(GameObject* target)
 		if (damageSum < 0)return;
 
 		if (playerCharacter == this) return;
-		TargetInfoPanel::SetTarget(this);
-		TargetInfoPanel::Show();
+		
 	}
-	else
+	else // 무적일 떄
+	{
 		return;
+	}
+		
 }
 
 void Character::Die()

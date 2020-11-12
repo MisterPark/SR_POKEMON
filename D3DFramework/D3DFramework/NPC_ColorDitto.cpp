@@ -15,6 +15,7 @@ NPC_ColorDitto::NPC_ColorDitto()
 NPC_ColorDitto::NPC_ColorDitto(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -45,6 +46,7 @@ void NPC_ColorDitto::Initialize()
 
 	offsetY = 0.3f;
 	transform->scale = { 0.3f, 0.3f, 0.3f };
+	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();
@@ -53,7 +55,7 @@ void NPC_ColorDitto::Initialize()
 void NPC_ColorDitto::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 
@@ -65,6 +67,7 @@ NPC_ColorDitto* NPC_ColorDitto::Create(const Vector3& pos, bool onCenterDir, con
 
 void NPC_ColorDitto::OnEvent()
 {
+	SetIsMoving(false);
 	direction = DirFromPlayer(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
@@ -79,7 +82,7 @@ void NPC_ColorDitto::OnEvent()
 		{
 		case 0: {
 			if (Player::GetInstance()->GetCharacter()->type == TYPE::DITTO) {
-				
+
 				Dialog::EnqueueText(L"어이! 촌놈.", name, Pokemon::Ditto);
 				Dialog::EnqueueText(L"그런 촌스러운 색으로 돌아다니다니 !", name, Pokemon::Ditto);
 				Dialog::EnqueueText(L"나한테 말을 걸면 색을 바꿔주지 !", name, Pokemon::Ditto);
@@ -87,7 +90,7 @@ void NPC_ColorDitto::OnEvent()
 				QuestManager::GetInstance()->AddProgress(eventNPC, myName);
 			}
 			else {
-				
+
 				Dialog::EnqueueText(L"메타몽이 아니면 저리 가라고 !", name, Pokemon::Ditto);
 				Dialog::Show();
 			}
@@ -96,7 +99,7 @@ void NPC_ColorDitto::OnEvent()
 		case 1: {
 			if (Player::GetInstance()->GetCharacter()->type == TYPE::DITTO) {
 				Player::GetInstance()->MetamorphosisToDitto();
-				
+
 				Dialog::EnqueueText(L"어때, 마음에 들어?", name, Pokemon::Ditto);
 				Dialog::Show();
 				Player::GetInstance()->AddDittoColor();
@@ -104,7 +107,7 @@ void NPC_ColorDitto::OnEvent()
 				Player::GetInstance()->MetamorphoEffect();
 			}
 			else {
-				
+
 				Dialog::EnqueueText(L"메타몽 인채로 오라고 ! 이 구닥다리야", name, Pokemon::Ditto);
 				Dialog::Show();
 			}

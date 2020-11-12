@@ -117,7 +117,6 @@ void Player::SetCharacter(Character * object)
 		Camera::GetInstance()->SetTarget(character);
 		character->infoVisible = false;
 
-		++pokemonIndex;
 		metamorphosisList.emplace_back(make_pair(character->type, character->number));
 	}
 	// 처음 세팅이 아닐 때
@@ -481,8 +480,9 @@ void Player::MetamorphosisToDitto()
 	metamorphosisList.clear();
 
 	pokemonIndex = -1;
-	SetCharacterByType(TYPE::DITTO);
-	permanentIndex = 0;
+	permanentIndex = -1;
+	nextPokemon = make_pair(TYPE::DITTO, Pokemon::Ditto);
+	PermanentMetamorphosis();
 	canMetamorphosis = true;
 
 	MetamorphoEffect();

@@ -16,6 +16,7 @@ NPC_Bulbasaur::NPC_Bulbasaur()
 NPC_Bulbasaur::NPC_Bulbasaur(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -64,6 +65,7 @@ void NPC_Bulbasaur::Initialize()
 
 	offsetY = 0.13f;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
+	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();
@@ -72,7 +74,7 @@ void NPC_Bulbasaur::Initialize()
 void NPC_Bulbasaur::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 
@@ -84,6 +86,8 @@ NPC_Bulbasaur* NPC_Bulbasaur::Create(const Vector3& pos, bool onCenterDir, const
 
 void NPC_Bulbasaur::OnEvent()
 {
+	SetIsMoving(false);
+	//SetIsMoving(true); 대화가 끝날때
 	direction = DirFromPlayer(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
@@ -96,19 +100,19 @@ void NPC_Bulbasaur::OnEvent()
 	{
 		switch (myProgress)
 		{
-			case 0: {
-				
-				Dialog::EnqueueText(L"안녕……", name, Pokemon::Bulbasaur);
-				Dialog::Show();
-				break;
-			}
-			case 1: {
-				
-				Dialog::EnqueueText(L"내 힘은 쓸모 없을거야……", name, Pokemon::Bulbasaur);
-				Dialog::EnqueueText(L"미안해…… 힘을 빌려줄 수 없어……", name, Pokemon::Bulbasaur);
-				Dialog::Show();
-				break;
-			}
+		case 0: {
+
+			Dialog::EnqueueText(L"안녕……", name, Pokemon::Bulbasaur);
+			Dialog::Show();
+			break;
+		}
+		case 1: {
+
+			Dialog::EnqueueText(L"내 힘은 쓸모 없을거야……", name, Pokemon::Bulbasaur);
+			Dialog::EnqueueText(L"미안해…… 힘을 빌려줄 수 없어……", name, Pokemon::Bulbasaur);
+			Dialog::Show();
+			break;
+		}
 		}
 	}
 	else if (eventNPC == Event::EVENT_GAME)
@@ -118,7 +122,7 @@ void NPC_Bulbasaur::OnEvent()
 		case 0: {
 			if (Inventory::GetItemCount(ItemType::STONE_OF_LEAF) >= 1)
 			{
-				
+
 				Dialog::EnqueueText(L"그거 진화의돌……?", name, Pokemon::Bulbasaur);
 				Dialog::EnqueueText(L"나 주는거야…?", name, Pokemon::Bulbasaur);
 				Dialog::EnqueueText(L"정말…… 고마워!!", name, Pokemon::Bulbasaur);
@@ -129,7 +133,7 @@ void NPC_Bulbasaur::OnEvent()
 			}
 			else
 			{
-				
+
 				Dialog::EnqueueText(L"내 힘은 쓸모 없을거야……", name, Pokemon::Bulbasaur);
 				Dialog::EnqueueText(L"미안해…… 힘을 빌려줄 수 없어……", name, Pokemon::Bulbasaur);
 				Dialog::Show();
@@ -138,7 +142,7 @@ void NPC_Bulbasaur::OnEvent()
 			break;
 		}
 		case 1: {
-			
+
 			Dialog::EnqueueText(L"나를 도와준… 친구….", name, Pokemon::Ivysaur);
 			Dialog::EnqueueText(L"나도 이제 도와줄게…….", name, Pokemon::Ivysaur);
 			Dialog::Show();
@@ -148,7 +152,7 @@ void NPC_Bulbasaur::OnEvent()
 		case 2: {
 			if (Inventory::GetItemCount(ItemType::STONE_OF_LEAF) >= 5)
 			{
-			
+
 				Dialog::EnqueueText(L"진화의돌을 5개나……?", name, Pokemon::Ivysaur);
 				Dialog::EnqueueText(L"정말 고마워…. 친구야….", name, Pokemon::Ivysaur);
 				Dialog::SetEndEvent(Evolution);
@@ -158,13 +162,13 @@ void NPC_Bulbasaur::OnEvent()
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::IVYSAUR)
 			{
-				
+
 				Dialog::EnqueueText(L"몸 조심해…….", name, Pokemon::Ivysaur);
 				Dialog::Show();
 			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::IVYSAUR)
 			{
-			
+
 				Dialog::EnqueueText(L"변신….", name, Pokemon::Ivysaur);
 				Dialog::SetEndEvent(MetatoIvysaur);
 				Dialog::Show();
@@ -172,7 +176,7 @@ void NPC_Bulbasaur::OnEvent()
 			break;
 		}
 		case 3: {
-			
+
 			Dialog::EnqueueText(L"이제 도망치지 않을거야…….", name, Pokemon::Venusaur);
 			Dialog::Show();
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
@@ -181,13 +185,13 @@ void NPC_Bulbasaur::OnEvent()
 		case 4: {
 			if (Player::GetInstance()->GetCharacter()->type == TYPE::VENUSAUR)
 			{
-				
+
 				Dialog::EnqueueText(L"다치지 않길 바랄게…….", name, Pokemon::Venusaur);
 				Dialog::Show();
 			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::VENUSAUR)
 			{
-				
+
 				Dialog::EnqueueText(L"내 힘이야….", name, Pokemon::Venusaur);
 				Dialog::SetEndEvent(MetatoVenusaur);
 				Dialog::Show();
@@ -197,7 +201,7 @@ void NPC_Bulbasaur::OnEvent()
 		default:
 			break;
 		}
-	
+
 	}
 
 }

@@ -16,6 +16,7 @@ NPC_Charmander::NPC_Charmander()
 NPC_Charmander::NPC_Charmander(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -64,6 +65,7 @@ void NPC_Charmander::Initialize()
 
 	offsetY = 0.13f;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
+	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();
@@ -72,7 +74,7 @@ void NPC_Charmander::Initialize()
 void NPC_Charmander::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 
@@ -84,6 +86,7 @@ NPC_Charmander* NPC_Charmander::Create(const Vector3& pos, bool onCenterDir, con
 
 void NPC_Charmander::OnEvent()
 {
+	SetIsMoving(false);
 	direction = DirFromPlayer(false);
 
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
@@ -98,13 +101,13 @@ void NPC_Charmander::OnEvent()
 		switch (myProgress)
 		{
 		case 0: {
-			
+
 			Dialog::EnqueueText(L"세레비 일이나 마저 돕고 와!", name, Pokemon::Charmander);
 			Dialog::Show();
 			break;
 		}
 		case 1: {
-			
+
 			Dialog::EnqueueText(L"일단 이거부터 받아!", name, Pokemon::Charmander);
 			Dialog::Show();
 			Item_StoneOfAwake* stoneOfAwake = (Item_StoneOfAwake*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfAwake>();
@@ -116,13 +119,13 @@ void NPC_Charmander::OnEvent()
 			GameObject* isAwake = ObjectManager::GetInstance()->FindObject<Item_StoneOfAwake>();
 			if (isAwake != nullptr)
 			{
-				
+
 				Dialog::EnqueueText(L"빨리빨리 주워 와!", name, Pokemon::Charmander);
 				Dialog::Show();
 			}
 			else if (isAwake == nullptr)
 			{
-				
+
 				Dialog::EnqueueText(L"이 돌을 가지고 우리한테 온다면\n우리의 동의를 통해 장시간 우리중 하나로 변신할 수 있지!", name, Pokemon::Charmander);
 				Dialog::EnqueueText(L"바로 변신시켜주지!", name, Pokemon::Charmander);
 				Dialog::SetEndEvent(MetatoCharmander);
@@ -132,9 +135,9 @@ void NPC_Charmander::OnEvent()
 		}
 		case 3: {
 
-				
-				Dialog::EnqueueText(L"꼬부기한테 가보라니까!", name, Pokemon::Charmander);
-				Dialog::Show();
+
+			Dialog::EnqueueText(L"꼬부기한테 가보라니까!", name, Pokemon::Charmander);
+			Dialog::Show();
 		}
 		default:
 			break;
@@ -147,7 +150,7 @@ void NPC_Charmander::OnEvent()
 		case 0: {
 			if (Inventory::GetItemCount(ItemType::STONE_OF_FIRE) >= 1)
 			{
-				
+
 				Dialog::EnqueueText(L"진화의돌 찾았구나!", name, Pokemon::Charmander);
 				Dialog::EnqueueText(L"바로 진화해야겠어!", name, Pokemon::Charmander);
 				Dialog::SetEndEvent(Evolution);
@@ -157,13 +160,13 @@ void NPC_Charmander::OnEvent()
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::CHARMANDER)
 			{
-				
+
 				Dialog::EnqueueText(L"진화의돌 못 찾았어?", name, Pokemon::Charmander);
 				Dialog::Show();
 			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::CHARMANDER)
 			{
-				
+
 				Dialog::EnqueueText(L"다시 변신시켜줄게!", name, Pokemon::Charmander);
 				Dialog::SetEndEvent(MetatoCharmander);
 				Dialog::Show();
@@ -171,7 +174,7 @@ void NPC_Charmander::OnEvent()
 			break;
 		}
 		case 1: {
-			
+
 			Dialog::EnqueueText(L"야호! 고마워!", name, Pokemon::Charmeleon);
 			Dialog::EnqueueText(L"덕분에 강해졌어!", name, Pokemon::Charmeleon);
 			Dialog::EnqueueText(L"이왕이면 그 다음 진화도 시켜줘!", name, Pokemon::Charmeleon);
@@ -184,7 +187,7 @@ void NPC_Charmander::OnEvent()
 		{
 			if (Inventory::GetItemCount(ItemType::STONE_OF_FIRE) >= 5)
 			{
-				
+
 				Dialog::EnqueueText(L"진화의돌 5개를 모아왔구나!", name, Pokemon::Charmeleon);
 				Dialog::EnqueueText(L"드디어 진화인가!", name, Pokemon::Charmeleon);
 				Dialog::SetEndEvent(Evolution);
@@ -194,13 +197,13 @@ void NPC_Charmander::OnEvent()
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::CHARMELEON)
 			{
-				
+
 				Dialog::EnqueueText(L"빨리 진화의돌 모아달라고!", name, Pokemon::Charmeleon);
 				Dialog::Show();
 			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::CHARMELEON)
 			{
-				
+
 				Dialog::EnqueueText(L"리자드로 변신!", name, Pokemon::Charmeleon);
 				Dialog::SetEndEvent(MetatoCharmeleon);
 				Dialog::Show();
@@ -208,7 +211,7 @@ void NPC_Charmander::OnEvent()
 			break;
 		}
 		case 3: {
-			
+
 			Dialog::EnqueueText(L"크하하! 고마워!", name, Pokemon::Charizard);
 			Dialog::EnqueueText(L"이제 내가 가장 강한것 같아!", name, Pokemon::Charizard);
 			Dialog::EnqueueText(L"누구와 싸워볼까!?", name, Pokemon::Charizard);
@@ -219,14 +222,14 @@ void NPC_Charmander::OnEvent()
 		case 4:
 		{
 			if (Player::GetInstance()->GetCharacter()->type == TYPE::CHARIZARD)
-					{
-					
-					Dialog::EnqueueText(L"가서 다 쓸어버리라고!", name, Pokemon::Charizard);
-					Dialog::Show();
-					}
+			{
+
+				Dialog::EnqueueText(L"가서 다 쓸어버리라고!", name, Pokemon::Charizard);
+				Dialog::Show();
+			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::CHARIZARD)
 			{
-				
+
 				Dialog::EnqueueText(L"내 힘을 빌려주지!", name, Pokemon::Charizard);
 				Dialog::SetEndEvent(MetatoCharizard);
 				Dialog::Show();
@@ -237,7 +240,8 @@ void NPC_Charmander::OnEvent()
 			break;
 		}
 	}
-	
+
+
 
 }
 

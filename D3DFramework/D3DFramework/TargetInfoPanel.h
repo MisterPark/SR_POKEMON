@@ -18,6 +18,7 @@ public:
     static void Hide();
 
     static void SetTarget(Character* _target);
+	static Character* GetTarget();
 
     virtual void Initialize() override;
     virtual void Release() override;
