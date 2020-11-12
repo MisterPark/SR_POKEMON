@@ -84,10 +84,10 @@ void NPC_DoctorOh::OnEvent()
 		{
 		case 0: {
 
-			Dialog::EnqueueText(L"(세레비를 찾아가…)", name, Pokemon::Charmander);
-			Dialog::EnqueueText(L"(앗…!)", name, Pokemon::Charmander);
-			Dialog::EnqueueText(L"(들키고 말았구나……)", name, Pokemon::Charmander);
-			Dialog::EnqueueText(L"(속여서 미안하니 지원을 주는 아이템을 주마……)", name, Pokemon::Charmander);
+			Dialog::EnqueueText(L"(세레비를 찾아가…)", name, Pokemon::None);
+			Dialog::EnqueueText(L"(앗…!)", name, Pokemon::None);
+			Dialog::EnqueueText(L"(들키고 말았구나……)", name, Pokemon::None);
+			Dialog::EnqueueText(L"(속여서 미안하니 지원을 주는 아이템을 주마……)", name, Pokemon::None);
 			Dialog::Show();
 			Dialog::SetEndEvent(ExpPotion);
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::DOCTOR_OH);
@@ -96,7 +96,7 @@ void NPC_DoctorOh::OnEvent()
 		}
 		case 1: {
 
-			Dialog::EnqueueText(L"화이팅 하거라", name, Pokemon::Charmander);
+			Dialog::EnqueueText(L"화이팅 하거라", name, Pokemon::None);
 			Dialog::Show();
 
 

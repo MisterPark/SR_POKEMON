@@ -438,7 +438,7 @@ bool Character::Attack(const Vector3 & dir, const int & attackType)
 
 void Character::HealMyself(float _recovery)
 {
-	if (stat.hp < _recovery)
+	if (stat.hp < stat.maxHp)
 	{
 		SoundManager::PlayOverlapSound(L"Heal.wav", SoundChannel::EFFECT);
 		stat.hp += _recovery;
