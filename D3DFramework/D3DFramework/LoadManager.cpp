@@ -923,7 +923,9 @@ void LoadManager::LoadETCSprite()
 	RenderManager::LoadSprite(TextureKey::WATER_MAP, L"Texture\\Map\\Tile\\Sand.png");
 	RenderManager::LoadSprite(TextureKey::BROOK_MAP, L"Texture\\Map\\Tile\\Brook.png");
 	RenderManager::LoadSprite(TextureKey::VOLCANO_MAP, L"Texture\\Map\\Tile\\Volcano.png");
-
+	RenderManager::LoadSprite(TextureKey::SPACE_MAP, L"Texture\\Map\\Tile\\Space.png");
+	RenderManager::LoadSprite(TextureKey::SPACE2_MAP, L"Texture\\Map\\Tile\\Space2.png");
+	RenderManager::LoadSprite(TextureKey::SPACE3_MAP, L"Texture\\Map\\Tile\\Space3.png");
 	//WATERENVIRONMENT
 	RenderManager::LoadSprite(TextureKey::GRASS_WATER_ENVIRONMENT, L"Texture\\Map\\Tile\\DayWater.png");
 	RenderManager::LoadSprite(TextureKey::WATER_WATER_ENVIRONMENT, L"Texture\\Map\\Tile\\BeachWater.png");

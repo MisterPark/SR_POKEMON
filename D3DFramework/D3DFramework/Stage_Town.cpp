@@ -170,6 +170,12 @@ void Stage_Town::Update()
 		Dialog::GetInstance()->Destroy();
 	}
 
+	if (InputManager::GetKeyDown(VK_F6))
+	{
+		SceneManager::LoadScene<Stage_Space>();
+		Dialog::GetInstance()->Destroy();
+	}
+
 	if (InputManager::GetKeyDown(VK_F4))
 	{
 		Item_StoneOfFire* fire = (Item_StoneOfFire*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfFire>();

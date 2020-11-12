@@ -1143,6 +1143,9 @@
     <ClInclude Include="NPC_MiniCharmander.h">
       <Filter>GameObject\NPC</Filter>
     </ClInclude>
+    <ClInclude Include="Stage_Space.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1944,6 +1947,9 @@
     </ClCompile>
     <ClCompile Include="NPC_MiniCharmander.cpp">
       <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Space.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
