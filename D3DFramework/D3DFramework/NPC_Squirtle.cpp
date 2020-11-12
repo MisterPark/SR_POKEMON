@@ -100,22 +100,24 @@ void NPC_Squirtle::OnEvent()
 		switch (myProgress)
 		{
 		case 0: {
+
+			Dialog::EnqueueText(L"무슨 일이야?", name, Pokemon::Squirtle);
 			Dialog::Show();
-			Dialog::EnqueueText(L"무슨 일이야?",name, Pokemon::Squirtle);
 			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			break;
 		}
 		case 1: {
-			Dialog::Show();
+
 			Dialog::EnqueueText(L"어서와!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"너의 변신 능력은 적에게도 사용할 수 있어!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"바로 사냥을 통해서 말이지……!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"시험삼아…… 저기 저 캐터피를 잡아봐!", name, Pokemon::Squirtle);
-			PlayerInfoPanel::SetQuestMessage(L"캐터피 처치");
 			Dialog::SetEndEvent(SummonCaterpie);
+			Dialog::Show();
+			PlayerInfoPanel::SetQuestMessage(L"캐터피 처치");
 			QuestManager::GetInstance()->SetMonsterKill(MonsterType::CATERPIE, 0);
 			QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
-			
+
 			break;
 		}
 		case 2: {
@@ -123,12 +125,13 @@ void NPC_Squirtle::OnEvent()
 			break;
 		}
 		case 3: {
-			Dialog::Show();
+
 			Dialog::EnqueueText(L"대단해…!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"하지만 동의가 없는 몬스터로의 변신은\n제한시간이 '5초' 라는 것을 명심해!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"그리고 한번 변신을 하게 되면 저장된 변신몬스터가 사라지지…!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"이제 널 숲으로 보내도 될 것 같아……!", name, Pokemon::Squirtle);
 			Dialog::EnqueueText(L"건투를 빌어!", name, Pokemon::Squirtle);
+			Dialog::Show();
 			QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);
 			break;
 		}
@@ -147,73 +150,83 @@ void NPC_Squirtle::OnEvent()
 		case 0: {
 			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 1)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"진화의 돌을 찾았구나!", name, Pokemon::Squirtle);
 				Dialog::SetEndEvent(Evolution);
+				Dialog::Show();
 				Inventory::RemoveItem(ItemType::STONE_OF_WATER, 1);
 				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::SQUIRTLE)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"건투를 빌어!", name, Pokemon::Squirtle);
+				Dialog::Show();
 			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::SQUIRTLE)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"내 힘을 빌려줄게!", name, Pokemon::Squirtle);
 				Dialog::SetEndEvent(MetatoSquirtle);
+				Dialog::Show();
 			}
 			break;
 		}
 		case 1: {
-			Dialog::Show();
+
 			Dialog::EnqueueText(L"좋았어!", name, Pokemon::Wartortle);
 			Dialog::EnqueueText(L"어니부기 나가신다!", name, Pokemon::Wartortle);
+			Dialog::Show();
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			break;
 		}
-		case 2:{
+		case 2: {
 			if (Inventory::GetItemCount(ItemType::STONE_OF_WATER) >= 5)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"오우! 진화의돌 5개!", name, Pokemon::Wartortle);
 				Dialog::EnqueueText(L"땡큐! 땡큐!", name, Pokemon::Wartortle);
 				Dialog::SetEndEvent(Evolution);
+				Dialog::Show();
 				Inventory::RemoveItem(ItemType::STONE_OF_WATER, 5);
 				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::WARTORTLE)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"화이팅하자고!.", name, Pokemon::Wartortle);
+				Dialog::Show();
 			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::WARTORTLE)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"변! 신!.", name, Pokemon::Wartortle);
 				Dialog::SetEndEvent(MetatoWartortle);
+				Dialog::Show();
 			}
 			break;
 		}
 		case 3: {
-			Dialog::Show();
+
 			Dialog::EnqueueText(L"나를…….", name, Pokemon::Blastoise);
 			Dialog::EnqueueText(L"거북들의 왕이라 불러다오!", name, Pokemon::Blastoise);
+			Dialog::Show();
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			break;
 		}
 		case 4: {
 			if (Player::GetInstance()->GetCharacter()->type == TYPE::BLASTOISE)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"어서 가자고!", name, Pokemon::Blastoise);
+				Dialog::Show();
 			}
 			else if (Player::GetInstance()->GetCharacter()->type != TYPE::BLASTOISE)
 			{
-				Dialog::Show();
+
 				Dialog::EnqueueText(L"변신이다!", name, Pokemon::Blastoise);
 				Dialog::SetEndEvent(MetatoBlastoise);
+				Dialog::Show();
 			}
 			break;
 		}

@@ -21,7 +21,7 @@ void TitleScene::OnLoaded()
 	Button* btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"플레이";
 	btn->SetSize(250, 40);
-	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
+	btn->transform->position.x = float((dfCLIENT_WIDTH / 2) - (btn->width / 2));
 	btn->transform->position.y = 600;
 	
 	btn->Click = SceneManager::LoadScene<LoadingScene>;
@@ -36,7 +36,7 @@ void TitleScene::OnLoaded()
 	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"종료";
 	btn->SetSize(250, 40);
-	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
+	btn->transform->position.x = float((dfCLIENT_WIDTH / 2) - (btn->width / 2));
 	btn->transform->position.y = 650;
 	btn->Click = MainGame::Shutdown;
 
@@ -45,7 +45,7 @@ void TitleScene::OnLoaded()
 	btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"테스트씬";
 	btn->SetSize(250, 40);
-	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2) - 300;
+	btn->transform->position.x = float((dfCLIENT_WIDTH / 2) - (btn->width / 2) - 300);
 	btn->transform->position.y = 600;
 
 	btn->Click = SceneManager::LoadScene<TestScene>;

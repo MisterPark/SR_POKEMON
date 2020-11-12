@@ -49,8 +49,8 @@ void Magcargo::Initialize()
 	defaultAttack = 50;
 	defaultMaxHp = 450;
 
-	increaseAttack = defaultAttack * 0.05;
-	increaseMaxHp = defaultMaxHp * 0.05;
+	increaseAttack = defaultAttack * 0.05f;
+	increaseMaxHp = defaultMaxHp * 0.05f;
 	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBomb));
@@ -127,7 +127,7 @@ void Magcargo::OnCollision(GameObject* target)
 			{
 				DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 				skin->transform->position = this->transform->position;
-				skin->SetDamage(-damageSum);
+				skin->SetDamage((int)-damageSum);
 				skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
 			}
 
@@ -145,7 +145,7 @@ void Magcargo::OnCollision(GameObject* target)
 		{
 			DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 			skin->transform->position = this->transform->position;
-			skin->SetDamage(damageSum);
+			skin->SetDamage((int)damageSum);
 			if (this == playerCharacter)
 			{
 				skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));

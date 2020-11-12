@@ -59,7 +59,7 @@ void Character::RenderInfomation()
 	if (camDist < 15.f)
 	{
 		// 이름길이
-		float len = name.length();
+		float len = float(name.length());
 		float strW = 20;
 		Vector3 namePos = Camera::WorldToScreenPoint(transform->position);
 		namePos.x -= (len / 2.f) * strW;
@@ -129,7 +129,7 @@ void Character::OnCollision(GameObject* target)
 			{
 				DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 				skin->transform->position = this->transform->position;
-				skin->SetDamage(-damageSum);
+				skin->SetDamage(int(-damageSum));
 				skin->SetColor(D3DCOLOR_XRGB(0, 200, 0));
 			}
 
@@ -151,7 +151,7 @@ void Character::OnCollision(GameObject* target)
 		{
 			DamageSkin* skin = (DamageSkin*)ObjectManager::GetInstance()->CreateObject<DamageSkin>();
 			skin->transform->position = this->transform->position;
-			skin->SetDamage(damageSum);
+			skin->SetDamage(int(damageSum));
 			if (this == playerCharacter)
 			{
 				skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
@@ -329,7 +329,7 @@ void Character::UpdateAnimation()
 
 	angle += 22.5f;
 
-	int index = angle / 45.f;
+	int index = int(angle / 45.f);
 
 	index %= 8;
 
@@ -396,14 +396,14 @@ void Character::ChangeState(State nextState)
 
 float Character::GetSkillCoolTime(int num)
 {
-	if (skillSet.size() >= num) return -5.f;
+	if (skillSet.size() >= (UINT)num) return -5.f;
 
 	return skillSet[num]->GetCoolTime();
 }
 
 bool Character::Attack(const Vector3 & dir, const int & attackType)
 {
-	if (attackType >= skillSet.size()) return false;
+	if ((UINT)attackType >= skillSet.size()) return false;
 
 	if (skillSet[attackType]->Active(this))
 	{

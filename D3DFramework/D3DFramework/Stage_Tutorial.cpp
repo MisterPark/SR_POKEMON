@@ -46,14 +46,16 @@ void Stage_Tutorial::OnLoaded()
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 	Dialog::GetInstance();
-	Dialog::Show();
+	
 
 	Dialog::EnqueueText(L"이쪽으로 와봐!");
 	Dialog::EnqueueText(L"(세레비를 향해 이동하세요.)");
-	PlayerInfoPanel::SetQuestMessage(L"세레비와 대화");
+	
+	PlayerInfoPanel::SetQuestMessage(L"세레비와 대화 ");
 	Dialog::EnqueueText(L"(마우스를 이용하여 회전하고 WASD키를 이용하여 이동할 수 있습니다.)");
 	Dialog::EnqueueText(L"(세레비에게 다가가 F키를 눌러 상호작용을 시도해보세요.)");
 	Dialog::SetEndEvent(UI_SHOW);
+	Dialog::Show();
 }
 
 void Stage_Tutorial::OnUnloaded()
@@ -153,11 +155,12 @@ void Stage_Tutorial::Stage_Tutorial_Wave()
 		if (spawnerCount == 2)
 		{
 			QuestManager::GetInstance()->AddProgress(Event::EVENT_TUTORIAL,NpcName::CELEBI);
-			Dialog::Show();
+			
 			Dialog::EnqueueText(L"(몬스터를 잡으면 피카츄 코인을 획득할 수 있습니다.)");
 			Dialog::EnqueueText(L"(피카츄 코인은 게임 플레이 점수를 올려줍니다!)");
 			Dialog::EnqueueText(L"(높은 점수를 기록하며 클리어해보세요!)");
 			Dialog::EnqueueText(L"(세레비에게 돌아가세요!)");
+			Dialog::Show();
 			PlayerInfoPanel::SetQuestMessage(L"세레비와 대화");
 			TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 			trigerBox->OnTriggered = Portal;
@@ -168,9 +171,10 @@ void Stage_Tutorial::Stage_Tutorial_Wave()
 		}
 		if (spawnerCount == 3 && QuestManager::GetInstance()->GetProgress(Event::EVENT_TUTORIAL, NpcName::CELEBI) == 3)
 		{
-			Dialog::Show();
+			
 			Dialog::EnqueueText(L"(마을로 이동하세요!)");
 			Dialog::EnqueueText(L"(마을은 파란색 포탈을 통해 이동할 수 있습니다.)");
+			Dialog::Show();
 			QuestManager::GetInstance()->AddProgress(Event::EVENT_TUTORIAL, NpcName::CELEBI);
 		}
 	}
