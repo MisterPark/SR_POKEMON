@@ -2478,7 +2478,7 @@ void MonsterAI::MonsterSkill() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 1);
-				Time[4] = 25.f;//패턴 고정시간
+				Time[4] = 45.f;//패턴 고정시간
 				c->anim->SetDelay(1.f);
 			}
 			Time[4] -= TimeManager::DeltaTime();
