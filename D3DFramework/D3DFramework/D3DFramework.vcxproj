@@ -216,6 +216,10 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeMan.h" />
     <ClInclude Include="Cursor.h" />
+    <ClInclude Include="NPC_MiniBulbasaur.h" />
+    <ClInclude Include="NPC_MiniCharmander.h" />
+    <ClInclude Include="NPC_MiniSquirtle.h" />
+    <ClInclude Include="NPC_Poliwhirl.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
@@ -445,6 +449,10 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="CubeMan.cpp" />
     <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="NPC_MiniBulbasaur.cpp" />
+    <ClCompile Include="NPC_MiniCharmander.cpp" />
+    <ClCompile Include="NPC_MiniSquirtle.cpp" />
+    <ClCompile Include="NPC_Poliwhirl.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />

@@ -74,7 +74,6 @@ void NPC_Bulbasaur::Initialize()
 void NPC_Bulbasaur::Update()
 {
 	NPC::Update();
-	
 }
 
 
@@ -158,6 +157,7 @@ void NPC_Bulbasaur::OnEvent()
 				Dialog::SetEndEvent(Evolution);
 				Dialog::Show();
 				Inventory::RemoveItem(ItemType::STONE_OF_LEAF, 5);
+				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::MINIBULBASAUR);
 				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::BULBASAUR);
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::IVYSAUR)
@@ -210,6 +210,7 @@ void NPC_Bulbasaur::MetatoBulbasaur()
 {
 	Player::GetInstance()->ChangeNextPokemon(TYPE::BULBASAUR, Pokemon::Bulbasaur);
 	Player::GetInstance()->PermanentMetamorphosis();
+	
 }
 
 void NPC_Bulbasaur::MetatoIvysaur()
@@ -229,4 +230,5 @@ void NPC_Bulbasaur::Evolution()
 	QuestManager::GetInstance()->AddEvolution(NpcName::BULBASAUR);
 	dynamic_cast<NPC_Bulbasaur*>(ObjectManager::GetInstance()->FindObject<NPC_Bulbasaur>())->Initialize();
 	dynamic_cast<NPC_Bulbasaur*>(ObjectManager::GetInstance()->FindObject<NPC_Bulbasaur>())->MetamorphoEffect();
+	
 }

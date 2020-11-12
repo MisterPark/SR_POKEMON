@@ -60,15 +60,89 @@ void Stage_Town::OnLoaded()
 	GameObject* npc = NPC_Charmander::Create(Vector3{ 23.f, 0.f, 22.f });
 	ObjectManager::AddObject(npc);
 	//
-	npc = NPC_Bulbasaur::Create(Vector3{ 19.f, 0.f, 22.f });
+	Vector3 bulbasaurPos = { 17.f,0.f,48.f - 15.f };
+	Vector3 charmanderPos = { 33.f,0.f,48.f - 18.f };
+	Vector3 squirtlePos = { 16.f,0.f,48.f - 30.f };
+	npc = NPC_Bulbasaur::Create(bulbasaurPos);
 	ObjectManager::AddObject(npc);
 	//
-	npc = NPC_Squirtle::Create(Vector3{ 24.f, 0.f, 22.f });
+	npc = NPC_Squirtle::Create(squirtlePos);
 	ObjectManager::AddObject(npc);
 
 	npc = NPC_ColorDitto::Create(Vector3{ 29.f, 0.f, 30.f });
 	ObjectManager::AddObject(npc);
 	
+	npc = NPC_Poliwhirl::Create(charmanderPos);
+	ObjectManager::AddObject(npc);
+
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE) >= 1&& 3 > QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE))
+	{
+		for (int i = -1; i < 1; i++)
+		{
+			npc = NPC_MiniSquirtle::Create(squirtlePos);
+			npc->transform->position.x += i*2;
+			npc->transform->position.z += i;
+			ObjectManager::AddObject(npc);
+		}
+	}
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE) >= 3)
+	{
+		for (int i = -2; i < 2; i++)
+		{
+			npc = NPC_MiniSquirtle::Create(squirtlePos);
+			npc->transform->position.x += i * 2;
+			npc->transform->position.z += i;
+			ObjectManager::AddObject(npc);
+		}
+	}
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CHARMANDER) >= 1 && 3 > QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CHARMANDER))
+	{
+		for (int i = -1; i < 1; i++)
+		{
+
+				npc = NPC_MiniCharmander::Create(charmanderPos);
+				npc->transform->position.x += i * 2;
+				npc->transform->position.z += i;
+				ObjectManager::AddObject(npc);
+			
+		}
+	}
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CHARMANDER) >= 3)
+	{
+		for (int i = -2; i < 2; i++)
+		{
+				npc = NPC_MiniCharmander::Create(charmanderPos);
+				npc->transform->position.x += i * 2;
+				npc->transform->position.z += i;
+				ObjectManager::AddObject(npc);
+		}
+	}
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::BULBASAUR) >= 1 && 3 > QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::BULBASAUR))
+	{
+		for (int i = -1; i < 1; i++)
+		{
+
+			npc = NPC_MiniBulbasaur::Create(bulbasaurPos);
+			npc->transform->position.x += i * 2;
+			npc->transform->position.z += i;
+			ObjectManager::AddObject(npc);
+
+		}
+	}
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::BULBASAUR) >= 3)
+	{
+		for (int i = -2; i < 2; i++)
+		{
+
+			npc = NPC_MiniBulbasaur::Create(bulbasaurPos);
+			npc->transform->position.x += i * 2;
+			npc->transform->position.z += i;
+			ObjectManager::AddObject(npc);
+
+		}
+	}
+
+
 	if (QuestManager::GetInstance()->GetEvent() == EVENT_TOWN)
 	{
 		
