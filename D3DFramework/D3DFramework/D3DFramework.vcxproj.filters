@@ -1122,9 +1122,14 @@
     <ClInclude Include="LoadManager.h">
       <Filter>Lib\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Label.h" />
     <ClInclude Include="RenderManager.h">
       <Filter>Lib\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressBar.h">
+      <Filter>GameObject\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Label.h">
+      <Filter>GameObject\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1910,9 +1915,14 @@
     <ClCompile Include="LoadManager.cpp">
       <Filter>Lib\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Label.cpp" />
     <ClCompile Include="RenderManager.cpp">
       <Filter>Lib\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

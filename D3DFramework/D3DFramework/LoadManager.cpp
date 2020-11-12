@@ -94,7 +94,7 @@ void LoadManager::LoadAll()
 	pLoadManager->text = L"Loading ETC...";
 	pLoadManager->percent = 0.75f;
 	pLoadManager->LoadETCSprite();
-    pLoadManager->text = L"Complete";
+    pLoadManager->text = L"Press Enter...";
     pLoadManager->percent = 1.f;
     pLoadManager->isFinish = true;
 }
@@ -107,7 +107,7 @@ void LoadManager::LoadETCSprite()
 	RenderManager::LoadSprite(TextureKey::SKY_R, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_R.png");
 	RenderManager::LoadSprite(TextureKey::SKY_F, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_F.png");
 	RenderManager::LoadSprite(TextureKey::SKY_B, L"Texture\\ETC\\Skybox\\SkyNormal\\SKYBOX_B.png");
-
+	
 	RenderManager::LoadSprite(TextureKey::SKYDAY_U, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_U.png");
 	RenderManager::LoadSprite(TextureKey::SKYDAY_D, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_D.png");
 	RenderManager::LoadSprite(TextureKey::SKYDAY_L, L"Texture\\ETC\\Skybox\\SkyDay\\SKYBOX_L.png");

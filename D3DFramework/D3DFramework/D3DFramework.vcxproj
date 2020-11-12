@@ -216,6 +216,7 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeMan.h" />
     <ClInclude Include="Cursor.h" />
+    <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
     <ClInclude Include="DamageSkin.h" />
@@ -444,6 +445,7 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="CubeMan.cpp" />
     <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
     <ClCompile Include="DamageSkin.cpp" />

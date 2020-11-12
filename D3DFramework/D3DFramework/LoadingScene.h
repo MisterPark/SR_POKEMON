@@ -2,6 +2,7 @@
 #include "IScene.h"
 
 class Label;
+class ProgressBar;
 
 class LoadingScene :
     public IScene
@@ -14,5 +15,7 @@ public:
 
 
     Label* label = nullptr;
+    ProgressBar* bar = nullptr;
+
 };
 

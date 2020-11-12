@@ -155,6 +155,9 @@ void PKH::MainGame::LoadUISprite()
 	RenderManager::LoadSprite(TextureKey::UI_TITLE_SCREEN, L"Texture\\UI\\pokeTitle2.png");
 	RenderManager::LoadSprite(TextureKey::UI_CURSOR, L"Texture\\UI\\Cursor.png");
 	RenderManager::LoadSprite(TextureKey::UI_BUTTON, L"Texture\\UI\\PokemonButton.png");
+	RenderManager::LoadSprite(TextureKey::UI_LOADING_SCREEN, L"Texture\\UI\\loadingTitle.png");
+	RenderManager::LoadSprite(TextureKey::UI_PROGRESS_BAR, L"Texture\\UI\\progressBar.png");
+	RenderManager::LoadSprite(TextureKey::UI_PROGRESS_PANEL, L"Texture\\UI\\progressPanel.png");
 	// 블루필터
 	RenderManager::LoadSprite(TextureKey::UI_BLUE_FILTER, L"Texture\\UI\\BlueFilter.png");
 	
