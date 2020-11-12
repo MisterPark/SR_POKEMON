@@ -27,7 +27,6 @@ void Skill_XShot::Update()
 {
 
 	SoundManager::PlayOverlapSound(L"GloomAttack.wav", SoundChannel::MONSTER);
-	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	Vector3 Dir3 = { (character->direction.x + character->direction.z) * 0.5f,  0.5f, (-character->direction.x + character->direction.z) * 0.5f };
 
 	Bullet_Poision* bullet = dynamic_cast<Bullet_Poision*>(ObjectManager::GetInstance()->CreateObject<Bullet_Poision>());

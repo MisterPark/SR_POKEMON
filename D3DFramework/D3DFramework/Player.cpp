@@ -481,9 +481,14 @@ void Player::MetamorphosisToDitto()
 
 	pokemonIndex = -1;
 	permanentIndex = -1;
+
+	pair<TYPE, Pokemon> oldNextPokemon = nextPokemon;
+
 	nextPokemon = make_pair(TYPE::DITTO, Pokemon::Ditto);
 	PermanentMetamorphosis();
 	canMetamorphosis = true;
+
+	nextPokemon = oldNextPokemon;
 
 	MetamorphoEffect();
 }

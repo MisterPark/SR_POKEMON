@@ -24,4 +24,3 @@ private:
 	bool isDetachCamera;
 	bool isSpawn;
 };
-

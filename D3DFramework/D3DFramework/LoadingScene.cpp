@@ -4,6 +4,7 @@
 #include "Label.h"
 #include "ProgressBar.h"
 #include "UI_Title.h"
+#include "EndingScene.h"
 
 void LoadingScene::OnLoaded()
 {
@@ -51,6 +52,7 @@ void LoadingScene::Update()
 		if (InputManager::GetKeyDown(VK_RETURN))
 		{
 			SceneManager::LoadScene<Stage_Opening>();
+			//SceneManager::LoadScene<EndingScene>();
 		}
 	}
 }

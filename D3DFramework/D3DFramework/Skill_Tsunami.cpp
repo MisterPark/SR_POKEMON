@@ -6,7 +6,7 @@
 Skill_Tsunami::Skill_Tsunami()
 {
 	skillIcon = TextureKey::UI_SKILL_ICON_TSUNAMI;
-	coolTime = 20.f;
+	coolTime = 25.f;
 	moveStopTime = 0.f;
 }
 
@@ -29,7 +29,6 @@ void Skill_Tsunami::Update()
 	if (activeTime > 7.5f) {
 		activeTime = 7.5f;
 		SoundManager::PlayOverlapSound(L"Tsunami.wav", SoundChannel::PLAYER_EFFECT);
-		SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
 	}
 	delay -= TimeManager::DeltaTime();
 	

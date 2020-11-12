@@ -370,9 +370,6 @@
     <Filter Include="Skill\32. Synthesis">
       <UniqueIdentifier>{64a231de-af14-477c-a071-918c67d91b34}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet\32.Synthesis">
-      <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Item">
       <UniqueIdentifier>{58f3ad62-8bb2-456a-b47f-4de7029f0af7}</UniqueIdentifier>
     </Filter>
@@ -423,6 +420,9 @@
     </Filter>
     <Filter Include="Scene\Loding">
       <UniqueIdentifier>{b5615adc-d009-4c55-9db3-46aa1db41416}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\32. Synthesis">
+      <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -967,7 +967,7 @@
       <Filter>Skill\32. Synthesis</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Synthesis.h">
-      <Filter>GameObject\Bullet\32.Synthesis</Filter>
+      <Filter>GameObject\Bullet\32. Synthesis</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>GameObject\UI\Inventory</Filter>
@@ -1778,7 +1778,7 @@
       <Filter>Skill\32. Synthesis</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Synthesis.cpp">
-      <Filter>GameObject\Bullet\32.Synthesis</Filter>
+      <Filter>GameObject\Bullet\32. Synthesis</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>GameObject\UI\Inventory</Filter>
@@ -1885,9 +1885,6 @@
     <ClCompile Include="ItemInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Dialog.cpp">
-      <Filter>GameObject\NPC</Filter>
-    </ClCompile>
     <ClCompile Include="NPC_DoctorOh.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
@@ -1950,6 +1947,9 @@
     </ClCompile>
     <ClCompile Include="Stage_Space.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@ void Skill_PetalBlizzard::Update()
 {
 	if (!isSpawn)
 	{
-		SoundManager::PlayOverlapSound(L"Petal.wav", SoundChannel::EFFECT);
+		SoundManager::PlayOverlapSound(L"Petal.wav", SoundChannel::EFFECT, 0.5f);
 
 		Vector3 pos = character->transform->position;
 

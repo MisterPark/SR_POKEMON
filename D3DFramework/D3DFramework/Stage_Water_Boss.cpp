@@ -92,7 +92,6 @@ void Stage_Water_Boss::Stage_Water_Boss_Wave()
 		{
 			SoundManager::StopSound(SoundChannel::BGM);
 			SoundManager::PlayBGM(L"Boss.wav");
-			SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 			Spawner* spawner = Spawner::Create(MonsterType::SUICUNE, 10.f, 0.5f, 1.40);
 			spawner->transform->position = { 24.f,0.f,24.f };

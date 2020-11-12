@@ -15,7 +15,7 @@ Skill_LeechSeed::~Skill_LeechSeed()
 
 void Skill_LeechSeed::InitCoolTime()
 {
-	maxCoolTime = coolTime = 5.f;
+	maxCoolTime = coolTime = 12.f;
 }
 
 void Skill_LeechSeed::InitActiveTime()

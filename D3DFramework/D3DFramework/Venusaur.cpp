@@ -118,15 +118,15 @@ bool Venusaur::Attack(const Vector3& dir, const int& attackType)
 			anim->SetTick(0.f);
 			break;
 		case 1:
-			ChangeState(State::ATTACK);
+			ChangeState(State::SKILL);
 			anim->SetTick(0.f);
 			break;
 		case 2:
-			ChangeState(State::ATTACK);
+			ChangeState(State::SKILL);
 			anim->SetTick(0.f);
 			break;
 		case 3:
-			ChangeState(State::ATTACK);
+			ChangeState(State::SKILL);
 			anim->SetTick(0.f);
 			break;
 		}

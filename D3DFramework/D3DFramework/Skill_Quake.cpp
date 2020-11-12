@@ -66,13 +66,11 @@ void Skill_Quake::Update()
 			}
 		}
 		SoundManager::PlayOverlapSound(L"GroudonQuake.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		Frame[0]++;
 	}
 	else if (Frame[0] == 1 && patternTime > 1.5f)
 	{
 		SoundManager::PlayOverlapSound(L"GroudonQuake.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		//z√‡ ¿¸πÊ
 		for (int i = -3; i < 4; i++)
 		{
@@ -203,7 +201,6 @@ void Skill_Quake::Update()
 	else if (Frame[0] == 2 && patternTime > 3.f)
 	{
 	SoundManager::PlayOverlapSound(L"GroudonQuake.wav", SoundChannel::MONSTER);
-	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		for (int i = -1; i < 2; i++)
 		{
 			for (int j = -1; j < 2; j++)

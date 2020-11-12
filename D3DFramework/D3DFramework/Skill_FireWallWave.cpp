@@ -49,7 +49,6 @@ void Skill_FireWallWave::Update()
 	if (soundTime > 0.8f&&2.f<patternTime<25.f)
 	{
 		SoundManager::PlayOverlapSound(L"GroudonFireWall.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		soundTime = 0;
 	}
 

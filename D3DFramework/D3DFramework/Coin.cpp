@@ -96,7 +96,6 @@ Coin* Coin::Create(const Vector3& pos, int money)
 void Coin::OnCollision(GameObject* target)
 {
 	SoundManager::PlayOverlapSound(L"CoinGet.wav", SoundChannel::MONSTER);
-	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	Player::GetInstance()->GetCharacter()->stat.money += stat.money;
 
 	Vector3 RandomPos;

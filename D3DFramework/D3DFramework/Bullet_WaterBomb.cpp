@@ -41,7 +41,6 @@ void Bullet_WaterBomb::Update()
 		Effect* fx = Effect::Create(transform->position, transform->scale * 2.f, TextureKey::BULLET_ICE1_26, TextureKey::BULLET_ICE1_33, 0.05f);
 		ObjectManager::AddObject(fx);
 		SoundManager::PlayOverlapSound(L"WaterBomb3.wav", SoundChannel::PLAYER_EFFECT);
-		SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
 	}
 
 
@@ -64,7 +63,6 @@ void Bullet_WaterBomb::OnCollision(GameObject* target)
 		direction.z *= 0.7f;
 		lifeTime = 1.2f;
 		SoundManager::PlayOverlapSound(L"WaterBomb2.mp3", SoundChannel::PLAYER_EFFECT);
-		SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
 	}
 
 }

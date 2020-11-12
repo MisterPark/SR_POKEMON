@@ -25,7 +25,7 @@ void Skill_Blaze::InitActiveTime()
 
 void Skill_Blaze::Update()
 {
-	SoundManager::PlayOverlapSound(L"Blaze.wav", SoundChannel::EFFECT);
+	SoundManager::PlayOverlapSound(L"Blaze.wav", SoundChannel::EFFECT, 0.7f);
 
 	Vector3 pos = character->transform->position;
 	Vector3 look = { 0.f, 0.f, 1.f };
