@@ -207,7 +207,19 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::Explosion:
 		newSkill = Skill_Explosion::Create();
 		break;
-	}
+	case SkillName::DarkBallFall:
+		newSkill = Skill_DarkBallFall::Create();
+		break;
+	case SkillName::GuidEnergyBall:
+		newSkill = Skill_GuidEnergyBall::Create();
+		break;
+	case SkillName::GravityEnergyBall:
+		newSkill = Skill_GravityEnergyBall::Create();
+		break;
+	case SkillName::DiagonalEnergyBall:
+		newSkill = Skill_DiagonalEnergyBall::Create();
+		break;
 
-	return newSkill;
+		return newSkill;
+	}
 }

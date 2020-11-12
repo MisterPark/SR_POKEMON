@@ -78,6 +78,7 @@ void Stage_Town::OnLoaded()
 
 	}
 	Set_Stage_Town_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
+
 }
 
 void Stage_Town::OnUnloaded()

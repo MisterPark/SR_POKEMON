@@ -324,6 +324,18 @@ void Spawner::CreateMonster(MonsterType _monsterType,int _monsterLv)
 				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
 				break;
 			}
+			case MonsterType::DARKRAI:
+			{
+
+				Darkrai* monsterCharacter = Darkrai::Create(Vector3(spawnPositionX, 0.f, spawnPositionZ), Vector3(0.f, 0.f, 1.f), _monsterLv);
+				monsterCharacter->monsterAI = dynamic_cast<MonsterAI*>(monsterCharacter->AddComponent<MonsterAI>(L"MonsterAI"));
+				monsterCharacter->monsterAI->SetType(MonsterType::DARKRAI);
+				monsterCharacter->spawner = this;
+				monsterCharacter->monsterAI->SpawnInRandomPos();
+				ObjectManager::AddObject(monsterCharacter);
+				CollisionManager::RegisterObject(COLTYPE::ENEMY, monsterCharacter);
+				break;
+			}
 			case MonsterType::END:
 				break;
 

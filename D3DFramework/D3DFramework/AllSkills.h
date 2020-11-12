@@ -43,3 +43,7 @@
 
 #include "Skill_FireXCrossBomb.h"
 #include "Skill_Explosion.h"
+#include "Skill_DarkBallFall.h"
+#include "Skill_GuidEnergyBall.h"
+#include "Skill_GravityEnergyBall.h"
+#include "Skill_DiagonalEnergyBall.h"

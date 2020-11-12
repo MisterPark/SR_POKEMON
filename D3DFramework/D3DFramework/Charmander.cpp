@@ -45,8 +45,12 @@ void Charmander::Initialize()
 
 	skillSet.reserve(2);
 
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBall));
-	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::DarkBallFall));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::GuidEnergyBall));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::GravityEnergyBall));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::DiagonalEnergyBall));
+	/*skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::FireBall));
+	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::Blaze));*/
 
 	UpdateAnimation();
 }

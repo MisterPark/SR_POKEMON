@@ -368,6 +368,12 @@ void MonsterAI::SetType(MonsterType _type)
 		Time[2] = 0.f;//초기쿨타임
 		Time[5] = 3.f;//초기쿨타임
 		break;
+	case MonsterType::DARKRAI:
+		SetPatternRange(1, 1);
+		searchRange[0] = 8.f;
+		searchRange[1] = 5.f;
+		searchRange[3] = 30.f;
+		break;
 	case MonsterType::END:
 		break;
 
@@ -770,6 +776,44 @@ void MonsterAI::MonsterIdle() {
 				c->state = State::WALK; //WALK 와 다른점
 			}
 			break;
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				c->anim->SetDelay(0.1f);
+				readyPattern = false;
+			}
+			Time[3] -= TimeManager::DeltaTime();
+
+			if (Time[3] < 0.f) {
+				c->state = State::SKILL2;
+				readyPattern = true;
+			}
+
+			else {
+				Time[2] -= TimeManager::DeltaTime();
+				if (disPlayer > searchRange[1]) {
+					MovePlayerFollow();
+					c->state = State::WALK;
+				}
+				else if (Time[2] < 0) {
+					Time[2] = 3.f;
+					if (Frame[1] == 0) {
+						c->state = State::ATTACK;
+						readyPattern = true;
+						Frame[1] = 1;
+					}
+					else if (Frame[1] == 1) {
+						c->state = State::SKILL;
+						readyPattern = true;
+						Frame[1] = 2;
+					}
+					else {
+						c->state = State::SKILL3;
+						readyPattern = true;
+						Frame[1] = 0;
+					}
+				}
+			}
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -842,6 +886,8 @@ void MonsterAI::MonsterIdle() {
 		case MonsterType::MAGCARGO:
 			break;
 		case MonsterType::GROUDON:
+			break;
+		case MonsterType::DARKRAI:
 			break;
 		case MonsterType::END:
 			break;
@@ -1382,6 +1428,44 @@ void MonsterAI::MonsterWalk() {
 					}
 				}
 			break;
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				c->anim->SetDelay(0.1f);
+				readyPattern = false;
+			}
+			Time[3] -= TimeManager::DeltaTime();
+			if (Time[3] < 0.f) {
+				c->state = State::SKILL2;
+				readyPattern = true;
+			}
+			else {
+				Time[2] -= TimeManager::DeltaTime();
+				if (disPlayer > searchRange[1]) {
+					MovePlayerFollow();
+				}
+				else if (Time[2] < 0) {
+					Time[2] = 2.f;
+					if (Frame[1] == 0) {
+						c->state = State::ATTACK;
+						readyPattern = true;
+						Frame[1] = 1;
+					}
+					else if (Frame[1] == 1) {
+						c->state = State::SKILL;
+						readyPattern = true;
+						Frame[1] = 2;
+					}
+					else {
+						c->state = State::SKILL3;
+						readyPattern = true;
+						Frame[1] = 0;
+					}
+				}
+				else {
+					c->state = State::IDLE;
+				}
+			}
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -1627,6 +1711,14 @@ void MonsterAI::MonsterWalk() {
 
 			break;
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+				SpawnInRandomPos();
+				readyPattern = false;
+			}
+			MoveRandomPattern();
+
+			break;
+		case MonsterType::DARKRAI:
 			if (readyPattern) {
 				SpawnInRandomPos();
 				readyPattern = false;
@@ -2048,7 +2140,18 @@ void MonsterAI::MonsterAttack() {
 				Time[1] = 10.f;
 			}
 			break;
-
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 0);
+				Time[4] = 8.f;
+				c->anim->SetDelay(0.5f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+			}
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -2245,7 +2348,11 @@ void MonsterAI::MonsterAttack() {
 				readyPattern = false;
 			}
 			break;
-
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				readyPattern = false;
+			}
+			break;
 		case MonsterType::END:
 			break;
 		default:
@@ -2487,7 +2594,18 @@ void MonsterAI::MonsterSkill() {
 				Time[2] = 60.f;
 			}
 			break;
-
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 1);
+				Time[4] = 6.f;
+				c->anim->SetDelay(0.8f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
+			}
+			break;
 
 		case MonsterType::END:
 			break;
@@ -2671,6 +2789,18 @@ void MonsterAI::MonsterSkill() {
 		case MonsterType::GROUDON:
 			if (readyPattern) {
 				readyPattern = false;
+			}
+			break;
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 1);
+				Time[4] = 6.f;
+				c->anim->SetDelay(0.8f);
+			}
+			Time[4] -= TimeManager::DeltaTime();
+			if (Time[4] < 0.f) {
+				c->state = State::READY;
 			}
 			break;
 		case MonsterType::END:
@@ -2881,6 +3011,19 @@ void MonsterAI::MonsterSkill2() {
 				Time[3] = 15.f;				//현재 스킬 즉 패턴 Skill2 의 쿨타임으로 활용
 			}
 			break;
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 2); //몬스터의 3번째 스킬
+				Time[4] = 6.f;				//모션 고정할 시간 (State)
+				c->anim->SetDelay(0.6f);	//애니메이션 셋딜레이
+			}
+			Time[4] -= TimeManager::DeltaTime(); //Update 영역 모션고정할시간 계속빼줌
+			if (Time[4] < 0.f) {			//위에서 설정한 3초가 나면
+				c->state = State::READY;	//State를 READY 로 설정
+				Time[3] = 15.f;				//현재 스킬 즉 패턴 Skill2 의 쿨타임으로 활용
+			}
+			break;
 
 		case MonsterType::END:
 			break;
@@ -3012,6 +3155,10 @@ void MonsterAI::MonsterSkill2() {
 			}
 			break;
 		case MonsterType::GROUDON:
+			if (readyPattern) {
+			}
+			break;
+		case MonsterType::DARKRAI:
 			if (readyPattern) {
 			}
 			break;
@@ -3217,7 +3364,18 @@ void MonsterAI::MonsterSkill3()
 				Time[5] = 3.f;				//현재 스킬 즉 패턴 Skill2 의 쿨타임으로 활용
 			}
 			break;
-
+		case MonsterType::DARKRAI:
+			if (readyPattern) {
+				readyPattern = false;
+				c->Attack(c->direction, 3); //몬스터의 3번째 스킬
+				Time[4] = 6.f;				//모션 고정할 시간 (State)
+				c->anim->SetDelay(0.6f);	//애니메이션 셋딜레이
+			}
+			Time[4] -= TimeManager::DeltaTime(); //Update 영역 모션고정할시간 계속빼줌
+			if (Time[4] < 0.f) {			//위에서 설정한 3초가 나면
+				c->state = State::READY;	//State를 READY 로 설정
+			}
+			break;
 		case MonsterType::END:
 			break;
 
@@ -3350,6 +3508,8 @@ void MonsterAI::MonsterSkill3()
 		case MonsterType::GROUDON:
 			if (readyPattern) {
 			}
+			break;
+		case MonsterType::DARKRAI:
 			break;
 		case MonsterType::END:
 			break;

@@ -424,6 +424,33 @@
     <Filter Include="Scene\Loding">
       <UniqueIdentifier>{b5615adc-d009-4c55-9db3-46aa1db41416}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\Character\Darkrai">
+      <UniqueIdentifier>{0c0022f4-b52f-464a-82bb-83a5cc1fc38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\41. DiagonalEnergyBall">
+      <UniqueIdentifier>{577b0a62-c396-4c4d-83d0-31768c967270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\40. GravityEnergyBall">
+      <UniqueIdentifier>{18df771a-6bff-4ca7-a8b4-80e02522433c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\39. GuidEnergyBall">
+      <UniqueIdentifier>{12b35fa4-67ca-4284-8d0d-724c2485db1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Skill\38. DarkBallFall">
+      <UniqueIdentifier>{3c4c1c08-80a9-4dce-b448-3007f0879e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\41. DiagonalEnergyBall">
+      <UniqueIdentifier>{ced17a6b-69d0-48c8-9aca-6d8e6b187258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\38. DarkBall">
+      <UniqueIdentifier>{035de0b7-760c-4faf-b797-fd74b8379994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\39. GuidEnergyBall">
+      <UniqueIdentifier>{0dd1efb5-a7d8-4450-8b06-c5175b9af6f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\40. GravityEnergyBall">
+      <UniqueIdentifier>{47a9d7a1-8708-4c90-b2e6-7423bd342063}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CollisionManager.h">
@@ -1131,6 +1158,33 @@
     <ClInclude Include="Label.h">
       <Filter>GameObject\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Darkrai.h">
+      <Filter>GameObject\Character\Darkrai</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_DarkBallFall.h">
+      <Filter>Skill\38. DarkBallFall</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_DiagonalEnergyBall.h">
+      <Filter>Skill\41. DiagonalEnergyBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_GravityEnergyBall.h">
+      <Filter>Skill\40. GravityEnergyBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill_GuidEnergyBall.h">
+      <Filter>Skill\39. GuidEnergyBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_DarkBall.h">
+      <Filter>GameObject\Bullet\38. DarkBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_DiagonalEnergyBall.h">
+      <Filter>GameObject\Bullet\41. DiagonalEnergyBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_GuidEnergyBall.h">
+      <Filter>GameObject\Bullet\39. GuidEnergyBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet_GravityEnergyBall.h">
+      <Filter>GameObject\Bullet\40. GravityEnergyBall</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1314,9 +1368,6 @@
       <Filter>Lib\Manager</Filter>
     </ClCompile>
     <ClCompile Include="ObjectManager.cpp">
-      <Filter>Lib\Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="D2DRenderManager.cpp">
       <Filter>Lib\Manager</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
@@ -1923,6 +1974,33 @@
     </ClCompile>
     <ClCompile Include="Label.cpp">
       <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Darkrai.cpp">
+      <Filter>GameObject\Character\Darkrai</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_DarkBallFall.cpp">
+      <Filter>Skill\38. DarkBallFall</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_DiagonalEnergyBall.cpp">
+      <Filter>Skill\41. DiagonalEnergyBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_GravityEnergyBall.cpp">
+      <Filter>Skill\40. GravityEnergyBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill_GuidEnergyBall.cpp">
+      <Filter>Skill\39. GuidEnergyBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_DarkBall.cpp">
+      <Filter>GameObject\Bullet\38. DarkBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_DiagonalEnergyBall.cpp">
+      <Filter>GameObject\Bullet\41. DiagonalEnergyBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_GuidEnergyBall.cpp">
+      <Filter>GameObject\Bullet\39. GuidEnergyBall</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet_GravityEnergyBall.cpp">
+      <Filter>GameObject\Bullet\40. GravityEnergyBall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
