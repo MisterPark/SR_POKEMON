@@ -6,7 +6,9 @@
 Skill_Meteor::Skill_Meteor()
 {
 	skillIcon = TextureKey::ICON_METEOR;
-	moveStopTime = 0.4f;
+	moveStopTime = 2.4f;
+	isSpawn = false;
+	isSpawnFX = false;
 }
 
 Skill_Meteor::~Skill_Meteor()
@@ -20,36 +22,57 @@ void Skill_Meteor::InitCoolTime()
 
 void Skill_Meteor::InitActiveTime()
 {
-	activeTime = 0.f;
+	activeTime = 2.2f;
+	isSpawn = false;
+	isSpawnFX = false;
 }
 
 void Skill_Meteor::Update()
 {
-	SoundManager::PlayOverlapSound(L"Meteor.wav", SoundChannel::EFFECT);
-
-	for (int i = 0; i < 10; ++i)
+	if (!isSpawnFX)
 	{
-		float randX = Random::Range(-1.f, 1.f);
-		float randY = Random::Range(7.f, 12.f);
-		float randZ = Random::Range(-1.f, 1.f);
+		Vector3 pos = character->transform->position;
 
-		Vector3 ranVec = { randX, randY, randZ };
+		pos.y += 0.5f;
 
-		Vector3 pos = character->transform->position + ranVec;
+		Effect* fx = Effect::Create(pos, { 0.4f, 0.4f, 0.4f }, TextureKey::BULLET_ENERGYBALL2_01, TextureKey::BULLET_ENERGYBALL2_60, 0.03f);
+		ObjectManager::AddObject(fx);
 
-		randX = Random::Range(-1.f, 1.f) * 0.5f;
-		randZ = Random::Range(-1.f, 1.f) * 0.5f;
+		SoundManager::PlayOverlapSound(L"MeteorReady.wav", SoundChannel::EFFECT);
 
-		Vector3 dir = { randX, -1.f, randZ };
+		isSpawnFX = true;
+	}
 
-		Meteor* instance = Meteor::Create(pos, { 0.2f, 0.2f, 0.2f }, dir, character->GetStat().attack);
-		instance->SetTeam(character->team);
-		ObjectManager::AddObject(instance);
+	if (0.2 >= activeTime && !isSpawn)
+	{
+		isSpawn = true;
 
-		if (Team::PLAYERTEAM == character->team)
-			CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
-		else if (Team::MONSTERTEAM == character->team)
-			CollisionManager::GetInstance()->RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
+		SoundManager::PlayOverlapSound(L"Meteor.wav", SoundChannel::EFFECT);
+
+		for (int i = 0; i < 10; ++i)
+		{
+			float randX = Random::Range(-1.f, 1.f);
+			float randY = Random::Range(7.f, 12.f);
+			float randZ = Random::Range(-1.f, 1.f);
+
+			Vector3 ranVec = { randX, randY, randZ };
+
+			Vector3 pos = character->transform->position + ranVec;
+
+			randX = Random::Range(-1.f, 1.f) * 0.5f;
+			randZ = Random::Range(-1.f, 1.f) * 0.5f;
+
+			Vector3 dir = { randX, -1.f, randZ };
+
+			Meteor* instance = Meteor::Create(pos, { 0.2f, 0.2f, 0.2f }, dir, character->GetStat().attack);
+			instance->SetTeam(character->team);
+			ObjectManager::AddObject(instance);
+
+			if (Team::PLAYERTEAM == character->team)
+				CollisionManager::GetInstance()->RegisterObject(COLTYPE::PLAYER_ATTACK, instance);
+			else if (Team::MONSTERTEAM == character->team)
+				CollisionManager::GetInstance()->RegisterObject(COLTYPE::ENEMY_ATTACK, instance);
+		}
 	}
 
 

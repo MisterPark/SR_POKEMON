@@ -27,7 +27,6 @@ void Skill_FireBomb::InitActiveTime()
 void Skill_FireBomb::Update()
 {
 	SoundManager::PlayOverlapSound(L"FireBomb2.wav", SoundChannel::MONSTER);
-	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 
 	Bullet_FireBomb* bullet = dynamic_cast<Bullet_FireBomb*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireBomb>());
 	bullet->transform->position = character->transform->position;

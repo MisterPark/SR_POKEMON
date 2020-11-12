@@ -61,7 +61,11 @@ void PetalBlizzard::Update()
 	{
 		readyDieTime += TimeManager::DeltaTime();
 
-		if (0.1f >= readyDieTime) Die();
+		if (0.1f >= readyDieTime)
+		{
+			SoundManager::PlayOverlapSound(L"PetalHit.wav", SoundChannel::EFFECT, 0.3f, 0.3f);
+			Die();
+		}
 	}
 }
 
@@ -71,6 +75,7 @@ void PetalBlizzard::Release()
 
 void PetalBlizzard::OnCollision(GameObject * target)
 {
+	SoundManager::PlayOverlapSound(L"PetalHit.wav", SoundChannel::EFFECT, 0.3f, 0.3f);
 }
 
 void PetalBlizzard::CollideOnTerrain()

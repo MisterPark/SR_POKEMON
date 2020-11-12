@@ -31,11 +31,11 @@ void Skill_XClaw::Update()
 {
 	if (isFirstFrame)
 	{
-		SoundManager::PlayOverlapSound(L"XClaw.wav", SoundChannel::PLAYER_EFFECT);
+		SoundManager::PlayOverlapSound(L"XClaw.wav", SoundChannel::PLAYER_EFFECT, 0.8f);
 
 		Vector3 pos = character->transform->position;
 
-		Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_AURA_01, TextureKey::FIRE_AURA_50, 0.015f);
+		Effect* fx = Effect::Create(pos, { 0.4f, 0.4f, 0.4f }, TextureKey::FIRE_AURA_01, TextureKey::FIRE_AURA_50, 0.015f);
 		ObjectManager::AddObject(fx);
 
 		isFirstFrame = false;
@@ -90,7 +90,7 @@ void Skill_XClaw::CalcActiveTime()
 				Camera::GetInstance()->SlowChaseTarget(character);
 				Camera::SetShakeDuration(-1.f);
 			}
-			character->isInvincible = true;
+			character->isInvincible = false;
 			SetNoneActive();
 		}
 	}

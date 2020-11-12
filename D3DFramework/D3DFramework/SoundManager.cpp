@@ -29,7 +29,7 @@ void PKH::SoundManager::Destroy()
 PKH::SoundManager::SoundManager()
 {
 	pSystem = nullptr; 
-	volume = 0.1f;
+	volume = 0.5f;
 }
 
 

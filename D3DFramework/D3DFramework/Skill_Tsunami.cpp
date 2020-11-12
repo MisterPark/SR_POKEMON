@@ -6,7 +6,7 @@
 Skill_Tsunami::Skill_Tsunami()
 {
 	skillIcon = TextureKey::UI_SKILL_ICON_TSUNAMI;
-	coolTime = 20.f;
+	coolTime = 25.f;
 	moveStopTime = 0.f;
 }
 

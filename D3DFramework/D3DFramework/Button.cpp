@@ -66,6 +66,8 @@ void Button::OnHover()
 	{
 		isUpScale = true;
 		transform->scale *= upScaleRatio;
+
+		SoundManager::PlayOverlapSound(L"ButtonOver.wav", SoundChannel::EFFECT, 0.5f);
 	}
 	
 	
@@ -112,7 +114,7 @@ void Button::OnClick()
 {
 	UI::OnClick();
 
-	SoundManager::PlayOverlapSound(L"Select.wav", SoundChannel::EFFECT);
+	SoundManager::PlayOverlapSound(L"Select.wav", SoundChannel::EFFECT, 0.5f);
 }
 
 void Button::SetSize(int w, int h)

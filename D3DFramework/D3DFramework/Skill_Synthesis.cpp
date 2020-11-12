@@ -7,7 +7,7 @@
 Skill_Synthesis::Skill_Synthesis()
 {
 	skillIcon = TextureKey::ICON_SYNTHESIS;
-	coolTime = maxCoolTime = 5.f;
+	coolTime = maxCoolTime = 10.f;
 	moveStopTime = 1.5f;
 }
 
@@ -17,7 +17,7 @@ Skill_Synthesis::~Skill_Synthesis()
 
 void Skill_Synthesis::InitCoolTime()
 {
-	coolTime = 5.f;
+	coolTime = 10.f;
 }
 
 void Skill_Synthesis::InitActiveTime()

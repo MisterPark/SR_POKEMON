@@ -98,11 +98,13 @@ void Dialog::Update()
 			int len = element.text.length();
 			currText += element.text[copyCount];
 			copyCount++;
+			SoundManager::PlayOverlapSound(L"Message.wav", SoundChannel::EFFECT, 0.5f, 0.1f);
 		}
 
 		if (InputManager::GetKeyDown(VK_RETURN))
 		{
 			currText = element.text;
+			SoundManager::PlayOverlapSound(L"Skip.wav", SoundChannel::EFFECT, 0.5f);
 		}
 		
 	}

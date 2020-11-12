@@ -54,10 +54,9 @@ void Item::OnCollision(GameObject* target)
 
 	if (Inventory::Push(this))
 	{
+		SoundManager::PlayOverlapSound(L"CoinGet.wav", SoundChannel::EFFECT);
 		this->inSlot = true;
 	}
-
-	SoundManager::PlayOverlapSound(L"CoinGet.wav", SoundChannel::EFFECT);
 }
 
 void Item::Use()
