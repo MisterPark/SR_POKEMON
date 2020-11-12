@@ -74,7 +74,9 @@ void Stage_Town::OnLoaded()
 	
 	npc = NPC_Poliwhirl::Create(charmanderPos);
 	ObjectManager::AddObject(npc);
-
+	
+	npc = NPC_DoctorOh::Create(Vector3{ 43.1f,0.f,9.9f });
+	ObjectManager::AddObject(npc);
 	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE) >= 1&& 3 > QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE))
 	{
 		for (int i = -1; i < 1; i++)
@@ -301,10 +303,9 @@ void Stage_Town::Event_Game(Event _event)
 	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::BULBASAUR) == 4 &&
 		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CHARMANDER) == 4 &&
 		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::SQUIRTLE) == 4 &&
-		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI) == 1
+		QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI) == 2
 		)
 	{
-		
 		Dialog::EnqueueText(L"(모두의 진화가 끝났습니다!)");
 		Dialog::Show();
 		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화");
