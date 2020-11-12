@@ -6,7 +6,7 @@ Spawner::Spawner()
 	Initialize();
 }
 
-Spawner::Spawner(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount, int _monsterLv)
+Spawner::Spawner(MonsterType _monsterType, float _radius, float _createDelay, int _monsterCreateCount, int _monsterLv)
 {
 	monsterType = _monsterType;
 	radius = _radius;
@@ -341,7 +341,7 @@ void Spawner::CreateMonster(MonsterType _monsterType,int _monsterLv)
 	}
 }
 
-Spawner* Spawner::Create(MonsterType _monsterType, int _radius, float _createDelay, int _monsterCreateCount, int _monsterLv)
+Spawner* Spawner::Create(MonsterType _monsterType, float _radius, float _createDelay, int _monsterCreateCount, int _monsterLv)
 {
 	Spawner* newSpawner = new Spawner(_monsterType, _radius, _createDelay, _monsterCreateCount, _monsterLv);
 	return newSpawner;

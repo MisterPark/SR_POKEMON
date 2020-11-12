@@ -48,8 +48,8 @@ void SelectScene::OnLoaded()
 	Button* btnRotate = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btnRotate->text = L"";
 	btnRotate->SetTexture(TextureKey::UI_ICON_ARROW_REFRESH);
-	btnRotate->transform->position.x = (dfCLIENT_WIDTH / 2) - (btnRotate->width / 2);
-	btnRotate->transform->position.y = 100;
+	btnRotate->transform->position.x = float((dfCLIENT_WIDTH / 2) - (btnRotate->width / 2));
+	btnRotate->transform->position.y = 100.f;
 	btnRotate->LButtonDown = StartRotateChar;
 	btnRotate->LButtonUp = CancelRotateChar;
 	btnRotate->Leave = CancelRotateChar;
@@ -57,22 +57,22 @@ void SelectScene::OnLoaded()
 	Button* btnLeft = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btnLeft->text = L"";
 	btnLeft->SetTexture(TextureKey::UI_ICON_ARROW_LEFT);
-	btnLeft->transform->position.x = (dfCLIENT_WIDTH / 2) - (btnLeft->width / 2) - 100;
-	btnLeft->transform->position.y = 100;
+	btnLeft->transform->position.x = float((dfCLIENT_WIDTH / 2) - (btnLeft->width / 2) - 100);
+	btnLeft->transform->position.y = 100.f;
 	btnLeft->Click = ChangePrev;
 
 	Button* btnRight = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btnRight->text = L"";
 	btnRight->SetTexture(TextureKey::UI_ICON_ARROW_RIGHT);
-	btnRight->transform->position.x = (dfCLIENT_WIDTH / 2) - (btnRight->width / 2) + 100;
-	btnRight->transform->position.y = 100;
+	btnRight->transform->position.x = float((dfCLIENT_WIDTH / 2) - (btnRight->width / 2) + 100);
+	btnRight->transform->position.y = 100.f;
 	btnRight->Click = ChangeNext;
 
 	Button* btn = (Button*)ObjectManager::GetInstance()->CreateObject<Button>();
 	btn->text = L"¼±ÅÃ";
 	btn->SetSize(250, 40);
-	btn->transform->position.x = (dfCLIENT_WIDTH / 2) - (btn->width / 2);
-	btn->transform->position.y = 600;
+	btn->transform->position.x = float((dfCLIENT_WIDTH / 2) - (btn->width / 2));
+	btn->transform->position.y = 600.f;
 
 	btn->Click = SelectCharacter;
 

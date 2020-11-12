@@ -47,8 +47,8 @@ void Poliwag::Initialize()
 
 	defaultMaxHp = 200;
 
-	increaseAttack = defaultAttack * 0.05;
-	increaseMaxHp = defaultMaxHp * 0.05;
+	increaseAttack = defaultAttack * 0.05f;
+	increaseMaxHp = defaultMaxHp * 0.05f;
 	stat.money = 10;
 
 	state = State::READY;
