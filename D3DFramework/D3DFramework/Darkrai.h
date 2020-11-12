@@ -17,5 +17,8 @@ public:
 public:
     static Darkrai* Create(const Vector3& pos, const Vector3& dir, int lv = 1);
 
+private:
+    void ShadowCreate();
+    float delay = 0.f;
 };
 

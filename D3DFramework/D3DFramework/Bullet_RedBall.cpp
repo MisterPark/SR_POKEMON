@@ -27,7 +27,6 @@ void Bullet_RedBall::Update()
 	{
 		lifeTime = 1.6f;
 		SoundManager::PlayOverlapSound(L"Redball.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 	Bullet::Update();
 }

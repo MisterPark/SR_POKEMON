@@ -29,7 +29,6 @@ void Skill_SnowFall::Update()
 	{
 		activeTime = 3.f;
 		SoundManager::PlayOverlapSound(L"SnowFall.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 	if (delay <= 0.f) {
 		Camera::GetInstance()->Shake(0.05f);

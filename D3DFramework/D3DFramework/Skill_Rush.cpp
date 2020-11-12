@@ -36,7 +36,6 @@ void Skill_Rush::Update()
 	}
 	if (activeTime <= 0.05f) {
 		SoundManager::PlayOverlapSound(L"ScytherDash.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		for (int j = -2; j < 3; j++)
 		{
 			for (int i = -2; i < 3; i++)

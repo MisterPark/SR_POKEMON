@@ -51,7 +51,6 @@ void Bullet_Tsunami::Update()
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_27, TextureKey::BULLET_ICE1_33, 0.05f);
 		ObjectManager::AddObject(fx);
 		SoundManager::PlayOverlapSound(L"WaterBomb1.wav", SoundChannel::PLAYER);
-		SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 	}
 }
 
@@ -66,5 +65,4 @@ void Bullet_Tsunami::OnCollision(GameObject* target)
 	Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_27, TextureKey::BULLET_ICE1_33, 0.05f);
 	ObjectManager::AddObject(fx);
 	SoundManager::PlayOverlapSound(L"WaterBomb1.wav", SoundChannel::PLAYER);
-	SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 }

@@ -84,8 +84,7 @@ void Meteor::CollideOnTerrain()
 	{
 		if (!isExplosion)
 		{
-			SoundManager::PlayOverlapSound(L"MeteorExplosion.wav", SoundChannel::EFFECT);
-			SoundManager::SetVolume(SoundChannel::EFFECT, 0.03f);
+			SoundManager::PlayOverlapSound(L"MeteorExplosion.wav", SoundChannel::EFFECT, 0.3f);
 			collideList.clear();
 
 			stat.moveSpeed = 0.f;

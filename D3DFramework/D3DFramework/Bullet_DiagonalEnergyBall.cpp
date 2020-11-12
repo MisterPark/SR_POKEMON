@@ -32,7 +32,6 @@ void Bullet_DiagonalEnergyBall::Update()
 		fx = Effect::Create(fxPos, transform->scale, TextureKey::LUNA_EFFECT_22, TextureKey::LUNA_EFFECT_26, 0.05f);
 		ObjectManager::AddObject(fx);
 		SoundManager::PlayOverlapSound(L"DarkBomb.wav", SoundChannel::MONSTER, 0.1f);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		Camera::GetInstance()->Shake(0.05f);
 	}
 }
@@ -52,6 +51,5 @@ void Bullet_DiagonalEnergyBall::OnCollision(GameObject* target)
 	fx = Effect::Create(fxPos, transform->scale, TextureKey::LUNA_EFFECT_22, TextureKey::LUNA_EFFECT_26, 0.05f);
 	ObjectManager::AddObject(fx);
 	SoundManager::PlayOverlapSound(L"DarkBomb.wav", SoundChannel::MONSTER, 0.1f);
-	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	Camera::GetInstance()->Shake(0.05f);
 }

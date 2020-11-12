@@ -4,6 +4,7 @@
 #include "Label.h"
 #include "ProgressBar.h"
 #include "UI_Title.h"
+#include "EndingScene.h"
 
 void LoadingScene::OnLoaded()
 {
@@ -18,7 +19,8 @@ void LoadingScene::OnLoaded()
 	label->transform->scale = { 2,2,2 };
 	//label->text = L"Å×½ºÆ®";
 	bar = (ProgressBar*)ObjectManager::GetInstance()->CreateObject<ProgressBar>();
-	bar->transform->position = { 256,400,0 };
+	bar->transform->position = { 400,20,0 };
+	bar->transform->scale = { 0.6f,0.6f, 0.6f };
 
 	
 
@@ -50,6 +52,7 @@ void LoadingScene::Update()
 		if (InputManager::GetKeyDown(VK_RETURN))
 		{
 			SceneManager::LoadScene<Stage_Opening>();
+			//SceneManager::LoadScene<EndingScene>();
 		}
 	}
 }

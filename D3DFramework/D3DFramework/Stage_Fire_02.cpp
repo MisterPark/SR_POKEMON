@@ -15,7 +15,6 @@ void Stage_Fire_02::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
 	SoundManager::PlayBGM(L"FireStage2.wav");
-	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
@@ -126,7 +125,7 @@ void Stage_Fire_02::Stage_Fire_02_Wave()
 		
 		if (spawnerCount == 1)
 		{
-			if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI)==2)
+			if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI)==3)
 			{
 				TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 				trigerBox->OnTriggered = Portal;

@@ -3,7 +3,7 @@
 #include "Plane.h"
 #include "Rectangle.h"
 #include "Bullet_Water.h"
-
+#include "Effect.h"
 
 Darkrai::Darkrai()
 {
@@ -45,8 +45,8 @@ void Darkrai::Initialize()
 	offsetY = 1.f;
 	transform->scale = { 1.f, 1.f, 1.f };
 
-	defaultAttack = 80;
-	defaultMaxHp = 2500;
+	defaultAttack = 100;
+	defaultMaxHp = 4000;
 
 	increaseAttack = defaultAttack * 0.05f;
 	increaseMaxHp = defaultMaxHp * 0.05f;
@@ -67,6 +67,7 @@ void Darkrai::Update()
 {
 	//Pattern();
 	Character::Update();
+	//ShadowCreate();
 	if (monsterAI != nullptr) monsterAI->Update();
 }
 
@@ -99,4 +100,24 @@ Darkrai* Darkrai::Create(const Vector3& pos, const Vector3& dir, int lv)
 {
 	Darkrai* newPokemon = new Darkrai(pos, dir, lv);
 	return newPokemon;
+}
+
+void Darkrai::ShadowCreate() {
+	if(state == State::WALK || state == State::READY)
+	delay -= TimeManager::DeltaTime();
+	if (delay < 0.f) {
+		delay = 0.1f;
+		float angle = GetAngleFromCamera();
+
+		angle += 22.5f;
+
+		int index = int(angle / 45.f);
+
+		index %= 8;
+
+		int textureKey= (int)TextureKey::DARK_SHADOW_01 + index * 3;
+		//Effect* fx = Effect::Create(transform->position, transform->scale, (TextureKey)(textureKey+2), (TextureKey)(textureKey + 2), 1.f);
+		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::DARK_SHADOW_01, TextureKey::DARK_SHADOW_03, 1.f);
+		ObjectManager::AddObject(fx);
+	}
 }

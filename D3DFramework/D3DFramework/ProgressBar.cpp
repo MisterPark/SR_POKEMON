@@ -28,10 +28,10 @@ void ProgressBar::Update()
 
 void ProgressBar::Render()
 {
-	RenderManager::DrawUI(TextureKey::UI_PROGRESS_PANEL, transform->position, 0);
+	RenderManager::DrawUI(TextureKey::UI_PROGRESS_PANEL, transform->position,transform->scale, 0);
 	Vector3 barPos;
-	barPos.x = transform->position.x + 6;
-	barPos.y = transform->position.y + 7;
-	RenderManager::DrawUI(TextureKey::UI_PROGRESS_BAR, barPos, Vector3(1, 1, 1), 0, progress);
+	barPos.x = transform->position.x + (6 * transform->scale.x);
+	barPos.y = transform->position.y + (7 * transform->scale.y);
+	RenderManager::DrawUI(TextureKey::UI_PROGRESS_BAR, barPos, transform->scale, 0, progress);
 
 }

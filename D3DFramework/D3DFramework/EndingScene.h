@@ -2,6 +2,8 @@
 #include "IScene.h"
 #include "LobbyWindow.h"
 
+class Label;
+
 class EndingScene :
     public IScene
 {
@@ -11,8 +13,15 @@ public:
     virtual void OnUnloaded() override;
     virtual void Update() override;
 
-    LobbyWindow* lobby = nullptr;
+
 
     static void NextScene();
+
+    Label* label1 = nullptr;
+    Label* label2 = nullptr;
+    Label* label3 = nullptr;
+    Label* label4 = nullptr;
+    Label* label5 = nullptr;
+    Label* label6 = nullptr;
 };
 

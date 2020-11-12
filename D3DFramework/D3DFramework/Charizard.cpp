@@ -28,7 +28,7 @@ void Charizard::Initialize()
 	SetTexture(State::IDLE, TextureKey::PF03_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::PF03_WALK_D_02, 3, 2);
 	SetTexture(State::ATTACK, TextureKey::PF03_ATTACK_D_01, 2);
-	SetTexture(State::SKILL, TextureKey::PF03_SKILL_D_01, 2);
+	SetTexture(State::SKILL, TextureKey::PF03_ATTACK_D_01, 2);
 
 	offsetY = 0.15f;
 
@@ -98,7 +98,7 @@ void Charizard::AnimSet()
 		break;
 	case State::SKILL:
 		anim->SetLoop(false);
-		anim->SetDelay(1.f);
+		anim->SetDelay(1.4f);
 		anim->SetTick(0.f);
 		break;
 	case State::HURT:
@@ -115,6 +115,7 @@ bool Charizard::Attack(const Vector3 & dir, const int & attackType)
 		case 0: ChangeState(State::ATTACK); break;
 		case 1: ChangeState(State::ATTACK); break;
 		case 2: ChangeState(State::SKILL); break;
+		case 3: ChangeState(State::SKILL); break;
 		}
 
 		return true;

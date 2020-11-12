@@ -19,7 +19,6 @@ void Stage_Tutorial::OnLoaded()
 	Cursor::Hide();
 
 	SoundManager::PlayBGM(L"Tutorial.wav");
-	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
 	QuestManager::GetInstance()->SetEvent(Event::EVENT_TUTORIAL);
@@ -57,10 +56,6 @@ void Stage_Tutorial::OnLoaded()
 	Dialog::SetEndEvent(UI_SHOW);
 	Dialog::Show();
 
-	/////
-	Spawner* spawner = Spawner::Create(MonsterType::DARKRAI, 10.f, 0.5f,1);
-	spawner->transform->position = { 24.f,0.f,24.f };
-	ObjectManager::AddObject(spawner);
 }
 
 void Stage_Tutorial::OnUnloaded()

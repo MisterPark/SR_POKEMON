@@ -22,14 +22,21 @@ void Skill_FireBlast::InitCoolTime()
 void Skill_FireBlast::InitActiveTime()
 {
 
-	activeTime = 2.f;
+	activeTime = 2.5f;
 }
 
 void Skill_FireBlast::Update()
 {
+	if (activeTime > 2.f)
+	{
+		activeTime = 2.f;
+		Effect* fx = Effect::Create(character->transform->position, { 1.f,1.f,1.f }, TextureKey::BULLET_ENERGYBALL2_01, TextureKey::BULLET_ENERGYBALL2_60, 0.01f, false, true);
+		fx->transform->position.y -= 0.5f;
+		ObjectManager::AddObject(fx);
+	}
+	
 	if (delay <= 0.f) {
 		SoundManager::PlaySoundW(L"GroudonBreath.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		Camera::GetInstance()->Shake(0.05f);
 		Bullet_FireBlast* bullet = dynamic_cast<Bullet_FireBlast*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireBlast>());
 		bullet->transform->position = character->transform->position;

@@ -159,7 +159,6 @@ void Character::OnCollision(GameObject* target)
 				skin->SetColor(D3DCOLOR_XRGB(200, 0, 200));
 				PlayerInfoPanel::ActiveRedFilter();
 				SoundManager::PlayOverlapSound(L"Hit2.wav", SoundChannel::PLAYER);
-				SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 			}
 			else
 			{
@@ -175,7 +174,6 @@ void Character::OnCollision(GameObject* target)
 		{
 			PlayerInfoPanel::ActiveRedFilter();
 			SoundManager::PlayOverlapSound(L"Hit2.wav", SoundChannel::PLAYER);
-			SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 		}
 
 
@@ -381,8 +379,14 @@ void Character::LevelUp()
 {
 	++stat.level;
 
-	SoundManager::PlayOverlapSound(L"LevelUp.wav", SoundChannel::PLAYER_EFFECT);
-	SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
+	SoundManager::PlayOverlapSound(L"LevelUp.wav", SoundChannel::PLAYER_EFFECT, 0.8f);
+
+	Vector3 pos = transform->position;
+
+	pos.y += 0.5f;
+
+	Effect * fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::BELL_EFFECT_01, TextureKey::BELL_EFFECT_20, 0.05f);
+	ObjectManager::AddObject(fx);
 
 	SetStatByLevel();
 }
@@ -434,10 +438,14 @@ bool Character::Attack(const Vector3 & dir, const int & attackType)
 
 void Character::HealMyself(float _recovery)
 {
-	stat.hp += _recovery;
-	if (stat.hp > stat.maxHp)
+	if (stat.hp < stat.maxHp)
 	{
-		stat.hp = stat.maxHp;
+		SoundManager::PlayOverlapSound(L"Heal.wav", SoundChannel::EFFECT);
+		stat.hp += _recovery;
+		if (stat.hp > stat.maxHp)
+		{
+			stat.hp = stat.maxHp;
+		}
 	}
 }
 

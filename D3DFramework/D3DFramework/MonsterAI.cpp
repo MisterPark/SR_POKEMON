@@ -372,7 +372,7 @@ void MonsterAI::SetType(MonsterType _type)
 		SetPatternRange(1, 1);
 		searchRange[0] = 8.f;
 		searchRange[1] = 5.f;
-		searchRange[3] = 30.f;
+		searchRange[3] = 50.f;
 		break;
 	case MonsterType::END:
 		break;
@@ -795,7 +795,7 @@ void MonsterAI::MonsterIdle() {
 					c->state = State::WALK;
 				}
 				else if (Time[2] < 0) {
-					Time[2] = 3.f;
+					Time[2] = 4.f;
 					if (Frame[1] == 0) {
 						c->state = State::ATTACK;
 						readyPattern = true;
@@ -1444,7 +1444,7 @@ void MonsterAI::MonsterWalk() {
 					MovePlayerFollow();
 				}
 				else if (Time[2] < 0) {
-					Time[2] = 2.f;
+					Time[2] = 4.f;
 					if (Frame[1] == 0) {
 						c->state = State::ATTACK;
 						readyPattern = true;

@@ -11,10 +11,9 @@ void Stage_Water_01::OnLoaded()
 	ObjectManager::GetInstance()->CreateObject<Light>();
 
 	SkyBox::Show();
-	SkyBox::SetTexture(TextureKey::SKYBEACH1_U);
+	SkyBox::SetTexture(TextureKey::SKYBLUE1_U);
 
 	SoundManager::PlayBGM(L"WaterStage.wav");
-	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)

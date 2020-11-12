@@ -34,7 +34,6 @@ void Bullet_Explosion::Update()
 	if (lifeTime < 0)
 	{
 		SoundManager::PlayOverlapSound(L"Explosion.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		for (int i = -4; i < 4; i++)
 		{
 			Bullet_RedBall* bullet = dynamic_cast<Bullet_RedBall*>(ObjectManager::GetInstance()->CreateObject<Bullet_RedBall>());

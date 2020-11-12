@@ -21,7 +21,7 @@ void Skill_DarkBallFall::InitCoolTime()
 
 void Skill_DarkBallFall::InitActiveTime()
 {
-	activeTime = 7.f;
+	activeTime = 6.f;
 }
 
 void Skill_DarkBallFall::Update()
@@ -32,7 +32,6 @@ void Skill_DarkBallFall::Update()
 	if (delaySound < 0.f) {
 		delaySound = 0.2f;
 		SoundManager::PlayOverlapSound(L"DarkraiDarkBall.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 	if (delay < 0.f) {
 		Vector3 bulPos;// = character->transform->position;

@@ -36,7 +36,6 @@ void Bullet_FireBomb::Update()
 		Effect* fx = Effect::Create(transform->position, transform->scale * 2.f, TextureKey::BULLET_FIREBOMB_04, TextureKey::BULLET_FIREBOMB_12, 0.05f);
 		ObjectManager::AddObject(fx);
 		SoundManager::PlayOverlapSound(L"FireBomb1.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 
 
@@ -54,6 +53,4 @@ void Bullet_FireBomb::OnCollision(GameObject* target)
 	Effect* fx = Effect::Create(transform->position, transform->scale * 2.f, TextureKey::BULLET_FIREBOMB_04, TextureKey::BULLET_FIREBOMB_12, 0.05f);
 	ObjectManager::AddObject(fx);
 	SoundManager::PlayOverlapSound(L"FireBomb1.wav", SoundChannel::MONSTER);
-	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
-
 }

@@ -29,7 +29,6 @@ void Skill_GravityEnergyBall::Update()
 	if (activeTime > 1.f) {
 		activeTime = 1.f;
 		SoundManager::PlayOverlapSound(L"DarkraiGravity.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		Effect* effect = Effect::Create(character->transform->position, character->transform->scale, TextureKey::LUNA_EFFECT_06, TextureKey::LUNA_EFFECT_14, 0.05f);
 		ObjectManager::AddObject(effect);
 	}

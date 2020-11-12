@@ -189,6 +189,7 @@ void NPC_Squirtle::OnEvent()
 				Dialog::SetEndEvent(Evolution);
 				Dialog::Show();
 				Inventory::RemoveItem(ItemType::STONE_OF_WATER, 5);
+				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::MINISQUIRTLE);
 				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
 			}
 			else if (Player::GetInstance()->GetCharacter()->type == TYPE::WARTORTLE)

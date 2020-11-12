@@ -54,19 +54,14 @@ void Item::OnCollision(GameObject* target)
 
 	if (Inventory::Push(this))
 	{
+		SoundManager::PlayOverlapSound(L"CoinGet.wav", SoundChannel::EFFECT);
 		this->inSlot = true;
 	}
-
-	//SoundManager::PlayOverlapSound(L"GetItem.wav", SoundChannel::EFFECT);
-	SoundManager::PlayOverlapSound(L"CoinGet.wav", SoundChannel::EFFECT);
-	SoundManager::SetVolume(SoundChannel::EFFECT, 0.1f);
 }
 
 void Item::Use()
 {
 	SoundManager::PlayOverlapSound(L"Eat.wav", SoundChannel::EFFECT);
-	SoundManager::PlayOverlapSound(L"Heal.wav", SoundChannel::EFFECT);
-	SoundManager::SetVolume(SoundChannel::EFFECT, 0.1f);
 }
 
 void Item::OnTerrain()

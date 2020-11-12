@@ -221,6 +221,10 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="CubeMan.h" />
     <ClInclude Include="Cursor.h" />
+    <ClInclude Include="NPC_MiniBulbasaur.h" />
+    <ClInclude Include="NPC_MiniCharmander.h" />
+    <ClInclude Include="NPC_MiniSquirtle.h" />
+    <ClInclude Include="NPC_Poliwhirl.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="D3DFramework.h" />
@@ -365,6 +369,7 @@
     <ClInclude Include="Stage_Fire_02.h" />
     <ClInclude Include="Stage_Fire_Boss.h" />
     <ClInclude Include="Stage_Opening.h" />
+    <ClInclude Include="Stage_Space.h" />
     <ClInclude Include="Stage_Town.h" />
     <ClInclude Include="Stage_Tutorial.h" />
     <ClInclude Include="Stage_Water_02.h" />
@@ -459,6 +464,10 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="CubeMan.cpp" />
     <ClCompile Include="Cursor.cpp" />
+    <ClCompile Include="NPC_MiniBulbasaur.cpp" />
+    <ClCompile Include="NPC_MiniCharmander.cpp" />
+    <ClCompile Include="NPC_MiniSquirtle.cpp" />
+    <ClCompile Include="NPC_Poliwhirl.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="D3DFramework.cpp" />
@@ -595,6 +604,7 @@
     <ClCompile Include="Stage_Fire_02.cpp" />
     <ClCompile Include="Stage_Fire_Boss.cpp" />
     <ClCompile Include="Stage_Opening.cpp" />
+    <ClCompile Include="Stage_Space.cpp" />
     <ClCompile Include="Stage_Town.cpp" />
     <ClCompile Include="Stage_Tutorial.cpp" />
     <ClCompile Include="Stage_Water_02.cpp" />

@@ -3,9 +3,9 @@
 
 struct DialogElement
 {
-	wstring text;
-	wstring name;
-	Pokemon number;
+	wstring text = L"";
+	wstring name = L"";
+	Pokemon number = Pokemon::None;
 	bool isLeft = false;
 };
 

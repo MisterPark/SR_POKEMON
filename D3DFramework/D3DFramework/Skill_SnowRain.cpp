@@ -31,12 +31,10 @@ void Skill_SnowRain::Update()
 	{
 		activeTime = 2.f;
 		SoundManager::PlayOverlapSound(L"SnowRain.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 	if (soundDelay < 1.f&&soundDelay>0)
 	{
 		SoundManager::PlayOverlapSound(L"SnowRain.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		soundDelay = 0;
 	}
 	if (delay <= 0.f) {

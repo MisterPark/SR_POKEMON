@@ -370,9 +370,6 @@
     <Filter Include="Skill\32. Synthesis">
       <UniqueIdentifier>{64a231de-af14-477c-a071-918c67d91b34}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\Bullet\32.Synthesis">
-      <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\Item">
       <UniqueIdentifier>{58f3ad62-8bb2-456a-b47f-4de7029f0af7}</UniqueIdentifier>
     </Filter>
@@ -450,6 +447,9 @@
     </Filter>
     <Filter Include="GameObject\Bullet\40. GravityEnergyBall">
       <UniqueIdentifier>{47a9d7a1-8708-4c90-b2e6-7423bd342063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Bullet\32. Synthesis">
+      <UniqueIdentifier>{09c67295-fa7a-440f-808a-153f6420556a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -994,7 +994,7 @@
       <Filter>Skill\32. Synthesis</Filter>
     </ClInclude>
     <ClInclude Include="Bullet_Synthesis.h">
-      <Filter>GameObject\Bullet\32.Synthesis</Filter>
+      <Filter>GameObject\Bullet\32. Synthesis</Filter>
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>GameObject\UI\Inventory</Filter>
@@ -1184,6 +1184,21 @@
     </ClInclude>
     <ClInclude Include="Bullet_GravityEnergyBall.h">
       <Filter>GameObject\Bullet\40. GravityEnergyBall</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_Poliwhirl.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_MiniSquirtle.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_MiniBulbasaur.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_MiniCharmander.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage_Space.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1817,7 +1832,7 @@
       <Filter>Skill\32. Synthesis</Filter>
     </ClCompile>
     <ClCompile Include="Bullet_Synthesis.cpp">
-      <Filter>GameObject\Bullet\32.Synthesis</Filter>
+      <Filter>GameObject\Bullet\32. Synthesis</Filter>
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>GameObject\UI\Inventory</Filter>
@@ -1924,9 +1939,6 @@
     <ClCompile Include="ItemInfoPanel.cpp">
       <Filter>GameObject\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Dialog.cpp">
-      <Filter>GameObject\NPC</Filter>
-    </ClCompile>
     <ClCompile Include="NPC_DoctorOh.cpp">
       <Filter>GameObject\NPC</Filter>
     </ClCompile>
@@ -2001,6 +2013,24 @@
     </ClCompile>
     <ClCompile Include="Bullet_GravityEnergyBall.cpp">
       <Filter>GameObject\Bullet\40. GravityEnergyBall</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_Poliwhirl.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_MiniSquirtle.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_MiniBulbasaur.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_MiniCharmander.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage_Space.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog.cpp">
+      <Filter>GameObject\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

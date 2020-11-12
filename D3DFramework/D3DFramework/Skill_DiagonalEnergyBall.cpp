@@ -26,21 +26,14 @@ void Skill_DiagonalEnergyBall::InitActiveTime()
 
 void Skill_DiagonalEnergyBall::Update()
 {
-	//if (activeTime > 0.5f) {
-	//	activeTime = 0.5f;
-	//	SoundManager::PlayOverlapSound(L"DarkraiGude.wav", SoundChannel::MONSTER);
-	//	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
-	//}
 	delay -= TimeManager::DeltaTime();
 	delaySound -= TimeManager::DeltaTime();
 	if (delaySound < 0.f) {
 		if (Random::Value(2) == 1) {
 			SoundManager::PlayOverlapSound(L"DarkraiDiagonalEnergyBall1.wav", SoundChannel::MONSTER);
-			SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		}
 		else {
 			SoundManager::PlayOverlapSound(L"DarkraiDiagonalEnergyBall2.wav", SoundChannel::MONSTER);
-			SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		}
 		delaySound = 0.2f;
 	}

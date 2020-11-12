@@ -18,5 +18,9 @@ public:
 
 public:
 	static Skill* Create();
+
+private:
+	bool isSpawnFX;
+	bool isSpawn;
 };
 

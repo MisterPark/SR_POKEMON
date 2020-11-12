@@ -29,7 +29,6 @@ void Skill_GuidEnergyBall::Update()
 	if (activeTime > 0.5f) {
 		activeTime = 0.5f;
 		SoundManager::PlayOverlapSound(L"DarkraiGude.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 	delay -= TimeManager::DeltaTime();
 	if (delay < 0.f) {

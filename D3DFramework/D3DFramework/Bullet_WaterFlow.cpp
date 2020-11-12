@@ -30,14 +30,12 @@ Bullet_WaterFlow::~Bullet_WaterFlow()
 void Bullet_WaterFlow::Update()
 {
 	Bullet::Update();
-	SoundManager::PlayOverlapSound(L"WaterFlow.wav", SoundChannel::EFFECT, 0.3);
-	SoundManager::SetVolume(SoundChannel::EFFECT, 0.08f);
+	SoundManager::PlayOverlapSound(L"WaterFlow.wav", SoundChannel::EFFECT, 0.5f);
 
 	if (isDead) {
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_ICE1_27, TextureKey::BULLET_ICE1_33, 0.05f);
 		ObjectManager::AddObject(fx);
-		SoundManager::PlayOverlapSound(L"WaterCollide.wav", SoundChannel::EFFECT);
-		SoundManager::SetVolume(SoundChannel::EFFECT, 0.05f);
+		SoundManager::PlayOverlapSound(L"WaterCollide.wav", SoundChannel::EFFECT, 0.5f);
 	}
 }
 

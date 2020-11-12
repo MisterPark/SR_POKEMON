@@ -38,8 +38,6 @@ public:
 	void AddDittoColor() { dittoColor++; if (dittoColor == 5) dittoColor = 0; return; }
 	void MetamorphoEffect();
 
-	
-
 private:
 	void Release();
 
@@ -61,7 +59,6 @@ public:
 	void MetamorphosisToDitto();
 
 	void ChangeNextPokemon(TYPE pokemon, Pokemon number);
-
 
 private:
 	static Player* instance;
