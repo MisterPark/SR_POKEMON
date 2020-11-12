@@ -60,13 +60,13 @@ void Stage_Town::OnLoaded()
 	GameObject* npc = NPC_Charmander::Create(Vector3{ 23.f, 0.f, 22.f });
 	ObjectManager::AddObject(npc);
 	//
-	npc = NPC_Bulbasaur::Create(Vector3{ 24.f, 0.f, 22.f });
+	npc = NPC_Bulbasaur::Create(Vector3{ 19.f, 0.f, 22.f });
 	ObjectManager::AddObject(npc);
 	//
-	npc = NPC_Squirtle::Create(Vector3{ 25.f, 0.f, 22.f });
+	npc = NPC_Squirtle::Create(Vector3{ 24.f, 0.f, 22.f });
 	ObjectManager::AddObject(npc);
 
-	npc = NPC_ColorDitto::Create(Vector3{ 30.f, 0.f, 30.f });
+	npc = NPC_ColorDitto::Create(Vector3{ 29.f, 0.f, 30.f });
 	ObjectManager::AddObject(npc);
 	
 	if (QuestManager::GetInstance()->GetEvent() == EVENT_TOWN)

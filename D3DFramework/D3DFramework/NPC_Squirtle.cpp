@@ -86,8 +86,8 @@ NPC_Squirtle* NPC_Squirtle::Create(const Vector3& pos, bool onCenterDir, const V
 
 void NPC_Squirtle::OnEvent()
 {
-	SetIsMoving(false);
 	direction = DirFromPlayer(false);
+	SetIsMoving(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	Character* player = Player::GetInstance()->GetCharacter();

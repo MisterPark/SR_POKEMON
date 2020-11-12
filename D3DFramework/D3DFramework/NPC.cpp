@@ -200,7 +200,7 @@ void NPC::SpawnInRandomPos()
 {
 	int dist = 0;
 	while (dist < 2) {
-		dist = Random::Value(5);
+		dist = Random::Value(3);
 	}
 	float degree = Random::Value(360);
 	float Radian = D3DXToRadian(degree);

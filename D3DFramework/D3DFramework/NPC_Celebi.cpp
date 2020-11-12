@@ -66,8 +66,8 @@ NPC_Celebi* NPC_Celebi::Create(const Vector3& pos, bool onCenterDir, const Vecto
 
 void NPC_Celebi::OnEvent()
 {
-	SetIsMoving(false);
 	direction = DirFromPlayer(false);
+	SetIsMoving(false);
 
 
 	Character* player = Player::GetInstance()->GetCharacter();
