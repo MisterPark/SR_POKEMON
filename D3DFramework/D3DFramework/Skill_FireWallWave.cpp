@@ -37,12 +37,13 @@ void Skill_FireWallWave::Update()
 		character->transform->position.z = 48.f - 5.0f;
 		character->direction = { 0.f,0.f,-1.f };
 	}
-	float shakesize = 0.8f;
+	float shakesize = 0.15f;
+	float shakeduration = 0.5f;
 	if (effectDelay > 0.8)
 	{
 		Effect* fx = Effect::Create(character->transform->position, { 0.4f, 0.4f, 0.4f }, TextureKey::BULLET_NIDDLE_01, TextureKey::BULLET_NIDDLE_03, 0.1f, false, true);
 		ObjectManager::AddObject(fx);
-		Camera::GetInstance()->Shake(shakesize);
+		Camera::GetInstance()->Shake(shakeduration,shakesize);
 		effectDelay = 0.f;
 	}
 	if (soundTime > 0.8f&&2.f<patternTime<25.f)
