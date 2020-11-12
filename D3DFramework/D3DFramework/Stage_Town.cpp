@@ -210,8 +210,10 @@ void Stage_Town::Event_Town(Event _event)
 	{
 		
 		Dialog::EnqueueText(L"(튜토리얼이 모두 끝났습니다!)");
-		Dialog::EnqueueText(L"(앞으로는 당신이 하고 싶은대로 할 수 있습니다!)");
-		Dialog::EnqueueText(L"(즐거운 모험되시길 바라겠습니다……!)");
+		Dialog::EnqueueText(L"(던전의 난이도는 풀 1~20, 물20~40, 불40~60 레벨의 몬스터들이 등장합니다.)");
+		Dialog::EnqueueText(L"(자신의 레벨을 고려해서 던전에 입장하세요!)");
+		Dialog::EnqueueText(L"(죽으면 마을로 돌아오게 되니 유의하세요…!)");
+		Dialog::EnqueueText(L"(이제 세레비에게 가서 보상을 받고 세레비의 부탁을 들어주세요!)");
 		Dialog::Show();
 		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
 		QuestManager::GetInstance()->AddProgress(QuestManager::GetInstance()->GetEvent(), NpcName::SQUIRTLE);

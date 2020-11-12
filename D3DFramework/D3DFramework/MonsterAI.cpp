@@ -1342,7 +1342,7 @@ void MonsterAI::MonsterWalk() {
 				readyPattern = false;
 			}
 			Time[3] -= TimeManager::DeltaTime();
-			Time[5] -= TimeManager::DeltaTime();
+			
 
 			if (Time[3] < 0.f && disPlayer<searchRange[2]) {
 				
@@ -1353,7 +1353,7 @@ void MonsterAI::MonsterWalk() {
 			else {
 				Time[1] -= TimeManager::DeltaTime();
 				Time[2] -= TimeManager::DeltaTime();
-				Time[3] -= TimeManager::DeltaTime();
+				
 				Time[5] -= TimeManager::DeltaTime();
 				
 				if (Time[1] < 0) {
@@ -2478,7 +2478,7 @@ void MonsterAI::MonsterSkill() {
 			if (readyPattern) {
 				readyPattern = false;
 				c->Attack(c->direction, 1);
-				Time[4] = 20.f;//패턴 고정시간
+				Time[4] = 45.f;//패턴 고정시간
 				c->anim->SetDelay(1.f);
 			}
 			Time[4] -= TimeManager::DeltaTime();

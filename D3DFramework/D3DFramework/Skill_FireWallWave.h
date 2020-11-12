@@ -20,5 +20,6 @@ private:
 	int Frame[5];
 	float patternTime;
 	float soundTime;
+	float effectDelay = 0.f;
 };
 

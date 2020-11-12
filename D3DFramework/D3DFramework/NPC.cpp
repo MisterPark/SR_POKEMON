@@ -133,18 +133,18 @@ void NPC::UpdateAnimation()
 
 	index %= 8;
 
-	if (oldState != state)
-	{
+	//if (oldState != state)
+	//{
 		anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
-	}
-	else
-	{
-		int curIndex = ((int)anim->GetEndSprite() - (int)anim->GetCurrentSprite());
+	//}
+	//else
+	//{
+	//	int curIndex = ((int)anim->GetEndSprite() - (int)anim->GetCurrentSprite());
 
-		anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
-		curIndex = (int)endArray[(int)state][index] - curIndex;
-		anim->SetCurrentSprite((TextureKey)curIndex);
-	}
+	//	anim->SetSprite(startArray[(int)state][index], endArray[(int)state][index]);
+	//	curIndex = (int)endArray[(int)state][index] - curIndex;
+	//	anim->SetCurrentSprite((TextureKey)curIndex);
+	//}
 }
 
 void NPC::SetTexture(State _state, TextureKey _beginTextureKey, int _aniFrame, int _endFrame)

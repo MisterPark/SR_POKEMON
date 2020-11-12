@@ -32,6 +32,7 @@ void Stage_Water_Boss::OnLoaded()
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 	/*trigerBox->OnTriggered = CreateSpawner;*/
 	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
+	trigerBox->AnimChange(TextureKey::PROPERTY_WATER, TextureKey::PROPERTY_WATER, 10.f, false);
 }
 
 void Stage_Water_Boss::OnUnloaded()

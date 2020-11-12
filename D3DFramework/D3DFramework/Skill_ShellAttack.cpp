@@ -5,7 +5,7 @@
 Skill_ShellAttack::Skill_ShellAttack()
 {
 	skillIcon = TextureKey::UI_SKILL_ICON_SHELL;
-	coolTime = 8.f;
+	coolTime = 13.f;
 	moveStopTime = 5.f;
 }
 

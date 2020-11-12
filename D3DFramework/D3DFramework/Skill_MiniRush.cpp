@@ -37,7 +37,7 @@ void Skill_MiniRush::Update()
 		Camera::GetInstance()->Shake(1.f);
 	}
 
-	if (0.5f < activeTime) {
+	if (0.5f > activeTime && 0.4f < activeTime) {
 		activeTime = 0.4f;
 		SoundManager::PlayOverlapSound(L"MiniRush.wav", SoundChannel::MONSTER);
 	}

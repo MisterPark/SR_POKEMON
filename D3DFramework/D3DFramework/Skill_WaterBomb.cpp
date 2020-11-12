@@ -26,7 +26,7 @@ void Skill_WaterBomb::InitActiveTime()
 
 void Skill_WaterBomb::Update()
 {
-	SoundManager::PlayOverlapSound(L"WaterBomb1.wav", SoundChannel::PLAYER);
+	SoundManager::PlayOverlapSound(L"WaterBomb2.mp3", SoundChannel::PLAYER);
 	Bullet_WaterBomb* bullet = dynamic_cast<Bullet_WaterBomb*>(ObjectManager::GetInstance()->CreateObject<Bullet_WaterBomb>());
 	bullet->transform->position = character->transform->position;
 	bullet->SetDir(character->direction);
