@@ -25,6 +25,9 @@ void Skill_TearsShot::InitActiveTime()
 
 void Skill_TearsShot::Update()
 {
+	SoundManager::PlayOverlapSound(L"TearsShot.wav", SoundChannel::MONSTER);
+	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+
 	Bullet_Water* bullet = dynamic_cast<Bullet_Water*>(ObjectManager::GetInstance()->CreateObject<Bullet_Water>());
 	bullet->transform->position = character->transform->position;
 	bullet->SetDir(character->direction);
