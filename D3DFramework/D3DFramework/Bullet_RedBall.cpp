@@ -13,7 +13,7 @@ Bullet_RedBall::Bullet_RedBall()
 
 	transform->scale = { 0.5f, 0.5f, 0.5f };
 
-	lifeTime = 1.6f;
+	lifeTime = 2.1f;
 	stat.moveSpeed = 3.f;
 }
 
@@ -23,6 +23,12 @@ Bullet_RedBall::~Bullet_RedBall()
 
 void Bullet_RedBall::Update()
 {
+	if (lifeTime>1.6)
+	{
+		lifeTime = 1.6f;
+		SoundManager::PlayOverlapSound(L"Redball.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+	}
 	Bullet::Update();
 }
 

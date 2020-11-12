@@ -27,6 +27,8 @@ void Skill_Explosion::InitActiveTime()
 
 void Skill_Explosion::Update()
 {
+	SoundManager::PlayOverlapSound(L"Redball.wav", SoundChannel::MONSTER);
+	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 
 	Bullet_Explosion* bullet = dynamic_cast<Bullet_Explosion*>(ObjectManager::GetInstance()->CreateObject<Bullet_Explosion>());
 	bullet->transform->position = character->transform->position;
