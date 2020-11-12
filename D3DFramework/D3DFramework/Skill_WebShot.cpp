@@ -26,6 +26,9 @@ void Skill_WebShot::InitActiveTime()
 
 void Skill_WebShot::Update()
 {
+	SoundManager::PlayOverlapSound(L"WebShot.wav", SoundChannel::MONSTER);
+	SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+
 	Bullet_Web* bullet = dynamic_cast<Bullet_Web*>(ObjectManager::GetInstance()->CreateObject<Bullet_Web>());
 	bullet->transform->position = character->transform->position;
 	bullet->SetDir(character->direction);

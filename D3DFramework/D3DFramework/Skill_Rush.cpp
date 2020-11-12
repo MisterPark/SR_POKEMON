@@ -20,16 +20,23 @@ void Skill_Rush::InitCoolTime()
 
 void Skill_Rush::InitActiveTime()
 {
-	activeTime = 1.5f;
+	activeTime = 2.f;
 }
 
 void Skill_Rush::Update()
 {
+	if (activeTime > 1.5f)
+	{
+		activeTime = 1.5f;
+
+	}
 	if (activeTime < 0.2f) {
 		character->transform->position.x += character->direction.x * character->stat.moveSpeed * 15.f * TimeManager::DeltaTime();
 		character->transform->position.z += character->direction.z * character->stat.moveSpeed * 15.f * TimeManager::DeltaTime();
 	}
 	if (activeTime <= 0.05f) {
+		SoundManager::PlayOverlapSound(L"ScytherDash.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		for (int j = -2; j < 3; j++)
 		{
 			for (int i = -2; i < 3; i++)

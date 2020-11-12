@@ -36,6 +36,16 @@ Bullet_Tornado::~Bullet_Tornado()
 
 void Bullet_Tornado::Update()
 {
+	
+	soundDelay += TimeManager::DeltaTime();
+	if (soundDelay > 1.5f)
+	{
+		soundDelay = 0.f;
+		SoundManager::PlayOverlapSound(L"Tornado.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+	}
+
+
 	Bullet::Update();
 
 	/*damageTime -= TimeManager::DeltaTime();
