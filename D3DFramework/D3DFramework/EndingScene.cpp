@@ -9,7 +9,6 @@
 #include "PlayerInfoPanel.h"
 void EndingScene::OnLoaded()
 {
-	//Network::Connect();
 	SkyBox::Hide();
 	PlayerInfoPanel::Hide();
 	Player::Hide();
