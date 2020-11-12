@@ -18,7 +18,8 @@ void LoadingScene::OnLoaded()
 	label->transform->scale = { 2,2,2 };
 	//label->text = L"Å×½ºÆ®";
 	bar = (ProgressBar*)ObjectManager::GetInstance()->CreateObject<ProgressBar>();
-	bar->transform->position = { 256,400,0 };
+	bar->transform->position = { 400,20,0 };
+	bar->transform->scale = { 0.6f,0.6f, 0.6f };
 
 	
 
