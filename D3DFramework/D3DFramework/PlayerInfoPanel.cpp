@@ -208,6 +208,11 @@ void PlayerInfoPanel::Render()
         pokeNumber -= (int)Pokemon::Celebi;
         RenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, facePos, Vector3(0.5f, 0.5f, 0.5f), metaNumber - 1);
     }
+
+    if (target->isInvincible)
+    {
+        RenderManager::DrawFont(L"무적", facePos.x, facePos.y-30, D3DCOLOR_ARGB(255, 255, 0, 0));
+    }
     
     // 코인 점수
 
