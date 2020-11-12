@@ -16,6 +16,7 @@ NPC_Celebi::NPC_Celebi()
 NPC_Celebi::NPC_Celebi(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -44,6 +45,7 @@ void NPC_Celebi::Initialize()
 	
 	offsetY = 0.7f;
 	transform->scale = { 0.5f, 0.5f, 0.5f };
+	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();
@@ -64,6 +66,7 @@ NPC_Celebi* NPC_Celebi::Create(const Vector3& pos, bool onCenterDir, const Vecto
 
 void NPC_Celebi::OnEvent()
 {
+	SetIsMoving(false);
 	direction = DirFromPlayer(false);
 	
 

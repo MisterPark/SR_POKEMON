@@ -16,6 +16,7 @@ NPC_Bulbasaur::NPC_Bulbasaur()
 NPC_Bulbasaur::NPC_Bulbasaur(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -64,6 +65,7 @@ void NPC_Bulbasaur::Initialize()
 
 	offsetY = 0.13f;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
+	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();
@@ -84,6 +86,8 @@ NPC_Bulbasaur* NPC_Bulbasaur::Create(const Vector3& pos, bool onCenterDir, const
 
 void NPC_Bulbasaur::OnEvent()
 {
+	SetIsMoving(false);
+	//SetIsMoving(true); 대화가 끝날때
 	direction = DirFromPlayer(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 

@@ -16,6 +16,7 @@ NPC_Charmander::NPC_Charmander()
 NPC_Charmander::NPC_Charmander(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -64,6 +65,7 @@ void NPC_Charmander::Initialize()
 
 	offsetY = 0.13f;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
+	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();
@@ -84,6 +86,7 @@ NPC_Charmander* NPC_Charmander::Create(const Vector3& pos, bool onCenterDir, con
 
 void NPC_Charmander::OnEvent()
 {
+	SetIsMoving(false);
 	direction = DirFromPlayer(false);
 
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();

@@ -15,6 +15,7 @@ NPC_ColorDitto::NPC_ColorDitto()
 NPC_ColorDitto::NPC_ColorDitto(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -45,6 +46,7 @@ void NPC_ColorDitto::Initialize()
 
 	offsetY = 0.3f;
 	transform->scale = { 0.3f, 0.3f, 0.3f };
+	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();
@@ -65,6 +67,7 @@ NPC_ColorDitto* NPC_ColorDitto::Create(const Vector3& pos, bool onCenterDir, con
 
 void NPC_ColorDitto::OnEvent()
 {
+	SetIsMoving(false);
 	direction = DirFromPlayer(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 

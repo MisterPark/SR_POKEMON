@@ -16,6 +16,7 @@ NPC_Squirtle::NPC_Squirtle()
 NPC_Squirtle::NPC_Squirtle(const Vector3& pos, bool onCenterDir, const Vector3& dir)
 {
 	transform->position = pos;
+	spawnPos = pos;
 	if (onCenterDir) {
 		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
 		Vector3::Normalize(&Dir);
@@ -64,8 +65,8 @@ void NPC_Squirtle::Initialize()
 
 	offsetY = 0.13f;
 	transform->scale = { 0.2f, 0.2f, 0.2f };
+	SpawnInRandomPos();
 
-	direction;
 	//stat.money;
 	UpdateAnimation();
 }
@@ -85,7 +86,7 @@ NPC_Squirtle* NPC_Squirtle::Create(const Vector3& pos, bool onCenterDir, const V
 
 void NPC_Squirtle::OnEvent()
 {
-	
+	SetIsMoving(false);
 	direction = DirFromPlayer(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
@@ -245,6 +246,7 @@ void NPC_Squirtle::SummonCaterpie()
 	Spawner* spawner = Spawner::Create(MonsterType::CATERPIE, 5.f, 0.5f, 1, 2);
 	spawner->transform->position = { 25.f,0.f,22.f };
 	ObjectManager::AddObject(spawner);
+	
 }
 
 void NPC_Squirtle::Evolution()

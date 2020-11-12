@@ -27,6 +27,8 @@ void Skill_AccelWater::InitActiveTime()
 void Skill_AccelWater::Update()
 {
 	if (activeTime < 0.1f) {
+		SoundManager::PlayOverlapSound(L"AccelWater.wav", SoundChannel::PLAYER);
+		SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 		Bullet_Bubble2* bullet = dynamic_cast<Bullet_Bubble2*>(ObjectManager::GetInstance()->CreateObject<Bullet_Bubble2>());
 		bullet->transform->position = character->transform->position;
 		bullet->SetDir(character->direction);
