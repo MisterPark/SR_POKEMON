@@ -180,6 +180,8 @@ void LoadManager::LoadETCSprite()
 	RenderManager::LoadSprite(TextureKey::UI_SPACE, L"Texture\\UI\\KeyUI\\Space.png");
 	RenderManager::LoadSprite(TextureKey::UI_I, L"Texture\\UI\\KeyUI\\I.png");
 	RenderManager::LoadSprite(TextureKey::UI_F, L"Texture\\UI\\KeyUI\\F.png");
+
+	RenderManager::LoadSprite(TextureKey::UI_ENDING_SCENE, L"Texture\\UI\\EndingScene.jpg");
 	//ÄÚÀÎ
 	RenderManager::LoadSprite(TextureKey::RING_01, L"Texture\\UI\\Coin\\Ring_01.png");
 	RenderManager::LoadSprite(TextureKey::RING_02, L"Texture\\UI\\Coin\\Ring_02.png");

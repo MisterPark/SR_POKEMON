@@ -21,10 +21,9 @@ void EndingScene::OnLoaded()
 
 	// UI
 	UI_Title* ui = (UI_Title*)ObjectManager::GetInstance()->CreateObject<UI_Title>();
-	ui->SetTexture(TextureKey::UI_CELEBI_SCREEN);
-	ui->transform->position.x = 500.f;
-	ui->transform->position.y = 150.f;
-	float size = 2.f;
+	ui->SetTexture(TextureKey::UI_ENDING_SCENE);
+
+	float size = 1.3f;
 	ui->transform->scale = { size,size,size };
 
 	Dialog* dia = Dialog::GetInstance();
