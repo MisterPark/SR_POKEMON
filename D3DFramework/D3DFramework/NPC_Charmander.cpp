@@ -86,8 +86,8 @@ NPC_Charmander* NPC_Charmander::Create(const Vector3& pos, bool onCenterDir, con
 
 void NPC_Charmander::OnEvent()
 {
-	SetIsMoving(false);
 	direction = DirFromPlayer(false);
+	SetIsMoving(false);
 
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 

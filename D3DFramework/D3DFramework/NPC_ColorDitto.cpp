@@ -67,8 +67,8 @@ NPC_ColorDitto* NPC_ColorDitto::Create(const Vector3& pos, bool onCenterDir, con
 
 void NPC_ColorDitto::OnEvent()
 {
-	SetIsMoving(false);
 	direction = DirFromPlayer(false);
+	SetIsMoving(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	Character* player = Player::GetInstance()->GetCharacter();

@@ -20,15 +20,24 @@ void Skill_SnowRain::InitCoolTime()
 
 void Skill_SnowRain::InitActiveTime()
 {
-	activeTime = 2.f;
+	activeTime = 2.5f;
+	soundDelay = 2.0f;
 }
 
 void Skill_SnowRain::Update()
 {
-	if (activeTime > 0)
+	soundDelay -= TimeManager::DeltaTime();
+	if (activeTime > 2.f)
+	{
+		activeTime = 2.f;
+		SoundManager::PlayOverlapSound(L"SnowRain.wav", SoundChannel::MONSTER);
+		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+	}
+	if (soundDelay < 1.f&&soundDelay>0)
 	{
 		SoundManager::PlayOverlapSound(L"SnowRain.wav", SoundChannel::MONSTER);
 		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
+		soundDelay = 0;
 	}
 	if (delay <= 0.f) {
 		Bullet_Ice* bullet = dynamic_cast<Bullet_Ice*>(ObjectManager::GetInstance()->CreateObject<Bullet_Ice>());

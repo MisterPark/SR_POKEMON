@@ -50,6 +50,11 @@ void TargetInfoPanel::SetTarget(Character* _target)
     pTargetInfoPanel->activationTick = 0.f;
 }
 
+Character * TargetInfoPanel::GetTarget()
+{
+	return pTargetInfoPanel->target;
+}
+
 void TargetInfoPanel::Initialize()
 {
     isVisible = false;

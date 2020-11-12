@@ -82,6 +82,7 @@ namespace PKH
 		map<TextureKey, Texture*> textureMap;
 
 		CRITICAL_SECTION csDevice;
+		
 	};
 
 

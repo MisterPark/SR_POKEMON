@@ -86,9 +86,9 @@ NPC_Bulbasaur* NPC_Bulbasaur::Create(const Vector3& pos, bool onCenterDir, const
 
 void NPC_Bulbasaur::OnEvent()
 {
+	direction = DirFromPlayer(false);
 	SetIsMoving(false);
 	//SetIsMoving(true); 대화가 끝날때
-	direction = DirFromPlayer(false);
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	Character* player = Player::GetInstance()->GetCharacter();

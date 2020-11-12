@@ -22,15 +22,16 @@ void Skill_SnowVulcan::InitCoolTime()
 void Skill_SnowVulcan::InitActiveTime()
 {
 
-	activeTime = 2.f;
+	activeTime = 2.5f;
 }
 
 void Skill_SnowVulcan::Update()
 {
 
 
-	if (activeTime>1.8f)
+	if (activeTime > 2.f)
 	{
+		activeTime = 2.f;
 		SoundManager::PlayOverlapSound(L"JynxAttack.wav", SoundChannel::MONSTER);
 		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	

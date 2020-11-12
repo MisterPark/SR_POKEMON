@@ -21,7 +21,7 @@ void Stage_Opening::OnLoaded()
 	ui->transform->scale = { size,size,size };
 	
 	Dialog* dia = Dialog::GetInstance();
-	dia->Show();
+	
 	dia->EnqueueText(L"이야- 오래 기다리게 했네!", L"세레비", Pokemon::Celebi);
 	dia->EnqueueText(L"포켓몬스터의 세계에 잘 왔어!", L"세레비", Pokemon::Celebi);
 	dia->EnqueueText(L"나의 이름은 세레비", L"세레비", Pokemon::Celebi);
@@ -37,6 +37,7 @@ void Stage_Opening::OnLoaded()
 	dia->EnqueueText(L"나는 그것을 밝혀내기 위하여\n매일 포켓몬들과 연구를 계속하고 있어!", L"세레비", Pokemon::Celebi);
 	dia->EnqueueText(L"그럼…… 슬슬 너의 이름을 가르쳐 줘!", L"세레비", Pokemon::Celebi);
 	dia->SetEndEvent(NextScene);
+	dia->Show();
 
 }
 
