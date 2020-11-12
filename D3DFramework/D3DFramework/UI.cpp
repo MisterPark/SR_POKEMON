@@ -189,12 +189,12 @@ void UI::SetTexture(TextureKey _key)
 	Texture* texture = RenderManager::GetTexture(textureKey);
 	if (texture != nullptr)
 	{
-		width = transform->scale.x * texture->GetSpriteWidth();
-		height = transform->scale.y * texture->GetSpriteHeight();
+		width = int(transform->scale.x * texture->GetSpriteWidth());
+		height = int(transform->scale.y * texture->GetSpriteHeight());
 	}
 	else
 	{
-		width = transform->scale.x * 88;
-		height = transform->scale.y * 88;
+		width = int(transform->scale.x * 88);
+		height = int(transform->scale.y * 88);
 	}
 }

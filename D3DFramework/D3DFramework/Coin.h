@@ -5,7 +5,7 @@ class Coin :
 {
 public:
 	Coin();
-	Coin(const Vector3& pos, float money);
+	Coin(const Vector3& pos, int money);
 	virtual ~Coin();
 
 public:
@@ -18,7 +18,7 @@ public:
 
 	Animation2D* anim = nullptr;
 public:
-	static Coin* Create(const Vector3& pos, float money);
+	static Coin* Create(const Vector3& pos, int money);
 
 private:
 	bool offsetYAdd = false;

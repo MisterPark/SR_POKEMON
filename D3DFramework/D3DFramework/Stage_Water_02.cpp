@@ -66,9 +66,9 @@ void Stage_Water_02::Set_Stage_Water_02_Map(TextureKey _key, const std::string& 
 	dynamic_cast<Water*>(water)->terrain->SetTexture(TextureKey::GRASS_WATER_ENVIRONMENT);
 
 
-	for (float i = 0; i < 3; i += 0.7)
+	for (float i = 0; i < 3; i += 0.7f)
 	{
-		for (float j = 0; j < 3; j += 0.7)
+		for (float j = 0; j < 3; j += 0.7f)
 		{
 			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
 			coral->transform->position.x = 16.f + i;
@@ -76,9 +76,9 @@ void Stage_Water_02::Set_Stage_Water_02_Map(TextureKey _key, const std::string& 
 			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::BLUECORAL01);
 		}
 	}
-	for (float i = 0; i < 3; i += 0.7)
+	for (float i = 0; i < 3; i += 0.7f)
 	{
-		for (float j = 0; j < 3; j += 0.7)
+		for (float j = 0; j < 3; j += 0.7f)
 		{
 			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
 			coral->transform->position.x = 20.f + i;
@@ -86,9 +86,9 @@ void Stage_Water_02::Set_Stage_Water_02_Map(TextureKey _key, const std::string& 
 			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::WHITECORAL02);
 		}
 	}
-	for (float i = 0; i < 3; i += 0.7)
+	for (float i = 0; i < 3; i += 0.7f)
 	{
-		for (float j = 0; j < 3; j += 0.7)
+		for (float j = 0; j < 3; j += 0.7f)
 		{
 			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
 			coral->transform->position.x = 28.f + i;
@@ -96,9 +96,9 @@ void Stage_Water_02::Set_Stage_Water_02_Map(TextureKey _key, const std::string& 
 			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::REDCORAL01);
 		}
 	}
-	for (float i = 0; i < 3; i += 0.7)
+	for (float i = 0; i < 3; i += 0.7f)
 	{
-		for (float j = 0; j < 3; j += 0.7)
+		for (float j = 0; j < 3; j += 0.7f)
 		{
 			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
 			coral->transform->position.x = 27.f + i;
@@ -106,9 +106,9 @@ void Stage_Water_02::Set_Stage_Water_02_Map(TextureKey _key, const std::string& 
 			dynamic_cast<Coral*>(coral)->setCoralSprite(TextureKey::PURPLECORAL01);
 		}
 	}
-	for (float i = 0; i < 3; i += 0.7)
+	for (float i = 0; i < 3; i += 0.7f)
 	{
-		for (float j = 0; j < 3; j += 0.7)
+		for (float j = 0; j < 3; j += 0.7f)
 		{
 			GameObject* coral = ObjectManager::GetInstance()->CreateObject<Coral>();
 			coral->transform->position.x = 32.f + i;
