@@ -435,6 +435,18 @@ void LoadManager::LoadETCSprite()
 	RenderManager::LoadSprite(TextureKey::PETAL_EXPLOSION_02, L"Texture\\Player\\Effect\\PetalExplosion\\1.png");
 	RenderManager::LoadSprite(TextureKey::PETAL_EXPLOSION_03, L"Texture\\Player\\Effect\\PetalExplosion\\2.png");
 
+	RenderManager::LoadSprite(TextureKey::LEAF_DISSOLVE_01, L"Texture\\Player\\Effect\\LeafDissolve\\0.png");
+	RenderManager::LoadSprite(TextureKey::LEAF_DISSOLVE_02, L"Texture\\Player\\Effect\\LeafDissolve\\1.png");
+	RenderManager::LoadSprite(TextureKey::LEAF_DISSOLVE_03, L"Texture\\Player\\Effect\\LeafDissolve\\2.png");
+	RenderManager::LoadSprite(TextureKey::LEAF_DISSOLVE_04, L"Texture\\Player\\Effect\\LeafDissolve\\3.png");
+	RenderManager::LoadSprite(TextureKey::LEAF_DISSOLVE_05, L"Texture\\Player\\Effect\\LeafDissolve\\4.png");
+	RenderManager::LoadSprite(TextureKey::LEAF_DISSOLVE_06, L"Texture\\Player\\Effect\\LeafDissolve\\5.png");
+	RenderManager::LoadSprite(TextureKey::LEAF_DISSOLVE_07, L"Texture\\Player\\Effect\\LeafDissolve\\6.png");
+
+	RenderManager::LoadSprite(TextureKey::YELLOW_FLASH_01, L"Texture\\Player\\Effect\\YellowFlash\\0.png");
+	RenderManager::LoadSprite(TextureKey::YELLOW_FLASH_02, L"Texture\\Player\\Effect\\YellowFlash\\1.png");
+	RenderManager::LoadSprite(TextureKey::YELLOW_FLASH_03, L"Texture\\Player\\Effect\\YellowFlash\\2.png");
+
 	RenderManager::LoadSprite(TextureKey::POP_01, L"Texture\\ETC\\3Pop\\Pop (1).png");
 	RenderManager::LoadSprite(TextureKey::POP_02, L"Texture\\ETC\\3Pop\\Pop (2).png");
 	RenderManager::LoadSprite(TextureKey::POP_03, L"Texture\\ETC\\3Pop\\Pop (3).png");

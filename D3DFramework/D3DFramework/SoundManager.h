@@ -20,7 +20,7 @@ namespace PKH
 		static void Release();
 	public:
 		static void PlaySound(TCHAR* pSoundKey, SoundChannel eID);
-		static void PlayOverlapSound(TCHAR* pSoundKey, SoundChannel eID, float duration = 0.2f);
+		static void PlayOverlapSound(TCHAR* pSoundKey, SoundChannel eID, float offsetVolume = 1.f, float duration = 0.2f);
 		static void PlayOverlapSoundWithAmp(TCHAR* pSoundKey, SoundChannel eID);
 		static void PlayBGM(TCHAR* pSoundKey);
 		static void StopSound(SoundChannel eID);
@@ -38,7 +38,7 @@ namespace PKH
 		FMOD_CHANNEL* channels[MAXCHANNEL];
 		// 사운드 ,채널 객체 및 장치를 관리하는 객체 
 		FMOD_SYSTEM* pSystem;
-
+		float volume;
 	};
 
 

@@ -258,8 +258,8 @@ void Player::CalcMouse()
 	GetCursorPos(&pt);
 	ScreenToClient(g_hwnd, &pt);
 
-	float xSize = (pt.x - (dfCLIENT_WIDTH / 2)) * 30.f / (dfCLIENT_WIDTH / 2);
-	float ySize = (pt.y - (dfCLIENT_HEIGHT / 2)) * 30.f / (dfCLIENT_HEIGHT / 2);
+	float xSize = (pt.x - (dfCLIENT_WIDTH / 2)) * 30.f / (dfCLIENT_WIDTH / 2) * 0.5f;
+	float ySize = (pt.y - (dfCLIENT_HEIGHT / 2)) * 30.f / (dfCLIENT_HEIGHT / 2) * 0.5f;
 
 	radianX += D3DXToRadian(ySize);
 
@@ -641,7 +641,7 @@ void Player::ComeBackFromMetamorpho()
 
 void Player::ChangeNextPokemon(TYPE pokemon, Pokemon number)
 {
-	if (TYPE::END != pokemon)
+	if (TYPE::END != pokemon && TYPE::SCYTHER != pokemon && TYPE::SUICUNE != pokemon && TYPE::GROUDON != pokemon)
 	{
 		nextPokemon.first = pokemon;
 		nextPokemon.second = number;
@@ -655,4 +655,6 @@ void Player::MetamorphoEffect() {
 	fPos.z -= character->direction.z * 0.01f;
 	Effect* fx = Effect::Create(fPos, Vector3{ 0.5f, 0.5f, 0.5f }, TextureKey::SMOKE_01, TextureKey::SMOKE_15, 0.05f);
 	ObjectManager::AddObject(fx);
+
+	SoundManager::PlayOverlapSound(L"Transform.wav", SoundChannel::EFFECT);
 }

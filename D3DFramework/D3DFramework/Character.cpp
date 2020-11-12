@@ -176,6 +176,8 @@ void Character::OnCollision(GameObject* target)
 			// 몬스터의 경우
 			if (this->team == Team::MONSTERTEAM) {
 				// 다음 변신할 몬스터 등록
+				SoundManager::PlayOverlapSound(L"Death.wav", SoundChannel::EFFECT);
+
 				Player::GetInstance()->ChangeNextPokemon(type, number);
 				float exp = stat.totalExp * 0.25f;
 				Player::GetInstance()->GetCharacter()->IncreaseEXP(exp);

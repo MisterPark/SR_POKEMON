@@ -78,8 +78,12 @@ void PlayerBullet::CollSetByType()
 	switch (bulletType)
 	{
 	case PlayerBullet::LEAF:
+	{
 		SoundManager::PlayOverlapSound(L"LeafShotHit.wav", SoundChannel::EFFECT);
+		Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::LEAF_DISSOLVE_01, TextureKey::LEAF_DISSOLVE_07, 0.03f);
+		ObjectManager::AddObject(fx);
 		break;
+	}
 	case PlayerBullet::FIRE:
 	{
 		SoundManager::PlayOverlapSound(L"FireExplosion.wav", SoundChannel::EFFECT);

@@ -29,6 +29,7 @@ void PKH::SoundManager::Destroy()
 PKH::SoundManager::SoundManager()
 {
 	pSystem = nullptr; 
+	volume = 0.1f;
 }
 
 
@@ -94,12 +95,12 @@ void PKH::SoundManager::PlaySound(TCHAR * pSoundKey, SoundChannel eID)
 	if (FMOD_Channel_IsPlaying(pSoundManager->channels[eID], &bPlay))
 	{
 		FMOD_System_PlaySound(pSoundManager->pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &pSoundManager->channels[eID]);
-		FMOD_Channel_SetVolume(pSoundManager->channels[eID], 0.1f);
+		FMOD_Channel_SetVolume(pSoundManager->channels[eID], pSoundManager->volume);
 	}
 	FMOD_System_Update(pSoundManager->pSystem);
 }
 
-void PKH::SoundManager::PlayOverlapSound(TCHAR * pSoundKey, SoundChannel eID, float duration)
+void PKH::SoundManager::PlayOverlapSound(TCHAR * pSoundKey, SoundChannel eID, float offsetVolume, float duration)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter;
 
@@ -119,7 +120,7 @@ void PKH::SoundManager::PlayOverlapSound(TCHAR * pSoundKey, SoundChannel eID, fl
 	if (timeIter->second.first) return;
 
 	FMOD_System_PlaySound(pSoundManager->pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &pSoundManager->channels[eID]);
-	FMOD_Channel_SetVolume(pSoundManager->channels[eID], 0.1f);
+	FMOD_Channel_SetVolume(pSoundManager->channels[eID], pSoundManager->volume * offsetVolume);
 
 	timeIter->second.first = true;
 	timeIter->second.second = duration;
@@ -140,7 +141,7 @@ void PKH::SoundManager::PlayOverlapSoundWithAmp(TCHAR * pSoundKey, SoundChannel 
 		return;
 
 	FMOD_System_PlaySound(pSoundManager->pSystem, FMOD_CHANNEL_FREE, iter->second, FALSE, &pSoundManager->channels[eID]);
-	FMOD_Channel_SetVolume(pSoundManager->channels[eID], 0.1f);
+	FMOD_Channel_SetVolume(pSoundManager->channels[eID], pSoundManager->volume);
 
 	FMOD_System_Update(pSoundManager->pSystem);
 }

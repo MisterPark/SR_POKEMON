@@ -63,12 +63,10 @@ void LeechSeed::OnCollision(GameObject * target)
 
 	if (isInstall)
 	{
-		/*
-		Vector3 pos = transform->position;
+		Vector3 pos = target->transform->position;
 
-		Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_EXPLOSION_01, TextureKey::FIRE_EXPLOSION_08, 0.03f);
+		Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::YELLOW_FLASH_01, TextureKey::YELLOW_FLASH_03, 0.05f);
 		ObjectManager::AddObject(fx);
-		*/
 	}
 }
 
