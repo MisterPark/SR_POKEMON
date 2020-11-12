@@ -28,7 +28,7 @@ void Stage_Grass_Boss::OnLoaded()
 
 
 	TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
-	trigerBox->transform->position = { 18.f,0.f,48.f - 21.f };
+	trigerBox->transform->position = { 23.f,0.f,48.f - 22.f };
 	trigerBox->AnimChange(TextureKey::PROPERTY_GRASS, TextureKey::PROPERTY_GRASS, 10.f, false);
 }
 

@@ -204,17 +204,26 @@ void NPC_Celebi::OnEvent()
 		{
 		case 0: {
 
-			Dialog::EnqueueText(L"이제 모험을 시작해보자!", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"스테이지의 난이도는 풀 1~20, 물20~40, 불40~60 레벨이 적당해!", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"죽으면 마을로 돌아오게 되니 조심하길 바래!", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"그럼 선물을 줄테니 가져간 후 나한테 다시 와 줘!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"대단한 능력이구나……!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"너라면 우리의 부탁을 들어줄 수 있을 것 같아!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"일단 선물을 줄테니 가져간 후 나한테 다시 와 줘!", L"세레비", Pokemon::Celebi);
 			Dialog::SetEndEvent(ExpPotion);
 			Dialog::Show();
 			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
+			PlayerInfoPanel::SetQuestMessage(L"세레비와 대화");
 			break;
 		}
 		case 1: {
-
+			Dialog::EnqueueText(L"사실 우리는 원래 동쪽의 한 계곡에서 살고 있었어", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"하지만 얼마전 그란돈이라는 포켓몬이 오더니 \n 분노하면서 우리 마을을 모두 불태워버웠고…….", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"우리는 도망치는 수밖엔 없었어…….", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"그란돈은 거기서 멈추지 않고 계속해서 다른곳에서도 파괴를 일삼고 있고…….", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"이대로라면 우리가 살 곳은 어디에도 없게 될거야…!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"하지만 너의 그 능력을 본 순간 생각했어…!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"너라면 그란돈을 물리칠 수 있을거라고…!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"그럼 잘 부탁해…!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"일단 마을의 포켓몬들이 진화하게끔 도와주지 않을래?", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"다들 진화하게 된다면 너 또한 강해질 수 있을거야!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"그럼 우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
 			Dialog::Show();
 			PlayerInfoPanel::SetQuestMessage(L"모두의 진화를 도와주고 세레비와 대화.");
@@ -268,9 +277,9 @@ void NPC_Celebi::Ending()
 void NPC_Celebi::ExpPotion()
 {
 	Item_ExpPotion* expPotion = (Item_ExpPotion*)ObjectManager::GetInstance()->CreateObject<Item_ExpPotion>();
-	expPotion->transform->position = { 24.f,0.f,32.f };
+	expPotion->transform->position = { 23.f,0.f,32.f };
 	expPotion = (Item_ExpPotion*)ObjectManager::GetInstance()->CreateObject<Item_ExpPotion>();
 	expPotion->transform->position = { 24.f,0.f,32.f };
 	expPotion = (Item_ExpPotion*)ObjectManager::GetInstance()->CreateObject<Item_ExpPotion>();
-	expPotion->transform->position = { 24.f,0.f,32.f };
+	expPotion->transform->position = { 22.f,0.f,32.f };
 }
