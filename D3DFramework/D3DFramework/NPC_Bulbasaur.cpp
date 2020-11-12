@@ -74,7 +74,7 @@ void NPC_Bulbasaur::Initialize()
 void NPC_Bulbasaur::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 

@@ -74,7 +74,7 @@ void NPC_Squirtle::Initialize()
 void NPC_Squirtle::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 

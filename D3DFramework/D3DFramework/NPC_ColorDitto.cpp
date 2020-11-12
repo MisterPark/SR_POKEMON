@@ -55,7 +55,7 @@ void NPC_ColorDitto::Initialize()
 void NPC_ColorDitto::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 

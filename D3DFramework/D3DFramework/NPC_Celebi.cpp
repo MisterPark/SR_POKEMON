@@ -54,7 +54,7 @@ void NPC_Celebi::Initialize()
 void NPC_Celebi::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 
@@ -66,6 +66,7 @@ NPC_Celebi* NPC_Celebi::Create(const Vector3& pos, bool onCenterDir, const Vecto
 
 void NPC_Celebi::OnEvent()
 {
+	SetIsMoving(false);
 	direction = DirFromPlayer(false);
 
 

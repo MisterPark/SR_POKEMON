@@ -74,7 +74,7 @@ void NPC_Charmander::Initialize()
 void NPC_Charmander::Update()
 {
 	NPC::Update();
-	UpdateAnimation();
+	
 }
 
 
