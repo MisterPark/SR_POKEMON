@@ -40,12 +40,15 @@ void NPC_Poliwhirl::Initialize()
 	myName = NpcName::POLIWHIRL;
 	SetTexture(State::IDLE, TextureKey::WHIRL_WALK_D_01, 3, 1);
 	SetTexture(State::WALK, TextureKey::WHIRL_WALK_D_02, 3, 2);
-	SetTexture(State::ATTACK, TextureKey::WHIRL_ATTACK_D_01, 1);
-		
+	SetTexture(State::ATTACK, TextureKey::WHIRL_ATTACK_D_01, 1,2);
+
 	anim->SetLoop(true);
 	anim->SetDelay(0.35f);
 	state = State::IDLE;
-
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::POLIWHIRL) >= 1)
+	{
+		state = State::ATTACK;
+	}
 	offsetY = 0.4f;
 	transform->scale = { 0.4f, 0.4f, 0.4f };
 	SpawnInRandomPos();
@@ -70,8 +73,10 @@ NPC_Poliwhirl* NPC_Poliwhirl::Create(const Vector3& pos, bool onCenterDir, const
 void NPC_Poliwhirl::OnEvent()
 {
 	direction = DirFromPlayer(false);
-	SetIsMoving(false);
-
+	if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::POLIWHIRL) < 1)
+	{
+		SetIsMoving(false);
+	}
 	Event eventNPC = QuestManager::GetInstance()->GetEvent();
 
 	Character* player = Player::GetInstance()->GetCharacter();
@@ -104,12 +109,14 @@ void NPC_Poliwhirl::OnEvent()
 			{
 				Dialog::EnqueueText(L"앗…! 나랑 똑같이생겼어….", name, Pokemon::Poliwhirl);
 				Dialog::EnqueueText(L"친구하자…!.", name, Pokemon::Poliwhirl);
+				Dialog::SetEndEvent(ExpPotion);
 				Dialog::Show();
+				state = State::ATTACK;
 				QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::POLIWHIRL);
 			}
 			else
 			{
-				Dialog::EnqueueText(L"나와 친구가 가지고 싶어…….", name, Pokemon::Poliwhirl);
+				Dialog::EnqueueText(L"나와 닮은 친구가 가지고 싶어…….", name, Pokemon::Poliwhirl);
 				Dialog::Show();
 			}
 			break;

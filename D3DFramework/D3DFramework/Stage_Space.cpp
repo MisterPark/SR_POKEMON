@@ -64,21 +64,13 @@ void Stage_Space::Set_Stage_Space_Map(TextureKey _key, const std::string& _fileP
 
 void Stage_Space::Stage_Space_Wave()
 {
-	if (QuestManager::GetInstance()->GetMonsterKill(MonsterType::GROUDON) >= 1)
-	{
-		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 4);
-		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
-	}
-
 
 	GameObject* isTriger = ObjectManager::GetInstance()->FindObject<TriggerBox>();
 	GameObject* isSpawner = ObjectManager::GetInstance()->FindObject<Spawner>();
 
 	if (nullptr == isTriger && spawnerCount == 0)
 	{
-		SoundManager::StopSound(SoundChannel::BGM);
-		SoundManager::PlayBGM(L"Boss.wav");
-		SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
+
 
 		Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1, 65);
 		spawner->transform->position = { 24.f,0.f,24.f };

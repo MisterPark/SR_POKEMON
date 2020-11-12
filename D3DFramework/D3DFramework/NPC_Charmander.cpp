@@ -35,6 +35,15 @@ NPC_Charmander::~NPC_Charmander()
 
 void NPC_Charmander::Initialize()
 {
+
+	anim->SetLoop(true);
+	anim->SetDelay(0.35f);
+	state = State::IDLE;
+
+	offsetY = 0.13f;
+	transform->scale = { 0.2f, 0.2f, 0.2f };
+	SpawnInRandomPos();
+
 	if (0 == QuestManager::GetInstance()->GetEvolution(NpcName::CHARMANDER)) {
 		name = L"ÆÄÀÌ¸®";
 		myName = NpcName::CHARMANDER;
@@ -58,14 +67,8 @@ void NPC_Charmander::Initialize()
 		SetTexture(State::WALK, TextureKey::PF03_WALK_D_02, 3, 2);
 		SetTexture(State::ATTACK, TextureKey::PF03_ATTACK_D_01, 2);
 		SetTexture(State::SKILL, TextureKey::PF03_SKILL_D_01, 2);
+		offsetY = 0.18f;
 	}
-	anim->SetLoop(true);
-	anim->SetDelay(0.35f);
-	state = State::IDLE;
-
-	offsetY = 0.13f;
-	transform->scale = { 0.2f, 0.2f, 0.2f };
-	SpawnInRandomPos();
 
 	//stat.money;
 	UpdateAnimation();

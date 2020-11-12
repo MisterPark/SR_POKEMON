@@ -55,13 +55,14 @@ void Stage_Town::OnLoaded()
 
 	GameObject* celebi = NPC_Celebi::Create(Vector3{ 24.f, 0.f, 31.f }, false, Vector3{ 0.f, 0.f, -1.f });
 	ObjectManager::AddObject(celebi);
-
-	GameObject* npc = NPC_Charmander::Create(Vector3{ 23.f, 0.f, 22.f });
-	ObjectManager::AddObject(npc);
-	//
 	Vector3 bulbasaurPos = { 17.f,0.f,48.f - 15.f };
 	Vector3 charmanderPos = { 33.f,0.f,48.f - 18.f };
 	Vector3 squirtlePos = { 16.f,0.f,48.f - 30.f };
+
+	GameObject* npc = NPC_Charmander::Create(charmanderPos);
+	ObjectManager::AddObject(npc);
+	//
+
 	npc = NPC_Bulbasaur::Create(bulbasaurPos);
 	ObjectManager::AddObject(npc);
 	//
@@ -71,7 +72,7 @@ void Stage_Town::OnLoaded()
 	npc = NPC_ColorDitto::Create(Vector3{ 29.f, 0.f, 30.f });
 	ObjectManager::AddObject(npc);
 	
-	npc = NPC_Poliwhirl::Create(charmanderPos);
+	npc = NPC_Poliwhirl::Create(Vector3{ 23.f,0.f,32.f });
 	ObjectManager::AddObject(npc);
 	
 	npc = NPC_DoctorOh::Create(Vector3{ 43.1f,0.f,9.9f });
