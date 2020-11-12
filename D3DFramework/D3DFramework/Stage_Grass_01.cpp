@@ -16,7 +16,6 @@ void Stage_Grass_01::OnLoaded()
 	Cursor::Hide();
 
 	SoundManager::PlayBGM(L"GrassStage.wav");
-	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)

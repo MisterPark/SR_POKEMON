@@ -19,7 +19,6 @@ void Stage_Tutorial::OnLoaded()
 	Cursor::Hide();
 
 	SoundManager::PlayBGM(L"Tutorial.wav");
-	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	/*CollisionManager* col = CollisionManager::GetInstance();*/
 	QuestManager::GetInstance()->SetEvent(Event::EVENT_TUTORIAL);

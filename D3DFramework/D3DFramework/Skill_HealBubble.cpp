@@ -28,7 +28,6 @@ void Skill_HealBubble::InitActiveTime()
 void Skill_HealBubble::Update()
 {
 		SoundManager::PlayOverlapSound(L"PoliwhirlAttack.wav", SoundChannel::MONSTER, 0.3);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		Bullet_HealBubble* bullet = dynamic_cast<Bullet_HealBubble*>(ObjectManager::GetInstance()->CreateObject<Bullet_HealBubble>());
 		bullet->transform->position = character->transform->position;
 		bullet->transform->position.y+=5.f;

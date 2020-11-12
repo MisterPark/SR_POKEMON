@@ -296,15 +296,6 @@ void LoadManager::LoadETCSprite()
 	RenderManager::LoadSprite(TextureKey::BULLET_LEAF_03, L"Texture\\Player\\Bullet\\Leaf\\2.png");
 	RenderManager::LoadSprite(TextureKey::BULLET_LEAF_04, L"Texture\\Player\\Bullet\\Leaf\\3.png");
 
-
-	// 발차기
-	RenderManager::LoadSprite(TextureKey::FIRE_KICK_01, L"Texture\\Player\\Effect\\FireKick\\0.png");
-	RenderManager::LoadSprite(TextureKey::FIRE_KICK_02, L"Texture\\Player\\Effect\\FireKick\\1.png");
-	RenderManager::LoadSprite(TextureKey::FIRE_KICK_03, L"Texture\\Player\\Effect\\FireKick\\2.png");
-	RenderManager::LoadSprite(TextureKey::FIRE_KICK_04, L"Texture\\Player\\Effect\\FireKick\\3.png");
-	RenderManager::LoadSprite(TextureKey::FIRE_KICK_05, L"Texture\\Player\\Effect\\FireKick\\4.png");
-	RenderManager::LoadSprite(TextureKey::FIRE_KICK_06, L"Texture\\Player\\Effect\\FireKick\\5.png");
-
 	// 파이어 라운드
 	RenderManager::LoadSprite(TextureKey::FIRE_ROUND_01, L"Texture\\Player\\Effect\\FireRound\\0.png");
 	RenderManager::LoadSprite(TextureKey::FIRE_ROUND_02, L"Texture\\Player\\Effect\\FireRound\\1.png");
@@ -446,6 +437,80 @@ void LoadManager::LoadETCSprite()
 	RenderManager::LoadSprite(TextureKey::YELLOW_FLASH_01, L"Texture\\Player\\Effect\\YellowFlash\\0.png");
 	RenderManager::LoadSprite(TextureKey::YELLOW_FLASH_02, L"Texture\\Player\\Effect\\YellowFlash\\1.png");
 	RenderManager::LoadSprite(TextureKey::YELLOW_FLASH_03, L"Texture\\Player\\Effect\\YellowFlash\\2.png");
+
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_01, L"Texture\\Player\\Effect\\FireAura\\0.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_02, L"Texture\\Player\\Effect\\FireAura\\1.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_03, L"Texture\\Player\\Effect\\FireAura\\2.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_04, L"Texture\\Player\\Effect\\FireAura\\3.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_05, L"Texture\\Player\\Effect\\FireAura\\4.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_06, L"Texture\\Player\\Effect\\FireAura\\5.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_07, L"Texture\\Player\\Effect\\FireAura\\6.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_08, L"Texture\\Player\\Effect\\FireAura\\7.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_09, L"Texture\\Player\\Effect\\FireAura\\8.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_10, L"Texture\\Player\\Effect\\FireAura\\9.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_11, L"Texture\\Player\\Effect\\FireAura\\10.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_12, L"Texture\\Player\\Effect\\FireAura\\11.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_13, L"Texture\\Player\\Effect\\FireAura\\12.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_14, L"Texture\\Player\\Effect\\FireAura\\13.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_15, L"Texture\\Player\\Effect\\FireAura\\14.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_16, L"Texture\\Player\\Effect\\FireAura\\15.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_17, L"Texture\\Player\\Effect\\FireAura\\16.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_18, L"Texture\\Player\\Effect\\FireAura\\17.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_19, L"Texture\\Player\\Effect\\FireAura\\18.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_20, L"Texture\\Player\\Effect\\FireAura\\19.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_21, L"Texture\\Player\\Effect\\FireAura\\20.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_22, L"Texture\\Player\\Effect\\FireAura\\21.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_23, L"Texture\\Player\\Effect\\FireAura\\22.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_24, L"Texture\\Player\\Effect\\FireAura\\23.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_25, L"Texture\\Player\\Effect\\FireAura\\24.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_26, L"Texture\\Player\\Effect\\FireAura\\25.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_27, L"Texture\\Player\\Effect\\FireAura\\26.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_28, L"Texture\\Player\\Effect\\FireAura\\27.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_29, L"Texture\\Player\\Effect\\FireAura\\28.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_30, L"Texture\\Player\\Effect\\FireAura\\29.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_31, L"Texture\\Player\\Effect\\FireAura\\30.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_32, L"Texture\\Player\\Effect\\FireAura\\31.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_33, L"Texture\\Player\\Effect\\FireAura\\32.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_34, L"Texture\\Player\\Effect\\FireAura\\33.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_35, L"Texture\\Player\\Effect\\FireAura\\34.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_36, L"Texture\\Player\\Effect\\FireAura\\35.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_37, L"Texture\\Player\\Effect\\FireAura\\36.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_38, L"Texture\\Player\\Effect\\FireAura\\37.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_39, L"Texture\\Player\\Effect\\FireAura\\38.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_40, L"Texture\\Player\\Effect\\FireAura\\39.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_41, L"Texture\\Player\\Effect\\FireAura\\40.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_42, L"Texture\\Player\\Effect\\FireAura\\41.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_43, L"Texture\\Player\\Effect\\FireAura\\42.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_44, L"Texture\\Player\\Effect\\FireAura\\43.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_45, L"Texture\\Player\\Effect\\FireAura\\44.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_46, L"Texture\\Player\\Effect\\FireAura\\45.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_47, L"Texture\\Player\\Effect\\FireAura\\46.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_48, L"Texture\\Player\\Effect\\FireAura\\47.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_49, L"Texture\\Player\\Effect\\FireAura\\48.png");
+	RenderManager::LoadSprite(TextureKey::FIRE_AURA_50, L"Texture\\Player\\Effect\\FireAura\\49.png");
+
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_01, L"Texture\\Player\\Effect\\Bell\\0.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_02, L"Texture\\Player\\Effect\\Bell\\1.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_03, L"Texture\\Player\\Effect\\Bell\\2.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_04, L"Texture\\Player\\Effect\\Bell\\3.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_05, L"Texture\\Player\\Effect\\Bell\\4.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_06, L"Texture\\Player\\Effect\\Bell\\5.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_07, L"Texture\\Player\\Effect\\Bell\\6.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_08, L"Texture\\Player\\Effect\\Bell\\7.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_09, L"Texture\\Player\\Effect\\Bell\\8.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_10, L"Texture\\Player\\Effect\\Bell\\9.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_11, L"Texture\\Player\\Effect\\Bell\\10.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_12, L"Texture\\Player\\Effect\\Bell\\11.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_13, L"Texture\\Player\\Effect\\Bell\\12.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_14, L"Texture\\Player\\Effect\\Bell\\13.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_15, L"Texture\\Player\\Effect\\Bell\\14.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_16, L"Texture\\Player\\Effect\\Bell\\15.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_17, L"Texture\\Player\\Effect\\Bell\\16.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_18, L"Texture\\Player\\Effect\\Bell\\17.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_19, L"Texture\\Player\\Effect\\Bell\\18.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_20, L"Texture\\Player\\Effect\\Bell\\19.png");
+	RenderManager::LoadSprite(TextureKey::BELL_EFFECT_21, L"Texture\\Player\\Effect\\Bell\\20.png");
+
 
 	RenderManager::LoadSprite(TextureKey::POP_01, L"Texture\\ETC\\3Pop\\Pop (1).png");
 	RenderManager::LoadSprite(TextureKey::POP_02, L"Texture\\ETC\\3Pop\\Pop (2).png");

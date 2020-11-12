@@ -32,7 +32,11 @@ void Skill_XClaw::Update()
 	if (isFirstFrame)
 	{
 		SoundManager::PlayOverlapSound(L"XClaw.wav", SoundChannel::PLAYER_EFFECT);
-		SoundManager::SetVolume(SoundChannel::PLAYER_EFFECT, 0.1f);
+
+		Vector3 pos = character->transform->position;
+
+		Effect* fx = Effect::Create(pos, { 0.2f, 0.2f, 0.2f }, TextureKey::FIRE_AURA_01, TextureKey::FIRE_AURA_50, 0.015f);
+		ObjectManager::AddObject(fx);
 
 		isFirstFrame = false;
 	}

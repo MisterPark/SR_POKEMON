@@ -26,7 +26,6 @@ void Skill_Meteor::InitActiveTime()
 void Skill_Meteor::Update()
 {
 	SoundManager::PlayOverlapSound(L"Meteor.wav", SoundChannel::EFFECT);
-	SoundManager::SetVolume(SoundChannel::EFFECT, 0.1f);
 
 	for (int i = 0; i < 10; ++i)
 	{

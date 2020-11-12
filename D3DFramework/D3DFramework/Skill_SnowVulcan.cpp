@@ -33,7 +33,6 @@ void Skill_SnowVulcan::Update()
 	{
 		activeTime = 2.f;
 		SoundManager::PlayOverlapSound(L"JynxAttack.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	
 	}
 	

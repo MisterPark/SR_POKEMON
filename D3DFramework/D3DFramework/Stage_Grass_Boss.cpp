@@ -146,7 +146,6 @@ void Stage_Grass_Boss::Stage_Grass_Boss_Wave()
 		{
 			SoundManager::StopSound(SoundChannel::BGM);
 			SoundManager::PlayBGM(L"Boss.wav");
-			SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 			Spawner* spawner = Spawner::Create(MonsterType::SCYTHER, 10.f, 0.5f, 1);
 			spawner->transform->position = { 24.f,0.f,24.f };

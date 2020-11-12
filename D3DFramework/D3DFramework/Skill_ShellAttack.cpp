@@ -29,7 +29,6 @@ void Skill_ShellAttack::Update()
 	if (activeTime > 5.f) {
 		activeTime = 5.f;
 		SoundManager::PlayOverlapSound(L"Hydro_Pump.mp3", SoundChannel::PLAYER);
-		SoundManager::SetVolume(SoundChannel::PLAYER, 0.1f);
 	}
 
 	if (rocateXAdd) {

@@ -42,7 +42,6 @@ void Bullet_Tornado::Update()
 	{
 		soundDelay = 0.f;
 		SoundManager::PlayOverlapSound(L"Tornado.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 
 

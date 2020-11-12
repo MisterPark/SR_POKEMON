@@ -40,7 +40,6 @@ void Skill_MiniRush::Update()
 	if (0.5f < activeTime) {
 		activeTime = 0.4f;
 		SoundManager::PlayOverlapSound(L"MiniRush.wav", SoundChannel::MONSTER);
-		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 	}
 	else if (0.4f >= activeTime)
 	{

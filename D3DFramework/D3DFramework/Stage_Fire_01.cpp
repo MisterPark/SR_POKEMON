@@ -14,7 +14,6 @@ void Stage_Fire_01::OnLoaded()
 	SkyBox::SetTexture(TextureKey::SKYFIRE1_U);
 
 	SoundManager::PlayBGM(L"FireStage.wav");
-	SoundManager::SetVolume(SoundChannel::BGM, 0.1f);
 
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
