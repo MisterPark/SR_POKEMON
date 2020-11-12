@@ -215,9 +215,9 @@ void NPC_Celebi::OnEvent()
 		}
 		case 1: {
 			Dialog::EnqueueText(L"사실 우리는 원래 동쪽의 한 계곡에서 살고 있었어", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"하지만 얼마전 그란돈이라는 포켓몬이 오더니 \n 분노하면서 우리 마을을 모두 불태워버웠고…….", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"하지만 얼마전 그란돈이라는 포켓몬이 오더니 \n 분노하면서 우리 마을을 모두 불태워버렸고…….", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"우리는 도망치는 수밖엔 없었어…….", L"세레비", Pokemon::Celebi);
-			Dialog::EnqueueText(L"그란돈은 거기서 멈추지 않고 계속해서 다른곳에서도 파괴를 일삼고 있고…….", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"그란돈은 거기서 멈추지 않고 계속해서\n다른곳에서도 파괴를 일삼고 있고…….", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"이대로라면 우리가 살 곳은 어디에도 없게 될거야…!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"하지만 너의 그 능력을 본 순간 생각했어…!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"너라면 그란돈을 물리칠 수 있을거라고…!", L"세레비", Pokemon::Celebi);
@@ -226,24 +226,32 @@ void NPC_Celebi::OnEvent()
 			Dialog::EnqueueText(L"다들 진화하게 된다면 너 또한 강해질 수 있을거야!", L"세레비", Pokemon::Celebi);
 			Dialog::EnqueueText(L"그럼 우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
 			Dialog::Show();
+			QuestManager::GetInstance()->AddProgress(eventNPC, myName);
 			PlayerInfoPanel::SetQuestMessage(L"모두의 진화를 도와주고 세레비와 대화.");
 			break;
 		}
 		case 2: {
 
-			Dialog::EnqueueText(L"자…! 가자! 마지막 보스를 무찌르자!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"그럼 우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
 			Dialog::Show();
 			PlayerInfoPanel::SetQuestMessage(L"불꽃 2스테이지 입장.");
 			break;
 		}
 		case 3: {
 
-			Dialog::EnqueueText(L"이런! 다시 도전해보자!", L"세레비", Pokemon::Celebi);
+			Dialog::EnqueueText(L"자…! 가자! 마지막 보스를 무찌르자!", L"세레비", Pokemon::Celebi);
 			Dialog::Show();
-			QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 2);
+			PlayerInfoPanel::SetQuestMessage(L"불꽃 2스테이지 입장.");
 			break;
 		}
 		case 4: {
+
+			Dialog::EnqueueText(L"이런! 다시 도전해보자!", L"세레비", Pokemon::Celebi);
+			Dialog::Show();
+			QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 3);
+			break;
+		}
+		case 5: {
 
 			Dialog::EnqueueText(L"그란돈을 물리쳤구나! 정말 잘했어! 고마워!", L"세레비", Pokemon::Celebi);
 			Dialog::SetEndEvent(Ending);
