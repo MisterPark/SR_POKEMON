@@ -73,7 +73,7 @@ HRESULT PKH::RenderManager::Initialize()
 	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 	d3dpp.hDeviceWindow = g_hwnd;
 	// 거짓이면 전체화면, 참이면  창모드을 사용하겠다. 
-	d3dpp.Windowed = TRUE;
+	d3dpp.Windowed = FALSE;
 	d3dpp.EnableAutoDepthStencil = TRUE;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D24S8;
 	d3dpp.FullScreen_RefreshRateInHz = D3DPRESENT_RATE_DEFAULT;
@@ -144,7 +144,7 @@ void PKH::RenderManager::Release()
 void PKH::RenderManager::Clear()
 {
 	EnterCriticalSection(&pRenderManager->csDevice);
-	pRenderManager->pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, Color::Gray.value, 1.f, 0);
+	pRenderManager->pDevice->Clear(0, nullptr, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL, Color::Black.value, 1.f, 0);
 	pRenderManager->pDevice->BeginScene();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -187,12 +187,12 @@ LPD3DXLINE PKH::RenderManager::GetLine()
 
 HRESULT PKH::RenderManager::LoadSprite(TextureKey spriteKey, const wstring& filePath, DWORD row, DWORD col)
 {
-	EnterCriticalSection(&pRenderManager->csDevice);
+	
 	auto find = pRenderManager->textureMap.find(spriteKey);
 
 	if (find != pRenderManager->textureMap.end())
 	{
-		LeaveCriticalSection(&pRenderManager->csDevice);
+		
 		return S_OK;
 	}
 
@@ -206,6 +206,7 @@ HRESULT PKH::RenderManager::LoadSprite(TextureKey spriteKey, const wstring& file
 		return E_FAIL;
 	}
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	if (FAILED(D3DXCreateTextureFromFileExW(
 		pRenderManager->pDevice,
 		filePath.c_str(),
@@ -228,12 +229,12 @@ HRESULT PKH::RenderManager::LoadSprite(TextureKey spriteKey, const wstring& file
 		LeaveCriticalSection(&pRenderManager->csDevice);
 		return E_FAIL;
 	}
+	LeaveCriticalSection(&pRenderManager->csDevice);
 
 	tex->rowCount = row;
 	tex->colCount = col;
 
 	pRenderManager->textureMap[spriteKey] = tex;
-	LeaveCriticalSection(&pRenderManager->csDevice);
 	return S_OK;
 }
 
@@ -270,10 +271,12 @@ void PKH::RenderManager::DrawSprite(TextureKey spriteKey, Vector3 pos, int index
 	D3DXMatrixTranslation(&trans, pos.x, pos.y, 0.f);
 	world = trans;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(centerX, centerY, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawSprite(TextureKey spriteKey, Transform transform, int index)
@@ -310,10 +313,12 @@ void PKH::RenderManager::DrawSprite(TextureKey spriteKey, Transform transform, i
 	D3DXMatrixTranslation(&trans, transform.position.x, transform.position.y, 0.f);
 	world = scale * trans;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(centerX, centerY, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawUI(TextureKey spriteKey, Transform transform, int index)
@@ -347,10 +352,12 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Transform transform, int i
 	D3DXMatrixTranslation(&trans, transform.position.x, transform.position.y , 0.f);
 	world = scale * trans;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, int index)
@@ -383,10 +390,12 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, int index)
 	D3DXMatrixTranslation(&trans, pos.x, pos.y, 0.f);
 	world = trans;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index)
@@ -420,10 +429,12 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
 	matWorld = matScale * matPos;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&matWorld);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index, float verticalPer)
@@ -457,10 +468,12 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
 	matWorld = matScale * matPos;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&matWorld);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawUIHorizontal(TextureKey spriteKey, Vector3 pos, Vector3 scale, int index, float horizontalPer)
@@ -494,10 +507,12 @@ void PKH::RenderManager::DrawUIHorizontal(TextureKey spriteKey, Vector3 pos, Vec
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y+h-h*horizontalPer, 0.f);
 	matWorld = matScale * matPos;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&matWorld);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawCharacter(TextureKey spriteKey, Transform transform, DWORD row, DWORD col)
@@ -530,10 +545,12 @@ void PKH::RenderManager::DrawCharacter(TextureKey spriteKey, Transform transform
 	D3DXMatrixTranslation(&trans, transform.position.x - Camera::GetX(), transform.position.y - Camera::GetY(), 0.f);
 	world = scale * trans;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(centerX, h, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 
 }
 
@@ -557,10 +574,12 @@ void PKH::RenderManager::DrawImage(TextureKey spriteKey, Transform transform)
 	D3DXMatrixTranslation(&trans, transform.position.x, transform.position.y, 0.f);
 	world = scale * trans;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pSprite->Draw(tex->pTexture, nullptr, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawImage(TextureKey spriteKey, float x, float y, float verticalPer)
@@ -586,10 +605,12 @@ void PKH::RenderManager::DrawImage(TextureKey spriteKey, float x, float y, float
 	D3DXMatrixTranslation(&trans, x, y, 0.f);
 	world = trans;
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pSprite->Draw(tex->pTexture, &rt, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawFont(const string & text)
@@ -597,10 +618,12 @@ void PKH::RenderManager::DrawFont(const string & text)
 	Matrix world;
 	D3DXMatrixIdentity(&world);
 
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pFont->DrawTextA(pRenderManager->pSprite, text.c_str(), lstrlenA(text.c_str()), nullptr, 0, D3DCOLOR_ARGB(255, 0, 0, 0));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 
 }
 
@@ -608,39 +631,47 @@ void PKH::RenderManager::DrawFont(const wstring & text)
 {
 	Matrix world;
 	D3DXMatrixIdentity(&world);
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pFont->DrawTextW(pRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), nullptr, 0, D3DCOLOR_ARGB(255, 0, 0, 0));
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawFont(const wstring & text, float x, float y, D3DXCOLOR color)
 {
 	Matrix world;
 	D3DXMatrixTranslation(&world, x, y, 0.f);
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pFont->DrawTextW(pRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), nullptr, 0, color);
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawFont(const wstring& text, float x, float y, D3DXCOLOR color, RECT* outRect)
 {
 	Matrix world;
 	D3DXMatrixTranslation(&world, x, y, 0.f);
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	pRenderManager->pFont->DrawTextW(pRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), outRect, 0, color);
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 }
 
 void PKH::RenderManager::DrawFont(const wstring& text, Vector3 pos, Vector3 scale, D3DXCOLOR color)
 {
-	EnterCriticalSection(&pRenderManager->csDevice);
+	
 	Matrix matWorld, matPos, matScale;
 	D3DXMatrixScaling(&matScale, scale.x, scale.y, 1.f);
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
 	matWorld = matScale * matPos;
+
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&matWorld);
 	pRenderManager->pFont->DrawTextW(pRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), nullptr, 0, color);
@@ -653,10 +684,14 @@ void PKH::RenderManager::DrawFont(LPD3DXFONT font, const wstring& text, float x,
 	if (font == nullptr) return;
 	Matrix world;
 	D3DXMatrixTranslation(&world, x, y, 0.f);
+
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	font->DrawTextW(pRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), nullptr, 0, color);
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
+
 }
 
 void PKH::RenderManager::DrawFont(LPD3DXFONT font, const wstring& text, float x, float y, D3DXCOLOR color, RECT* outRect)
@@ -664,10 +699,13 @@ void PKH::RenderManager::DrawFont(LPD3DXFONT font, const wstring& text, float x,
 	if (font == nullptr) return;
 	Matrix world;
 	D3DXMatrixTranslation(&world, x, y, 0.f);
+
+	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
 	font->DrawTextW(pRenderManager->pSprite, text.c_str(), lstrlen(text.c_str()), outRect, DT_CALCRECT, color);
 	pRenderManager->pSprite->End();
+	LeaveCriticalSection(&pRenderManager->csDevice);
 
 }
 

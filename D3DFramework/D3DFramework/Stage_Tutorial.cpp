@@ -46,7 +46,7 @@ void Stage_Tutorial::OnLoaded()
 
 	Set_Stage_Tutorial_Map(TextureKey::GRASS_MAP, "Texture\\Map\\HeightMap\\Town.bmp", -0.1f);
 	Dialog::GetInstance();
-	Dialog::Show();
+	
 
 	Dialog::EnqueueText(L"이쪽으로 와봐!");
 	Dialog::EnqueueText(L"(세레비를 향해 이동하세요.)");
@@ -54,6 +54,7 @@ void Stage_Tutorial::OnLoaded()
 	Dialog::EnqueueText(L"(마우스를 이용하여 회전하고 WASD키를 이용하여 이동할 수 있습니다.)");
 	Dialog::EnqueueText(L"(세레비에게 다가가 F키를 눌러 상호작용을 시도해보세요.)");
 	Dialog::SetEndEvent(UI_SHOW);
+	Dialog::Show();
 }
 
 void Stage_Tutorial::OnUnloaded()
