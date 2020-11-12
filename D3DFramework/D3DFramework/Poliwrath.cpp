@@ -45,8 +45,8 @@ void Poliwrath::Initialize()
 	defaultAttack = 35;
 	defaultMaxHp = 450;
 
-	increaseAttack = defaultAttack * 0.05;
-	increaseMaxHp = defaultMaxHp * 0.05;
+	increaseAttack = defaultAttack * 0.05f;
+	increaseMaxHp = defaultMaxHp * 0.05f;
 	stat.money = 10;
 
 	skillSet.emplace_back(SkillManager::GetInstance()->GetSkill(SkillName::ReverseHealBubble));

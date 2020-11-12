@@ -10,7 +10,7 @@ Coin::Coin()
 	Initialize();
 }
 
-Coin::Coin(const Vector3& pos, float money)
+Coin::Coin(const Vector3& pos, int money)
 {
 	transform->position = pos;
 	stat.money = money;
@@ -87,7 +87,7 @@ void Coin::Release()
 {
 }
 
-Coin* Coin::Create(const Vector3& pos, float money)
+Coin* Coin::Create(const Vector3& pos, int money)
 {
 	Coin* newCoin = new Coin(pos, money);
 	return newCoin;

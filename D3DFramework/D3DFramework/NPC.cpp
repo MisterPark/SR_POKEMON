@@ -20,6 +20,7 @@ void NPC::Initialize()
 {
 	stat.attack = 0.f;
 	offsetY = 1.f;
+	stat.moveSpeed = 0.8f;
 	team = Team::MONSTERTEAM;
 	CollisionManager::RegisterObject(COLTYPE::COL_NPC, this);
 
@@ -38,6 +39,7 @@ void NPC::Release()
 void NPC::Update()
 {
 	GameObject::Update();
+	if (isMoving) MoveRandomPattern();
 	OnTerrain();
 	Billboard();
 	if(animation) UpdateAnimation();
@@ -174,4 +176,58 @@ void NPC::MetamorphoEffect() {
 	fPos.y += 0.3f;
 	Effect* fx = Effect::Create(fPos, Vector3{ 0.5f, 0.5f, 0.5f }, TextureKey::SMOKE_01, TextureKey::SMOKE_15, 0.05f);
 	ObjectManager::AddObject(fx);
+}
+
+void NPC::MoveRandomPattern(float _moveSpeed2)
+{
+	if (!isMoving) return;
+	/*Character* c = dynamic_cast<Character*>(gameObject);
+	if (c == nullptr) return;*/
+
+	float distX = spawnInPos.x - transform->position.x;
+	float distZ = spawnInPos.z - transform->position.z;
+
+	float dis = sqrt(distX * distX + distZ * distZ);
+	if (dis < 0.2f) {
+		SpawnInRandomPos();
+	}
+	state = State::WALK;
+	transform->position.x += direction.x * stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+	transform->position.z += direction.z * stat.moveSpeed * _moveSpeed2 * TimeManager::DeltaTime();
+}
+
+void NPC::SpawnInRandomPos()
+{
+	int dist = 0;
+	while (dist < 2) {
+		dist = Random::Value(5);
+	}
+	float degree = Random::Value(360);
+	float Radian = D3DXToRadian(degree);
+
+	Vector3 vecSpawnPosition;
+	vecSpawnPosition.x = dist;
+	vecSpawnPosition.z = 0;
+
+	float movePositionX = cosf(Radian) * vecSpawnPosition.x - sinf(Radian) * vecSpawnPosition.z + spawnPos.x;
+	float movePositionZ = sinf(Radian) * vecSpawnPosition.x + cosf(Radian) * vecSpawnPosition.z + spawnPos.z;
+
+	spawnInPos = { movePositionX, 0.f, movePositionZ };
+	direction = spawnInPos - transform->position;
+	direction.y = 0.f;
+	Vector3::Normalize(&direction);
+
+	return;
+}
+
+void NPC::SetIsMoving(bool check)
+{
+	isMoving = check;
+	if (isMoving) {
+		state = State::WALK;
+		SpawnInRandomPos();
+	}
+	else {
+		state = State::IDLE;
+	}
 }
