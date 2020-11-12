@@ -17,7 +17,7 @@ Skill_FireWallWave::~Skill_FireWallWave()
 
 void Skill_FireWallWave::InitCoolTime()
 {
-	coolTime = 1.f;
+	coolTime = 25.f;
 }
 
 void Skill_FireWallWave::InitActiveTime()
@@ -29,23 +29,37 @@ void Skill_FireWallWave::Update()
 {
 	patternTime += TimeManager::DeltaTime();
 	soundTime += TimeManager::DeltaTime();
-	if (soundTime > 0.8f&&patternTime<25.f)
+	effectDelay += TimeManager::DeltaTime();
+
+	if (patternTime > 2.f&&patternTime<25.f)
+	{
+		character->transform->position.x = 23.5f;
+		character->transform->position.z = 48.f - 5.0f;
+		character->direction = { 0.f,0.f,-1.f };
+	}
+	float shakesize = 0.8f;
+	if (effectDelay > 0.8)
+	{
+		Effect* fx = Effect::Create(character->transform->position, { 0.4f, 0.4f, 0.4f }, TextureKey::BULLET_NIDDLE_01, TextureKey::BULLET_NIDDLE_03, 0.1f, false, true);
+		ObjectManager::AddObject(fx);
+		Camera::GetInstance()->Shake(shakesize);
+		effectDelay = 0.f;
+	}
+	if (soundTime > 0.8f&&2.f<patternTime<25.f)
 	{
 		SoundManager::PlayOverlapSound(L"GroudonFireWall.wav", SoundChannel::MONSTER);
 		SoundManager::SetVolume(SoundChannel::MONSTER, 0.1f);
 		soundTime = 0;
 	}
-	character->transform->position.x = 23.5f;
-	character->transform->position.z = 48.f-5.0f;
-	character->direction = { 0.f,0.f,-1.f };
-	float shakesize = 1.0f;
+
+
 
 	
-	if (Frame[0] == 0)
+	if (Frame[0] == 0&&patternTime>2.f)
 	{
 		for (int i = 2; i < 46; i+=2)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 				Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 				bullet->transform->position.x = i;
 				bullet->transform->position.y = 0.f;
@@ -67,11 +81,11 @@ void Skill_FireWallWave::Update()
 
 		Frame[0]++;
 	}
-	else if (Frame[0] == 1 && patternTime > 1.f)
+	else if (Frame[0] == 1 && patternTime > 3.f)
 	{
 		for (int i = 3; i < 46; i += 2)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -92,11 +106,11 @@ void Skill_FireWallWave::Update()
 		}
 		Frame[0]++;
 	}
-	else if (Frame[0] == 2 && patternTime > 1.5f)
+	else if (Frame[0] == 2 && patternTime > 3.5f)
 	{
 		for (int i = 2; i < 46; i += 2)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -117,11 +131,11 @@ void Skill_FireWallWave::Update()
 		}
 		Frame[0]++;
 	}
-	else if (Frame[0] == 3 && patternTime > 2.f)
+	else if (Frame[0] == 3 && patternTime > 4.f)
 	{
 		for (int i = 2; i <20; i++)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -143,7 +157,7 @@ void Skill_FireWallWave::Update()
 
 		for (int i = 26; i < 46; i++)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -166,11 +180,11 @@ void Skill_FireWallWave::Update()
 		Frame[0]++;
 	}
 
-	else if (Frame[0] == 4 && patternTime > 4.f)
+	else if (Frame[0] == 4 && patternTime > 6.f)
 	{
 	for (int i = 15; i < 35; i++)
 	{
-		Camera::GetInstance()->Shake(shakesize);
+		
 		Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 		bullet->transform->position.x = i;
 		bullet->transform->position.y = 0.f;
@@ -194,11 +208,11 @@ void Skill_FireWallWave::Update()
 	Frame[0]++;
 	}
 
-	else if (Frame[0] == 5 && patternTime > 5.5f)
+	else if (Frame[0] == 5 && patternTime > 7.5f)
 	{
 		for (int i = 2; i < 20; i++)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -220,7 +234,7 @@ void Skill_FireWallWave::Update()
 
 		for (int i = 26; i < 46; i++)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = i;
 			bullet->transform->position.y = 0.f;
@@ -242,11 +256,11 @@ void Skill_FireWallWave::Update()
 
 	Frame[0]++;
 	}
-	else if (Frame[0] == 6 && patternTime > 5.5f)
+	else if (Frame[0] == 6 && patternTime > 7.5f)
 	{
 	for (int i = 40; i > 5; --i)
 	{
-		Camera::GetInstance()->Shake(shakesize);
+		
 		Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 		bullet->transform->position.x = i;
 		bullet->transform->position.y = 0.f;
@@ -269,11 +283,11 @@ void Skill_FireWallWave::Update()
 	Frame[0]++;
 	}
 
-	else if (Frame[0] == 7 && patternTime > 9.8f)
+	else if (Frame[0] == 7 && patternTime > 11.8f)
 	{
 		for (int i = 2; i < 20; ++i)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = 46-i;
 			bullet->transform->position.y = 0.f;
@@ -294,7 +308,7 @@ void Skill_FireWallWave::Update()
 		}
 		for (int i = 23; i < 43; ++i)
 		{
-			Camera::GetInstance()->Shake(shakesize);
+			
 			Bullet_FireWallWave* bullet = dynamic_cast<Bullet_FireWallWave*>(ObjectManager::GetInstance()->CreateObject<Bullet_FireWallWave>());
 			bullet->transform->position.x = 46 - i;
 			bullet->transform->position.y = 0.f;

@@ -593,6 +593,10 @@ void LoadManager::LoadETCSprite()
 	RenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_13, L"Texture\\Bullet\\FireWall1\\FireWall1 (13).png");
 	RenderManager::LoadSprite(TextureKey::BULLET_FIREWALL1_14, L"Texture\\Bullet\\FireWall1\\FireWall1 (14).png");
 
+	RenderManager::LoadSprite(TextureKey::BULLET_NIDDLE_01, L"Texture\\Bullet\\Niddle\\Niddle (1).png");
+	RenderManager::LoadSprite(TextureKey::BULLET_NIDDLE_02, L"Texture\\Bullet\\Niddle\\Niddle (2).png");
+	RenderManager::LoadSprite(TextureKey::BULLET_NIDDLE_03, L"Texture\\Bullet\\Niddle\\Niddle (3).png");
+
 	RenderManager::LoadSprite(TextureKey::BULLET_ICE1_01, L"Texture\\Bullet\\Ice1\\Ice1 (1).png");
 	RenderManager::LoadSprite(TextureKey::BULLET_ICE1_02, L"Texture\\Bullet\\Ice1\\Ice1 (2).png");
 	RenderManager::LoadSprite(TextureKey::BULLET_ICE1_03, L"Texture\\Bullet\\Ice1\\Ice1 (3).png");
