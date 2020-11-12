@@ -125,7 +125,7 @@ void Stage_Fire_02::Stage_Fire_02_Wave()
 		
 		if (spawnerCount == 1)
 		{
-			if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI)==2)
+			if (QuestManager::GetInstance()->GetProgress(Event::EVENT_GAME, NpcName::CELEBI)==3)
 			{
 				TriggerBox* trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
 				trigerBox->OnTriggered = Portal;

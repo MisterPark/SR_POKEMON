@@ -11,7 +11,7 @@ void Stage_Water_01::OnLoaded()
 	ObjectManager::GetInstance()->CreateObject<Light>();
 
 	SkyBox::Show();
-	SkyBox::SetTexture(TextureKey::SKYBEACH1_U);
+	SkyBox::SetTexture(TextureKey::SKYBLUE1_U);
 
 	SoundManager::PlayBGM(L"WaterStage.wav");
 

@@ -1,48 +1,123 @@
 #include "stdafx.h"
-#include "NPC_DoctorOh.h"
-#include "Dialog.h"
-#include "Stage_Grass_01.h"
-
+#include "AllNPC.h"
+#include "AllItems.h"
 NPC_DoctorOh::NPC_DoctorOh()
 {
-	name = L"세레비";
-	transform->scale = { 0.5f,0.5f, 0.5f };
-	offsetY = 0.5f;
-	anim->SetSprite(TextureKey::NPC_DOCTOR_OH, TextureKey::NPC_DOCTOR_OH);
-	animation = false;
+	Initialize();
+}
+
+NPC_DoctorOh::NPC_DoctorOh(const Vector3& pos, bool onCenterDir, const Vector3& dir)
+{
+	transform->position = pos;
+	spawnPos = pos;
+	if (onCenterDir) {
+		Vector3 Dir = Vector3{ 24.f, 0.f, 24.f } - transform->position;
+		Vector3::Normalize(&Dir);
+		direction = Dir;
+	}
+	else {
+		direction = dir;
+	}
+	Initialize();
 }
 
 NPC_DoctorOh::~NPC_DoctorOh()
 {
+
+}
+
+void NPC_DoctorOh::Initialize()
+{
+
+	name = L"오박사";
+	transform->scale = { 0.3f,0.3f, 0.3f };
+	offsetY = 1.2f;
+	anim->SetSprite(TextureKey::NPC_DOCTOR_OH, TextureKey::NPC_DOCTOR_OH);
+	animation = false;
+
+
+}
+
+void NPC_DoctorOh::Update()
+{
+	NPC::Update();
+	SetIsMoving(false);
+}
+
+
+NPC_DoctorOh* NPC_DoctorOh::Create(const Vector3& pos, bool onCenterDir, const Vector3& dir/* = Vector3{ 24.f, 0.f, 24.f }*/)
+{
+	NPC_DoctorOh* newNpc = new NPC_DoctorOh(pos, onCenterDir, dir);
+	return newNpc;
 }
 
 void NPC_DoctorOh::OnEvent()
 {
-	if (!helloFlag)
+	direction = DirFromPlayer(false);
+
+	Event eventNPC = QuestManager::GetInstance()->GetEvent();
+
+	Character* player = Player::GetInstance()->GetCharacter();
+
+	if (eventNPC == Event::EVENT_END)
+		return;
+	int myProgress = QuestManager::GetInstance()->GetProgress(eventNPC, myName);
+	if (eventNPC == Event::EVENT_TOWN)
 	{
-		HelloWorld();
-		helloFlag = true;
+		switch (myProgress)
+		{
+		case 0: {
+
+			Dialog::EnqueueText(L"반갑다!", name, Pokemon::Charmander);
+			Dialog::Show();
+			//QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::SQUIRTLE);
+			break;
+		}
+
+		default:
+			break;
+		}
 	}
-	else
+	else if (eventNPC == Event::EVENT_GAME)
 	{
-		Event2();
+		switch (myProgress)
+		{
+		case 0: {
+
+			Dialog::EnqueueText(L"(세레비를 찾아가…)", name, Pokemon::Charmander);
+			Dialog::EnqueueText(L"(앗…!)", name, Pokemon::Charmander);
+			Dialog::EnqueueText(L"(들키고 말았구나……)", name, Pokemon::Charmander);
+			Dialog::EnqueueText(L"(속여서 미안하니 지원을 주는 아이템을 주마……)", name, Pokemon::Charmander);
+			Dialog::Show();
+			Dialog::SetEndEvent(ExpPotion);
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::DOCTOR_OH);
+
+			break;
+		}
+		case 1: {
+
+			Dialog::EnqueueText(L"화이팅 하거라", name, Pokemon::Charmander);
+			Dialog::Show();
+
+
+			break;
+		}
+		default:
+			break;
+		}
 	}
 }
 
-void NPC_DoctorOh::HelloWorld()
+void NPC_DoctorOh::ExpPotion()
 {
-	Dialog::EnqueueText(L"잘했구나!");
-	/*Dialog::EnqueueText(L"저기 저 캐터피를 사냥해보겠니?");
-	Dialog::EnqueueText(L"(속성박스로 이동하세요.)");
-	Dialog::EnqueueText(L"(속성박스로 이동하면 몬스터가 생성됩니다.)");
-	Dialog::EnqueueText(L"(좌클릭으로 공격, 우클릭으로 스킬이 사용가능합니다.)");*/
-	Dialog::Show();
+	for (int i = 0; i < 5; ++i)
+	{
+		for (int j = 0; j < 5; ++j)
+		{
+			Item_ExpPotion* expPotion = (Item_ExpPotion*)ObjectManager::GetInstance()->CreateObject<Item_ExpPotion>();
+			expPotion->transform->position = { 43.f-i,0.f,9.f+j };
+			
+		}
+	}
 }
 
-void NPC_DoctorOh::Event2()
-{
-	Dialog::EnqueueText(L"꺼져 이년아");
-	/*Dialog::EnqueueText(L"아직 사냥하지 못했나보구나.");*/
-	Dialog::Show();
-	/*SceneManager::LoadScene<Stage_Grass_01>();*/
-}

@@ -216,6 +216,7 @@ void NPC_Charmander::OnEvent()
 			Dialog::EnqueueText(L"이제 내가 가장 강한것 같아!", name, Pokemon::Charizard);
 			Dialog::EnqueueText(L"누구와 싸워볼까!?", name, Pokemon::Charizard);
 			Dialog::Show();
+			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::MINICHARMANDER);
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
 			break;
 		}

@@ -1131,6 +1131,18 @@
     <ClInclude Include="Label.h">
       <Filter>GameObject\UI</Filter>
     </ClInclude>
+    <ClInclude Include="NPC_Poliwhirl.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_MiniSquirtle.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_MiniBulbasaur.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC_MiniCharmander.h">
+      <Filter>GameObject\NPC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CollisionManager.cpp">
@@ -1917,6 +1929,18 @@
     </ClCompile>
     <ClCompile Include="Label.cpp">
       <Filter>GameObject\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_Poliwhirl.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_MiniSquirtle.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_MiniBulbasaur.cpp">
+      <Filter>GameObject\NPC</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC_MiniCharmander.cpp">
+      <Filter>GameObject\NPC</Filter>
     </ClCompile>
     <ClCompile Include="Dialog.cpp">
       <Filter>GameObject\UI</Filter>
