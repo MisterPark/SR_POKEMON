@@ -234,7 +234,6 @@ void NPC_Celebi::OnEvent()
 
 			Dialog::EnqueueText(L"그럼 우선 모두의 진화를 도와주고 다시 와줘!", L"세레비", Pokemon::Celebi);
 			Dialog::Show();
-			PlayerInfoPanel::SetQuestMessage(L"불꽃 2스테이지 입장.");
 			break;
 		}
 		case 3: {
