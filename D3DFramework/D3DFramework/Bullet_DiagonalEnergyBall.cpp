@@ -31,7 +31,7 @@ void Bullet_DiagonalEnergyBall::Update()
 		ObjectManager::AddObject(fx);
 		fx = Effect::Create(fxPos, transform->scale, TextureKey::LUNA_EFFECT_22, TextureKey::LUNA_EFFECT_26, 0.05f);
 		ObjectManager::AddObject(fx);
-		SoundManager::PlayOverlapSound(L"DarkBomb.wav", SoundChannel::MONSTER, 0.5f);
+		SoundManager::PlayOverlapSound(L"DarkBomb.wav", SoundChannel::MONSTER, 0.1f);
 		Camera::GetInstance()->Shake(0.05f);
 	}
 }

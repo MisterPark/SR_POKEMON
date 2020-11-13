@@ -27,7 +27,7 @@ void Bullet_DarkBall::Update()
 	if (IsDead()) {
 		Effect* fx = Effect::Create(transform->position, transform->scale, TextureKey::BULLET_DARKBOMB_01, TextureKey::BULLET_DARKBOMB_12, 0.05f);
 		ObjectManager::AddObject(fx);
-		SoundManager::PlayOverlapSound(L"DarkBomb.wav", SoundChannel::MONSTER, 0.7f);
+		SoundManager::PlayOverlapSound(L"DarkBomb.wav", SoundChannel::MONSTER, 0.5f);
 		Camera::GetInstance()->Shake(0.1f);
 	}
 	if (stat.moveSpeed < 16.f) {
