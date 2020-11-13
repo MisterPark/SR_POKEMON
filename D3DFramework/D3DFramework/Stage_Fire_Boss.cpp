@@ -66,7 +66,7 @@ void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 {
 	if (QuestManager::GetInstance()->GetMonsterKill(MonsterType::GROUDON) >= 1)
 	{
-		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 4);
+		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 5);
 		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
 	}
 
