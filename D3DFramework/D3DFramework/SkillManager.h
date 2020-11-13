@@ -21,7 +21,7 @@ public:
 	bool IsSkillInList(Skill* skill);
 
 public:
-	Skill* GetSkill(SkillName skillName);
+	static Skill* GetSkill(SkillName skillName);
 
 private:
 	static SkillManager* instance;

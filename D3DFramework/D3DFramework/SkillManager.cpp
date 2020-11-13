@@ -219,7 +219,6 @@ Skill * SkillManager::GetSkill(SkillName skillName)
 	case SkillName::DiagonalEnergyBall:
 		newSkill = Skill_DiagonalEnergyBall::Create();
 		break;
-
-		return newSkill;
 	}
+	return newSkill;
 }
