@@ -137,9 +137,10 @@ void Stage_Fire_02::Stage_Fire_02_Wave()
 				trigerBox->transform->position = { 28.f,0.f,48 - 21.f };
 				trigerBox->Portal();
 
-				Dialog::Show();
+				
 				Dialog::EnqueueText(L"(최종 보스로 가는 포탈이 열렸습니다!)");
 				Dialog::EnqueueText(L"(단단히 준비하고 가주세요!)");
+				Dialog::Show();
 				PlayerInfoPanel::SetQuestMessage(L"최종보스 그란돈을 처치하기.");
 				QuestManager::GetInstance()->AddProgress(Event::EVENT_GAME, NpcName::CELEBI);
 				spawnerCount++;

@@ -90,6 +90,7 @@ void Character::Release()
 	{
 		if (nullptr != skill)
 		{
+			
 			delete skill;
 			skill = nullptr;
 		}
