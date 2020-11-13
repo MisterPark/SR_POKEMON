@@ -33,7 +33,7 @@ void Skill_GuidEnergyBall::Update()
 	delay -= TimeManager::DeltaTime();
 	if (delay < 0.f) {
 		Vector3 bulPos = character->transform->position;
-		bulPos.y += 0.3f;
+		bulPos.y -= 0.3f;
 
 		Bullet_GuidEnergyBall* bullet = dynamic_cast<Bullet_GuidEnergyBall*>(ObjectManager::GetInstance()->CreateObject<Bullet_GuidEnergyBall>());
 		bullet->transform->position = bulPos;
