@@ -199,13 +199,13 @@ void PlayerInfoPanel::Render()
     }
     else if (generation == 2)
     {
-        pokeNumber -= (int)Pokemon::Mew;
-        pokeNumber += 27;//¾È³ó °¹¼ö
+		metaNumber -= (int)Pokemon::Mew;
+		metaNumber += 27;//¾È³ó °¹¼ö
         RenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_2ND, facePos, Vector3(0.5f, 0.5f, 0.5f), metaNumber - 1);
     }
     else
     {
-        pokeNumber -= (int)Pokemon::Celebi;
+		metaNumber -= (int)Pokemon::Celebi;
         RenderManager::DrawUI(TextureKey::UI_FACE_POKEMON_3RD, facePos, Vector3(0.5f, 0.5f, 0.5f), metaNumber - 1);
     }
 
