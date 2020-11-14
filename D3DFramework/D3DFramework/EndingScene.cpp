@@ -35,7 +35,7 @@ void EndingScene::OnLoaded()
 	label1->transform->position.y = dfCLIENT_HEIGHT + 30;
 	label1->transform->scale = { 2,2,2 };
 	
-
+	int a = 10;
 	label2 = (Label*)ObjectManager::GetInstance()->CreateObject<Label>();
 	label2->text = L"팀장 박경훈 : 프레임워크, 충돌, UI, 아이템&인벤토리, 조명";
 	label2->transform->position.x = len - 47;
