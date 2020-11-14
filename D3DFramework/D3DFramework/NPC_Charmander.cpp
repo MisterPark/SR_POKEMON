@@ -114,7 +114,7 @@ void NPC_Charmander::OnEvent()
 			Dialog::EnqueueText(L"일단 이거부터 받아!", name, Pokemon::Charmander);
 			Dialog::Show();
 			Item_StoneOfAwake* stoneOfAwake = (Item_StoneOfAwake*)ObjectManager::GetInstance()->CreateObject<Item_StoneOfAwake>();
-			stoneOfAwake->transform->position = { 24.f,0.f,21.f };
+			stoneOfAwake->transform->position = { 33.f,0.f,48.f - 18.f };
 			QuestManager::GetInstance()->AddProgress(eventNPC, NpcName::CHARMANDER);
 			break;
 		}

@@ -13,6 +13,9 @@ void Stage_Space::OnLoaded()
 	SkyBox::Show();
 	SkyBox::SetTexture(TextureKey::SPACE1_U);
 
+	SoundManager::StopAll();
+	SoundManager::PlayBGM(L"BlackSpace.mp3");
+
 	Character* playerCharacter = Player::GetInstance()->GetCharacter();
 	if (playerCharacter != nullptr)
 	{
@@ -72,7 +75,7 @@ void Stage_Space::Stage_Space_Wave()
 	{
 
 
-		Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1, 65);
+		Spawner* spawner = Spawner::Create(MonsterType::DARKRAI, 10.f, 0.5f, 1, 65);
 		spawner->transform->position = { 24.f,0.f,24.f };
 		ObjectManager::AddObject(spawner);
 
@@ -96,7 +99,7 @@ void Stage_Space::Stage_Space_Wave()
 
 void Stage_Space::CreateSpawner()
 {
-	Spawner* spawner = Spawner::Create(MonsterType::GROUDON, 10.f, 0.5f, 1);
+	Spawner* spawner = Spawner::Create(MonsterType::DARKRAI, 10.f, 0.5f, 1);
 	spawner->transform->position = { 24.f,0.f,24.f };
 	ObjectManager::AddObject(spawner);
 }

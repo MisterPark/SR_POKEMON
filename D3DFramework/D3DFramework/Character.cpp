@@ -24,6 +24,11 @@ Character::Character() :
 
 Character::~Character()
 {
+	if (TargetInfoPanel::GetTarget() == this)
+	{
+		TargetInfoPanel::SetTarget(nullptr);
+		TargetInfoPanel::Hide();
+	}
 	Release();
 	CollisionManager::GetInstance()->DisregisterObject(this);
 }
@@ -90,6 +95,7 @@ void Character::Release()
 	{
 		if (nullptr != skill)
 		{
+			
 			delete skill;
 			skill = nullptr;
 		}

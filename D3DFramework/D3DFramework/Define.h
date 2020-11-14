@@ -173,6 +173,8 @@ enum class Pokemon
 	Treecko = 252,
 	Groudon = 383,
 	
+	//
+	Darkrai = 491,
 
 };
 

@@ -55,6 +55,7 @@ void Stage_Tutorial::OnLoaded()
 	Dialog::EnqueueText(L"(세레비에게 다가가 F키를 눌러 상호작용을 시도해보세요.)");
 	Dialog::SetEndEvent(UI_SHOW);
 	Dialog::Show();
+
 }
 
 void Stage_Tutorial::OnUnloaded()

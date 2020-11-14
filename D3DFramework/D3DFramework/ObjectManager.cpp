@@ -30,6 +30,7 @@ PKH::ObjectManager::ObjectManager()
 PKH::ObjectManager::~ObjectManager()
 {
 	
+	Release();
 	Cursor::Destroy();
 	RenderFilter::Destroy();
 	TargetInfoPanel::Destroy();
@@ -38,7 +39,6 @@ PKH::ObjectManager::~ObjectManager()
 	ItemInfoPanel::Destroy();
 	Dialog::Destroy();
 	QuestManager::Destroy();
-	Release();
 }
 
 ObjectManager * PKH::ObjectManager::GetInstance()

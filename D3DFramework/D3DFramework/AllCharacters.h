@@ -41,3 +41,4 @@
 #include "TriggerBox.h"
 
 #include "Ditto.h"
+#include "Darkrai.h"

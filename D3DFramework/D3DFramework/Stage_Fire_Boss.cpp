@@ -66,7 +66,7 @@ void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 {
 	if (QuestManager::GetInstance()->GetMonsterKill(MonsterType::GROUDON) >= 1)
 	{
-		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 4);
+		QuestManager::GetInstance()->SetProgress(Event::EVENT_GAME, NpcName::CELEBI, 5);
 		PlayerInfoPanel::SetQuestMessage(L"세레비와 대화.");
 	}
 
@@ -94,6 +94,12 @@ void Stage_Fire_Boss::Stage_Fire_Boss_Wave()
 			trigerBox->OnTriggered = TownPortal;
 			trigerBox->transform->position = { 40.f,0.f,40.f };
 			trigerBox->Portal();
+
+			trigerBox = (TriggerBox*)ObjectManager::GetInstance()->CreateObject<TriggerBox>();
+			trigerBox->OnTriggered = DarkPortal;
+			trigerBox->transform->position = { 8.f,0.f,8.f };
+			trigerBox->Portal();
+
 			spawnerCount++;
 
 		}
@@ -113,6 +119,11 @@ void Stage_Fire_Boss::CreateSpawner()
 void Stage_Fire_Boss::TownPortal()
 {
 	SceneManager::LoadScene<Stage_Town>();
+}
+
+void Stage_Fire_Boss::DarkPortal()
+{
+	SceneManager::LoadScene<Stage_Space>();
 }
 
 void Stage_Fire_Boss::soHot(float _waterheight)

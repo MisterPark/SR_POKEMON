@@ -39,4 +39,8 @@ enum class SkillName
 	FireXCrossBomb,
 	Synthesis,
 	Explosion,
+	DarkBallFall,
+	GuidEnergyBall,
+	GravityEnergyBall,
+	DiagonalEnergyBall
 };
