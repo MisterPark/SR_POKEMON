@@ -267,6 +267,8 @@ void PKH::RenderManager::DrawSprite(TextureKey spriteKey, Vector3 pos, int index
 	float centerX = float(w >> 1);
 	float centerY = float(h >> 1);
 
+	Vector3  center = { centerX,centerY,0.f };
+
 	Matrix world, trans;
 	D3DXMatrixTranslation(&trans, pos.x, pos.y, 0.f);
 	world = trans;
@@ -274,7 +276,7 @@ void PKH::RenderManager::DrawSprite(TextureKey spriteKey, Vector3 pos, int index
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(centerX, centerY, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -313,10 +315,12 @@ void PKH::RenderManager::DrawSprite(TextureKey spriteKey, Transform transform, i
 	D3DXMatrixTranslation(&trans, transform.position.x, transform.position.y, 0.f);
 	world = scale * trans;
 
+	Vector3  center = { centerX,centerY,0.f };
+
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(centerX, centerY, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -352,10 +356,12 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Transform transform, int i
 	D3DXMatrixTranslation(&trans, transform.position.x, transform.position.y , 0.f);
 	world = scale * trans;
 
+	Vector3  center = { 0.f,0.f,0.f };
+
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -389,11 +395,11 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, int index)
 	Matrix world, trans;
 	D3DXMatrixTranslation(&trans, pos.x, pos.y, 0.f);
 	world = trans;
-
+	Vector3  center = { 0.f,0.f,0.f };
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -428,11 +434,12 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale
 	D3DXMatrixScaling(&matScale, scale.x, scale.y, 1.f);
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
 	matWorld = matScale * matPos;
+	Vector3  center = { 0.f,0.f,0.f };
 
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&matWorld);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -468,10 +475,12 @@ void PKH::RenderManager::DrawUI(TextureKey spriteKey, Vector3 pos, Vector3 scale
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y, 0.f);
 	matWorld = matScale * matPos;
 
+	Vector3  center = { 0.f,0.f,0.f };
+
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&matWorld);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -506,11 +515,11 @@ void PKH::RenderManager::DrawUIHorizontal(TextureKey spriteKey, Vector3 pos, Vec
 	D3DXMatrixScaling(&matScale, scale.x, scale.y, 1.f);
 	D3DXMatrixTranslation(&matPos, pos.x, pos.y+h-h*horizontalPer, 0.f);
 	matWorld = matScale * matPos;
-
+	Vector3  center = { 0.f,0.f,0.f };
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&matWorld);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -545,10 +554,12 @@ void PKH::RenderManager::DrawCharacter(TextureKey spriteKey, Transform transform
 	D3DXMatrixTranslation(&trans, transform.position.x - Camera::GetX(), transform.position.y - Camera::GetY(), 0.f);
 	world = scale * trans;
 
+	Vector3  center = { centerX,(float)h,0.f };
+
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
-	pRenderManager->pSprite->Draw(tex->pTexture, &area, &Vector3(centerX, h, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &area, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 
@@ -573,11 +584,11 @@ void PKH::RenderManager::DrawImage(TextureKey spriteKey, Transform transform)
 	D3DXMatrixScaling(&scale, transform.scale.x, transform.scale.y, 0.f);
 	D3DXMatrixTranslation(&trans, transform.position.x, transform.position.y, 0.f);
 	world = scale * trans;
-
+	Vector3  center = { 0.f,0.f,0.f };
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
-	pRenderManager->pSprite->Draw(tex->pTexture, nullptr, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, nullptr, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }
@@ -605,10 +616,12 @@ void PKH::RenderManager::DrawImage(TextureKey spriteKey, float x, float y, float
 	D3DXMatrixTranslation(&trans, x, y, 0.f);
 	world = trans;
 
+	Vector3  center = { 0.f,0.f,0.f };
+
 	EnterCriticalSection(&pRenderManager->csDevice);
 	pRenderManager->pSprite->Begin(D3DXSPRITE_ALPHABLEND);
 	pRenderManager->pSprite->SetTransform(&world);
-	pRenderManager->pSprite->Draw(tex->pTexture, &rt, &Vector3(0.f, 0.f, 0.f), nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
+	pRenderManager->pSprite->Draw(tex->pTexture, &rt, &center, nullptr, D3DCOLOR_ARGB(255, 255, 255, 255));
 	pRenderManager->pSprite->End();
 	LeaveCriticalSection(&pRenderManager->csDevice);
 }

@@ -79,7 +79,7 @@ void PKH::SoundManager::Release()
 
 
 
-void PKH::SoundManager::PlaySound(TCHAR * pSoundKey, SoundChannel eID)
+void PKH::SoundManager::PlaySound(const TCHAR * pSoundKey, SoundChannel eID)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter; 
 
@@ -100,7 +100,7 @@ void PKH::SoundManager::PlaySound(TCHAR * pSoundKey, SoundChannel eID)
 	FMOD_System_Update(pSoundManager->pSystem);
 }
 
-void PKH::SoundManager::PlayOverlapSound(TCHAR * pSoundKey, SoundChannel eID, float offsetVolume, float duration)
+void PKH::SoundManager::PlayOverlapSound(const TCHAR * pSoundKey, SoundChannel eID, float offsetVolume, float duration)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter;
 
@@ -146,7 +146,7 @@ void PKH::SoundManager::PlayOverlapSoundWithAmp(TCHAR * pSoundKey, SoundChannel 
 	FMOD_System_Update(pSoundManager->pSystem);
 }
 
-void PKH::SoundManager::PlayBGM(TCHAR * pSoundKey)
+void PKH::SoundManager::PlayBGM(const TCHAR * pSoundKey)
 {
 	map<TCHAR*, FMOD_SOUND*>::iterator iter;
 
